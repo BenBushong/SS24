@@ -805,6 +805,3 @@ The very-useful `patchwork` package is quickly replacing `grid.arrange` and prov
 
 
 
-
-## Lecture Videos
-The video from this lecture is [available here <i class="fas fa-film"></i>](https://mediaspace.msu.edu/media/SSC442+-+03+Content+-+Feb+1st/1_33t9o0pg). This lecture was in-person, so recording begins with some classroom chatter.

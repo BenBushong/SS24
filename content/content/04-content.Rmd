@@ -1322,5 +1322,3 @@ The law of averages is sometimes misinterpreted. For example, if you toss a coin
 Another funny misuse of the law of averages is in sports when TV sportscasters predict a player is about to succeed because they have failed a few times in a row.
 
 
-## Lecture Video
-The lecture video for Tuesday (this material, but we only made it about 2/3rds of the way) is [available here <i class="fas fa-film"></i>](https://mediaspace.msu.edu/media/SSC442+-+04+Content+-+February+8th/1_tfes2b1a)

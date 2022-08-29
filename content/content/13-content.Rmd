@@ -570,7 +570,3 @@ ourCities %>% dplyr::mutate(Closest.GreatLake = GL$FEAT_NAME[closest.GL.index])
 
 
 
-
-# Lecture Video
-The lecture video for this material is [available here <i class="fas fa-film"></i>](https://mediaspace.msu.edu/media/SSC442+-+Example+13+-+April+19th/1_688hit5e
-)
