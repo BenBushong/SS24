@@ -1,8 +1,7 @@
 ---
 title: "Working with R and RStudio"
 linktitle: "0: Introduction to R"
-date: "2022-01-05"
-read_date: "2022-01-13"
+read_date: "2022-09-01"
 draft: false
 lastmod: "`r Sys.Date()`"
 output:

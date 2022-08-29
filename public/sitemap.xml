@@ -8,6 +8,11 @@
   </url>
   
   <url>
+    <loc>https://ssc442kirkpatrick.netlify.app/example/00-example/</loc>
+    <lastmod>2022-08-22T08:10:10-04:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ssc442kirkpatrick.netlify.app/resource/install/</loc>
     <lastmod>2022-01-06T13:44:07-05:00</lastmod>
   </url>
@@ -15,6 +20,11 @@
   <url>
     <loc>https://ssc442kirkpatrick.netlify.app/resource/design/</loc>
     <lastmod>2022-01-06T13:44:07-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ssc442kirkpatrick.netlify.app/content/</loc>
+    <lastmod>2022-08-22T08:10:10-04:00</lastmod>
   </url>
   
   <url>
@@ -45,6 +55,16 @@
   <url>
     <loc>https://ssc442kirkpatrick.netlify.app/resource/data/</loc>
     <lastmod>2022-01-06T13:44:07-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ssc442kirkpatrick.netlify.app/content/00-content/</loc>
+    <lastmod>2022-08-29T17:17:38-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ssc442kirkpatrick.netlify.app/example/</loc>
+    <lastmod>2022-08-22T08:10:10-04:00</lastmod>
   </url>
   
   <url>
