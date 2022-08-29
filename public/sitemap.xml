@@ -9,12 +9,17 @@
   
   <url>
     <loc>https://ssc442kirkpatrick.netlify.app/example/00-example/</loc>
+    <lastmod>2022-08-29T19:20:38-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ssc442kirkpatrick.netlify.app/example/01-example/</loc>
     <lastmod>2022-08-29T18:23:49-04:00</lastmod>
   </url>
   
   <url>
     <loc>https://ssc442kirkpatrick.netlify.app/example/02-example/</loc>
-    <lastmod>2022-08-22T08:10:10-04:00</lastmod>
+    <lastmod>2022-08-29T19:20:38-04:00</lastmod>
   </url>
   
   <url>
@@ -29,7 +34,7 @@
   
   <url>
     <loc>https://ssc442kirkpatrick.netlify.app/example/</loc>
-    <lastmod>2022-08-22T08:10:10-04:00</lastmod>
+    <lastmod>2022-08-29T19:20:38-04:00</lastmod>
   </url>
   
   <url>
@@ -74,7 +79,7 @@
   
   <url>
     <loc>https://ssc442kirkpatrick.netlify.app/content/01-content/</loc>
-    <lastmod>2022-08-29T18:23:49-04:00</lastmod>
+    <lastmod>2022-08-29T19:20:38-04:00</lastmod>
   </url>
   
   <url>
@@ -89,7 +94,7 @@
   
   <url>
     <loc>https://ssc442kirkpatrick.netlify.app/content/02-content/</loc>
-    <lastmod>2022-08-22T08:10:10-04:00</lastmod>
+    <lastmod>2022-08-29T19:20:38-04:00</lastmod>
   </url>
   
   <url>
@@ -100,6 +105,11 @@
   <url>
     <loc>https://ssc442kirkpatrick.netlify.app/</loc>
     <lastmod>2020-06-22T18:44:37-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ssc442kirkpatrick.netlify.app/schedule/</loc>
+    <lastmod>2022-08-22T08:10:10-04:00</lastmod>
   </url>
   
 </urlset>

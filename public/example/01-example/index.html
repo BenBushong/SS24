@@ -30,7 +30,7 @@
   
     
   
-  <meta name="description" content="Introduction to data visualizationggplot2The components of a graphggplot objectsGeometries (briefly)Aesthetic mappingsAesthetics in generalNow, back to aesthetic mappingsLegends for aestheticsAnnotation LayersGlobal versus local aesthetic mappingsTry it!Lecture VideosIntroduction to data visualizationLooking at the numbers and character strings that define a dataset is rarely useful. To convince yourself, print and stare at the US murders data table:">
+  <meta name="description" content="Introduction to data visualizationggplot2The components of a graphggplot objectsGeometries (briefly)Aesthetic mappingsAesthetics in generalNow, back to aesthetic mappingsLegends for aestheticsAnnotation LayersGlobal versus local aesthetic mappingsTry it!Lecture VideosIntroduction to data visualizationLooking at the numbers and character strings that define a dataset is rarely useful. To convince yourself, print and stare at the US murders data table:">
 
   
   <link rel="alternate" hreflang="en-us" href="https://ssc442kirkpatrick.netlify.app/example/01-example/">
@@ -238,13 +238,13 @@
   <meta property="og:site_name" content="Data Analytics">
   <meta property="og:url" content="https://ssc442kirkpatrick.netlify.app/example/01-example/">
   <meta property="og:title" content="Introduction to Visualization | Data Analytics">
-  <meta property="og:description" content="Introduction to data visualizationggplot2The components of a graphggplot objectsGeometries (briefly)Aesthetic mappingsAesthetics in generalNow, back to aesthetic mappingsLegends for aestheticsAnnotation LayersGlobal versus local aesthetic mappingsTry it!Lecture VideosIntroduction to data visualizationLooking at the numbers and character strings that define a dataset is rarely useful. To convince yourself, print and stare at the US murders data table:"><meta property="og:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png">
+  <meta property="og:description" content="Introduction to data visualizationggplot2The components of a graphggplot objectsGeometries (briefly)Aesthetic mappingsAesthetics in generalNow, back to aesthetic mappingsLegends for aestheticsAnnotation LayersGlobal versus local aesthetic mappingsTry it!Lecture VideosIntroduction to data visualizationLooking at the numbers and character strings that define a dataset is rarely useful. To convince yourself, print and stare at the US murders data table:"><meta property="og:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png">
   <meta property="twitter:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
   
     
-      <meta property="article:published_time" content="2022-01-04T00:00:00&#43;00:00">
+      <meta property="article:published_time" content="2022-08-29T00:00:00&#43;00:00">
     
-    <meta property="article:modified_time" content="2022-01-22T08:01:22-05:00">
+    <meta property="article:modified_time" content="2022-08-29T18:23:49-04:00">
   
 
   
@@ -477,7 +477,29 @@
         
 
         <li class="nav-item">
-          <a class="nav-link " href="https://join.slack.com/t/msu-qs62738/shared_invite/zt-10u63bf0n-b0cePmz9NDhhw3MSUPBP5A" target="_blank" rel="noopener"><span><i class="fab fa-slack"></i></span></a>
+          <a class="nav-link " href="https://join.slack.com/t/ssc442kirkpatrickhq/shared_invite/zt-1eku04roj-GQGFSNtlccF0ewb7tdvpOA" target="_blank" rel="noopener"><span><i class="fab fa-slack"></i></span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/resource/"><span>Resources</span></a>
         </li>
 
         
@@ -551,50 +573,6 @@
         <a href="/example/02-example/">2: Visualization II</a>
       </li>
       
-      <li >
-        <a href="/example/03-example/">3: Visualization III</a>
-      </li>
-      
-      <li >
-        <a href="/example/04-example/">4: Uncertainty</a>
-      </li>
-      
-      <li >
-        <a href="/example/05-example/">5: Linear Regression I</a>
-      </li>
-      
-      <li >
-        <a href="/example/06-example/">6: Linear Regression II</a>
-      </li>
-      
-      <li >
-        <a href="/example/07-example/">7: Linear Regression III</a>
-      </li>
-      
-      <li >
-        <a href="/example/08-example/">8: Nonparametric Regression</a>
-      </li>
-      
-      <li >
-        <a href="/example/09-example/">9: Bias vs. Variance</a>
-      </li>
-      
-      <li >
-        <a href="/example/10-example/">10: Classification</a>
-      </li>
-      
-      <li >
-        <a href="/example/11-example/">11: Data Wrangling</a>
-      </li>
-      
-      <li >
-        <a href="/example/12-example/">12: Text as Data</a>
-      </li>
-      
-      <li >
-        <a href="/example/13-example/">13: Geospatial with R</a>
-      </li>
-      
     </ul>
     
 
@@ -618,7 +596,7 @@
 
                     
                     <div class="due-date p-2 mb-3 bg-content text-white">
-                        Content for Thursday, January 20, 2022
+                        Content for Thursday, September 8, 2022
                     </div>
                     
 
@@ -630,16 +608,19 @@
 <div id="TOC">
 <ul>
 <li><a href="#introduction-to-data-visualization">Introduction to data visualization</a></li>
-<li><a href="#ggplot2">ggplot2</a><ul>
+<li><a href="#ggplot2">ggplot2</a>
+<ul>
 <li><a href="#the-components-of-a-graph">The components of a graph</a></li>
 <li><a href="#ggplot-objects"><code>ggplot</code> objects</a></li>
 <li><a href="#geometries-briefly">Geometries (briefly)</a></li>
-<li><a href="#aesthetic-mappings">Aesthetic mappings</a><ul>
+<li><a href="#aesthetic-mappings">Aesthetic mappings</a>
+<ul>
 <li><a href="#aesthetics-in-general">Aesthetics in general</a></li>
 <li><a href="#now-back-to-aesthetic-mappings">Now, back to aesthetic mappings</a></li>
 <li><a href="#legends-for-aesthetics">Legends for aesthetics</a></li>
 </ul></li>
-<li><a href="#annotation-layers">Annotation Layers</a><ul>
+<li><a href="#annotation-layers">Annotation Layers</a>
+<ul>
 <li><a href="#global-versus-local-aesthetic-mappings">Global versus local aesthetic mappings</a></li>
 </ul></li>
 <li><a href="#try-it">Try it!</a></li>
@@ -998,7 +979,7 @@ p</code></pre>
                 </div>
 
                 <div class="body-footer">
-                    <p>Last updated on January 22, 2022</p>
+                    <p>Last updated on August 29, 2022</p>
 
                     
 
@@ -1015,7 +996,7 @@ p</code></pre>
     <div class="row course-info">
         <div class="col-md-7">
             <p>
-                <strong>SSC 442: Data Analytics (Spring Semester 2022)</strong><br>
+                <strong>SSC 442: Data Analytics (Fall Semester 2022)</strong><br>
 
                 <a href="https://www.msu.edu" target="_blank" rel="noopener">Michigan State University</a> &emsp;&emsp;
                 <a href="https://socialscience.msu.edu/" target="_blank" rel="noopener">College of Social Science</a>
@@ -1030,15 +1011,15 @@ p</code></pre>
 
             <p>
                 <i class="far fa-calendar-alt"></i> Tuesday and Thursday &emsp;&emsp;
-                <i class="far fa-clock"></i> 6:00pm - 7:20pm 
-                
+                <i class="far fa-clock"></i> 12:40pm - 2:00pm 
+                <br><i class="fas fa-university"></i> 116 Natural Sciences
             </p>
         </div>
 
         <div class="col-md-5 credits">
             <p>All content licensed under a <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</p>
             
-            <p>Content <i class="fab fa-creative-commons"></i> 2020-22 <a href="https://www.justinkirkpatrick.com" target="_blank" rel="noopener">Ben Bushong; Justin Kirkpatrick; based on work by Andrew Heiss</a></p>
+            <p>Content <i class="fab fa-creative-commons"></i> 2020-23 <a href="https://www.justinkirkpatrick.com" target="_blank" rel="noopener">Ben Bushong; Justin Kirkpatrick; based on work by Andrew Heiss</a></p>
         
             <p>This site created with the <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> in <a href="https://bookdown.org/yihui/blogdown/" target="_blank" rel="noopener">blogdown</a> and <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>. </p>
             
