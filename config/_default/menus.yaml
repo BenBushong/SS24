@@ -16,9 +16,10 @@ main:
     weight: 5
   - name: Resources
     url: /resource/
+    weight: 6
   - name: '<i class="fab fa-slack"></i>'
     url: "https://join.slack.com/t/ssc442kirkpatrickhq/shared_invite/zt-1eku04roj-GQGFSNtlccF0ewb7tdvpOA"
-    weight: 6
+    weight: 7
 
 content: 
   - name: Course content
@@ -33,6 +34,6 @@ assignments:
     weight: 3
 resource:
   - name: Resources
-    weight: 1
-  - name: Guides
     weight: 2
+  - name: Guides
+    weight: 1

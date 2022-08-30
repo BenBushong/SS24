@@ -1,8 +1,8 @@
 ---
 title: "Project 1"
 linktitle: "Project 1"
-date: "2022-01-05"
-due_date: "2022-02-25"
+date: "2022-09-01"
+due_date: "2022-10-15"
 due_time: "11:59 PM"
 output:
   blogdown::html_page:
@@ -16,7 +16,6 @@ editor_options:
   chunk_output_type: console
 ---
 
-Updated 4-4-2022 (no longer applicable for Sp22)
 
 :::fyi
 

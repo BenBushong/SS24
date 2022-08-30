@@ -444,14 +444,19 @@ The course content below should be considered a prerequisite for success. For th
 In this class, we will be using `R` software environment for all our analyses. You will learn `R` and data analysis techniques simultaneously. To follow along you will therefore need access to `R`. We also recommend the use of an _integrated development environment_ (IDE), such as RStudio, to save your work.
 Note that it is common for a course or workshop to offer access to an `R` environment and an IDE through your web browser, as done by RStudio cloud^[https://rstudio.cloud]. If you have access to such a resource, you don't need to install `R` and RStudio. However, if you intend on becoming a practicing data analyst, we highly recommend installing these tools on your computer^[https://rafalab.github.io/dsbook/installing-r-rstudio.html]. This is not hard.
 
+
+
+## Installing R and R Studio and Review Resources
 Both `R` and RStudio are free and available online. If you have not yet done so, you'll need to install both R and RStudio. See the [Installing page of our course resources](/resource/install/) for instructions. This will be part of your assignment for this week. 
+
+
+I have created a video walkthrough for the basics of using R for another course, but it is useful here. You can [see part A here (labeled "Part 2a") here <i class="fas fa-film"></i>](https://mediaspace.msu.edu/media/R+Part+2a/1_kmszjw36)] and [part B here (labeled "Part 2b")  <i class="fas fa-film"></i>](https://mediaspace.msu.edu/media/R+Part+2b/1_c0vf0i63). You should already be at this level of familiarity with R, but if you need a review, this is a good place to start.
+
+
 
 ## The (very) basics of `R`
 
 Before we get started with the motivating dataset, we need to cover the very basics of `R`. 
-
-I have created a video walkthrough for the basics of using R for another course, but it is useful here. You can [see part A here (labeled "Part 2a") here <i class="fas fa-film"></i>](https://mediaspace.msu.edu/media/R+Part+2a/1_kmszjw36)] and [part B here (labeled "Part 2b")  <i class="fas fa-film"></i>](https://mediaspace.msu.edu/media/R+Part+2b/1_c0vf0i63). You should already be at this level of familiarity with R, but if you need a review, this is a good place to start.
-
 
 ### Objects
 

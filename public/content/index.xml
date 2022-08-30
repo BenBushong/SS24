@@ -51,6 +51,7 @@
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#r-basics&#34;&gt;&lt;code&gt;R&lt;/code&gt; basics&lt;/a&gt;
 &lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#installing-r-and-r-studio-and-review-resources&#34;&gt;Installing R and R Studio and Review Resources&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#the-very-basics-of-r&#34;&gt;The (very) basics of &lt;code&gt;R&lt;/code&gt;&lt;/a&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#objects&#34;&gt;Objects&lt;/a&gt;&lt;/li&gt;
@@ -399,11 +400,14 @@ X causes Y and Y causes X (simultaneous equations)&lt;/p&gt;&lt;/li&gt;
 &lt;/div&gt;
 &lt;p&gt;In this class, we will be using &lt;code&gt;R&lt;/code&gt; software environment for all our analyses. You will learn &lt;code&gt;R&lt;/code&gt; and data analysis techniques simultaneously. To follow along you will therefore need access to &lt;code&gt;R&lt;/code&gt;. We also recommend the use of an &lt;em&gt;integrated development environment&lt;/em&gt; (IDE), such as RStudio, to save your work.
 Note that it is common for a course or workshop to offer access to an &lt;code&gt;R&lt;/code&gt; environment and an IDE through your web browser, as done by RStudio cloud&lt;a href=&#34;#fn3&#34; class=&#34;footnote-ref&#34; id=&#34;fnref3&#34;&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;. If you have access to such a resource, you don’t need to install &lt;code&gt;R&lt;/code&gt; and RStudio. However, if you intend on becoming a practicing data analyst, we highly recommend installing these tools on your computer&lt;a href=&#34;#fn4&#34; class=&#34;footnote-ref&#34; id=&#34;fnref4&#34;&gt;&lt;sup&gt;4&lt;/sup&gt;&lt;/a&gt;. This is not hard.&lt;/p&gt;
+&lt;div id=&#34;installing-r-and-r-studio-and-review-resources&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Installing R and R Studio and Review Resources&lt;/h2&gt;
 &lt;p&gt;Both &lt;code&gt;R&lt;/code&gt; and RStudio are free and available online. If you have not yet done so, you’ll need to install both R and RStudio. See the &lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/resource/install/&#34;&gt;Installing page of our course resources&lt;/a&gt; for instructions. This will be part of your assignment for this week.&lt;/p&gt;
+&lt;p&gt;I have created a video walkthrough for the basics of using R for another course, but it is useful here. You can &lt;a href=&#34;https://mediaspace.msu.edu/media/R+Part+2a/1_kmszjw36&#34;&gt;see part A here (labeled “Part 2a”) here &lt;i class=&#34;fas fa-film&#34;&gt;&lt;/i&gt;&lt;/a&gt;] and &lt;a href=&#34;https://mediaspace.msu.edu/media/R+Part+2b/1_c0vf0i63&#34;&gt;part B here (labeled “Part 2b”) &lt;i class=&#34;fas fa-film&#34;&gt;&lt;/i&gt;&lt;/a&gt;. You should already be at this level of familiarity with R, but if you need a review, this is a good place to start.&lt;/p&gt;
+&lt;/div&gt;
 &lt;div id=&#34;the-very-basics-of-r&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;The (very) basics of &lt;code&gt;R&lt;/code&gt;&lt;/h2&gt;
 &lt;p&gt;Before we get started with the motivating dataset, we need to cover the very basics of &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;I have created a video walkthrough for the basics of using R for another course, but it is useful here. You can &lt;a href=&#34;https://mediaspace.msu.edu/media/R+Part+2a/1_kmszjw36&#34;&gt;see part A here (labeled “Part 2a”) here &lt;i class=&#34;fas fa-film&#34;&gt;&lt;/i&gt;&lt;/a&gt;] and &lt;a href=&#34;https://mediaspace.msu.edu/media/R+Part+2b/1_c0vf0i63&#34;&gt;part B here (labeled “Part 2b”) &lt;i class=&#34;fas fa-film&#34;&gt;&lt;/i&gt;&lt;/a&gt;. You should already be at this level of familiarity with R, but if you need a review, this is a good place to start.&lt;/p&gt;
 &lt;div id=&#34;objects&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Objects&lt;/h3&gt;
 &lt;p&gt;Suppose a relatively math unsavvy student asks us for help solving several quadratic equations of the form &lt;span class=&#34;math inline&#34;&gt;\(ax^2+bx+c = 0\)&lt;/span&gt;. You—a savvy student—recall that the quadratic formula gives us the solutions:&lt;/p&gt;
