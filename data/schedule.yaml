@@ -82,19 +82,19 @@ lessons:
     example: "09-example"
     assignment: "09-assignment"
 
-  - title: 'Bias vs Variance'
+  - title: 'Bias vs Variance (No assignment this week)'
     session: 11
     date: "Week 10 (Nov 8/10)"
     content: "10-content"
     example: "10-example"
-    # assignment: "09-assignment"
+    # assignment: "10-assignment"
 
   - title: 'Classification'
     session: 12
     date: "Week 11 (Nov 15/17)"
-    content: "11-content"
-    example: "11-example"
-    assignment: "11-assignment"
+    content: "10-content"
+    example: "10-example"
+    assignment: "10-assignment"
 
   - title: '<i class="fas fa-star"></i> **Project 2 Due**'
     date: "Saturday Nov 19th"
@@ -103,26 +103,26 @@ lessons:
   - title: '<span class="fake-header-table">Further Extensions</span>'
     header: True
     
-  - title: 'Text as Data'
+  - title: 'Text as Data (No assignment this week)'
     session: 13
     date: "Week 12 (Nov 22/-24)"
-    content: "12-content"
-    example: "12-example"
+    content: "11-content"
+    example: "11-example"
     # assignment: "10-assignment"
 
-  - title: 'Wrangling Data'
+  - title: 'Wrangling Data (Last lab)'
     session: 14
     date: "Week 13 (Nov 29/Dec 1)"
-    content: "13-content"
-    example: "13-example"
-    assignment: "13-assignment"
+    content: "12-content"
+    example: "12-example"
+    assignment: "12-assignment"
   
   - title: 'Geospatial in R'
     session: 15
     date: "Week 14 (Dec 6/8)"
     content: "14-content"
-    example: "TBA"
-    # assignment: "TBA"
+    # example: "TBA"
+   #  assignment: "TBA"
 
   - title: '<span class="fake-header-table">Conclusions</span>'
     header: True
