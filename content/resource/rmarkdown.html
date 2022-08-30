@@ -26,6 +26,7 @@ output:
 
 <p><a href="https://rmarkdown.rstudio.com/">R Markdown</a> is <a href="/reference/markdown/">regular Markdown</a> with R code and output sprinkled in. You can do everything you can with <a href="/reference/markdown/">regular Markdown</a>, but you can incorporate graphs, tables, and other R output directly in your document. You can create HTML, PDF, and Word documents, PowerPoint and HTML presentations, websites, books, and even <a href="https://rmarkdown.rstudio.com/flexdashboard/index.html">interactive dashboards</a> with R Markdown. This whole course website is created with R Markdown (and <a href="https://bookdown.org/yihui/blogdown/">a package named <strong>blogdown</strong></a>).</p>
 <p>The <a href="https://rmarkdown.rstudio.com/">documentation for R Markdown</a> is extremely comprehensive, and their <a href="https://rmarkdown.rstudio.com/lesson-1.html">tutorials</a> and <a href="https://rmarkdown.rstudio.com/lesson-15.html">cheatsheets</a> are excellent—rely on those.</p>
+<p>I have created a video walkthrough for using R Markdown for another course, but it is useful here. You can <a href="https://mediaspace.msu.edu/media/R+Part+3/1_yigvqy1i">see it here <i class="fas fa-film"></i></a>]</p>
 <p>Here are the most important things you’ll need to know about R Markdown in this class:</p>
 <div id="key-terms" class="section level2">
 <h2>Key terms</h2>
@@ -36,9 +37,9 @@ output:
 # Code goes here
 ```</code></pre>
 <p>There must be an empty line before and after the chunk. The final three backticks must be the only thing on the line—if you add more text, or if you forget to add the backticks, or accidentally delete the backticks, your document will not knit correctly.</p></li>
-<li><p><strong>Knit</strong>: When you “knit” a document, R runs each of the chunks sequentially and converts the output of each chunk into Markdown. R then runs the knitted document through <a href="https://pandoc.org/">pandoc</a> to convert it to HTML or PDF or Word (or whatever output you’ve selected).</p>
+<li><p><strong>Knit</strong>: When you “knit” a document, R runs each of the chunks sequentially and converts the output of each chunk into Markdown. R then runs the knitted document through <a href="https://pandoc.org/">pandoc</a> to convert it to HTML or PDF or Word (or whatever output you’ve selected). We will always use PDF for this course.</p>
 <p>You can knit by clicking on the “Knit” button at the top of the editor window, or by pressing <code>⌘⇧K</code> on macOS or <code>control + shift + K</code> on Windows.</p>
-<p><img src="/img/assignments/knit-button.png" width="30%" /></p></li>
+<p><img src="../../../../../../../img/assignments/knit-button.png" width="30%" /></p></li>
 </ul>
 </div>
 <div id="add-chunks" class="section level2">
@@ -47,14 +48,14 @@ output:
 <ul>
 <li><p>Press <code>⌘⌥I</code> on macOS or <code>control + alt + I</code> on Windows</p></li>
 <li><p>Click on the “Insert” button at the top of the editor window</p>
-<p><img src="/img/reference/insert-chunk.png" width="30%" /></p></li>
+<p><img src="../../../../../../../img/reference/insert-chunk.png" width="30%" /></p></li>
 <li><p>Manually type all the backticks and curly braces (don’t do this)</p></li>
 </ul>
 </div>
 <div id="chunk-names" class="section level2">
 <h2>Chunk names</h2>
 <p>You can add names to chunks to make it easier to navigate your document. If you click on the little dropdown menu at the bottom of your editor in RStudio, you can see a table of contents that shows all the headings and chunks. If you name chunks, they’ll appear in the list. If you don’t include a name, the chunk will still show up, but you won’t know what it does.</p>
-<p><img src="/img/reference/chunk-toc.png" width="40%" /></p>
+<p><img src="../../../../../../../img/reference/chunk-toc.png" width="40%" /></p>
 <p>To add a name, include it immediately after the <code>{r</code> in the first line of the chunk. Names cannot contain spaces, but they can contain underscores and dashes. <strong>All chunk names in your document must be unique.</strong></p>
 <pre class="markdown"><code>```{r name-of-this-chunk}
 # Code goes here
@@ -76,7 +77,7 @@ output:
 <li><code>include=FALSE</code>: The chunk still runs, but the code and results are not included in the final document</li>
 </ul>
 <p>You can also set chunk options by clicking on the little gear icon in the top right corner of any chunk:</p>
-<p><img src="/img/reference/chunk-options.png" width="70%" /></p>
+<p><img src="../../../../../../../img/reference/chunk-options.png" width="70%" /></p>
 </div>
 <div id="inline-chunks" class="section level2">
 <h2>Inline chunks</h2>
@@ -101,7 +102,7 @@ output:
   pdf_document: default
   word_document: default</code></pre>
 <p>You can also click on the down arrow on the “Knit” button to choose the output <em>and</em> generate the appropriate YAML. If you click on the gear icon next to the “Knit” button and choose “Output options”, you change settings for each specific output type, like default figure dimensions or whether or not a table of contents is included.</p>
-<p><img src="/img/reference/output-options.png" width="35%" /></p>
+<p><img src="../../../../../../../img/reference/output-options.png" width="35%" /></p>
 <p>The first output type listed under <code>output:</code> will be what is generated when you click on the “Knit” button or press the keyboard shortcut (<code>⌘⇧K</code> on macOS; <code>control + shift + K</code> on Windows). If you choose a different output with the “Knit” button menu, that output will be moved to the top of the <code>output</code> section.</p>
 <p>The indentation of the YAML section matters, especially when you have settings nested under each output type. Here’s what a typical <code>output</code> section might look like:</p>
 <pre class="yaml"><code>---

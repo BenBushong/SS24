@@ -15,7 +15,7 @@
     <item>
       <title>Welcome Back to R</title>
       <link>https://ssc442kirkpatrick.netlify.app/content/00-content/</link>
-      <pubDate>Mon, 29 Aug 2022 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 30 Aug 2022 00:00:00 +0000</pubDate>
       <guid>https://ssc442kirkpatrick.netlify.app/content/00-content/</guid>
       <description>
 &lt;script src=&#34;https://ssc442kirkpatrick.netlify.app/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
@@ -51,7 +51,7 @@
 &lt;li&gt;&lt;a href=&#34;#r-basics&#34;&gt;&lt;code&gt;R&lt;/code&gt; basics&lt;/a&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#case-study-us-homicides-by-firearm&#34;&gt;Case study: US homicides by firearm&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#the-very-basics&#34;&gt;The (very) basics&lt;/a&gt;
+&lt;li&gt;&lt;a href=&#34;#the-very-basics-of-r&#34;&gt;The (very) basics of &lt;code&gt;R&lt;/code&gt;&lt;/a&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#objects&#34;&gt;Objects&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#the-workspace&#34;&gt;The workspace&lt;/a&gt;&lt;/li&gt;
@@ -101,10 +101,8 @@
 &lt;li&gt;&lt;a href=&#34;#subsetting-with-logicals&#34;&gt;Subsetting with logicals&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#logical-operators&#34;&gt;Logical operators&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#which&#34;&gt;&lt;code&gt;which&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#match&#34;&gt;&lt;code&gt;match&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#in&#34;&gt;&lt;code&gt;%in%&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#rmarkdown&#34;&gt;Rmarkdown&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
@@ -185,16 +183,16 @@
 &lt;h3&gt;More About This Course&lt;/h3&gt;
 &lt;p&gt;There are sort of three texts for this course and sort of zero.&lt;/p&gt;
 &lt;p&gt;The “main text” is free and available online. The secondary text is substantially more difficult, but also free online. The third text costs about $25. Assigned readings can be found on the course website under “Content”.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Please please please please please:&lt;/strong&gt; Ask questions during class via chat.
+&lt;p&gt;&lt;strong&gt;Please please please please please:&lt;/strong&gt; Ask questions during class.
 - Most ideas will be new.
 - Sometimes (often?) the material itself will be confusing or interesting—or both!
-- Teaching online is incredibly challenging (no feedback) and chat is vital to success.
+- &lt;del&gt;Teaching online is incredibly challenging (no feedback) and chat is vital to success.&lt;/del&gt; We’re back in person!
 - &lt;strong&gt;Note:&lt;/strong&gt; If I find that attendance is terrible, I may have to start incorporating attendance into participation.&lt;/p&gt;
 &lt;p&gt;Return of the Please: If there is some topic that you really want to learn about, ask. If you are uncomfortable asking in front of the whole group, please see me during office hours.&lt;/p&gt;
-&lt;p&gt;Because this is a new course:&lt;/p&gt;
+&lt;p&gt;Because this is a new-ish course:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;Some of the lectures will be way too long or too short.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Some (most?) of the lectures won’t make sense.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Some of the lectures won’t make sense at first&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Some of the time I’ll forget what I intended to say and awkwardly stare at you for a few moments (sorry).&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Comment &lt;strong&gt;throughout&lt;/strong&gt; the course, not just at the end.&lt;/p&gt;
@@ -202,7 +200,7 @@
 &lt;p&gt;I encourage measured feedback and thoughtful responses to questions. If I call on you and you don’t know immediately, don’t freak out. If you don’t know, it’s totally okay to say you don’t know.&lt;/p&gt;
 &lt;div id=&#34;super-big-important-explanation-of-the-course&#34; class=&#34;section level4&#34;&gt;
 &lt;h4&gt;SUPER BIG IMPORTANT EXPLANATION OF THE COURSE&lt;/h4&gt;
-&lt;p&gt;I teach using ``math’’.&lt;/p&gt;
+&lt;p&gt;I teach using “math”.&lt;/p&gt;
 &lt;p&gt;…Don’t be afraid. The math won’t hurt you.&lt;/p&gt;
 &lt;p&gt;I fundamentally believe that true knowledge of how we learn from data depends on a basic understanding of the underlying mathematics.&lt;/p&gt;
 &lt;p&gt;-Good news: no black boxes.
@@ -217,16 +215,13 @@
 &lt;p&gt;Good news: I’m good at knowing what I don’t know and have a very small ego, which means that I’m much less likely to blow smoke up your ass than other professors.&lt;/p&gt;
 &lt;p&gt;Bad news: I can’t help with certain types of questions.&lt;/p&gt;
 &lt;p&gt;This course should be applicable broadly, but many of the examples will lean on my personal expertise (sorry).&lt;/p&gt;
-&lt;p&gt;Your assignment: read syllabus the content from Week 0.&lt;/p&gt;
+&lt;p&gt;Your assignment: read syllabus, the content from Week 0, and the Example from Week 0 (we start on a Thursday so we have to get thru both in one day).&lt;/p&gt;
 &lt;p&gt;Things to stress from syllabus:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;E-mail isn’t the ideal solution for technical problems&lt;/li&gt;
 &lt;li&gt;No appointments necessary for regularly scheduled office hours; or by appointment.&lt;/li&gt;
 &lt;li&gt;TA office hours are great as well. Our TA has experience in this course.&lt;/li&gt;
-&lt;li&gt;Can only reschedule exams (with good reason) if you tell me &lt;strong&gt;before&lt;/strong&gt; the exam that you have a conflict.
-&lt;ul&gt;
 &lt;li&gt;Notify me immediately if you need accommodations because of RCPD or religious convictions; If you approach me at the last minute, I may not be able to help.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Despite my hard-assness in these intro slides: I’m here to help and I am not in the business of giving bad grades for no reason.&lt;/p&gt;
 &lt;/div&gt;
@@ -263,7 +258,7 @@
 &lt;h4&gt;Social Science Approaches to Statistical Learning&lt;/h4&gt;
 &lt;p&gt;&lt;strong&gt;A Brief History&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Suppose you are a researcher and you want to know whether prisons reduce crime.&lt;/p&gt;
-&lt;p&gt;from ``A Call for a Moratorium on Prison Building’’ (1976)&lt;/p&gt;
+&lt;p&gt;from “A Call for a Moratorium on Prison Building” (1976)&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Between 1955 and 1975, fifteen states increased the collective capacity of their adult prison systems by 56% (from, on average, 63,100 to 98,649).&lt;/li&gt;
 &lt;li&gt;Fifteen other states increased capacity by less than 4% (from 49,575 to 51,440).&lt;/li&gt;
@@ -324,13 +319,14 @@ X causes Y and Y causes X (simultaneous equations)&lt;/p&gt;&lt;/li&gt;
 + Unstructured text or audio
 + Facial expressions or vocal intonations
 - Subtle improvements on existing techniques
-- An eye towards practical implementability over ``cleanliness”&lt;/p&gt;
+- An eye towards practical implementability over “cleanliness”&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;a-case-study-in-prediction&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;A Case Study in Prediction&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;Example:&lt;/strong&gt; a firm wishes to predict user behavior based on previous purchases or interactions.&lt;/p&gt;
-&lt;p&gt;Small margins &lt;span class=&#34;math inline&#34;&gt;\(\rightarrow\)&lt;/span&gt; huge payoffs. &lt;span class=&#34;math inline&#34;&gt;\(10\% \rightarrow\)&lt;/span&gt; $1 million.&lt;/p&gt;
+&lt;p&gt;Small margins &lt;span class=&#34;math inline&#34;&gt;\(\rightarrow\)&lt;/span&gt; huge payoffs when &lt;em&gt;scaled up&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math inline&#34;&gt;\(.01\% \rightarrow\)&lt;/span&gt; $10 million.&lt;/p&gt;
 &lt;p&gt;Not obvious why this was true for Netflix; quite obvious why this is true in financial markets.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;more-recent-examples-of-prediction&#34; class=&#34;section level3&#34;&gt;
@@ -343,6 +339,7 @@ X causes Y and Y causes X (simultaneous equations)&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;Customize an email spam detection system.&lt;/li&gt;
 &lt;li&gt;Identify a hand-drawn object.&lt;/li&gt;
 &lt;li&gt;Determine which oscillations of stellar luminosity are likely due to exoplanets.&lt;/li&gt;
+&lt;li&gt;Identify food combinations that cause spikes in blood glucose level for an individual.&lt;/li&gt;
 &lt;li&gt;Establish the relationship between salary and demographic variables in population survey data.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
@@ -368,9 +365,12 @@ X causes Y and Y causes X (simultaneous equations)&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;This pattern is not easily expressed in a closed mathematical form.&lt;/li&gt;
 &lt;li&gt;You have data.&lt;/li&gt;
 &lt;/ol&gt;
+&lt;div id=&#34;lets-pause-here-for-questions&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Let’s pause here for questions&lt;/h4&gt;
 &lt;div class=&#34;fyi&#34;&gt;
 &lt;p&gt;&lt;strong&gt;ALERT&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;The course content below should be considered a prerequisite for success. For those concerned about basics of &lt;code&gt;R&lt;/code&gt;, you absolutely must read this content and attempt the coding exercises. If you struggle to follow the content, please contact the professor or TA.&lt;/p&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -378,7 +378,7 @@ X causes Y and Y causes X (simultaneous equations)&lt;/p&gt;&lt;/li&gt;
 &lt;h1&gt;&lt;code&gt;R&lt;/code&gt; basics&lt;/h1&gt;
 &lt;p&gt;In this class, we will be using &lt;code&gt;R&lt;/code&gt; software environment for all our analyses. You will learn &lt;code&gt;R&lt;/code&gt; and data analysis techniques simultaneously. To follow along you will therefore need access to &lt;code&gt;R&lt;/code&gt;. We also recommend the use of an &lt;em&gt;integrated development environment&lt;/em&gt; (IDE), such as RStudio, to save your work.
 Note that it is common for a course or workshop to offer access to an &lt;code&gt;R&lt;/code&gt; environment and an IDE through your web browser, as done by RStudio cloud&lt;a href=&#34;#fn1&#34; class=&#34;footnote-ref&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;. If you have access to such a resource, you don’t need to install &lt;code&gt;R&lt;/code&gt; and RStudio. However, if you intend on becoming a practicing data analyst, we highly recommend installing these tools on your computer&lt;a href=&#34;#fn2&#34; class=&#34;footnote-ref&#34; id=&#34;fnref2&#34;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;. This is not hard.&lt;/p&gt;
-&lt;p&gt;Both &lt;code&gt;R&lt;/code&gt; and RStudio are free and available online.&lt;/p&gt;
+&lt;p&gt;Both &lt;code&gt;R&lt;/code&gt; and RStudio are free and available online. If you have not yet done so, you’ll need to install both R and RStudio. See the &lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/resource/install/&#34;&gt;Installing page of our course resources&lt;/a&gt; for instructions. This will be part of your assignment for this week.&lt;/p&gt;
 &lt;div id=&#34;case-study-us-homicides-by-firearm&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Case study: US homicides by firearm&lt;/h2&gt;
 &lt;p&gt;Imagine you live in Europe (if only!) and are offered a job in a US company with many locations in every state. It is a great job, but headlines such as &lt;strong&gt;US Gun Homicide Rate Higher Than Other Developed Countries&lt;/strong&gt;&lt;a href=&#34;#fn3&#34; class=&#34;footnote-ref&#34; id=&#34;fnref3&#34;&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt; have you worried. Fox News runs a scary looking graphic, and charts like the one below only add to that concern:&lt;/p&gt;
@@ -389,16 +389,16 @@ Note that it is common for a course or workshop to offer access to an &lt;code&g
 &lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/content/00-content_files/figure-html/murder-rate-example-2-1.png&#34; width=&#34;70%&#34; /&gt;
 &lt;!--(Source  [everytown.org](https://everytownresearch.org))--&gt;&lt;/p&gt;
 &lt;p&gt;But then you remember that (1) this is a hypothetical exercise; (2) you’ll take literally any job at this point; and (3) Geographic diversity matters – the United States is a large and diverse country with 50 very different states (plus the District of Columbia and some lovely territories).&lt;a href=&#34;#fn4&#34; class=&#34;footnote-ref&#34; id=&#34;fnref4&#34;&gt;&lt;sup&gt;4&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;## Warning: It is deprecated to specify `guide = FALSE` to remove a guide. Please
-## use `guide = &amp;quot;none&amp;quot;` instead.&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/content/00-content_files/figure-html/us-murders-by-state-map-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;California, for example, has a larger population than Canada, and 20 US states have populations larger than that of Norway. In some respects, the variability across states in the US is akin to the variability across countries in Europe. Furthermore, although not included in the charts above, the murder rates in Lithuania, Ukraine, and Russia are higher than 4 per 100,000. So perhaps the news reports that worried you are too superficial.&lt;/p&gt;
 &lt;p&gt;This is a relatively simple and straightforward problem in social science: you have options of where to live, and want to determine the safety of the various states. Your “research” is clearly policy-relevant: you will eventually have to live somewhere. We will begin to tackle the problem by examining data related to gun homicides in the US during 2010 using &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Before we get started with our example, we need to cover logistics as well as some of the very basic building blocks that are required to gain more advanced &lt;code&gt;R&lt;/code&gt; skills. Ideally, this is a refresher. However, we are aware that your preparation in previously courses varies greatly from student to student. Moreover, we want you to be aware that the usefulness of some of these early building blocks may not be immediately obvious. Later in the class you will appreciate having these skills. Mastery will be rewarded both in this class and (of course) in life.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div id=&#34;the-very-basics&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;The (very) basics&lt;/h2&gt;
+&lt;div id=&#34;the-very-basics-of-r&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;The (very) basics of &lt;code&gt;R&lt;/code&gt;&lt;/h2&gt;
 &lt;p&gt;Before we get started with the motivating dataset, we need to cover the very basics of &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;If you have not yet done so, you’ll need to install both R and RStudio. See the &lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/resource/install/&#34;&gt;Installing page of our course resources&lt;/a&gt; for instructions.&lt;/p&gt;
+&lt;p&gt;I have created a video walkthrough for the basics of using R for another course, but it is useful here. You can &lt;a href=&#34;https://mediaspace.msu.edu/media/R+Part+2a/1_kmszjw36&#34;&gt;see part A here (labeled “Part 2a”) here &lt;i class=&#34;fas fa-film&#34;&gt;&lt;/i&gt;&lt;/a&gt;] and &lt;a href=&#34;https://mediaspace.msu.edu/media/R+Part+2b/1_c0vf0i63&#34;&gt;part B here (labeled “Part 2b”) &lt;i class=&#34;fas fa-film&#34;&gt;&lt;/i&gt;&lt;/a&gt;. You should already be at this level of familiarity with R, but if you need a review, this is a good place to start.&lt;/p&gt;
 &lt;div id=&#34;objects&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Objects&lt;/h3&gt;
 &lt;p&gt;Suppose a relatively math unsavvy student asks us for help solving several quadratic equations of the form &lt;span class=&#34;math inline&#34;&gt;\(ax^2+bx+c = 0\)&lt;/span&gt;. You—a savvy student—recall that the quadratic formula gives us the solutions:&lt;/p&gt;
@@ -1210,32 +1210,12 @@ murders$state[ind]&lt;/code&gt;&lt;/pre&gt;
 murder_rate[ind]&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 3.374138&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;div id=&#34;match&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;&lt;code&gt;match&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;If instead of just one state we want to find out the murder rates for several states, say New York, Florida, and Texas, we can use the function &lt;code&gt;match&lt;/code&gt;. This function tells us which indexes of a second vector match each of the entries of a first vector:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ind &amp;lt;- match(c(&amp;quot;New York&amp;quot;, &amp;quot;Florida&amp;quot;, &amp;quot;Texas&amp;quot;), murders$state)
-ind&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 33 10 44&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Now we can look at the murder rates:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;murder_rate[ind]&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 2.667960 3.398069 3.201360&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 &lt;div id=&#34;in&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;&lt;code&gt;%in%&lt;/code&gt;&lt;/h3&gt;
 &lt;p&gt;If rather than an index we want a logical that tells us whether or not each element of a first vector is in a second, we can use the function &lt;code&gt;%in%&lt;/code&gt;. Let’s imagine you are not sure if Boston, Dakota, and Washington are states. You can find out like this:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;c(&amp;quot;Boston&amp;quot;, &amp;quot;Dakota&amp;quot;, &amp;quot;Washington&amp;quot;) %in% murders$state&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] FALSE FALSE  TRUE&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Note that we will be using &lt;code&gt;%in%&lt;/code&gt; often throughout the book.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Advanced&lt;/strong&gt;: There is a connection between &lt;code&gt;match&lt;/code&gt; and &lt;code&gt;%in%&lt;/code&gt; through &lt;code&gt;which&lt;/code&gt;. To see this, notice that the following two lines produce the same index (although in different order):&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;match(c(&amp;quot;New York&amp;quot;, &amp;quot;Florida&amp;quot;, &amp;quot;Texas&amp;quot;), murders$state)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 33 10 44&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;which(murders$state%in%c(&amp;quot;New York&amp;quot;, &amp;quot;Florida&amp;quot;, &amp;quot;Texas&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 10 33 44&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;rmarkdown&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Rmarkdown&lt;/h2&gt;
-&lt;p&gt;If you’re new to Rmarkdown, I have made &lt;a href=&#34;https://mediaspace.msu.edu/media/Spring2021_R_Part3/1_yigvqy1i&#34;&gt;a short video on how to use it &lt;i class=&#34;fas fa-film&#34;&gt;&lt;/i&gt;&lt;/a&gt;. This video is for my EC420 course, but works for us as well.&lt;/p&gt;
+&lt;p&gt;Note that we will be using &lt;code&gt;%in%&lt;/code&gt; often throughout the course&lt;/p&gt;
 &lt;div class=&#34;fyi&#34;&gt;
 &lt;p&gt;&lt;strong&gt;EXERCISES&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Start by loading the library and data.&lt;/p&gt;
@@ -1251,6 +1231,7 @@ data(murders)&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;&lt;p&gt;Use the &lt;code&gt;%in%&lt;/code&gt; operator to create a logical vector that answers the question: which of the following are actual abbreviations: MA, ME, MI, MO, MU?&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Extend the code you used in exercise 7 to report the one entry that is &lt;strong&gt;not&lt;/strong&gt; an actual abbreviation. Hint: use the &lt;code&gt;!&lt;/code&gt; operator, which turns &lt;code&gt;FALSE&lt;/code&gt; into &lt;code&gt;TRUE&lt;/code&gt; and vice versa, then &lt;code&gt;which&lt;/code&gt; to obtain an index.&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;

@@ -2,7 +2,7 @@
 title: "Welcome Back to R"
 linktitle: "0: Introduction to R"
 read_date: "2022-09-01"
-lastmod: "2022-08-29" 
+lastmod: "2022-08-30" 
 menu:
   content:
     parent: Course content
@@ -46,7 +46,7 @@ output:
 <li><a href="#r-basics"><code>R</code> basics</a>
 <ul>
 <li><a href="#case-study-us-homicides-by-firearm">Case study: US homicides by firearm</a></li>
-<li><a href="#the-very-basics">The (very) basics</a>
+<li><a href="#the-very-basics-of-r">The (very) basics of <code>R</code></a>
 <ul>
 <li><a href="#objects">Objects</a></li>
 <li><a href="#the-workspace">The workspace</a></li>
@@ -96,10 +96,8 @@ output:
 <li><a href="#subsetting-with-logicals">Subsetting with logicals</a></li>
 <li><a href="#logical-operators">Logical operators</a></li>
 <li><a href="#which"><code>which</code></a></li>
-<li><a href="#match"><code>match</code></a></li>
 <li><a href="#in"><code>%in%</code></a></li>
 </ul></li>
-<li><a href="#rmarkdown">Rmarkdown</a></li>
 </ul></li>
 </ul>
 </div>
@@ -180,16 +178,16 @@ output:
 <h3>More About This Course</h3>
 <p>There are sort of three texts for this course and sort of zero.</p>
 <p>The “main text” is free and available online. The secondary text is substantially more difficult, but also free online. The third text costs about $25. Assigned readings can be found on the course website under “Content”.</p>
-<p><strong>Please please please please please:</strong> Ask questions during class via chat.
+<p><strong>Please please please please please:</strong> Ask questions during class.
 - Most ideas will be new.
 - Sometimes (often?) the material itself will be confusing or interesting—or both!
-- Teaching online is incredibly challenging (no feedback) and chat is vital to success.
+- <del>Teaching online is incredibly challenging (no feedback) and chat is vital to success.</del> We’re back in person!
 - <strong>Note:</strong> If I find that attendance is terrible, I may have to start incorporating attendance into participation.</p>
 <p>Return of the Please: If there is some topic that you really want to learn about, ask. If you are uncomfortable asking in front of the whole group, please see me during office hours.</p>
-<p>Because this is a new course:</p>
+<p>Because this is a new-ish course:</p>
 <ul>
 <li><p>Some of the lectures will be way too long or too short.</p></li>
-<li><p>Some (most?) of the lectures won’t make sense.</p></li>
+<li><p>Some of the lectures won’t make sense at first</p></li>
 <li><p>Some of the time I’ll forget what I intended to say and awkwardly stare at you for a few moments (sorry).</p></li>
 </ul>
 <p>Comment <strong>throughout</strong> the course, not just at the end.</p>
@@ -197,7 +195,7 @@ output:
 <p>I encourage measured feedback and thoughtful responses to questions. If I call on you and you don’t know immediately, don’t freak out. If you don’t know, it’s totally okay to say you don’t know.</p>
 <div id="super-big-important-explanation-of-the-course" class="section level4">
 <h4>SUPER BIG IMPORTANT EXPLANATION OF THE COURSE</h4>
-<p>I teach using ``math’’.</p>
+<p>I teach using “math”.</p>
 <p>…Don’t be afraid. The math won’t hurt you.</p>
 <p>I fundamentally believe that true knowledge of how we learn from data depends on a basic understanding of the underlying mathematics.</p>
 <p>-Good news: no black boxes.
@@ -212,16 +210,13 @@ output:
 <p>Good news: I’m good at knowing what I don’t know and have a very small ego, which means that I’m much less likely to blow smoke up your ass than other professors.</p>
 <p>Bad news: I can’t help with certain types of questions.</p>
 <p>This course should be applicable broadly, but many of the examples will lean on my personal expertise (sorry).</p>
-<p>Your assignment: read syllabus the content from Week 0.</p>
+<p>Your assignment: read syllabus, the content from Week 0, and the Example from Week 0 (we start on a Thursday so we have to get thru both in one day).</p>
 <p>Things to stress from syllabus:</p>
 <ul>
 <li>E-mail isn’t the ideal solution for technical problems</li>
 <li>No appointments necessary for regularly scheduled office hours; or by appointment.</li>
 <li>TA office hours are great as well. Our TA has experience in this course.</li>
-<li>Can only reschedule exams (with good reason) if you tell me <strong>before</strong> the exam that you have a conflict.
-<ul>
 <li>Notify me immediately if you need accommodations because of RCPD or religious convictions; If you approach me at the last minute, I may not be able to help.</li>
-</ul></li>
 </ul>
 <p>Despite my hard-assness in these intro slides: I’m here to help and I am not in the business of giving bad grades for no reason.</p>
 </div>
@@ -258,7 +253,7 @@ output:
 <h4>Social Science Approaches to Statistical Learning</h4>
 <p><strong>A Brief History</strong></p>
 <p>Suppose you are a researcher and you want to know whether prisons reduce crime.</p>
-<p>from ``A Call for a Moratorium on Prison Building’’ (1976)</p>
+<p>from “A Call for a Moratorium on Prison Building” (1976)</p>
 <ul>
 <li>Between 1955 and 1975, fifteen states increased the collective capacity of their adult prison systems by 56% (from, on average, 63,100 to 98,649).</li>
 <li>Fifteen other states increased capacity by less than 4% (from 49,575 to 51,440).</li>
@@ -319,13 +314,14 @@ X causes Y and Y causes X (simultaneous equations)</p></li>
 + Unstructured text or audio
 + Facial expressions or vocal intonations
 - Subtle improvements on existing techniques
-- An eye towards practical implementability over ``cleanliness”</p>
+- An eye towards practical implementability over “cleanliness”</p>
 </div>
 </div>
 <div id="a-case-study-in-prediction" class="section level3">
 <h3>A Case Study in Prediction</h3>
 <p><strong>Example:</strong> a firm wishes to predict user behavior based on previous purchases or interactions.</p>
-<p>Small margins <span class="math inline">\(\rightarrow\)</span> huge payoffs. <span class="math inline">\(10\% \rightarrow\)</span> $1 million.</p>
+<p>Small margins <span class="math inline">\(\rightarrow\)</span> huge payoffs when <em>scaled up</em>.</p>
+<p><span class="math inline">\(.01\% \rightarrow\)</span> $10 million.</p>
 <p>Not obvious why this was true for Netflix; quite obvious why this is true in financial markets.</p>
 </div>
 <div id="more-recent-examples-of-prediction" class="section level3">
@@ -338,6 +334,7 @@ X causes Y and Y causes X (simultaneous equations)</p></li>
 <li>Customize an email spam detection system.</li>
 <li>Identify a hand-drawn object.</li>
 <li>Determine which oscillations of stellar luminosity are likely due to exoplanets.</li>
+<li>Identify food combinations that cause spikes in blood glucose level for an individual.</li>
 <li>Establish the relationship between salary and demographic variables in population survey data.</li>
 </ul>
 </div>
@@ -363,9 +360,12 @@ X causes Y and Y causes X (simultaneous equations)</p></li>
 <li>This pattern is not easily expressed in a closed mathematical form.</li>
 <li>You have data.</li>
 </ol>
+<div id="lets-pause-here-for-questions" class="section level4">
+<h4>Let’s pause here for questions</h4>
 <div class="fyi">
 <p><strong>ALERT</strong></p>
 <p>The course content below should be considered a prerequisite for success. For those concerned about basics of <code>R</code>, you absolutely must read this content and attempt the coding exercises. If you struggle to follow the content, please contact the professor or TA.</p>
+</div>
 </div>
 </div>
 </div>
@@ -373,7 +373,7 @@ X causes Y and Y causes X (simultaneous equations)</p></li>
 <h1><code>R</code> basics</h1>
 <p>In this class, we will be using <code>R</code> software environment for all our analyses. You will learn <code>R</code> and data analysis techniques simultaneously. To follow along you will therefore need access to <code>R</code>. We also recommend the use of an <em>integrated development environment</em> (IDE), such as RStudio, to save your work.
 Note that it is common for a course or workshop to offer access to an <code>R</code> environment and an IDE through your web browser, as done by RStudio cloud<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>. If you have access to such a resource, you don’t need to install <code>R</code> and RStudio. However, if you intend on becoming a practicing data analyst, we highly recommend installing these tools on your computer<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>. This is not hard.</p>
-<p>Both <code>R</code> and RStudio are free and available online.</p>
+<p>Both <code>R</code> and RStudio are free and available online. If you have not yet done so, you’ll need to install both R and RStudio. See the <a href="/resource/install/">Installing page of our course resources</a> for instructions. This will be part of your assignment for this week.</p>
 <div id="case-study-us-homicides-by-firearm" class="section level2">
 <h2>Case study: US homicides by firearm</h2>
 <p>Imagine you live in Europe (if only!) and are offered a job in a US company with many locations in every state. It is a great job, but headlines such as <strong>US Gun Homicide Rate Higher Than Other Developed Countries</strong><a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> have you worried. Fox News runs a scary looking graphic, and charts like the one below only add to that concern:</p>
@@ -384,16 +384,16 @@ Note that it is common for a course or workshop to offer access to an <code>R</c
 <img src="/content/00-content_files/figure-html/murder-rate-example-2-1.png" width="70%" />
 <!--(Source  [everytown.org](https://everytownresearch.org))--></p>
 <p>But then you remember that (1) this is a hypothetical exercise; (2) you’ll take literally any job at this point; and (3) Geographic diversity matters – the United States is a large and diverse country with 50 very different states (plus the District of Columbia and some lovely territories).<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></p>
-<pre><code>## Warning: It is deprecated to specify `guide = FALSE` to remove a guide. Please
-## use `guide = &quot;none&quot;` instead.</code></pre>
 <p><img src="/content/00-content_files/figure-html/us-murders-by-state-map-1.png" width="672" /></p>
 <p>California, for example, has a larger population than Canada, and 20 US states have populations larger than that of Norway. In some respects, the variability across states in the US is akin to the variability across countries in Europe. Furthermore, although not included in the charts above, the murder rates in Lithuania, Ukraine, and Russia are higher than 4 per 100,000. So perhaps the news reports that worried you are too superficial.</p>
 <p>This is a relatively simple and straightforward problem in social science: you have options of where to live, and want to determine the safety of the various states. Your “research” is clearly policy-relevant: you will eventually have to live somewhere. We will begin to tackle the problem by examining data related to gun homicides in the US during 2010 using <code>R</code>.</p>
 <p>Before we get started with our example, we need to cover logistics as well as some of the very basic building blocks that are required to gain more advanced <code>R</code> skills. Ideally, this is a refresher. However, we are aware that your preparation in previously courses varies greatly from student to student. Moreover, we want you to be aware that the usefulness of some of these early building blocks may not be immediately obvious. Later in the class you will appreciate having these skills. Mastery will be rewarded both in this class and (of course) in life.</p>
 </div>
-<div id="the-very-basics" class="section level2">
-<h2>The (very) basics</h2>
+<div id="the-very-basics-of-r" class="section level2">
+<h2>The (very) basics of <code>R</code></h2>
 <p>Before we get started with the motivating dataset, we need to cover the very basics of <code>R</code>.</p>
+<p>If you have not yet done so, you’ll need to install both R and RStudio. See the <a href="/resource/install/">Installing page of our course resources</a> for instructions.</p>
+<p>I have created a video walkthrough for the basics of using R for another course, but it is useful here. You can <a href="https://mediaspace.msu.edu/media/R+Part+2a/1_kmszjw36">see part A here (labeled “Part 2a”) here <i class="fas fa-film"></i></a>] and <a href="https://mediaspace.msu.edu/media/R+Part+2b/1_c0vf0i63">part B here (labeled “Part 2b”) <i class="fas fa-film"></i></a>. You should already be at this level of familiarity with R, but if you need a review, this is a good place to start.</p>
 <div id="objects" class="section level3">
 <h3>Objects</h3>
 <p>Suppose a relatively math unsavvy student asks us for help solving several quadratic equations of the form <span class="math inline">\(ax^2+bx+c = 0\)</span>. You—a savvy student—recall that the quadratic formula gives us the solutions:</p>
@@ -1205,32 +1205,12 @@ murders$state[ind]</code></pre>
 murder_rate[ind]</code></pre>
 <pre><code>## [1] 3.374138</code></pre>
 </div>
-<div id="match" class="section level3">
-<h3><code>match</code></h3>
-<p>If instead of just one state we want to find out the murder rates for several states, say New York, Florida, and Texas, we can use the function <code>match</code>. This function tells us which indexes of a second vector match each of the entries of a first vector:</p>
-<pre class="r"><code>ind &lt;- match(c(&quot;New York&quot;, &quot;Florida&quot;, &quot;Texas&quot;), murders$state)
-ind</code></pre>
-<pre><code>## [1] 33 10 44</code></pre>
-<p>Now we can look at the murder rates:</p>
-<pre class="r"><code>murder_rate[ind]</code></pre>
-<pre><code>## [1] 2.667960 3.398069 3.201360</code></pre>
-</div>
 <div id="in" class="section level3">
 <h3><code>%in%</code></h3>
 <p>If rather than an index we want a logical that tells us whether or not each element of a first vector is in a second, we can use the function <code>%in%</code>. Let’s imagine you are not sure if Boston, Dakota, and Washington are states. You can find out like this:</p>
 <pre class="r"><code>c(&quot;Boston&quot;, &quot;Dakota&quot;, &quot;Washington&quot;) %in% murders$state</code></pre>
 <pre><code>## [1] FALSE FALSE  TRUE</code></pre>
-<p>Note that we will be using <code>%in%</code> often throughout the book.</p>
-<p><strong>Advanced</strong>: There is a connection between <code>match</code> and <code>%in%</code> through <code>which</code>. To see this, notice that the following two lines produce the same index (although in different order):</p>
-<pre class="r"><code>match(c(&quot;New York&quot;, &quot;Florida&quot;, &quot;Texas&quot;), murders$state)</code></pre>
-<pre><code>## [1] 33 10 44</code></pre>
-<pre class="r"><code>which(murders$state%in%c(&quot;New York&quot;, &quot;Florida&quot;, &quot;Texas&quot;))</code></pre>
-<pre><code>## [1] 10 33 44</code></pre>
-</div>
-</div>
-<div id="rmarkdown" class="section level2">
-<h2>Rmarkdown</h2>
-<p>If you’re new to Rmarkdown, I have made <a href="https://mediaspace.msu.edu/media/Spring2021_R_Part3/1_yigvqy1i">a short video on how to use it <i class="fas fa-film"></i></a>. This video is for my EC420 course, but works for us as well.</p>
+<p>Note that we will be using <code>%in%</code> often throughout the course</p>
 <div class="fyi">
 <p><strong>EXERCISES</strong></p>
 <p>Start by loading the library and data.</p>
@@ -1246,6 +1226,7 @@ data(murders)</code></pre>
 <li><p>Use the <code>%in%</code> operator to create a logical vector that answers the question: which of the following are actual abbreviations: MA, ME, MI, MO, MU?</p></li>
 <li><p>Extend the code you used in exercise 7 to report the one entry that is <strong>not</strong> an actual abbreviation. Hint: use the <code>!</code> operator, which turns <code>FALSE</code> into <code>TRUE</code> and vice versa, then <code>which</code> to obtain an index.</p></li>
 </ol>
+</div>
 </div>
 </div>
 </div>

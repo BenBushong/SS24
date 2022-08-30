@@ -100,19 +100,19 @@ There are sort of three texts for this course and sort of zero.
 
 The "main text" is free and available online. The secondary text is substantially more difficult, but also free online. The third text costs about \$25. Assigned readings can be found on the course website under "Content".
 
-**Please please please please please:** Ask questions during class via chat.
+**Please please please please please:** Ask questions during class.
 - Most ideas will be new.
 - Sometimes (often?) the material itself will be confusing or interesting---or both!
-- Teaching online is incredibly challenging (no feedback) and chat is vital to success.
+- ~~Teaching online is incredibly challenging (no feedback) and chat is vital to success.~~ We're back in person!
 - **Note:** If I find that attendance is terrible, I may have to start incorporating attendance into participation.
 
 Return of the Please: If there is some topic that you really want to learn about, ask. If you are uncomfortable asking in front of the whole group, please see me during office hours.
 
-Because this is a new course:
+Because this is a new-ish course:
 
 - Some of the lectures will be way too long or too short.
 
-- Some (most?) of the lectures won't make sense.
+- Some of the lectures won't make sense at first
 
 - Some of the time I'll forget what I intended to say and awkwardly stare at you for a few moments (sorry).
 
@@ -128,7 +128,7 @@ I encourage measured feedback and thoughtful responses to questions. If I call o
 #### SUPER BIG IMPORTANT EXPLANATION OF THE COURSE
 
 
-I teach using ``math''.
+I teach using "math".
 
 ...Don't be afraid. The math won't hurt you.
 
@@ -152,15 +152,14 @@ Bad news: I can't help with certain types of questions.
 
 This course should be applicable broadly, but many of the examples will lean on my personal expertise (sorry).
 
-Your assignment: read syllabus the content from Week 0.
+Your assignment: read syllabus, the content from Week 0, and the Example from Week 0 (we start on a Thursday so we have to get thru both in one day).
 
 Things to stress from syllabus:
 
 - E-mail isn't the ideal solution for technical problems
 - No appointments necessary for regularly scheduled office hours; or by appointment.
 - TA office hours are great as well. Our TA has experience in this course.
-- Can only reschedule exams (with good reason) if you tell me **before** the exam that you have a conflict.
-  - Notify me immediately if you need accommodations because of RCPD or religious convictions; If you approach me at the last minute, I may not be able to help.
+- Notify me immediately if you need accommodations because of RCPD or religious convictions; If you approach me at the last minute, I may not be able to help.
 
 Despite my hard-assness in these intro slides: I'm here to help and I am not in the business of giving bad grades for no reason.
 
@@ -192,9 +191,6 @@ Better utilizing existing data can improve our predictive power whilst providing
 
 
 
-
-
-
 # Outline of the Course
 
 
@@ -217,7 +213,7 @@ Rules are difficult to form, and simply writing rules misses the key insight: th
 Suppose you are a researcher and you want to know whether prisons reduce crime.
 
 
-from ``A Call for a Moratorium on Prison Building'' (1976)
+from "A Call for a Moratorium on Prison Building" (1976)
 
 - Between 1955 and 1975, fifteen states increased the collective capacity of their adult prison systems by 56\% (from, on average, 63,100 to 98,649).
 - Fifteen other states increased capacity by less than 4\% (from 49,575 to 51,440).
@@ -268,14 +264,16 @@ We will also borrow a few other ideas from CS:
   + Unstructured text or audio
   + Facial expressions or vocal intonations
 - Subtle improvements on existing techniques
-- An eye towards practical implementability over ``cleanliness"
+- An eye towards practical implementability over "cleanliness"
 
 
 ### A Case Study in Prediction
 
 **Example:** a firm wishes to predict user behavior based on previous purchases or interactions.
 
-Small margins $\rightarrow$ huge payoffs.  $10\% \rightarrow$ \$1 million.
+Small margins $\rightarrow$ huge payoffs when *scaled up*.  
+
+$.01\% \rightarrow$ \$10 million.
 
 Not obvious why this was true for Netflix; quite obvious why this is true in financial markets.
 
@@ -291,6 +289,7 @@ Not obvious why this was true for Netflix; quite obvious why this is true in fin
 - Customize an email spam detection system.
 - Identify a hand-drawn object.
 - Determine which oscillations of stellar luminosity are likely due to exoplanets.
+- Identify food combinations that cause spikes in blood glucose level for an individual.
 - Establish the relationship between salary and demographic variables in population survey data.
 
 
@@ -323,7 +322,7 @@ The following are the basic requirements for statistical learning:
 
 
 
-
+#### Let's pause here for questions
 
 
 :::fyi
@@ -337,7 +336,7 @@ The course content below should be considered a prerequisite for success. For th
 In this class, we will be using `R` software environment for all our analyses. You will learn `R` and data analysis techniques simultaneously. To follow along you will therefore need access to `R`. We also recommend the use of an _integrated development environment_ (IDE), such as RStudio, to save your work.
 Note that it is common for a course or workshop to offer access to an `R` environment and an IDE through your web browser, as done by RStudio cloud^[https://rstudio.cloud]. If you have access to such a resource, you don't need to install `R` and RStudio. However, if you intend on becoming a practicing data analyst, we highly recommend installing these tools on your computer^[https://rafalab.github.io/dsbook/installing-r-rstudio.html]. This is not hard.
 
-Both `R` and RStudio are free and available online.
+Both `R` and RStudio are free and available online. If you have not yet done so, you'll need to install both R and RStudio. See the [Installing page of our course resources](/resource/install/) for instructions. This will be part of your assignment for this week. 
 
 ##  Case study: US homicides by firearm
 
@@ -405,7 +404,7 @@ dat %>%
 
 But then you remember that (1) this is a hypothetical exercise; (2) you'll take literally any job at this point; and (3) Geographic diversity matters -- the United States is a large and diverse country with 50 very different states (plus the District of Columbia and some lovely territories).^[I'm especially partial to Puerto Rico.]
 
-```{r us-murders-by-state-map, message=FALSE, echo=FALSE}
+```{r us-murders-by-state-map, warning = FALSE, message=FALSE, echo=FALSE}
 library(tidyverse)
 library(dslabs)
 
@@ -422,7 +421,7 @@ murders %>% mutate(murder_rate = total/population*10^5,
   scale_y_continuous(breaks = NULL) +
   labs(x = "", y = "") +
   theme(panel.background = element_blank()) +
-  scale_fill_brewer(guide=FALSE) +
+  scale_fill_brewer(guide='none') +
   theme_minimal()
 rm(fifty_states)
 ```
@@ -438,9 +437,14 @@ This is a relatively simple and straightforward problem in social science: you h
 
 Before we get started with our example, we need to cover logistics as well as some of the very basic building blocks that are required to gain more advanced `R` skills. Ideally, this is a refresher. However, we are aware that your preparation in previously courses varies greatly from student to student. Moreover, we want you to be aware that the usefulness of some of these early building blocks may not be immediately obvious. Later in the class you will appreciate having these skills. Mastery will be rewarded both in this class and (of course) in life.
 
-## The (very) basics
+## The (very) basics of `R`
 
-Before we get started with the motivating dataset, we need to cover the very basics of `R`.
+Before we get started with the motivating dataset, we need to cover the very basics of `R`. 
+
+If you have not yet done so, you'll need to install both R and RStudio. See the [Installing page of our course resources](/resource/install/) for instructions.
+
+I have created a video walkthrough for the basics of using R for another course, but it is useful here. You can [see part A here (labeled "Part 2a") here <i class="fas fa-film"></i>](https://mediaspace.msu.edu/media/R+Part+2a/1_kmszjw36)] and [part B here (labeled "Part 2b")  <i class="fas fa-film"></i>](https://mediaspace.msu.edu/media/R+Part+2b/1_c0vf0i63). You should already be at this level of familiarity with R, but if you need a review, this is a good place to start.
+
 
 ### Objects
 
@@ -484,8 +488,6 @@ print(a)
 ```
 
 We use the term _object_ to describe stuff that is stored in `R`.  Variables are examples, but objects can also be more complicated entities such as functions, which are described later.
-
-
 
 ### The workspace
 
@@ -1521,21 +1523,6 @@ murder_rate[ind]
 ```
 
 
-### `match`
-
-If instead of just one state we want to find out the murder rates for several states, say New York, Florida, and Texas, we can use the function `match`. This function tells us which indexes of a second vector match each of the entries of a first vector:
-
-```{r}
-ind <- match(c("New York", "Florida", "Texas"), murders$state)
-ind
-```
-
-Now we can look at the murder rates:
-
-```{r}
-murder_rate[ind]
-```
-
 ### `%in%`
 
 
@@ -1545,18 +1532,7 @@ If rather than an index we want a logical that tells us whether or not each elem
 c("Boston", "Dakota", "Washington") %in% murders$state
 ```
 
-Note that we will be using `%in%` often throughout the book.
-
-**Advanced**: There is a connection between `match` and `%in%` through `which`. To see this, notice that the following two lines produce the same index (although in different order):
-
-```{r}
-match(c("New York", "Florida", "Texas"), murders$state)
-which(murders$state%in%c("New York", "Florida", "Texas"))
-```
-
-## Rmarkdown
-
-If you're new to Rmarkdown, I have made [a short video on how to use it <i class="fas fa-film"></i> ](https://mediaspace.msu.edu/media/Spring2021_R_Part3/1_yigvqy1i). This video is for my EC420 course, but works for us as well.
+Note that we will be using `%in%` often throughout the course
 
 
 :::fyi

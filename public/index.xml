@@ -15,7 +15,7 @@
     <item>
       <title>Working with R and RStudio</title>
       <link>https://ssc442kirkpatrick.netlify.app/example/00-example/</link>
-      <pubDate>Mon, 29 Aug 2022 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 30 Aug 2022 00:00:00 +0000</pubDate>
       <guid>https://ssc442kirkpatrick.netlify.app/example/00-example/</guid>
       <description>
 
@@ -23,7 +23,10 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#introduction-to-examples&#34;&gt;Introduction to Examples&lt;/a&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#getting-started&#34;&gt;Getting started with &lt;code&gt;R&lt;/code&gt; and RStudio&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#getting-started&#34;&gt;Getting started with &lt;code&gt;R&lt;/code&gt; and RStudio Workflows&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#installing-r-and-rstudio&#34;&gt;Installing &lt;code&gt;R&lt;/code&gt; and RStudio&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#the-r-console&#34;&gt;The &lt;code&gt;R&lt;/code&gt; console&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#scripts&#34;&gt;Scripts&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#rstudio&#34;&gt;RStudio&lt;/a&gt;
@@ -34,7 +37,6 @@
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#installing-r-packages&#34;&gt;Installing &lt;code&gt;R&lt;/code&gt; packages&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#rmarkdown&#34;&gt;Rmarkdown&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#lecture-video&#34;&gt;Lecture Video&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
@@ -44,7 +46,8 @@
 &lt;p&gt;Examples in this class are designed to be presented in-class. Accordingly, the notes here are &lt;em&gt;not&lt;/em&gt; comprehensive. Instead, they are intended to guide students through&lt;/p&gt;
 &lt;p&gt;I’m also aware that my writing is dry and lifeless. If you’re reading this online without the advantage of seeing it in person, don’t worry—I’ll be “funnier” in class.&lt;a href=&#34;#fn1&#34; class=&#34;footnote-ref&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;div id=&#34;getting-started&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Getting started with &lt;code&gt;R&lt;/code&gt; and RStudio&lt;/h2&gt;
+&lt;h2&gt;Getting started with &lt;code&gt;R&lt;/code&gt; and RStudio Workflows&lt;/h2&gt;
+&lt;p&gt;In Content this week, we reviewed the use of R. Now, let’s talk about doing work in R.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;R&lt;/code&gt; is not a programming language like &lt;code&gt;C&lt;/code&gt; or &lt;code&gt;Java&lt;/code&gt;. It was not created by software engineers for software development. Instead, it was developed by statisticians as an interactive environment for data analysis. You can read the full history in the paper A Brief History of S&lt;a href=&#34;#fn2&#34; class=&#34;footnote-ref&#34; id=&#34;fnref2&#34;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;. The interactivity is an indispensable feature in data science because, as you will soon learn, the ability to quickly explore data is a necessity for success in this field. However, like in other programming languages, you can save your work as scripts that can be easily executed at any moment. These scripts serve as a record of the analysis you performed, a key feature that facilitates reproducible work. If you are an expert programmer, you should not expect &lt;code&gt;R&lt;/code&gt; to follow the conventions you are used—assuming this will leave you disappointed. If you are patient, you will come to appreciate the unequal power of &lt;code&gt;R&lt;/code&gt; when it comes to data analysis and data visualization.&lt;/p&gt;
 &lt;p&gt;Other attractive features of &lt;code&gt;R&lt;/code&gt; are:&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
@@ -54,10 +57,15 @@
 &lt;li&gt;There is a large, growing, and active community of &lt;code&gt;R&lt;/code&gt; users and, as a result, there are numerous resources for learning and asking questions&lt;a href=&#34;#fn4&#34; class=&#34;footnote-ref&#34; id=&#34;fnref4&#34;&gt;&lt;sup&gt;4&lt;/sup&gt;&lt;/a&gt; &lt;a href=&#34;#fn5&#34; class=&#34;footnote-ref&#34; id=&#34;fnref5&#34;&gt;&lt;sup&gt;5&lt;/sup&gt;&lt;/a&gt; &lt;a href=&#34;#fn6&#34; class=&#34;footnote-ref&#34; id=&#34;fnref6&#34;&gt;&lt;sup&gt;6&lt;/sup&gt;&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;It is easy for others to contribute add-ons which enables developers to share software implementations of new data science methodologies. The latest methods and tools are developed in &lt;code&gt;R&lt;/code&gt; for a wide variety of disciplines and since social science is so broad, &lt;code&gt;R&lt;/code&gt; is one of the few tools that spans the varied social sciences.&lt;/li&gt;
 &lt;/ol&gt;
+&lt;div id=&#34;installing-r-and-rstudio&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Installing &lt;code&gt;R&lt;/code&gt; and RStudio&lt;/h3&gt;
+&lt;p&gt;If you have not yet done so, you’ll need to install both R and RStudio. See the &lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/resource/install/&#34;&gt;Installing page of our course resources&lt;/a&gt; for instructions.&lt;/p&gt;
+&lt;p&gt;I have created a video walkthrough for the basics of using R for another course, but it is useful here. You can &lt;a href=&#34;https://mediaspace.msu.edu/media/R+Part+2a/1_kmszjw36&#34;&gt;see part A here (labeled “Part 2a”) here &lt;i class=&#34;fas fa-film&#34;&gt;&lt;/i&gt;&lt;/a&gt;] and &lt;a href=&#34;https://mediaspace.msu.edu/media/R+Part+2b/1_c0vf0i63&#34;&gt;part B here (labeled “Part 2b”) &lt;i class=&#34;fas fa-film&#34;&gt;&lt;/i&gt;&lt;/a&gt;. You should already be at this level of familiarity with R, but if you need a review, this is a good place to start.&lt;/p&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;the-r-console&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;The &lt;code&gt;R&lt;/code&gt; console&lt;/h2&gt;
-&lt;p&gt;Interactive data analysis usually occurs on the &lt;em&gt;R console&lt;/em&gt; that executes commands as you type them. There are several ways to gain access to an &lt;code&gt;R&lt;/code&gt; console. One way is to simply start &lt;code&gt;R&lt;/code&gt; on your computer. The console looks something like this:&lt;/p&gt;
+&lt;p&gt;Interactive data analysis usually occurs on the &lt;em&gt;R console&lt;/em&gt; that executes commands as you type them. There are several ways to gain access to an &lt;code&gt;R&lt;/code&gt; console. One way is to simply start &lt;code&gt;R&lt;/code&gt; on your computer. R Studio runs R inside of, so you won’t usually access &lt;code&gt;R&lt;/code&gt; this way. The console looks something like this:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/img/R_console2.png&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;As a quick example, try using the console to calculate a 15% tip on a meal that cost $19.71:&lt;a href=&#34;#fn7&#34; class=&#34;footnote-ref&#34; id=&#34;fnref7&#34;&gt;&lt;sup&gt;7&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;0.15 * 19.71  &lt;/code&gt;&lt;/pre&gt;
@@ -67,7 +75,6 @@
 &lt;div id=&#34;scripts&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Scripts&lt;/h2&gt;
 &lt;p&gt;One of the great advantages of &lt;code&gt;R&lt;/code&gt; over point-and-click analysis software is that you can save your work as scripts. You can edit and save these scripts using a text editor. The material in this course was developed using the interactive &lt;em&gt;integrated development environment&lt;/em&gt; (IDE) RStudio&lt;a href=&#34;#fn8&#34; class=&#34;footnote-ref&#34; id=&#34;fnref8&#34;&gt;&lt;sup&gt;8&lt;/sup&gt;&lt;/a&gt;. RStudio includes an editor with many &lt;code&gt;R&lt;/code&gt; specific features, a console to execute your code, and other useful panes, including one to show figures.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/img/RStudio.png&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Most web-based &lt;code&gt;R&lt;/code&gt; consoles also provide a pane to edit scripts, but not all permit you to save the scripts for later use. On the upper-right part of this webpage you’ll see a little button with the &lt;code&gt;R&lt;/code&gt; logo. You can access a web-based console there.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;rstudio&#34; class=&#34;section level2&#34;&gt;
@@ -102,7 +109,7 @@
 &lt;/div&gt;
 &lt;div id=&#34;installing-r-packages&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Installing &lt;code&gt;R&lt;/code&gt; packages&lt;/h2&gt;
-&lt;p&gt;The functionality provided by a fresh install of &lt;code&gt;R&lt;/code&gt; is only a small fraction of what is possible. In fact, we refer to what you get after your first install as &lt;em&gt;base R&lt;/em&gt;. The extra functionality comes from add-ons available from developers. There are currently hundreds of these available from CRAN and many others shared via other repositories such as GitHub. However, because not everybody needs all available functionality, &lt;code&gt;R&lt;/code&gt; instead makes different components available via &lt;em&gt;packages&lt;/em&gt;. &lt;code&gt;R&lt;/code&gt; makes it very easy to install packages from within R. For example, to install the &lt;strong&gt;dslabs&lt;/strong&gt; package, which we use to share datasets and code related to this book, you would type:&lt;/p&gt;
+&lt;p&gt;The functionality provided by a fresh install of &lt;code&gt;R&lt;/code&gt; is only a small fraction of what is possible. In fact, we refer to what you get after your first install as &lt;em&gt;base R&lt;/em&gt;. The extra functionality comes from add-ons available from developers. There are currently hundreds of these available from CRAN and many others shared via other repositories such as GitHub. However, because not everybody needs all available functionality, &lt;code&gt;R&lt;/code&gt; instead makes different components available via &lt;em&gt;packages&lt;/em&gt;. &lt;code&gt;R&lt;/code&gt; makes it very easy to install packages from within R. For example, to install the &lt;strong&gt;dslabs&lt;/strong&gt; package, which we use to share datasets and code related to this course, you would type:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;install.packages(&amp;quot;dslabs&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;In RStudio, you can navigate to the &lt;em&gt;Tools&lt;/em&gt; tab and select install packages. We can then load the package into our &lt;code&gt;R&lt;/code&gt; sessions using the &lt;code&gt;library&lt;/code&gt; function:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(dslabs)&lt;/code&gt;&lt;/pre&gt;
@@ -111,7 +118,7 @@
 &lt;pre&gt;&lt;code&gt;## The following object is masked from &amp;#39;package:gapminder&amp;#39;:
 ## 
 ##     gapminder&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;As you go through this book, you will see that we load packages without installing them. This is because once you install a package, it remains installed and only needs to be loaded with &lt;code&gt;library&lt;/code&gt;. The package remains loaded until we quit the &lt;code&gt;R&lt;/code&gt; session. If you try to load a package and get an error, it probably means you need to
+&lt;p&gt;As you go through this course, you will see that we load packages without installing them. This is because once you install a package, it remains installed and only needs to be loaded with &lt;code&gt;library&lt;/code&gt;. The package remains loaded until we quit the &lt;code&gt;R&lt;/code&gt; session. If you try to load a package and get an error, it probably means you need to
 install it first.&lt;/p&gt;
 &lt;p&gt;We can install more than one package at once by feeding a character vector to this function:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;install.packages(c(&amp;quot;tidyverse&amp;quot;, &amp;quot;dslabs&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
@@ -127,11 +134,8 @@ install it first.&lt;/p&gt;
 &lt;p&gt;Markdown is a general-purpose syntax for laying out documents. Rmarkdown is a combination of R and markdown, as the name implies. When using markdown, one can define headers and tables using specific notation, and depending on the rendering engine, the headers and tables (and a whole lot more) are customized. In fact, this whole website is built in R using Rmarkdown (and a lot of add-ons like Hugo and blogdown). In other contexts, the rendering engine may recognize that your headers are likely to be entries in a table of contents, and does so for you. The table of contents at the top of this document is built from the markdown headers.&lt;/p&gt;
 &lt;p&gt;The power of Rmarkdown is that it lets us mix formatted text with R code. That is, you can have a section of the document that understands R code, and a separate section right after that discusses the results from the R code.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://raw.githubusercontent.com/ajkirkpatrick/FS20/Spring2021/Rmarkdown_templates/SSC442_Weekly_Writing_Template.Rmd&#34;&gt;Try it out using the Weekly Writing Template&lt;/a&gt;. If it opens in your web browser, just right-click the link and select Save As…. &lt;strong&gt;Make sure you save the file to its own folder on your hard drive&lt;/strong&gt;. In converting your Rmarkdown .Rmd file to a .pdf, your system will make multiple interim files&lt;a href=&#34;#fn9&#34; class=&#34;footnote-ref&#34; id=&#34;fnref9&#34;&gt;&lt;sup&gt;9&lt;/sup&gt;&lt;/a&gt;. It also creates folders to store the output of any plots or graphics you create with your R code.&lt;/p&gt;
+&lt;p&gt;If you’re new to Rmarkdown, I have made &lt;a href=&#34;https://mediaspace.msu.edu/media/Spring2021_R_Part3/1_yigvqy1i&#34;&gt;a short video on how to use it &lt;i class=&#34;fas fa-film&#34;&gt;&lt;/i&gt;&lt;/a&gt;. This video is for my EC420 course, but works for us as well.&lt;/p&gt;
 &lt;p&gt;If we have time today, let’s open the template linked above and see what happens when we select “knit to pdf”.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;lecture-video&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Lecture Video&lt;/h2&gt;
-&lt;p&gt;Video from lecture &lt;a href=&#34;https://mediaspace.msu.edu/media/SSC442+-+Lecture+and+Office+Hours/1_pvyem45x?st=375&#34;&gt;hosted on Mediaspace &lt;i class=&#34;fas fa-film&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&#34;footnotes&#34;&gt;
@@ -146,6 +150,90 @@ install it first.&lt;/p&gt;
 &lt;li id=&#34;fn7&#34;&gt;&lt;p&gt;But probably tip more than 15%. Times are tough, man.&lt;a href=&#34;#fnref7&#34; class=&#34;footnote-back&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li id=&#34;fn8&#34;&gt;&lt;p&gt;&lt;a href=&#34;https://www.rstudio.com/&#34; class=&#34;uri&#34;&gt;https://www.rstudio.com/&lt;/a&gt;&lt;a href=&#34;#fnref8&#34; class=&#34;footnote-back&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li id=&#34;fn9&#34;&gt;&lt;p&gt;Specifically, knitr will create an intermediate .md file which is then processed with Pandoc using Latex to create a pdf. Whew!&lt;a href=&#34;#fnref9&#34; class=&#34;footnote-back&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Installing R, RStudio, tidyverse, and tinytex</title>
+      <link>https://ssc442kirkpatrick.netlify.app/resource/install/</link>
+      <pubDate>Tue, 30 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>https://ssc442kirkpatrick.netlify.app/resource/install/</guid>
+      <description>
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#install-r&#34;&gt;Install &lt;code&gt;R&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#install-rstudio&#34;&gt;Install RStudio&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#install-tidyverse&#34;&gt;Install &lt;code&gt;tidyverse&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#install-tinytex&#34;&gt;Install &lt;code&gt;tinytex&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;p&gt;As mentioned in the syllabus, you will do all of your work in this class with the open source programming language &lt;a href=&#34;https://cran.r-project.org/&#34;&gt;&lt;code&gt;R&lt;/code&gt;&lt;/a&gt;. You will use &lt;a href=&#34;https://www.rstudio.com/&#34;&gt;RStudio&lt;/a&gt; as the main program to access &lt;code&gt;R&lt;/code&gt;. Think of &lt;code&gt;R&lt;/code&gt; as an engine and RStudio as a car dashboard—–&lt;code&gt;R&lt;/code&gt; handles all the calculations and the actual statistics, while RStudio provides a nice interface for running &lt;code&gt;R&lt;/code&gt; code.&lt;/p&gt;
+&lt;p&gt;Hopefully you’re well-versed in dealing with these things, but if you’re lost, here’s how you install the required software for the course.&lt;/p&gt;
+&lt;div id=&#34;install-r&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Install &lt;code&gt;R&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;I have created a video walkthrough for installing R for another course, but it is useful here. You can &lt;a href=&#34;https://mediaspace.msu.edu/media/R+Part+1/1_b8nafkzx&#34;&gt;see it here &lt;i class=&#34;fas fa-film&#34;&gt;&lt;/i&gt;&lt;/a&gt;]&lt;/p&gt;
+&lt;p&gt;First you need to install &lt;code&gt;R&lt;/code&gt; itself (the engine).&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;Go to the CRAN (Collective &lt;code&gt;R&lt;/code&gt; Archive Network)&lt;a href=&#34;#fn1&#34; class=&#34;footnote-ref&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; website: &lt;a href=&#34;https://cran.r-project.org/&#34; class=&#34;uri&#34;&gt;https://cran.r-project.org/&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Click on “Download &lt;code&gt;R&lt;/code&gt; for &lt;code&gt;XXX&lt;/code&gt;”, where &lt;code&gt;XXX&lt;/code&gt; is either Mac or Windows:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../../../../../../img/install/install-r-links.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;If you use macOS, scroll down to the first &lt;code&gt;.pkg&lt;/code&gt; file in the list of files (in this picture, it’s &lt;code&gt;R-4.0.0.pkg&lt;/code&gt;; as of Summer 2022 now, the current version is also 4.2.1 so use the most recent one) and download it.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../../../../../../img/install/install-r-mac.png&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;If you use Windows, click “base” (or click on the bolded “install R for the first time” link) and download it.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../../../../../../img/install/install-r-windows.png&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Double click on the downloaded file (check your &lt;code&gt;Downloads&lt;/code&gt; folder). Click yes through all the prompts to install like any other program.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;If you use macOS, &lt;a href=&#34;https://www.xquartz.org/&#34;&gt;download and install XQuartz&lt;/a&gt;. You do not need to do this on Windows.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div id=&#34;install-rstudio&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Install RStudio&lt;/h3&gt;
+&lt;p&gt;Next, you need to install the most recent version of RStudio, the nicer graphical user interface (GUI) for &lt;code&gt;R&lt;/code&gt; (the dashboard). Once &lt;code&gt;R&lt;/code&gt; and RStudio are both installed, you can ignore &lt;code&gt;R&lt;/code&gt; and only use RStudio. RStudio will use &lt;code&gt;R&lt;/code&gt; automatically and you won’t ever have to interact with it directly.&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;Go to the free download location on RStudio’s website: &lt;a href=&#34;https://www.rstudio.com/products/rstudio/download/#download&#34; class=&#34;uri&#34;&gt;https://www.rstudio.com/products/rstudio/download/#download&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The website should automatically detect your operating system (macOS or Windows) and show a big download button for it:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../../../../../../img/install/install-r-rstudio1.png&#34; width=&#34;50%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;If not, scroll down a little to the large table and choose the version of RStudio that matches your operating system.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../../../../../../img/install/install-r-rstudio2.png&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Double click on the downloaded file (again, check your &lt;code&gt;Downloads&lt;/code&gt; folder). Click yes through all the prompts to install like any other program.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Double click on RStudio to run it (check your applications folder or start menu).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;install-tidyverse&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Install &lt;code&gt;tidyverse&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;R&lt;/code&gt; packages are easy to install with RStudio. Select the packages panel, click on “Install,” type the name of the package you want to install, and press enter.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../../../../../../img/install/install-r-package-panel.png&#34; width=&#34;40%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;This can sometimes be tedious when you’re installing lots of packages, though. &lt;a href=&#34;https://www.tidyverse.org/&#34;&gt;The tidyverse&lt;/a&gt;, for instance, consists of dozens of packages (including the ever-present &lt;strong&gt;ggplot2&lt;/strong&gt;) that all work together. Rather than install each individually, you can install a single magical package and get them all at the same time.&lt;/p&gt;
+&lt;p&gt;Go to the packages panel in RStudio, click on “Install,” type “tidyverse”, and press enter. You’ll see a bunch of output in the RStudio console as all the tidyverse packages are installed.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../../../../../../img/install/install-r-tidyverse.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Notice also that RStudio will generate a line of code for you and run it: &lt;code&gt;install.packages(&#34;tidyverse&#34;)&lt;/code&gt;. You can also just paste and run this instead of using the packages panel. Hopefully you’ve experienced installing packages before now; if not, consider this a crash course!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;install-tinytex&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Install &lt;code&gt;tinytex&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;When you knit to PDF, &lt;code&gt;R&lt;/code&gt; uses a special scientific typesetting program named LaTeX.&lt;a href=&#34;#fn2&#34; class=&#34;footnote-ref&#34; id=&#34;fnref2&#34;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;LaTeX is neat and makes pretty documents, but it’s a huge program—&lt;a href=&#34;https://tug.org/mactex/mactex-download.html&#34;&gt;the macOS version, for instance, is nearly 4 GB&lt;/a&gt;. To make life easier, there’s &lt;a href=&#34;https://yihui.org/tinytex/&#34;&gt;an &lt;code&gt;R&lt;/code&gt; package named &lt;strong&gt;tinytex&lt;/strong&gt;&lt;/a&gt; that installs a minimal LaTeX program and that automatically deals with differences between macOS and Windows.&lt;/p&gt;
+&lt;p&gt;Here’s how to install &lt;strong&gt;tinytex&lt;/strong&gt; so you can knit to pretty PDFs:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Use the Packages in panel in RStudio to install &lt;strong&gt;tinytex&lt;/strong&gt; like you did above with &lt;strong&gt;tidyverse&lt;/strong&gt;. Alternatively, run &lt;code&gt;install.packages(&#34;tinytex&#34;)&lt;/code&gt; in the console.&lt;/li&gt;
+&lt;li&gt;Run &lt;code&gt;tinytex::install_tinytex()&lt;/code&gt; in the console.&lt;/li&gt;
+&lt;li&gt;Wait for a bit while &lt;code&gt;R&lt;/code&gt; downloads and installs everything you need.&lt;/li&gt;
+&lt;li&gt;The end! You should now be able to knit to PDF.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Find the course assignment template (for SSC442, see the &lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/assignment/&#34;&gt;Assignments&lt;/a&gt; page), right-click to download it (don’t just click on it - that won’t work), open it in Rstudio, and without changing anything, click the “knit” button to test out your install. Your system should open a PDF that looks like something like this:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;knitr::include_graphics(here(&amp;#39;content/resource&amp;#39;,&amp;#39;RenderedPDF.png&amp;#39;))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;RenderedPDF.png&#34; width=&#34;962&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;See the Markdown and R Markdown sidebars for instructions on using the template.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;It’s a goofy name, but CRAN is where most &lt;code&gt;R&lt;/code&gt; packages—and R itself—lives.&lt;a href=&#34;#fnref1&#34; class=&#34;footnote-back&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn2&#34;&gt;&lt;p&gt;Pronounced “lay-tek” for those who are correct; or “lah-tex” to those who love goofy nerdy pronunciation. Technically speaking, the x is the “ch” sound in “Bach”, but most people just say it as “k”. While either saying “lay” or “lah” is correct, “layteks” is frowned upon because it clearly shows you’re not cool.&lt;a href=&#34;#fnref2&#34; class=&#34;footnote-back&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
 </description>
@@ -921,79 +1009,404 @@ data(murders)&lt;/code&gt;&lt;/pre&gt;
     </item>
     
     <item>
-      <title>Installing R, RStudio, tidyverse, and tinytex</title>
-      <link>https://ssc442kirkpatrick.netlify.app/resource/install/</link>
-      <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
-      <guid>https://ssc442kirkpatrick.netlify.app/resource/install/</guid>
+      <title>Programming Basics in R</title>
+      <link>https://ssc442kirkpatrick.netlify.app/assignment/00-assignment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://ssc442kirkpatrick.netlify.app/assignment/00-assignment/</guid>
       <description>
 
 &lt;div id=&#34;TOC&#34;&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#install-r&#34;&gt;Install &lt;code&gt;R&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#install-rstudio&#34;&gt;Install RStudio&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#install-tidyverse&#34;&gt;Install &lt;code&gt;tidyverse&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#install-tinytex&#34;&gt;Install &lt;code&gt;tinytex&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#programming-basics&#34;&gt;Programming basics&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#conditionals&#34;&gt;Conditional expressions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#defining-functions&#34;&gt;Defining functions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#namespaces&#34;&gt;Namespaces&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#for-loops&#34;&gt;For-loops&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#vectorization&#34;&gt;Vectorization and functionals&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#exercises&#34;&gt;Exercises&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 
-&lt;p&gt;As mentioned in the syllabus, you will do all of your work in this class with the open source programming language &lt;a href=&#34;https://cran.r-project.org/&#34;&gt;&lt;code&gt;R&lt;/code&gt;&lt;/a&gt;. You will use &lt;a href=&#34;https://www.rstudio.com/&#34;&gt;RStudio&lt;/a&gt; as the main program to access &lt;code&gt;R&lt;/code&gt;. Think of &lt;code&gt;R&lt;/code&gt; as an engine and RStudio as a car dashboard—–&lt;code&gt;R&lt;/code&gt; handles all the calculations and the actual statistics, while RStudio provides a nice interface for running &lt;code&gt;R&lt;/code&gt; code.&lt;/p&gt;
-&lt;p&gt;Hopefully you’re well-versed in dealing with these things, but if you’re lost, here’s how you install the required software for the course.&lt;/p&gt;
-&lt;div id=&#34;install-r&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Install &lt;code&gt;R&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;First you need to install &lt;code&gt;R&lt;/code&gt; itself (the engine).&lt;/p&gt;
-&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;&lt;p&gt;Go to the CRAN (Collective &lt;code&gt;R&lt;/code&gt; Archive Network)&lt;a href=&#34;#fn1&#34; class=&#34;footnote-ref&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; website: &lt;a href=&#34;https://cran.r-project.org/&#34; class=&#34;uri&#34;&gt;https://cran.r-project.org/&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Click on “Download &lt;code&gt;R&lt;/code&gt; for &lt;code&gt;XXX&lt;/code&gt;”, where &lt;code&gt;XXX&lt;/code&gt; is either Mac or Windows:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/img/install/install-r-links.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;You must turn in a PDF document knitted from your R Markdown code. Submit this to D2L by 11:59 PM on Monday September 5th under “lab 0”. You do not need to submit your .rmd file code - just the knitted PDF.&lt;/p&gt;
+&lt;div class=&#34;fyi&#34;&gt;
+&lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;As you read through this assignment, practice with each of the examples (copy-paste them into an empty R script and run them). At the bottom of this page you will find the questions that comprise the assignment. These questions apply and expand on the topics and R functions in the assignment.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://raw.githubusercontent.com/ajkirkpatrick/FS20/Spring2021/Rmarkdown_templates/SSC442_Lab_Assignment_Template.Rmd&#34;&gt;Right-click to download the homework .Rmd template &lt;i class=&#34;fas fa-file-download&#34;&gt;&lt;/i&gt;&lt;/a&gt;. Please save the template into the labs folder in the SSC442 folder on your local hard drive. If you don’t have a nice file structure setup for the course, please do so now. &lt;em&gt;It will save you headaches in the future&lt;/em&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;If you have not yet done so, you’ll need to install both R and RStudio. See the &lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/resource/install/&#34;&gt;Installing page of our course resources&lt;/a&gt; for instructions.&lt;/p&gt;
+&lt;p&gt;I have created a video walkthrough for the basics of using R for another course, but it is useful here. You can &lt;a href=&#34;https://mediaspace.msu.edu/media/R+Part+2a/1_kmszjw36&#34;&gt;see part A here (labeled “Part 2a”) here &lt;i class=&#34;fas fa-film&#34;&gt;&lt;/i&gt;&lt;/a&gt;] and &lt;a href=&#34;https://mediaspace.msu.edu/media/R+Part+2b/1_c0vf0i63&#34;&gt;part B here (labeled “Part 2b”) &lt;i class=&#34;fas fa-film&#34;&gt;&lt;/i&gt;&lt;/a&gt;. You should already be at this level of familiarity with R, but if you need a review, this is a good place to start.&lt;/p&gt;
+&lt;div id=&#34;programming-basics&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Programming basics&lt;/h1&gt;
+&lt;p&gt;We teach &lt;code&gt;R&lt;/code&gt; because it greatly facilitates data analysis, the main topic of this book. By coding in R, we can efficiently perform exploratory data analysis, build data analysis pipelines, and prepare data visualization to communicate results. However, &lt;code&gt;R&lt;/code&gt; is not just a data analysis environment but a programming language. Advanced &lt;code&gt;R&lt;/code&gt; programmers can develop complex packages and even improve &lt;code&gt;R&lt;/code&gt; itself, but we do not cover advanced programming in this book. Nonetheless, in this section, we introduce three key programming concepts: conditional expressions, for-loops, and functions. These are not just key building blocks for advanced programming, but are sometimes useful during data analysis. We also note that there are several functions that are widely used to program in &lt;code&gt;R&lt;/code&gt; but that we will not cover in this book. These include &lt;code&gt;split&lt;/code&gt;, &lt;code&gt;cut&lt;/code&gt;, &lt;code&gt;do.call&lt;/code&gt;, and &lt;code&gt;Reduce&lt;/code&gt;, as well as the &lt;strong&gt;data.table&lt;/strong&gt; package. These are worth learning if you plan to become an expert &lt;code&gt;R&lt;/code&gt; programmer.&lt;/p&gt;
+&lt;div id=&#34;conditionals&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Conditional expressions&lt;/h2&gt;
+&lt;p&gt;Conditional expressions are one of the basic features of programming. They are used for what is called &lt;em&gt;flow control&lt;/em&gt;. The most common conditional expression is the if-else statement. In R, we can actually perform quite a bit of data analysis without conditionals. However, they do come up occasionally, and you will need them once you start writing your own functions and packages.&lt;/p&gt;
+&lt;p&gt;Here is a very simple example showing the general structure of an if-else statement. The basic idea is to print the reciprocal of &lt;code&gt;a&lt;/code&gt; unless &lt;code&gt;a&lt;/code&gt; is 0:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;a &amp;lt;- 0
+
+if(a!=0){
+  print(1/a)
+} else{
+  print(&amp;quot;No reciprocal for 0.&amp;quot;)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;No reciprocal for 0.&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Let’s look at one more example using the US murders data frame:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(dslabs)
+data(murders)
+murder_rate &amp;lt;- murders$total / murders$population*100000&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here is a very simple example that tells us which states, if any, have a murder rate lower than 0.5 per 100,000. The &lt;code&gt;if&lt;/code&gt; statement protects us from the case in which no state satisfies the condition.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ind &amp;lt;- which.min(murder_rate)
+
+if(murder_rate[ind] &amp;lt; 0.5){
+  print(murders$state[ind])
+} else{
+  print(&amp;quot;No state has murder rate that low&amp;quot;)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;Vermont&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If we try it again with a rate of 0.25, we get a different answer:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;if(murder_rate[ind] &amp;lt; 0.25){
+  print(murders$state[ind])
+} else{
+  print(&amp;quot;No state has a murder rate that low.&amp;quot;)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;No state has a murder rate that low.&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;A related function that is very useful is &lt;code&gt;ifelse&lt;/code&gt;. This function takes three arguments: a logical and two possible answers. If the logical is &lt;code&gt;TRUE&lt;/code&gt;, the value in the second argument is returned and if &lt;code&gt;FALSE&lt;/code&gt;, the value in the third argument is returned. Here is an example:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;a &amp;lt;- 0
+ifelse(a &amp;gt; 0, 1/a, NA)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] NA&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The function is particularly useful because it works on vectors. It examines each entry of the logical vector and returns elements from the vector provided in the second argument, if the entry is &lt;code&gt;TRUE&lt;/code&gt;, or elements from the vector provided in the third argument, if the entry is &lt;code&gt;FALSE&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;a &amp;lt;- c(0, 1, 2, -4, 5)
+result &amp;lt;- ifelse(a &amp;gt; 0, 1/a, NA)&lt;/code&gt;&lt;/pre&gt;
+This table helps us see what happened:
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+a
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+is_a_positive
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+answer1
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+answer2
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+result
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+FALSE
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+Inf
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+NA
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+NA
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+TRUE
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.00
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+NA
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.0
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+TRUE
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.50
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+NA
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.5
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+-4
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+FALSE
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+-0.25
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+NA
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+NA
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+5
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+TRUE
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.20
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+NA
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.2
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Here is an example of how this function can be readily used to replace all the missing values in a vector with zeros:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data(na_example)
+no_nas &amp;lt;- ifelse(is.na(na_example), 0, na_example)
+sum(is.na(no_nas))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Two other useful functions are &lt;code&gt;any&lt;/code&gt; and &lt;code&gt;all&lt;/code&gt;. The &lt;code&gt;any&lt;/code&gt; function takes a vector of logicals and returns &lt;code&gt;TRUE&lt;/code&gt; if any of the entries is &lt;code&gt;TRUE&lt;/code&gt;. The &lt;code&gt;all&lt;/code&gt; function takes a vector of logicals and returns &lt;code&gt;TRUE&lt;/code&gt; if all of the entries are &lt;code&gt;TRUE&lt;/code&gt;. Here is an example:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;z &amp;lt;- c(TRUE, TRUE, FALSE)
+any(z)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;all(z)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;defining-functions&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Defining functions&lt;/h2&gt;
+&lt;p&gt;As you become more experienced, you will find yourself needing to perform the same operations over and over. A simple example is computing averages. We can compute the average of a vector &lt;code&gt;x&lt;/code&gt; using the &lt;code&gt;sum&lt;/code&gt; and &lt;code&gt;length&lt;/code&gt; functions: &lt;code&gt;sum(x)/length(x)&lt;/code&gt;. Because we do this repeatedly, it is much more efficient to write a function that performs this operation. This particular operation is so common that someone already wrote the &lt;code&gt;mean&lt;/code&gt; function and it is included in base R. However, you will encounter situations in which the function does not already exist, so &lt;code&gt;R&lt;/code&gt; permits you to write your own. A simple version of a function that computes the average can be defined like this:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;avg &amp;lt;- function(x){
+  s &amp;lt;- sum(x)
+  n &amp;lt;- length(x)
+  s/n
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now &lt;code&gt;avg&lt;/code&gt; is a function that computes the mean:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- 1:100
+identical(mean(x), avg(x))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Notice that variables defined inside a function are not saved in the workspace. So while we use &lt;code&gt;s&lt;/code&gt; and &lt;code&gt;n&lt;/code&gt; when we call &lt;code&gt;avg&lt;/code&gt;, the values are created and changed only during the call. Here is an illustrative example:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;s &amp;lt;- 3
+avg(1:10)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 5.5&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;s&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 3&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Note how &lt;code&gt;s&lt;/code&gt; is still 3 after we call &lt;code&gt;avg&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;In general, functions are objects, so we assign them to variable names with &lt;code&gt;&amp;lt;-&lt;/code&gt;. The function &lt;code&gt;function&lt;/code&gt; tells &lt;code&gt;R&lt;/code&gt; you are about to define a function. The general form of a function definition looks like this:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;my_function &amp;lt;- function(VARIABLE_NAME){
+  perform operations on VARIABLE_NAME and calculate VALUE
+  VALUE
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The functions you define can have multiple arguments as well as default values. For example, we can define a function that computes either the arithmetic or geometric average depending on a user defined variable like this:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;avg &amp;lt;- function(x, arithmetic = TRUE){
+  n &amp;lt;- length(x)
+  ifelse(arithmetic, sum(x)/n, prod(x)^(1/n))
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We will learn more about how to create functions through experience as we face more complex tasks.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;namespaces&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Namespaces&lt;/h2&gt;
+&lt;p&gt;Once you start becoming more of an &lt;code&gt;R&lt;/code&gt; expert user, you will likely need to load several add-on packages for some of your analysis. Once you start doing this, it is likely that two packages use the same name for two different functions. And often these functions do completely different things. In fact, you have already encountered this because both &lt;strong&gt;dplyr&lt;/strong&gt; and the R-base &lt;strong&gt;stats&lt;/strong&gt; package define a &lt;code&gt;filter&lt;/code&gt; function. There are five other examples in &lt;strong&gt;dplyr&lt;/strong&gt;. We know this because when we first load &lt;strong&gt;dplyr&lt;/strong&gt; we see the following message:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So what does &lt;code&gt;R&lt;/code&gt; do when we type &lt;code&gt;filter&lt;/code&gt;? Does it use the &lt;strong&gt;dplyr&lt;/strong&gt; function or the &lt;strong&gt;stats&lt;/strong&gt; function? From our previous work we know it uses the &lt;strong&gt;dplyr&lt;/strong&gt; one. But what if we want to use the &lt;strong&gt;stats&lt;/strong&gt; version?&lt;/p&gt;
+&lt;p&gt;These functions live in different &lt;em&gt;namespaces&lt;/em&gt;. &lt;code&gt;R&lt;/code&gt; will follow a certain order when searching for a function in these &lt;em&gt;namespaces&lt;/em&gt;. You can see the order by typing:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;search()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The first entry in this list is the global environment which includes all the objects you define.&lt;/p&gt;
+&lt;p&gt;So what if we want to use the &lt;strong&gt;stats&lt;/strong&gt; &lt;code&gt;filter&lt;/code&gt; instead of the &lt;strong&gt;dplyr&lt;/strong&gt; filter but &lt;strong&gt;dplyr&lt;/strong&gt; appears first in the search list? You can force the use of a specific namespace by using double colons (&lt;code&gt;::&lt;/code&gt;) like this:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;stats::filter&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If we want to be absolutely sure that we use the &lt;strong&gt;dplyr&lt;/strong&gt; &lt;code&gt;filter&lt;/code&gt;, we can use&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dplyr::filter&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Also note that if we want to use a function in a package without loading the entire package, we can use the double colon as well.&lt;/p&gt;
+&lt;p&gt;For more on this more advanced topic we recommend the &lt;code&gt;R&lt;/code&gt; packages book&lt;a href=&#34;#fn1&#34; class=&#34;footnote-ref&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;for-loops&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;For-loops&lt;/h2&gt;
+&lt;p&gt;If we had to write this section in a single sentence, it would be: Don’t use for-loops. Looping is intuitive, but &lt;code&gt;R&lt;/code&gt; is designed to provide more computationally efficient solutions. For-loops should be considered a quick-and-dirty way to get an answer. But, hey, you live your own life. Below we provide a brief overview to for-looping.&lt;/p&gt;
+&lt;p&gt;The formula for the sum of the series &lt;span class=&#34;math inline&#34;&gt;\(1+2+\dots+n\)&lt;/span&gt; is &lt;span class=&#34;math inline&#34;&gt;\(n(n+1)/2\)&lt;/span&gt;. What if we weren’t sure that was the right function? How could we check? Using what we learned about functions we can create one that computes the &lt;span class=&#34;math inline&#34;&gt;\(S_n\)&lt;/span&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;compute_s_n &amp;lt;- function(n){
+  x &amp;lt;- 1:n
+  sum(x)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;How can we compute &lt;span class=&#34;math inline&#34;&gt;\(S_n\)&lt;/span&gt; for various values of &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt;, say &lt;span class=&#34;math inline&#34;&gt;\(n=1,\dots,25\)&lt;/span&gt;? Do we write 25 lines of code calling &lt;code&gt;compute_s_n&lt;/code&gt;? No, that is what for-loops are for in programming. In this case, we are performing exactly the same task over and over, and the only thing that is changing is the value of &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt;. For-loops let us define the range that our variable takes (in our example &lt;span class=&#34;math inline&#34;&gt;\(n=1,\dots,10\)&lt;/span&gt;), then change the value and evaluate expression as you &lt;em&gt;loop&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Perhaps the simplest example of a for-loop is this useless piece of code:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;for(i in 1:5){
+  print(i)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 1
+## [1] 2
+## [1] 3
+## [1] 4
+## [1] 5&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here is the for-loop we would write for our &lt;span class=&#34;math inline&#34;&gt;\(S_n\)&lt;/span&gt; example:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;m &amp;lt;- 25
+s_n &amp;lt;- vector(length = m) # create an empty vector
+for(n in 1:m){
+  s_n[n] &amp;lt;- compute_s_n(n)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In each iteration &lt;span class=&#34;math inline&#34;&gt;\(n=1\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(n=2\)&lt;/span&gt;, etc…, we compute &lt;span class=&#34;math inline&#34;&gt;\(S_n\)&lt;/span&gt; and store it in the &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt;th entry of &lt;code&gt;s_n&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Now we can create a plot to search for a pattern:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;n &amp;lt;- 1:m
+plot(n, s_n)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/assignment/00-assignment_files/figure-html/sum-of-consecutive-squares-1.png&#34; width=&#34;50%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;If you noticed that it appears to be a quadratic, you are on the right track because the formula is &lt;span class=&#34;math inline&#34;&gt;\(n(n+1)/2\)&lt;/span&gt;.
+&lt;!--
+which we can confirm with a table:
+
+
+```r
+head(data.frame(s_n = s_n, formula = n*(n+1)/2))
+```
+
+```
+##   s_n formula
+## 1   1       1
+## 2   3       3
+## 3   6       6
+## 4  10      10
+## 5  15      15
+## 6  21      21
+```
+
+We can also overlay the two results by using the function `lines` to draw a line over the previously plotted points:
+
+
+```r
+plot(n, s_n)
+lines(n, n*(n+1)/2)
+```
+
+&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/assignment/00-assignment_files/figure-html/s_n-v-n-1.png&#34; width=&#34;672&#34; /&gt;
+
+--&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;vectorization&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Vectorization and functionals&lt;/h2&gt;
+&lt;p&gt;Although for-loops are an important concept to understand, in &lt;code&gt;R&lt;/code&gt; we rarely use them. As you learn more &lt;code&gt;R&lt;/code&gt;, you will realize that &lt;em&gt;vectorization&lt;/em&gt; is preferred over for-loops since it results in shorter and clearer code. (It’s also vastly more efficient computationally, which can matter as your data grows.) A &lt;em&gt;vectorized&lt;/em&gt; function is a function that will apply the same operation on each of the vectors.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- 1:10
+sqrt(x)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] 1.000000 1.414214 1.732051 2.000000 2.236068 2.449490 2.645751 2.828427
+##  [9] 3.000000 3.162278&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;y &amp;lt;- 1:10
+x*y&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1]   1   4   9  16  25  36  49  64  81 100&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To make this calculation, there is no need for for-loops. However, not all functions work this way. For instance, the function we just wrote, &lt;code&gt;compute_s_n&lt;/code&gt;, does not work element-wise since it is expecting a scalar. This piece of code does not run the function on each entry of &lt;code&gt;n&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;n &amp;lt;- 1:25
+compute_s_n(n)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;Functionals&lt;/em&gt; are functions that help us apply the same function to each entry in a vector, matrix, data frame, or list. Here we cover the functional that operates on numeric, logical, and character vectors: &lt;code&gt;sapply&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The function &lt;code&gt;sapply&lt;/code&gt; permits us to perform element-wise operations on any function. Here is how it works:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- 1:10
+sapply(x, sqrt)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] 1.000000 1.414214 1.732051 2.000000 2.236068 2.449490 2.645751 2.828427
+##  [9] 3.000000 3.162278&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Each element of &lt;code&gt;x&lt;/code&gt; is passed on to the function &lt;code&gt;sqrt&lt;/code&gt; and the result is returned. These results are concatenated. In this case, the result is a vector of the same length as the original &lt;code&gt;x&lt;/code&gt;. This implies that the for-loop above can be written as follows:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;n &amp;lt;- 1:25
+s_n &amp;lt;- sapply(n, compute_s_n)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Other functionals are &lt;code&gt;apply&lt;/code&gt;, &lt;code&gt;lapply&lt;/code&gt;, &lt;code&gt;tapply&lt;/code&gt;, &lt;code&gt;mapply&lt;/code&gt;, &lt;code&gt;vapply&lt;/code&gt;, and &lt;code&gt;replicate&lt;/code&gt;. We mostly use &lt;code&gt;sapply&lt;/code&gt;, &lt;code&gt;apply&lt;/code&gt;, and &lt;code&gt;replicate&lt;/code&gt; in this book, but we recommend familiarizing yourselves with the others as they can be very useful.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;exercises&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Exercises&lt;/h2&gt;
+&lt;p&gt;This is your first weekly lab assignment. Each lab assignment will need to be done in Rmarkdown using &lt;a href=&#34;https://raw.githubusercontent.com/ajkirkpatrick/FS20/Spring2021/Rmarkdown_templates/SSC442_Lab_Assignment_Template.Rmd&#34;&gt;the lab template&lt;/a&gt;, just right-click and Save As…&lt;strong&gt;Start a new folder on your drive for this course, and inside that a new folder for lab assignments, and inside that a new folder for Lab No. 0&lt;/strong&gt;. Rmarkdown will place some intermediate files in that folder, so leaving .Rmd files on your desktop will make things messy, fast.&lt;/p&gt;
+&lt;p&gt;Once you’ve saved the file, open it up in Rstudio.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;If you use macOS, scroll down to the first &lt;code&gt;.pkg&lt;/code&gt; file in the list of files (in this picture, it’s &lt;code&gt;R-4.0.0.pkg&lt;/code&gt;; as of right now, the current version is also 4.0.0) and download it.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/img/install/install-r-mac.png&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;If you use Windows, click “base” (or click on the bolded “install R for the first time” link) and download it.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/img/install/install-r-windows.png&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Change the title to “Lab 0”&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Put your name on it&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Leave the date alone. That little &lt;code&gt;`r Sys.time(...)`&lt;/code&gt; will ask R to return the date (with M-D-Y formatting), which Rmarkdown will put in as if you had typed in the actual date. &lt;strong&gt;Note - if your system time is rendered in unicode characters (which may be the case in some languages), you will get an error&lt;/strong&gt;. If this happens, you’ll have to manually change the date in the header along with your name.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;When you type &lt;code&gt;## 1. Text of...&lt;/code&gt;, Markdown will recognize “1. Text of” as a header and will &lt;em&gt;automatically&lt;/em&gt; make it big.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;So please copy the number and text of the question you are answering here.&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Double click on the downloaded file (check your &lt;code&gt;Downloads&lt;/code&gt; folder). Click yes through all the prompts to install like any other program.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;If you use macOS, &lt;a href=&#34;https://www.xquartz.org/&#34;&gt;download and install XQuartz&lt;/a&gt;. You do not need to do this on Windows.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Next will be the &lt;code&gt;```{r q1}&lt;/code&gt; text that will be in gray. &lt;strong&gt;R will recognize this as code and will treat it as such&lt;/strong&gt;. Anything run in that block will have an output.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;If you want to see what the code will do, copy the code and paste it into the gray area. Then, click the green right arrow in the top-right corner &lt;em&gt;of the gray code chunk&lt;/em&gt;. It should show you the results.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Use the results (plus your understanding of the code) to answer the question&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;With each completed question, clidk the “Knit” button up above the script window. Rmarkdown will create a .pdf for you of your work (as long as it doesn’t hit any R errors). Knit often to make sure you haven’t hit an error!&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The &lt;code&gt;\newpage&lt;/code&gt; line is a Latex command (the program that makes the typesetting look nice). It will start a new pdf page.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;On the next page, copy question #2 to a new header using &lt;code&gt;##&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Once done, render one last .pdf, proofread it, and turn it in on D2L!&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For more on using R Markdown, see the &lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/resource/rmarkdown/&#34;&gt;R Markdown page of our course resources&lt;/a&gt;. You can also learn about the general Markdown language &lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/resource/markdown/&#34;&gt;on our Markdown page of our course resources&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;fyi&#34;&gt;
+&lt;p&gt;&lt;strong&gt;EXERCISES&lt;/strong&gt;&lt;/p&gt;
+&lt;ol start=&#34;0&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;In your first code chunk, load the package library &lt;code&gt;tidyverse&lt;/code&gt;, which you will need for Question 8. Always load all your package libraries at the top, in the first code chunk!&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;What will this conditional expression return and why?&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- c(1,2,-3,4)
+
+if(all(x&amp;gt;0)){
+  print(&amp;quot;All Postives&amp;quot;)
+} else{
+  print(&amp;quot;Not all positives&amp;quot;)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Which of the following expressions is always &lt;code&gt;FALSE&lt;/code&gt; when at least one entry of a logical vector &lt;code&gt;x&lt;/code&gt; is TRUE?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;&lt;code&gt;all(x)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;any(x)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;any(!x)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;all(!x)&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol start=&#34;3&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;The function &lt;code&gt;nchar&lt;/code&gt; tells you how many characters long a character vector is. Write a line of code that assigns a new column in &lt;code&gt;murders&lt;/code&gt; called &lt;code&gt;new_names&lt;/code&gt; that is equal to the &lt;code&gt;state&lt;/code&gt; column. Then, replace &lt;code&gt;new_names&lt;/code&gt; with the corresponding state abbreviation when the state name is longer than 8 characters.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Create a function &lt;code&gt;sum_n&lt;/code&gt; that for any given value, say &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt;, computes the sum of the integers from 1 to n (inclusive). Use the function to determine the sum of integers from 1 to 5,000.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Create a function &lt;code&gt;altman_plot&lt;/code&gt; that takes two arguments, &lt;code&gt;x&lt;/code&gt; and &lt;code&gt;y&lt;/code&gt;, and plots the difference against the sum. Use it to make an altman plot of &lt;code&gt;x &amp;lt;- c(5,7,9)&lt;/code&gt; and &lt;code&gt;y &amp;lt;- c(10,11,12)&lt;/code&gt;. When your function creates the plot, it will output automatically in your Rmarkdown knitted .pdf.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;After running the code below, what is the value of &lt;code&gt;x&lt;/code&gt; and why?&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- 3
+my_func &amp;lt;- function(y){
+  x &amp;lt;- 5
+  y+5
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;7&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;Write a function &lt;code&gt;compute_s_n&lt;/code&gt; that for any given &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; computes the sum &lt;span class=&#34;math inline&#34;&gt;\(S_n = 1^2 + 2^2 + 3^2 + \dots n^2\)&lt;/span&gt;. Report the value of the sum when &lt;span class=&#34;math inline&#34;&gt;\(n=10\)&lt;/span&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Define an empty numerical vector &lt;code&gt;s_n&lt;/code&gt; of size 25 using &lt;code&gt;s_n &amp;lt;- vector(&#34;numeric&#34;, 25)&lt;/code&gt; and store in the results of &lt;span class=&#34;math inline&#34;&gt;\(S_1, S_2, \dots S_{25}\)&lt;/span&gt; using a for-loop.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Repeat exercise 8, but this time use &lt;code&gt;sapply&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Repeat exercise 8, but this time use &lt;code&gt;map_dbl&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Plot &lt;span class=&#34;math inline&#34;&gt;\(S_n\)&lt;/span&gt; versus &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt;. Use points defined by &lt;span class=&#34;math inline&#34;&gt;\(n=1,\dots,25\)&lt;/span&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Confirm that the formula for this sum is &lt;span class=&#34;math inline&#34;&gt;\(S_n= n(n+1)(2n+1)/6\)&lt;/span&gt;.&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
-&lt;div id=&#34;install-rstudio&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Install RStudio&lt;/h3&gt;
-&lt;p&gt;Next, you need to install RStudio, the nicer graphical user interface (GUI) for &lt;code&gt;R&lt;/code&gt; (the dashboard). Once &lt;code&gt;R&lt;/code&gt; and RStudio are both installed, you can ignore &lt;code&gt;R&lt;/code&gt; and only use RStudio. RStudio will use &lt;code&gt;R&lt;/code&gt; automatically and you won’t ever have to interact with it directly.&lt;/p&gt;
-&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;&lt;p&gt;Go to the free download location on RStudio’s website: &lt;a href=&#34;https://www.rstudio.com/products/rstudio/download/#download&#34; class=&#34;uri&#34;&gt;https://www.rstudio.com/products/rstudio/download/#download&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;The website should automatically detect your operating system (macOS or Windows) and show a big download button for it:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/img/install/install-r-rstudio1.png&#34; width=&#34;50%&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;If not, scroll down a little to the large table and choose the version of RStudio that matches your operating system.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/img/install/install-r-rstudio2.png&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Double click on the downloaded file (again, check your &lt;code&gt;Downloads&lt;/code&gt; folder). Click yes through all the prompts to install like any other program.&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Double click on RStudio to run it (check your applications folder or start menu).&lt;/p&gt;
 &lt;/div&gt;
-&lt;div id=&#34;install-tidyverse&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Install &lt;code&gt;tidyverse&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;code&gt;R&lt;/code&gt; packages are easy to install with RStudio. Select the packages panel, click on “Install,” type the name of the package you want to install, and press enter.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/img/install/install-r-package-panel.png&#34; width=&#34;40%&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;This can sometimes be tedious when you’re installing lots of packages, though. &lt;a href=&#34;https://www.tidyverse.org/&#34;&gt;The tidyverse&lt;/a&gt;, for instance, consists of dozens of packages (including the ever-present &lt;strong&gt;ggplot2&lt;/strong&gt;) that all work together. Rather than install each individually, you can install a single magical package and get them all at the same time.&lt;/p&gt;
-&lt;p&gt;Go to the packages panel in RStudio, click on “Install,” type “tidyverse”, and press enter. You’ll see a bunch of output in the RStudio console as all the tidyverse packages are installed.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/img/install/install-r-tidyverse.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Notice also that RStudio will generate a line of code for you and run it: &lt;code&gt;install.packages(&#34;tidyverse&#34;)&lt;/code&gt;. You can also just paste and run this instead of using the packages panel. Hopefully you’ve experienced installing packages before now; if not, consider this a crash course!&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;install-tinytex&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Install &lt;code&gt;tinytex&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;When you knit to PDF, &lt;code&gt;R&lt;/code&gt; uses a special scientific typesetting program named LaTeX.&lt;a href=&#34;#fn2&#34; class=&#34;footnote-ref&#34; id=&#34;fnref2&#34;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;LaTeX is neat and makes pretty documents, but it’s a huge program—&lt;a href=&#34;https://tug.org/mactex/mactex-download.html&#34;&gt;the macOS version, for instance, is nearly 4 GB&lt;/a&gt;. To make life easier, there’s &lt;a href=&#34;https://yihui.org/tinytex/&#34;&gt;an &lt;code&gt;R&lt;/code&gt; package named &lt;strong&gt;tinytex&lt;/strong&gt;&lt;/a&gt; that installs a minimal LaTeX program and that automatically deals with differences between macOS and Windows.&lt;/p&gt;
-&lt;p&gt;Here’s how to install &lt;strong&gt;tinytex&lt;/strong&gt; so you can knit to pretty PDFs:&lt;/p&gt;
-&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;Use the Packages in panel in RStudio to install &lt;strong&gt;tinytex&lt;/strong&gt; like you did above with &lt;strong&gt;tidyverse&lt;/strong&gt;. Alternatively, run &lt;code&gt;install.packages(&#34;tinytex&#34;)&lt;/code&gt; in the console.&lt;/li&gt;
-&lt;li&gt;Run &lt;code&gt;tinytex::install_tinytex()&lt;/code&gt; in the console.&lt;/li&gt;
-&lt;li&gt;Wait for a bit while &lt;code&gt;R&lt;/code&gt; downloads and installs everything you need.&lt;/li&gt;
-&lt;li&gt;The end! You should now be able to knit to PDF.&lt;/li&gt;
-&lt;/ol&gt;
 &lt;/div&gt;
 &lt;div class=&#34;footnotes&#34;&gt;
 &lt;hr /&gt;
 &lt;ol&gt;
-&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;It’s a goofy name, but CRAN is where most &lt;code&gt;R&lt;/code&gt; packages—and R itself—lives.&lt;a href=&#34;#fnref1&#34; class=&#34;footnote-back&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&#34;fn2&#34;&gt;&lt;p&gt;Pronounced “lay-tek” for those who are correct; or “lah-tex” to those who love goofy nerdy pronunciation. Technically speaking, the x is the “ch” sound in “Bach”, but most people just say it as “k”. While either saying “lay” or “lah” is correct, “layteks” is frowned upon because it clearly shows you’re not cool.&lt;a href=&#34;#fnref2&#34; class=&#34;footnote-back&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;&lt;a href=&#34;http://r-pkgs.had.co.nz/namespace.html&#34; class=&#34;uri&#34;&gt;http://r-pkgs.had.co.nz/namespace.html&lt;/a&gt;&lt;a href=&#34;#fnref1&#34; class=&#34;footnote-back&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
 </description>
@@ -1592,6 +2005,7 @@ csl: &amp;quot;https://raw.githubusercontent.com/citation-style-language/styles/
 
 &lt;p&gt;&lt;a href=&#34;https://rmarkdown.rstudio.com/&#34;&gt;R Markdown&lt;/a&gt; is &lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/reference/markdown/&#34;&gt;regular Markdown&lt;/a&gt; with R code and output sprinkled in. You can do everything you can with &lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/reference/markdown/&#34;&gt;regular Markdown&lt;/a&gt;, but you can incorporate graphs, tables, and other R output directly in your document. You can create HTML, PDF, and Word documents, PowerPoint and HTML presentations, websites, books, and even &lt;a href=&#34;https://rmarkdown.rstudio.com/flexdashboard/index.html&#34;&gt;interactive dashboards&lt;/a&gt; with R Markdown. This whole course website is created with R Markdown (and &lt;a href=&#34;https://bookdown.org/yihui/blogdown/&#34;&gt;a package named &lt;strong&gt;blogdown&lt;/strong&gt;&lt;/a&gt;).&lt;/p&gt;
 &lt;p&gt;The &lt;a href=&#34;https://rmarkdown.rstudio.com/&#34;&gt;documentation for R Markdown&lt;/a&gt; is extremely comprehensive, and their &lt;a href=&#34;https://rmarkdown.rstudio.com/lesson-1.html&#34;&gt;tutorials&lt;/a&gt; and &lt;a href=&#34;https://rmarkdown.rstudio.com/lesson-15.html&#34;&gt;cheatsheets&lt;/a&gt; are excellent—rely on those.&lt;/p&gt;
+&lt;p&gt;I have created a video walkthrough for using R Markdown for another course, but it is useful here. You can &lt;a href=&#34;https://mediaspace.msu.edu/media/R+Part+3/1_yigvqy1i&#34;&gt;see it here &lt;i class=&#34;fas fa-film&#34;&gt;&lt;/i&gt;&lt;/a&gt;]&lt;/p&gt;
 &lt;p&gt;Here are the most important things you’ll need to know about R Markdown in this class:&lt;/p&gt;
 &lt;div id=&#34;key-terms&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Key terms&lt;/h2&gt;
@@ -1602,9 +2016,9 @@ csl: &amp;quot;https://raw.githubusercontent.com/citation-style-language/styles/
 # Code goes here
 ```&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;There must be an empty line before and after the chunk. The final three backticks must be the only thing on the line—if you add more text, or if you forget to add the backticks, or accidentally delete the backticks, your document will not knit correctly.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Knit&lt;/strong&gt;: When you “knit” a document, R runs each of the chunks sequentially and converts the output of each chunk into Markdown. R then runs the knitted document through &lt;a href=&#34;https://pandoc.org/&#34;&gt;pandoc&lt;/a&gt; to convert it to HTML or PDF or Word (or whatever output you’ve selected).&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Knit&lt;/strong&gt;: When you “knit” a document, R runs each of the chunks sequentially and converts the output of each chunk into Markdown. R then runs the knitted document through &lt;a href=&#34;https://pandoc.org/&#34;&gt;pandoc&lt;/a&gt; to convert it to HTML or PDF or Word (or whatever output you’ve selected). We will always use PDF for this course.&lt;/p&gt;
 &lt;p&gt;You can knit by clicking on the “Knit” button at the top of the editor window, or by pressing &lt;code&gt;⌘⇧K&lt;/code&gt; on macOS or &lt;code&gt;control + shift + K&lt;/code&gt; on Windows.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/img/assignments/knit-button.png&#34; width=&#34;30%&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;p&gt;&lt;img src=&#34;../../../../../../../img/assignments/knit-button.png&#34; width=&#34;30%&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div id=&#34;add-chunks&#34; class=&#34;section level2&#34;&gt;
@@ -1613,14 +2027,14 @@ csl: &amp;quot;https://raw.githubusercontent.com/citation-style-language/styles/
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;Press &lt;code&gt;⌘⌥I&lt;/code&gt; on macOS or &lt;code&gt;control + alt + I&lt;/code&gt; on Windows&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Click on the “Insert” button at the top of the editor window&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/img/reference/insert-chunk.png&#34; width=&#34;30%&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;p&gt;&lt;img src=&#34;../../../../../../../img/reference/insert-chunk.png&#34; width=&#34;30%&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Manually type all the backticks and curly braces (don’t do this)&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div id=&#34;chunk-names&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Chunk names&lt;/h2&gt;
 &lt;p&gt;You can add names to chunks to make it easier to navigate your document. If you click on the little dropdown menu at the bottom of your editor in RStudio, you can see a table of contents that shows all the headings and chunks. If you name chunks, they’ll appear in the list. If you don’t include a name, the chunk will still show up, but you won’t know what it does.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/img/reference/chunk-toc.png&#34; width=&#34;40%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../../../../../../img/reference/chunk-toc.png&#34; width=&#34;40%&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;To add a name, include it immediately after the &lt;code&gt;{r&lt;/code&gt; in the first line of the chunk. Names cannot contain spaces, but they can contain underscores and dashes. &lt;strong&gt;All chunk names in your document must be unique.&lt;/strong&gt;&lt;/p&gt;
 &lt;pre class=&#34;markdown&#34;&gt;&lt;code&gt;```{r name-of-this-chunk}
 # Code goes here
@@ -1642,7 +2056,7 @@ csl: &amp;quot;https://raw.githubusercontent.com/citation-style-language/styles/
 &lt;li&gt;&lt;code&gt;include=FALSE&lt;/code&gt;: The chunk still runs, but the code and results are not included in the final document&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;You can also set chunk options by clicking on the little gear icon in the top right corner of any chunk:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/img/reference/chunk-options.png&#34; width=&#34;70%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../../../../../../img/reference/chunk-options.png&#34; width=&#34;70%&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;inline-chunks&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Inline chunks&lt;/h2&gt;
@@ -1667,7 +2081,7 @@ output:
   pdf_document: default
   word_document: default&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;You can also click on the down arrow on the “Knit” button to choose the output &lt;em&gt;and&lt;/em&gt; generate the appropriate YAML. If you click on the gear icon next to the “Knit” button and choose “Output options”, you change settings for each specific output type, like default figure dimensions or whether or not a table of contents is included.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/img/reference/output-options.png&#34; width=&#34;35%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../../../../../../img/reference/output-options.png&#34; width=&#34;35%&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;The first output type listed under &lt;code&gt;output:&lt;/code&gt; will be what is generated when you click on the “Knit” button or press the keyboard shortcut (&lt;code&gt;⌘⇧K&lt;/code&gt; on macOS; &lt;code&gt;control + shift + K&lt;/code&gt; on Windows). If you choose a different output with the “Knit” button menu, that output will be moved to the top of the &lt;code&gt;output&lt;/code&gt; section.&lt;/p&gt;
 &lt;p&gt;The indentation of the YAML section matters, especially when you have settings nested under each output type. Here’s what a typical &lt;code&gt;output&lt;/code&gt; section might look like:&lt;/p&gt;
 &lt;pre class=&#34;yaml&#34;&gt;&lt;code&gt;---
@@ -1926,7 +2340,7 @@ mpg %&amp;gt;%
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://tinyletter.com/data-is-plural&#34;&gt;&lt;strong&gt;Data is Plural newsletter&lt;/strong&gt;&lt;/a&gt;: Jeremy Singer-Vine sends a weekly newsletter of the most interesting public datasets he’s found. You should subscribe to it. &lt;a href=&#34;https://docs.google.com/spreadsheets/d/1wZhPLMCHKJvwOkP4juclhjFgqIY8fQFMemwKL2c64vk/edit#gid=0&#34;&gt;He also has an archive of all the datasets he’s highlighted.&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://toolbox.google.com/datasetsearch&#34;&gt;&lt;strong&gt;Google Dataset Search&lt;/strong&gt;&lt;/a&gt;: Google indexes thousands of public datasets; search for them here.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://www.kaggle.com/datasets&#34;&gt;&lt;strong&gt;Kaggle&lt;/strong&gt;&lt;/a&gt;: Kaggle hosts machine learning competitions where people compete to create the fastest, most efficient, most predictive algorithms. A byproduct of these competitions is a host of fascinating datasets that are generally free and open to the public. See, for example, &lt;a href=&#34;https://www.kaggle.com/hugomathien/soccer&#34;&gt;the European Soccer Database&lt;/a&gt;, the &lt;a href=&#34;https://www.kaggle.com/rtatman/salem-witchcraft-dataset&#34;&gt;Salem Witchcraft Dataset&lt;/a&gt; or results from an &lt;a href=&#34;https://www.kaggle.com/rtatman/oreo-flavors-tastetest-ratings&#34;&gt;Oreo flavors taste test&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://www.kaggle.com/datasets&#34;&gt;&lt;strong&gt;Kaggle&lt;/strong&gt;&lt;/a&gt;: Kaggle hosts machine learning competitions where people compete to create the fastest, most efficient, most predictive algorithms. A byproduct of these competitions is a host of fascinating datasets that are generally free and open to the public. See, for example, &lt;a href=&#34;https://www.kaggle.com/hugomathien/soccer&#34;&gt;the European Soccer Database&lt;/a&gt;, the &lt;a href=&#34;https://www.kaggle.com/rtatman/salem-witchcraft-dataset&#34;&gt;Salem Witchcraft Dataset&lt;/a&gt; or results from an &lt;a href=&#34;https://www.kaggle.com/rtatman/oreo-flavors-tastetest-ratings&#34;&gt;Oreo flavors taste test&lt;/a&gt;. &lt;strong&gt;Note: when you are asked in an assignment or project to find data, Kaggle is not a valid source. You learn nothing about farming by getting fruit from the market. Similarly, you learn nothing about data analysis by getting pre-packaged data from Kaggle.&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://www.threesixtygiving.org/data/data-registry/&#34;&gt;&lt;strong&gt;360Giving&lt;/strong&gt;&lt;/a&gt;: Dozens of British foundations follow a standard file format for sharing grant data and have made that data available online.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://us-cities.survey.okfn.org/&#34;&gt;&lt;strong&gt;US City Open Data Census&lt;/strong&gt;&lt;/a&gt;: More than 100 US cities have committed to sharing dozens of types of data, including data about crime, budgets, campaign finance, lobbying, transit, and zoning. This site from the &lt;a href=&#34;http://sunlightfoundation.com/&#34;&gt;Sunlight Foundation&lt;/a&gt; and &lt;a href=&#34;http://www.codeforamerica.org//&#34;&gt;Code for America&lt;/a&gt; collects this data and rates cities by how well they’re doing.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;Political science and economics datasets&lt;/strong&gt;: There’s a wealth of data available for political science- and economics-related topics:&lt;/p&gt;
@@ -1935,6 +2349,12 @@ mpg %&amp;gt;%
 &lt;li&gt;&lt;a href=&#34;https://github.com/leeper/poliscitoys/issues/1&#34;&gt;&lt;strong&gt;Thomas Leeper’s list of political science datasets&lt;/strong&gt;&lt;/a&gt;: Good short list of useful datasets, divided by type of data (country-level data, survey data, social media data, event data, text data, etc.).&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/erikgahner/PolData&#34;&gt;&lt;strong&gt;Erik Gahner’s list of political science datasets&lt;/strong&gt;&lt;/a&gt;: Huge list of useful datasets, divided by topic (governance, elections, policy, political elites, etc.)&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Geospatial datasets&lt;/strong&gt;: For our geospatial unit, many entities (government agencies, etc.) post repositories of spatial data via arcgis.com, which is owned by ESRI, the company that makes the predominant commercial GIS software. The data owner decides what data to post and how to present it, but arcgis.com provides the hosting. R has excellent geospatial functionalities, so we cover (when time permits) geospatial data. It is easy to find geospatial data to import into R. Here are a few:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://gis-michigan.opendata.arcgis.com/&#34;&gt;&lt;strong&gt;State of Michigan Open Data Portal&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://hifld-geoplatform.opendata.arcgis.com/&#34;&gt;&lt;strong&gt;Homeland Infrastructure Foundation-Level Data (HIFLD)&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://coel.maps.arcgis.com/apps/webappviewer/index.html?id=076f31109b974149ac3e1c2379aac8d6&#34;&gt;&lt;strong&gt;City of East Lansing Data Viewer&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
@@ -1942,7 +2362,7 @@ mpg %&amp;gt;%
     <item>
       <title>Welcome Back to R</title>
       <link>https://ssc442kirkpatrick.netlify.app/content/00-content/</link>
-      <pubDate>Mon, 29 Aug 2022 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 30 Aug 2022 00:00:00 +0000</pubDate>
       <guid>https://ssc442kirkpatrick.netlify.app/content/00-content/</guid>
       <description>
 &lt;script src=&#34;https://ssc442kirkpatrick.netlify.app/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
@@ -1978,7 +2398,7 @@ mpg %&amp;gt;%
 &lt;li&gt;&lt;a href=&#34;#r-basics&#34;&gt;&lt;code&gt;R&lt;/code&gt; basics&lt;/a&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#case-study-us-homicides-by-firearm&#34;&gt;Case study: US homicides by firearm&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#the-very-basics&#34;&gt;The (very) basics&lt;/a&gt;
+&lt;li&gt;&lt;a href=&#34;#the-very-basics-of-r&#34;&gt;The (very) basics of &lt;code&gt;R&lt;/code&gt;&lt;/a&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#objects&#34;&gt;Objects&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#the-workspace&#34;&gt;The workspace&lt;/a&gt;&lt;/li&gt;
@@ -2028,10 +2448,8 @@ mpg %&amp;gt;%
 &lt;li&gt;&lt;a href=&#34;#subsetting-with-logicals&#34;&gt;Subsetting with logicals&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#logical-operators&#34;&gt;Logical operators&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#which&#34;&gt;&lt;code&gt;which&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#match&#34;&gt;&lt;code&gt;match&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#in&#34;&gt;&lt;code&gt;%in%&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#rmarkdown&#34;&gt;Rmarkdown&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
@@ -2112,16 +2530,16 @@ mpg %&amp;gt;%
 &lt;h3&gt;More About This Course&lt;/h3&gt;
 &lt;p&gt;There are sort of three texts for this course and sort of zero.&lt;/p&gt;
 &lt;p&gt;The “main text” is free and available online. The secondary text is substantially more difficult, but also free online. The third text costs about $25. Assigned readings can be found on the course website under “Content”.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Please please please please please:&lt;/strong&gt; Ask questions during class via chat.
+&lt;p&gt;&lt;strong&gt;Please please please please please:&lt;/strong&gt; Ask questions during class.
 - Most ideas will be new.
 - Sometimes (often?) the material itself will be confusing or interesting—or both!
-- Teaching online is incredibly challenging (no feedback) and chat is vital to success.
+- &lt;del&gt;Teaching online is incredibly challenging (no feedback) and chat is vital to success.&lt;/del&gt; We’re back in person!
 - &lt;strong&gt;Note:&lt;/strong&gt; If I find that attendance is terrible, I may have to start incorporating attendance into participation.&lt;/p&gt;
 &lt;p&gt;Return of the Please: If there is some topic that you really want to learn about, ask. If you are uncomfortable asking in front of the whole group, please see me during office hours.&lt;/p&gt;
-&lt;p&gt;Because this is a new course:&lt;/p&gt;
+&lt;p&gt;Because this is a new-ish course:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;Some of the lectures will be way too long or too short.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Some (most?) of the lectures won’t make sense.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Some of the lectures won’t make sense at first&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Some of the time I’ll forget what I intended to say and awkwardly stare at you for a few moments (sorry).&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Comment &lt;strong&gt;throughout&lt;/strong&gt; the course, not just at the end.&lt;/p&gt;
@@ -2129,7 +2547,7 @@ mpg %&amp;gt;%
 &lt;p&gt;I encourage measured feedback and thoughtful responses to questions. If I call on you and you don’t know immediately, don’t freak out. If you don’t know, it’s totally okay to say you don’t know.&lt;/p&gt;
 &lt;div id=&#34;super-big-important-explanation-of-the-course&#34; class=&#34;section level4&#34;&gt;
 &lt;h4&gt;SUPER BIG IMPORTANT EXPLANATION OF THE COURSE&lt;/h4&gt;
-&lt;p&gt;I teach using ``math’’.&lt;/p&gt;
+&lt;p&gt;I teach using “math”.&lt;/p&gt;
 &lt;p&gt;…Don’t be afraid. The math won’t hurt you.&lt;/p&gt;
 &lt;p&gt;I fundamentally believe that true knowledge of how we learn from data depends on a basic understanding of the underlying mathematics.&lt;/p&gt;
 &lt;p&gt;-Good news: no black boxes.
@@ -2144,16 +2562,13 @@ mpg %&amp;gt;%
 &lt;p&gt;Good news: I’m good at knowing what I don’t know and have a very small ego, which means that I’m much less likely to blow smoke up your ass than other professors.&lt;/p&gt;
 &lt;p&gt;Bad news: I can’t help with certain types of questions.&lt;/p&gt;
 &lt;p&gt;This course should be applicable broadly, but many of the examples will lean on my personal expertise (sorry).&lt;/p&gt;
-&lt;p&gt;Your assignment: read syllabus the content from Week 0.&lt;/p&gt;
+&lt;p&gt;Your assignment: read syllabus, the content from Week 0, and the Example from Week 0 (we start on a Thursday so we have to get thru both in one day).&lt;/p&gt;
 &lt;p&gt;Things to stress from syllabus:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;E-mail isn’t the ideal solution for technical problems&lt;/li&gt;
 &lt;li&gt;No appointments necessary for regularly scheduled office hours; or by appointment.&lt;/li&gt;
 &lt;li&gt;TA office hours are great as well. Our TA has experience in this course.&lt;/li&gt;
-&lt;li&gt;Can only reschedule exams (with good reason) if you tell me &lt;strong&gt;before&lt;/strong&gt; the exam that you have a conflict.
-&lt;ul&gt;
 &lt;li&gt;Notify me immediately if you need accommodations because of RCPD or religious convictions; If you approach me at the last minute, I may not be able to help.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Despite my hard-assness in these intro slides: I’m here to help and I am not in the business of giving bad grades for no reason.&lt;/p&gt;
 &lt;/div&gt;
@@ -2190,7 +2605,7 @@ mpg %&amp;gt;%
 &lt;h4&gt;Social Science Approaches to Statistical Learning&lt;/h4&gt;
 &lt;p&gt;&lt;strong&gt;A Brief History&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Suppose you are a researcher and you want to know whether prisons reduce crime.&lt;/p&gt;
-&lt;p&gt;from ``A Call for a Moratorium on Prison Building’’ (1976)&lt;/p&gt;
+&lt;p&gt;from “A Call for a Moratorium on Prison Building” (1976)&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Between 1955 and 1975, fifteen states increased the collective capacity of their adult prison systems by 56% (from, on average, 63,100 to 98,649).&lt;/li&gt;
 &lt;li&gt;Fifteen other states increased capacity by less than 4% (from 49,575 to 51,440).&lt;/li&gt;
@@ -2251,13 +2666,14 @@ X causes Y and Y causes X (simultaneous equations)&lt;/p&gt;&lt;/li&gt;
 + Unstructured text or audio
 + Facial expressions or vocal intonations
 - Subtle improvements on existing techniques
-- An eye towards practical implementability over ``cleanliness”&lt;/p&gt;
+- An eye towards practical implementability over “cleanliness”&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;a-case-study-in-prediction&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;A Case Study in Prediction&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;Example:&lt;/strong&gt; a firm wishes to predict user behavior based on previous purchases or interactions.&lt;/p&gt;
-&lt;p&gt;Small margins &lt;span class=&#34;math inline&#34;&gt;\(\rightarrow\)&lt;/span&gt; huge payoffs. &lt;span class=&#34;math inline&#34;&gt;\(10\% \rightarrow\)&lt;/span&gt; $1 million.&lt;/p&gt;
+&lt;p&gt;Small margins &lt;span class=&#34;math inline&#34;&gt;\(\rightarrow\)&lt;/span&gt; huge payoffs when &lt;em&gt;scaled up&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math inline&#34;&gt;\(.01\% \rightarrow\)&lt;/span&gt; $10 million.&lt;/p&gt;
 &lt;p&gt;Not obvious why this was true for Netflix; quite obvious why this is true in financial markets.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;more-recent-examples-of-prediction&#34; class=&#34;section level3&#34;&gt;
@@ -2270,6 +2686,7 @@ X causes Y and Y causes X (simultaneous equations)&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;Customize an email spam detection system.&lt;/li&gt;
 &lt;li&gt;Identify a hand-drawn object.&lt;/li&gt;
 &lt;li&gt;Determine which oscillations of stellar luminosity are likely due to exoplanets.&lt;/li&gt;
+&lt;li&gt;Identify food combinations that cause spikes in blood glucose level for an individual.&lt;/li&gt;
 &lt;li&gt;Establish the relationship between salary and demographic variables in population survey data.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
@@ -2295,9 +2712,12 @@ X causes Y and Y causes X (simultaneous equations)&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;This pattern is not easily expressed in a closed mathematical form.&lt;/li&gt;
 &lt;li&gt;You have data.&lt;/li&gt;
 &lt;/ol&gt;
+&lt;div id=&#34;lets-pause-here-for-questions&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Let’s pause here for questions&lt;/h4&gt;
 &lt;div class=&#34;fyi&#34;&gt;
 &lt;p&gt;&lt;strong&gt;ALERT&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;The course content below should be considered a prerequisite for success. For those concerned about basics of &lt;code&gt;R&lt;/code&gt;, you absolutely must read this content and attempt the coding exercises. If you struggle to follow the content, please contact the professor or TA.&lt;/p&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2305,7 +2725,7 @@ X causes Y and Y causes X (simultaneous equations)&lt;/p&gt;&lt;/li&gt;
 &lt;h1&gt;&lt;code&gt;R&lt;/code&gt; basics&lt;/h1&gt;
 &lt;p&gt;In this class, we will be using &lt;code&gt;R&lt;/code&gt; software environment for all our analyses. You will learn &lt;code&gt;R&lt;/code&gt; and data analysis techniques simultaneously. To follow along you will therefore need access to &lt;code&gt;R&lt;/code&gt;. We also recommend the use of an &lt;em&gt;integrated development environment&lt;/em&gt; (IDE), such as RStudio, to save your work.
 Note that it is common for a course or workshop to offer access to an &lt;code&gt;R&lt;/code&gt; environment and an IDE through your web browser, as done by RStudio cloud&lt;a href=&#34;#fn1&#34; class=&#34;footnote-ref&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;. If you have access to such a resource, you don’t need to install &lt;code&gt;R&lt;/code&gt; and RStudio. However, if you intend on becoming a practicing data analyst, we highly recommend installing these tools on your computer&lt;a href=&#34;#fn2&#34; class=&#34;footnote-ref&#34; id=&#34;fnref2&#34;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;. This is not hard.&lt;/p&gt;
-&lt;p&gt;Both &lt;code&gt;R&lt;/code&gt; and RStudio are free and available online.&lt;/p&gt;
+&lt;p&gt;Both &lt;code&gt;R&lt;/code&gt; and RStudio are free and available online. If you have not yet done so, you’ll need to install both R and RStudio. See the &lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/resource/install/&#34;&gt;Installing page of our course resources&lt;/a&gt; for instructions. This will be part of your assignment for this week.&lt;/p&gt;
 &lt;div id=&#34;case-study-us-homicides-by-firearm&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Case study: US homicides by firearm&lt;/h2&gt;
 &lt;p&gt;Imagine you live in Europe (if only!) and are offered a job in a US company with many locations in every state. It is a great job, but headlines such as &lt;strong&gt;US Gun Homicide Rate Higher Than Other Developed Countries&lt;/strong&gt;&lt;a href=&#34;#fn3&#34; class=&#34;footnote-ref&#34; id=&#34;fnref3&#34;&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt; have you worried. Fox News runs a scary looking graphic, and charts like the one below only add to that concern:&lt;/p&gt;
@@ -2316,16 +2736,16 @@ Note that it is common for a course or workshop to offer access to an &lt;code&g
 &lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/content/00-content_files/figure-html/murder-rate-example-2-1.png&#34; width=&#34;70%&#34; /&gt;
 &lt;!--(Source  [everytown.org](https://everytownresearch.org))--&gt;&lt;/p&gt;
 &lt;p&gt;But then you remember that (1) this is a hypothetical exercise; (2) you’ll take literally any job at this point; and (3) Geographic diversity matters – the United States is a large and diverse country with 50 very different states (plus the District of Columbia and some lovely territories).&lt;a href=&#34;#fn4&#34; class=&#34;footnote-ref&#34; id=&#34;fnref4&#34;&gt;&lt;sup&gt;4&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;## Warning: It is deprecated to specify `guide = FALSE` to remove a guide. Please
-## use `guide = &amp;quot;none&amp;quot;` instead.&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/content/00-content_files/figure-html/us-murders-by-state-map-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;California, for example, has a larger population than Canada, and 20 US states have populations larger than that of Norway. In some respects, the variability across states in the US is akin to the variability across countries in Europe. Furthermore, although not included in the charts above, the murder rates in Lithuania, Ukraine, and Russia are higher than 4 per 100,000. So perhaps the news reports that worried you are too superficial.&lt;/p&gt;
 &lt;p&gt;This is a relatively simple and straightforward problem in social science: you have options of where to live, and want to determine the safety of the various states. Your “research” is clearly policy-relevant: you will eventually have to live somewhere. We will begin to tackle the problem by examining data related to gun homicides in the US during 2010 using &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Before we get started with our example, we need to cover logistics as well as some of the very basic building blocks that are required to gain more advanced &lt;code&gt;R&lt;/code&gt; skills. Ideally, this is a refresher. However, we are aware that your preparation in previously courses varies greatly from student to student. Moreover, we want you to be aware that the usefulness of some of these early building blocks may not be immediately obvious. Later in the class you will appreciate having these skills. Mastery will be rewarded both in this class and (of course) in life.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div id=&#34;the-very-basics&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;The (very) basics&lt;/h2&gt;
+&lt;div id=&#34;the-very-basics-of-r&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;The (very) basics of &lt;code&gt;R&lt;/code&gt;&lt;/h2&gt;
 &lt;p&gt;Before we get started with the motivating dataset, we need to cover the very basics of &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;If you have not yet done so, you’ll need to install both R and RStudio. See the &lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/resource/install/&#34;&gt;Installing page of our course resources&lt;/a&gt; for instructions.&lt;/p&gt;
+&lt;p&gt;I have created a video walkthrough for the basics of using R for another course, but it is useful here. You can &lt;a href=&#34;https://mediaspace.msu.edu/media/R+Part+2a/1_kmszjw36&#34;&gt;see part A here (labeled “Part 2a”) here &lt;i class=&#34;fas fa-film&#34;&gt;&lt;/i&gt;&lt;/a&gt;] and &lt;a href=&#34;https://mediaspace.msu.edu/media/R+Part+2b/1_c0vf0i63&#34;&gt;part B here (labeled “Part 2b”) &lt;i class=&#34;fas fa-film&#34;&gt;&lt;/i&gt;&lt;/a&gt;. You should already be at this level of familiarity with R, but if you need a review, this is a good place to start.&lt;/p&gt;
 &lt;div id=&#34;objects&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Objects&lt;/h3&gt;
 &lt;p&gt;Suppose a relatively math unsavvy student asks us for help solving several quadratic equations of the form &lt;span class=&#34;math inline&#34;&gt;\(ax^2+bx+c = 0\)&lt;/span&gt;. You—a savvy student—recall that the quadratic formula gives us the solutions:&lt;/p&gt;
@@ -3137,32 +3557,12 @@ murders$state[ind]&lt;/code&gt;&lt;/pre&gt;
 murder_rate[ind]&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 3.374138&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;div id=&#34;match&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;&lt;code&gt;match&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;If instead of just one state we want to find out the murder rates for several states, say New York, Florida, and Texas, we can use the function &lt;code&gt;match&lt;/code&gt;. This function tells us which indexes of a second vector match each of the entries of a first vector:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ind &amp;lt;- match(c(&amp;quot;New York&amp;quot;, &amp;quot;Florida&amp;quot;, &amp;quot;Texas&amp;quot;), murders$state)
-ind&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 33 10 44&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Now we can look at the murder rates:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;murder_rate[ind]&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 2.667960 3.398069 3.201360&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 &lt;div id=&#34;in&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;&lt;code&gt;%in%&lt;/code&gt;&lt;/h3&gt;
 &lt;p&gt;If rather than an index we want a logical that tells us whether or not each element of a first vector is in a second, we can use the function &lt;code&gt;%in%&lt;/code&gt;. Let’s imagine you are not sure if Boston, Dakota, and Washington are states. You can find out like this:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;c(&amp;quot;Boston&amp;quot;, &amp;quot;Dakota&amp;quot;, &amp;quot;Washington&amp;quot;) %in% murders$state&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] FALSE FALSE  TRUE&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Note that we will be using &lt;code&gt;%in%&lt;/code&gt; often throughout the book.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Advanced&lt;/strong&gt;: There is a connection between &lt;code&gt;match&lt;/code&gt; and &lt;code&gt;%in%&lt;/code&gt; through &lt;code&gt;which&lt;/code&gt;. To see this, notice that the following two lines produce the same index (although in different order):&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;match(c(&amp;quot;New York&amp;quot;, &amp;quot;Florida&amp;quot;, &amp;quot;Texas&amp;quot;), murders$state)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 33 10 44&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;which(murders$state%in%c(&amp;quot;New York&amp;quot;, &amp;quot;Florida&amp;quot;, &amp;quot;Texas&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 10 33 44&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;rmarkdown&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Rmarkdown&lt;/h2&gt;
-&lt;p&gt;If you’re new to Rmarkdown, I have made &lt;a href=&#34;https://mediaspace.msu.edu/media/Spring2021_R_Part3/1_yigvqy1i&#34;&gt;a short video on how to use it &lt;i class=&#34;fas fa-film&#34;&gt;&lt;/i&gt;&lt;/a&gt;. This video is for my EC420 course, but works for us as well.&lt;/p&gt;
+&lt;p&gt;Note that we will be using &lt;code&gt;%in%&lt;/code&gt; often throughout the course&lt;/p&gt;
 &lt;div class=&#34;fyi&#34;&gt;
 &lt;p&gt;&lt;strong&gt;EXERCISES&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Start by loading the library and data.&lt;/p&gt;
@@ -3178,6 +3578,7 @@ data(murders)&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;&lt;p&gt;Use the &lt;code&gt;%in%&lt;/code&gt; operator to create a logical vector that answers the question: which of the following are actual abbreviations: MA, ME, MI, MO, MU?&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Extend the code you used in exercise 7 to report the one entry that is &lt;strong&gt;not&lt;/strong&gt; an actual abbreviation. Hint: use the &lt;code&gt;!&lt;/code&gt; operator, which turns &lt;code&gt;FALSE&lt;/code&gt; into &lt;code&gt;TRUE&lt;/code&gt; and vice versa, then &lt;code&gt;which&lt;/code&gt; to obtain an index.&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -4645,7 +5046,7 @@ Print the object &lt;code&gt;p&lt;/code&gt; defined in exercise one and describe
             &lt;td style=&#34;width:8%;text-align:center&#34; class=&#34;mid-table-header&#34;&gt;Assignment&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 8 (Oct ~~25/~~27)&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 8 (Oct -25/27)&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;LASSO: Least Absolute Shrinkage and Selection&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
                 &lt;font color=&#34;f1f1f1&#34;&gt;
@@ -4714,7 +5115,7 @@ Print the object &lt;code&gt;p&lt;/code&gt; defined in exercise one and describe
             &lt;td style=&#34;width:8%;text-align:center&#34; class=&#34;mid-table-header&#34;&gt;Assignment&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 12 (Nov 22/~~24~~)&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 12 (Nov 22/-24)&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Text as Data&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;https://ssc442kirkpatrick.netlify.app/content/12-content/&#34;&gt;

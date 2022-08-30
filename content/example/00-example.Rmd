@@ -30,7 +30,8 @@ Examples in this class are designed to be presented in-class. Accordingly, the n
 I'm also aware that my writing is dry and lifeless. If you're reading this online without the advantage of seeing it in person, don't worry---I'll be "funnier" in class.^[Comments from previous classes indicate that I am not, in fact, funny.]
 
 
-## Getting started with `R` and RStudio {#getting-started}
+## Getting started with `R` and RStudio Workflows {#getting-started}
+In Content this week, we reviewed the use of R. Now, let's talk about doing work in R.
 
 `R` is not a programming language like `C` or `Java`. It was not created by software engineers for software development. Instead, it was developed by statisticians as an interactive environment for data analysis. You can read the full history in the paper A Brief History of S^[https://pdfs.semanticscholar.org/9b48/46f192aa37ca122cfabb1ed1b59866d8bfda.pdf]. The interactivity is an indispensable feature in data science because, as you will soon learn, the ability to quickly explore data is a necessity for success in this field. However, like in other programming languages, you can save your work as scripts that can be easily executed at any moment. These scripts serve as a record of the analysis you performed, a key feature that facilitates reproducible work. If you are an expert programmer, you should not expect `R` to follow the conventions you are used---assuming this will leave you disappointed. If you are patient, you will come to appreciate the unequal power of `R` when it comes to data analysis and data visualization.
 
@@ -43,9 +44,15 @@ Other attractive features of `R` are:
 5. It is easy for others to contribute add-ons which enables developers to share software implementations of new data science methodologies. The latest methods and tools are developed in `R` for a wide variety of disciplines and since social science is so broad, `R` is one of the few tools that spans the varied social sciences.
 
 
+### Installing `R` and RStudio
+If you have not yet done so, you'll need to install both R and RStudio. See the [Installing page of our course resources](/resource/install/) for instructions.
+
+I have created a video walkthrough for the basics of using R for another course, but it is useful here. You can [see part A here (labeled "Part 2a") here <i class="fas fa-film"></i>](https://mediaspace.msu.edu/media/R+Part+2a/1_kmszjw36)] and [part B here (labeled "Part 2b")  <i class="fas fa-film"></i>](https://mediaspace.msu.edu/media/R+Part+2b/1_c0vf0i63). You should already be at this level of familiarity with R, but if you need a review, this is a good place to start.
+
+
 ## The `R` console
 
-Interactive data analysis usually occurs on the _R console_ that executes commands as you type them. There are several ways to gain access to an `R` console. One way is to simply start `R` on your computer. The console looks something like this:
+Interactive data analysis usually occurs on the _R console_ that executes commands as you type them. There are several ways to gain access to an `R` console. One way is to simply start `R` on your computer. R Studio runs R inside of, so you won't usually access `R` this way. The console looks something like this:
 
 
 ![](/img/R_console2.png)
@@ -61,8 +68,6 @@ As a quick example, try using the console to calculate a 15% tip on a meal that 
 ## Scripts
 
 One of the great advantages of `R` over point-and-click analysis software is that you can save your work as scripts. You can edit and save these scripts using a text editor. The material in this course was developed using the interactive _integrated development environment_ (IDE) RStudio^[https://www.rstudio.com/]. RStudio includes an editor with many `R` specific features, a console to execute your code, and other useful panes, including one to show figures.
-
-![](/img/RStudio.png)
 
 Most web-based `R` consoles also provide a pane to edit scripts, but not all permit you to save the scripts for later use. On the upper-right part of this webpage you'll see a little button with the `R` logo. You can access a web-based console there.
 
@@ -112,7 +117,7 @@ Change the option _Save workspace to .RData on exit_ to _Never_ and uncheck the 
 
 ## Installing `R` packages
 
-The functionality provided by a fresh install of `R` is only a small fraction of what is possible. In fact, we refer to what you get after your first install as _base R_. The extra functionality comes from add-ons available from developers. There are currently hundreds of these available from CRAN and many others shared via other repositories such as GitHub. However, because not everybody needs all available functionality, `R` instead makes different components available via _packages_. `R` makes it very easy to install packages from within R. For example, to install the __dslabs__ package, which we use to share datasets and code related to this book, you would type:
+The functionality provided by a fresh install of `R` is only a small fraction of what is possible. In fact, we refer to what you get after your first install as _base R_. The extra functionality comes from add-ons available from developers. There are currently hundreds of these available from CRAN and many others shared via other repositories such as GitHub. However, because not everybody needs all available functionality, `R` instead makes different components available via _packages_. `R` makes it very easy to install packages from within R. For example, to install the __dslabs__ package, which we use to share datasets and code related to this course, you would type:
 
 ```{r,eval=FALSE}
 install.packages("dslabs")
@@ -124,7 +129,7 @@ In RStudio, you can navigate to the _Tools_ tab and select install packages. We 
 library(dslabs)
 ```
 
-As you go through this book, you will see that we load packages without installing them. This is because once you install a package, it remains installed and only needs to be loaded with `library`. The package remains loaded until we quit the `R` session. If you try to load a package and get an error, it probably means you need to
+As you go through this course, you will see that we load packages without installing them. This is because once you install a package, it remains installed and only needs to be loaded with `library`. The package remains loaded until we quit the `R` session. If you try to load a package and get an error, it probably means you need to
 install it first.
 
 We can install more than one package at once by feeding a character vector to this function:
@@ -155,11 +160,9 @@ The power of Rmarkdown is that it lets us mix formatted text with R code. That i
 
 [Try it out using the Weekly Writing Template](https://raw.githubusercontent.com/ajkirkpatrick/FS20/Spring2021/Rmarkdown_templates/SSC442_Weekly_Writing_Template.Rmd). If it opens in your web browser, just right-click the link and select Save As.... **Make sure you save the file to its own folder on your hard drive**. In converting your Rmarkdown .Rmd file to a .pdf, your system will make multiple interim files^[Specifically, knitr will create an intermediate .md file which is then processed with Pandoc using Latex to create a pdf. Whew!]. It also creates folders to store the output of any plots or graphics you create with your R code. 
 
+If you're new to Rmarkdown, I have made [a short video on how to use it <i class="fas fa-film"></i> ](https://mediaspace.msu.edu/media/Spring2021_R_Part3/1_yigvqy1i). This video is for my EC420 course, but works for us as well.
+
 If we have time today, let's open the template linked above and see what happens when we select "knit to pdf".
 
 
-
-## Lecture Video
-
-Video from lecture [hosted on Mediaspace <i class="fas fa-film"></i>](https://mediaspace.msu.edu/media/SSC442+-+Lecture+and+Office+Hours/1_pvyem45x?st=375)
 

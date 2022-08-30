@@ -14,7 +14,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-You must turn in a PDF document of your `R markdown` code. Submit this to D2L by 11:59 PM on Monday January 17th.
+You must turn in a PDF document knitted from your R Markdown code. Submit this to D2L by 11:59 PM on Monday September 5th under "lab 0". You do not need to submit your .rmd file code - just the knitted PDF.
 
  
 :::fyi
@@ -24,6 +24,10 @@ As you read through this assignment, practice with each of the examples (copy-pa
 
 [Right-click to download the homework .Rmd template <i class="fas fa-file-download"></i>](https://raw.githubusercontent.com/ajkirkpatrick/FS20/Spring2021/Rmarkdown_templates/SSC442_Lab_Assignment_Template.Rmd). Please save the template into the labs folder in the SSC442 folder on your local hard drive. If you don't have a nice file structure setup for the course, please do so now. *It will save you headaches in the future*.
 :::
+
+If you have not yet done so, you'll need to install both R and RStudio. See the [Installing page of our course resources](/resource/install/) for instructions.
+
+I have created a video walkthrough for the basics of using R for another course, but it is useful here. You can [see part A here (labeled "Part 2a") here <i class="fas fa-film"></i>](https://mediaspace.msu.edu/media/R+Part+2a/1_kmszjw36)] and [part B here (labeled "Part 2b")  <i class="fas fa-film"></i>](https://mediaspace.msu.edu/media/R+Part+2b/1_c0vf0i63). You should already be at this level of familiarity with R, but if you need a review, this is a good place to start.
 
 
 
@@ -308,15 +312,15 @@ Other functionals are `apply`, `lapply`, `tapply`, `mapply`, `vapply`, and `repl
 
 ## Exercises
 
-This is your first weekly lab assignment. Each lab assignment will need to be done in Rmarkdown using [the lab template](https://raw.githubusercontent.com/ajkirkpatrick/FS20/Spring2021/Rmarkdown_templates/SSC442_Lab_Assignment_Template.Rmd), just right-click and Save As...**Start a new folder on your drive for this course, and inside that a new folder for lab assignments, and inside that a new folder for Lab No. 1**. Rmarkdown will place some intermediate files in that folder, so leaving .Rmd files on your desktop will make things messy, fast.
+This is your first weekly lab assignment. Each lab assignment will need to be done in Rmarkdown using [the lab template](https://raw.githubusercontent.com/ajkirkpatrick/FS20/Spring2021/Rmarkdown_templates/SSC442_Lab_Assignment_Template.Rmd), just right-click and Save As...**Start a new folder on your drive for this course, and inside that a new folder for lab assignments, and inside that a new folder for Lab No. 0**. Rmarkdown will place some intermediate files in that folder, so leaving .Rmd files on your desktop will make things messy, fast.
 
 Once you've saved the file, open it up in Rstudio.
 
-- Change the title to "Lab 1"
+- Change the title to "Lab 0"
 
 - Put your name on it
 
-- Leave the date alone. That little `` `r knitr::inline_expr("Sys.time(...)")` `` will ask R to return the date (with M-D-Y formatting), which Rmarkdown will put in as if you had typed in the actual date.
+- Leave the date alone. That little `` `r knitr::inline_expr("Sys.time(...)")` `` will ask R to return the date (with M-D-Y formatting), which Rmarkdown will put in as if you had typed in the actual date. **Note - if your system time is rendered in unicode characters (which may be the case in some languages), you will get an error**. If this happens, you'll have to manually change the date in the header along with your name.
 
 - When you type `## 1. Text of...`, Markdown will recognize "1. Text of" as a header and will *automatically* make it big.
 
@@ -334,12 +338,12 @@ Once you've saved the file, open it up in Rstudio.
 
 - On the next page, copy question #2 to a new header using `##`.
 
-- Once done, render one last .pdf and turn it in on D2L!
+- Once done, render one last .pdf, proofread it, and turn it in on D2L!
+
+For more on using R Markdown, see the [R Markdown page of our course resources](/resource/rmarkdown/). You can also learn about the general Markdown language [on our Markdown page of our course resources](/resource/markdown/)
 
 :::fyi
 **EXERCISES**
-
-
 
 0. In your first code chunk, load the package library `tidyverse`, which you will need for Question 8. Always load all your package libraries at the top, in the first code chunk! 
 

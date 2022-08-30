@@ -16,6 +16,8 @@ output:
 
 The [documentation for R Markdown](https://rmarkdown.rstudio.com/) is extremely comprehensive, and their [tutorials](https://rmarkdown.rstudio.com/lesson-1.html) and [cheatsheets](https://rmarkdown.rstudio.com/lesson-15.html) are excellent—rely on those.
 
+I have created a video walkthrough for using R Markdown for another course, but it is useful here. You can [see it here <i class="fas fa-film"></i>](https://mediaspace.msu.edu/media/R+Part+3/1_yigvqy1i)]
+
 Here are the most important things you'll need to know about R Markdown in this class:
 
 ## Key terms
@@ -32,7 +34,7 @@ Here are the most important things you'll need to know about R Markdown in this 
 
     There must be an empty line before and after the chunk. The final three backticks must be the only thing on the line—if you add more text, or if you forget to add the backticks, or accidentally delete the backticks, your document will not knit correctly.
 
-- **Knit**: When you "knit" a document, R runs each of the chunks sequentially and converts the output of each chunk into Markdown. R then runs the knitted document through [pandoc](https://pandoc.org/) to convert it to HTML or PDF or Word (or whatever output you've selected).
+- **Knit**: When you "knit" a document, R runs each of the chunks sequentially and converts the output of each chunk into Markdown. R then runs the knitted document through [pandoc](https://pandoc.org/) to convert it to HTML or PDF or Word (or whatever output you've selected). We will always use PDF for this course.
 
     You can knit by clicking on the "Knit" button at the top of the editor window, or by pressing `⌘⇧K` on macOS or `control + shift + K` on Windows.
 

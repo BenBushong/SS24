@@ -15,7 +15,7 @@
     <item>
       <title>Installing R, RStudio, tidyverse, and tinytex</title>
       <link>https://ssc442kirkpatrick.netlify.app/resource/install/</link>
-      <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 30 Aug 2022 00:00:00 +0000</pubDate>
       <guid>https://ssc442kirkpatrick.netlify.app/resource/install/</guid>
       <description>
 
@@ -32,16 +32,17 @@
 &lt;p&gt;Hopefully you’re well-versed in dealing with these things, but if you’re lost, here’s how you install the required software for the course.&lt;/p&gt;
 &lt;div id=&#34;install-r&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Install &lt;code&gt;R&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;I have created a video walkthrough for installing R for another course, but it is useful here. You can &lt;a href=&#34;https://mediaspace.msu.edu/media/R+Part+1/1_b8nafkzx&#34;&gt;see it here &lt;i class=&#34;fas fa-film&#34;&gt;&lt;/i&gt;&lt;/a&gt;]&lt;/p&gt;
 &lt;p&gt;First you need to install &lt;code&gt;R&lt;/code&gt; itself (the engine).&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;&lt;p&gt;Go to the CRAN (Collective &lt;code&gt;R&lt;/code&gt; Archive Network)&lt;a href=&#34;#fn1&#34; class=&#34;footnote-ref&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; website: &lt;a href=&#34;https://cran.r-project.org/&#34; class=&#34;uri&#34;&gt;https://cran.r-project.org/&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Click on “Download &lt;code&gt;R&lt;/code&gt; for &lt;code&gt;XXX&lt;/code&gt;”, where &lt;code&gt;XXX&lt;/code&gt; is either Mac or Windows:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/img/install/install-r-links.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../../../../../../img/install/install-r-links.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;If you use macOS, scroll down to the first &lt;code&gt;.pkg&lt;/code&gt; file in the list of files (in this picture, it’s &lt;code&gt;R-4.0.0.pkg&lt;/code&gt;; as of right now, the current version is also 4.0.0) and download it.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/img/install/install-r-mac.png&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;If you use macOS, scroll down to the first &lt;code&gt;.pkg&lt;/code&gt; file in the list of files (in this picture, it’s &lt;code&gt;R-4.0.0.pkg&lt;/code&gt;; as of Summer 2022 now, the current version is also 4.2.1 so use the most recent one) and download it.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../../../../../../img/install/install-r-mac.png&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;If you use Windows, click “base” (or click on the bolded “install R for the first time” link) and download it.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/img/install/install-r-windows.png&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;p&gt;&lt;img src=&#34;../../../../../../../img/install/install-r-windows.png&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Double click on the downloaded file (check your &lt;code&gt;Downloads&lt;/code&gt; folder). Click yes through all the prompts to install like any other program.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;If you use macOS, &lt;a href=&#34;https://www.xquartz.org/&#34;&gt;download and install XQuartz&lt;/a&gt;. You do not need to do this on Windows.&lt;/p&gt;&lt;/li&gt;
@@ -49,13 +50,13 @@
 &lt;/div&gt;
 &lt;div id=&#34;install-rstudio&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Install RStudio&lt;/h3&gt;
-&lt;p&gt;Next, you need to install RStudio, the nicer graphical user interface (GUI) for &lt;code&gt;R&lt;/code&gt; (the dashboard). Once &lt;code&gt;R&lt;/code&gt; and RStudio are both installed, you can ignore &lt;code&gt;R&lt;/code&gt; and only use RStudio. RStudio will use &lt;code&gt;R&lt;/code&gt; automatically and you won’t ever have to interact with it directly.&lt;/p&gt;
+&lt;p&gt;Next, you need to install the most recent version of RStudio, the nicer graphical user interface (GUI) for &lt;code&gt;R&lt;/code&gt; (the dashboard). Once &lt;code&gt;R&lt;/code&gt; and RStudio are both installed, you can ignore &lt;code&gt;R&lt;/code&gt; and only use RStudio. RStudio will use &lt;code&gt;R&lt;/code&gt; automatically and you won’t ever have to interact with it directly.&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;&lt;p&gt;Go to the free download location on RStudio’s website: &lt;a href=&#34;https://www.rstudio.com/products/rstudio/download/#download&#34; class=&#34;uri&#34;&gt;https://www.rstudio.com/products/rstudio/download/#download&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;The website should automatically detect your operating system (macOS or Windows) and show a big download button for it:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/img/install/install-r-rstudio1.png&#34; width=&#34;50%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../../../../../../img/install/install-r-rstudio1.png&#34; width=&#34;50%&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;If not, scroll down a little to the large table and choose the version of RStudio that matches your operating system.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/img/install/install-r-rstudio2.png&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;p&gt;&lt;img src=&#34;../../../../../../../img/install/install-r-rstudio2.png&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Double click on the downloaded file (again, check your &lt;code&gt;Downloads&lt;/code&gt; folder). Click yes through all the prompts to install like any other program.&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Double click on RStudio to run it (check your applications folder or start menu).&lt;/p&gt;
@@ -63,10 +64,10 @@
 &lt;div id=&#34;install-tidyverse&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Install &lt;code&gt;tidyverse&lt;/code&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;code&gt;R&lt;/code&gt; packages are easy to install with RStudio. Select the packages panel, click on “Install,” type the name of the package you want to install, and press enter.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/img/install/install-r-package-panel.png&#34; width=&#34;40%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../../../../../../img/install/install-r-package-panel.png&#34; width=&#34;40%&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;This can sometimes be tedious when you’re installing lots of packages, though. &lt;a href=&#34;https://www.tidyverse.org/&#34;&gt;The tidyverse&lt;/a&gt;, for instance, consists of dozens of packages (including the ever-present &lt;strong&gt;ggplot2&lt;/strong&gt;) that all work together. Rather than install each individually, you can install a single magical package and get them all at the same time.&lt;/p&gt;
 &lt;p&gt;Go to the packages panel in RStudio, click on “Install,” type “tidyverse”, and press enter. You’ll see a bunch of output in the RStudio console as all the tidyverse packages are installed.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/img/install/install-r-tidyverse.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../../../../../../img/install/install-r-tidyverse.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Notice also that RStudio will generate a line of code for you and run it: &lt;code&gt;install.packages(&#34;tidyverse&#34;)&lt;/code&gt;. You can also just paste and run this instead of using the packages panel. Hopefully you’ve experienced installing packages before now; if not, consider this a crash course!&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;install-tinytex&#34; class=&#34;section level3&#34;&gt;
@@ -80,6 +81,10 @@
 &lt;li&gt;Wait for a bit while &lt;code&gt;R&lt;/code&gt; downloads and installs everything you need.&lt;/li&gt;
 &lt;li&gt;The end! You should now be able to knit to PDF.&lt;/li&gt;
 &lt;/ol&gt;
+&lt;p&gt;Find the course assignment template (for SSC442, see the &lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/assignment/&#34;&gt;Assignments&lt;/a&gt; page), right-click to download it (don’t just click on it - that won’t work), open it in Rstudio, and without changing anything, click the “knit” button to test out your install. Your system should open a PDF that looks like something like this:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;knitr::include_graphics(here(&amp;#39;content/resource&amp;#39;,&amp;#39;RenderedPDF.png&amp;#39;))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;RenderedPDF.png&#34; width=&#34;962&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;See the Markdown and R Markdown sidebars for instructions on using the template.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&#34;footnotes&#34;&gt;
 &lt;hr /&gt;
@@ -684,6 +689,7 @@ csl: &amp;quot;https://raw.githubusercontent.com/citation-style-language/styles/
 
 &lt;p&gt;&lt;a href=&#34;https://rmarkdown.rstudio.com/&#34;&gt;R Markdown&lt;/a&gt; is &lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/reference/markdown/&#34;&gt;regular Markdown&lt;/a&gt; with R code and output sprinkled in. You can do everything you can with &lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/reference/markdown/&#34;&gt;regular Markdown&lt;/a&gt;, but you can incorporate graphs, tables, and other R output directly in your document. You can create HTML, PDF, and Word documents, PowerPoint and HTML presentations, websites, books, and even &lt;a href=&#34;https://rmarkdown.rstudio.com/flexdashboard/index.html&#34;&gt;interactive dashboards&lt;/a&gt; with R Markdown. This whole course website is created with R Markdown (and &lt;a href=&#34;https://bookdown.org/yihui/blogdown/&#34;&gt;a package named &lt;strong&gt;blogdown&lt;/strong&gt;&lt;/a&gt;).&lt;/p&gt;
 &lt;p&gt;The &lt;a href=&#34;https://rmarkdown.rstudio.com/&#34;&gt;documentation for R Markdown&lt;/a&gt; is extremely comprehensive, and their &lt;a href=&#34;https://rmarkdown.rstudio.com/lesson-1.html&#34;&gt;tutorials&lt;/a&gt; and &lt;a href=&#34;https://rmarkdown.rstudio.com/lesson-15.html&#34;&gt;cheatsheets&lt;/a&gt; are excellent—rely on those.&lt;/p&gt;
+&lt;p&gt;I have created a video walkthrough for using R Markdown for another course, but it is useful here. You can &lt;a href=&#34;https://mediaspace.msu.edu/media/R+Part+3/1_yigvqy1i&#34;&gt;see it here &lt;i class=&#34;fas fa-film&#34;&gt;&lt;/i&gt;&lt;/a&gt;]&lt;/p&gt;
 &lt;p&gt;Here are the most important things you’ll need to know about R Markdown in this class:&lt;/p&gt;
 &lt;div id=&#34;key-terms&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Key terms&lt;/h2&gt;
@@ -694,9 +700,9 @@ csl: &amp;quot;https://raw.githubusercontent.com/citation-style-language/styles/
 # Code goes here
 ```&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;There must be an empty line before and after the chunk. The final three backticks must be the only thing on the line—if you add more text, or if you forget to add the backticks, or accidentally delete the backticks, your document will not knit correctly.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Knit&lt;/strong&gt;: When you “knit” a document, R runs each of the chunks sequentially and converts the output of each chunk into Markdown. R then runs the knitted document through &lt;a href=&#34;https://pandoc.org/&#34;&gt;pandoc&lt;/a&gt; to convert it to HTML or PDF or Word (or whatever output you’ve selected).&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Knit&lt;/strong&gt;: When you “knit” a document, R runs each of the chunks sequentially and converts the output of each chunk into Markdown. R then runs the knitted document through &lt;a href=&#34;https://pandoc.org/&#34;&gt;pandoc&lt;/a&gt; to convert it to HTML or PDF or Word (or whatever output you’ve selected). We will always use PDF for this course.&lt;/p&gt;
 &lt;p&gt;You can knit by clicking on the “Knit” button at the top of the editor window, or by pressing &lt;code&gt;⌘⇧K&lt;/code&gt; on macOS or &lt;code&gt;control + shift + K&lt;/code&gt; on Windows.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/img/assignments/knit-button.png&#34; width=&#34;30%&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;p&gt;&lt;img src=&#34;../../../../../../../img/assignments/knit-button.png&#34; width=&#34;30%&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div id=&#34;add-chunks&#34; class=&#34;section level2&#34;&gt;
@@ -705,14 +711,14 @@ csl: &amp;quot;https://raw.githubusercontent.com/citation-style-language/styles/
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;Press &lt;code&gt;⌘⌥I&lt;/code&gt; on macOS or &lt;code&gt;control + alt + I&lt;/code&gt; on Windows&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Click on the “Insert” button at the top of the editor window&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/img/reference/insert-chunk.png&#34; width=&#34;30%&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;p&gt;&lt;img src=&#34;../../../../../../../img/reference/insert-chunk.png&#34; width=&#34;30%&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Manually type all the backticks and curly braces (don’t do this)&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div id=&#34;chunk-names&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Chunk names&lt;/h2&gt;
 &lt;p&gt;You can add names to chunks to make it easier to navigate your document. If you click on the little dropdown menu at the bottom of your editor in RStudio, you can see a table of contents that shows all the headings and chunks. If you name chunks, they’ll appear in the list. If you don’t include a name, the chunk will still show up, but you won’t know what it does.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/img/reference/chunk-toc.png&#34; width=&#34;40%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../../../../../../img/reference/chunk-toc.png&#34; width=&#34;40%&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;To add a name, include it immediately after the &lt;code&gt;{r&lt;/code&gt; in the first line of the chunk. Names cannot contain spaces, but they can contain underscores and dashes. &lt;strong&gt;All chunk names in your document must be unique.&lt;/strong&gt;&lt;/p&gt;
 &lt;pre class=&#34;markdown&#34;&gt;&lt;code&gt;```{r name-of-this-chunk}
 # Code goes here
@@ -734,7 +740,7 @@ csl: &amp;quot;https://raw.githubusercontent.com/citation-style-language/styles/
 &lt;li&gt;&lt;code&gt;include=FALSE&lt;/code&gt;: The chunk still runs, but the code and results are not included in the final document&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;You can also set chunk options by clicking on the little gear icon in the top right corner of any chunk:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/img/reference/chunk-options.png&#34; width=&#34;70%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../../../../../../img/reference/chunk-options.png&#34; width=&#34;70%&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;inline-chunks&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Inline chunks&lt;/h2&gt;
@@ -759,7 +765,7 @@ output:
   pdf_document: default
   word_document: default&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;You can also click on the down arrow on the “Knit” button to choose the output &lt;em&gt;and&lt;/em&gt; generate the appropriate YAML. If you click on the gear icon next to the “Knit” button and choose “Output options”, you change settings for each specific output type, like default figure dimensions or whether or not a table of contents is included.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/img/reference/output-options.png&#34; width=&#34;35%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../../../../../../img/reference/output-options.png&#34; width=&#34;35%&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;The first output type listed under &lt;code&gt;output:&lt;/code&gt; will be what is generated when you click on the “Knit” button or press the keyboard shortcut (&lt;code&gt;⌘⇧K&lt;/code&gt; on macOS; &lt;code&gt;control + shift + K&lt;/code&gt; on Windows). If you choose a different output with the “Knit” button menu, that output will be moved to the top of the &lt;code&gt;output&lt;/code&gt; section.&lt;/p&gt;
 &lt;p&gt;The indentation of the YAML section matters, especially when you have settings nested under each output type. Here’s what a typical &lt;code&gt;output&lt;/code&gt; section might look like:&lt;/p&gt;
 &lt;pre class=&#34;yaml&#34;&gt;&lt;code&gt;---
@@ -1018,7 +1024,7 @@ mpg %&amp;gt;%
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://tinyletter.com/data-is-plural&#34;&gt;&lt;strong&gt;Data is Plural newsletter&lt;/strong&gt;&lt;/a&gt;: Jeremy Singer-Vine sends a weekly newsletter of the most interesting public datasets he’s found. You should subscribe to it. &lt;a href=&#34;https://docs.google.com/spreadsheets/d/1wZhPLMCHKJvwOkP4juclhjFgqIY8fQFMemwKL2c64vk/edit#gid=0&#34;&gt;He also has an archive of all the datasets he’s highlighted.&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://toolbox.google.com/datasetsearch&#34;&gt;&lt;strong&gt;Google Dataset Search&lt;/strong&gt;&lt;/a&gt;: Google indexes thousands of public datasets; search for them here.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://www.kaggle.com/datasets&#34;&gt;&lt;strong&gt;Kaggle&lt;/strong&gt;&lt;/a&gt;: Kaggle hosts machine learning competitions where people compete to create the fastest, most efficient, most predictive algorithms. A byproduct of these competitions is a host of fascinating datasets that are generally free and open to the public. See, for example, &lt;a href=&#34;https://www.kaggle.com/hugomathien/soccer&#34;&gt;the European Soccer Database&lt;/a&gt;, the &lt;a href=&#34;https://www.kaggle.com/rtatman/salem-witchcraft-dataset&#34;&gt;Salem Witchcraft Dataset&lt;/a&gt; or results from an &lt;a href=&#34;https://www.kaggle.com/rtatman/oreo-flavors-tastetest-ratings&#34;&gt;Oreo flavors taste test&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://www.kaggle.com/datasets&#34;&gt;&lt;strong&gt;Kaggle&lt;/strong&gt;&lt;/a&gt;: Kaggle hosts machine learning competitions where people compete to create the fastest, most efficient, most predictive algorithms. A byproduct of these competitions is a host of fascinating datasets that are generally free and open to the public. See, for example, &lt;a href=&#34;https://www.kaggle.com/hugomathien/soccer&#34;&gt;the European Soccer Database&lt;/a&gt;, the &lt;a href=&#34;https://www.kaggle.com/rtatman/salem-witchcraft-dataset&#34;&gt;Salem Witchcraft Dataset&lt;/a&gt; or results from an &lt;a href=&#34;https://www.kaggle.com/rtatman/oreo-flavors-tastetest-ratings&#34;&gt;Oreo flavors taste test&lt;/a&gt;. &lt;strong&gt;Note: when you are asked in an assignment or project to find data, Kaggle is not a valid source. You learn nothing about farming by getting fruit from the market. Similarly, you learn nothing about data analysis by getting pre-packaged data from Kaggle.&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://www.threesixtygiving.org/data/data-registry/&#34;&gt;&lt;strong&gt;360Giving&lt;/strong&gt;&lt;/a&gt;: Dozens of British foundations follow a standard file format for sharing grant data and have made that data available online.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://us-cities.survey.okfn.org/&#34;&gt;&lt;strong&gt;US City Open Data Census&lt;/strong&gt;&lt;/a&gt;: More than 100 US cities have committed to sharing dozens of types of data, including data about crime, budgets, campaign finance, lobbying, transit, and zoning. This site from the &lt;a href=&#34;http://sunlightfoundation.com/&#34;&gt;Sunlight Foundation&lt;/a&gt; and &lt;a href=&#34;http://www.codeforamerica.org//&#34;&gt;Code for America&lt;/a&gt; collects this data and rates cities by how well they’re doing.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;Political science and economics datasets&lt;/strong&gt;: There’s a wealth of data available for political science- and economics-related topics:&lt;/p&gt;
@@ -1026,6 +1032,12 @@ mpg %&amp;gt;%
 &lt;li&gt;&lt;a href=&#34;https://github.com/briatte/srqm/wiki/Data&#34;&gt;&lt;strong&gt;François Briatte’s extensive curated lists&lt;/strong&gt;&lt;/a&gt;: Includes data from/about intergovernmental organizations (IGOs), nongovernmental organizations (NGOs), public opinion surveys, parliaments and legislatures, wars, human rights, elections, and municipalities.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/leeper/poliscitoys/issues/1&#34;&gt;&lt;strong&gt;Thomas Leeper’s list of political science datasets&lt;/strong&gt;&lt;/a&gt;: Good short list of useful datasets, divided by type of data (country-level data, survey data, social media data, event data, text data, etc.).&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/erikgahner/PolData&#34;&gt;&lt;strong&gt;Erik Gahner’s list of political science datasets&lt;/strong&gt;&lt;/a&gt;: Huge list of useful datasets, divided by topic (governance, elections, policy, political elites, etc.)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Geospatial datasets&lt;/strong&gt;: For our geospatial unit, many entities (government agencies, etc.) post repositories of spatial data via arcgis.com, which is owned by ESRI, the company that makes the predominant commercial GIS software. The data owner decides what data to post and how to present it, but arcgis.com provides the hosting. R has excellent geospatial functionalities, so we cover (when time permits) geospatial data. It is easy to find geospatial data to import into R. Here are a few:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://gis-michigan.opendata.arcgis.com/&#34;&gt;&lt;strong&gt;State of Michigan Open Data Portal&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://hifld-geoplatform.opendata.arcgis.com/&#34;&gt;&lt;strong&gt;Homeland Infrastructure Foundation-Level Data (HIFLD)&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://coel.maps.arcgis.com/apps/webappviewer/index.html?id=076f31109b974149ac3e1c2379aac8d6&#34;&gt;&lt;strong&gt;City of East Lansing Data Viewer&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
