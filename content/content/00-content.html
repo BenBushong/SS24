@@ -42,10 +42,10 @@ output:
 <li><a href="#more-recent-examples-of-prediction">More Recent Examples of Prediction</a></li>
 <li><a href="#an-aside-nomenclature">An Aside: Nomenclature</a></li>
 <li><a href="#learning-from-data">Learning from Data</a></li>
+<li><a href="#case-study-us-homicides-by-firearm">Case study: US homicides by firearm</a></li>
 </ul></li>
 <li><a href="#r-basics"><code>R</code> basics</a>
 <ul>
-<li><a href="#case-study-us-homicides-by-firearm">Case study: US homicides by firearm</a></li>
 <li><a href="#the-very-basics-of-r">The (very) basics of <code>R</code></a>
 <ul>
 <li><a href="#objects">Objects</a></li>
@@ -178,11 +178,13 @@ output:
 <h3>More About This Course</h3>
 <p>There are sort of three texts for this course and sort of zero.</p>
 <p>The “main text” is free and available online. The secondary text is substantially more difficult, but also free online. The third text costs about $25. Assigned readings can be found on the course website under “Content”.</p>
-<p><strong>Please please please please please:</strong> Ask questions during class.
-- Most ideas will be new.
-- Sometimes (often?) the material itself will be confusing or interesting—or both!
-- <del>Teaching online is incredibly challenging (no feedback) and chat is vital to success.</del> We’re back in person!
-- <strong>Note:</strong> If I find that attendance is terrible, I may have to start incorporating attendance into participation.</p>
+<p><strong>Please please please please please:</strong> ask questions during class.</p>
+<ul>
+<li><p>Most ideas will be new.</p></li>
+<li><p>Sometimes (often?) the material itself will be confusing or interesting—or both!</p></li>
+<li><p><del>Teaching online is incredibly challenging (no feedback) and chat is vital to success.</del> We’re back in person!</p></li>
+<li><p><strong>Note:</strong> If I find that attendance is terrible, I may have to start incorporating attendance into participation.</p></li>
+</ul>
 <p>Return of the Please: If there is some topic that you really want to learn about, ask. If you are uncomfortable asking in front of the whole group, please see me during office hours.</p>
 <p>Because this is a new-ish course:</p>
 <ul>
@@ -198,19 +200,23 @@ output:
 <p>I teach using “math”.</p>
 <p>…Don’t be afraid. The math won’t hurt you.</p>
 <p>I fundamentally believe that true knowledge of how we learn from data depends on a basic understanding of the underlying mathematics.</p>
-<p>-Good news: no black boxes.
-- You’ll <strong>actually learn</strong> stuff. (Probably. Hopefully?)
-- Also good news: level of required math is reasonably low. High-school algebra or equivalent should be fine.</p>
+<p>-Good news: no black boxes.</p>
+<ul>
+<li><p>You’ll <strong>actually learn</strong> stuff. (Probably. Hopefully?)</p></li>
+<li><p>Also good news: level of required math is reasonably low. High-school algebra or equivalent should be fine.</p></li>
+</ul>
 <p>-Bad news: notation-heavy slides and reading.</p>
 </div>
 </div>
 <div id="and-finally" class="section level3">
 <h3>And finally…</h3>
 <p>Finally: I cannot address field-specific questions in areas outside economics to any satisfying degree.</p>
-<p>Good news: I’m good at knowing what I don’t know and have a very small ego, which means that I’m much less likely to blow smoke up your ass than other professors.</p>
-<p>Bad news: I can’t help with certain types of questions.</p>
+<ul>
+<li><p>Good news: I’m good at knowing what I don’t know and have a very small ego, which means that I’m much less likely to blow smoke up your ass than other professors.</p></li>
+<li><p>Bad news: I can’t help with certain types of questions.</p></li>
+</ul>
 <p>This course should be applicable broadly, but many of the examples will lean on my personal expertise (sorry).</p>
-<p>Your assignment: read syllabus, the content from Week 0, and the Example from Week 0 (we start on a Thursday so we have to get thru both in one day).</p>
+<p>Your assignment: read syllabus, the content from Week 0, and the Example from Week 0 (we start on a Thursday so we have to get thru both in one day). Begin working on Lab 0 as it is due Monday.</p>
 <p>Things to stress from syllabus:</p>
 <ul>
 <li>E-mail isn’t the ideal solution for technical problems</li>
@@ -360,39 +366,38 @@ X causes Y and Y causes X (simultaneous equations)</p></li>
 <li>This pattern is not easily expressed in a closed mathematical form.</li>
 <li>You have data.</li>
 </ol>
-<div id="lets-pause-here-for-questions" class="section level4">
-<h4>Let’s pause here for questions</h4>
-<div class="fyi">
-<p><strong>ALERT</strong></p>
-<p>The course content below should be considered a prerequisite for success. For those concerned about basics of <code>R</code>, you absolutely must read this content and attempt the coding exercises. If you struggle to follow the content, please contact the professor or TA.</p>
 </div>
-</div>
-</div>
-</div>
-<div id="r-basics" class="section level1">
-<h1><code>R</code> basics</h1>
-<p>In this class, we will be using <code>R</code> software environment for all our analyses. You will learn <code>R</code> and data analysis techniques simultaneously. To follow along you will therefore need access to <code>R</code>. We also recommend the use of an <em>integrated development environment</em> (IDE), such as RStudio, to save your work.
-Note that it is common for a course or workshop to offer access to an <code>R</code> environment and an IDE through your web browser, as done by RStudio cloud<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>. If you have access to such a resource, you don’t need to install <code>R</code> and RStudio. However, if you intend on becoming a practicing data analyst, we highly recommend installing these tools on your computer<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>. This is not hard.</p>
-<p>Both <code>R</code> and RStudio are free and available online. If you have not yet done so, you’ll need to install both R and RStudio. See the <a href="/resource/install/">Installing page of our course resources</a> for instructions. This will be part of your assignment for this week.</p>
 <div id="case-study-us-homicides-by-firearm" class="section level2">
 <h2>Case study: US homicides by firearm</h2>
-<p>Imagine you live in Europe (if only!) and are offered a job in a US company with many locations in every state. It is a great job, but headlines such as <strong>US Gun Homicide Rate Higher Than Other Developed Countries</strong><a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> have you worried. Fox News runs a scary looking graphic, and charts like the one below only add to that concern:</p>
+<p>Imagine you live in Europe (if only!) and are offered a job in a US company with many locations in every state. It is a great job, but headlines such as <strong>US Gun Homicide Rate Higher Than Other Developed Countries</strong><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> have you worried. Fox News runs a scary looking graphic, and charts like the one below only add to that concern:</p>
 <p><img src="/content/00-content_files/figure-html/murder-rate-example-1-1.png" width="70%" /></p>
 <!--(Source:
 [Ma’ayan Rosenzweigh/ABC News](https://abcnews.go.com/blogs/headlines/2012/12/us-gun-ownership-homicide-rate-higher-than-other-developed-countries/), Data from UNODC Homicide Statistics) -->
 <p>Or even worse, this version from <a href="https://everytownresearch.org">everytown.org</a>:
 <img src="/content/00-content_files/figure-html/murder-rate-example-2-1.png" width="70%" />
 <!--(Source  [everytown.org](https://everytownresearch.org))--></p>
-<p>But then you remember that (1) this is a hypothetical exercise; (2) you’ll take literally any job at this point; and (3) Geographic diversity matters – the United States is a large and diverse country with 50 very different states (plus the District of Columbia and some lovely territories).<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></p>
+<p>But then you remember that (1) this is a hypothetical exercise; (2) you’ll take literally any job at this point; and (3) Geographic diversity matters – the United States is a large and diverse country with 50 very different states (plus the District of Columbia and some lovely territories).<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
 <p><img src="/content/00-content_files/figure-html/us-murders-by-state-map-1.png" width="672" /></p>
 <p>California, for example, has a larger population than Canada, and 20 US states have populations larger than that of Norway. In some respects, the variability across states in the US is akin to the variability across countries in Europe. Furthermore, although not included in the charts above, the murder rates in Lithuania, Ukraine, and Russia are higher than 4 per 100,000. So perhaps the news reports that worried you are too superficial.</p>
 <p>This is a relatively simple and straightforward problem in social science: you have options of where to live, and want to determine the safety of the various states. Your “research” is clearly policy-relevant: you will eventually have to live somewhere. We will begin to tackle the problem by examining data related to gun homicides in the US during 2010 using <code>R</code>.</p>
 <p>Before we get started with our example, we need to cover logistics as well as some of the very basic building blocks that are required to gain more advanced <code>R</code> skills. Ideally, this is a refresher. However, we are aware that your preparation in previously courses varies greatly from student to student. Moreover, we want you to be aware that the usefulness of some of these early building blocks may not be immediately obvious. Later in the class you will appreciate having these skills. Mastery will be rewarded both in this class and (of course) in life.</p>
+<div id="lets-pause-here-for-questions" class="section level4">
+<h4>Let’s pause here for questions</h4>
 </div>
+</div>
+</div>
+<div id="r-basics" class="section level1">
+<h1><code>R</code> basics</h1>
+<div class="fyi">
+<p><strong>ALERT</strong></p>
+<p>The course content below should be considered a prerequisite for success. For those concerned about basics of <code>R</code>, you absolutely must read this content and attempt the coding exercises. If you struggle to follow the content, please contact the professor or TA.</p>
+</div>
+<p>In this class, we will be using <code>R</code> software environment for all our analyses. You will learn <code>R</code> and data analysis techniques simultaneously. To follow along you will therefore need access to <code>R</code>. We also recommend the use of an <em>integrated development environment</em> (IDE), such as RStudio, to save your work.
+Note that it is common for a course or workshop to offer access to an <code>R</code> environment and an IDE through your web browser, as done by RStudio cloud<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>. If you have access to such a resource, you don’t need to install <code>R</code> and RStudio. However, if you intend on becoming a practicing data analyst, we highly recommend installing these tools on your computer<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>. This is not hard.</p>
+<p>Both <code>R</code> and RStudio are free and available online. If you have not yet done so, you’ll need to install both R and RStudio. See the <a href="/resource/install/">Installing page of our course resources</a> for instructions. This will be part of your assignment for this week.</p>
 <div id="the-very-basics-of-r" class="section level2">
 <h2>The (very) basics of <code>R</code></h2>
 <p>Before we get started with the motivating dataset, we need to cover the very basics of <code>R</code>.</p>
-<p>If you have not yet done so, you’ll need to install both R and RStudio. See the <a href="/resource/install/">Installing page of our course resources</a> for instructions.</p>
 <p>I have created a video walkthrough for the basics of using R for another course, but it is useful here. You can <a href="https://mediaspace.msu.edu/media/R+Part+2a/1_kmszjw36">see part A here (labeled “Part 2a”) here <i class="fas fa-film"></i></a>] and <a href="https://mediaspace.msu.edu/media/R+Part+2b/1_c0vf0i63">part B here (labeled “Part 2b”) <i class="fas fa-film"></i></a>. You should already be at this level of familiarity with R, but if you need a review, this is a good place to start.</p>
 <div id="objects" class="section level3">
 <h3>Objects</h3>
@@ -1233,10 +1238,10 @@ data(murders)</code></pre>
 <div class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p><a href="https://rstudio.cloud" class="uri">https://rstudio.cloud</a><a href="#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p><a href="https://rafalab.github.io/dsbook/installing-r-rstudio.html" class="uri">https://rafalab.github.io/dsbook/installing-r-rstudio.html</a><a href="#fnref2" class="footnote-back">↩︎</a></p></li>
-<li id="fn3"><p><a href="http://abcnews.go.com/blogs/headlines/2012/12/us-gun-ownership-homicide-rate-higher-than-other-developed-countries/" class="uri">http://abcnews.go.com/blogs/headlines/2012/12/us-gun-ownership-homicide-rate-higher-than-other-developed-countries/</a><a href="#fnref3" class="footnote-back">↩︎</a></p></li>
-<li id="fn4"><p>I’m especially partial to Puerto Rico.<a href="#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn1"><p><a href="http://abcnews.go.com/blogs/headlines/2012/12/us-gun-ownership-homicide-rate-higher-than-other-developed-countries/" class="uri">http://abcnews.go.com/blogs/headlines/2012/12/us-gun-ownership-homicide-rate-higher-than-other-developed-countries/</a><a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>I’m especially partial to Puerto Rico.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p><a href="https://rstudio.cloud" class="uri">https://rstudio.cloud</a><a href="#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p><a href="https://rafalab.github.io/dsbook/installing-r-rstudio.html" class="uri">https://rafalab.github.io/dsbook/installing-r-rstudio.html</a><a href="#fnref4" class="footnote-back">↩︎</a></p></li>
 <li id="fn5"><p>This is, without a doubt, my least favorite aspect of <code>R</code>. I’d even venture to call it stupid. The logic behind this pesky <code>&lt;-</code> is a total mystery to me, but there <em>is</em> logic to avoiding <code>=</code>. But, you do you.<a href="#fnref5" class="footnote-back">↩︎</a></p></li>
 <li id="fn6"><p>This equals sign is the reasons we assign values with <code>&lt;-</code>; then when arguments of a function are assigned values, we don’t end up with multiple equals signs. But… who cares.<a href="#fnref6" class="footnote-back">↩︎</a></p></li>
 <li id="fn7"><p>Whether you view this as a feature or a bug is a good indicator whether you’ll enjoy working with <code>R</code>.<a href="#fnref7" class="footnote-back">↩︎</a></p></li>

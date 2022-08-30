@@ -54,7 +54,7 @@ You will turn these reflections in via D2L. You will write them using `R Markdow
 
 Each week of the course has [fully annotated examples](/example/) of code that teach and demonstrate how to do specific tasks in `R`. However, without practicing these principles and making graphics on your own, you won't remember what you learn.
 
-Please do not do labs ahead of time. **I am updating the assignments as the semester proceeds, and you may do an entire assignment that is completely changed**. 
+Please do not do labs more than one week ahead of time. **I am updating the assignments as the semester proceeds, and you may do an entire assignment that is completely changed**. 
 
 For example, to practice working with **ggplot2** and making data-based graphics, you will complete a brief set of exercises over a few class sessions. These exercises will have 1–3 short tasks that are directly related to the topic for the week. You need to show that you made a good faith effort to work each question. There will also be a final question which requires significantly more thought and work. This will be where you get to show some creativity and stretch your abilities. Overall, labs will be graded the same check system:
 

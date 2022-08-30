@@ -2394,10 +2394,10 @@ mpg %&amp;gt;%
 &lt;li&gt;&lt;a href=&#34;#more-recent-examples-of-prediction&#34;&gt;More Recent Examples of Prediction&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#an-aside-nomenclature&#34;&gt;An Aside: Nomenclature&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#learning-from-data&#34;&gt;Learning from Data&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#case-study-us-homicides-by-firearm&#34;&gt;Case study: US homicides by firearm&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#r-basics&#34;&gt;&lt;code&gt;R&lt;/code&gt; basics&lt;/a&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#case-study-us-homicides-by-firearm&#34;&gt;Case study: US homicides by firearm&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#the-very-basics-of-r&#34;&gt;The (very) basics of &lt;code&gt;R&lt;/code&gt;&lt;/a&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#objects&#34;&gt;Objects&lt;/a&gt;&lt;/li&gt;
@@ -2530,11 +2530,13 @@ mpg %&amp;gt;%
 &lt;h3&gt;More About This Course&lt;/h3&gt;
 &lt;p&gt;There are sort of three texts for this course and sort of zero.&lt;/p&gt;
 &lt;p&gt;The “main text” is free and available online. The secondary text is substantially more difficult, but also free online. The third text costs about $25. Assigned readings can be found on the course website under “Content”.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Please please please please please:&lt;/strong&gt; Ask questions during class.
-- Most ideas will be new.
-- Sometimes (often?) the material itself will be confusing or interesting—or both!
-- &lt;del&gt;Teaching online is incredibly challenging (no feedback) and chat is vital to success.&lt;/del&gt; We’re back in person!
-- &lt;strong&gt;Note:&lt;/strong&gt; If I find that attendance is terrible, I may have to start incorporating attendance into participation.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Please please please please please:&lt;/strong&gt; ask questions during class.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Most ideas will be new.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Sometimes (often?) the material itself will be confusing or interesting—or both!&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;del&gt;Teaching online is incredibly challenging (no feedback) and chat is vital to success.&lt;/del&gt; We’re back in person!&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; If I find that attendance is terrible, I may have to start incorporating attendance into participation.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;Return of the Please: If there is some topic that you really want to learn about, ask. If you are uncomfortable asking in front of the whole group, please see me during office hours.&lt;/p&gt;
 &lt;p&gt;Because this is a new-ish course:&lt;/p&gt;
 &lt;ul&gt;
@@ -2550,19 +2552,23 @@ mpg %&amp;gt;%
 &lt;p&gt;I teach using “math”.&lt;/p&gt;
 &lt;p&gt;…Don’t be afraid. The math won’t hurt you.&lt;/p&gt;
 &lt;p&gt;I fundamentally believe that true knowledge of how we learn from data depends on a basic understanding of the underlying mathematics.&lt;/p&gt;
-&lt;p&gt;-Good news: no black boxes.
-- You’ll &lt;strong&gt;actually learn&lt;/strong&gt; stuff. (Probably. Hopefully?)
-- Also good news: level of required math is reasonably low. High-school algebra or equivalent should be fine.&lt;/p&gt;
+&lt;p&gt;-Good news: no black boxes.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;You’ll &lt;strong&gt;actually learn&lt;/strong&gt; stuff. (Probably. Hopefully?)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Also good news: level of required math is reasonably low. High-school algebra or equivalent should be fine.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;-Bad news: notation-heavy slides and reading.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;and-finally&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;And finally…&lt;/h3&gt;
 &lt;p&gt;Finally: I cannot address field-specific questions in areas outside economics to any satisfying degree.&lt;/p&gt;
-&lt;p&gt;Good news: I’m good at knowing what I don’t know and have a very small ego, which means that I’m much less likely to blow smoke up your ass than other professors.&lt;/p&gt;
-&lt;p&gt;Bad news: I can’t help with certain types of questions.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Good news: I’m good at knowing what I don’t know and have a very small ego, which means that I’m much less likely to blow smoke up your ass than other professors.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Bad news: I can’t help with certain types of questions.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;This course should be applicable broadly, but many of the examples will lean on my personal expertise (sorry).&lt;/p&gt;
-&lt;p&gt;Your assignment: read syllabus, the content from Week 0, and the Example from Week 0 (we start on a Thursday so we have to get thru both in one day).&lt;/p&gt;
+&lt;p&gt;Your assignment: read syllabus, the content from Week 0, and the Example from Week 0 (we start on a Thursday so we have to get thru both in one day). Begin working on Lab 0 as it is due Monday.&lt;/p&gt;
 &lt;p&gt;Things to stress from syllabus:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;E-mail isn’t the ideal solution for technical problems&lt;/li&gt;
@@ -2712,39 +2718,38 @@ X causes Y and Y causes X (simultaneous equations)&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;This pattern is not easily expressed in a closed mathematical form.&lt;/li&gt;
 &lt;li&gt;You have data.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;div id=&#34;lets-pause-here-for-questions&#34; class=&#34;section level4&#34;&gt;
-&lt;h4&gt;Let’s pause here for questions&lt;/h4&gt;
-&lt;div class=&#34;fyi&#34;&gt;
-&lt;p&gt;&lt;strong&gt;ALERT&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;The course content below should be considered a prerequisite for success. For those concerned about basics of &lt;code&gt;R&lt;/code&gt;, you absolutely must read this content and attempt the coding exercises. If you struggle to follow the content, please contact the professor or TA.&lt;/p&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;r-basics&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;&lt;code&gt;R&lt;/code&gt; basics&lt;/h1&gt;
-&lt;p&gt;In this class, we will be using &lt;code&gt;R&lt;/code&gt; software environment for all our analyses. You will learn &lt;code&gt;R&lt;/code&gt; and data analysis techniques simultaneously. To follow along you will therefore need access to &lt;code&gt;R&lt;/code&gt;. We also recommend the use of an &lt;em&gt;integrated development environment&lt;/em&gt; (IDE), such as RStudio, to save your work.
-Note that it is common for a course or workshop to offer access to an &lt;code&gt;R&lt;/code&gt; environment and an IDE through your web browser, as done by RStudio cloud&lt;a href=&#34;#fn1&#34; class=&#34;footnote-ref&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;. If you have access to such a resource, you don’t need to install &lt;code&gt;R&lt;/code&gt; and RStudio. However, if you intend on becoming a practicing data analyst, we highly recommend installing these tools on your computer&lt;a href=&#34;#fn2&#34; class=&#34;footnote-ref&#34; id=&#34;fnref2&#34;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;. This is not hard.&lt;/p&gt;
-&lt;p&gt;Both &lt;code&gt;R&lt;/code&gt; and RStudio are free and available online. If you have not yet done so, you’ll need to install both R and RStudio. See the &lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/resource/install/&#34;&gt;Installing page of our course resources&lt;/a&gt; for instructions. This will be part of your assignment for this week.&lt;/p&gt;
 &lt;div id=&#34;case-study-us-homicides-by-firearm&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Case study: US homicides by firearm&lt;/h2&gt;
-&lt;p&gt;Imagine you live in Europe (if only!) and are offered a job in a US company with many locations in every state. It is a great job, but headlines such as &lt;strong&gt;US Gun Homicide Rate Higher Than Other Developed Countries&lt;/strong&gt;&lt;a href=&#34;#fn3&#34; class=&#34;footnote-ref&#34; id=&#34;fnref3&#34;&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt; have you worried. Fox News runs a scary looking graphic, and charts like the one below only add to that concern:&lt;/p&gt;
+&lt;p&gt;Imagine you live in Europe (if only!) and are offered a job in a US company with many locations in every state. It is a great job, but headlines such as &lt;strong&gt;US Gun Homicide Rate Higher Than Other Developed Countries&lt;/strong&gt;&lt;a href=&#34;#fn1&#34; class=&#34;footnote-ref&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; have you worried. Fox News runs a scary looking graphic, and charts like the one below only add to that concern:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/content/00-content_files/figure-html/murder-rate-example-1-1.png&#34; width=&#34;70%&#34; /&gt;&lt;/p&gt;
 &lt;!--(Source:
 [Ma’ayan Rosenzweigh/ABC News](https://abcnews.go.com/blogs/headlines/2012/12/us-gun-ownership-homicide-rate-higher-than-other-developed-countries/), Data from UNODC Homicide Statistics) --&gt;
 &lt;p&gt;Or even worse, this version from &lt;a href=&#34;https://everytownresearch.org&#34;&gt;everytown.org&lt;/a&gt;:
 &lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/content/00-content_files/figure-html/murder-rate-example-2-1.png&#34; width=&#34;70%&#34; /&gt;
 &lt;!--(Source  [everytown.org](https://everytownresearch.org))--&gt;&lt;/p&gt;
-&lt;p&gt;But then you remember that (1) this is a hypothetical exercise; (2) you’ll take literally any job at this point; and (3) Geographic diversity matters – the United States is a large and diverse country with 50 very different states (plus the District of Columbia and some lovely territories).&lt;a href=&#34;#fn4&#34; class=&#34;footnote-ref&#34; id=&#34;fnref4&#34;&gt;&lt;sup&gt;4&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;But then you remember that (1) this is a hypothetical exercise; (2) you’ll take literally any job at this point; and (3) Geographic diversity matters – the United States is a large and diverse country with 50 very different states (plus the District of Columbia and some lovely territories).&lt;a href=&#34;#fn2&#34; class=&#34;footnote-ref&#34; id=&#34;fnref2&#34;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/content/00-content_files/figure-html/us-murders-by-state-map-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;California, for example, has a larger population than Canada, and 20 US states have populations larger than that of Norway. In some respects, the variability across states in the US is akin to the variability across countries in Europe. Furthermore, although not included in the charts above, the murder rates in Lithuania, Ukraine, and Russia are higher than 4 per 100,000. So perhaps the news reports that worried you are too superficial.&lt;/p&gt;
 &lt;p&gt;This is a relatively simple and straightforward problem in social science: you have options of where to live, and want to determine the safety of the various states. Your “research” is clearly policy-relevant: you will eventually have to live somewhere. We will begin to tackle the problem by examining data related to gun homicides in the US during 2010 using &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Before we get started with our example, we need to cover logistics as well as some of the very basic building blocks that are required to gain more advanced &lt;code&gt;R&lt;/code&gt; skills. Ideally, this is a refresher. However, we are aware that your preparation in previously courses varies greatly from student to student. Moreover, we want you to be aware that the usefulness of some of these early building blocks may not be immediately obvious. Later in the class you will appreciate having these skills. Mastery will be rewarded both in this class and (of course) in life.&lt;/p&gt;
+&lt;div id=&#34;lets-pause-here-for-questions&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Let’s pause here for questions&lt;/h4&gt;
 &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;r-basics&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;&lt;code&gt;R&lt;/code&gt; basics&lt;/h1&gt;
+&lt;div class=&#34;fyi&#34;&gt;
+&lt;p&gt;&lt;strong&gt;ALERT&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The course content below should be considered a prerequisite for success. For those concerned about basics of &lt;code&gt;R&lt;/code&gt;, you absolutely must read this content and attempt the coding exercises. If you struggle to follow the content, please contact the professor or TA.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;In this class, we will be using &lt;code&gt;R&lt;/code&gt; software environment for all our analyses. You will learn &lt;code&gt;R&lt;/code&gt; and data analysis techniques simultaneously. To follow along you will therefore need access to &lt;code&gt;R&lt;/code&gt;. We also recommend the use of an &lt;em&gt;integrated development environment&lt;/em&gt; (IDE), such as RStudio, to save your work.
+Note that it is common for a course or workshop to offer access to an &lt;code&gt;R&lt;/code&gt; environment and an IDE through your web browser, as done by RStudio cloud&lt;a href=&#34;#fn3&#34; class=&#34;footnote-ref&#34; id=&#34;fnref3&#34;&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;. If you have access to such a resource, you don’t need to install &lt;code&gt;R&lt;/code&gt; and RStudio. However, if you intend on becoming a practicing data analyst, we highly recommend installing these tools on your computer&lt;a href=&#34;#fn4&#34; class=&#34;footnote-ref&#34; id=&#34;fnref4&#34;&gt;&lt;sup&gt;4&lt;/sup&gt;&lt;/a&gt;. This is not hard.&lt;/p&gt;
+&lt;p&gt;Both &lt;code&gt;R&lt;/code&gt; and RStudio are free and available online. If you have not yet done so, you’ll need to install both R and RStudio. See the &lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/resource/install/&#34;&gt;Installing page of our course resources&lt;/a&gt; for instructions. This will be part of your assignment for this week.&lt;/p&gt;
 &lt;div id=&#34;the-very-basics-of-r&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;The (very) basics of &lt;code&gt;R&lt;/code&gt;&lt;/h2&gt;
 &lt;p&gt;Before we get started with the motivating dataset, we need to cover the very basics of &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;If you have not yet done so, you’ll need to install both R and RStudio. See the &lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/resource/install/&#34;&gt;Installing page of our course resources&lt;/a&gt; for instructions.&lt;/p&gt;
 &lt;p&gt;I have created a video walkthrough for the basics of using R for another course, but it is useful here. You can &lt;a href=&#34;https://mediaspace.msu.edu/media/R+Part+2a/1_kmszjw36&#34;&gt;see part A here (labeled “Part 2a”) here &lt;i class=&#34;fas fa-film&#34;&gt;&lt;/i&gt;&lt;/a&gt;] and &lt;a href=&#34;https://mediaspace.msu.edu/media/R+Part+2b/1_c0vf0i63&#34;&gt;part B here (labeled “Part 2b”) &lt;i class=&#34;fas fa-film&#34;&gt;&lt;/i&gt;&lt;/a&gt;. You should already be at this level of familiarity with R, but if you need a review, this is a good place to start.&lt;/p&gt;
 &lt;div id=&#34;objects&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Objects&lt;/h3&gt;
@@ -3585,10 +3590,10 @@ data(murders)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;footnotes&#34;&gt;
 &lt;hr /&gt;
 &lt;ol&gt;
-&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;&lt;a href=&#34;https://rstudio.cloud&#34; class=&#34;uri&#34;&gt;https://rstudio.cloud&lt;/a&gt;&lt;a href=&#34;#fnref1&#34; class=&#34;footnote-back&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&#34;fn2&#34;&gt;&lt;p&gt;&lt;a href=&#34;https://rafalab.github.io/dsbook/installing-r-rstudio.html&#34; class=&#34;uri&#34;&gt;https://rafalab.github.io/dsbook/installing-r-rstudio.html&lt;/a&gt;&lt;a href=&#34;#fnref2&#34; class=&#34;footnote-back&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&#34;fn3&#34;&gt;&lt;p&gt;&lt;a href=&#34;http://abcnews.go.com/blogs/headlines/2012/12/us-gun-ownership-homicide-rate-higher-than-other-developed-countries/&#34; class=&#34;uri&#34;&gt;http://abcnews.go.com/blogs/headlines/2012/12/us-gun-ownership-homicide-rate-higher-than-other-developed-countries/&lt;/a&gt;&lt;a href=&#34;#fnref3&#34; class=&#34;footnote-back&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&#34;fn4&#34;&gt;&lt;p&gt;I’m especially partial to Puerto Rico.&lt;a href=&#34;#fnref4&#34; class=&#34;footnote-back&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;&lt;a href=&#34;http://abcnews.go.com/blogs/headlines/2012/12/us-gun-ownership-homicide-rate-higher-than-other-developed-countries/&#34; class=&#34;uri&#34;&gt;http://abcnews.go.com/blogs/headlines/2012/12/us-gun-ownership-homicide-rate-higher-than-other-developed-countries/&lt;/a&gt;&lt;a href=&#34;#fnref1&#34; class=&#34;footnote-back&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn2&#34;&gt;&lt;p&gt;I’m especially partial to Puerto Rico.&lt;a href=&#34;#fnref2&#34; class=&#34;footnote-back&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn3&#34;&gt;&lt;p&gt;&lt;a href=&#34;https://rstudio.cloud&#34; class=&#34;uri&#34;&gt;https://rstudio.cloud&lt;/a&gt;&lt;a href=&#34;#fnref3&#34; class=&#34;footnote-back&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn4&#34;&gt;&lt;p&gt;&lt;a href=&#34;https://rafalab.github.io/dsbook/installing-r-rstudio.html&#34; class=&#34;uri&#34;&gt;https://rafalab.github.io/dsbook/installing-r-rstudio.html&lt;/a&gt;&lt;a href=&#34;#fnref4&#34; class=&#34;footnote-back&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li id=&#34;fn5&#34;&gt;&lt;p&gt;This is, without a doubt, my least favorite aspect of &lt;code&gt;R&lt;/code&gt;. I’d even venture to call it stupid. The logic behind this pesky &lt;code&gt;&amp;lt;-&lt;/code&gt; is a total mystery to me, but there &lt;em&gt;is&lt;/em&gt; logic to avoiding &lt;code&gt;=&lt;/code&gt;. But, you do you.&lt;a href=&#34;#fnref5&#34; class=&#34;footnote-back&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li id=&#34;fn6&#34;&gt;&lt;p&gt;This equals sign is the reasons we assign values with &lt;code&gt;&amp;lt;-&lt;/code&gt;; then when arguments of a function are assigned values, we don’t end up with multiple equals signs. But… who cares.&lt;a href=&#34;#fnref6&#34; class=&#34;footnote-back&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li id=&#34;fn7&#34;&gt;&lt;p&gt;Whether you view this as a feature or a bug is a good indicator whether you’ll enjoy working with &lt;code&gt;R&lt;/code&gt;.&lt;a href=&#34;#fnref7&#34; class=&#34;footnote-back&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
