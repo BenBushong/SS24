@@ -106,9 +106,9 @@ lessons:
   - title: 'Text as Data (No assignment this week)'
     session: 13
     date: "Week 12 (Nov 22/-24)"
-    content: "11-content"
-    example: "11-example"
-    # assignment: "10-assignment"
+    content: "12-content"
+    example: "12-example"
+    assignment: "12-assignment"
 
   - title: 'Wrangling Data (Last lab)'
     session: 14

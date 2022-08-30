@@ -2478,6 +2478,19 @@ Default = ISLR::Default&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Text as Data</title>
+      <link>https://ssc442kirkpatrick.netlify.app/assignment/12-assignment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://ssc442kirkpatrick.netlify.app/assignment/12-assignment/</guid>
+      <description>
+
+
+&lt;!-- Updated 8.30.22 --&gt;
+&lt;p&gt;TBA&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Text as Data</title>
       <link>https://ssc442kirkpatrick.netlify.app/example/12-example/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://ssc442kirkpatrick.netlify.app/example/12-example/</guid>
@@ -19720,14 +19733,12 @@ crdt_knn_100= knnreg(Rating ~ Age + Gender + Student, data = crdt_est, k = 100)&
             &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 12 (Nov 22/-24)&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Text as Data (No assignment this week)&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
-                    href=&#34;https://ssc442kirkpatrick.netlify.app/content/11-content/&#34;&gt;
+                    href=&#34;https://ssc442kirkpatrick.netlify.app/content/12-content/&#34;&gt;
                     &lt;i class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/example/11-example/&#34;&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/example/12-example/&#34;&gt;
                     &lt;i class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
-                &lt;font color=&#34;f1f1f1&#34;&gt;
-                    &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
-            &lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/assignment/12-assignment/&#34;&gt;
+                    &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
             &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 13 (Nov 29/Dec 1)&lt;/td&gt;
