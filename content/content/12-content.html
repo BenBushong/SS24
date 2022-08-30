@@ -1,3 +1,17 @@
+---
+title: "Text as Data"
+linktitle: "12: Text as Data"
+read_date: "2022-11-22"
+menu:
+  content:
+    parent: Course content
+    weight: 2
+type: docs
+output:
+  blogdown::html_page:
+    toc: true
+---
+
 
 <div id="TOC">
 <ul>
@@ -1112,7 +1126,7 @@ data(&quot;gapminder&quot;)</code></pre>
   dplyr::filter(region == &quot;Caribbean&quot;) %&gt;%
   ggplot(aes(year, life_expectancy, color = country)) +
   geom_line()</code></pre>
-<p><img src="12-content_files/figure-html/caribbean-1.png" width="672" /></p>
+<p><img src="/content/12-content_files/figure-html/caribbean-1.png" width="672" /></p>
 <p>The plot is what we want, but much of the space is wasted to accommodate some of the long country names.
 <!--
 
@@ -1140,7 +1154,7 @@ We have four countries with names longer than 12 characters. These names appear 
                           `Trinidad and Tobago` = &quot;Trinidad&quot;)) %&gt;%
   ggplot(aes(year, life_expectancy, color = country)) +
   geom_line()</code></pre>
-<p><img src="12-content_files/figure-html/caribbean-with-nicknames-1.png" width="672" /></p>
+<p><img src="/content/12-content_files/figure-html/caribbean-with-nicknames-1.png" width="672" /></p>
 <p>There are other similar functions in other R packages, such as <code>recode_factor</code> and <code>fct_recoder</code> in the <strong>forcats</strong> package.</p>
 <div class="fyi">
 <p><strong>TRY IT</strong></p>

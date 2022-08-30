@@ -108,7 +108,8 @@
 &lt;li&gt;&lt;a href=&#34;#accessibility&#34;&gt;Accessibility&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#colors&#34;&gt;Colors&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#fonts&#34;&gt;Fonts&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#graphic-assets&#34;&gt;Graphic assets&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#graphic-assets&#34;&gt;Graphic assets&lt;/a&gt;
+&lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#images&#34;&gt;Images&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#vectors&#34;&gt;Vectors&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#vectors-photos-videos-and-other-assets&#34;&gt;Vectors, photos, videos, and other assets&lt;/a&gt;&lt;/li&gt;
@@ -801,7 +802,8 @@ output:
 &lt;div id=&#34;TOC&#34;&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#r-style-conventions&#34;&gt;R style conventions&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#main-style-things-to-pay-attention-to-for-this-class&#34;&gt;Main style things to pay attention to for this class&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#main-style-things-to-pay-attention-to-for-this-class&#34;&gt;Main style things to pay attention to for this class&lt;/a&gt;
+&lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#spacing&#34;&gt;Spacing&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#long-lines&#34;&gt;Long lines&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#pipes-and-ggplot-layers&#34;&gt;Pipes (&lt;code&gt;%&amp;gt;%&lt;/code&gt;) and ggplot layers (&lt;code&gt;+&lt;/code&gt;)&lt;/a&gt;&lt;/li&gt;
@@ -992,22 +994,22 @@ mpg %&amp;gt;%
 &lt;div id=&#34;unzipping-files-on-macos&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Unzipping files on macOS&lt;/h2&gt;
 &lt;p&gt;Double click on the downloaded &lt;code&gt;.zip&lt;/code&gt; file. macOS will automatically create a new folder with the same name as the &lt;code&gt;.zip&lt;/code&gt; file, and all the file’s contents will be inside. Double click on the RStudio Project file (&lt;code&gt;.Rproj&lt;/code&gt;) to get started.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/img/unzipping/unzip-mac.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../../../../../../img/unzipping/unzip-mac.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;unzipping-files-on-windows&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Unzipping files on Windows&lt;/h2&gt;
 &lt;p&gt;&lt;em&gt;&lt;strong&gt;tl;dr&lt;/strong&gt;: Right click on the &lt;code&gt;.zip&lt;/code&gt; file, select “Extract All…”, and work with the resulting unzipped folder.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Unlike macOS, Windows does &lt;em&gt;not&lt;/em&gt; automatically unzip things for you. If you double click on the &lt;code&gt;.zip&lt;/code&gt; file, Windows will show you what’s inside, but it will do so without actually extracting anything. This &lt;del&gt;can be&lt;/del&gt; is incredibly confusing! Here’s what it looks like—the only clues that this folder is really a &lt;code&gt;.zip&lt;/code&gt; file are that there’s a “Compressed Folder Tools” tab at the top, and there’s a “Ratio” column that shows how much each file is compressed.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/img/unzipping/inside-zip-windows.png&#34; width=&#34;80%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../../../../../../img/unzipping/inside-zip-windows.png&#34; width=&#34;80%&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;It is very tempting to try to open files from this view. However, if you do, things will break and you won’t be able to correctly work with any of the files in the zipped folder. If you open the R Project file, for instance, RStudio will point to a bizarre working directory buried deep in some temporary folder:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/img/unzipping/temp-wd-windows.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../../../../../../img/unzipping/temp-wd-windows.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;You most likely won’t be able to open any data files or save anything, which will be frustrating.&lt;/p&gt;
 &lt;p&gt;Instead, you need to right click on the &lt;code&gt;.zip&lt;/code&gt; file and select “Extract All…”:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/img/unzipping/extract-windows-1.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../../../../../../img/unzipping/extract-windows-1.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Then choose where you want to unzip all the files and click on “Extract”&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/img/unzipping/extract-windows-2.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../../../../../../img/unzipping/extract-windows-2.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;You should then finally have a real folder with all the contents of the zipped file. Open the R Project file and RStudio will point to the correct working directory and everything will work.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/img/unzipping/extract-windows-3.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../../../../../../img/unzipping/extract-windows-3.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>

@@ -246,7 +246,7 @@ We will also use the Ames data again (in addition to the Atlanta weather data). 
   <meta property="twitter:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
   
     
-    <meta property="article:modified_time" content="2022-02-18T07:24:46-05:00">
+    <meta property="article:modified_time" content="2022-08-22T08:10:10-04:00">
   
 
   
@@ -467,6 +467,28 @@ We will also use the Ames data again (in addition to the Atlanta weather data). 
         
         
           
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/resource/"><span>Resources</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
             
           
         
@@ -479,7 +501,7 @@ We will also use the Ames data again (in addition to the Atlanta weather data). 
         
 
         <li class="nav-item">
-          <a class="nav-link " href="https://join.slack.com/t/msu-qs62738/shared_invite/zt-10u63bf0n-b0cePmz9NDhhw3MSUPBP5A" target="_blank" rel="noopener"><span><i class="fab fa-slack"></i></span></a>
+          <a class="nav-link " href="https://join.slack.com/t/ssc442kirkpatrickhq/shared_invite/zt-1eku04roj-GQGFSNtlccF0ewb7tdvpOA" target="_blank" rel="noopener"><span><i class="fab fa-slack"></i></span></a>
         </li>
 
         
@@ -624,7 +646,6 @@ We will also use the Ames data again (in addition to the Atlanta weather data). 
 
                     <div class="article-style">
                         
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 <div id="TOC">
 <ul>
@@ -809,7 +830,7 @@ things_to_correlate</code></pre>
          measure2 = fct_inorder(measure2))
 
 things_to_correlate_long</code></pre>
-<pre><code>## # A tibble: 10 x 4
+<pre><code>## # A tibble: 10 × 4
 ##    measure2        measure1              cor nice_cor
 ##    &lt;fct&gt;           &lt;fct&gt;               &lt;dbl&gt;    &lt;dbl&gt;
 ##  1 temperatureHigh temperatureLow     0.920      0.92
@@ -864,7 +885,7 @@ things_to_correlate_long</code></pre>
                    data = weather_atl_summer)
 
 tidy(model_simple, conf.int = TRUE)</code></pre>
-<pre><code>## # A tibble: 2 x 7
+<pre><code>## # A tibble: 2 × 7
 ##   term            estimate std.error statistic  p.value conf.low conf.high
 ##   &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
 ## 1 (Intercept)      104.       2.35       44.3  1.88e-88   99.5     109.   
@@ -890,7 +911,7 @@ tidy(model_simple, conf.int = TRUE)</code></pre>
                       precipProbability_scaled + windSpeed + pressure + cloudCover_scaled,
                     data = weather_atl_summer)
 tidy(model_complex, conf.int = TRUE)</code></pre>
-<pre><code>## # A tibble: 7 x 7
+<pre><code>## # A tibble: 7 × 7
 ##   term                     estimate std.error statistic   p.value conf.low conf.high
 ##   &lt;chr&gt;                       &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
 ## 1 (Intercept)              262.      125.         2.09  0.0380    14.8      510.    
@@ -939,7 +960,7 @@ ggplot(model_tidied,
                           precipProbability_scaled = 50, windSpeed = 1,
                           pressure = 1000, cloudCover_scaled = 50)
 newdata_example</code></pre>
-<pre><code>## # A tibble: 1 x 6
+<pre><code>## # A tibble: 1 × 6
 ##   humidity_scaled moonPhase_scaled precipProbability_scaled windSpeed pressure cloudCover_scaled
 ##             &lt;dbl&gt;            &lt;dbl&gt;                    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;             &lt;dbl&gt;
 ## 1              50               50                       50         1     1000                50</code></pre>
@@ -949,7 +970,7 @@ newdata_example</code></pre>
 # and gets cut off
 augment(model_complex, newdata = newdata_example, se_fit=TRUE) %&gt;%
   select(.fitted, .se.fit)</code></pre>
-<pre><code>## # A tibble: 1 x 2
+<pre><code>## # A tibble: 1 × 2
 ##   .fitted .se.fit
 ##     &lt;dbl&gt;   &lt;dbl&gt;
 ## 1    96.2    3.19</code></pre>
@@ -962,7 +983,7 @@ augment(model_complex, newdata = newdata_example, se_fit=TRUE) %&gt;%
                   humidity_scaled = mean(weather_atl_summer$humidity_scaled),
                   cloudCover_scaled = mean(weather_atl_summer$cloudCover_scaled))
 newdata</code></pre>
-<pre><code>## # A tibble: 17 x 6
+<pre><code>## # A tibble: 17 × 6
 ##    windSpeed pressure precipProbability_scaled moonPhase_scaled humidity_scaled cloudCover_scaled
 ##        &lt;dbl&gt;    &lt;dbl&gt;                    &lt;dbl&gt;            &lt;dbl&gt;           &lt;dbl&gt;             &lt;dbl&gt;
 ##  1       0      1016.                     40.2             50.7            64.8              29.5
@@ -990,7 +1011,7 @@ newdata</code></pre>
 predicted_values %&gt;%
   select(windSpeed, .fitted, .se.fit, conf.low, conf.high) %&gt;%
   head()</code></pre>
-<pre><code>## # A tibble: 6 x 5
+<pre><code>## # A tibble: 6 × 5
 ##   windSpeed .fitted .se.fit conf.low conf.high
 ##       &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
 ## 1       0      95.3   1.63      92.2      98.5
@@ -1016,7 +1037,7 @@ predicted_values %&gt;%
                              humidity_scaled = mean(weather_atl_summer$humidity_scaled),
                              cloudCover_scaled = c(0, 33, 66, 100))
 newdata_fancy</code></pre>
-<pre><code>## # A tibble: 68 x 6
+<pre><code>## # A tibble: 68 × 6
 ##    windSpeed pressure precipProbability_scaled moonPhase_scaled humidity_scaled cloudCover_scaled
 ##        &lt;dbl&gt;    &lt;dbl&gt;                    &lt;dbl&gt;            &lt;dbl&gt;           &lt;dbl&gt;             &lt;dbl&gt;
 ##  1       0      1016.                     40.2             50.7            64.8                 0
@@ -1029,7 +1050,7 @@ newdata_fancy</code></pre>
 ##  8       0.5    1016.                     40.2             50.7            64.8               100
 ##  9       1      1016.                     40.2             50.7            64.8                 0
 ## 10       1      1016.                     40.2             50.7            64.8                33
-## # ... with 58 more rows</code></pre>
+## # … with 58 more rows</code></pre>
 <p>Notice now that <code>windSpeed</code> repeats four times (0, 0, 0, 0, 0.5, 0.5, etc.), since there are four possible <code>cloudCover_scaled</code> values (0, 33, 66, 100).</p>
 <p>We can plot this now, just like before, with wind speed on the x-axis, the predicted temperature on the y-axis, and colored and faceted by cloud cover:</p>
 <pre class="r"><code>predicted_values_fancy &lt;- augment(model_complex, newdata = newdata_fancy, se_fit=TRUE) %&gt;%
@@ -1066,7 +1087,7 @@ ggplot(predicted_values_fancy, aes(x = windSpeed, y = .fitted)) +
                 </div>
 
                 <div class="body-footer">
-                    <p>Last updated on February 18, 2022</p>
+                    <p>Last updated on August 22, 2022</p>
 
                     
 
@@ -1083,7 +1104,7 @@ ggplot(predicted_values_fancy, aes(x = windSpeed, y = .fitted)) +
     <div class="row course-info">
         <div class="col-md-7">
             <p>
-                <strong>SSC 442: Data Analytics (Spring Semester 2022)</strong><br>
+                <strong>SSC 442: Data Analytics (Fall Semester 2022)</strong><br>
 
                 <a href="https://www.msu.edu" target="_blank" rel="noopener">Michigan State University</a> &emsp;&emsp;
                 <a href="https://socialscience.msu.edu/" target="_blank" rel="noopener">College of Social Science</a>
@@ -1098,15 +1119,15 @@ ggplot(predicted_values_fancy, aes(x = windSpeed, y = .fitted)) +
 
             <p>
                 <i class="far fa-calendar-alt"></i> Tuesday and Thursday &emsp;&emsp;
-                <i class="far fa-clock"></i> 6:00pm - 7:20pm 
-                
+                <i class="far fa-clock"></i> 12:40pm - 2:00pm 
+                <br><i class="fas fa-university"></i> 116 Natural Sciences
             </p>
         </div>
 
         <div class="col-md-5 credits">
             <p>All content licensed under a <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</p>
             
-            <p>Content <i class="fab fa-creative-commons"></i> 2020-22 <a href="https://www.justinkirkpatrick.com" target="_blank" rel="noopener">Ben Bushong; Justin Kirkpatrick; based on work by Andrew Heiss</a></p>
+            <p>Content <i class="fab fa-creative-commons"></i> 2020-23 <a href="https://www.justinkirkpatrick.com" target="_blank" rel="noopener">Ben Bushong; Justin Kirkpatrick; based on work by Andrew Heiss</a></p>
         
             <p>This site created with the <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> in <a href="https://bookdown.org/yihui/blogdown/" target="_blank" rel="noopener">blogdown</a> and <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>. </p>
             

@@ -1,3 +1,18 @@
+---
+title: "Classification"
+linktitle: "11: Classification"
+read_date: "2022-11-15"
+lastmod: "2022-08-30"
+menu:
+  content:
+    parent: Course content
+    weight: 2
+type: docs
+output:
+  blogdown::html_page:
+    toc: true
+---
+
 
 <div id="TOC">
 <ul>
@@ -91,7 +106,7 @@ default_tst = Default[-default_idx, ]</code></pre>
             pch = &quot;|&quot;,
             layout = c(2, 1),
             auto.key = list(columns = 2))</code></pre>
-<p><img src="11-content_files/figure-html/unnamed-chunk-5-1.png" width="960" /></p>
+<p><img src="/content/11-content_files/figure-html/unnamed-chunk-5-1.png" width="960" /></p>
 <p>Some notes about the arguments to this function:</p>
 <ul>
 <li><code>x</code> is a data frame containing only <strong>numeric predictors</strong>. It would be nonsensical to estimate a density for a categorical predictor.</li>
@@ -113,20 +128,20 @@ default_tst = Default[-default_idx, ]</code></pre>
             pch = &quot;|&quot;,
             layout = c(2, 1),
             auto.key = list(columns = 2))</code></pre>
-<p><img src="11-content_files/figure-html/unnamed-chunk-6-1.png" width="960" /></p>
+<p><img src="/content/11-content_files/figure-html/unnamed-chunk-6-1.png" width="960" /></p>
 <p>Above, we create a similar plot, except with <code>student</code> as the response. We see that students often carry a slightly larger balance, and have far lower income. This will be useful to know when making more complicated classifiers.</p>
 <pre class="r"><code>featurePlot(x = default_trn[, c(&quot;student&quot;, &quot;balance&quot;, &quot;income&quot;)],
             y = default_trn$default,
             plot = &quot;pairs&quot;,
             auto.key = list(columns = 2))</code></pre>
-<p><img src="11-content_files/figure-html/unnamed-chunk-7-1.png" width="576" /></p>
+<p><img src="/content/11-content_files/figure-html/unnamed-chunk-7-1.png" width="576" /></p>
 <p>We can use <code>plot = "pairs"</code> to consider multiple variables at the same time. This plot reinforces using <code>balance</code> to create a classifier, and again shows that <code>income</code> seems not that useful.</p>
 <pre class="r"><code>library(ellipse)
 featurePlot(x = default_trn[, c(&quot;balance&quot;, &quot;income&quot;)],
             y = default_trn$default,
             plot = &quot;ellipse&quot;,
             auto.key = list(columns = 2))</code></pre>
-<p><img src="11-content_files/figure-html/unnamed-chunk-8-1.png" width="576" /></p>
+<p><img src="/content/11-content_files/figure-html/unnamed-chunk-8-1.png" width="576" /></p>
 <p>Similar to <code>pairs</code> is a plot of type <code>ellipse</code>, which requires the <code>ellipse</code> package. Here we only use numeric predictors, as essentially we are assuming multivariate normality. The ellipses mark points of equal density. This will be useful later when discussing LDA and QDA.</p>
 </div>
 <div id="a-simple-classifier" class="section level2">
@@ -362,7 +377,7 @@ abline(h = 0, lty = 3)
 abline(h = 1, lty = 3)
 abline(h = 0.5, lty = 2)
 abline(model_lm, lwd = 3, col = &quot;dodgerblue&quot;)</code></pre>
-<p><img src="11-content_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
+<p><img src="/content/11-content_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
 <p>Two issues arise. First, all of the predicted probabilities are below 0.5. That means, we would classify every observation as a <code>"No"</code>. This is certainly possible, but not what we would expect.</p>
 <pre class="r"><code>all(predict(model_lm) &lt; 0.5)</code></pre>
 <pre><code>## [1] TRUE</code></pre>
@@ -503,7 +518,7 @@ abline(h = 0.5, lty = 2)
 curve(predict(model_glm, data.frame(balance = x), type = &quot;response&quot;),
       add = TRUE, lwd = 3, col = &quot;dodgerblue&quot;)
 abline(v = -coef(model_glm)[1] / coef(model_glm)[2], lwd = 2)</code></pre>
-<p><img src="11-content_files/figure-html/unnamed-chunk-43-1.png" width="672" /></p>
+<p><img src="/content/11-content_files/figure-html/unnamed-chunk-43-1.png" width="672" /></p>
 <p>This plot contains a wealth of information.</p>
 <ul>
 <li>The orange <code>|</code> characters are the data, <span class="math inline">\((x_i, y_i)\)</span>.</li>
@@ -638,7 +653,7 @@ metrics</code></pre>
 <pre class="r"><code>library(pROC)
 test_prob = predict(model_glm, newdata = default_tst, type = &quot;response&quot;)
 test_roc = roc(default_tst$default ~ test_prob, plot = TRUE, print.auc = TRUE)</code></pre>
-<p><img src="11-content_files/figure-html/unnamed-chunk-53-1.png" width="672" /></p>
+<p><img src="/content/11-content_files/figure-html/unnamed-chunk-53-1.png" width="672" /></p>
 <pre class="r"><code>as.numeric(test_roc$auc)</code></pre>
 <pre><code>## [1] 0.9492866</code></pre>
 <p>The AUC is the “area under the curve”. One interpretation of the AUC is that it is “the probability that the model ranks a randomly selected positive more highly than a randomly selected negative.” A good model will have a high AUC. A high AUC has a high sensitivity and a high specificity over all of the cutoff values.</p>

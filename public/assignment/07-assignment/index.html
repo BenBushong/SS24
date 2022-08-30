@@ -30,9 +30,8 @@
   
     
   
-  <meta name="description" content="Backstory and Set UpData CleaningMany models do not like NA valuesLinear ModelsAssesing Model AccuracyModel ComplexityTest-Train Split (Lab 8)Adding Flexibility to Linear ModelsREAD THIS CAREFULLY
-The content below describes both Lab 7 and Lab 8. Lab 7 is Exercise 1; Lab 8 is Exercise 2.
-You must turn in a PDF document of your R Markdown code.">
+  <meta name="description" content="Backstory and Set UpData CleaningMany models do not like NA valuesLinear ModelsAssesing Model AccuracyModel ComplexityTest-Train Split (Lab 8)Adding Flexibility to Linear ModelsYou must turn in a PDF document of your R Markdown code. Submit this to D2L by 11:59 PM Eastern Time on Monday, October 24th
+Backstory and Set UpYou still work for Zillow as a junior analyst (sorry).">
 
   
   <link rel="alternate" hreflang="en-us" href="https://ssc442kirkpatrick.netlify.app/assignment/07-assignment/">
@@ -240,13 +239,12 @@ You must turn in a PDF document of your R Markdown code.">
   <meta property="og:site_name" content="Data Analytics">
   <meta property="og:url" content="https://ssc442kirkpatrick.netlify.app/assignment/07-assignment/">
   <meta property="og:title" content="Advanced Model Building | Data Analytics">
-  <meta property="og:description" content="Backstory and Set UpData CleaningMany models do not like NA valuesLinear ModelsAssesing Model AccuracyModel ComplexityTest-Train Split (Lab 8)Adding Flexibility to Linear ModelsREAD THIS CAREFULLY
-The content below describes both Lab 7 and Lab 8. Lab 7 is Exercise 1; Lab 8 is Exercise 2.
-You must turn in a PDF document of your R Markdown code."><meta property="og:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png">
+  <meta property="og:description" content="Backstory and Set UpData CleaningMany models do not like NA valuesLinear ModelsAssesing Model AccuracyModel ComplexityTest-Train Split (Lab 8)Adding Flexibility to Linear ModelsYou must turn in a PDF document of your R Markdown code. Submit this to D2L by 11:59 PM Eastern Time on Monday, October 24th
+Backstory and Set UpYou still work for Zillow as a junior analyst (sorry)."><meta property="og:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png">
   <meta property="twitter:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
   
     
-    <meta property="article:modified_time" content="2022-03-18T10:35:08-04:00">
+    <meta property="article:modified_time" content="2022-08-22T08:10:10-04:00">
   
 
   
@@ -467,6 +465,28 @@ You must turn in a PDF document of your R Markdown code."><meta property="og:ima
         
         
           
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/resource/"><span>Resources</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
             
           
         
@@ -479,7 +499,7 @@ You must turn in a PDF document of your R Markdown code."><meta property="og:ima
         
 
         <li class="nav-item">
-          <a class="nav-link " href="https://join.slack.com/t/msu-qs62738/shared_invite/zt-10u63bf0n-b0cePmz9NDhhw3MSUPBP5A" target="_blank" rel="noopener"><span><i class="fab fa-slack"></i></span></a>
+          <a class="nav-link " href="https://join.slack.com/t/ssc442kirkpatrickhq/shared_invite/zt-1eku04roj-GQGFSNtlccF0ewb7tdvpOA" target="_blank" rel="noopener"><span><i class="fab fa-slack"></i></span></a>
         </li>
 
         
@@ -538,7 +558,7 @@ You must turn in a PDF document of your R Markdown code."><meta property="og:ima
   
   
   <div class="docs-toc-item">
-    <a class="docs-toc-link" href="/assignment/">Assignments and Evaluations</a>
+    <a class="docs-toc-link" href="/assignment/">Assignments</a>
 
   </div>
   
@@ -575,7 +595,11 @@ You must turn in a PDF document of your R Markdown code."><meta property="og:ima
       </li>
       
       <li class="active">
-        <a href="/assignment/07-assignment/">7/8: Linear Regression III</a>
+        <a href="/assignment/07-assignment/">7: Linear Regression III</a>
+      </li>
+      
+      <li >
+        <a href="/assignment/08-assignment/">8: LASSO</a>
       </li>
       
       <li >
@@ -638,7 +662,6 @@ You must turn in a PDF document of your R Markdown code."><meta property="og:ima
 
                     <div class="article-style">
                         
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 <div id="TOC">
 <ul>
@@ -659,9 +682,7 @@ You must turn in a PDF document of your R Markdown code."><meta property="og:ima
 
 <!-- Updated after Sp2022 -->
 <div class="fyi">
-<p><strong>READ THIS CAREFULLY</strong></p>
-<p>The content below describes both Lab 7 and Lab 8. Lab 7 is Exercise 1; Lab 8 is Exercise 2.</p>
-<p>You must turn in a PDF document of your <code>R Markdown</code> code. Submit this to D2L by 11:59 PM Eastern Time on Monday, March 14th for both labs (so that you do not have one due during Spring Break). Submit labs separately, though. Uploading both labs to Lab 7 will result in a 0 on Lab 8.</p>
+<p>You must turn in a PDF document of your <code>R Markdown</code> code. Submit this to D2L by 11:59 PM Eastern Time on Monday, October 24th</p>
 </div>
 <div id="backstory-and-set-up" class="section level2">
 <h2>Backstory and Set Up</h2>
@@ -879,7 +900,7 @@ lines(model_complexity, test_rmse, type = &quot;b&quot;, col = &quot;darkorange&
                 </div>
 
                 <div class="body-footer">
-                    <p>Last updated on March 18, 2022</p>
+                    <p>Last updated on August 22, 2022</p>
 
                     
 
@@ -896,7 +917,7 @@ lines(model_complexity, test_rmse, type = &quot;b&quot;, col = &quot;darkorange&
     <div class="row course-info">
         <div class="col-md-7">
             <p>
-                <strong>SSC 442: Data Analytics (Spring Semester 2022)</strong><br>
+                <strong>SSC 442: Data Analytics (Fall Semester 2022)</strong><br>
 
                 <a href="https://www.msu.edu" target="_blank" rel="noopener">Michigan State University</a> &emsp;&emsp;
                 <a href="https://socialscience.msu.edu/" target="_blank" rel="noopener">College of Social Science</a>
@@ -911,15 +932,15 @@ lines(model_complexity, test_rmse, type = &quot;b&quot;, col = &quot;darkorange&
 
             <p>
                 <i class="far fa-calendar-alt"></i> Tuesday and Thursday &emsp;&emsp;
-                <i class="far fa-clock"></i> 6:00pm - 7:20pm 
-                
+                <i class="far fa-clock"></i> 12:40pm - 2:00pm 
+                <br><i class="fas fa-university"></i> 116 Natural Sciences
             </p>
         </div>
 
         <div class="col-md-5 credits">
             <p>All content licensed under a <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</p>
             
-            <p>Content <i class="fab fa-creative-commons"></i> 2020-22 <a href="https://www.justinkirkpatrick.com" target="_blank" rel="noopener">Ben Bushong; Justin Kirkpatrick; based on work by Andrew Heiss</a></p>
+            <p>Content <i class="fab fa-creative-commons"></i> 2020-23 <a href="https://www.justinkirkpatrick.com" target="_blank" rel="noopener">Ben Bushong; Justin Kirkpatrick; based on work by Andrew Heiss</a></p>
         
             <p>This site created with the <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> in <a href="https://bookdown.org/yihui/blogdown/" target="_blank" rel="noopener">blogdown</a> and <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>. </p>
             

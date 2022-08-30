@@ -30,7 +30,7 @@
   
     
   
-  <meta name="description" content="Part 1: InstructionsPart 2: HypothesesEvaluationData cleaning codeData to possibly use in your plotCountry totals over timeCumulative country totals over timeContinent totals over timeCumulative continent totals over timeWhat about other data?As with Project 1, each member of the group should submit an identical copy of the project to D2L (for ease of evaluation and to ensure communication across the group).">
+  <meta name="description" content="Part 1: InstructionsPart 2: HypothesesEvaluationData cleaning codeData to possibly use in your plotCountry totals over timeCumulative country totals over timeContinent totals over timeCumulative continent totals over timeWhat about other data?As with Project 1, each member of the group should submit an identical copy of the project to D2L (for ease of evaluation and to ensure communication across the group).">
 
   
   <link rel="alternate" hreflang="en-us" href="https://ssc442kirkpatrick.netlify.app/assignment/project2/">
@@ -238,13 +238,13 @@
   <meta property="og:site_name" content="Data Analytics">
   <meta property="og:url" content="https://ssc442kirkpatrick.netlify.app/assignment/project2/">
   <meta property="og:title" content="Project 2 | Data Analytics">
-  <meta property="og:description" content="Part 1: InstructionsPart 2: HypothesesEvaluationData cleaning codeData to possibly use in your plotCountry totals over timeCumulative country totals over timeContinent totals over timeCumulative continent totals over timeWhat about other data?As with Project 1, each member of the group should submit an identical copy of the project to D2L (for ease of evaluation and to ensure communication across the group)."><meta property="og:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png">
+  <meta property="og:description" content="Part 1: InstructionsPart 2: HypothesesEvaluationData cleaning codeData to possibly use in your plotCountry totals over timeCumulative country totals over timeContinent totals over timeCumulative continent totals over timeWhat about other data?As with Project 1, each member of the group should submit an identical copy of the project to D2L (for ease of evaluation and to ensure communication across the group)."><meta property="og:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png">
   <meta property="twitter:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
   
     
       <meta property="article:published_time" content="2022-01-04T00:00:00&#43;00:00">
     
-    <meta property="article:modified_time" content="2022-01-06T14:11:31-05:00">
+    <meta property="article:modified_time" content="2022-08-22T08:10:10-04:00">
   
 
   
@@ -465,6 +465,28 @@
         
         
           
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/resource/"><span>Resources</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
             
           
         
@@ -477,7 +499,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link " href="https://join.slack.com/t/msu-qs62738/shared_invite/zt-10u63bf0n-b0cePmz9NDhhw3MSUPBP5A" target="_blank" rel="noopener"><span><i class="fab fa-slack"></i></span></a>
+          <a class="nav-link " href="https://join.slack.com/t/ssc442kirkpatrickhq/shared_invite/zt-1eku04roj-GQGFSNtlccF0ewb7tdvpOA" target="_blank" rel="noopener"><span><i class="fab fa-slack"></i></span></a>
         </li>
 
         
@@ -536,7 +558,7 @@
   
   
   <div class="docs-toc-item">
-    <a class="docs-toc-link" href="/assignment/">Assignments and Evaluations</a>
+    <a class="docs-toc-link" href="/assignment/">Assignments</a>
 
   </div>
   
@@ -573,7 +595,11 @@
       </li>
       
       <li >
-        <a href="/assignment/07-assignment/">7/8: Linear Regression III</a>
+        <a href="/assignment/07-assignment/">7: Linear Regression III</a>
+      </li>
+      
+      <li >
+        <a href="/assignment/08-assignment/">8: LASSO</a>
       </li>
       
       <li >
@@ -644,11 +670,13 @@
 <div id="TOC">
 <ul>
 <li><a href="#part-1-instructions">Part 1: Instructions</a></li>
-<li><a href="#part-2-hypotheses">Part 2: Hypotheses</a><ul>
+<li><a href="#part-2-hypotheses">Part 2: Hypotheses</a>
+<ul>
 <li><a href="#evaluation">Evaluation</a></li>
 </ul></li>
 <li><a href="#data-cleaning-code">Data cleaning code</a></li>
-<li><a href="#data-to-possibly-use-in-your-plot">Data to possibly use in your plot</a><ul>
+<li><a href="#data-to-possibly-use-in-your-plot">Data to possibly use in your plot</a>
+<ul>
 <li><a href="#country-totals-over-time">Country totals over time</a></li>
 <li><a href="#cumulative-country-totals-over-time">Cumulative country totals over time</a></li>
 <li><a href="#continent-totals-over-time">Continent totals over time</a></li>
@@ -662,7 +690,7 @@
 <p>As with Project 1, each member of the group should submit an identical copy of the project to D2L (for ease of evaluation and to ensure communication across the group). Please write your group number and the group members’ names across the top. Upload the components (see below) to the Project 2 assignment on D2L by 11:59pm on the date listed on the Schedule page.</p>
 </div>
 <p>The United States has resettled more than 600,000 refugees from 60 different countries since 2006.</p>
-<p><img src="/img/assignments/refugees_welcome.jpg" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="../../../../../../../img/assignments/refugees_welcome.jpg" width="70%" style="display: block; margin: auto;" /></p>
 <p>In this project, you will use <strong>R, ggplot</strong> and some form of graphics editor to explore where these refugees have come from.</p>
 <div id="part-1-instructions" class="section level2">
 <h2>Part 1: Instructions</h2>
@@ -747,15 +775,16 @@ refugees_clean &lt;- refugees_raw %&gt;%
 <div id="country-totals-over-time" class="section level3">
 <h3>Country totals over time</h3>
 <p>This is just the <code>refugees_clean</code> data frame I gave you. You’ll want to filter it and select specific countries, though—you won’t really be able to plot 60 countries all at once unless you use sparklines.</p>
-<pre><code>## # A tibble: 6 x 7
-##   origin_country iso3  origin_region    origin_continent  year number year_date 
-##   &lt;chr&gt;          &lt;chr&gt; &lt;chr&gt;            &lt;chr&gt;            &lt;dbl&gt;  &lt;dbl&gt; &lt;date&gt;    
-## 1 Afghanistan    AFG   South Asia       Asia              2006    651 2006-01-01
-## 2 Angola         AGO   Sub-Saharan Afr~ Africa            2006     13 2006-01-01
-## 3 Armenia        ARM   Europe &amp; Centra~ Asia              2006     87 2006-01-01
-## 4 Azerbaijan     AZE   Europe &amp; Centra~ Asia              2006     77 2006-01-01
-## 5 Belarus        BLR   Europe &amp; Centra~ Europe            2006    350 2006-01-01
-## 6 Bhutan         BTN   South Asia       Asia              2006      3 2006-01-01</code></pre>
+<pre><code>## # A tibble: 6 × 7
+##   origin_country iso3  origin_region         origin_co…¹  year number year_date 
+##   &lt;chr&gt;          &lt;chr&gt; &lt;chr&gt;                 &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt; &lt;date&gt;    
+## 1 Afghanistan    AFG   South Asia            Asia         2006    651 2006-01-01
+## 2 Angola         AGO   Sub-Saharan Africa    Africa       2006     13 2006-01-01
+## 3 Armenia        ARM   Europe &amp; Central Asia Asia         2006     87 2006-01-01
+## 4 Azerbaijan     AZE   Europe &amp; Central Asia Asia         2006     77 2006-01-01
+## 5 Belarus        BLR   Europe &amp; Central Asia Europe       2006    350 2006-01-01
+## 6 Bhutan         BTN   South Asia            Asia         2006      3 2006-01-01
+## # … with abbreviated variable name ¹​origin_continent</code></pre>
 </div>
 <div id="cumulative-country-totals-over-time" class="section level3">
 <h3>Cumulative country totals over time</h3>
@@ -764,7 +793,7 @@ refugees_clean &lt;- refugees_raw %&gt;%
   arrange(year_date) %&gt;%
   group_by(origin_country) %&gt;%
   mutate(cumulative_total = cumsum(number))</code></pre>
-<pre><code>## # A tibble: 6 x 7
+<pre><code>## # A tibble: 6 × 7
 ## # Groups:   origin_country [1]
 ##   origin_country iso3  origin_continent  year number year_date  cumulative_total
 ##   &lt;chr&gt;          &lt;chr&gt; &lt;chr&gt;            &lt;dbl&gt;  &lt;dbl&gt; &lt;date&gt;                &lt;dbl&gt;
@@ -781,8 +810,9 @@ refugees_clean &lt;- refugees_raw %&gt;%
 <pre class="r"><code>refugees_continents &lt;- refugees_clean %&gt;%
   group_by(origin_continent, year_date) %&gt;%
   summarize(total = sum(number, na.rm = TRUE))</code></pre>
-<pre><code>## `summarise()` has grouped output by &#39;origin_continent&#39;. You can override using the `.groups` argument.</code></pre>
-<pre><code>## # A tibble: 6 x 3
+<pre><code>## `summarise()` has grouped output by &#39;origin_continent&#39;. You can override using
+## the `.groups` argument.</code></pre>
+<pre><code>## # A tibble: 6 × 3
 ## # Groups:   origin_continent [1]
 ##   origin_continent year_date  total
 ##   &lt;chr&gt;            &lt;date&gt;     &lt;dbl&gt;
@@ -802,8 +832,9 @@ refugees_clean &lt;- refugees_raw %&gt;%
   arrange(year_date) %&gt;%
   group_by(origin_continent) %&gt;%
   mutate(cumulative_total = cumsum(total))</code></pre>
-<pre><code>## `summarise()` has grouped output by &#39;origin_continent&#39;. You can override using the `.groups` argument.</code></pre>
-<pre><code>## # A tibble: 6 x 4
+<pre><code>## `summarise()` has grouped output by &#39;origin_continent&#39;. You can override using
+## the `.groups` argument.</code></pre>
+<pre><code>## # A tibble: 6 × 4
 ## # Groups:   origin_continent [1]
 ##   origin_continent year_date  total cumulative_total
 ##   &lt;chr&gt;            &lt;date&gt;     &lt;dbl&gt;            &lt;dbl&gt;
@@ -842,7 +873,7 @@ myData = WDI(country = refugees_clean$iso2, indicator = &#39;SP.POP.TOTL&#39;, s
 <p>We didn’t have an <code>iso2c</code> column before, just an <code>iso2</code> column, so you might notice that the new cleaning code I gave you added <code>iso2c = iso2</code> at the end using <code>mutate</code>. That way, the column names that we’re using to merge will match.</p>
 <p>You can search the WDI data dictionary and find the “Code” for the indicator you’d like to use, then just merge it into your data. Look at your data closely before you merge, and make sure you know what you’re merging in. Use the slack if you get stuck. Happy data hunting!</p>
 <pre class="r"><code>head(refugees_clean_merged %&gt;% dplyr::select(origin_country, number, iso2, year, SP.POP.TOTL))</code></pre>
-<pre><code>## # A tibble: 6 x 5
+<pre><code>## # A tibble: 6 × 5
 ##   origin_country number iso2   year SP.POP.TOTL
 ##   &lt;chr&gt;           &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;       &lt;dbl&gt;
 ## 1 Afghanistan       651 AF     2006    26433058
@@ -871,7 +902,7 @@ myData = WDI(country = refugees_clean$iso2, indicator = &#39;SP.POP.TOTL&#39;, s
                 </div>
 
                 <div class="body-footer">
-                    <p>Last updated on January 6, 2022</p>
+                    <p>Last updated on August 22, 2022</p>
 
                     
 
@@ -888,7 +919,7 @@ myData = WDI(country = refugees_clean$iso2, indicator = &#39;SP.POP.TOTL&#39;, s
     <div class="row course-info">
         <div class="col-md-7">
             <p>
-                <strong>SSC 442: Data Analytics (Spring Semester 2022)</strong><br>
+                <strong>SSC 442: Data Analytics (Fall Semester 2022)</strong><br>
 
                 <a href="https://www.msu.edu" target="_blank" rel="noopener">Michigan State University</a> &emsp;&emsp;
                 <a href="https://socialscience.msu.edu/" target="_blank" rel="noopener">College of Social Science</a>
@@ -903,15 +934,15 @@ myData = WDI(country = refugees_clean$iso2, indicator = &#39;SP.POP.TOTL&#39;, s
 
             <p>
                 <i class="far fa-calendar-alt"></i> Tuesday and Thursday &emsp;&emsp;
-                <i class="far fa-clock"></i> 6:00pm - 7:20pm 
-                
+                <i class="far fa-clock"></i> 12:40pm - 2:00pm 
+                <br><i class="fas fa-university"></i> 116 Natural Sciences
             </p>
         </div>
 
         <div class="col-md-5 credits">
             <p>All content licensed under a <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</p>
             
-            <p>Content <i class="fab fa-creative-commons"></i> 2020-22 <a href="https://www.justinkirkpatrick.com" target="_blank" rel="noopener">Ben Bushong; Justin Kirkpatrick; based on work by Andrew Heiss</a></p>
+            <p>Content <i class="fab fa-creative-commons"></i> 2020-23 <a href="https://www.justinkirkpatrick.com" target="_blank" rel="noopener">Ben Bushong; Justin Kirkpatrick; based on work by Andrew Heiss</a></p>
         
             <p>This site created with the <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> in <a href="https://bookdown.org/yihui/blogdown/" target="_blank" rel="noopener">blogdown</a> and <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>. </p>
             

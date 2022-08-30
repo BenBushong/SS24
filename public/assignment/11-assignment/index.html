@@ -31,7 +31,7 @@
     
   
   <meta name="description" content="Your final labData Wrangling Continued…Your final labWe started numbering at 0, so this is your final lab.
-fyi::You must turn in a PDF document of your R Markdown code. Submit this to D2L by 11:59 PM Eastern Time on Monday, Monday April 12th.::
+fyi::You must turn in a PDF document of your R Markdown code. Submit this to D2L by 11:59 PM Eastern Time on Monday, Monday November 14th.::
 Data Wrangling Continued…You still work for a travel booking website as a data analyst. The hotel has once again asked your company for data on corporate bookings at the hotel via your site.">
 
   
@@ -241,12 +241,12 @@ fyi::You must turn in a PDF document of your R Markdown code. Submit this to D2
   <meta property="og:url" content="https://ssc442kirkpatrick.netlify.app/assignment/11-assignment/">
   <meta property="og:title" content="Applied Data Wrangling | Data Analytics">
   <meta property="og:description" content="Your final labData Wrangling Continued…Your final labWe started numbering at 0, so this is your final lab.
-fyi::You must turn in a PDF document of your R Markdown code. Submit this to D2L by 11:59 PM Eastern Time on Monday, Monday April 12th.::
+fyi::You must turn in a PDF document of your R Markdown code. Submit this to D2L by 11:59 PM Eastern Time on Monday, Monday November 14th.::
 Data Wrangling Continued…You still work for a travel booking website as a data analyst. The hotel has once again asked your company for data on corporate bookings at the hotel via your site."><meta property="og:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png">
   <meta property="twitter:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
   
     
-    <meta property="article:modified_time" content="2022-03-23T11:53:53-04:00">
+    <meta property="article:modified_time" content="2022-08-22T08:10:10-04:00">
   
 
   
@@ -467,6 +467,28 @@ fyi::You must turn in a PDF document of your R Markdown code. Submit this to D2
         
         
           
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/resource/"><span>Resources</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
             
           
         
@@ -479,7 +501,7 @@ fyi::You must turn in a PDF document of your R Markdown code. Submit this to D2
         
 
         <li class="nav-item">
-          <a class="nav-link " href="https://join.slack.com/t/msu-qs62738/shared_invite/zt-10u63bf0n-b0cePmz9NDhhw3MSUPBP5A" target="_blank" rel="noopener"><span><i class="fab fa-slack"></i></span></a>
+          <a class="nav-link " href="https://join.slack.com/t/ssc442kirkpatrickhq/shared_invite/zt-1eku04roj-GQGFSNtlccF0ewb7tdvpOA" target="_blank" rel="noopener"><span><i class="fab fa-slack"></i></span></a>
         </li>
 
         
@@ -538,7 +560,7 @@ fyi::You must turn in a PDF document of your R Markdown code. Submit this to D2
   
   
   <div class="docs-toc-item">
-    <a class="docs-toc-link" href="/assignment/">Assignments and Evaluations</a>
+    <a class="docs-toc-link" href="/assignment/">Assignments</a>
 
   </div>
   
@@ -575,7 +597,11 @@ fyi::You must turn in a PDF document of your R Markdown code. Submit this to D2
       </li>
       
       <li >
-        <a href="/assignment/07-assignment/">7/8: Linear Regression III</a>
+        <a href="/assignment/07-assignment/">7: Linear Regression III</a>
+      </li>
+      
+      <li >
+        <a href="/assignment/08-assignment/">8: LASSO</a>
       </li>
       
       <li >
@@ -638,7 +664,6 @@ fyi::You must turn in a PDF document of your R Markdown code. Submit this to D2
 
                     <div class="article-style">
                         
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 <div id="TOC">
 <ul>
@@ -647,11 +672,12 @@ fyi::You must turn in a PDF document of your R Markdown code. Submit this to D2
 </ul>
 </div>
 
+<!-- Updated 8.30.22 -->
 <div id="your-final-lab" class="section level3">
 <h3>Your final lab</h3>
 <p>We started numbering at 0, so this is your final lab.</p>
 <p>fyi::
-You must turn in a PDF document of your <code>R Markdown</code> code. Submit this to D2L by 11:59 PM Eastern Time on <strong>Monday, Monday April 12th.</strong>
+You must turn in a PDF document of your <code>R Markdown</code> code. Submit this to D2L by 11:59 PM Eastern Time on <strong>Monday, Monday November 14th.</strong>
 ::</p>
 </div>
 <div id="data-wrangling-continued" class="section level2">
@@ -662,7 +688,7 @@ You must turn in a PDF document of your <code>R Markdown</code> code. Submit thi
 <li><p><a href="/data/Lab11_booking.csv"><i class="fas fa-file-csv"></i> <code>booking.csv</code></a> - Contains the corporation name, the room type, and the dates someone from the corporation stayed at the hotel. It was pulled by an intern who doesn’t understand date-time stamps.</p></li>
 <li><p><a href="/data/Lab11_roomrates.csv"><i class="fas fa-file-csv"></i> <code>roomrates.csv</code></a> - Contains the price of each room on each day. The Lab 11 version of this data is from our German affiliate, so pay attention to the date format!</p></li>
 <li><p><a href="/data/Lab11_parking.csv"><i class="fas fa-file-csv"></i> <code>parking.csv</code></a> - Contains the corporations who negotiated free parking for employees. It has been updated.</p></li>
-<li><p>Parking at the hotel is $60 if you don’t have free parking. This hotel is in California, so everyone drives and parks when they stay.</p></li>
+<li><p>Parking at the hotel is $60 per night if you don’t have free parking. This hotel is in California, so everyone drives and parks when they stay.</p></li>
 </ul>
 <div class="fyi">
 <p><strong>EXERCISE 1</strong></p>
@@ -685,7 +711,7 @@ You must turn in a PDF document of your <code>R Markdown</code> code. Submit thi
                 </div>
 
                 <div class="body-footer">
-                    <p>Last updated on March 23, 2022</p>
+                    <p>Last updated on August 22, 2022</p>
 
                     
 
@@ -702,7 +728,7 @@ You must turn in a PDF document of your <code>R Markdown</code> code. Submit thi
     <div class="row course-info">
         <div class="col-md-7">
             <p>
-                <strong>SSC 442: Data Analytics (Spring Semester 2022)</strong><br>
+                <strong>SSC 442: Data Analytics (Fall Semester 2022)</strong><br>
 
                 <a href="https://www.msu.edu" target="_blank" rel="noopener">Michigan State University</a> &emsp;&emsp;
                 <a href="https://socialscience.msu.edu/" target="_blank" rel="noopener">College of Social Science</a>
@@ -717,15 +743,15 @@ You must turn in a PDF document of your <code>R Markdown</code> code. Submit thi
 
             <p>
                 <i class="far fa-calendar-alt"></i> Tuesday and Thursday &emsp;&emsp;
-                <i class="far fa-clock"></i> 6:00pm - 7:20pm 
-                
+                <i class="far fa-clock"></i> 12:40pm - 2:00pm 
+                <br><i class="fas fa-university"></i> 116 Natural Sciences
             </p>
         </div>
 
         <div class="col-md-5 credits">
             <p>All content licensed under a <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</p>
             
-            <p>Content <i class="fab fa-creative-commons"></i> 2020-22 <a href="https://www.justinkirkpatrick.com" target="_blank" rel="noopener">Ben Bushong; Justin Kirkpatrick; based on work by Andrew Heiss</a></p>
+            <p>Content <i class="fab fa-creative-commons"></i> 2020-23 <a href="https://www.justinkirkpatrick.com" target="_blank" rel="noopener">Ben Bushong; Justin Kirkpatrick; based on work by Andrew Heiss</a></p>
         
             <p>This site created with the <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> in <a href="https://bookdown.org/yihui/blogdown/" target="_blank" rel="noopener">blogdown</a> and <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>. </p>
             

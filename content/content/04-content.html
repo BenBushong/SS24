@@ -1,3 +1,19 @@
+---
+title: "Probability and Statistics"
+linktitle: "4: Uncertainty"
+date: "2022-02-08"
+read_date: "2022-02-08"
+publishDate: "2022-01-29"
+menu:
+  content:
+    parent: Course content
+    weight: 1
+type: docs
+output:
+  blogdown::html_page:
+    toc: true
+---
+
 
 <div id="TOC">
 <ul>
@@ -146,7 +162,7 @@ beads</code></pre>
 <pre><code>## [1] &quot;red&quot;  &quot;red&quot;  &quot;blue&quot; &quot;blue&quot; &quot;blue&quot;</code></pre>
 <p>and then use <code>sample</code> to pick a bead at random:</p>
 <pre class="r"><code>sample(beads, 1)</code></pre>
-<pre><code>## [1] &quot;red&quot;</code></pre>
+<pre><code>## [1] &quot;blue&quot;</code></pre>
 <p>This line of code produces one random outcome. We want to repeat this experiment an infinite number of times, but it is impossible to repeat forever. Instead, we repeat the experiment a large enough number of times to make the results practically equivalent to repeating forever. <strong>This is an example of a <em>Monte Carlo</em> simulation</strong>.</p>
 <p>Much of what mathematical and theoretical statisticians study, which we do not cover in this class, relates to providing rigorous definitions of “practically equivalent” as well as studying how close a large number of experiments gets us to what happens in the limit. Later in this lecture, we provide a practical approach to deciding what is “large enough”.</p>
 <p>To perform our first Monte Carlo simulation, we use the <code>replicate</code> function, which permits us to repeat the same task any number of times. Here, we repeat the random event <span class="math inline">\(B =\)</span> 10,000 times:</p>
@@ -157,12 +173,12 @@ events &lt;- replicate(B, sample(beads, 1))</code></pre>
 tab</code></pre>
 <pre><code>## events
 ## blue  red 
-## 5915 4085</code></pre>
+## 6053 3947</code></pre>
 <p>and <code>prop.table</code> gives us the proportions:</p>
 <pre class="r"><code>prop.table(tab)</code></pre>
 <pre><code>## events
 ##   blue    red 
-## 0.5915 0.4085</code></pre>
+## 0.6053 0.3947</code></pre>
 <p>The numbers above are the estimated probabilities provided by this Monte Carlo simulation. Statistical theory, not covered here, tells us that as <span class="math inline">\(B\)</span> gets larger, the estimates get closer to 3/5=.6 and 2/5=.4.</p>
 <p>Although this is a simple and not very useful example, we will use Monte Carlo simulations to estimate probabilities in cases in which it is harder to compute the exact ones. Before delving into more complex examples, we use simple ones to demonstrate the computing tools available in R.</p>
 <div id="setting-the-random-seed" class="section level3">
@@ -257,7 +273,7 @@ Let’s use Blackjack as an example. In Blackjack, you are assigned two random c
 \mbox{Pr}(A \mbox{ or } B) = \mbox{Pr}(A) + \mbox{Pr}(B) - \mbox{Pr}(A \mbox{ and } B)
 \]</span></p>
 <p>This rule is intuitive: think of a Venn diagram. If we simply add the probabilities, we count the intersection twice so we need to substract one instance.</p>
-<p><img src="04-content_files/figure-html/venn-diagram-addition-rule-1.png" width="35%" /></p>
+<p><img src="/content/04-content_files/figure-html/venn-diagram-addition-rule-1.png" width="35%" /></p>
 </div>
 </div>
 <div id="combinations-and-permutations" class="section level2">
@@ -448,7 +464,7 @@ prob &lt;- sapply(n, compute_prob)</code></pre>
 <pre class="r"><code>library(tidyverse)
 prob &lt;- sapply(n, compute_prob)
 qplot(n, prob)</code></pre>
-<p><img src="04-content_files/figure-html/birthday-problem-mc-probabilities-1.png" width="672" /></p>
+<p><img src="/content/04-content_files/figure-html/birthday-problem-mc-probabilities-1.png" width="672" /></p>
 <p>Now let’s compute the exact probabilities rather than use Monte Carlo approximations. Not only do we get the exact answer using math, but the computations are much faster since we don’t have to generate experiments.</p>
 <p>To make the math simpler, instead of computing the probability of it happening, we will compute the probability of it not happening. For this, we use the multiplication rule.</p>
 <p>Let’s start with the first person. The probability that person 1 has a unique birthday is 1. The probability that person 2 has a unique birthday, given that person 1 already took one, is 364/365. Then, given that the first two people have unique birthdays, person 3 is left with 363 days to choose from. We continue this way and find the chances of all 50 people having a unique birthday is:</p>
@@ -462,7 +478,7 @@ qplot(n, prob)</code></pre>
 }
 eprob &lt;- sapply(n, exact_prob)
 qplot(n, prob) + geom_line(aes(n, eprob), col = &quot;red&quot;)</code></pre>
-<p><img src="04-content_files/figure-html/birthday-problem-exact-probabilities-1.png" width="672" /></p>
+<p><img src="/content/04-content_files/figure-html/birthday-problem-exact-probabilities-1.png" width="672" /></p>
 <p>This plot shows that the Monte Carlo simulation provided a very good estimate of the exact probability. Had it not been possible to compute the exact probabilities, we would have still been able to accurately estimate the probabilities.</p>
 </div>
 </div>
@@ -478,7 +494,7 @@ compute_prob &lt;- function(B, n=25){
 }
 prob &lt;- sapply(B, compute_prob)
 qplot(log10(B), prob, geom = &quot;line&quot;)</code></pre>
-<p><img src="04-content_files/figure-html/monte-carlo-convergence-1.png" width="672" /></p>
+<p><img src="/content/04-content_files/figure-html/monte-carlo-convergence-1.png" width="672" /></p>
 <p>In this plot, we can see that the values start to stabilize (that is, they vary less than .01) around 1000. Note that the exact probability, which we know in this case, is 0.5686997.</p>
 <div class="fyi">
 <p><strong>TRY IT</strong></p>
@@ -558,7 +574,7 @@ s &lt;- sd(x)
 <div id="theoretical-distributions-as-approximations" class="section level3">
 <h3>Theoretical distributions as approximations</h3>
 <p>The normal distribution is derived mathematically: we do not need data to define it. For practicing data scientists, almost everything we do involves data. Data is always, technically speaking, discrete. For example, we could consider our height data categorical with each specific height a unique category. The probability distribution is defined by the proportion of students reporting each height. Here is a plot of that probability distribution:</p>
-<p><img src="04-content_files/figure-html/plot-of-height-frequencies-1.png" width="672" /></p>
+<p><img src="/content/04-content_files/figure-html/plot-of-height-frequencies-1.png" width="672" /></p>
 <p>While most students rounded up their heights to the nearest inch, others reported values with more precision. One student reported his height to be 69.6850393700787, which is 177 centimeters. The probability assigned to this height is 0.0012315 or 1 in 812. The probability for 70 inches is much higher at 0.1059113, but does it really make sense to think of the probability of being exactly 70 inches as being different than 69.6850393700787? Clearly it is much more useful for data analytic purposes to treat this outcome as a continuous numeric variable, keeping in mind that very few people, or perhaps none, are exactly 70 inches, and that the reason we get more values at 70 is because people round to the nearest inch.</p>
 <p>With continuous distributions, the probability of a singular value is not even defined. For example, it does not make sense to ask what is the probability that a normally distributed value is 70. Instead, we define probabilities for intervals. We thus could ask what is the probability that someone is between 69.5 and 70.5.</p>
 <p>In cases like height, in which the data is rounded, the normal approximation is particularly useful if we deal with intervals that include exactly one round number. For example, the normal distribution is useful for approximating the proportion of students reporting values in intervals like the following three:</p>
@@ -602,7 +618,7 @@ F(a) = \mbox{Pr}(X\leq a) = \int_{-\infty}^a f(x)\, dx
 <pre class="r"><code>1 - pnorm(76, m, s)</code></pre>
 <pre><code>## [1] 0.03206008</code></pre>
 <p>which mathematically is the grey area below:</p>
-<p><img src="04-content_files/figure-html/intergrals-1.png" width="672" /></p>
+<p><img src="/content/04-content_files/figure-html/intergrals-1.png" width="672" /></p>
 <p>The curve you see is the probability density for the normal distribution. In R, we get this using the function <code>dnorm</code>.</p>
 <p>Although it may not be immediately obvious why knowing about probability densities is useful, understanding this concept will be essential to those wanting to fit models to data for which predefined functions are not available.</p>
 </div>
@@ -615,7 +631,7 @@ m &lt;- mean(x)
 s &lt;- sd(x)
 simulated_heights &lt;- rnorm(n, m, s)</code></pre>
 <p>Not surprisingly, the distribution looks normal:</p>
-<p><img src="04-content_files/figure-html/simulated-heights-1.png" width="672" /></p>
+<p><img src="/content/04-content_files/figure-html/simulated-heights-1.png" width="672" /></p>
 <p>This is one of the most useful functions in R as it will permit us to generate data that mimics natural events and answers questions related to what could happen by chance by running Monte Carlo simulations.</p>
 <p>If, for example, we pick 800 males at random, what is the distribution of the tallest person? How rare is a seven footer in a group of 800 males? The following Monte Carlo simulation helps us answer that question:</p>
 <pre class="r"><code>B &lt;- 10000
@@ -627,7 +643,7 @@ tallest &lt;- replicate(B, {
 <pre class="r"><code>mean(tallest &gt;= 7*12)</code></pre>
 <pre><code>## [1] 0.0172</code></pre>
 <p>Here is the resulting distribution:</p>
-<p><img src="04-content_files/figure-html/simulated-tallest-height-1.png" width="672" /></p>
+<p><img src="/content/04-content_files/figure-html/simulated-tallest-height-1.png" width="672" /></p>
 <p>Note that it does not look normal.</p>
 </div>
 <div id="continuous-distributions" class="section level2">
@@ -726,7 +742,7 @@ S &lt;- replicate(B, roulette_winnings(n))</code></pre>
 <pre class="r"><code>mean(S&lt;0)</code></pre>
 <pre><code>## [1] 0.0456</code></pre>
 <p>We can visualize the distribution of <span class="math inline">\(S\)</span> by creating a histogram showing the probability <span class="math inline">\(F(b)-F(a)\)</span> for several intervals <span class="math inline">\((a,b]\)</span>:</p>
-<p><img src="04-content_files/figure-html/normal-approximates-distribution-1.png" width="672" /></p>
+<p><img src="/content/04-content_files/figure-html/normal-approximates-distribution-1.png" width="672" /></p>
 <p>We see that the distribution appears to be approximately normal. A qq-plot will confirm that the normal approximation is close to a perfect approximation for this distribution. If, in fact, the distribution is normal, then all we need to define the distribution is the average and the standard deviation. Because we have the original values from which the distribution is created, we can easily compute these with <code>mean(S)</code> and <code>sd(S)</code>. The blue curve you see added to the histogram above is a normal density with this average and standard deviation.</p>
 <p>This average and this standard deviation have special names. They are referred to as the <em>expected value</em> and <em>standard error</em> of the random variable <span class="math inline">\(S\)</span>. We will say more about these in the next section.</p>
 <p>Statistical theory provides a way to derive the distribution of random variables defined as independent random draws from an urn. Specifically, in our example above, we can show that <span class="math inline">\((S+n)/2\)</span> follows a binomial distribution. We therefore do not need to run for Monte Carlo simulations to know the probability distribution of <span class="math inline">\(S\)</span>. We did this for illustrative purposes.</p>

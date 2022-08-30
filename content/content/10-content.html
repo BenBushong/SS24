@@ -1,3 +1,17 @@
+---
+title: "The Bias-Variance Tradeoff"
+linktitle: "10: Bias vs. Variance"
+read_date: "2022-11-08"
+menu:
+  content:
+    parent: Course content
+    weight: 2
+type: docs
+output:
+  blogdown::html_page:
+    toc: true
+---
+
 
 <div id="TOC">
 <ul>
@@ -146,7 +160,7 @@ f(x) = \text{median}(Y \mid X = x)
 <p>So for us, to select a model that appropriately balances the tradeoff between bias and variance, and thus minimizes the reducible error, we need to select a model of the appropriate flexibility for the data.</p>
 <p>Recall that when fitting models, we’ve seen that train RMSE decreases as model flexibility is increasing. (Technically it is non-increasing.) For validation RMSE, we expect to see a U-shaped curve. Importantly, validation RMSE decreases, until a certain flexibility, then begins to increase.</p>
 <p>Now we can understand why this is happening. The expected test RMSE is essentially the expected prediction error, which we now known decomposes into (squared) bias, variance, and the irreducible Bayes error. The following plots show three examples of this.</p>
-<p><img src="10-content_files/figure-html/unnamed-chunk-3-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p><img src="/content/10-content_files/figure-html/unnamed-chunk-3-1.png" width="1152" style="display: block; margin: auto;" /></p>
 <p>The three plots show three examples of the bias-variance tradeoff. In the left panel, the variance influences the expected prediction error more than the bias. In the right panel, the opposite is true. The middle panel is somewhat neutral. In all cases, the difference between the Bayes error (the horizontal dashed grey line) and the expected prediction error (the solid black curve) is exactly the mean squared error, which is the sum of the squared bias (blue curve) and variance (orange curve). The vertical line indicates the flexibility that minimizes the prediction error.</p>
 <p>To summarize, if we assume that irreducible error can be written as</p>
 <p><span class="math display">\[
@@ -158,7 +172,7 @@ f(x) = \text{median}(Y \mid X = x)
 \underbrace{\text{bias}^2\left(\hat{f}(x)\right) + \text{var}\left(\hat{f}(x)\right)}_\textrm{reducible error} + \sigma^2.
 \]</span></p>
 <p>As model flexibility increases, bias decreases, while variance increases. By understanding the tradeoff between bias and variance, we can manipulate model flexibility to find a model that will predict well on unseen observations.</p>
-<p><img src="10-content_files/figure-html/error-vs-flex-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p><img src="/content/10-content_files/figure-html/error-vs-flex-1.png" width="960" style="display: block; margin: auto;" /></p>
 <p>Tying this all together, the above image shows how we “expect” training and validation error to behavior in relation to model flexibility.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> In practice, we won’t always see such a nice “curve” in the validation error, but we expect to see the general trends.</p>
 </div>
 <div id="using-simulation-to-estimate-bias-and-variance" class="section level2">
@@ -220,13 +234,13 @@ fit_2 = lm(y ~ poly(x, degree = 2), data = sim_data)
 fit_9 = lm(y ~ poly(x, degree = 9), data = sim_data)</code></pre>
 <p>Note that technically we’re being lazy and using orthogonal polynomials, but the fitted values are the same, so this makes no difference for our purposes. These could be KNN, or decision trees just the same - the principle still applies.</p>
 <p>Plotting these four trained models, we see that the zero predictor model does very poorly. The first degree model is reasonable, but we can see that the second degree model fits much better. The ninth degree model seem rather wild.</p>
-<p><img src="10-content_files/figure-html/unnamed-chunk-9-1.png" width="864" style="display: block; margin: auto;" /></p>
+<p><img src="/content/10-content_files/figure-html/unnamed-chunk-9-1.png" width="864" style="display: block; margin: auto;" /></p>
 <p>The following three plots were created using three additional simulated datasets. The zero predictor and ninth degree polynomial were fit to each.</p>
-<p><img src="10-content_files/figure-html/unnamed-chunk-10-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p><img src="/content/10-content_files/figure-html/unnamed-chunk-10-1.png" width="1152" style="display: block; margin: auto;" /></p>
 <p>This plot should make clear the difference between the bias and variance of these two models. The zero predictor model is clearly wrong, that is, biased, but nearly the same for each of the datasets, since it has very low variance.</p>
 <p>While the ninth degree model doesn’t appear to be correct for any of these three simulations, we’ll see that on average it is, and thus is performing unbiased estimation. These plots do however clearly illustrate that the ninth degree polynomial is extremely variable. Each dataset results in a very different fitted model. Correct on average isn’t the only goal we’re after, since in practice, we’ll only have a single dataset. This is why we’d also like our models to exhibit low variance.</p>
 <p>We could have also fit <span class="math inline">\(k\)</span>-nearest neighbors models to these three datasets.</p>
-<p><img src="10-content_files/figure-html/unnamed-chunk-11-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p><img src="/content/10-content_files/figure-html/unnamed-chunk-11-1.png" width="1152" style="display: block; margin: auto;" /></p>
 <p>Here we see that when <span class="math inline">\(k = 100\)</span> we have a biased model with very low variance.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> When <span class="math inline">\(k = 5\)</span>, we again have a highly variable model.</p>
 <p>These two sets of plots reinforce our intuition about the bias-variance tradeoff. Flexible models (ninth degree polynomial and <span class="math inline">\(k\)</span> = 5) are highly variable, and often unbiased. Simple models (zero predictor linear model and <span class="math inline">\(k = 100\)</span>) are very biased, but have extremely low variance.</p>
 <p>We will now complete a simulation study to understand the relationship between the bias, variance, and mean squared error for the estimates of <span class="math inline">\(f(x)\)</span> given by these four models at the point <span class="math inline">\(x = 0.90\)</span>. We use simulation to complete this task, as performing the analytical calculations would prove to be rather tedious and difficult.</p>
@@ -257,7 +271,7 @@ predictions = matrix(0, nrow = n_sims, ncol = n_models)</code></pre>
 <p>Note that this is one of many ways we could have accomplished this task using <code>R</code>. For example we could have used a combination of <code>replicate()</code> and <code>*apply()</code> functions. Alternatively, we could have used a <a href="https://www.tidyverse.org/"><code>tidyverse</code></a> approach, which likely would have used some combination of <a href="http://dplyr.tidyverse.org/"><code>dplyr</code></a>, <a href="http://tidyr.tidyverse.org/"><code>tidyr</code></a>, and <a href="http://purrr.tidyverse.org/"><code>purrr</code></a>.</p>
 <p>Our approach, which would be considered a <code>base</code> <code>R</code> approach, was chosen to make it as clear as possible what is being done. The <code>tidyverse</code> approach is rapidly gaining popularity in the <code>R</code> community, but might make it more difficult to see what is happening here, unless you are already familiar with that approach.</p>
 <p>Also of note, while it may seem like the output stored in <code>predictions</code> would meet the definition of <a href="http://vita.had.co.nz/papers/tidy-data.html">tidy data</a> given by <a href="http://hadley.nz/">Hadley Wickham</a> since each row represents a simulation, it actually falls slightly short. For our data to be tidy, a row should store the simulation number, the model, and the resulting prediction. We’ve actually already aggregated one level above this. Our observational unit is a simulation (with four predictions), but for tidy data, it should be a single prediction.</p>
-<p><img src="10-content_files/figure-html/unnamed-chunk-15-1.png" width="864" style="display: block; margin: auto;" /></p>
+<p><img src="/content/10-content_files/figure-html/unnamed-chunk-15-1.png" width="864" style="display: block; margin: auto;" /></p>
 <p>The above plot shows the predictions for each of the 250 simulations of each of the four models of different polynomial degrees. The truth, <span class="math inline">\(f(x = 0.90) = (0.9)^2 = 0.81\)</span>, is given by the solid black horizontal line.</p>
 <p>Two things are immediately clear:</p>
 <ul>
@@ -498,7 +512,7 @@ calc_rmse = function(actual, predicted) {
   sqrt(mean((actual - predicted) ^ 2))
 }</code></pre>
 <p>Let’s check how linear, k-nearest neighbors, and decision tree models fit to this data make errors, while paying attention to their flexibility.</p>
-<p><img src="10-content_files/figure-html/error-vs-flex-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p><img src="/content/10-content_files/figure-html/error-vs-flex-1.png" width="960" style="display: block; margin: auto;" /></p>
 <p>This picture is an idealized version of what we expect to see, but we’ll illustrate the sorts of validate “curves” that we might see in practice.</p>
 <p>Note that in the following three sub-sections, a significant portion of the code is suppressed for visual clarity. See the source document for full details.</p>
 <div id="linear-models" class="section level3">
@@ -517,7 +531,7 @@ poly_mod_est_list = list(
   poly_mod_9_est = lm(y ~ poly(x, degree = 9), data = slr_est)
 )</code></pre>
 <p>The plot below visualizes the results.</p>
-<p><img src="10-content_files/figure-html/unnamed-chunk-35-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="/content/10-content_files/figure-html/unnamed-chunk-35-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>What do we see here? As the polynomial degree <em>increases</em>:</p>
 <ul>
 <li>The training error <em>decreases</em>.</li>
@@ -539,7 +553,7 @@ k_to_try = seq(from = 1, to = 45, by = 2)
 # fit knn models
 knn_mod_est_list = lapply(k_to_try, fit_knn_mod)</code></pre>
 <p>The plot below visualizes the results.</p>
-<p><img src="10-content_files/figure-html/unnamed-chunk-39-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="/content/10-content_files/figure-html/unnamed-chunk-39-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Here we see the “opposite” of the usual plot. Why? Because with k-nearest neighbors, a small value of <span class="math inline">\(k\)</span> generates a flexible model compared to larger values of <span class="math inline">\(k\)</span>. So visually, this plot is flipped. That is we see that as <span class="math inline">\(k\)</span> <em>increases</em>:</p>
 <ul>
 <li>The training error <em>increases</em>.</li>
@@ -560,7 +574,7 @@ cp_to_try = c(0.5, 0.3, 0.1, 0.05, 0.01, 0.001, 0.0001)
 # fit decision tree models
 tree_mod_est_list = lapply(cp_to_try, tree_knn_mod)</code></pre>
 <p>The plot below visualizes the results.</p>
-<p><img src="10-content_files/figure-html/unnamed-chunk-43-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="/content/10-content_files/figure-html/unnamed-chunk-43-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Based on this plot, how is <code>cp</code> related to model flexibility?<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a></p>
 </div>
 </div>

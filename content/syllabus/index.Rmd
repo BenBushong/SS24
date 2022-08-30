@@ -1,7 +1,7 @@
 ---
 title: Syllabus
 slug: syllabus
-publishDate: "2022-01-06"
+publishDate: "2022-08-30"
 citeproc: true
 bibliography: ../../static/bib/references.bib
 csl: ../../static/bib/chicago-syllabus-no-bib.csl
@@ -19,28 +19,27 @@ library(pander)
 
 ## Course Times and Zoom links
 
-Please bookmark lecture and office hour Zoom links. As per MSU, we will start online on Tuesday Jan 11th at our regular time (6:00-7:20pm). When we return to in-person classes, we will meet in Berkey 122.
+Please bookmark lecture and office hour Zoom links. 
 
 ### Lecture
-Tuesday/Thursday 6:00-7:20pm
+We meet in 116 Natural Sciences Tuesdays and Thursdays, 12:40 - 2:00 pm. This class is in-person and will not have an online component.
 
-Lecture Zoom: [https://msu.zoom.us/j/97488486753](https://msu.zoom.us/j/97488486753?pwd=K3NHVEZQc2NpUE5NRDFEWlpnaU5uQT09) (Passcode: SSC442)
 
 
 ### Office hours
-Wednesdays 3:00pm - 4:00pm and by appointment
+Wednesdays 2:00pm - 3:00pm and by appointment
 
-Office Hours Zoom (same as lecture): [https://msu.zoom.us/j/97488486753](https://msu.zoom.us/j/97488486753?pwd=K3NHVEZQc2NpUE5NRDFEWlpnaU5uQT09) (Passcode: SSC442)
+Office Hours Zoom: [https://msu.zoom.us/j/91759862734](https://msu.zoom.us/j/91759862734?pwd=VDliRHdoQ3N4L3V4LzNFd3IzcGw2dz09) (Passcode: DATA)
 
 ### Teaching Assistant
-Xueshi Wang - wangxu36\@msu.edu
+Sam Tucker - [tucke130@msu.edu](mailto:tucke130@msu.edu)
 
-TA Office Hours: Monday 8:00am - 9:30am (online only; no in-person office hours)
+TA Office Hours: Monday 1:00 pm - 2:30 pm and Friday 3:30 pm - 4:30 pm
 
-TA Office Hours Zoom: [https://msu.zoom.us/j/3382548927](https://msu.zoom.us/j/3382548927) (Passcode: officehour)
+TA Office Hours Zoom: [https://msu.zoom.us/j/7575598928](https://msu.zoom.us/j/7575598928) (Passcode: SSC442)
 
 ### Slack
-We will use Slack as a forum for asking questions about the course, including course policies and, primarily, help questions with R. Students are encouraged to help answer each others' questions, and to use the forum as a first-step for seeking help. I, and our TA, will monitor slack and answer questions regularly. You can [join our Slack channel with this link](https://join.slack.com/t/msu-qs62738/shared_invite/zt-10u63bf0n-b0cePmz9NDhhw3MSUPBP5A)
+We will use Slack as a forum for asking questions about the course, including course policies and, primarily, help questions with R. Students are encouraged to help answer each others' questions, and to use the forum as a first-step for seeking help. I, and our TA, will monitor slack and answer questions regularly. You can [join our Slack channel with this link](https://join.slack.com/t/ssc442kirkpatrickhq/shared_invite/zt-1eku04roj-GQGFSNtlccF0ewb7tdvpOA)
 
 ## What is This Course and Can / Should You Take It?
 
@@ -100,7 +99,7 @@ knitr::include_graphics("/img/syllabus/hosrt_error_tweet.png", error = FALSE)
 
 The course website can be found at [https://ssc442Kirkpatrick.netlify.app](https://ssc442Kirkpatrick.netlify.app) (but you know that. You're on it right now.)
 
-All of the readings and software in this class are **free**. There are free online version of all the texts including [**Introduction to Statistical Learning (2nd Ed)**](https://www.statlearning.com/) and `R` / RStudio are free. (Don't pay for RStudio.) We will reference outside readings and there exist paper versions of some "books" but you won't need to buy anything^[If you've got money to burn, you can buy me a burrito.]
+All of the readings and software in this class are **free**. There are free online version of all the texts including [**Introduction to Statistical Learning (2nd Ed)**](https://www.statlearning.com/) and `R` / RStudio are free (don't pay for RStudio). We will reference outside readings and there exist paper versions of some "books" but you won't need to buy anything^[If you've got money to burn, you can buy me a burrito.]
 
 ### R and RStudio
 
@@ -137,12 +136,12 @@ More in-depth descriptions for all the assignments are on the [assignments page]
 ```{r assignments-grades, include=FALSE}
 assignments <- tribble(
   ~Points,  ~Assignment,
-  20      , "Class Participation",
+  25      , "Class Participation",
   12 * 8 , "Weekly Writings (14 x 8), drop two lowest",
-  11 * 15 , "Labs (12 x 15), drop one lowest",
+  13 * 15 , "Labs (13 x 15), drop one lowest",
   50      , "Mini project 1",
   50      , "Mini project 2",
-  130     , "Final project"
+  135     , "Final project"
 ) %>%
   mutate(Percent = Points / sum(Points),
          Percent = scales::percent(Percent, accuracy = 1))
@@ -231,9 +230,9 @@ All class material will be posted on https://ssc442kirkpatrick.netlify.app. D2L 
 
 ### Using Office Hours
 
-Please use my [office hours](https://msu.zoom.us/j/97488486753?pwd=K3NHVEZQc2NpUE5NRDFEWlpnaU5uQT09) (Passcode: SSC442) Wednesdays 3-4pm and by appointment. It would be remarkable if you didn’t need some assistance with the material, and I am here to help.  One of the benefits of open office hours is to accommodate many students at once; if fellow students are "in my office", please join in and feel very free to show up in groups. (This bit of the syllabus obviously less critical in the COVID Era). Office hours will move around a little bit throughout the semester to attempt to meet the needs of all students.
+Please use my [Office House](https://msu.zoom.us/j/91759862734?pwd=VDliRHdoQ3N4L3V4LzNFd3IzcGw2dz09) (Passcode: DATA) Wednesdays 2-3pm and by appointment. It would be remarkable if you didn’t need some assistance with the material, and I am here to help.  One of the benefits of open office hours is to accommodate many students at once; if fellow students are "in my office", please join in and feel very free to show up in groups. (This bit of the syllabus obviously less critical in the COVID Era). Office hours will move around a little bit throughout the semester to attempt to meet the needs of all students.
 
-In addition to drop-in office hours, I always have sign-up office hours for advising and other purposes.  They are online, linked from my web page. As a general rule, please first seek course-related help from the drop-in office hours. However, if my scheduled office hours are always infeasible for you, let me know, and then I may encourage you to make appointments with me. I ask that you schedule your studying so that you are prepared to ask questions during office hours – office hours are not a lecture and if you’re not prepared with questions we will end up awkwardly staring at each other for an hour until you leave.
+As a general rule, please first seek course-related help from the drop-in office hours. However, if my scheduled office hours are always infeasible for you, let me know, and then I may encourage you to make appointments with me. I ask that you schedule your studying so that you are prepared to ask questions during office hours – office hours are not a lecture and if you’re not prepared with questions we will end up awkwardly staring at each other for an hour until you leave.
 
 Some gentle requests regarding office hours and on contacting me. First, my office hours end sharply at the end, so don’t arrive 10 minutes before the scheduled end and expect a full session. Please arrive early if you have lengthy questions, or if you don’t want to risk not having time due to others’ questions. You are free to ask me some stuff by e-mail, (e.g. a typo or something on a handout), but please know e-mail sucks for answering many types of questions. “How do I do this lab?” or “What’s up with `R`?” are short questions with long answers. Come to office hours.
 

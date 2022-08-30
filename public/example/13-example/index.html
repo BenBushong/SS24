@@ -242,7 +242,7 @@
   <meta property="twitter:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
   
     
-    <meta property="article:modified_time" content="2022-04-25T07:45:05-04:00">
+    <meta property="article:modified_time" content="2022-08-22T08:10:10-04:00">
   
 
   
@@ -463,6 +463,28 @@
         
         
           
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/resource/"><span>Resources</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
             
           
         
@@ -475,7 +497,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link " href="https://join.slack.com/t/msu-qs62738/shared_invite/zt-10u63bf0n-b0cePmz9NDhhw3MSUPBP5A" target="_blank" rel="noopener"><span><i class="fab fa-slack"></i></span></a>
+          <a class="nav-link " href="https://join.slack.com/t/ssc442kirkpatrickhq/shared_invite/zt-1eku04roj-GQGFSNtlccF0ewb7tdvpOA" target="_blank" rel="noopener"><span><i class="fab fa-slack"></i></span></a>
         </li>
 
         
@@ -624,7 +646,6 @@
 
                     <div class="article-style">
                         
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 <div id="TOC">
 <ul>
@@ -707,30 +728,32 @@ incvars = allvars %&gt;%
   dplyr::filter(str_detect(concept, &#39;MEDIAN INCOME&#39;))
 
 incvars[1:5,]</code></pre>
-<pre><code>## # A tibble: 5 x 3
-##   name       label                                                       concept
-##   &lt;chr&gt;      &lt;chr&gt;                                                       &lt;chr&gt;  
-## 1 B06011_001 Estimate!!Median income in the past 12 months --!!Total:    MEDIAN~
-## 2 B06011_002 Estimate!!Median income in the past 12 months --!!Total:!!~ MEDIAN~
-## 3 B06011_003 Estimate!!Median income in the past 12 months --!!Total:!!~ MEDIAN~
-## 4 B06011_004 Estimate!!Median income in the past 12 months --!!Total:!!~ MEDIAN~
-## 5 B06011_005 Estimate!!Median income in the past 12 months --!!Total:!!~ MEDIAN~</code></pre>
+<pre><code>## # A tibble: 5 × 4
+##   name       label                                               concept geogr…¹
+##   &lt;chr&gt;      &lt;chr&gt;                                               &lt;chr&gt;   &lt;chr&gt;  
+## 1 B06011_001 Estimate!!Median income in the past 12 months --!!… MEDIAN… tract  
+## 2 B06011_002 Estimate!!Median income in the past 12 months --!!… MEDIAN… tract  
+## 3 B06011_003 Estimate!!Median income in the past 12 months --!!… MEDIAN… tract  
+## 4 B06011_004 Estimate!!Median income in the past 12 months --!!… MEDIAN… tract  
+## 5 B06011_005 Estimate!!Median income in the past 12 months --!!… MEDIAN… tract  
+## # … with abbreviated variable name ¹​geography</code></pre>
 <p>We got lucky - the first <code>concept</code> is “MEDIAN INCOME IN THE PAST 12 MONTHS (IN 2019 INFLATION-ADJUSTED DOLLARS) BY PLACE OF BIRTH”. Now, we didn’t want the “place of birth” part (though…sounds interesting), but look at the first <code>label</code>. It is the <code>!!Total:</code>, meaning it is the median income when you combine all places of birth. The second label is <code>!!Total:!!Born in state of residence</code>, which is a <em>subset</em> of the total. Same with the next. <strong>We do not need to use the subsets in order to use the <code>!!Total</code> value</strong>. Note the <code>name</code> is <code>B06011_001</code>.</p>
 <p>Lots and lots of variables will have the same total - the next variable <code>B07011_001</code> (after the Puerto Rico version) is the median income broken down by whether or not the household lives in the same house, instead of by place of birth. It’s long, but you can see that it is “MEDIAN INCOME IN THE PAST 12 MONTHS (IN 2019 INFLATION-ADJUSTED DOLLARS) BY GEOGRAPHICAL MOBILITY IN THE PAST YEAR FOR CURRENT RESIDENCE IN THE UNITED STATES”</p>
 <pre class="r"><code>incvars[6:15,]</code></pre>
-<pre><code>## # A tibble: 10 x 3
-##    name         label                                                    concept
-##    &lt;chr&gt;        &lt;chr&gt;                                                    &lt;chr&gt;  
-##  1 B06011PR_001 Estimate!!Median income in the past 12 months --!!Total: MEDIAN~
-##  2 B06011PR_002 Estimate!!Median income in the past 12 months --!!Total~ MEDIAN~
-##  3 B06011PR_003 Estimate!!Median income in the past 12 months --!!Total~ MEDIAN~
-##  4 B06011PR_004 Estimate!!Median income in the past 12 months --!!Total~ MEDIAN~
-##  5 B06011PR_005 Estimate!!Median income in the past 12 months --!!Total~ MEDIAN~
-##  6 B07011_001   Estimate!!Median income in the past 12 months --!!Total: MEDIAN~
-##  7 B07011_002   Estimate!!Median income in the past 12 months --!!Total~ MEDIAN~
-##  8 B07011_003   Estimate!!Median income in the past 12 months --!!Total~ MEDIAN~
-##  9 B07011_004   Estimate!!Median income in the past 12 months --!!Total~ MEDIAN~
-## 10 B07011_005   Estimate!!Median income in the past 12 months --!!Total~ MEDIAN~</code></pre>
+<pre><code>## # A tibble: 10 × 4
+##    name         label                                            concept geogr…¹
+##    &lt;chr&gt;        &lt;chr&gt;                                            &lt;chr&gt;   &lt;chr&gt;  
+##  1 B06011PR_001 Estimate!!Median income in the past 12 months -… MEDIAN… &lt;NA&gt;   
+##  2 B06011PR_002 Estimate!!Median income in the past 12 months -… MEDIAN… &lt;NA&gt;   
+##  3 B06011PR_003 Estimate!!Median income in the past 12 months -… MEDIAN… &lt;NA&gt;   
+##  4 B06011PR_004 Estimate!!Median income in the past 12 months -… MEDIAN… &lt;NA&gt;   
+##  5 B06011PR_005 Estimate!!Median income in the past 12 months -… MEDIAN… &lt;NA&gt;   
+##  6 B07011_001   Estimate!!Median income in the past 12 months -… MEDIAN… tract  
+##  7 B07011_002   Estimate!!Median income in the past 12 months -… MEDIAN… tract  
+##  8 B07011_003   Estimate!!Median income in the past 12 months -… MEDIAN… tract  
+##  9 B07011_004   Estimate!!Median income in the past 12 months -… MEDIAN… tract  
+## 10 B07011_005   Estimate!!Median income in the past 12 months -… MEDIAN… tract  
+## # … with abbreviated variable name ¹​geography</code></pre>
 <p>While the values of the subsets will be different, the <code>!!Total:</code> variable will be the same. So, we can really choose any <code>!!Total:</code> variable for any set of variables in a <code>concept</code> that fits our search.</p>
 <p>Let’s call up the median income using <code>B06011_001</code>. Note that we are naming our variables in the third line, and specifying that we only want <code>county = '065'</code> for Ingham:</p>
 <pre class="r"><code>ing.medincome = get_acs(geography = &#39;tract&#39;,
@@ -738,7 +761,7 @@ incvars[1:5,]</code></pre>
                         variables = c(medincome = &#39;B06011_001&#39;),
                         year = 2019)
 head(ing.medincome)</code></pre>
-<pre><code>## # A tibble: 6 x 5
+<pre><code>## # A tibble: 6 × 5
 ##   GEOID       NAME                                     variable  estimate   moe
 ##   &lt;chr&gt;       &lt;chr&gt;                                    &lt;chr&gt;        &lt;dbl&gt; &lt;dbl&gt;
 ## 1 26065000100 Census Tract 1, Ingham County, Michigan  medincome    22994  6149
@@ -754,7 +777,7 @@ head(ing.medincome)</code></pre>
                                       medincome2 = &#39;B07011_001&#39;), 
                         year = 2019) %&gt;% arrange(GEOID)
 head(ing.medincome)</code></pre>
-<pre><code>## # A tibble: 6 x 5
+<pre><code>## # A tibble: 6 × 5
 ##   GEOID       NAME                                    variable   estimate   moe
 ##   &lt;chr&gt;       &lt;chr&gt;                                   &lt;chr&gt;         &lt;dbl&gt; &lt;dbl&gt;
 ## 1 26065000100 Census Tract 1, Ingham County, Michigan medincome     22994  6149
@@ -773,14 +796,15 @@ head(ing.medincome)</code></pre>
   dplyr::filter(str_detect(concept, &#39;TENURE&#39;))
 
 tenvars[1:5,]</code></pre>
-<pre><code>## # A tibble: 5 x 3
-##   name       label                                                       concept
-##   &lt;chr&gt;      &lt;chr&gt;                                                       &lt;chr&gt;  
-## 1 B07013_001 Estimate!!Total:                                            GEOGRA~
-## 2 B07013_002 Estimate!!Total:!!Householder lived in owner-occupied hous~ GEOGRA~
-## 3 B07013_003 Estimate!!Total:!!Householder lived in renter-occupied hou~ GEOGRA~
-## 4 B07013_004 Estimate!!Total:!!Same house 1 year ago:                    GEOGRA~
-## 5 B07013_005 Estimate!!Total:!!Same house 1 year ago:!!Householder live~ GEOGRA~</code></pre>
+<pre><code>## # A tibble: 5 × 4
+##   name       label                                               concept geogr…¹
+##   &lt;chr&gt;      &lt;chr&gt;                                               &lt;chr&gt;   &lt;chr&gt;  
+## 1 B07013_001 Estimate!!Total:                                    GEOGRA… tract  
+## 2 B07013_002 Estimate!!Total:!!Householder lived in owner-occup… GEOGRA… tract  
+## 3 B07013_003 Estimate!!Total:!!Householder lived in renter-occu… GEOGRA… tract  
+## 4 B07013_004 Estimate!!Total:!!Same house 1 year ago:            GEOGRA… tract  
+## 5 B07013_005 Estimate!!Total:!!Same house 1 year ago:!!Househol… GEOGRA… tract  
+## # … with abbreviated variable name ¹​geography</code></pre>
 <p>Here, we get <code>B07013_001</code>, which is the total number of households, and <code>B07014_004</code>, which is the total number of households that lived in the same house a year ago. The ratio of these two tells us what percent didn’t move in the last year, which is what we want. We’re going to take the output in <code>wide</code> format so that we can calculate this ratio.</p>
 <p>Now, with variable numbers in hand, we can pretty easily get the attached geography of interest. We just add <code>geometry = TRUE</code> to the <code>get_acs</code> call. We’re also going to ask for <code>wide</code> format, which gives us on row per tract and a column for each variable.</p>
 <pre class="r"><code>ing.tenure = get_acs(geography = &#39;tract&#39;,
@@ -889,7 +913,7 @@ ing.tenure</code></pre>
                 </div>
 
                 <div class="body-footer">
-                    <p>Last updated on April 25, 2022</p>
+                    <p>Last updated on August 22, 2022</p>
 
                     
 
@@ -906,7 +930,7 @@ ing.tenure</code></pre>
     <div class="row course-info">
         <div class="col-md-7">
             <p>
-                <strong>SSC 442: Data Analytics (Spring Semester 2022)</strong><br>
+                <strong>SSC 442: Data Analytics (Fall Semester 2022)</strong><br>
 
                 <a href="https://www.msu.edu" target="_blank" rel="noopener">Michigan State University</a> &emsp;&emsp;
                 <a href="https://socialscience.msu.edu/" target="_blank" rel="noopener">College of Social Science</a>
@@ -921,15 +945,15 @@ ing.tenure</code></pre>
 
             <p>
                 <i class="far fa-calendar-alt"></i> Tuesday and Thursday &emsp;&emsp;
-                <i class="far fa-clock"></i> 6:00pm - 7:20pm 
-                
+                <i class="far fa-clock"></i> 12:40pm - 2:00pm 
+                <br><i class="fas fa-university"></i> 116 Natural Sciences
             </p>
         </div>
 
         <div class="col-md-5 credits">
             <p>All content licensed under a <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</p>
             
-            <p>Content <i class="fab fa-creative-commons"></i> 2020-22 <a href="https://www.justinkirkpatrick.com" target="_blank" rel="noopener">Ben Bushong; Justin Kirkpatrick; based on work by Andrew Heiss</a></p>
+            <p>Content <i class="fab fa-creative-commons"></i> 2020-23 <a href="https://www.justinkirkpatrick.com" target="_blank" rel="noopener">Ben Bushong; Justin Kirkpatrick; based on work by Andrew Heiss</a></p>
         
             <p>This site created with the <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> in <a href="https://bookdown.org/yihui/blogdown/" target="_blank" rel="noopener">blogdown</a> and <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>. </p>
             
