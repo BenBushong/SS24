@@ -30,8 +30,8 @@
   
     
   
-  <meta name="description" content="Getting startedBonus ExerciseTurning everything inPostscript: how we got this unemployment dataNOTE
-You must turn in a PDF document of your R Markdown code. Submit this to D2L by 11:59 PM Eastern Time on Monday, Feb 7th
+  <meta name="description" content="Getting startedBonus ExerciseTurning everything inPostscript: how we got this unemployment dataNOTE
+You must turn in a PDF document of your R Markdown code. Submit this to D2L by 11:59 PM Eastern Time on Monday, September 26th
 Getting startedFor this exercise you’ll use state-level unemployment data from 2006 to 2016 that comes from the US Bureau of Labor Statistics (if you’re curious, we describe how we built this dataset down below).">
 
   
@@ -240,15 +240,13 @@ You must turn in a PDF document of your R Markdown code. Submit this to D2L by 1
   <meta property="og:site_name" content="Data Analytics">
   <meta property="og:url" content="https://ssc442kirkpatrick.netlify.app/assignment/03-assignment/">
   <meta property="og:title" content="Visualizing Large(ish) Data | Data Analytics">
-  <meta property="og:description" content="Getting startedBonus ExerciseTurning everything inPostscript: how we got this unemployment dataNOTE
-You must turn in a PDF document of your R Markdown code. Submit this to D2L by 11:59 PM Eastern Time on Monday, Feb 7th
+  <meta property="og:description" content="Getting startedBonus ExerciseTurning everything inPostscript: how we got this unemployment dataNOTE
+You must turn in a PDF document of your R Markdown code. Submit this to D2L by 11:59 PM Eastern Time on Monday, September 26th
 Getting startedFor this exercise you’ll use state-level unemployment data from 2006 to 2016 that comes from the US Bureau of Labor Statistics (if you’re curious, we describe how we built this dataset down below)."><meta property="og:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png">
   <meta property="twitter:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
   
     
-      <meta property="article:published_time" content="2022-01-25T00:00:00&#43;00:00">
-    
-    <meta property="article:modified_time" content="2022-01-26T07:30:29-05:00">
+    <meta property="article:modified_time" content="2022-08-22T08:10:10-04:00">
   
 
   
@@ -469,6 +467,28 @@ You must turn in a PDF document of your R Markdown code. Submit this to D2L by 1
         
         
           
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/resource/"><span>Resources</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
             
           
         
@@ -481,7 +501,7 @@ You must turn in a PDF document of your R Markdown code. Submit this to D2L by 1
         
 
         <li class="nav-item">
-          <a class="nav-link " href="https://join.slack.com/t/msu-qs62738/shared_invite/zt-10u63bf0n-b0cePmz9NDhhw3MSUPBP5A" target="_blank" rel="noopener"><span><i class="fab fa-slack"></i></span></a>
+          <a class="nav-link " href="https://join.slack.com/t/ssc442kirkpatrickhq/shared_invite/zt-1eku04roj-GQGFSNtlccF0ewb7tdvpOA" target="_blank" rel="noopener"><span><i class="fab fa-slack"></i></span></a>
         </li>
 
         
@@ -540,7 +560,7 @@ You must turn in a PDF document of your R Markdown code. Submit this to D2L by 1
   
   
   <div class="docs-toc-item">
-    <a class="docs-toc-link" href="/assignment/">Assignments and Evaluations</a>
+    <a class="docs-toc-link" href="/assignment/">Assignments</a>
 
   </div>
   
@@ -577,19 +597,7 @@ You must turn in a PDF document of your R Markdown code. Submit this to D2L by 1
       </li>
       
       <li >
-        <a href="/assignment/07-assignment/">7/8: Linear Regression III</a>
-      </li>
-      
-      <li >
-        <a href="/assignment/09-assignment/">9: Model Evaluation</a>
-      </li>
-      
-      <li >
-        <a href="/assignment/10-assignment/">10: Classification</a>
-      </li>
-      
-      <li >
-        <a href="/assignment/11-assignment/">11: Data Wrangling</a>
+        <a href="/assignment/08-assignment/">8: LASSO</a>
       </li>
       
     </ul>
@@ -603,14 +611,6 @@ You must turn in a PDF document of your R Markdown code. Submit this to D2L by 1
       
       <li >
         <a href="/assignment/project1/">Project 1</a>
-      </li>
-      
-      <li >
-        <a href="/assignment/project2/">Project 2</a>
-      </li>
-      
-      <li >
-        <a href="/assignment/final-project/">Final project</a>
       </li>
       
     </ul>
@@ -643,7 +643,8 @@ You must turn in a PDF document of your R Markdown code. Submit this to D2L by 1
 
 <div id="TOC">
 <ul>
-<li><a href="#getting-started">Getting started</a><ul>
+<li><a href="#getting-started">Getting started</a>
+<ul>
 <li><a href="#bonus-exercise">Bonus Exercise</a></li>
 <li><a href="#turning-everything-in">Turning everything in</a></li>
 <li><a href="#postscript-how-we-got-this-unemployment-data">Postscript: how we got this unemployment data</a></li>
@@ -651,19 +652,16 @@ You must turn in a PDF document of your R Markdown code. Submit this to D2L by 1
 </ul>
 </div>
 
+<!-- Updated 8.30.22 -->
 <div class="fyi">
 <p><strong>NOTE</strong></p>
-<p>You must turn in a PDF document of your <code>R Markdown</code> code. Submit this to D2L by 11:59 PM Eastern Time on Monday, Feb 7th</p>
+<p>You must turn in a PDF document of your <code>R Markdown</code> code. Submit this to D2L by 11:59 PM Eastern Time on Monday, September 26th</p>
 </div>
 <div id="getting-started" class="section level1">
 <h1>Getting started</h1>
 <p>For this exercise you’ll use state-level unemployment data from 2006 to 2016 that comes from the US Bureau of Labor Statistics (if you’re curious, <a href="#postscript-how-we-got-this-unemployment-data">we describe how we built this dataset down below</a>).</p>
 <ul>
 <li><a href="/projects/03-lab/data/unemployment.csv"><i class="fas fa-file-csv"></i> <code>unemployment.csv</code></a></li>
-</ul>
-<p><strong>To help you</strong>, I’ve created a skeleton R Markdown file with a template for this exercise, along with some code to help you clean and summarize the data. Download that here and include it in your project:</p>
-<ul>
-<li><a href="/projects/03-lab/03-lab.Rmd"><i class="fab fa-r-project"></i> <code>03-lab.Rmd</code></a></li>
 </ul>
 <p>In the end, to help you master file organization, we suggest that the structure of your project directory should look something like this:</p>
 <pre class="text"><code>your-project-name\
@@ -672,17 +670,17 @@ You must turn in a PDF document of your R Markdown code. Submit this to D2L by 1
   data\
     unemployment.csv</code></pre>
 <p><a href="/example/03-example/">The example for this week</a> will be <strong><em>incredibly</em></strong> helpful for this exercise. Reference it.</p>
-<p>For this week, you need to start making your plots look nice. For full credit, you will have to label axes, label the plot, and experiment with themes. Experiment with adding a <code>labs()</code> layer or changing colors. Or, if you’re super brave, try modifying a theme and its elements. Default plots will not receive full credit.</p>
+<p><strong>For this week, you need to start making your plots look nice. For full credit, you will have to label axes, label the plot, and experiment with themes. Experiment with adding a <code>labs()</code> layer or changing colors.</strong> Or, if you’re super brave, try modifying a theme and its elements. Default plots will not receive full credit.</p>
 <div class="fyi">
 <p><strong>EXERCISE 1</strong></p>
-<p>Use data from the US Bureau of Labor Statistics (BLS) to show the trends in employment rate for all 50 states between 2006 and 2016. What stories does this plot tell? Which states struggled to recover from the 2008–09 recession?</p>
+<p>Use data from the US Bureau of Labor Statistics (BLS) to show the trends in employment rate for all 50 states plus DC between 2006 and 2016. Your first instinct might be to put all 50 lines on graph. This will be a mess, so let’s give each state its own plot – use <code>facet_grid</code> or <code>facet_wrap</code> to do this. What stories does this plot tell? Which states struggled to recover from the 2008–09 recession?</p>
 <p>Some hints/tips:</p>
 <ul>
 <li><p>You won’t need to filter out any missing rows because the data here is complete—there are no state-year combinations with missing unemployment data.</p></li>
-<li><p>You’ll be plotting 51 facets. You can filter out DC if you want to have a better grid (like 5 × 10), or you can try using <code>facet_geo()</code> from the <strong>geofacet</strong> package to lay out the plots like a map of the US (try this!).</p></li>
+<li><p>You’ll be plotting 51 facets. You can filter out DC if you want to have a better grid (like 5 × 10).</p></li>
 <li><p>Plot the <code>date</code> column along the x-axis, <em>not</em> the <code>year</code> column. If you plot by year, you’ll get weird looking lines (try it for fun?), since these observations are monthly. If you really want to plot by year only, you’ll need to create a different data frame where you group by year and state and calculate the average unemployment rate for each year/state combination (i.e. <code>group_by(year, state) %&gt;% summarize(avg_unemployment = mean(unemployment))</code>)</p></li>
 <li><p>Try mapping other aesthetics onto the graph too. You’ll notice there are columns for region and division—play with those as colors, for instance.</p></li>
-<li><p>This plot might be big, so make sure you adjust <code>fig.width</code> and <code>fig.height</code> in the chunk options so that it’s visible when you knit it. You might also want to used <code>ggsave()</code> to save it with extra large dimensions.</p></li>
+<li><p>This plot might be big, so make sure you adjust <code>fig.width</code> and <code>fig.height</code> in the chunk options so that it’s visible when you knit it - try different values and knit to see how they look.</p></li>
 </ul>
 <p><strong>EXERCISE 2</strong></p>
 <p>Use data from the BLS to create a slopegraph that compares the unemployment rate in January 2006 with the unemployment rate in January 2009, either for all 50 states at once (good luck with that!) or for a specific region or division. Make sure the plot doesn’t look too busy or crowded in the end.</p>
@@ -729,7 +727,7 @@ You must turn in a PDF document of your R Markdown code. Submit this to D2L by 1
                 </div>
 
                 <div class="body-footer">
-                    <p>Last updated on January 26, 2022</p>
+                    <p>Last updated on August 22, 2022</p>
 
                     
 
@@ -746,7 +744,7 @@ You must turn in a PDF document of your R Markdown code. Submit this to D2L by 1
     <div class="row course-info">
         <div class="col-md-7">
             <p>
-                <strong>SSC 442: Data Analytics (Spring Semester 2022)</strong><br>
+                <strong>SSC 442: Data Analytics (Fall Semester 2022)</strong><br>
 
                 <a href="https://www.msu.edu" target="_blank" rel="noopener">Michigan State University</a> &emsp;&emsp;
                 <a href="https://socialscience.msu.edu/" target="_blank" rel="noopener">College of Social Science</a>
@@ -761,15 +759,15 @@ You must turn in a PDF document of your R Markdown code. Submit this to D2L by 1
 
             <p>
                 <i class="far fa-calendar-alt"></i> Tuesday and Thursday &emsp;&emsp;
-                <i class="far fa-clock"></i> 6:00pm - 7:20pm 
-                
+                <i class="far fa-clock"></i> 12:40pm - 2:00pm 
+                <br><i class="fas fa-university"></i> 116 Natural Sciences
             </p>
         </div>
 
         <div class="col-md-5 credits">
             <p>All content licensed under a <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</p>
             
-            <p>Content <i class="fab fa-creative-commons"></i> 2020-22 <a href="https://www.justinkirkpatrick.com" target="_blank" rel="noopener">Ben Bushong; Justin Kirkpatrick; based on work by Andrew Heiss</a></p>
+            <p>Content <i class="fab fa-creative-commons"></i> 2020-23 <a href="https://www.justinkirkpatrick.com" target="_blank" rel="noopener">Ben Bushong; Justin Kirkpatrick; based on work by Andrew Heiss</a></p>
         
             <p>This site created with the <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> in <a href="https://bookdown.org/yihui/blogdown/" target="_blank" rel="noopener">blogdown</a> and <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>. </p>
             

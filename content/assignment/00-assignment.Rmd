@@ -14,7 +14,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-You must turn in a PDF document knitted from your R Markdown code. Submit this to D2L by 11:59 PM on Monday September 5th under "lab 0". You do not need to submit your .rmd file code - just the knitted PDF.
+You must turn in a PDF document knitted from your R Markdown code. Submit this to "Lab 0" on D2L by 11:59 PM on Monday September 5th. You do not need to submit your .rmd file code - just the properly-knitted PDF.
 
  
 :::fyi
@@ -371,7 +371,7 @@ d. `all(!x)`
 
 4. Create a function `sum_n` that for any given value, say $n$, computes the sum of the integers from 1 to n (inclusive). Use the function to determine the sum of integers from 1 to 5,000.
 
-5. Create a function `altman_plot` that takes two arguments, `x` and `y`, and plots the difference against the sum. Use it to make an altman plot of `x <- c(5,7,9)` and `y <- c(10,11,12)`. When your function creates the plot, it will output automatically in your Rmarkdown knitted .pdf.
+5. Create a function `altman_plot` that takes two arguments, `x` and `y`, and plots the difference against the sum. That is, the *difference* should be on the y-axis and the and the sum should be on the x-axis. Use it to make an altman plot of `x <- c(5,7,9)` and `y <- c(10,11,12)`. When your function creates the plot, it will output automatically in your Rmarkdown knitted .pdf.
 
 6. After running the code below, what is the value of `x` and why?
 
@@ -393,5 +393,5 @@ my_func <- function(y){
 
 11. Plot $S_n$ versus $n$. Use points defined by $n=1,\dots,25$.
 
-12. Confirm that the formula for this sum is $S_n= n(n+1)(2n+1)/6$.
+12. Confirm that the equivalent formula for this sum is $S_n= n(n+1)(2n+1)/6$. To do so, compare whether `compute_s_n` gives the same result for the vector `s_n` as the equivalent formula for the sum. 
 :::

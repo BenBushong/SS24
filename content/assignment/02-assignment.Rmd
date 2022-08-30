@@ -1,7 +1,6 @@
 ---
 title: "Applying ggplot2 to Real Data"
 linktitle: "2: Visualization II"
-publishDate: "2022-01-23"
 output:
   blogdown::html_page:
     toc: true
@@ -19,7 +18,7 @@ editor_options:
 
 **NOTE**
 
-You must turn in a PDF document of your `R Markdown` code. Submit this to D2L by 11:59 PM Eastern Time on Monday, Jan 31st.
+You must turn in a PDF document of your `R Markdown` code. Submit this to D2L by 11:59 PM Eastern Time on Monday, September 19th.
 
 ::: 
 
@@ -38,7 +37,7 @@ For this exercise, you're going to use this data to visualize the amounts or pro
 
 As you hopefully figured out by now, you'll be doing all your `R` work in `R Markdown`. You can use an RStudio Project to keep your files well organized (either on your computer or on RStudio.cloud), but this is optional. If you decide to do so, either create a new project for this exercise only, or make a project for all your work in this class.
 
-You'll need to download one CSV file and put it somewhere on your computer or upload it to RStudio.cloud---preferably in a folder named `data` in your project folder. You can download the data from [the DOB's map](https://www1.nyc.gov/assets/buildings/html/essential-active-construction.html), or use this link to get it directly:
+You'll need to download one CSV file and put it somewhere on your computer (or upload it to RStudio.cloud if you've gone that direction)---preferably in a folder named `data` in your project folder. You can download the data from [the DOB's map](https://www1.nyc.gov/assets/buildings/html/essential-active-construction.html), or use this link to get it directly:
 
 - [<i class="fas fa-file-csv"></i> `EssentialConstruction.csv`](/data/EssentialConstruction.csv)
 
@@ -47,7 +46,7 @@ You'll need to download one CSV file and put it somewhere on your computer or up
 
 ### R Markdown
 
-Writing regular text with `R Markdown` follows the rules of Markdown. You can make lists; different-size headers, etc. This should be relatively straightfoward. We talked about a few Markdown features like **bold** and *italics* in class. See [this resource for more formatting](https://ssc442kirkpatrick.netlify.app/resource/).
+Writing regular text with `R Markdown` follows the rules of Markdown. You can make lists; different-size headers, etc. This should be relatively straightfoward. We talked about a few Markdown features like **bold** and *italics* in class. See [this resource for more formatting](/resource/markdown/).
 
 You'll also need to insert your own code chunks where needed. Rather than typing them by hand (that's tedious and you might miscount the number of backticks!), use the "Insert" button at the top of the editing window, or type <kbd>ctrl</kbd> + <kbd>alt</kbd> + <kbd>i</kbd> on Windows, or <kbd>⌘</kbd> + <kbd>⌥</kbd> + <kbd>i</kbd> on macOS.
 
@@ -66,23 +65,22 @@ Once you download the `EssentialConstruction.csv` file and save it in your proje
 
 - [<i class="fab fa-r-project"></i> `02-lab.Rmd`](/projects/02-lab/02-lab.Rmd)
 
-**NOTE: YOU WILL NEED TO CHANGE THE HEADER TO SAY: output: pdf_document, and change the title to Lab Assignment 02**
 
 :::fyi
 __Exercise 1 of 1: Essential pandemic construction__
 
 Using the Lab 02 template above, do the following:
 
-A. Show the count or proportion of approved projects by borough using a bar chart.
+A. Show the count or proportion of approved projects by borough using a bar chart. Make sure all the elements of your plot (axes, legend, etc.) are labeled.
 
-B. Show the count or proportion of approved projects by category using a lollipop chart. Not sure of what a lollipop chart is? Google `R ggplot lollipop`. A huge portion of knowing how to code is knowing how to google, find examples, and figure out where to put your variables from your data!
+B. Show the count or proportion of approved projects by *category* using a lollipop chart. Not sure of what a lollipop chart is? Google `R ggplot lollipop`. A huge portion of knowing how to code is knowing how to google, find examples, and figure out where to put your variables from your data! Make sure all the elements of your plot (axes, legend, etc.) are labeled.
 
 
 You don't need to make these super fancy, but if you're feeling brave, experiment with adding a `labs()` layer or changing fill colors with `scale_fill_manual()` or with palettes.
 
 __Bonus__
 
-Overlay the data from Part 1 above onto a map of NYC. For double bonus, color the boroughs.
+Overlay the data from Part 1 above onto a map of NYC. Make sure all the elements of your plot (axes, legend, etc.) are labeled.
 
 :::
 

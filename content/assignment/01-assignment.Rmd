@@ -1,7 +1,6 @@
 ---
 title: "Basics of ggplot"
 linktitle: "1: Visualization I"
-publishDate: "2022-01-04"
 output:
   blogdown::html_page:
     toc: true
@@ -19,7 +18,7 @@ editor_options:
    
 **NOTE** 
 
-You must turn in a PDF document of your `R markdown` code. Submit this to D2L by 11:59 PM on Monday Jan 24th.
+You must turn in a PDF document of your `R markdown` code. Submit this to D2L by 11:59 PM on September 12th.
  
 :::
 
@@ -264,6 +263,6 @@ p + geom_point(mapping = aes(color = continent)) +
 
 Generate two new plots with `data = gapminder` (note: you'll need to install the package by the same name if you have not already). Label the axes and the header with clear, easy to understand language. In a few sentences, describe what you've visualized and why.
 
-Note that this is your first foray into `ggplot2`; accordingly, you should ry to make sure that you do not bite off more than you can chew. We will improve and refine our abilities as we progress through the semester.
+Note that this is your first foray into `ggplot2`; accordingly, you should try to make sure that you do not bite off more than you can chew. We will improve and refine our abilities as we progress through the semester.
 
 :::

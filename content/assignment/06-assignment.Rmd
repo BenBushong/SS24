@@ -1,7 +1,6 @@
 ---
 title: "Model Building"
 linktitle: "6: Linear Regression II"
-publishDate: "2022-02-09"
 output:
   blogdown::html_page:
     toc: true
@@ -15,11 +14,13 @@ editor_options:
   chunk_output_type: console
 ---
 
+<!-- Updated 8.30.22 -->
+
 :::fyi
 
 **NOTE**
 
-You must turn in a PDF document of your `R Markdown` code. Submit this to D2L by 11:59 PM Eastern Time on Monday, Feb 28th
+You must turn in a PDF document of your `R Markdown` code. Submit this to D2L by 11:59 PM Eastern Time on Monday, October 17th. Remember, your Project 1 is due on Saturday the 15th.
 
 :::
 
@@ -95,7 +96,7 @@ __EXERCISES__
     - What does the coefficient for the year variable suggest?
 
 
-3. Use the `:` symbols to fit a linear regression model with *one* well-chosen interaction effects. Why did you do this?
+3. The `:` symbol allows you to create an interction term between two variables. Use the `:` symbols to fit a linear regression model with *one* well-chosen interaction effects plus your other variables. Why did you select the variables you did, and what was the result?
 
 4. Try a few (e.g., two) different transformations of the variables, such as $ln(x)$, $x^2$, $\sqrt x$. Do any of these make sense to include in a model of `SalePrice`? Comment on your findings.
 

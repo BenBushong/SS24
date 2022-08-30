@@ -19,7 +19,7 @@ editor_options:
 
 :::fyi
 
-One member of each group should turn in the group's work on D2L. In addition to the requirements below, the project should have the group member's names. All other group members should turn in a text document stating the group members (D2L requires something be turned in to give a grade and feedback, but I do not want to accidentally grade your projects 2-3 times over.)
+One member of each group should turn in the group's work on D2L. The turned-in copy should have the group member's names at the top.
 
 Turn in your copies by **11:59 on the date listed on the Schedule** 
 

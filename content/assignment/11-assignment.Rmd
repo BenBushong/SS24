@@ -14,11 +14,14 @@ editor_options:
   chunk_output_type: console
 ---
 
+<!-- Updated 8.30.22 -->
+
+
 ### Your final lab
 We started numbering at 0, so this is your final lab.
 
 fyi::
-You must turn in a PDF document of your `R Markdown` code. Submit this to D2L by 11:59 PM Eastern Time on **Monday, Monday April 12th.**
+You must turn in a PDF document of your `R Markdown` code. Submit this to D2L by 11:59 PM Eastern Time on **Monday, Monday November 14th.**
 ::
 
 
@@ -34,7 +37,7 @@ You still work for a travel booking website as a data analyst. The hotel has onc
 
 - [<i class="fas fa-file-csv"></i> `parking.csv`](/data/Lab11_parking.csv) - Contains the corporations who negotiated free parking for employees. It has been updated.
 
-- Parking at the hotel is \$60 if you don't have free parking. This hotel is in California, so everyone drives and parks when they stay.
+- Parking at the hotel is \$60 per night if you don't have free parking. This hotel is in California, so everyone drives and parks when they stay.
 
 
 

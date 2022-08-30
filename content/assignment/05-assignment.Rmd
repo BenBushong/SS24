@@ -1,7 +1,6 @@
 ---
 title: "Correlations and Simple Models"
 linktitle: "5: Linear Regression I"
-publishDate: "2022-02-09"
 output:
   blogdown::html_page:
     toc: true
@@ -15,15 +14,16 @@ editor_options:
   chunk_output_type: console
 ---
 
+<!-- Updated 8.30.22 -->
+
 :::fyi
 
 **NOTE**
 
-You must turn in a PDF document of your `R Markdown` code. Submit this to D2L by 11:59 PM Eastern Time on Monday, Feb 21st.
+You must turn in a PDF document of your `R Markdown` code. Submit this to D2L by 11:59 PM Eastern Time on Monday, October 10th.
 
 :::
 
-This week's lab will (hopefully) not repeat the disaster that was last week's lab.
 
 ## Backstory and Set Up
 You have been recently hired to Zillow’s Zestimate product team as a junior analyst. As a part of their regular hazing, they have given you access to a small subset of their historic sales data. Your job is to present some basic predictions for housing values in a small geographic area (Ames, IA) using this historical pricing.
@@ -124,11 +124,12 @@ Generally speaking, this is a persistent issue, and you will spend an extraordin
 
 __EXERCISES__
 
-1. Prune the data to all of the variables that are `type = int` about which you have some reasonable intuition for what they mean. This **must** include the variable `SalePrice`. Save this new dataset as `Ames`. Produce documentation for this object in the form of a .txt file or use [Markdown's table format](https://www.markdownguide.org/extended-syntax/). This must describe each of the preserved variables, the values it can take (e.g., can it be negative?) and your interpretation of the variable.
+1. Prune the data to 6-8 of the variables that are `type = int` about which you have some reasonable intuition for what they mean. Choose those that you believe are likely to be correlated with `SalePrice`. This **must** include the variable `SalePrice` and `GrLivArea`. Save this new dataset as `Ames`. Produce documentation for this object in the form of a [Markdown table](/resource/markdown/#tables-1) or see [further documentation here](https://www.markdownguide.org/extended-syntax/). This must describe each of the preserved variables, the values it can take (e.g., can it be negative?) and your definition of the variable. Counting the variable name, this means your table should have three columns. Markdown tables are entered in the text body, not code chunks, of your .rmd, so your code creating `Ames` will be in a code chunk, and your table will be right after it.
 
-2. Produce a *scatterplot matrix* which includes `SalePrice` and 6 of the variables that are `type = int` in the data set. Choose those that you believe are likely to be correlated with `SalePrice`.[^5]
 
-3. Compute a matrix of correlations between these variables using the function `cor()`. Does this match your prior beliefs? Briefly discuss the correlation between the miscellaneous variables and `SalePrice` and any correlations between these variables.
+2. Produce a *scatterplot matrix* of the chosen variables[^5]
+
+3. Compute a matrix of correlations between these variables using the function `cor()`. Do the correlations match your prior beliefs? Briefly discuss the correlation between the chosen variables and `SalePrice` and any correlations between these variables.
 
 4. Produce a scatterplot between `SalePrice` and `GrLivArea`. Run a linear model using `lm()` to explore the relationship. Finally, use the `geom_abline()` function to plot the relationship that you've found in the simple linear regression. You'll need to extract the intercept and slope from your `lm` object. See `coef(...)` for information on this.[^6]
     - What is the largest outlier that is above the regression line? Produce the other information about this house.
@@ -137,6 +138,6 @@ __EXERCISES__
 
 :::
 
-[^5]: If you are not familiar with this type of visualization, consult the book (*Introduction to Statistical Learning*), Chapters 2 and 3. Google it; it's free.
+[^5]: If you are not familiar with this type of visualization, consult the book (*Introduction to Statistical Learning*), Chapters 2 and 3. 
 
 [^6]: We could also use `geom_smooth(method = 'lm')` to add the regression line, but it's good practice to work with `lm` objects.

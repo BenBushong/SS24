@@ -886,7 +886,7 @@ players <- tibble(playerID = tmp$playerID, POS = position_names[pos]) %>%
 Finally, we add their first and last name:
 
 ```{r}
-players <- Master %>%
+players <- People %>%
   select(playerID, nameFirst, nameLast, debut) %>%
   mutate(debut = as.Date(debut)) %>%
   right_join(players, by="playerID")
@@ -994,7 +994,7 @@ playerInfo <- Fielding %>%
   arrange(desc(G)) %>%
   slice(1) %>%
   ungroup %>%
-  left_join(Master, by="playerID") %>%
+  left_join(People, by="playerID") %>% # updated to People in 2022
   select(playerID, nameFirst, nameLast, POS)
 ```
 

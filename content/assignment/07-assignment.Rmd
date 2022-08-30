@@ -1,6 +1,6 @@
 ---
 title: "Advanced Model Building"
-linktitle: "7/8: Linear Regression III"
+linktitle: "7: Linear Regression III"
 output:
   blogdown::html_page:
     toc: true
@@ -18,11 +18,8 @@ editor_options:
 
 :::fyi
 
-**READ THIS CAREFULLY**
 
-The content below describes both Lab 7 and Lab 8. Lab 7 is Exercise 1; Lab 8 is Exercise 2.
-
-You must turn in a PDF document of your `R Markdown` code. Submit this to D2L by 11:59 PM Eastern Time on Monday, March 14th for both labs (so that you do not have one due during Spring Break). Submit labs separately, though. Uploading both labs to Lab 7 will result in a 0 on Lab 8.
+You must turn in a PDF document of your `R Markdown` code. Submit this to D2L by 11:59 PM Eastern Time on Monday, October 24th 
 
 :::
 
