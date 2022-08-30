@@ -72,8 +72,8 @@ lessons:
     session: 9
     date: "Week 8 (Oct -25/27)"
     # content: "08-content"
-    example: "LASSO-content"
-    assignment: "LASSO-assignment"
+    example: "08-content"
+    assignment: "08-assignment"
     
   - title: 'Nonlinear Regression'
     session: 10
@@ -92,9 +92,9 @@ lessons:
   - title: 'Classification'
     session: 12
     date: "Week 11 (Nov 15/17)"
-    content: "10-content"
-    example: "10-example"
-    assignment: "10-assignment"
+    content: "11-content"
+    example: "11-example"
+    assignment: "11-assignment"
 
   - title: '<i class="fas fa-star"></i> **Project 2 Due**'
     date: "Saturday Nov 19th"
@@ -113,9 +113,9 @@ lessons:
   - title: 'Wrangling Data (Last lab)'
     session: 14
     date: "Week 13 (Nov 29/Dec 1)"
-    content: "12-content"
-    example: "12-example"
-    assignment: "12-assignment"
+    content: "13-content"
+    example: "13-example"
+    assignment: "13-assignment"
   
   - title: 'Geospatial in R'
     session: 15

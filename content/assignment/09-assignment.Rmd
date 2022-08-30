@@ -1,6 +1,6 @@
 ---
-title: "Nonlinear Model Evaluation"
-linktitle: "9: Model Evaluation"
+title: "Nonlinear Regression Model Evaluation"
+linktitle: "9: Nonlinear Regression Model Evaluation"
 output:
   blogdown::html_page:
     toc: true

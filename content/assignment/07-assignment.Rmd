@@ -16,6 +16,8 @@ editor_options:
 
 <!-- Updated after Sp2022 -->
 
+This is a pretty long lab. Leave plenty of time to complete it.
+
 :::fyi
 
 
@@ -104,7 +106,7 @@ When deciding how complex of a model to use, we can utilize two techniques: *for
 
 :::fyi
 
-__EXERCISE 1__
+__EXERCISE 1 of 2__
 
 1. Load the `Ames` data. Take a look at `Utilities`. Use the `table` function to see a tabulation of the values of `Utilities`. Do you see why this field is not likely to be useful to us, or even problematic?
 
@@ -123,7 +125,7 @@ __EXERCISE 1__
 ---
 
 
-### Test-Train Split (Lab 8)
+### Test-Train Split
 
 Here, we will use `SalePrice` as our target variable. You can re-use your code for cleaning from above (you included `SalePrice` there, right?), and if you want to choose different predictors, feel free to do so.
 
@@ -267,19 +269,16 @@ Specifically, we say that a model is overfitting if there exists a less complex 
 
 :::fyi
 
-__EXERCISE 2__
-
-(AKA Lab 8)
+__EXERCISE 2 of 2__
 
 1. Using any method you choose and any number of regressors, predict `SalePrice` with no fewer than five models of increasing complexity. Complexity can be increased by adding variables *or* by adding interactions of existing variables. Put the five models into a list.
 
 2. Calculate the Train and Test RMSE. Your goal is to have a lower *Test* RMSE than others in the class. 
 
-2. Make a table exactly like the table above for the 5 models you just fit. The first column should have the name of the model (e.g. `fit_1`). Hint: you can get the names of the entries in a list using `names(model_list)` provided you named the list items when you added them.
+3. Make a table exactly like the table above for the 5 models you just fit. The first column should have the name of the model (e.g. `fit_1`). Hint: you can get the names of the entries in a list using `names(model_list)` provided you named the list items when you added them.
 
-3. In a short paragraph, describe the resulting model. Discuss how you arrived at this model, what interactions you're using (if any) and how confident you are that your prediction will perform well, relative to other people in the class.
+4. In a short paragraph, describe the resulting model. Discuss how you arrived at this model, what interactions you're using (if any) and how confident you are that your prediction will perform well, relative to other people in the class.
 
-4. **Difficult; extra credit:** Visualize your final model in a sensible way and provide a two-paragraph interpretation.
 
 :::
 
