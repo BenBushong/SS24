@@ -9,7 +9,7 @@ output:
   blogdown::html_page:
     toc: true
 ---
-
+ 
 This course is the capstone of the Data Analytics Minor in the College of Social Science. Accordingly, you should---fingers crossed---enjoy data analysis. You will get the most of out this class if you:
 
 1. Engage with the readings and lecture materials
