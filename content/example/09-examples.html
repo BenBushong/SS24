@@ -234,7 +234,7 @@ fit_1 = lm(y ~ poly(x, degree = 1), data = sim_data)
 fit_2 = lm(y ~ poly(x, degree = 2), data = sim_data)
 fit_9 = lm(y ~ poly(x, degree = 9), data = sim_data)</code></pre>
 <p>Plotting these four trained models, we see that the zero predictor model does very poorly. The first degree model is reasonable, but we can see that the second degree model fits much better. The ninth degree model seem rather wild.</p>
-<p><img src="/example/09-example_files/figure-html/unnamed-chunk-13-1.png" width="864" /></p>
+<p><img src="/example/09-examples_files/figure-html/unnamed-chunk-13-1.png" width="864" /></p>
 <p>…</p>
 <p>We will now complete a simulation study to understand the relationship between the bias, variance, and mean squared error for the estimates for <span class="math inline">\(f(x)\)</span> given by these four models at the point <span class="math inline">\(x = 0.90\)</span>. We use simulation to complete this task, as performing the analytical calculations would prove to be rather tedious and difficult.</p>
 <pre class="r"><code>set.seed(1)
@@ -262,7 +262,7 @@ predictions = matrix(0, nrow = n_sims, ncol = n_models)</code></pre>
   predictions[sim, 4] = predict(fit_9, x)
 }</code></pre>
 <p>Compile all of the results:</p>
-<p><img src="/example/09-example_files/figure-html/unnamed-chunk-16-1.png" width="864" /></p>
+<p><img src="/example/09-examples_files/figure-html/unnamed-chunk-16-1.png" width="864" /></p>
 <div class="fyi">
 <p>In your breakout room and using the code below:</p>
 <p><strong>First Breakout</strong>: set <code>NN</code> = 100, the value we used in our Content 9 lecture. The value is set in one of the first code chunks. Step through the code to get your finalPlot and make sure it looks like the plot in Content 9. I changed the code to use ggplot (easier to save output), so the formatting and colors will be different - that’s OK, we want to get the same results, not copy the layout of the plot. Note that at the end of the code, a list is created that will hold all of your results. In case you need to clear this list, <code>rm(FinalResults)</code> will do so and the code will initate a new blank list to hold subsequent results.</p>

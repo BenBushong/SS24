@@ -5994,9 +5994,9 @@ myList[[3]] = get_rmse(x, wage_clean, &amp;#39;wage&amp;#39;)&lt;/code&gt;&lt;/p
     
     <item>
       <title>Illustrating Bias vs. Variance</title>
-      <link>https://ssc442kirkpatrick.netlify.app/example/09-example/</link>
+      <link>https://ssc442kirkpatrick.netlify.app/example/09-examples/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ssc442kirkpatrick.netlify.app/example/09-example/</guid>
+      <guid>https://ssc442kirkpatrick.netlify.app/example/09-examples/</guid>
       <description>
 
 &lt;div id=&#34;TOC&#34;&gt;
@@ -6218,7 +6218,7 @@ fit_1 = lm(y ~ poly(x, degree = 1), data = sim_data)
 fit_2 = lm(y ~ poly(x, degree = 2), data = sim_data)
 fit_9 = lm(y ~ poly(x, degree = 9), data = sim_data)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Plotting these four trained models, we see that the zero predictor model does very poorly. The first degree model is reasonable, but we can see that the second degree model fits much better. The ninth degree model seem rather wild.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/example/09-example_files/figure-html/unnamed-chunk-13-1.png&#34; width=&#34;864&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/example/09-examples_files/figure-html/unnamed-chunk-13-1.png&#34; width=&#34;864&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;…&lt;/p&gt;
 &lt;p&gt;We will now complete a simulation study to understand the relationship between the bias, variance, and mean squared error for the estimates for &lt;span class=&#34;math inline&#34;&gt;\(f(x)\)&lt;/span&gt; given by these four models at the point &lt;span class=&#34;math inline&#34;&gt;\(x = 0.90\)&lt;/span&gt;. We use simulation to complete this task, as performing the analytical calculations would prove to be rather tedious and difficult.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(1)
@@ -6246,7 +6246,7 @@ predictions = matrix(0, nrow = n_sims, ncol = n_models)&lt;/code&gt;&lt;/pre&gt;
   predictions[sim, 4] = predict(fit_9, x)
 }&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Compile all of the results:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/example/09-example_files/figure-html/unnamed-chunk-16-1.png&#34; width=&#34;864&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/example/09-examples_files/figure-html/unnamed-chunk-16-1.png&#34; width=&#34;864&#34; /&gt;&lt;/p&gt;
 &lt;div class=&#34;fyi&#34;&gt;
 &lt;p&gt;In your breakout room and using the code below:&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;First Breakout&lt;/strong&gt;: set &lt;code&gt;NN&lt;/code&gt; = 100, the value we used in our Content 9 lecture. The value is set in one of the first code chunks. Step through the code to get your finalPlot and make sure it looks like the plot in Content 9. I changed the code to use ggplot (easier to save output), so the formatting and colors will be different - that’s OK, we want to get the same results, not copy the layout of the plot. Note that at the end of the code, a list is created that will hold all of your results. In case you need to clear this list, &lt;code&gt;rm(FinalResults)&lt;/code&gt; will do so and the code will initate a new blank list to hold subsequent results.&lt;/p&gt;
@@ -6394,43 +6394,6 @@ FinalResults[[paste0(&amp;#39;finalPlot.NN.&amp;#39;,NN,&amp;#39;.SDBayes.&amp;#
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## This not run automatically.
 ## To plot the whole list of ggplot objects in FinalResults:
 wrap_plots(FinalResults, nrow = 2, guides = &amp;#39;collect&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Nonlinear Model Evaluation</title>
-      <link>https://ssc442kirkpatrick.netlify.app/assignment/09-assignment/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ssc442kirkpatrick.netlify.app/assignment/09-assignment/</guid>
-      <description>
-
-&lt;div id=&#34;TOC&#34;&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#backstory-and-set-up&#34;&gt;Backstory and Set Up&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-
-&lt;!-- Updated 8.30.22 --&gt;
-&lt;div class=&#34;fyi&#34;&gt;
-&lt;p&gt;You must turn in a PDF document of your &lt;code&gt;R Markdown&lt;/code&gt; knitted document. Submit this to D2L by 11:59 PM Eastern Time on Monday, November 7th.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;backstory-and-set-up&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Backstory and Set Up&lt;/h2&gt;
-&lt;p&gt;You work for a bank. This bank is trying to predict defaults on loans (a relatively uncommon occurence, but one that costs the bank a great deal of money when it does happen.) They’ve given you a dataset on defaults (encoded as the variable &lt;code&gt;y&lt;/code&gt;). You’re going to try to predict this.&lt;/p&gt;
-&lt;p&gt;This is some new data. The snippet below loads it.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;bank &amp;lt;- read.table(&amp;quot;https://raw.githubusercontent.com/ajkirkpatrick/FS20/Spring2021/classdata/bank.csv&amp;quot;,
-                 header = TRUE,
-                 sep = &amp;quot;,&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;There’s not going to be a whole lot of wind-up here. You should be well-versed in doing these sorts of things by now (if not, look back at the previous lab for sample code).&lt;/p&gt;
-&lt;div class=&#34;fyi&#34;&gt;
-&lt;p&gt;&lt;strong&gt;EXERCISE 1&lt;/strong&gt;&lt;/p&gt;
-&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;&lt;p&gt;Split the data into an 80/20 train vs. test split. Make sure you explicitly set the seed for replicability, but do not share your seed with others in the class. (We may compare some results across people.)&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Run a series of KNN models with &lt;span class=&#34;math inline&#34;&gt;\(k\)&lt;/span&gt; ranging from 2 to 100. (You need not do every &lt;span class=&#34;math inline&#34;&gt;\(k\)&lt;/span&gt; between 2 and 100, but you can easily write a short function to do this; see the Content tab).&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Create a chart plotting the model complexity as the &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt;-axis variable and RMSE as the &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt;-axis variable for &lt;strong&gt;both&lt;/strong&gt; the training and test data. What do you think is the optimal &lt;span class=&#34;math inline&#34;&gt;\(k\)&lt;/span&gt;?&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
@@ -10813,7 +10776,7 @@ These reports may trigger contact from a campus official who will want to talk w
 &lt;p&gt;All class material will be posted on &lt;a href=&#34;https://ssc442kirkpatrick.netlify.app&#34; class=&#34;uri&#34;&gt;https://ssc442kirkpatrick.netlify.app&lt;/a&gt;. D2L will be used sparingly for submission of weekly writings and assignments and distribution of grades.&lt;/p&gt;
 &lt;div id=&#34;using-office-hours&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Using Office Hours&lt;/h3&gt;
-&lt;p&gt;Please use my &lt;a href=&#34;https://msu.zoom.us/j/91759862734?pwd=VDliRHdoQ3N4L3V4LzNFd3IzcGw2dz09&#34;&gt;Office House&lt;/a&gt; (Passcode: DATA) Wednesdays 2-3pm and by appointment. It would be remarkable if you didn’t need some assistance with the material, and I am here to help. One of the benefits of open office hours is to accommodate many students at once; if fellow students are “in my office,” please join in and feel very free to show up in groups. (This bit of the syllabus obviously less critical in the COVID Era). Office hours will move around a little bit throughout the semester to attempt to meet the needs of all students.&lt;/p&gt;
+&lt;p&gt;Please use my &lt;a href=&#34;https://msu.zoom.us/j/91759862734?pwd=VDliRHdoQ3N4L3V4LzNFd3IzcGw2dz09&#34;&gt;Office Hours&lt;/a&gt; (Passcode: DATA) Wednesdays 2-3pm and by appointment. It would be remarkable if you didn’t need some assistance with the material, and I am here to help. One of the benefits of open office hours is to accommodate many students at once; if fellow students are “in my office,” please join in and feel very free to show up in groups. (This bit of the syllabus obviously less critical in the COVID Era). Office hours will move around a little bit throughout the semester to attempt to meet the needs of all students.&lt;/p&gt;
 &lt;p&gt;As a general rule, please first seek course-related help from the drop-in office hours. However, if my scheduled office hours are always infeasible for you, let me know, and then I may encourage you to make appointments with me. I ask that you schedule your studying so that you are prepared to ask questions during office hours – office hours are not a lecture and if you’re not prepared with questions we will end up awkwardly staring at each other for an hour until you leave.&lt;/p&gt;
 &lt;p&gt;Some gentle requests regarding office hours and on contacting me. First, my office hours end sharply at the end, so don’t arrive 10 minutes before the scheduled end and expect a full session. Please arrive early if you have lengthy questions, or if you don’t want to risk not having time due to others’ questions. You are free to ask me some stuff by e-mail, (e.g. a typo or something on a handout), but please know e-mail sucks for answering many types of questions. “How do I do this lab?” or “What’s up with &lt;code&gt;R&lt;/code&gt;?” are short questions with long answers. Come to office hours.&lt;/p&gt;
 &lt;/div&gt;
@@ -19897,14 +19860,14 @@ crdt_knn_100= knnreg(Rating ~ Age + Gender + Student, data = crdt_est, k = 100)&
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;https://ssc442kirkpatrick.netlify.app/content/09-content/&#34;&gt;
                     &lt;i class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/example/09-example/&#34;&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/example/09-examples/&#34;&gt;
                     &lt;i class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/assignment/09-assignment/&#34;&gt;
                     &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
             &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 10 (Nov 8/10)&lt;/td&gt;
-            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Bias vs Variance&lt;/td&gt;
+            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Bias vs Variance (No assignment this week)&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;https://ssc442kirkpatrick.netlify.app/content/10-content/&#34;&gt;
                     &lt;i class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
@@ -19919,11 +19882,11 @@ crdt_knn_100= knnreg(Rating ~ Age + Gender + Student, data = crdt_est, k = 100)&
             &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 11 (Nov 15/17)&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Classification&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
-                    href=&#34;https://ssc442kirkpatrick.netlify.app/content/11-content/&#34;&gt;
+                    href=&#34;https://ssc442kirkpatrick.netlify.app/content/10-content/&#34;&gt;
                     &lt;i class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/example/11-example/&#34;&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/example/10-example/&#34;&gt;
                     &lt;i class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/assignment/11-assignment/&#34;&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/assignment/10-assignment/&#34;&gt;
                     &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
@@ -19950,11 +19913,11 @@ crdt_knn_100= knnreg(Rating ~ Age + Gender + Student, data = crdt_est, k = 100)&
         &lt;/tr&gt;
         &lt;tr&gt;
             &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 12 (Nov 22/-24)&lt;/td&gt;
-            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Text as Data&lt;/td&gt;
+            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Text as Data (No assignment this week)&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
-                    href=&#34;https://ssc442kirkpatrick.netlify.app/content/12-content/&#34;&gt;
+                    href=&#34;https://ssc442kirkpatrick.netlify.app/content/11-content/&#34;&gt;
                     &lt;i class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/example/12-example/&#34;&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/example/11-example/&#34;&gt;
                     &lt;i class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
                 &lt;font color=&#34;f1f1f1&#34;&gt;
@@ -19963,13 +19926,13 @@ crdt_knn_100= knnreg(Rating ~ Age + Gender + Student, data = crdt_est, k = 100)&
         &lt;/tr&gt;
         &lt;tr&gt;
             &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 13 (Nov 29/Dec 1)&lt;/td&gt;
-            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Wrangling Data&lt;/td&gt;
+            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Wrangling Data (Last lab)&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
-                    href=&#34;https://ssc442kirkpatrick.netlify.app/content/13-content/&#34;&gt;
+                    href=&#34;https://ssc442kirkpatrick.netlify.app/content/12-content/&#34;&gt;
                     &lt;i class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/example/13-example/&#34;&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/example/12-example/&#34;&gt;
                     &lt;i class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/assignment/13-assignment/&#34;&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/assignment/12-assignment/&#34;&gt;
                     &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
@@ -19978,8 +19941,10 @@ crdt_knn_100= knnreg(Rating ~ Age + Gender + Student, data = crdt_est, k = 100)&
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;https://ssc442kirkpatrick.netlify.app/content/14-content/&#34;&gt;
                     &lt;i class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/example/TBA/&#34;&gt;
-                    &lt;i class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
+                &lt;font color=&#34;f1f1f1&#34;&gt;
+                    &lt;i class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
+            &lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
                 &lt;font color=&#34;f1f1f1&#34;&gt;
                     &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;

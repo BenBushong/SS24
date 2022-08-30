@@ -4056,9 +4056,9 @@ myList[[3]] = get_rmse(x, wage_clean, &amp;#39;wage&amp;#39;)&lt;/code&gt;&lt;/p
     
     <item>
       <title>Illustrating Bias vs. Variance</title>
-      <link>https://ssc442kirkpatrick.netlify.app/example/09-example/</link>
+      <link>https://ssc442kirkpatrick.netlify.app/example/09-examples/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ssc442kirkpatrick.netlify.app/example/09-example/</guid>
+      <guid>https://ssc442kirkpatrick.netlify.app/example/09-examples/</guid>
       <description>
 
 &lt;div id=&#34;TOC&#34;&gt;
@@ -4280,7 +4280,7 @@ fit_1 = lm(y ~ poly(x, degree = 1), data = sim_data)
 fit_2 = lm(y ~ poly(x, degree = 2), data = sim_data)
 fit_9 = lm(y ~ poly(x, degree = 9), data = sim_data)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Plotting these four trained models, we see that the zero predictor model does very poorly. The first degree model is reasonable, but we can see that the second degree model fits much better. The ninth degree model seem rather wild.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/example/09-example_files/figure-html/unnamed-chunk-13-1.png&#34; width=&#34;864&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/example/09-examples_files/figure-html/unnamed-chunk-13-1.png&#34; width=&#34;864&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;…&lt;/p&gt;
 &lt;p&gt;We will now complete a simulation study to understand the relationship between the bias, variance, and mean squared error for the estimates for &lt;span class=&#34;math inline&#34;&gt;\(f(x)\)&lt;/span&gt; given by these four models at the point &lt;span class=&#34;math inline&#34;&gt;\(x = 0.90\)&lt;/span&gt;. We use simulation to complete this task, as performing the analytical calculations would prove to be rather tedious and difficult.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(1)
@@ -4308,7 +4308,7 @@ predictions = matrix(0, nrow = n_sims, ncol = n_models)&lt;/code&gt;&lt;/pre&gt;
   predictions[sim, 4] = predict(fit_9, x)
 }&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Compile all of the results:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/example/09-example_files/figure-html/unnamed-chunk-16-1.png&#34; width=&#34;864&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/example/09-examples_files/figure-html/unnamed-chunk-16-1.png&#34; width=&#34;864&#34; /&gt;&lt;/p&gt;
 &lt;div class=&#34;fyi&#34;&gt;
 &lt;p&gt;In your breakout room and using the code below:&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;First Breakout&lt;/strong&gt;: set &lt;code&gt;NN&lt;/code&gt; = 100, the value we used in our Content 9 lecture. The value is set in one of the first code chunks. Step through the code to get your finalPlot and make sure it looks like the plot in Content 9. I changed the code to use ggplot (easier to save output), so the formatting and colors will be different - that’s OK, we want to get the same results, not copy the layout of the plot. Note that at the end of the code, a list is created that will hold all of your results. In case you need to clear this list, &lt;code&gt;rm(FinalResults)&lt;/code&gt; will do so and the code will initate a new blank list to hold subsequent results.&lt;/p&gt;
