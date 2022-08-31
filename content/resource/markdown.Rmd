@@ -60,7 +60,9 @@ output:
 
 ## Math
 
-Markdown uses LaTeX to create fancy mathematical equations. There are like a billion little options and features available for math equations—you can find [helpful examples of the the most common basic commands here](http://www.malinc.se/math/latex/basiccodeen.php).
+Markdown uses LaTeX to create fancy mathematical equations. This is useful for things as simple as making a $\beta$, or for writing out long, complex equations. In fact, Markdown *does not like, and will error out on, "unicode" characters like the version of $\beta$ you get by using the text symbols*. Needless to say, don't do that -- use LaTeX. 
+
+In LaTeX, there are like a billion little options and features available for math equations—you can find [helpful examples of the the most common basic commands here](http://www.malinc.se/math/latex/basiccodeen.php), but the basic usage is easy.
 
 You can use math in two different ways: inline or in a display block. To use math inline, wrap it in single dollar signs, like `$y = mx + b$`:
 

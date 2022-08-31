@@ -6622,7 +6622,8 @@ Heading 3
 &lt;/div&gt;
 &lt;div id=&#34;math&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Math&lt;/h2&gt;
-&lt;p&gt;Markdown uses LaTeX to create fancy mathematical equations. There are like a billion little options and features available for math equations—you can find &lt;a href=&#34;http://www.malinc.se/math/latex/basiccodeen.php&#34;&gt;helpful examples of the the most common basic commands here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Markdown uses LaTeX to create fancy mathematical equations. This is useful for things as simple as making a &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt;, or for writing out long, complex equations. In fact, Markdown &lt;em&gt;does not like, and will error out on, “unicode” characters like the version of &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; you get by using the text symbols&lt;/em&gt;. Needless to say, don’t do that – use LaTeX.&lt;/p&gt;
+&lt;p&gt;In LaTeX, there are like a billion little options and features available for math equations—you can find &lt;a href=&#34;http://www.malinc.se/math/latex/basiccodeen.php&#34;&gt;helpful examples of the the most common basic commands here&lt;/a&gt;, but the basic usage is easy.&lt;/p&gt;
 &lt;p&gt;You can use math in two different ways: inline or in a display block. To use math inline, wrap it in single dollar signs, like &lt;code&gt;$y = mx + b$&lt;/code&gt;:&lt;/p&gt;
 &lt;table&gt;
 &lt;colgroup&gt;
