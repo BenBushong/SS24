@@ -1,5 +1,5 @@
 ---
-title: Using Rstudio Cloud (an alternative)
+title: Using Rstudio Cloud
 date: "2022-08-30"
 menu:
   resource:
@@ -16,7 +16,11 @@ library(knitr)
 library(here)
 ```
 
+# What is Rstudio.cloud?
+
 Installing R and RStudio locally (on your computer) is the preferred method. Additionally, most MSU computer labs have R and RStudio installed. However, if your computer isn't able to run RStudio, or you run into errors that we can't troubleshoot, using RStudio Cloud is a viable alternative. Hosted at [Rstudio.cloud](https://rstudio.cloud), RStudio Cloud is an online, web-based version of R and RStudio. On the "pro" side, it doesn't require anything of your system except a functioning browser and can be up and running in a few minutes. The "con", though, is that you must have an internet connection to use it, and it is limited to 25 hours per month for the free account (and \$5/month for up to 75 hours per month). You shouldn't need more than 25 hours per month, but if you're very new to coding, it's possible you will.
+
+
 
 # Setting up RStudio.cloud
 
@@ -58,3 +62,8 @@ knitr::include_graphics(here('content','resource','RSC4.png'))
 ```{r, echo=FALSE, out.width="60%"}
 knitr::include_graphics(here('content','resource','RSC5.png'))
 ```
+
+
+Your RStudio.cloud version of RStudio will work just like a "local" install on a computer. Make sure you "Save As..." when you do your Lab or Weekly Writing assignments so that you don't have to re-upload the templates. Keep a separate folder for each Lab inside the Labs to keep things clean in your workspace.
+
+
