@@ -29,7 +29,7 @@ Installing R and RStudio locally (on your computer) is the preferred method. Add
 3. In the top right corner, click on "New Project" and name it something like "SSC442"
 
 
-```{r, echo=FALSE, out.width="60%"}
+```{r, echo=FALSE, out.width="80%"}
 knitr::include_graphics(here('content','resource','RSC1.png'))
 ```
 
@@ -44,7 +44,7 @@ knitr::include_graphics(here('content','resource','RSC1.png'))
 7. At the top of the template in the upper-left pane, you'll see a warning that RStudio needs to install some packages. **Click "Install"**
 
 
-```{r, echo=FALSE, out.width="60%"}
+```{r, echo=FALSE, out.width="80%"}
 knitr::include_graphics(here('content','resource','RSC3.png'))
 ```
 
@@ -52,14 +52,14 @@ knitr::include_graphics(here('content','resource','RSC3.png'))
 9. RMarkdown will need to install a few more packages. Click "Yes".
 
 
-```{r, echo=FALSE, out.width="60%"}
+```{r, echo=FALSE, out.width="80%"}
 knitr::include_graphics(here('content','resource','RSC4.png'))
 ```
 
 10. A pop-up window will open showing you the PDF of the rendered template. Congrats, you are ready to get to work!
 
 
-```{r, echo=FALSE, out.width="60%"}
+```{r, echo=FALSE, out.width="80%"}
 knitr::include_graphics(here('content','resource','RSC5.png'))
 ```
 

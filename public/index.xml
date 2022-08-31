@@ -6452,7 +6452,7 @@ wrap_plots(FinalResults, nrow = 2, guides = &amp;#39;collect&amp;#39;)&lt;/code&
 &lt;li&gt;Click “Your Workspace”&lt;/li&gt;
 &lt;li&gt;In the top right corner, click on “New Project” and name it something like “SSC442”&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;RSC1.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;RSC1.png&#34; width=&#34;80%&#34; /&gt;&lt;/p&gt;
 &lt;ol start=&#34;4&#34; style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;The “Files” tab in the lower-right pane shows your cloud project storage space. Let’s add a &lt;code&gt;templates&lt;/code&gt; folder and store the two course assignment templates there.&lt;/li&gt;
 &lt;/ol&gt;
@@ -6467,17 +6467,86 @@ wrap_plots(FinalResults, nrow = 2, guides = &amp;#39;collect&amp;#39;)&lt;/code&
 &lt;li&gt;Open the Lab Assignment template&lt;/li&gt;
 &lt;li&gt;At the top of the template in the upper-left pane, you’ll see a warning that RStudio needs to install some packages. &lt;strong&gt;Click “Install”&lt;/strong&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;RSC3.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;RSC3.png&#34; width=&#34;80%&#34; /&gt;&lt;/p&gt;
 &lt;ol start=&#34;8&#34; style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;After R finishes installing packages (less than a minute), click the “Knit” button on the toolbar.&lt;/li&gt;
 &lt;li&gt;RMarkdown will need to install a few more packages. Click “Yes”.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;RSC4.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;RSC4.png&#34; width=&#34;80%&#34; /&gt;&lt;/p&gt;
 &lt;ol start=&#34;10&#34; style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;A pop-up window will open showing you the PDF of the rendered template. Congrats, you are ready to get to work!&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;RSC5.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;RSC5.png&#34; width=&#34;80%&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Your RStudio.cloud version of RStudio will work just like a “local” install on a computer. Make sure you “Save As…” when you do your Lab or Weekly Writing assignments so that you don’t have to re-upload the templates. Keep a separate folder for each Lab inside the Labs to keep things clean in your workspace.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Visualization</title>
+      <link>https://ssc442kirkpatrick.netlify.app/resource/visualization/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://ssc442kirkpatrick.netlify.app/resource/visualization/</guid>
+      <description>
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#interesting-and-excellent-real-world-examples&#34;&gt;Interesting and excellent real world examples&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#how-to-select-the-appropriate-chart-type&#34;&gt;How to select the appropriate chart type&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#general-resources&#34;&gt;General resources&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#visualization-in-excel&#34;&gt;Visualization in Excel&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#visualization-in-tableau&#34;&gt;Visualization in Tableau&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;interesting-and-excellent-real-world-examples&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Interesting and excellent real world examples&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.storiesbehindaline.com/&#34;&gt;The Stories Behind a Line&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://flowingdata.com/2017/06/28/australia-as-100-people/&#34;&gt;Australia as 100 people&lt;/a&gt;: You can make something like this with &lt;a href=&#34;https://d3js.org/&#34;&gt;d3&lt;/a&gt; and the &lt;a href=&#34;https://github.com/civisanalytics/potato&#34;&gt;potato project&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://flowingdata.com/2017/07/17/marrying-age-over-the-past-century/&#34;&gt;Marrying Later, Staying Single Longer&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;how-to-select-the-appropriate-chart-type&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;How to select the appropriate chart type&lt;/h2&gt;
+&lt;p&gt;Many people have created many useful tools for selecting the correct chart type for a given dataset or question. Here are some of the best:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.datavizcatalogue.com/&#34;&gt;&lt;strong&gt;The Data Visualisation Catalogue&lt;/strong&gt;&lt;/a&gt;: Descriptions, explanations, examples, and tools for creating 60 different types of visualizations.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://datavizproject.com/&#34;&gt;&lt;strong&gt;The Data Viz Project&lt;/strong&gt;&lt;/a&gt;: Descriptions and examples for 150 different types of visualizations. Also allows you to search by data shape and chart function (comparison, correlation, distribution, geographical, part to whole, trend over time, etc.).&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.data-to-viz.com/&#34;&gt;&lt;strong&gt;From Data to Viz&lt;/strong&gt;&lt;/a&gt;: A decision tree for dozens of chart types with links to R and Python code.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://chartmaker.visualisingdata.com/&#34;&gt;&lt;strong&gt;The Chartmaker Directory&lt;/strong&gt;&lt;/a&gt;: Examples of how to create 51 different types of visualizations in 31 different software packages, including Excel, Tableau, and R.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://shinyapps.stat.ubc.ca/r-graph-catalog/&#34;&gt;&lt;strong&gt;R Graph Catalog&lt;/strong&gt;&lt;/a&gt;: R code for 124 ggplot graphs.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://annkemery.com/essentials/&#34;&gt;&lt;strong&gt;Emery’s Essentials&lt;/strong&gt;&lt;/a&gt;: Descriptions and examples of 26 different chart types.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;general-resources&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;General resources&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.storytellingwithdata.com/&#34;&gt;&lt;strong&gt;Storytelling with Data&lt;/strong&gt;&lt;/a&gt;: Blog and site full of resources by Cole Nussbaumer Knaflic.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://annkemery.com/blog/&#34;&gt;&lt;strong&gt;Ann K. Emery’s blog&lt;/strong&gt;&lt;/a&gt;: Blog and tutorials by &lt;a href=&#34;https://twitter.com/AnnKEmery&#34;&gt;Ann Emery&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://stephanieevergreen.com/&#34;&gt;&lt;strong&gt;Evergreen Data&lt;/strong&gt;&lt;/a&gt;: Helful resources by &lt;a href=&#34;https://twitter.com/evergreendata&#34;&gt;Stephanie Evergreen&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://policyviz.com/&#34;&gt;&lt;strong&gt;PolicyViz&lt;/strong&gt;&lt;/a&gt;: Regular podcast and site full of helpful resources by &lt;a href=&#34;https://twitter.com/jschwabish&#34;&gt;Jon Schwabisch&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.visualisingdata.com/&#34;&gt;&lt;strong&gt;Visualising Data&lt;/strong&gt;&lt;/a&gt;: Fantastic collection of visualization resources, articles, and tutorials by &lt;a href=&#34;https://twitter.com/visualisingdata&#34;&gt;Andy Kirk&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://infowetrust.com/&#34;&gt;&lt;strong&gt;Info We Trust&lt;/strong&gt;&lt;/a&gt;: Detailed explorations of visualizations by &lt;a href=&#34;https://twitter.com/infowetrust&#34;&gt;RJ Andrews&lt;/a&gt;, including a &lt;a href=&#34;http://infowetrust.com/history/&#34;&gt;beautiful visual history of the field&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://flowingdata.com/&#34;&gt;&lt;strong&gt;FlowingData&lt;/strong&gt;&lt;/a&gt;: Blog by &lt;a href=&#34;https://twitter.com/flowingdata&#34;&gt;Nathan Yau&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.informationisbeautiful.net/&#34;&gt;&lt;strong&gt;Information is Beautiful&lt;/strong&gt;&lt;/a&gt;: Blog by &lt;a href=&#34;https://twitter.com/mccandelish&#34;&gt;David McCandless&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://junkcharts.typepad.com/&#34;&gt;&lt;strong&gt;Junk Charts&lt;/strong&gt;&lt;/a&gt;: Blog by &lt;a href=&#34;https://twitter.com/junkcharts&#34;&gt;Kaiser Fung&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://viz.wtf/&#34;&gt;&lt;strong&gt;WTF Visualizations&lt;/strong&gt;&lt;/a&gt;: Visualizations that make you ask “wtf?”&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://annkemery.com/checklist/&#34;&gt;&lt;strong&gt;The Data Visualization Checklist&lt;/strong&gt;&lt;/a&gt;: A helpful set of criteria for grading the effectiveness of a graphic.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.google.com/document/d/1kKRadOiF0LruItsvGA40fSDZkAQfCqC_Ela0gBdo8A4/edit&#34;&gt;&lt;strong&gt;Data Literacy Starter Kit&lt;/strong&gt;&lt;/a&gt;: Compilation of resources to become data literate by &lt;a href=&#34;http://lauracalloway.com/&#34;&gt;Laura Calloway&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://seeingdata.org/&#34;&gt;&lt;strong&gt;Seeing Data&lt;/strong&gt;&lt;/a&gt;: A series of research projects about perceptions and visualizations.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;visualization-in-excel&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Visualization in Excel&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://stephanieevergreen.com/how-to/&#34;&gt;&lt;strong&gt;How to Build Data Visualizations in Excel&lt;/strong&gt;&lt;/a&gt;: Detailed tutorials for creating 14 different visualizations in Excel.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://annkemery.com/category/visualizing-data/tutorials/&#34;&gt;&lt;strong&gt;Ann Emery’s tutorials&lt;/strong&gt;&lt;/a&gt;: Fantastic series of tutorials for creating charts in Excel.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;visualization-in-tableau&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Visualization in Tableau&lt;/h2&gt;
+&lt;p&gt;Because it is focused entirely on visualization (and because it’s a well-supported commercial product), Tableau has a &lt;a href=&#34;https://www.tableau.com/learn/training&#34;&gt;phenomenal library of tutorials and training videos&lt;/a&gt;. There’s &lt;a href=&#34;https://www.quora.com/What-are-some-good-video-tutorials-for-learning-Tableau&#34;&gt;a helpful collections of videos here&lt;/a&gt;, as well.&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -6493,6 +6562,7 @@ wrap_plots(FinalResults, nrow = 2, guides = &amp;#39;collect&amp;#39;)&lt;/code&
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#basic-markdown-formatting&#34;&gt;Basic Markdown formatting&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#math&#34;&gt;Math&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#superscripts-and-subscripts&#34;&gt;Superscripts and Subscripts&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#tables&#34;&gt;Tables&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#footnotes&#34;&gt;Footnotes&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#front-matter&#34;&gt;Front matter&lt;/a&gt;&lt;/li&gt;
@@ -6675,6 +6745,10 @@ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
 &lt;p&gt;Because dollar signs are used to indicate math equations, you can’t just use dollar signs like normal if you’re writing about actual dollars. For instance, if you write &lt;code&gt;This book costs $5.75 and this other costs $40&lt;/code&gt;, Markdown will treat everything that comes between the dollar signs as math, like so: “This book costs $5.75 and this other costs $40”.&lt;/p&gt;
 &lt;p&gt;To get around that, put a backslash (&lt;code&gt;\&lt;/code&gt;) in front of the dollar signs, so that &lt;code&gt;This book costs \$5.75 and this other costs \$40&lt;/code&gt; becomes “This book costs &lt;span&gt;$5.75&lt;/span&gt; and this other costs &lt;span&gt;$40&lt;/span&gt;”.&lt;/p&gt;
 &lt;/div&gt;
+&lt;div id=&#34;superscripts-and-subscripts&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Superscripts and Subscripts&lt;/h2&gt;
+&lt;p&gt;Subscripts and superscripts are used often in this class. They are made by adding &lt;code&gt;_{sub}&lt;/code&gt; or &lt;code&gt;^{super}&lt;/code&gt;. See the &lt;code&gt;\beta_0&lt;/code&gt; in the table above, which made a nice &lt;span class=&#34;math inline&#34;&gt;\(\beta_{0}\)&lt;/span&gt;. If you have only one character or number, you don’t need to use the &lt;code&gt;{}&lt;/code&gt;. That is &lt;code&gt;beta_i,j&lt;/code&gt; will give &lt;span class=&#34;math inline&#34;&gt;\(\beta_i,j\)&lt;/span&gt;, and &lt;code&gt;beta_{i,j}&lt;/code&gt; will give &lt;span class=&#34;math inline&#34;&gt;\(\beta_{i,j}\)&lt;/span&gt;.&lt;/p&gt;
+&lt;/div&gt;
 &lt;div id=&#34;tables&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Tables&lt;/h2&gt;
 &lt;p&gt;There are 4 different ways to hand-create tables in Markdown—I say “hand-create” because it’s normally way easier to use R to generate these things with packages like &lt;a href=&#34;https://rapporter.github.io/pander/&#34;&gt;&lt;strong&gt;pander&lt;/strong&gt;&lt;/a&gt; (use &lt;code&gt;pandoc.table()&lt;/code&gt;) or &lt;strong&gt;knitr&lt;/strong&gt; (use &lt;a href=&#34;https://bookdown.org/yihui/rmarkdown-cookbook/kable.html&#34;&gt;&lt;code&gt;kable()&lt;/code&gt;&lt;/a&gt;). The two most common are simple tables and pipe tables. &lt;a href=&#34;https://pandoc.org/MANUAL.html#tables&#34;&gt;You should look at the full documentation here&lt;/a&gt;.&lt;/p&gt;
@@ -6829,6 +6903,7 @@ title: &amp;#39;An evaluation of &amp;quot;scare quotes&amp;quot;&amp;#39;
 &lt;/div&gt;
 &lt;div id=&#34;citations&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Citations&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;SSC442 and EC420, you won’t use this part&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;One of the most powerful features of Markdown + pandoc is the ability to automatically cite things and generate bibliographies. to use citations, you need to create a &lt;a href=&#34;http://www.bibtex.org/&#34;&gt;BibTeX file&lt;/a&gt; (ends in &lt;code&gt;.bib&lt;/code&gt;) that contains a database of the things you want to cite. You can do this with bibliography managers designed to work with BibTeX directly (like &lt;a href=&#34;https://bibdesk.sourceforge.io/&#34;&gt;BibDesk&lt;/a&gt; on macOS), or you can use &lt;a href=&#34;https://www.zotero.org/&#34;&gt;Zotero&lt;/a&gt; (macOS and Windows) to export a &lt;code&gt;.bib&lt;/code&gt; file. You can &lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/reference/&#34;&gt;download an example &lt;code&gt;.bib&lt;/code&gt; file of all the readings from this class here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html&#34;&gt;Complete details for using citations can be found here&lt;/a&gt;. In brief, you need to do three things:&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
@@ -6902,75 +6977,6 @@ csl: &amp;quot;https://raw.githubusercontent.com/citation-style-language/styles/
 &lt;li&gt;&lt;a href=&#34;http://packetlife.net/media/library/16/Markdown.pdf&#34;&gt;&lt;strong&gt;Markdown cheatsheet&lt;/strong&gt;&lt;/a&gt;: Useful one-page reminder of Markdown syntax.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://plain-text.co/&#34;&gt;&lt;strong&gt;The Plain Person’s Guide to Plain Text Social Science&lt;/strong&gt;&lt;/a&gt;: A comprehensive explanation and tutorial about why you should write data-based reports in Markdown.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Visualization</title>
-      <link>https://ssc442kirkpatrick.netlify.app/resource/visualization/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ssc442kirkpatrick.netlify.app/resource/visualization/</guid>
-      <description>
-
-&lt;div id=&#34;TOC&#34;&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#interesting-and-excellent-real-world-examples&#34;&gt;Interesting and excellent real world examples&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#how-to-select-the-appropriate-chart-type&#34;&gt;How to select the appropriate chart type&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#general-resources&#34;&gt;General resources&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#visualization-in-excel&#34;&gt;Visualization in Excel&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#visualization-in-tableau&#34;&gt;Visualization in Tableau&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-
-&lt;div id=&#34;interesting-and-excellent-real-world-examples&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Interesting and excellent real world examples&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.storiesbehindaline.com/&#34;&gt;The Stories Behind a Line&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://flowingdata.com/2017/06/28/australia-as-100-people/&#34;&gt;Australia as 100 people&lt;/a&gt;: You can make something like this with &lt;a href=&#34;https://d3js.org/&#34;&gt;d3&lt;/a&gt; and the &lt;a href=&#34;https://github.com/civisanalytics/potato&#34;&gt;potato project&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://flowingdata.com/2017/07/17/marrying-age-over-the-past-century/&#34;&gt;Marrying Later, Staying Single Longer&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div id=&#34;how-to-select-the-appropriate-chart-type&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;How to select the appropriate chart type&lt;/h2&gt;
-&lt;p&gt;Many people have created many useful tools for selecting the correct chart type for a given dataset or question. Here are some of the best:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.datavizcatalogue.com/&#34;&gt;&lt;strong&gt;The Data Visualisation Catalogue&lt;/strong&gt;&lt;/a&gt;: Descriptions, explanations, examples, and tools for creating 60 different types of visualizations.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://datavizproject.com/&#34;&gt;&lt;strong&gt;The Data Viz Project&lt;/strong&gt;&lt;/a&gt;: Descriptions and examples for 150 different types of visualizations. Also allows you to search by data shape and chart function (comparison, correlation, distribution, geographical, part to whole, trend over time, etc.).&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.data-to-viz.com/&#34;&gt;&lt;strong&gt;From Data to Viz&lt;/strong&gt;&lt;/a&gt;: A decision tree for dozens of chart types with links to R and Python code.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://chartmaker.visualisingdata.com/&#34;&gt;&lt;strong&gt;The Chartmaker Directory&lt;/strong&gt;&lt;/a&gt;: Examples of how to create 51 different types of visualizations in 31 different software packages, including Excel, Tableau, and R.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://shinyapps.stat.ubc.ca/r-graph-catalog/&#34;&gt;&lt;strong&gt;R Graph Catalog&lt;/strong&gt;&lt;/a&gt;: R code for 124 ggplot graphs.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://annkemery.com/essentials/&#34;&gt;&lt;strong&gt;Emery’s Essentials&lt;/strong&gt;&lt;/a&gt;: Descriptions and examples of 26 different chart types.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div id=&#34;general-resources&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;General resources&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.storytellingwithdata.com/&#34;&gt;&lt;strong&gt;Storytelling with Data&lt;/strong&gt;&lt;/a&gt;: Blog and site full of resources by Cole Nussbaumer Knaflic.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://annkemery.com/blog/&#34;&gt;&lt;strong&gt;Ann K. Emery’s blog&lt;/strong&gt;&lt;/a&gt;: Blog and tutorials by &lt;a href=&#34;https://twitter.com/AnnKEmery&#34;&gt;Ann Emery&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://stephanieevergreen.com/&#34;&gt;&lt;strong&gt;Evergreen Data&lt;/strong&gt;&lt;/a&gt;: Helful resources by &lt;a href=&#34;https://twitter.com/evergreendata&#34;&gt;Stephanie Evergreen&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://policyviz.com/&#34;&gt;&lt;strong&gt;PolicyViz&lt;/strong&gt;&lt;/a&gt;: Regular podcast and site full of helpful resources by &lt;a href=&#34;https://twitter.com/jschwabish&#34;&gt;Jon Schwabisch&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.visualisingdata.com/&#34;&gt;&lt;strong&gt;Visualising Data&lt;/strong&gt;&lt;/a&gt;: Fantastic collection of visualization resources, articles, and tutorials by &lt;a href=&#34;https://twitter.com/visualisingdata&#34;&gt;Andy Kirk&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://infowetrust.com/&#34;&gt;&lt;strong&gt;Info We Trust&lt;/strong&gt;&lt;/a&gt;: Detailed explorations of visualizations by &lt;a href=&#34;https://twitter.com/infowetrust&#34;&gt;RJ Andrews&lt;/a&gt;, including a &lt;a href=&#34;http://infowetrust.com/history/&#34;&gt;beautiful visual history of the field&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://flowingdata.com/&#34;&gt;&lt;strong&gt;FlowingData&lt;/strong&gt;&lt;/a&gt;: Blog by &lt;a href=&#34;https://twitter.com/flowingdata&#34;&gt;Nathan Yau&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.informationisbeautiful.net/&#34;&gt;&lt;strong&gt;Information is Beautiful&lt;/strong&gt;&lt;/a&gt;: Blog by &lt;a href=&#34;https://twitter.com/mccandelish&#34;&gt;David McCandless&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://junkcharts.typepad.com/&#34;&gt;&lt;strong&gt;Junk Charts&lt;/strong&gt;&lt;/a&gt;: Blog by &lt;a href=&#34;https://twitter.com/junkcharts&#34;&gt;Kaiser Fung&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://viz.wtf/&#34;&gt;&lt;strong&gt;WTF Visualizations&lt;/strong&gt;&lt;/a&gt;: Visualizations that make you ask “wtf?”&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://annkemery.com/checklist/&#34;&gt;&lt;strong&gt;The Data Visualization Checklist&lt;/strong&gt;&lt;/a&gt;: A helpful set of criteria for grading the effectiveness of a graphic.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://docs.google.com/document/d/1kKRadOiF0LruItsvGA40fSDZkAQfCqC_Ela0gBdo8A4/edit&#34;&gt;&lt;strong&gt;Data Literacy Starter Kit&lt;/strong&gt;&lt;/a&gt;: Compilation of resources to become data literate by &lt;a href=&#34;http://lauracalloway.com/&#34;&gt;Laura Calloway&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://seeingdata.org/&#34;&gt;&lt;strong&gt;Seeing Data&lt;/strong&gt;&lt;/a&gt;: A series of research projects about perceptions and visualizations.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div id=&#34;visualization-in-excel&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Visualization in Excel&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://stephanieevergreen.com/how-to/&#34;&gt;&lt;strong&gt;How to Build Data Visualizations in Excel&lt;/strong&gt;&lt;/a&gt;: Detailed tutorials for creating 14 different visualizations in Excel.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://annkemery.com/category/visualizing-data/tutorials/&#34;&gt;&lt;strong&gt;Ann Emery’s tutorials&lt;/strong&gt;&lt;/a&gt;: Fantastic series of tutorials for creating charts in Excel.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div id=&#34;visualization-in-tableau&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Visualization in Tableau&lt;/h2&gt;
-&lt;p&gt;Because it is focused entirely on visualization (and because it’s a well-supported commercial product), Tableau has a &lt;a href=&#34;https://www.tableau.com/learn/training&#34;&gt;phenomenal library of tutorials and training videos&lt;/a&gt;. There’s &lt;a href=&#34;https://www.quora.com/What-are-some-good-video-tutorials-for-learning-Tableau&#34;&gt;a helpful collections of videos here&lt;/a&gt;, as well.&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
