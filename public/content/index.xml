@@ -15,7 +15,7 @@
     <item>
       <title>Welcome Back to R</title>
       <link>https://ssc442kirkpatrick.netlify.app/content/00-content/</link>
-      <pubDate>Tue, 30 Aug 2022 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 31 Aug 2022 00:00:00 +0000</pubDate>
       <guid>https://ssc442kirkpatrick.netlify.app/content/00-content/</guid>
       <description>
 &lt;script src=&#34;https://ssc442kirkpatrick.netlify.app/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
@@ -104,6 +104,7 @@
 &lt;li&gt;&lt;a href=&#34;#which&#34;&gt;&lt;code&gt;which&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#in&#34;&gt;&lt;code&gt;%in%&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#further-help-with-r&#34;&gt;Further help with &lt;code&gt;R&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
@@ -182,8 +183,8 @@
 &lt;/div&gt;
 &lt;div id=&#34;more-about-this-course&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;More About This Course&lt;/h3&gt;
-&lt;p&gt;There are sort of three texts for this course and sort of zero.&lt;/p&gt;
-&lt;p&gt;The “main text” is free and available online. The secondary text is substantially more difficult, but also free online. The third text costs about $25. Assigned readings can be found on the course website under “Content”.&lt;/p&gt;
+&lt;p&gt;There are sort of two texts for this course and sort of zero.&lt;/p&gt;
+&lt;p&gt;The “main text” is this website. The secondary text is Introduction to Statistical Learning (see &lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/syllabus/#course-materials&#34;&gt;Syllabus&lt;/a&gt;), which is free and available online. The secondary text is substantially more difficult, but also free online. Assigned readings can be found on the course website under “Content”.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Please please please please please:&lt;/strong&gt; ask questions during class.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;Most ideas will be new.&lt;/p&gt;&lt;/li&gt;
@@ -1242,6 +1243,11 @@ data(murders)&lt;/code&gt;&lt;/pre&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;further-help-with-r&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Further help with &lt;code&gt;R&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;If you are not comfortable with &lt;code&gt;R&lt;/code&gt;, the earlier you seek out help, the better. Quietly letting the course pass by you because you don’t know how to fix an error will do nobody any good. Attend TA office hours or attend Prof. K’s office hours &lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/syllabus/&#34;&gt;see Syllabus&lt;/a&gt; for times and Zoom links. Also, join the course Slack and post questions there.&lt;/p&gt;
+&lt;p&gt;Finally, there are also primers on &lt;a href=&#34;https://rstudio.cloud/learn/primers&#34;&gt;Rstudio.cloud&lt;/a&gt; that can be useful. There are many ways we can help you get used to &lt;code&gt;R&lt;/code&gt;, but only if you reach out.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&#34;footnotes&#34;&gt;
