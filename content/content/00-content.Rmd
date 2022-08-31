@@ -96,9 +96,9 @@ Grading: **come to class.**
 
 ### More About This Course
 
-There are sort of three texts for this course and sort of zero.
+There are sort of two texts for this course and sort of zero.
 
-The "main text" is free and available online. The secondary text is substantially more difficult, but also free online. The third text costs about \$25. Assigned readings can be found on the course website under "Content".
+The "main text" is this website. The secondary text is Introduction to Statistical Learning (see [Syllabus](/syllabus/#course-materials)), which is free and available online. The secondary text is substantially more difficult, but also free online. Assigned readings can be found on the course website under "Content".
 
 **Please please please please please:** ask questions during class.
 
@@ -1574,3 +1574,9 @@ data(murders)
 8. Extend the code you used in exercise 7 to report the one entry that is **not** an actual abbreviation. Hint: use the `!` operator, which turns `FALSE` into `TRUE` and vice versa, then `which` to obtain an index.
 
 :::
+
+
+## Further help with `R`
+If you are not comfortable with `R`, the earlier you seek out help, the better. Quietly letting the course pass by you because you don't know how to fix an error will do nobody any good. Attend TA office hours or attend Prof. K's office hours [see Syllabus](/syllabus/) for times and Zoom links. Also, join the course Slack and post questions there.
+
+Finally, there are also primers on [Rstudio.cloud](https://rstudio.cloud/learn/primers) that can be useful. There are many ways we can help you get used to `R`, but only if you reach out.
