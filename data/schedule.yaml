@@ -120,7 +120,7 @@ lessons:
   - title: 'Geospatial in R'
     session: 15
     date: "Week 14 (Dec 6/8)"
-    content: "14-content"
+    # content: "14-content"
     # example: "TBA"
     # assignment: "TBA"
 
@@ -129,4 +129,4 @@ lessons:
   
   - title: '<i class="fas fa-star"></i> **Final Project Due**'
     date: "Friday Dec 11th, 11:59pm"
-    assignment: "final-project"
+    # assignment: "final-project"
