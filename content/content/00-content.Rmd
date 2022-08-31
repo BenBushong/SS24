@@ -25,6 +25,7 @@ As noted in the syllabus, your readings will be assigned each week in this area.
 
 For future lectures, the guiding questions will be more pointed and at a higher level to help steer your thinking. Here, we want to ensure you remember some basics and accordingly the questions are straightforward.
 
+- How does this course work?
 - Do you remember anything about `R`?
 - What are the different data types in `R`?
 - How do you index specific elements of a vector? Why might you want to do that?
@@ -78,6 +79,14 @@ Syllabus highlights:
 - This structure is designed to give ~55\% "for free". Success on the projects will require real work.
 - Labs consist of a practical implementation of something we've covered in the course (e.g., code your own Recommender System).
 
+
+#### Course Structure
+Here's how each week will work: before class on Tuesday, you'll read the [content](/content/) for the week. On Tuesday, you'll come to lecture and participate. Before Thursday, you'll read the [example](/example/) for the week, and on Thursday you'll come to lecture ready to participate. On Saturday night by 11:59pm, you'll turn in your [Weekly Writing assignment](/assignment/#weekly-writings) responding to the weekly writing question given during class on Tuesday or Thursday, rendered to PDF by RMarkdown and using the proper template. By Monday at 11:59pm, you'll turn in your [Lab assignment](/assignment/#labs), also using the RMarkdown template. 
+
+You'll repeat this each week until we're out of labs. You'll also work with your assigned group on the Group Project.
+
+Now, let's look at [the Syllabus for important information about office hours](/syllabus/#course-times-and-zoom-links)
+
 #### Grading
 
 Grading: **come to class.**
@@ -121,10 +130,6 @@ Because this is a new-ish course:
 - Some of the time I'll forget what I intended to say and awkwardly stare at you for a few moments (sorry).
 
 Comment **throughout** the course, not just at the end.
-
-
-The material will improve with time and feedback.
-
 
 I encourage measured feedback and thoughtful responses to questions. If I call on you and you don't know immediately, don't freak out. If you don't know, it's totally okay to say you don't know.
 

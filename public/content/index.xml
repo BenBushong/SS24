@@ -120,6 +120,7 @@
 &lt;h3&gt;Guiding Question&lt;/h3&gt;
 &lt;p&gt;For future lectures, the guiding questions will be more pointed and at a higher level to help steer your thinking. Here, we want to ensure you remember some basics and accordingly the questions are straightforward.&lt;/p&gt;
 &lt;ul&gt;
+&lt;li&gt;How does this course work?&lt;/li&gt;
 &lt;li&gt;Do you remember anything about &lt;code&gt;R&lt;/code&gt;?&lt;/li&gt;
 &lt;li&gt;What are the different data types in &lt;code&gt;R&lt;/code&gt;?&lt;/li&gt;
 &lt;li&gt;How do you index specific elements of a vector? Why might you want to do that?&lt;/li&gt;
@@ -170,6 +171,12 @@
 &lt;li&gt;This structure is designed to give ~55% “for free”. Success on the projects will require real work.&lt;/li&gt;
 &lt;li&gt;Labs consist of a practical implementation of something we’ve covered in the course (e.g., code your own Recommender System).&lt;/li&gt;
 &lt;/ul&gt;
+&lt;div id=&#34;course-structure&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Course Structure&lt;/h4&gt;
+&lt;p&gt;Here’s how each week will work: before class on Tuesday, you’ll read the &lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/content/&#34;&gt;content&lt;/a&gt; for the week. On Tuesday, you’ll come to lecture and participate. Before Thursday, you’ll read the &lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/example/&#34;&gt;example&lt;/a&gt; for the week, and on Thursday you’ll come to lecture ready to participate. On Saturday night by 11:59pm, you’ll turn in your &lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/assignment/#weekly-writings&#34;&gt;Weekly Writing assignment&lt;/a&gt; responding to the weekly writing question given during class on Tuesday or Thursday, rendered to PDF by RMarkdown and using the proper template. By Monday at 11:59pm, you’ll turn in your &lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/assignment/#labs&#34;&gt;Lab assignment&lt;/a&gt;, also using the RMarkdown template.&lt;/p&gt;
+&lt;p&gt;You’ll repeat this each week until we’re out of labs. You’ll also work with your assigned group on the Group Project.&lt;/p&gt;
+&lt;p&gt;Now, let’s look at &lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/syllabus/#course-times-and-zoom-links&#34;&gt;the Syllabus for important information about office hours&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 &lt;div id=&#34;grading&#34; class=&#34;section level4&#34;&gt;
 &lt;h4&gt;Grading&lt;/h4&gt;
 &lt;p&gt;Grading: &lt;strong&gt;come to class.&lt;/strong&gt;&lt;/p&gt;
@@ -200,7 +207,6 @@
 &lt;li&gt;&lt;p&gt;Some of the time I’ll forget what I intended to say and awkwardly stare at you for a few moments (sorry).&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Comment &lt;strong&gt;throughout&lt;/strong&gt; the course, not just at the end.&lt;/p&gt;
-&lt;p&gt;The material will improve with time and feedback.&lt;/p&gt;
 &lt;p&gt;I encourage measured feedback and thoughtful responses to questions. If I call on you and you don’t know immediately, don’t freak out. If you don’t know, it’s totally okay to say you don’t know.&lt;/p&gt;
 &lt;div id=&#34;super-big-important-explanation-of-the-course&#34; class=&#34;section level4&#34;&gt;
 &lt;h4&gt;SUPER BIG IMPORTANT EXPLANATION OF THE COURSE&lt;/h4&gt;
