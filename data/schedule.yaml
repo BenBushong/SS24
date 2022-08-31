@@ -70,7 +70,7 @@ lessons:
 
   - title: 'LASSO: Least Absolute Shrinkage and Selection'
     session: 9
-    date: "Week 8 (Oct -25/27)"
+    date: "Week 8 (Oct !25/27)"
     ## content: "08-content"
     #example: "08-content"
     #assignment: "08-assignment"
@@ -82,7 +82,7 @@ lessons:
     #example: "09-examples"
     #assignment: "09-assignment"
 
-  - title: 'Bias vs Variance (No assignment this week)'
+  - title: 'Bias vs Variance (No lab this week)'
     session: 11
     date: "Week 10 (Nov 8/10)"
     #content: "10-content"
@@ -105,7 +105,7 @@ lessons:
     
   - title: 'Text as Data'
     session: 13
-    date: "Week 12 (Nov 22/-24)"
+    date: "Week 12 (Nov 22/!24)"
     #content: "12-content"
     #example: "12-example"
     #assignment: "12-assignment"

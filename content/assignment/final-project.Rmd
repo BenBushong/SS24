@@ -1,7 +1,7 @@
 ---
 title: "Final project"
-date: "2022-01-05"
-due_date: "2022-04-29"
+date: "2022-10-15"
+due_date: "2022-12-11"
 due_time: "11:59 PM"
 output:
   blogdown::html_page:
@@ -16,6 +16,14 @@ editor_options:
 ---
 
 <!-- Revised assignment 5-5-2022 -->
+
+:::
+
+One member of each group should turn in the group's work on D2L. The turned-in copy should have the group member's names at the top.
+
+Turn in your copies by **11:59 on the date listed on the Schedule** 
+
+:::
 
 ## Requirements
 

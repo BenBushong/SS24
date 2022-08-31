@@ -1,8 +1,8 @@
 ---
 title: "Project 2"
 linktitle: "Project 2"
-date: "2022-01-04"
-due_date: "2022-04-01"
+date: "2022-08-30"
+due_date: "2022-11-19"
 due_time: "11:59 PM"
 output:
   blogdown::html_page:
@@ -18,7 +18,7 @@ editor_options:
 
 :::fyi
 
-As with Project 1, each member of the group should submit an identical copy of the project to D2L (for ease of evaluation and to ensure communication across the group). Please write your group number and the group members' names across the top. Upload the components (see below) to the Project 2 assignment on D2L by 11:59pm on the date listed on the Schedule page.
+As with Project 1, only one group member needs to upload the project to D2L. It **must** contain the names of all group members somewhere near the top.
 
 :::
 
