@@ -1,0 +1,54 @@
+---
+title: Using Rstudio Cloud (an alternative)
+date: "2022-08-30"
+menu:
+  resource:
+    parent: Guides
+type: docs
+weight: 2
+output:
+  blogdown::html_page:
+      toc: TRUE
+---
+
+
+<div id="TOC">
+<ul>
+<li><a href="#setting-up-rstudio.cloud">Setting up RStudio.cloud</a></li>
+</ul>
+</div>
+
+<p>Installing R and RStudio locally (on your computer) is the preferred method. Additionally, most MSU computer labs have R and RStudio installed. However, if your computer isn’t able to run RStudio, or you run into errors that we can’t troubleshoot, using RStudio Cloud is a viable alternative. Hosted at <a href="https://rstudio.cloud">Rstudio.cloud</a>, RStudio Cloud is an online, web-based version of R and RStudio. On the “pro” side, it doesn’t require anything of your system except a functioning browser and can be up and running in a few minutes. The “con”, though, is that you must have an internet connection to use it, and it is limited to 25 hours per month for the free account (and $5/month for up to 75 hours per month). You shouldn’t need more than 25 hours per month, but if you’re very new to coding, it’s possible you will.</p>
+<div id="setting-up-rstudio.cloud" class="section level1">
+<h1>Setting up RStudio.cloud</h1>
+<ol style="list-style-type: decimal">
+<li>Start by going to <a href="https://Rstudio.cloud">RStudio.cloud</a> and create a free account.</li>
+<li>Click “Your Workspace”</li>
+<li>In the top right corner, click on “New Project” and name it something like “SSC442”</li>
+</ol>
+<p><img src="RSC1.png" width="60%" /></p>
+<ol start="4" style="list-style-type: decimal">
+<li>The “Files” tab in the lower-right pane shows your cloud project storage space. Let’s add a <code>templates</code> folder and store the two course assignment templates there.</li>
+</ol>
+<ul>
+<li>Go to <a href="/assignment/">assignments</a>, scroll down, and <strong>right-click on the Weekly Writing template and select “Save As…”</strong> and save it to your desktop</li>
+<li>Do the same for the Lab Assignment template. Clicking on the link will open the text of the file in a browser window and you cannot just copy the text into an R file.</li>
+<li>With the files on your computer, go back to RStudio.cloud and in the Files tab, click on “New Folder” and name it <code>templates</code></li>
+<li>Upload the templates one at a time to the folder.</li>
+</ul>
+<ol start="5" style="list-style-type: decimal">
+<li>Use the green up arrow to navigate the “Files” tab back to your main directory and create a folder for <code>Labs</code> and one for <code>Weekly Writings</code>.</li>
+<li>Open the Lab Assignment template</li>
+<li>At the top of the template in the upper-left pane, you’ll see a warning that RStudio needs to install some packages. <strong>Click “Install”</strong></li>
+</ol>
+<p><img src="RSC3.png" width="60%" /></p>
+<ol start="8" style="list-style-type: decimal">
+<li>After R finishes installing packages (less than a minute), click the “Knit” button on the toolbar.</li>
+<li>RMarkdown will need to install a few more packages. Click “Yes”.</li>
+</ol>
+<p><img src="RSC4.png" width="60%" /></p>
+<ol start="10" style="list-style-type: decimal">
+<li>A pop-up window will open showing you the PDF of the rendered template. Congrats, you are ready to get to work!</li>
+</ol>
+<p><img src="RSC5.png" width="60%" /></p>
+</div>

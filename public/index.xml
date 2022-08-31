@@ -1943,7 +1943,6 @@ head(weather_atl_long)&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;The end! You should now be able to knit to PDF.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Find the course assignment template (for SSC442, see the &lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/assignment/&#34;&gt;Assignments&lt;/a&gt; page), right-click to download it (don’t just click on it - that won’t work), open it in Rstudio, and without changing anything, click the “knit” button to test out your install. Your system should open a PDF that looks like something like this:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;knitr::include_graphics(here(&amp;#39;content/resource&amp;#39;,&amp;#39;RenderedPDF.png&amp;#39;))&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;RenderedPDF.png&#34; width=&#34;962&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;See the Markdown and R Markdown sidebars for instructions on using the template.&lt;/p&gt;
 &lt;/div&gt;
@@ -6425,6 +6424,56 @@ FinalResults[[paste0(&amp;#39;finalPlot.NN.&amp;#39;,NN,&amp;#39;.SDBayes.&amp;#
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## This not run automatically.
 ## To plot the whole list of ggplot objects in FinalResults:
 wrap_plots(FinalResults, nrow = 2, guides = &amp;#39;collect&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Using Rstudio Cloud (an alternative)</title>
+      <link>https://ssc442kirkpatrick.netlify.app/resource/rstudiocloud/</link>
+      <pubDate>Tue, 30 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>https://ssc442kirkpatrick.netlify.app/resource/rstudiocloud/</guid>
+      <description>
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#setting-up-rstudio.cloud&#34;&gt;Setting up RStudio.cloud&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Installing R and RStudio locally (on your computer) is the preferred method. Additionally, most MSU computer labs have R and RStudio installed. However, if your computer isn’t able to run RStudio, or you run into errors that we can’t troubleshoot, using RStudio Cloud is a viable alternative. Hosted at &lt;a href=&#34;https://rstudio.cloud&#34;&gt;Rstudio.cloud&lt;/a&gt;, RStudio Cloud is an online, web-based version of R and RStudio. On the “pro” side, it doesn’t require anything of your system except a functioning browser and can be up and running in a few minutes. The “con”, though, is that you must have an internet connection to use it, and it is limited to 25 hours per month for the free account (and $5/month for up to 75 hours per month). You shouldn’t need more than 25 hours per month, but if you’re very new to coding, it’s possible you will.&lt;/p&gt;
+&lt;div id=&#34;setting-up-rstudio.cloud&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Setting up RStudio.cloud&lt;/h1&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Start by going to &lt;a href=&#34;https://Rstudio.cloud&#34;&gt;RStudio.cloud&lt;/a&gt; and create a free account.&lt;/li&gt;
+&lt;li&gt;Click “Your Workspace”&lt;/li&gt;
+&lt;li&gt;In the top right corner, click on “New Project” and name it something like “SSC442”&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;RSC1.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;ol start=&#34;4&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;The “Files” tab in the lower-right pane shows your cloud project storage space. Let’s add a &lt;code&gt;templates&lt;/code&gt; folder and store the two course assignment templates there.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Go to &lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/assignment/&#34;&gt;assignments&lt;/a&gt;, scroll down, and &lt;strong&gt;right-click on the Weekly Writing template and select “Save As…”&lt;/strong&gt; and save it to your desktop&lt;/li&gt;
+&lt;li&gt;Do the same for the Lab Assignment template. Clicking on the link will open the text of the file in a browser window and you cannot just copy the text into an R file.&lt;/li&gt;
+&lt;li&gt;With the files on your computer, go back to RStudio.cloud and in the Files tab, click on “New Folder” and name it &lt;code&gt;templates&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Upload the templates one at a time to the folder.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;5&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Use the green up arrow to navigate the “Files” tab back to your main directory and create a folder for &lt;code&gt;Labs&lt;/code&gt; and one for &lt;code&gt;Weekly Writings&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Open the Lab Assignment template&lt;/li&gt;
+&lt;li&gt;At the top of the template in the upper-left pane, you’ll see a warning that RStudio needs to install some packages. &lt;strong&gt;Click “Install”&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;RSC3.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;ol start=&#34;8&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;After R finishes installing packages (less than a minute), click the “Knit” button on the toolbar.&lt;/li&gt;
+&lt;li&gt;RMarkdown will need to install a few more packages. Click “Yes”.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;RSC4.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;ol start=&#34;10&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;A pop-up window will open showing you the PDF of the rendered template. Congrats, you are ready to get to work!&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;RSC5.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
 </description>
     </item>
     
@@ -19731,7 +19780,7 @@ crdt_knn_100= knnreg(Rating ~ Age + Gender + Student, data = crdt_est, k = 100)&
         &lt;/tr&gt;
         &lt;tr&gt;
             &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 12 (Nov 22/-24)&lt;/td&gt;
-            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Text as Data (No assignment this week)&lt;/td&gt;
+            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Text as Data&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;https://ssc442kirkpatrick.netlify.app/content/12-content/&#34;&gt;
                     &lt;i class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;

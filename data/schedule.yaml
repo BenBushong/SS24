@@ -103,7 +103,7 @@ lessons:
   - title: '<span class="fake-header-table">Further Extensions</span>'
     header: True
     
-  - title: 'Text as Data (No assignment this week)'
+  - title: 'Text as Data'
     session: 13
     date: "Week 12 (Nov 22/-24)"
     content: "12-content"

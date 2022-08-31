@@ -106,7 +106,7 @@ Here's how to install **tinytex** so you can knit to pretty PDFs:
 
 Find the course assignment template (for SSC442, see the [Assignments](/assignment/) page), right-click to download it (don't just click on it - that won't work), open it in Rstudio, and without changing anything, click the "knit" button to test out your install. Your system should open a PDF that looks like something like this:
 
-```{r}
+```{r,echo = FALSE}
 knitr::include_graphics(here('content/resource','RenderedPDF.png'))
 ```
 
