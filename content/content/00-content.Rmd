@@ -32,10 +32,6 @@ For future lectures, the guiding questions will be more pointed and at a higher 
 
 # A Brief Introduction to SSC442
 
-> I keep saying that the sexy job in the next 10 years will be statisticians. And I'm not kidding.
-
-#### Hal Varian, Chief Economist, Google
-
 ### About Me
 
 **Me:** My primary area of expertise is environmental and energy (applied) economics.
@@ -183,6 +179,12 @@ Despite my hard-assness in these intro slides: I'm here to help and I am not in 
 
 # What is "Data Analytics"?
 
+
+> I keep saying that the sexy job in the next 10 years will be statisticians. And I'm not kidding.
+
+#### Hal Varian, Chief Economist, Google
+
+
 How do **you** define "data analytics"?  (Not a rhetorical question!)
 
 - This course will avoid this nomenclature. It is confusing and imprecise. But you signed up (suckers) and I owe an explanation of what this course will cover.
@@ -190,6 +192,7 @@ How do **you** define "data analytics"?  (Not a rhetorical question!)
 Some "data analytics" topics we will cover:
 
 - Linear regression: *il classico*.
+- LASSO
 - Models of classification or discrete choice.
 - Analysis of ``wide'' data.
 - Decision trees and other non-linear models.
@@ -199,10 +202,6 @@ Some "data analytics" topics we will cover:
 Better utilizing existing data can improve our predictive power whilst providing interpretable outputs for considering new policies.
 
 **WARNING:** Causation is tough and we will spend the entire course warning you to avoid making causal claims!
-
-
-
-# Outline of the Course
 
 
 ### Non-Social Science Approaches to Statistical Learning
@@ -287,6 +286,8 @@ Small margins $\rightarrow$ huge payoffs when *scaled up*.
 $.01\% \rightarrow$ \$10 million.
 
 Not obvious why this was true for Netflix; quite obvious why this is true in financial markets.
+
+From a computer science perspective, it only matters that you get that improvement (\$\$). From a social science perspective, we would want to use the predictions to learn more about *why*.
 
 
 
@@ -425,7 +426,7 @@ California, for example, has a larger population than Canada, and 20 US states h
 # tweet_screenshot(tweet_url("realdonaldtrump", "1267246821597941764"))
 ```
 
-This is a relatively simple and straightforward problem in social science: you have options of where to live, and want to determine the safety of the various states. Your "research" is clearly policy-relevant: you will eventually have to live somewhere. We will begin to tackle the problem by examining data related to gun homicides in the US during 2010 using `R`.
+This is a relatively simple and straightforward problem in social science: you have options of where to live, and want to determine the safety of the various states. Your "research" is clearly policy-relevant: you will eventually have to live somewhere. In this course, we will begin to tackle the problem by examining data related to gun homicides in the US during 2010 using `R` as a motivating example along the way.
 
 Before we get started with our example, we need to cover logistics as well as some of the very basic building blocks that are required to gain more advanced `R` skills. Ideally, this is a refresher. However, we are aware that your preparation in previously courses varies greatly from student to student. Moreover, we want you to be aware that the usefulness of some of these early building blocks may not be immediately obvious. Later in the class you will appreciate having these skills. Mastery will be rewarded both in this class and (of course) in life.
 

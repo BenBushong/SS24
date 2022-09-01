@@ -15,7 +15,7 @@
     <item>
       <title>Welcome Back to R</title>
       <link>https://ssc442kirkpatrick.netlify.app/content/00-content/</link>
-      <pubDate>Wed, 31 Aug 2022 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 01 Sep 2022 00:00:00 +0000</pubDate>
       <guid>https://ssc442kirkpatrick.netlify.app/content/00-content/</guid>
       <description>
 &lt;script src=&#34;https://ssc442kirkpatrick.netlify.app/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
@@ -37,9 +37,7 @@
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#what-is-data-analytics&#34;&gt;What is “Data Analytics”?&lt;/a&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#starting-point-for-this-course&#34;&gt;Starting point for this course&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#outline-of-the-course&#34;&gt;Outline of the Course&lt;/a&gt;
+&lt;li&gt;&lt;a href=&#34;#starting-point-for-this-course&#34;&gt;Starting point for this course&lt;/a&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#non-social-science-approaches-to-statistical-learning&#34;&gt;Non-Social Science Approaches to Statistical Learning&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#the-pros-and-cons-of-correlation&#34;&gt;The Pros and Cons of Correlation&lt;/a&gt;&lt;/li&gt;
@@ -47,6 +45,7 @@
 &lt;li&gt;&lt;a href=&#34;#more-recent-examples-of-prediction&#34;&gt;More Recent Examples of Prediction&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#an-aside-nomenclature&#34;&gt;An Aside: Nomenclature&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#learning-from-data&#34;&gt;Learning from Data&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#case-study-us-homicides-by-firearm&#34;&gt;Case study: US homicides by firearm&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#r-basics&#34;&gt;&lt;code&gt;R&lt;/code&gt; basics&lt;/a&gt;
@@ -129,12 +128,6 @@
 &lt;/div&gt;
 &lt;div id=&#34;a-brief-introduction-to-ssc442&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;A Brief Introduction to SSC442&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;I keep saying that the sexy job in the next 10 years will be statisticians. And I’m not kidding.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;div id=&#34;hal-varian-chief-economist-google&#34; class=&#34;section level4&#34;&gt;
-&lt;h4&gt;Hal Varian, Chief Economist, Google&lt;/h4&gt;
-&lt;/div&gt;
 &lt;div id=&#34;about-me&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;About Me&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;Me:&lt;/strong&gt; My primary area of expertise is environmental and energy (applied) economics.&lt;/p&gt;
@@ -242,6 +235,11 @@
 &lt;/div&gt;
 &lt;div id=&#34;what-is-data-analytics&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;What is “Data Analytics”?&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I keep saying that the sexy job in the next 10 years will be statisticians. And I’m not kidding.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div id=&#34;hal-varian-chief-economist-google&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Hal Varian, Chief Economist, Google&lt;/h4&gt;
 &lt;p&gt;How do &lt;strong&gt;you&lt;/strong&gt; define “data analytics”? (Not a rhetorical question!)&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;This course will avoid this nomenclature. It is confusing and imprecise. But you signed up (suckers) and I owe an explanation of what this course will cover.&lt;/li&gt;
@@ -249,18 +247,16 @@
 &lt;p&gt;Some “data analytics” topics we will cover:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Linear regression: &lt;em&gt;il classico&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;LASSO&lt;/li&gt;
 &lt;li&gt;Models of classification or discrete choice.&lt;/li&gt;
 &lt;li&gt;Analysis of ``wide’’ data.&lt;/li&gt;
 &lt;li&gt;Decision trees and other non-linear models.&lt;/li&gt;
 &lt;/ul&gt;
+&lt;/div&gt;
 &lt;div id=&#34;starting-point-for-this-course&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Starting point for this course&lt;/h2&gt;
 &lt;p&gt;Better utilizing existing data can improve our predictive power whilst providing interpretable outputs for considering new policies.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;WARNING:&lt;/strong&gt; Causation is tough and we will spend the entire course warning you to avoid making causal claims!&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;outline-of-the-course&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Outline of the Course&lt;/h1&gt;
 &lt;div id=&#34;non-social-science-approaches-to-statistical-learning&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Non-Social Science Approaches to Statistical Learning&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;A Brief History&lt;/strong&gt;&lt;/p&gt;
@@ -342,6 +338,7 @@ X causes Y and Y causes X (simultaneous equations)&lt;/p&gt;&lt;/li&gt;
 &lt;p&gt;Small margins &lt;span class=&#34;math inline&#34;&gt;\(\rightarrow\)&lt;/span&gt; huge payoffs when &lt;em&gt;scaled up&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;math inline&#34;&gt;\(.01\% \rightarrow\)&lt;/span&gt; $10 million.&lt;/p&gt;
 &lt;p&gt;Not obvious why this was true for Netflix; quite obvious why this is true in financial markets.&lt;/p&gt;
+&lt;p&gt;From a computer science perspective, it only matters that you get that improvement ($$). From a social science perspective, we would want to use the predictions to learn more about &lt;em&gt;why&lt;/em&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;more-recent-examples-of-prediction&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;More Recent Examples of Prediction&lt;/h3&gt;
@@ -380,6 +377,7 @@ X causes Y and Y causes X (simultaneous equations)&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;You have data.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
+&lt;/div&gt;
 &lt;div id=&#34;case-study-us-homicides-by-firearm&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Case study: US homicides by firearm&lt;/h2&gt;
 &lt;p&gt;Imagine you live in Europe (if only!) and are offered a job in a US company with many locations in every state. It is a great job, but headlines such as &lt;strong&gt;US Gun Homicide Rate Higher Than Other Developed Countries&lt;/strong&gt;&lt;a href=&#34;#fn1&#34; class=&#34;footnote-ref&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; have you worried. Fox News runs a scary looking graphic, and charts like the one below only add to that concern:&lt;/p&gt;
@@ -392,7 +390,7 @@ X causes Y and Y causes X (simultaneous equations)&lt;/p&gt;&lt;/li&gt;
 &lt;p&gt;But then you remember that (1) this is a hypothetical exercise; (2) you’ll take literally any job at this point; and (3) Geographic diversity matters – the United States is a large and diverse country with 50 very different states (plus the District of Columbia and some lovely territories).&lt;a href=&#34;#fn2&#34; class=&#34;footnote-ref&#34; id=&#34;fnref2&#34;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/content/00-content_files/figure-html/us-murders-by-state-map-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;California, for example, has a larger population than Canada, and 20 US states have populations larger than that of Norway. In some respects, the variability across states in the US is akin to the variability across countries in Europe. Furthermore, although not included in the charts above, the murder rates in Lithuania, Ukraine, and Russia are higher than 4 per 100,000. So perhaps the news reports that worried you are too superficial.&lt;/p&gt;
-&lt;p&gt;This is a relatively simple and straightforward problem in social science: you have options of where to live, and want to determine the safety of the various states. Your “research” is clearly policy-relevant: you will eventually have to live somewhere. We will begin to tackle the problem by examining data related to gun homicides in the US during 2010 using &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;This is a relatively simple and straightforward problem in social science: you have options of where to live, and want to determine the safety of the various states. Your “research” is clearly policy-relevant: you will eventually have to live somewhere. In this course, we will begin to tackle the problem by examining data related to gun homicides in the US during 2010 using &lt;code&gt;R&lt;/code&gt; as a motivating example along the way.&lt;/p&gt;
 &lt;p&gt;Before we get started with our example, we need to cover logistics as well as some of the very basic building blocks that are required to gain more advanced &lt;code&gt;R&lt;/code&gt; skills. Ideally, this is a refresher. However, we are aware that your preparation in previously courses varies greatly from student to student. Moreover, we want you to be aware that the usefulness of some of these early building blocks may not be immediately obvious. Later in the class you will appreciate having these skills. Mastery will be rewarded both in this class and (of course) in life.&lt;/p&gt;
 &lt;div id=&#34;lets-pause-here-for-questions&#34; class=&#34;section level4&#34;&gt;
 &lt;h4&gt;Let’s pause here for questions&lt;/h4&gt;
