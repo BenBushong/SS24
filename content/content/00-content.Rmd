@@ -159,7 +159,7 @@ Finally: I cannot address field-specific questions in areas outside economics to
 
 This course should be applicable broadly, but many of the examples will lean on my personal expertise (sorry).
 
-Your assignment: read syllabus, the content from Week 0, and the Example from Week 0 (we start on a Thursday so we have to get thru both in one day). Begin working on Lab 0 as it is due Monday.
+Your assignment: read syllabus, the content from Week 0, and the Example from Week 0 (we start on a Thursday so we have to get thru both in one day). Do your weekly writing due Saturday. Begin working on Lab 0 as it is due Monday.
 
 Things to stress from syllabus:
 
@@ -216,7 +216,7 @@ Computer scientists spent about 20 years on this problem because they thought ab
 Rules are difficult to form, and simply writing rules misses the key insight: the data can tell you something.
 
 
-#### Social Science Approaches to Statistical Learning
+### Social Science Approaches to Statistical Learning
 
 **A Brief History**
 
@@ -239,13 +239,15 @@ Low construction | $\uparrow$~4\% | $\uparrow$~145\%
 ### The Pros and Cons of Correlation
 
 Pros:
+
   - Nature gives you correlations for free.
   - In principle, everyone can agree on the facts.
 
 Cons:
+
   - Correlations are not very helpful.
   - They show what has happened, but not why.
-  - For many things, we care about why.
+  - For many things, we care about why. The social science perspective asks "why?"
 
 #### Why a Correlation Exists Between X and Y
 
@@ -269,6 +271,7 @@ We will start in this course by examining situations where we do **not** care ab
 (But of course keep in back of mind that if you are making policy, you must care about why something happened).
 
 We will also borrow a few other ideas from CS:
+
 - Anything is data
   + Satellite data
   + Unstructured text or audio

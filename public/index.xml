@@ -3446,6 +3446,7 @@ mpg %&amp;gt;%
 &lt;li&gt;&lt;a href=&#34;#starting-point-for-this-course&#34;&gt;Starting point for this course&lt;/a&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#non-social-science-approaches-to-statistical-learning&#34;&gt;Non-Social Science Approaches to Statistical Learning&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#social-science-approaches-to-statistical-learning&#34;&gt;Social Science Approaches to Statistical Learning&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#the-pros-and-cons-of-correlation&#34;&gt;The Pros and Cons of Correlation&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#a-case-study-in-prediction&#34;&gt;A Case Study in Prediction&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#more-recent-examples-of-prediction&#34;&gt;More Recent Examples of Prediction&lt;/a&gt;&lt;/li&gt;
@@ -3628,7 +3629,7 @@ mpg %&amp;gt;%
 &lt;li&gt;&lt;p&gt;Bad news: I can’t help with certain types of questions.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;This course should be applicable broadly, but many of the examples will lean on my personal expertise (sorry).&lt;/p&gt;
-&lt;p&gt;Your assignment: read syllabus, the content from Week 0, and the Example from Week 0 (we start on a Thursday so we have to get thru both in one day). Begin working on Lab 0 as it is due Monday.&lt;/p&gt;
+&lt;p&gt;Your assignment: read syllabus, the content from Week 0, and the Example from Week 0 (we start on a Thursday so we have to get thru both in one day). Do your weekly writing due Saturday. Begin working on Lab 0 as it is due Monday.&lt;/p&gt;
 &lt;p&gt;Things to stress from syllabus:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;E-mail isn’t the ideal solution for technical problems&lt;/li&gt;
@@ -3670,8 +3671,9 @@ mpg %&amp;gt;%
 &lt;p&gt;Note: this is an ``easy” problem. If you show pictures to a 3-year-old, that child will probably be able to tell you if there is a tree in the picture.&lt;/p&gt;
 &lt;p&gt;Computer scientists spent about 20 years on this problem because they thought about the problem like nerds and tried to write down a series of rules.&lt;/p&gt;
 &lt;p&gt;Rules are difficult to form, and simply writing rules misses the key insight: the data can tell you something.&lt;/p&gt;
-&lt;div id=&#34;social-science-approaches-to-statistical-learning&#34; class=&#34;section level4&#34;&gt;
-&lt;h4&gt;Social Science Approaches to Statistical Learning&lt;/h4&gt;
+&lt;/div&gt;
+&lt;div id=&#34;social-science-approaches-to-statistical-learning&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Social Science Approaches to Statistical Learning&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;A Brief History&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Suppose you are a researcher and you want to know whether prisons reduce crime.&lt;/p&gt;
 &lt;p&gt;from “A Call for a Moratorium on Prison Building” (1976)&lt;/p&gt;
@@ -3702,16 +3704,19 @@ mpg %&amp;gt;%
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;
 &lt;div id=&#34;the-pros-and-cons-of-correlation&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;The Pros and Cons of Correlation&lt;/h3&gt;
-&lt;p&gt;Pros:
-- Nature gives you correlations for free.
-- In principle, everyone can agree on the facts.&lt;/p&gt;
-&lt;p&gt;Cons:
-- Correlations are not very helpful.
-- They show what has happened, but not why.
-- For many things, we care about why.&lt;/p&gt;
+&lt;p&gt;Pros:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Nature gives you correlations for free.&lt;/li&gt;
+&lt;li&gt;In principle, everyone can agree on the facts.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Cons:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Correlations are not very helpful.&lt;/li&gt;
+&lt;li&gt;They show what has happened, but not why.&lt;/li&gt;
+&lt;li&gt;For many things, we care about why. The social science perspective asks “why?”&lt;/li&gt;
+&lt;/ul&gt;
 &lt;div id=&#34;why-a-correlation-exists-between-x-and-y&#34; class=&#34;section level4&#34;&gt;
 &lt;h4&gt;Why a Correlation Exists Between X and Y&lt;/h4&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
@@ -3729,13 +3734,17 @@ X causes Y and Y causes X (simultaneous equations)&lt;/p&gt;&lt;/li&gt;
 &lt;h4&gt;Uniting Social Science and Computer Science&lt;/h4&gt;
 &lt;p&gt;We will start in this course by examining situations where we do &lt;strong&gt;not&lt;/strong&gt; care about why something has happened, but instead we care about our ability to predict its occurrence from existing data.&lt;/p&gt;
 &lt;p&gt;(But of course keep in back of mind that if you are making policy, you must care about why something happened).&lt;/p&gt;
-&lt;p&gt;We will also borrow a few other ideas from CS:
-- Anything is data
-+ Satellite data
-+ Unstructured text or audio
-+ Facial expressions or vocal intonations
-- Subtle improvements on existing techniques
-- An eye towards practical implementability over “cleanliness”&lt;/p&gt;
+&lt;p&gt;We will also borrow a few other ideas from CS:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Anything is data
+&lt;ul&gt;
+&lt;li&gt;Satellite data&lt;/li&gt;
+&lt;li&gt;Unstructured text or audio&lt;/li&gt;
+&lt;li&gt;Facial expressions or vocal intonations&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Subtle improvements on existing techniques&lt;/li&gt;
+&lt;li&gt;An eye towards practical implementability over “cleanliness”&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;a-case-study-in-prediction&#34; class=&#34;section level3&#34;&gt;

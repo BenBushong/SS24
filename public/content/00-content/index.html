@@ -30,7 +30,7 @@
   
     
   
-  <meta name="description" content="ReadingsGuiding QuestionA Brief Introduction to SSC442About MeAbout YouThis CourseMore About This CourseAnd finally…What is “Data Analytics”?Starting point for this courseNon-Social Science Approaches to Statistical LearningThe Pros and Cons of CorrelationA Case Study in PredictionMore Recent Examples of PredictionAn Aside: NomenclatureLearning from DataCase study: US homicides by firearmR basicsInstalling R and R Studio and Review ResourcesThe (very) basics of RObjectsThe workspaceFunctionsOther prebuilt objectsVariable namesSaving your workspaceMotivating scriptsCommenting your codeData typesData framesExamining an objectThe accessor: $Vectors: numerics, characters, and logicalFactorsListsMatricesVectorsCreating vectorsNamesSequencesSubsettingCoercionNot availables (NA)Sortingsortordermax and which.">
+  <meta name="description" content="ReadingsGuiding QuestionA Brief Introduction to SSC442About MeAbout YouThis CourseMore About This CourseAnd finally…What is “Data Analytics”?Starting point for this courseNon-Social Science Approaches to Statistical LearningSocial Science Approaches to Statistical LearningThe Pros and Cons of CorrelationA Case Study in PredictionMore Recent Examples of PredictionAn Aside: NomenclatureLearning from DataCase study: US homicides by firearmR basicsInstalling R and R Studio and Review ResourcesThe (very) basics of RObjectsThe workspaceFunctionsOther prebuilt objectsVariable namesSaving your workspaceMotivating scriptsCommenting your codeData typesData framesExamining an objectThe accessor: $Vectors: numerics, characters, and logicalFactorsListsMatricesVectorsCreating vectorsNamesSequencesSubsettingCoercionNot availables (NA)Sortingsortordermax and which.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://ssc442kirkpatrick.netlify.app/content/00-content/">
@@ -238,13 +238,13 @@
   <meta property="og:site_name" content="Data Analytics">
   <meta property="og:url" content="https://ssc442kirkpatrick.netlify.app/content/00-content/">
   <meta property="og:title" content="Welcome Back to R | Data Analytics">
-  <meta property="og:description" content="ReadingsGuiding QuestionA Brief Introduction to SSC442About MeAbout YouThis CourseMore About This CourseAnd finally…What is “Data Analytics”?Starting point for this courseNon-Social Science Approaches to Statistical LearningThe Pros and Cons of CorrelationA Case Study in PredictionMore Recent Examples of PredictionAn Aside: NomenclatureLearning from DataCase study: US homicides by firearmR basicsInstalling R and R Studio and Review ResourcesThe (very) basics of RObjectsThe workspaceFunctionsOther prebuilt objectsVariable namesSaving your workspaceMotivating scriptsCommenting your codeData typesData framesExamining an objectThe accessor: $Vectors: numerics, characters, and logicalFactorsListsMatricesVectorsCreating vectorsNamesSequencesSubsettingCoercionNot availables (NA)Sortingsortordermax and which."><meta property="og:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png">
+  <meta property="og:description" content="ReadingsGuiding QuestionA Brief Introduction to SSC442About MeAbout YouThis CourseMore About This CourseAnd finally…What is “Data Analytics”?Starting point for this courseNon-Social Science Approaches to Statistical LearningSocial Science Approaches to Statistical LearningThe Pros and Cons of CorrelationA Case Study in PredictionMore Recent Examples of PredictionAn Aside: NomenclatureLearning from DataCase study: US homicides by firearmR basicsInstalling R and R Studio and Review ResourcesThe (very) basics of RObjectsThe workspaceFunctionsOther prebuilt objectsVariable namesSaving your workspaceMotivating scriptsCommenting your codeData typesData framesExamining an objectThe accessor: $Vectors: numerics, characters, and logicalFactorsListsMatricesVectorsCreating vectorsNamesSequencesSubsettingCoercionNot availables (NA)Sortingsortordermax and which."><meta property="og:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png">
   <meta property="twitter:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
   
     
       <meta property="article:published_time" content="2022-09-01T00:00:00&#43;00:00">
     
-    <meta property="article:modified_time" content="2022-08-31T11:30:14-04:00">
+    <meta property="article:modified_time" content="2022-09-01T11:29:34-04:00">
   
 
   
@@ -635,6 +635,7 @@
 <li><a href="#starting-point-for-this-course">Starting point for this course</a>
 <ul>
 <li><a href="#non-social-science-approaches-to-statistical-learning">Non-Social Science Approaches to Statistical Learning</a></li>
+<li><a href="#social-science-approaches-to-statistical-learning">Social Science Approaches to Statistical Learning</a></li>
 <li><a href="#the-pros-and-cons-of-correlation">The Pros and Cons of Correlation</a></li>
 <li><a href="#a-case-study-in-prediction">A Case Study in Prediction</a></li>
 <li><a href="#more-recent-examples-of-prediction">More Recent Examples of Prediction</a></li>
@@ -817,7 +818,7 @@
 <li><p>Bad news: I can’t help with certain types of questions.</p></li>
 </ul>
 <p>This course should be applicable broadly, but many of the examples will lean on my personal expertise (sorry).</p>
-<p>Your assignment: read syllabus, the content from Week 0, and the Example from Week 0 (we start on a Thursday so we have to get thru both in one day). Begin working on Lab 0 as it is due Monday.</p>
+<p>Your assignment: read syllabus, the content from Week 0, and the Example from Week 0 (we start on a Thursday so we have to get thru both in one day). Do your weekly writing due Saturday. Begin working on Lab 0 as it is due Monday.</p>
 <p>Things to stress from syllabus:</p>
 <ul>
 <li>E-mail isn’t the ideal solution for technical problems</li>
@@ -859,8 +860,9 @@
 <p>Note: this is an ``easy” problem. If you show pictures to a 3-year-old, that child will probably be able to tell you if there is a tree in the picture.</p>
 <p>Computer scientists spent about 20 years on this problem because they thought about the problem like nerds and tried to write down a series of rules.</p>
 <p>Rules are difficult to form, and simply writing rules misses the key insight: the data can tell you something.</p>
-<div id="social-science-approaches-to-statistical-learning" class="section level4">
-<h4>Social Science Approaches to Statistical Learning</h4>
+</div>
+<div id="social-science-approaches-to-statistical-learning" class="section level3">
+<h3>Social Science Approaches to Statistical Learning</h3>
 <p><strong>A Brief History</strong></p>
 <p>Suppose you are a researcher and you want to know whether prisons reduce crime.</p>
 <p>from “A Call for a Moratorium on Prison Building” (1976)</p>
@@ -891,16 +893,19 @@
 </tbody>
 </table>
 </div>
-</div>
 <div id="the-pros-and-cons-of-correlation" class="section level3">
 <h3>The Pros and Cons of Correlation</h3>
-<p>Pros:
-- Nature gives you correlations for free.
-- In principle, everyone can agree on the facts.</p>
-<p>Cons:
-- Correlations are not very helpful.
-- They show what has happened, but not why.
-- For many things, we care about why.</p>
+<p>Pros:</p>
+<ul>
+<li>Nature gives you correlations for free.</li>
+<li>In principle, everyone can agree on the facts.</li>
+</ul>
+<p>Cons:</p>
+<ul>
+<li>Correlations are not very helpful.</li>
+<li>They show what has happened, but not why.</li>
+<li>For many things, we care about why. The social science perspective asks “why?”</li>
+</ul>
 <div id="why-a-correlation-exists-between-x-and-y" class="section level4">
 <h4>Why a Correlation Exists Between X and Y</h4>
 <ol style="list-style-type: decimal">
@@ -918,13 +923,17 @@ X causes Y and Y causes X (simultaneous equations)</p></li>
 <h4>Uniting Social Science and Computer Science</h4>
 <p>We will start in this course by examining situations where we do <strong>not</strong> care about why something has happened, but instead we care about our ability to predict its occurrence from existing data.</p>
 <p>(But of course keep in back of mind that if you are making policy, you must care about why something happened).</p>
-<p>We will also borrow a few other ideas from CS:
-- Anything is data
-+ Satellite data
-+ Unstructured text or audio
-+ Facial expressions or vocal intonations
-- Subtle improvements on existing techniques
-- An eye towards practical implementability over “cleanliness”</p>
+<p>We will also borrow a few other ideas from CS:</p>
+<ul>
+<li>Anything is data
+<ul>
+<li>Satellite data</li>
+<li>Unstructured text or audio</li>
+<li>Facial expressions or vocal intonations</li>
+</ul></li>
+<li>Subtle improvements on existing techniques</li>
+<li>An eye towards practical implementability over “cleanliness”</li>
+</ul>
 </div>
 </div>
 <div id="a-case-study-in-prediction" class="section level3">
@@ -1872,7 +1881,7 @@ data(murders)</code></pre>
                 </div>
 
                 <div class="body-footer">
-                    <p>Last updated on August 31, 2022</p>
+                    <p>Last updated on September 1, 2022</p>
 
                     
 
