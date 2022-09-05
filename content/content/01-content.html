@@ -2,7 +2,7 @@
 title: "Introduction to the tidyverse"
 linktitle: "1: The Tidyverse"
 read_date: "2022-09-06"
-lastmod: "2022-08-30"
+lastmod: "2022-09-05"
 menu:
   content:
     parent: Course content
@@ -81,7 +81,7 @@ output:
 <ul>
 <li>This page.</li>
 <li>Chapter 1 of Introduction to Statistical Learning, available <a href="https://www.statlearning.com/">here.</a></li>
-<li>Optional: The “Tidy Your Data” tutorial on <a href="https://rstudio.cloud/learn/primers">Rstudio Clould Primers</a></li>
+<li>Optional: The “Tidy Your Data” tutorial on <a href="https://rstudio.cloud/learn/primers">Rstudio Cloud Primers</a></li>
 </ul>
 <div id="guiding-question" class="section level3">
 <h3>Guiding Question</h3>
@@ -112,29 +112,31 @@ The slides below are a much broader overview about goals for the class and think
 </div>
 <div id="group-projects" class="section level2">
 <h2>Group Projects</h2>
-<p>Your final is a group project.</p>
+<p>Your final is a group project. You will also have two “mini” projects. They comprise a large part of your grade.</p>
 <p>You need to start planning soon.</p>
-<p>To aid in your planning, here are the required elements of your project (<strong>note: the project assignment that currently exists on this site, if you find it, is old and will change a lot between now and next week</strong>).</p>
+<p>To aid in your planning, here are the required elements of your final project.</p>
 <ol style="list-style-type: decimal">
 <li><p>You must find existing data to analyze. Aggregating and merging data from multiple sources is encouraged.</p></li>
 <li><p>You must visualize 3 intersting features of that data.</p></li>
 <li><p>You must come up with some analysis—using tools from this course—which relates your data to either a prediction or a policy conclusion.</p></li>
-<li><p>You must think critically about your analysis and be able to identify potential issues/</p></li>
+<li><p>You must think critically about your analysis and be able to identify potential issues.</p></li>
 <li><p>You must present your analysis as if presenting to a C-suite executive.</p></li>
 </ol>
+<p>Your mini-projects along the way will be more structured, but will serve to guide you towards the final project.</p>
 <div id="teams" class="section level3">
 <h3>Teams</h3>
-<p>Please form teams of 2-4 people. Once all agree to be on a team, have one person email our TA, Xueshi, <a href="mailto:wangxu36@msu.edu" class="email">wangxu36@msu.edu</a> <strong>and cc all of the members of the team</strong> so that nobody is surprised to be included on a team. Title the email <em>[SSC442] - Group Formation</em>. Tell us your team name, and list in the email the names of all of the team members and their email address (in addition to cc-ing those team members on the email).</p>
-<p>If you opt to not form a team, you will be automatically added to the “willing to be randomly assigned” pool and will be paired with another 2-3 persons.</p>
-<p>Send this email by <strong>Sunday Jan 23rd</strong> and I will assign un-teamed folks at the beginning of next week.</p>
+<p>Please form teams of 3-5 people. Once all agree to be on a team, have one person email our TA, Sam, <a href="mailto:tucke130@msu.edu" class="email">tucke130@msu.edu</a> <strong>and cc all of the members of the team</strong> so that nobody is surprised to be included on a team. Title the email <em>[SSC442] - Group Formation</em>. Tell us your team name (be creative), and list in the email the names of all of the team members and their email address (in addition to cc-ing those team members on the email).</p>
+<p>If you opt to not form a team, you will be automatically added to the “willing to be randomly assigned” pool and will be paired with another 3-4 persons.</p>
+<p>Send this email by <strong>Sunday September 18th</strong> and we will assign un-teamed folks at the beginning of the following week. Project 1 is due October 15th. See <a href="/schedule/">schedule</a> for all the important project dates.</p>
 <div id="more-on-your-team" class="section level4">
 <h4>More on your team</h4>
 <ul>
 <li><p>You should strongly consider coordinating your work via Github</p></li>
 <li><p>Your team will earn the same scores on all projects</p></li>
-<li><p>Teams will submit only one write-up for the mini-projects and the final</p></li>
+<li><p>Teams will submit only <strong>one</strong> polished write-up for the mini-projects and the final</p></li>
 </ul>
 <p>To combat additional freeloading, we will use a reporting system for work contributed. More details will follow.</p>
+<p><strong>Now back to our regularly scheduled programming</strong>…</p>
 </div>
 </div>
 </div>
@@ -250,7 +252,7 @@ x_{N1} &amp; x_{N2}
 </div>
 <div id="tidyverse" class="section level1">
 <h1>The tidyverse</h1>
-<p>In the first weeks’ content, we demonstrated how to manipulate vectors by reordering and subsetting them through indexing. However, once we start more advanced analyses, the preferred unit for data storage is not the vector but the data frame. In this lecture, we learn to work directly with data frames, which greatly facilitate the organization of information. We will be using data frames for the majority of this class and you will use them for the majority of your data science life (however long that might be). We will focus on a specific data format referred to as <em>tidy</em> and on specific collection of packages that are particularly helpful for working with <em>tidy</em> data referred to as the <em>tidyverse</em>.</p>
+<p>In last week’s content and lab, we demonstrated how to manipulate vectors by reordering and subsetting them through indexing. However, once we start more advanced analyses, the preferred unit for data storage is not the vector but the data frame. In this lecture, we learn to work directly with data frames, which greatly facilitate the organization of information. We will be using data frames for the majority of this class and you will use them for the majority of your data science life (however long that might be). We will focus on a specific data format referred to as <em>tidy</em> and on specific collection of packages that are particularly helpful for working with <em>tidy</em> data referred to as the <em>tidyverse</em>.</p>
 <p>We can load all the tidyverse packages at once by installing and loading the <strong>tidyverse</strong> package:<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
 <pre class="r"><code>library(tidyverse)</code></pre>
 <p>We will learn how to implement the tidyverse approach throughout the book, but before delving into the details, in this chapter we introduce some of the most widely used tidyverse functionality, starting with the <strong>dplyr</strong> package for manipulating data frames and the <strong>purrr</strong> package for working with functions. Note that the tidyverse also includes a graphing package, <strong>ggplot2</strong>, the <strong>readr</strong> package, and many others. In this lesson, we first introduce the concept of <em>tidy data</em> and then demonstrate how we use the tidyverse to work with data frames in this format.</p>

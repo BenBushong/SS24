@@ -17,7 +17,7 @@ output:
 
 - This page.
 - Chapter 1 of Introduction to Statistical Learning, available [here.](https://www.statlearning.com/)
-- Optional: The "Tidy Your Data" tutorial on [Rstudio Clould Primers](https://rstudio.cloud/learn/primers)
+- Optional: The "Tidy Your Data" tutorial on [Rstudio Cloud Primers](https://rstudio.cloud/learn/primers)
 
 ### Guiding Question
 
@@ -46,11 +46,11 @@ slide_tabs(sections, "/slides/01-slides.html")
 -->
 
 ## Group Projects
-Your final is a group project.
+Your final is a group project. You will also have two "mini" projects. They comprise a large part of your grade.
 
 You need to start planning soon.
 
-To aid in your planning, here are the required elements of your project (**note: the project assignment that currently exists on this site, if you find it, is old and will change a lot between now and next week**).
+To aid in your planning, here are the required elements of your final project.
 
 1. You must find existing data to analyze. Aggregating and merging data from multiple sources is encouraged.
 
@@ -58,29 +58,29 @@ To aid in your planning, here are the required elements of your project (**note:
 
 3. You must come up with some analysis---using tools from this course---which relates your data to either a prediction or a policy conclusion.
 
-4. You must think critically about your analysis and be able to identify potential issues/
+4. You must think critically about your analysis and be able to identify potential issues.
 
 5. You must present your analysis as if presenting to a C-suite executive.
 
+Your mini-projects along the way will be more structured, but will serve to guide you towards the final project.
+
 ### Teams
-Please form teams of 2-4 people. Once all agree to be on a team, have one person email our TA, Xueshi, wangxu36@msu.edu **and cc all of the members of the team** so that nobody is surprised to be included on a team. Title the email *[SSC442] - Group Formation*. Tell us your team name, and list in the email the names of all of the team members and their email address (in addition to cc-ing those team members on the email).
+Please form teams of 3-5 people. Once all agree to be on a team, have one person email our TA, Sam, tucke130@msu.edu **and cc all of the members of the team** so that nobody is surprised to be included on a team. Title the email *[SSC442] - Group Formation*. Tell us your team name (be creative), and list in the email the names of all of the team members and their email address (in addition to cc-ing those team members on the email).
 
-If you opt to not form a team, you will be automatically added to the "willing to be randomly assigned" pool and will be paired with another 2-3 persons.
+If you opt to not form a team, you will be automatically added to the "willing to be randomly assigned" pool and will be paired with another 3-4 persons.
 
-Send this email by **Sunday Jan 23rd** and I will assign un-teamed folks at the beginning of next week.
+Send this email by **Sunday September 18th** and we will assign un-teamed folks at the beginning of the following week. Project 1 is due October 15th. See [schedule](/schedule/) for all the important project dates.
 
 #### More on your team
 - You should strongly consider coordinating your work via Github
 
 - Your team will earn the same scores on all projects
 
-- Teams will submit only one write-up for the mini-projects and the final
+- Teams will submit only **one** polished write-up for the mini-projects and the final
 
 To combat additional freeloading, we will use a reporting system for work contributed. More details will follow. 
 
-
-
-
+**Now back to our regularly scheduled programming**...
 
 ## Randomness and Data Analytics
 And the fabulous importance of probabilistic inference...
@@ -225,7 +225,7 @@ This week's content is split into two "halves": the critical data manipulation i
 
 # The tidyverse  {#tidyverse}
 
-In the first weeks' content, we demonstrated how to manipulate vectors by reordering and subsetting them through indexing. However, once we start more advanced analyses, the preferred unit for data storage is not the vector but the data frame.  In this lecture, we learn to work directly with data frames, which greatly facilitate the organization of information. We will be using data frames for the majority of this class and you will use them for the majority of your data science life (however long that might be). We will focus on a specific data format referred to as _tidy_ and on specific collection of packages that are particularly helpful for working with _tidy_ data referred to as the _tidyverse_.
+In last week's content and lab, we demonstrated how to manipulate vectors by reordering and subsetting them through indexing. However, once we start more advanced analyses, the preferred unit for data storage is not the vector but the data frame.  In this lecture, we learn to work directly with data frames, which greatly facilitate the organization of information. We will be using data frames for the majority of this class and you will use them for the majority of your data science life (however long that might be). We will focus on a specific data format referred to as _tidy_ and on specific collection of packages that are particularly helpful for working with _tidy_ data referred to as the _tidyverse_.
 
 We can load all the tidyverse packages at once by installing and loading the __tidyverse__ package:^[If you have not installed this package already, you must use `install.packages("tidyverse")` prior to the `library()` call you see below.]
 
