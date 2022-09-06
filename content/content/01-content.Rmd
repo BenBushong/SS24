@@ -19,6 +19,28 @@ output:
 - Chapter 1 of Introduction to Statistical Learning, available [here.](https://www.statlearning.com/)
 - Optional: The "Tidy Your Data" tutorial on [Rstudio Cloud Primers](https://rstudio.cloud/learn/primers)
 
+## Quick notes 9-6-2022
+
+- Start labs early
+- You `install.packages("packageName")` **once** on your computer.
+  - And never ever ever in your code.
+- You load an already-installed package using `library(packageName)` in a code chunk
+  - Never in your console
+  - When RMarkdown knits, it starts a whole new, empty session that has no knowledge of what you typed into the console
+- Weekly Writing on Saturday night, Lab on Monday night.  
+  - Repeat every week
+  - See [Schedule](/schedule/)
+- Slack
+  - Use it.
+  - I would very much prefer posting in the class-visible channels. Others can learn from your issues.
+    - We have a channel just for labs and R. Please use that one.
+
+
+
+  
+  
+  
+
 ### Guiding Question
 
 For future lectures, the guiding questions will be more pointed and at a higher level to help steer your thinking. Here, we want to ensure you remember some basics and accordingly the questions are straightforward.
@@ -72,6 +94,7 @@ If you opt to not form a team, you will be automatically added to the "willing t
 Send this email by **Sunday September 18th** and we will assign un-teamed folks at the beginning of the following week. Project 1 is due October 15th. See [schedule](/schedule/) for all the important project dates.
 
 #### More on your team
+
 - You should strongly consider coordinating your work via Github
 
 - Your team will earn the same scores on all projects
@@ -85,9 +108,9 @@ To combat additional freeloading, we will use a reporting system for work contri
 ## Randomness and Data Analytics
 And the fabulous importance of probabilistic inference...
 
-This lecture is very "high-level," which means it is talking about abstract concepts. It is also quite important.
+This half of the lecture is very "high-level," which means it is talking about abstract concepts. It is also quite important.
 
-We want to discuss **why** we eventually will need ot utilize tons of difficult mathematics. Why do we care so much about hypothesis tests and the like?
+We want to discuss **why** we eventually will need to utilize tons of difficult mathematics. Why do we care so much about hypothesis tests and the like?
 
 Moreover, we can highlight why we want our data structured to behave nicely.
 
@@ -107,7 +130,7 @@ We generically refer to the response as $Y$
 
 Other aspects of the data are known as **features, inputs, predictors**, or **regressors**. We call one of these $X_i$.
 
-- The subscript $i$ indicates that we have an $X$ realized for every individual in our data
+- The subscript $i$ indicates that we have an $X$ realized for every individual observation in our data
 
 We can refer to the input vector collectively as:
 
@@ -118,8 +141,9 @@ x_{21} & x_{22} \\
 x_{N1} & x_{N2}
 \end{bmatrix}$$
 
+This is sometimes called a "rectangular array" of data. Sounds complicated, but you've definitely encountered it before. Excel holds "rectangular arrays" of data.
 
-We are seeking some unknown function that maps $X$ to $Y$
+We are seeking some unknown function that **maps** $X$ to $Y$
 
 Put another way, we are seeking to explain $Y$ as follows:
 
@@ -169,7 +193,7 @@ In addition to defining the **objective** probability of picking a `r emo::ji('c
   
   - And unless we assume that the only two values in the world are `r emo::ji('diamond suit')` and `r emo::ji('club suit')`, we can't rule out `r emo::ji('poop')`^[I discovered the `emo::ji()` function at 8:55am. My wife joked that I would find a way to use the poop emoji by 9:00am. It is now 8:59am. She was right.]
   
-**Question**: Then why do we do things like polling (e.g. to predict the outcome of a presidential election)?
+**Question**: If we really can't say anything exact and for-sure, then why do we do things like polling (e.g. to predict the outcome of a presidential election)?
 
 - The bad case, that we draw something that has is completely misleading, is *possible* but not **probable**.
 
@@ -183,11 +207,25 @@ You cannot know anything for sure about $f$ outside the data without making assu
 
 Is there any hope to know anything about $f$ outside the data set without making assumptions about $f$?
 
-**Yes**, if we are willing to give up the "for sure"
+**Yes**, if we are willing to give up the "for sure".
+
+Instead of 
+
+$$
+Y = f(X)
+$$
+
+we can work with 
+
+$$
+Y = f(X) + e
+$$
+
+and if we guess at an $f$ function that gets pretty close, $e$ will be pretty small. If $e$ is pretty small, then we're in good shape for prediction!
 
 ### Hoeffding's Inequality
 
-**Hoeffding's Inequality** states, loosely, that $\eta$ cannot be too far from $\mu$.
+**Hoeffding's Inequality** states, loosely, that $\eta$ (the fraction of our sample that is `r emo::ji('club suit')`) cannot be too far from $\mu$.
 
 $$\mathbb{P}\left[|\eta - \mu| > \epsilon \right] \leq 2e^{-2\epsilon^2n}$$
 $\eta \approx \mu$ is called **probably approximately correct** (PAC) learning.
@@ -237,7 +275,7 @@ We will learn how to implement the tidyverse approach throughout the book, but b
 
 ## Tidy data {#tidy-data}
 
-We say that a data table is in  _tidy_ format if each row represents one observation and columns represent the different variables available for each of these observations. The `murders` dataset is an example of a tidy data frame.
+> We say that a data table is in  _tidy_ format if each row represents one observation and columns represent the different variables available for each of these observations. The `murders` dataset is an example of a tidy data frame.
 
 ```{r, echo=TRUE, warning = FALSE, message = FALSE}
 library(dslabs)
@@ -252,7 +290,7 @@ To see how the same information can be provided in different formats, consider t
 
 ```{r, echo=TRUE, warning=F, message = F}
 library(dslabs)
-data("gapminder")
+data("gapminder") # gapminder will now be a data.frame in your "environment" (memory)
 tidy_data <- gapminder %>%
   filter(country %in% c("South Korea", "Germany") & !is.na(fertility)) %>%
   select(country, year, fertility)
@@ -269,7 +307,7 @@ wide_data <- read_csv(filename)
 select(wide_data, country, `1960`:`1962`) %>% as.data.frame
 ```
 
-The same information is provided, but there are two important differences in the format: 1) each row includes several observations and 2) one of the variables, year, is stored in the header. For the tidyverse packages to be optimally used, data need to be reshaped into `tidy` format, which you will learn to do throughout this course. For starters, though, we will use example datasets that are already in tidy format.
+The same information is provided, but there are two important differences in the format: 1) each row includes several observations and 2) one of the variables' values, year, is stored in the header. For the tidyverse packages to be optimally used, data need to be reshaped into `tidy` format, which you will learn to do throughout this course. For starters, though, we will use example datasets that are already in tidy format.
 
 Although not immediately obvious, as you go through the book you will start to appreciate the advantages of working in a framework in which functions use tidy formats for both inputs and outputs. You will see how this permits the data analyst to focus on more important aspects of the analysis rather than the format of the data.
 
@@ -326,7 +364,7 @@ murders <- mutate(murders, rate = total / population * 100000)
 
 Notice that here we used `total` and `population` inside the function, which are objects that are **not** defined in our workspace. But why don't we get an error?
 
-This is one of __dplyr__'s main features. Functions in this package, such as `mutate`, know to look for variables in the data frame provided in the first argument. In the call to mutate above, `total` will have the values in `murders$total`. This approach makes the code much more readable.
+This is one of __dplyr__'s main features. Functions in this package, such as `mutate`, know to look for variables __in__ the data frame provided in the first argument. In the call to mutate above, `total` will have the values in `murders$total`. This approach makes the code much more readable.
 
 We can see that the new column is added:
 
@@ -334,7 +372,7 @@ We can see that the new column is added:
 head(murders)
 ```
 
-Although we have overwritten the original `murders` object, this does not change the object that loaded with `data(murders)`. If we load the `murders` data again, the original will overwrite our mutated version.
+Note: Although we have overwritten the original `murders` object, this does not change the object that loaded with `data(murders)`. If we load the `murders` data again, the original will overwrite our mutated version.
 
 ### Subsetting with `filter`
 
@@ -373,7 +411,7 @@ You can add columns using the __dplyr__ function `mutate`. This function is awar
 murders <- mutate(murders, population_in_millions = population / 10^6)
 ```
 
-We can write `population` rather than `murders$population`. The function `mutate` knows we are grabbing columns from `murders`.
+We can write `population` rather than `murders$population` because `mutate` is part of `dplyr`. The function `mutate` knows we are grabbing columns from `murders`.
 
 Use the function `mutate` to add a murders column named `rate` with the per 100,000 murder rate as in the example code above. Make sure you redefine `murders` as done in the example code above ( murders <- [your code]) so we can keep using this variable.
 
@@ -383,6 +421,7 @@ Use the function `mutate` to add a murders column named `rate` with the per 100,
 
 ```{r, eval=FALSE}
 select(murders, state, population) %>% head()
+
 ```
 
 Use `select` to show the state names and abbreviations in `murders`. Do not redefine `murders`, just show the results.
@@ -530,6 +569,7 @@ The `summarize` function in __dplyr__ provides a way to compute summary statisti
 library(dplyr)
 library(dslabs)
 data(heights)
+head(heights)
 ```
 
 The following code computes the average and standard deviation for females:
@@ -753,13 +793,13 @@ Hint: Use `filter` and `summarize` and use the `na.rm = TRUE` argument when comp
 
 ## Tibbles
 
-Tidy data must be stored in data frames. We introduced the data frame in Section \@ref(data-frames) and have been using the `murders` data frame throughout the book. In Section \@ref(group-by) we introduced the `group_by` function, which permits stratifying data before computing summary statistics. But where is the group information stored in the data frame?
+Tidy data must be stored in data frames. We introduced the data frame in Section \@ref(data-frames) and have been using the `murders` data frame throughout the unit. In Section \@ref(group-by) we introduced the `group_by` function, which permits stratifying data before computing summary statistics. But where is the group information stored in the data frame?
 
 ```{r}
 murders %>% group_by(region)
 ```
 
-Notice that there are no columns with this information. But, if you look closely at the output above, you see the line `A tibble` followd by dimensions. We can learn the class of the returned object using:
+Notice that there are no columns with this information. But, if you look closely at the output above, you see the line `A tibble` followed by dimensions. We can learn the class of the returned object using:
 
 ```{r}
 murders %>% group_by(region) %>% class()
@@ -892,9 +932,9 @@ In the next section, we will see other instances in which using the `.` is usefu
 
 ## `do` {#do}
 
-The tidyverse functions know how to interpret grouped tibbles. Furthermore, to facilitate stringing commands through the pipe `%>%`, tidyverse functions consistently return data frames, since this assures that the output of a function is accepted as the input of another. But most R functions do not recognize grouped tibbles nor do they return data frames. The `quantile` function is an example we described earlier. The `do` function serves as a bridge between R functions such as `quantile` and the tidyverse. The `do` function understands grouped tibbles and always returns a data frame.
+The tidyverse functions know how to interpret grouped tibbles. Furthermore, to facilitate stringing commands through the pipe `%>%`, tidyverse functions consistently take data frames and return data frames, since this assures that the output of a function is accepted as the input of another. But most R functions do not recognize grouped tibbles nor do they return data frames. The `quantile` function is an example we described earlier. The `do` function serves as a bridge between R functions such as `quantile` and the tidyverse. The `do` function understands grouped tibbles and always returns a data frame.
 
-In the summarize section (above), we noted that if we attempt to use `quantile` to obtain the min, median and max in one call, we will receive an error: `Error: expecting result of length one, got : 2`.
+In the summarize section (above), we noted that if we attempt to use `quantile` to obtain the min, median and max in one call, we will receive something unexpected. Prior to R 4.1, we would receive an error. After R 4.1, we actually get:
 
 ```{r, eval=FALSE}
 data(heights)
@@ -903,7 +943,7 @@ heights %>%
   summarize(range = quantile(height, c(0, 0.5, 1)))
 ```
 
-We can use the `do` function to fix this.
+We probably wanted three columns: min, median, and max. We can use the `do` function to fix this.
 
 First we have to write a function that fits into the tidyverse approach: that is, it receives a data frame and returns a data frame. Note that it returns a single-row data frame.
 
@@ -946,6 +986,8 @@ heights %>%
   group_by(sex) %>%
   do(my_summary)
 ```
+
+So `do` serves as a bridge between non-tidyverse functions and the tidyverse.
 
 ## The __purrr__ package
 
@@ -999,7 +1041,19 @@ s_n <- map_df(n, compute_s_n)
 head(s_n)
 ```
 
+Because `map_df` returns a tibble, we can have more columns defined in our function and returned. 
+
+```{r}
+compute_s_n2 <- function(n){
+  x <- 1:n
+  tibble(sum = sum(x), sumSquared = sum(x^2))
+}
+s_n <- map_df(n, compute_s_n2)
+head(s_n)
+```
+
 The __purrr__ package provides much more functionality not covered here. For more details you can consult [this online resource](https://jennybc.github.io/purrr-tutorial/).
+
 
 ## Tidyverse conditionals
 
@@ -1028,6 +1082,8 @@ murders %>%
   group_by(group) %>%
   summarize(rate = sum(total) / sum(population) * 10^5)
 ```
+
+That `TRUE` on the fourth line of `case_when` serves as a catch-all. As `case_when` steps through the conditions, if none of them are true, it comes to the last line. Since `TRUE` is always true, the function will return "Other". Leaving out the last line of `case_when` would result in `NA` values for any observation that fails the first three conditionals. This may or may not be what you want.
 
 ### `between`
 
