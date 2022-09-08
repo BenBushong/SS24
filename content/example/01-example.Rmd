@@ -213,7 +213,7 @@ Another reason __ggplot2__ is easy for beginners is that its default behavior is
 
 One limitation is that __ggplot2__ is designed to work exclusively with data tables in tidy format (where rows are observations and columns are variables). However, a substantial percentage of datasets that beginners work with are in, or can be converted into, this format. An advantage of this approach is that, assuming that our data is tidy, __ggplot2__ simplifies plotting code and the learning of grammar for a variety of plots. You should review the previous content about tidy data if you are feeling lost.
 
-To use __ggplot2__  you will have to learn several functions and arguments. These are hard to memorize, so we highly recommend you have the ggplot2 cheat sheet handy. You can get a copy here: [https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf](https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf) or simply perform an internet search for "ggplot2 cheat sheet".
+To use __ggplot2__  you will have to learn several functions and arguments. These are hard to memorize, so we highly recommend you have the ggplot2 cheat sheet handy. You can get a copy here: [https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf) or simply perform an internet search for "ggplot2 cheat sheet".
 
 ## The components of a graph
 We will eventually construct a graph that summarizes the US murders dataset that looks like this:
@@ -315,11 +315,17 @@ In `ggplot2` we create graphs by adding geometry _layers_. Layers can define geo
 
 > `DATA %>% ggplot() + LAYER 1 + LAYER 2 + ... + LAYER N`
 
-Usually, the first __added__ layer after `ggplot() +` defines the geometry. After that, we may add additional geometries, we may rescale an axis, we may add annotations and labels, or we may change the style. For now, we want to make a scatterplot. What geometry do we use?
+Usually, the first __added__ layer after `ggplot() +` defines the geometry. After that, we may add additional geometries, we may rescale an axis, we may add annotations and labels, or we may change the style. For now, we want to make a scatterplot like the one you all created in Lab 0. What geometry do we use?
 
-Taking a quick look at the cheat sheet, we see that the function used to create plots with this geometry is `geom_point`.
+```{r ex-scatter, echo = F}
+x = c(5,7,9)
+y = c(10,11,12)
+plot(x+y, x-y, main = 'Altman Plot')
+```
 
-![](https://github.com/rstudio/cheatsheets/raw/main/data-visualization.pdf)
+Taking a quick look at the cheat sheet, we see that the `ggplot2` function used to create plots with this geometry is `geom_point`.
+
+![](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf)
 
 (Image courtesy of RStudio^[https://github.com/rstudio/cheatsheets].  CC-BY-4.0 license^[https://github.com/rstudio/cheatsheets/blob/master/LICENSE].)
 
@@ -519,7 +525,7 @@ Clearly, the second call to `geom_text` does not use `x = population` and `y = t
 ## Try it!
 
 ::: fyi
-Let's break in to smaller groups and try playing with some of the aesthetics and aesthetic mappings. If we're online, we'll use Zoom Breakout Rooms. Each of the rooms have a room number which will correspond with one of the tasks below. If we're in person (woohoo!), we'll form the same number of groups in class.
+Let's break in to smaller groups and try playing with some of the aesthetics and aesthetic mappings. If we're in person (woohoo!), we'll form the same number of groups in class.
 
 In each group, one person should be the main coder - someone who has the packages like `dslabs` installed and has successfully run the plots above. Each set of tasks ask you to learn about an aesthetic and put it into action with the `murder` data. We'll leave about 5 minutes to do the task, then have you come back and share your results with the class.
 
@@ -571,5 +577,7 @@ p + geom_point(aes(x = population/10^6, y = total)) +
 
 :::
 
+For Fall 2022 in-person, we can use our office hours Zoom to share screen: [https://msu.zoom.us/j/91759862734?pwd=VDliRHdoQ3N4L3V4LzNFd3IzcGw2dz09](https://msu.zoom.us/j/91759862734?pwd=VDliRHdoQ3N4L3V4LzNFd3IzcGw2dz09). Select "no audio" or turn your audio off when logging in from our classroom.
+
 ## Lecture Videos
-All videos are in the SSC442 Mediaspace channel [available here <i class="fas fa-film"></i>](https://mediaspace.msu.edu/media/SSC442+-+Example+01+-+Jan+20th/1_i2x19sph?st=774)
+All videos are in the SSC442 Mediaspace channel [available here <i class="fas fa-film"></i>](https://mediaspace.msu.edu/media/SSC442+-+Example+01+-+Jan+20th/1_i2x19sph?st=774). Note - this is a Spring 2022 lecture and not Fall 2022. As of right now, I am not planning on recording or posting Fall 2022 lectures.
