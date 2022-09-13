@@ -3,16 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://ssc442kirkpatrick.netlify.app/example/01-example/</loc>
-    <lastmod>2022-08-30T14:15:35-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ssc442kirkpatrick.netlify.app/example/00-example/</loc>
-    <lastmod>2022-08-30T07:01:25-04:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://ssc442kirkpatrick.netlify.app/example/02-example/</loc>
     <lastmod>2022-08-30T14:15:35-04:00</lastmod>
   </url>
@@ -20,6 +10,16 @@
   <url>
     <loc>https://ssc442kirkpatrick.netlify.app/example/03-example/</loc>
     <lastmod>2022-08-30T14:15:35-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ssc442kirkpatrick.netlify.app/example/01-example/</loc>
+    <lastmod>2022-09-08T06:07:33-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ssc442kirkpatrick.netlify.app/example/00-example/</loc>
+    <lastmod>2022-08-30T07:01:25-04:00</lastmod>
   </url>
   
   <url>
