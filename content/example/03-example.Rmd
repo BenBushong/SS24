@@ -17,6 +17,8 @@ editor_options:
   chunk_output_type: console
 ---
 
+### We left off at "Using a Continuous Color Palatte" on Tuesday. Let's pick up there.
+
 # Adding graphics to an Rmarkdown file
 
 ### From the web
@@ -465,7 +467,7 @@ surv_income %>% ggplot(aes(income, infant_survival_rate, label = group, color = 
   scale_x_continuous(trans = "log2", limits = c(0.25, 150)) +
   scale_y_continuous(trans = "logit", limit = c(0.875, .9981),
                      breaks = c(.85,.90,.95,.99,.995,.998)) +
-  geom_label_repel(size = 3, show.legend = FALSE)
+  geom_label_repel(size = 3, show.legend = FALSE) + geom_point()
 ```
 
 The relationship between these two variables is almost perfectly linear and the graph shows a dramatic difference. While in the West less than 0.5% of infants die, in Sub-Saharan Africa the rate is higher than 6%!
