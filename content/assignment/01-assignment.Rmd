@@ -18,7 +18,9 @@ editor_options:
    
 **NOTE** 
 
-You must turn in a PDF document of your `R markdown` code. Submit this to D2L by 11:59 PM on September 12th.
+You must turn in a PDF document of your `R markdown` output. Submit this to D2L by 11:59 PM on September 12th.
+
+Note: This lab has a few "try its" along the way. They are for your own practice and are not required. The lab consists of the three "exercises."
  
 :::
 
@@ -62,7 +64,7 @@ library(ggplot2)
 
 You link these steps by *literally* adding them together with `+` as we'll see.
 
-**Try it:** What other types of plots are there? Try to find several more `geom_` functions.
+**Try it:** (OPTIONAL) What other types of plots are there? Try to find several more `geom_` functions.
 
 ## Mappings Link Data to Things You See
 
@@ -89,7 +91,7 @@ Here's a breakdown of everything that happens after the `p<- ggplot()` call:
 
 :::fyi
 
-**Exercise 1:**
+**Exercise 1 of 3**
 
 Let's return to the `mpg` data. Among the variables in `mpg` are:
 
@@ -114,7 +116,7 @@ You can convey information about your data by mapping the aesthetics in your plo
 
 :::fyi
 
-**Exercise 2:**
+**Exercise 2 of 3**
 
 Using your previous scatterplot of `displ` and `hwy`, map the colors of your points to the class variable to reveal the class of each car. What conclusions can we make?
 
@@ -145,7 +147,7 @@ Consider the output we've explored thus far. One potential issue lurking in the 
 ```
 p + geom_point() + geom_smooth(method = "lm") + scale_x_log10()
 ```
-**Try it:** Describe what the `scale_x_log10()` does. Why is it a more evenly distributed cloud of points now? (2-3 sentences.)
+**Try it:** (OPTIONAL) Describe what the `scale_x_log10()` does. Why is it a more evenly distributed cloud of points now? (2-3 sentences.)
 
 Nice. We're starting to get somewhere. But, you might notice that the x-axis now has scientific notation. Let's change that.
 
@@ -159,7 +161,7 @@ p + geom_point() +
   scale_x_log10(labels = scales::...)
 ```
 
-**Try it:** What does the `dollar()` call do? How can you find other ways of relabeling the scales when using `scale_x_log10()`?
+**Try it:** (OPTIONAL) What does the `dollar()` call do? How can you find other ways of relabeling the scales when using `scale_x_log10()`?
 
 ```
 ?dollar()
@@ -198,10 +200,10 @@ p <- ggplot(data = gapminder,
 p + geom_point(...) + scale_x_log10()
 ```
 
-**Try it:** describe in your words what is going on.
+**Try it:** (OPTIONAL) describe in your words what is going on.
 One way to avoid such mistakes is to read arguments inside `aes(<property> = <variable>)`as *the property <property> in the graph is determined by the data in <variable>*.
 
-**Try it:**  Write the above sentence for the original call `aes(x = gdpPercap, y = lifeExp, color = 'yellow')`.
+**Try it:** (OPTIONAL)  Write the above sentence for the original call `aes(x = gdpPercap, y = lifeExp, color = 'yellow')`.
 
 Aesthetics convey information about a variable in the dataset, whereas setting the color of all points to yellow conveys no information about the dataset - it changes the appearance of the plot in a way that is independent of the underlying data.
 
@@ -213,7 +215,7 @@ p <- ggplot(data = gapminder,
 p + geom_point() + geom_smooth(color = "orange", se = FALSE, size = 8, method = "lm") + scale_x_log10()
 ```
 
-**Try it:**  Write down what all those arguments in `geom_smooth(...)` do.
+**Try it:** (OPTIONAL)  Write down what all those arguments in `geom_smooth(...)` do.
 
 ```
 p + geom_point(alpha = 0.3) +
@@ -236,7 +238,7 @@ p + geom_point() + scale_x_log10(labels = dollar)
 p + geom_point() + scale_x_log10(labels = dollar) + geom_smooth()
 ```
 
-**Try it:**  What does `fill = continent` do? What do you think about the match of colors between lines and error bands?
+**Try it:** (OPTIONAL)  What does `fill = continent` do? What do you think about the match of colors between lines and error bands?
 
 ```
 p <- ggplot(data = gapminder,
@@ -244,9 +246,9 @@ p <- ggplot(data = gapminder,
 p + geom_point(mapping = aes(color = continent)) + geom_smooth() + scale_x_log10()
 ```
 
-**Try it:**  Notice how the above code leads to a single smooth line, not one per continent. Why?
+**Try it:** (OPTIONAL)  Notice how the above code leads to a single smooth line, not one per continent. Why?
 
-**Try it:**  What is bad about the following example, assuming the graph is the one we want? Think about why you should set aesthetics at the top level rather than at the individual geometry level if that's your intent.
+**Try it:** (OPTIONAL)  What is bad about the following example, assuming the graph is the one we want? Think about why you should set aesthetics at the top level rather than at the individual geometry level if that's your intent.
 
 ```
 p <- ggplot(data = gapminder,
@@ -259,7 +261,7 @@ p + geom_point(mapping = aes(color = continent)) +
 
 :::fyi
 
-**Exercise 3:**
+**Exercise 3 of 3**
 
 Generate two new plots with `data = gapminder` (note: you'll need to install the package by the same name if you have not already). Label the axes and the header with clear, easy to understand language. In a few sentences, describe what you've visualized and why.
 
