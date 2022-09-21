@@ -35,7 +35,6 @@ In the end, to help you master file organization, we suggest that the structure 
 ```text
 your-project-name\
   03-lab.Rmd
-  your-project-name.Rproj
   data\
     unemployment.csv
 ```
@@ -43,18 +42,18 @@ your-project-name\
 
 [The example for this week](/example/03-example/) will be ***incredibly*** helpful for this exercise. Reference it.
 
-**For this week, you need to start making your plots look nice. For full credit, you will have to label axes, label the plot, and experiment with themes. Experiment with adding a `labs()` layer or changing colors.** Or, if you're super brave, try modifying a theme and its elements. Default plots will not receive full credit.
+**For this week, you need to start making your plots look nice. For full credit, you will have to label axes, label the plot, and experiment with themes. Experiment with adding a `labs()` layer or changing colors.** Make sure all plots are legible and neat. If you're super brave, try modifying a theme and its elements. Default plots will not receive full credit.
 
 
 :::fyi
 
 __EXERCISE 1__
 
-Use data from the US Bureau of Labor Statistics (BLS) to show the trends in employment rate for all 50 states plus DC between 2006 and 2016. Your first instinct might be to put all 50 lines on graph. This will be a mess, so let's give each state its own plot -- use `facet_grid` or `facet_wrap` to do this. What stories does this plot tell? Which states struggled to recover from the 2008–09 recession?
+Use data from the US Bureau of Labor Statistics (BLS) to show the trends in employment rate for all 50 states plus DC between 2006 and 2016. Your first instinct might be to put all 50 lines on one graph. Even if using an aesthetic mapping for color, this will be a mess. Let's give each state its own plot -- use `facet_grid` or `facet_wrap` to do this. What stories does this plot tell? Which states struggled to recover from the 2008–09 recession?
 
 Some hints/tips:
 
-- You won't need to filter out any missing rows because the data here is complete—there are no state-year combinations with missing unemployment data.
+- You won't need to filter out any missing rows because the data here is complete -— there are no state-year combinations with missing unemployment data.
 
 - You'll be plotting 51 facets. You can filter out DC if you want to have a better grid (like 5 × 10).
 
@@ -62,7 +61,7 @@ Some hints/tips:
 
 - Try mapping other aesthetics onto the graph too. You'll notice there are columns for region and division—play with those as colors, for instance.
 
-- This plot might be big, so make sure you adjust `fig.width` and `fig.height` in the chunk options so that it's visible when you knit it - try different values and knit to see how they look.
+- This plot might be big, so make sure you adjust `fig.width` and `fig.height` in the chunk options so that it's visible when you knit it - try different values and knit to see how they look. If you're unfamiliar with chunk options, [see the Using R Markdown resources](https://ssc442kirkpatrick.netlify.app/resource/rmarkdown/#chunk-options-1). 
 
 
 __EXERCISE 2__

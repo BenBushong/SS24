@@ -93,13 +93,17 @@ The most common chunk options are these:
 - `echo=FALSE`: The code is not shown in the final document, but the results are
 - `message=FALSE`: Any messages that R generates (like all the notes that appear after you load a package) are omitted
 - `warning=FALSE`: Any warnings that R generates are omitted
-- `include=FALSE`: The chunk still runs, but the code and results are not included in the final document
+- `include=FALSE`: The chunk still runs, but the code and results are not included in the final document. Don't use this on your labs as we need to see your work, but do use this for your final project when the output is to be polished and clean.
 
 You can also set chunk options by clicking on the little gear icon in the top right corner of any chunk:
 
 ```{r chunk-options, echo=FALSE, out.width="70%"}
 knitr::include_graphics("/img/reference/chunk-options.png", error = FALSE)
 ```
+
+### Chunk `fig.width` and `fig.height`
+
+When a code chunk includes a plot (like from `ggplot`), the "canvas" size used can affect the output. You may have noticed if you plot directly in Rstudio, the plot resizes when you change the pane size. Each chunk has its own canvas size, and you can change that. So, if you have a chunk with a large plot, you can change the `fig.width=7.5` in the chunk options. Note that units default to inches, so no more than 7.5 will fit on a regular-sized sheet of paper (or appropriately sized PDF).
 
 ## Inline chunks
 

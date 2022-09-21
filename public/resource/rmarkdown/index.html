@@ -30,7 +30,7 @@
   
     
   
-  <meta name="description" content="Key termsAdd chunksChunk namesChunk optionsInline chunksOutput formatsR Markdown is regular Markdown with R code and output sprinkled in. You can do everything you can with regular Markdown, but you can incorporate graphs, tables, and other R output directly in your document. You can create HTML, PDF, and Word documents, PowerPoint and HTML presentations, websites, books, and even interactive dashboards with R Markdown.">
+  <meta name="description" content="Key termsAdd chunksChunk namesChunk optionsChunk fig.width and fig.heightInline chunksOutput formatsR Markdown is regular Markdown with R code and output sprinkled in. You can do everything you can with regular Markdown, but you can incorporate graphs, tables, and other R output directly in your document. You can create HTML, PDF, and Word documents, PowerPoint and HTML presentations, websites, books, and even interactive dashboards with R Markdown.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://ssc442kirkpatrick.netlify.app/resource/rmarkdown/">
@@ -238,7 +238,7 @@
   <meta property="og:site_name" content="Data Analytics">
   <meta property="og:url" content="https://ssc442kirkpatrick.netlify.app/resource/rmarkdown/">
   <meta property="og:title" content="Using R Markdown | Data Analytics">
-  <meta property="og:description" content="Key termsAdd chunksChunk namesChunk optionsInline chunksOutput formatsR Markdown is regular Markdown with R code and output sprinkled in. You can do everything you can with regular Markdown, but you can incorporate graphs, tables, and other R output directly in your document. You can create HTML, PDF, and Word documents, PowerPoint and HTML presentations, websites, books, and even interactive dashboards with R Markdown."><meta property="og:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png">
+  <meta property="og:description" content="Key termsAdd chunksChunk namesChunk optionsChunk fig.width and fig.heightInline chunksOutput formatsR Markdown is regular Markdown with R code and output sprinkled in. You can do everything you can with regular Markdown, but you can incorporate graphs, tables, and other R output directly in your document. You can create HTML, PDF, and Word documents, PowerPoint and HTML presentations, websites, books, and even interactive dashboards with R Markdown."><meta property="og:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png">
   <meta property="twitter:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
   
     
@@ -639,7 +639,10 @@
 <li><a href="#key-terms">Key terms</a></li>
 <li><a href="#add-chunks">Add chunks</a></li>
 <li><a href="#chunk-names">Chunk names</a></li>
-<li><a href="#chunk-options">Chunk options</a></li>
+<li><a href="#chunk-options">Chunk options</a>
+<ul>
+<li><a href="#chunk-fig.width-and-fig.height">Chunk <code>fig.width</code> and <code>fig.height</code></a></li>
+</ul></li>
 <li><a href="#inline-chunks">Inline chunks</a></li>
 <li><a href="#output-formats">Output formats</a></li>
 </ul>
@@ -695,10 +698,14 @@
 <li><code>echo=FALSE</code>: The code is not shown in the final document, but the results are</li>
 <li><code>message=FALSE</code>: Any messages that R generates (like all the notes that appear after you load a package) are omitted</li>
 <li><code>warning=FALSE</code>: Any warnings that R generates are omitted</li>
-<li><code>include=FALSE</code>: The chunk still runs, but the code and results are not included in the final document</li>
+<li><code>include=FALSE</code>: The chunk still runs, but the code and results are not included in the final document. Don’t use this on your labs as we need to see your work, but do use this for your final project when the output is to be polished and clean.</li>
 </ul>
 <p>You can also set chunk options by clicking on the little gear icon in the top right corner of any chunk:</p>
 <p><img src="../../../../../../../img/reference/chunk-options.png" width="70%" /></p>
+<div id="chunk-fig.width-and-fig.height" class="section level3">
+<h3>Chunk <code>fig.width</code> and <code>fig.height</code></h3>
+<p>When a code chunk includes a plot (like from <code>ggplot</code>), the “canvas” size used can affect the output. You may have noticed if you plot directly in Rstudio, the plot resizes when you change the pane size. Each chunk has its own canvas size, and you can change that. So, if you have a chunk with a large plot, you can change the <code>fig.width=7.5</code> in the chunk options. Note that units default to inches, so no more than 7.5 will fit on a regular-sized sheet of paper (or appropriately sized PDF).</p>
+</div>
 </div>
 <div id="inline-chunks" class="section level2">
 <h2>Inline chunks</h2>

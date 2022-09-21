@@ -28,7 +28,7 @@ For this exercise you will need to ensure that you've carefully read this week's
 
 # Statistical models {#models}
 
->"All models are wrong, but some are useful." --George E. P. Box
+> "All models are wrong, but some are useful." --George E. P. Box
 
 The day before the 2008 presidential election, Nate Silver's FiveThirtyEight stated that "Barack Obama appears poised for a decisive electoral victory". They went further and predicted that Obama would win the election with 349 electoral votes to 189, and the popular vote by a margin of 6.1%. FiveThirtyEight also attached a probabilistic statement to their prediction claiming that Obama had a 91% chance of winning the election. The predictions were quite accurate since, in the final results, Obama won the electoral college 365 to 173 and the popular vote by a 7.2% difference. Their performance in the 2008 election brought FiveThirtyEight to the attention of political pundits and TV personalities. Four years later, the week before the 2012 presidential election, FiveThirtyEight's Nate Silver was giving Obama a 90% chance of winning despite many of the experts thinking the final results would be closer. Political commentator Joe Scarborough said during his show^[https://www.youtube.com/watch?v=TbKkjm-gheY]:
 

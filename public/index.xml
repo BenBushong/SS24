@@ -2665,21 +2665,20 @@ p + geom_point(mapping = aes(color = continent)) +
 &lt;p&gt;In the end, to help you master file organization, we suggest that the structure of your project directory should look something like this:&lt;/p&gt;
 &lt;pre class=&#34;text&#34;&gt;&lt;code&gt;your-project-name\
   03-lab.Rmd
-  your-project-name.Rproj
   data\
     unemployment.csv&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/example/03-example/&#34;&gt;The example for this week&lt;/a&gt; will be &lt;strong&gt;&lt;em&gt;incredibly&lt;/em&gt;&lt;/strong&gt; helpful for this exercise. Reference it.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;For this week, you need to start making your plots look nice. For full credit, you will have to label axes, label the plot, and experiment with themes. Experiment with adding a &lt;code&gt;labs()&lt;/code&gt; layer or changing colors.&lt;/strong&gt; Or, if you’re super brave, try modifying a theme and its elements. Default plots will not receive full credit.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;For this week, you need to start making your plots look nice. For full credit, you will have to label axes, label the plot, and experiment with themes. Experiment with adding a &lt;code&gt;labs()&lt;/code&gt; layer or changing colors.&lt;/strong&gt; Make sure all plots are legible and neat. If you’re super brave, try modifying a theme and its elements. Default plots will not receive full credit.&lt;/p&gt;
 &lt;div class=&#34;fyi&#34;&gt;
 &lt;p&gt;&lt;strong&gt;EXERCISE 1&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Use data from the US Bureau of Labor Statistics (BLS) to show the trends in employment rate for all 50 states plus DC between 2006 and 2016. Your first instinct might be to put all 50 lines on graph. This will be a mess, so let’s give each state its own plot – use &lt;code&gt;facet_grid&lt;/code&gt; or &lt;code&gt;facet_wrap&lt;/code&gt; to do this. What stories does this plot tell? Which states struggled to recover from the 2008–09 recession?&lt;/p&gt;
+&lt;p&gt;Use data from the US Bureau of Labor Statistics (BLS) to show the trends in employment rate for all 50 states plus DC between 2006 and 2016. Your first instinct might be to put all 50 lines on one graph. Even if using an aesthetic mapping for color, this will be a mess. Let’s give each state its own plot – use &lt;code&gt;facet_grid&lt;/code&gt; or &lt;code&gt;facet_wrap&lt;/code&gt; to do this. What stories does this plot tell? Which states struggled to recover from the 2008–09 recession?&lt;/p&gt;
 &lt;p&gt;Some hints/tips:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;You won’t need to filter out any missing rows because the data here is complete—there are no state-year combinations with missing unemployment data.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;You won’t need to filter out any missing rows because the data here is complete -— there are no state-year combinations with missing unemployment data.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;You’ll be plotting 51 facets. You can filter out DC if you want to have a better grid (like 5 × 10).&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Plot the &lt;code&gt;date&lt;/code&gt; column along the x-axis, &lt;em&gt;not&lt;/em&gt; the &lt;code&gt;year&lt;/code&gt; column. If you plot by year, you’ll get weird looking lines (try it for fun?), since these observations are monthly. If you really want to plot by year only, you’ll need to create a different data frame where you group by year and state and calculate the average unemployment rate for each year/state combination (i.e. &lt;code&gt;group_by(year, state) %&amp;gt;% summarize(avg_unemployment = mean(unemployment))&lt;/code&gt;)&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Try mapping other aesthetics onto the graph too. You’ll notice there are columns for region and division—play with those as colors, for instance.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;This plot might be big, so make sure you adjust &lt;code&gt;fig.width&lt;/code&gt; and &lt;code&gt;fig.height&lt;/code&gt; in the chunk options so that it’s visible when you knit it - try different values and knit to see how they look.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;This plot might be big, so make sure you adjust &lt;code&gt;fig.width&lt;/code&gt; and &lt;code&gt;fig.height&lt;/code&gt; in the chunk options so that it’s visible when you knit it - try different values and knit to see how they look. If you’re unfamiliar with chunk options, &lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/resource/rmarkdown/#chunk-options-1&#34;&gt;see the Using R Markdown resources&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;EXERCISE 2&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Use data from the BLS to create a slopegraph that compares the unemployment rate in January 2006 with the unemployment rate in January 2009, either for all 50 states at once (good luck with that!) or for a specific region or division. Make sure the plot doesn’t look too busy or crowded in the end.&lt;/p&gt;
@@ -2714,6 +2713,465 @@ p + geom_point(mapping = aes(color = continent)) +
 &lt;/ol&gt;
 &lt;p&gt;Another day in the life of doing modern data science. This is an example of something you will be able to do by the end of this class. we had no idea people had written &lt;code&gt;R&lt;/code&gt; packages to access BLS data, but there are (at least) 3 packages out there. After a few minutes of tinkering, we got it working and it is relatively straightforward.&lt;/p&gt;
 &lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Statistical Models and Uncertainty</title>
+      <link>https://ssc442kirkpatrick.netlify.app/assignment/04-assignment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://ssc442kirkpatrick.netlify.app/assignment/04-assignment/</guid>
+      <description>
+&lt;script src=&#34;https://ssc442kirkpatrick.netlify.app/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;https://ssc442kirkpatrick.netlify.app/rmarkdown-libs/lightable/lightable.css&#34; rel=&#34;stylesheet&#34; /&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#models&#34;&gt;Statistical models&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#poll-aggregators&#34;&gt;Poll aggregators&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#poll-data&#34;&gt;Poll data&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#pollster-bias&#34;&gt;Pollster bias&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#data-driven-model&#34;&gt;Data-driven models&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;!-- Updated 8.30.22 --&gt;
+&lt;div class=&#34;fyi&#34;&gt;
+&lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;You must turn in a PDF document of your &lt;code&gt;R Markdown&lt;/code&gt; code. Submit this to D2L by 11:59 PM Eastern Time on Monday, October 3rd.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;For this exercise you will need to ensure that you’ve carefully read this week’s content and example. We will build on both. The exercises (which you will turn in as this week’s lab) are at the bottom. Note that this week’s lab is much more theoretical than any other week in this class. This is to ensure that you have the foundations necessary to build rich statistical models and apply them to real-world data.&lt;/p&gt;
+&lt;div id=&#34;models&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Statistical models&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“All models are wrong, but some are useful.” –George E. P. Box&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The day before the 2008 presidential election, Nate Silver’s FiveThirtyEight stated that “Barack Obama appears poised for a decisive electoral victory”. They went further and predicted that Obama would win the election with 349 electoral votes to 189, and the popular vote by a margin of 6.1%. FiveThirtyEight also attached a probabilistic statement to their prediction claiming that Obama had a 91% chance of winning the election. The predictions were quite accurate since, in the final results, Obama won the electoral college 365 to 173 and the popular vote by a 7.2% difference. Their performance in the 2008 election brought FiveThirtyEight to the attention of political pundits and TV personalities. Four years later, the week before the 2012 presidential election, FiveThirtyEight’s Nate Silver was giving Obama a 90% chance of winning despite many of the experts thinking the final results would be closer. Political commentator Joe Scarborough said during his show&lt;a href=&#34;#fn1&#34; class=&#34;footnote-ref&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Anybody that thinks that this race is anything but a toss-up right now is such an ideologue … they’re jokes.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;To which Nate Silver responded via Twitter:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;If you think it’s a toss-up, let’s bet. If Obama wins, you donate $1,000 to the American Red Cross. If Romney wins, I do. Deal?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;In 2016, Silver was not as certain and gave Hillary Clinton only a 71% of winning. In contrast, most other forecasters were almost certain she would win. She lost. But 71% is still more than 50%, so was Mr. Silver wrong? And what does probability mean in this context anyway? Are dice being tossed somewhere?&lt;/p&gt;
+&lt;p&gt;In this lab we will demonstrate how &lt;em&gt;poll aggregators&lt;/em&gt;, such as FiveThirtyEight, collected and combined data reported by different experts to produce improved predictions. We will introduce ideas behind the &lt;em&gt;statistical models&lt;/em&gt;, also known as &lt;em&gt;probability models&lt;/em&gt;, that were used by poll aggregators to improve election forecasts beyond the power of individual polls. First, we’ll motivate the models, building on the statistical inference concepts we learned in this week’s content and example. We start with relatively simple models, realizing that the actual data science exercise of forecasting elections involves rather complex ones. We will introduce such modeks towards the end of this section of the course.&lt;/p&gt;
+&lt;div id=&#34;poll-aggregators&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Poll aggregators&lt;/h2&gt;
+&lt;p&gt;A few weeks before the 2012 election Nate Silver was giving Obama a 90% chance of winning. How was Mr. Silver so confident? We will use a Monte Carlo simulation to illustrate the insight Mr. Silver had and others missed. To do this, we generate results for 12 polls taken the week before the election. We mimic sample sizes from actual polls and construct and report 95% confidence intervals for each of the 12 polls. We save the results from this simulation in a data frame and add a poll ID column.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
+library(dslabs)
+d &amp;lt;- 0.039
+Ns &amp;lt;- c(1298, 533, 1342, 897, 774, 254, 812, 324, 1291, 1056, 2172, 516)
+p &amp;lt;- (d + 1) / 2
+
+polls &amp;lt;- map_df(Ns, function(N) {
+  x &amp;lt;- sample(c(0,1), size=N, replace=TRUE, prob=c(1-p, p))
+  x_hat &amp;lt;- mean(x)
+  se_hat &amp;lt;- sqrt(x_hat * (1 - x_hat) / N)
+  list(estimate = 2 * x_hat - 1,
+    low = 2*(x_hat - 1.96*se_hat) - 1,
+    high = 2*(x_hat + 1.96*se_hat) - 1,
+    sample_size = N)
+}) %&amp;gt;% mutate(poll = seq_along(Ns))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here is a visualization showing the intervals the pollsters would have reported for the difference between Obama and Romney:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/assignment/04-assignment_files/figure-html/simulated-polls-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Not surprisingly, all 12 polls report confidence intervals that include the election night result (dashed line). However, all 12 polls also include 0 (solid black line) as well. Therefore, if asked individually for a prediction, the pollsters would have to say: it’s a toss-up. Below we describe a key insight they are missing.&lt;/p&gt;
+&lt;p&gt;Poll aggregators, such as Nate Silver, realized that by combining the results of different polls you could greatly improve precision. By doing this, we are effectively conducting a poll with a huge sample size. We can therefore report a smaller 95% confidence interval and a more precise prediction.&lt;/p&gt;
+&lt;p&gt;Although as aggregators we do not have access to the raw poll data, we can use mathematics to reconstruct what we would have obtained had we made one large poll with:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sum(polls$sample_size)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 11269&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;participants. Basically, we construct an estimate of the spread, let’s call it &lt;span class=&#34;math inline&#34;&gt;\(d\)&lt;/span&gt;, with a weighted average in the following way:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;d_hat &amp;lt;- polls %&amp;gt;%
+  summarize(avg = sum(estimate*sample_size) / sum(sample_size)) %&amp;gt;%
+  pull(avg)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Once we have an estimate of &lt;span class=&#34;math inline&#34;&gt;\(d\)&lt;/span&gt;, we can construct an estimate for the proportion voting for Obama, which we can then use to estimate the standard error. Once we do this, we see that our margin of error is 0.0184545.&lt;/p&gt;
+&lt;p&gt;Thus, we can predict that the spread will be 3.1 plus or minus 1.8, which not only includes the actual result we eventually observed on election night, but is quite far from including 0. Once we combine the 12 polls, we become quite certain that Obama will win the popular vote.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/assignment/04-assignment_files/figure-html/confidence-coverage-2008-election-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Of course, this was just a simulation to illustrate the idea. The actual data science exercise of forecasting elections is much more complicated and it involves modeling. Below we explain how pollsters fit multilevel models to the data and use this to forecast election results. In the 2008 and 2012 US presidential elections, Nate Silver used this approach to make an almost perfect prediction and silence the pundits.&lt;/p&gt;
+&lt;p&gt;Since the 2008 elections, other organizations have started their own election forecasting group that, like Nate Silver’s, aggregates polling data and uses statistical models to make predictions. In 2016, forecasters underestimated Trump’s chances of winning greatly. The day before the election the &lt;em&gt;New York Times&lt;/em&gt; reported&lt;a href=&#34;#fn2&#34; class=&#34;footnote-ref&#34; id=&#34;fnref2&#34;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt; the following probabilities for Hillary Clinton winning the presidency:&lt;/p&gt;
+&lt;table class=&#34;table table-striped&#34; style=&#34;width: auto !important; margin-left: auto; margin-right: auto;&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+NYT
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+538
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+HuffPost
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+PW
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+PEC
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+DK
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+Cook
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+Roth
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Win Prob
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+85%
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+71%
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+98%
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+89%
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+&amp;gt;99%
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+92%
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Lean Dem
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Lean Dem
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;!--(Source: [New York Times](https://www.nytimes.com/interactive/2016/upshot/presidential-polls-forecast.html))--&gt;
+&lt;p&gt;For example, the Princeton Election Consortium (PEC) gave Trump less than 1% chance of winning, while the Huffington Post gave him a 2% chance. In contrast, FiveThirtyEight had Trump’s probability of winning at 29%, higher than tossing two coins and getting two heads. In fact, four days before the election FiveThirtyEight published an article titled &lt;em&gt;Trump Is Just A Normal Polling Error Behind Clinton&lt;/em&gt;&lt;a href=&#34;#fn3&#34; class=&#34;footnote-ref&#34; id=&#34;fnref3&#34;&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;.
+By understanding statistical models and how these forecasters use them, we will start to understand how this happened.&lt;/p&gt;
+&lt;p&gt;Although not nearly as interesting as predicting the electoral college, for illustrative purposes we will start by looking at predictions for the popular vote. FiveThirtyEight predicted a 3.6% advantage for Clinton&lt;a href=&#34;#fn4&#34; class=&#34;footnote-ref&#34; id=&#34;fnref4&#34;&gt;&lt;sup&gt;4&lt;/sup&gt;&lt;/a&gt;, included the actual result of 2.1% (48.2% to 46.1%) in their interval, and was much more confident about Clinton winning the election, giving her an 81.4% chance. Their prediction was summarized with a chart like this:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/assignment/04-assignment_files/figure-html/fivethirtyeight-densities-1.png&#34; width=&#34;80%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The colored areas represent values with an 80% chance of including the actual result, according to the FiveThirtyEight model.
+&lt;!--(Source: [FiveThirtyEight](https://projects.fivethirtyeight.com/2016-election-forecast/))--&gt;&lt;/p&gt;
+&lt;p&gt;We introduce actual data from the 2016 US presidential election to show how models are motivated and built to produce these predictions. To understand the “81.4% chance” statement we need to describe Bayesian statistics, which we don’t cover in this course.&lt;/p&gt;
+&lt;div id=&#34;poll-data&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Poll data&lt;/h3&gt;
+&lt;p&gt;We use public polling data organized by FiveThirtyEight for the 2016 presidential election. The data is included as part of the &lt;strong&gt;dslabs&lt;/strong&gt; package:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data(polls_us_election_2016)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The table includes results for national polls, as well as state polls, taken during the year prior to the election. For this first example, we will filter the data to include national polls conducted during the week before the election. We also remove polls that FiveThirtyEight has determined not to be reliable and graded with a “B” or less. Some polls have not been graded and we include those:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;polls &amp;lt;- polls_us_election_2016 %&amp;gt;%
+  filter(state == &amp;quot;U.S.&amp;quot; &amp;amp; enddate &amp;gt;= &amp;quot;2016-10-31&amp;quot; &amp;amp;
+           (grade %in% c(&amp;quot;A+&amp;quot;,&amp;quot;A&amp;quot;,&amp;quot;A-&amp;quot;,&amp;quot;B+&amp;quot;) | is.na(grade)))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We add a spread estimate:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;polls &amp;lt;- polls %&amp;gt;%
+  mutate(spread = rawpoll_clinton/100 - rawpoll_trump/100)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;For this example, we will assume that there are only two parties and call &lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt; the proportion voting for Clinton and &lt;span class=&#34;math inline&#34;&gt;\(1-p\)&lt;/span&gt; the proportion voting for Trump. We are interested in the spread &lt;span class=&#34;math inline&#34;&gt;\(2p-1\)&lt;/span&gt;. Let’s call the spread &lt;span class=&#34;math inline&#34;&gt;\(d\)&lt;/span&gt; (for difference).&lt;/p&gt;
+&lt;p&gt;We have 49 estimates of the spread. The theory we learned tells us that these estimates are a random variable with a probability distribution that is approximately normal. The expected value is the election night spread &lt;span class=&#34;math inline&#34;&gt;\(d\)&lt;/span&gt; and the standard error is &lt;span class=&#34;math inline&#34;&gt;\(2\sqrt{p (1 - p) / N}\)&lt;/span&gt;. Assuming the urn model we described earlier is a good one, we can use this information to construct a confidence interval based on the aggregated data. The estimated spread is:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;d_hat &amp;lt;- polls %&amp;gt;%
+  summarize(d_hat = sum(spread * samplesize) / sum(samplesize)) %&amp;gt;%
+  pull(d_hat)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;and the standard error is:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p_hat &amp;lt;- (d_hat+1)/2
+moe &amp;lt;- 1.96 * 2 * sqrt(p_hat * (1 - p_hat) / sum(polls$samplesize))
+moe&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.006623178&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So we report a spread of 1.43% with a margin of error of 0.66%. On election night, we discover that the actual percentage was 2.1%, which is outside a 95% confidence interval. What happened?&lt;/p&gt;
+&lt;p&gt;A histogram of the reported spreads shows a problem:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;polls %&amp;gt;%
+  ggplot(aes(spread)) +
+  geom_histogram(color=&amp;quot;black&amp;quot;, binwidth = .01)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/assignment/04-assignment_files/figure-html/polls-2016-spread-histogram-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The data does not appear to be normally distributed and the standard error appears to be larger than 0.0066232. The theory is not quite working here.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;pollster-bias&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Pollster bias&lt;/h3&gt;
+&lt;p&gt;Notice that various pollsters are involved and some are taking several polls a week:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;polls %&amp;gt;% group_by(pollster) %&amp;gt;% summarize(n())&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 15 × 2
+##    pollster                                                   `n()`
+##    &amp;lt;fct&amp;gt;                                                      &amp;lt;int&amp;gt;
+##  1 ABC News/Washington Post                                       7
+##  2 Angus Reid Global                                              1
+##  3 CBS News/New York Times                                        2
+##  4 Fox News/Anderson Robbins Research/Shaw &amp;amp; Company Research     2
+##  5 IBD/TIPP                                                       8
+##  6 Insights West                                                  1
+##  7 Ipsos                                                          6
+##  8 Marist College                                                 1
+##  9 Monmouth University                                            1
+## 10 Morning Consult                                                1
+## 11 NBC News/Wall Street Journal                                   1
+## 12 RKM Research and Communications, Inc.                          1
+## 13 Selzer &amp;amp; Company                                               1
+## 14 The Times-Picayune/Lucid                                       8
+## 15 USC Dornsife/LA Times                                          8&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Let’s visualize the data for the pollsters that are regularly polling:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/assignment/04-assignment_files/figure-html/pollster-bias-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;This plot reveals an unexpected result. First, consider that the standard error predicted by theory for each poll:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;polls %&amp;gt;% group_by(pollster) %&amp;gt;%
+  filter(n() &amp;gt;= 6) %&amp;gt;%
+  summarize(se = 2 * sqrt(p_hat * (1-p_hat) / median(samplesize)))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 5 × 2
+##   pollster                     se
+##   &amp;lt;fct&amp;gt;                     &amp;lt;dbl&amp;gt;
+## 1 ABC News/Washington Post 0.0265
+## 2 IBD/TIPP                 0.0333
+## 3 Ipsos                    0.0225
+## 4 The Times-Picayune/Lucid 0.0196
+## 5 USC Dornsife/LA Times    0.0183&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;is between 0.018 and 0.033, which agrees with the within poll variation we see. However, there appears to be differences &lt;em&gt;across the polls&lt;/em&gt;. Note, for example, how the USC Dornsife/LA Times pollster is predicting a 4% win for Trump, while Ipsos is predicting a win larger than 5% for Clinton. The theory we learned says nothing about different pollsters producing polls with different expected values. All the polls should have the same expected value. FiveThirtyEight refers to these differences as “house effects”. We also call them &lt;em&gt;pollster bias&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;In the following section, rather than use the urn model theory, we are instead going to develop a data-driven model.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;data-driven-model&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Data-driven models&lt;/h2&gt;
+&lt;p&gt;For each pollster, let’s collect their last reported result before the election:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;one_poll_per_pollster &amp;lt;- polls %&amp;gt;% group_by(pollster) %&amp;gt;%
+  filter(enddate == max(enddate)) %&amp;gt;%
+  ungroup()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here is a histogram of the data for these 15 pollsters:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;qplot(spread, data = one_poll_per_pollster, binwidth = 0.01)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/assignment/04-assignment_files/figure-html/pollster-bias-histogram-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;In the previous section, we saw that using the urn model theory to combine these results might not be appropriate due to the pollster effect. Instead, we will model this spread data directly.&lt;/p&gt;
+&lt;p&gt;The new model can also be thought of as an urn model, although the connection is not as direct. Rather than 0s (Republicans) and 1s (Democrats), our urn now contains poll results from all possible pollsters. We &lt;em&gt;assume&lt;/em&gt; that the expected value of our urn is the actual spread &lt;span class=&#34;math inline&#34;&gt;\(d=2p-1\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Because instead of 0s and 1s, our urn contains continuous numbers between -1 and 1, the standard deviation of the urn is no longer &lt;span class=&#34;math inline&#34;&gt;\(\sqrt{p(1-p)}\)&lt;/span&gt;. Rather than voter sampling variability, the standard error now includes the pollster-to-pollster variability. Our new urn also includes the sampling variability from the polling. Regardless, this standard deviation is now an unknown parameter. In statistics textbooks, the Greek symbol &lt;span class=&#34;math inline&#34;&gt;\(\sigma\)&lt;/span&gt; is used to represent this parameter.&lt;/p&gt;
+&lt;p&gt;In summary, we have two unknown parameters: the expected value &lt;span class=&#34;math inline&#34;&gt;\(d\)&lt;/span&gt; and the standard deviation &lt;span class=&#34;math inline&#34;&gt;\(\sigma\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Our task is to estimate &lt;span class=&#34;math inline&#34;&gt;\(d\)&lt;/span&gt;. Because we model the observed values &lt;span class=&#34;math inline&#34;&gt;\(X_1,\dots X_N\)&lt;/span&gt; as a random sample from the urn, the CLT might still work in this situation because it is an average of independent random variables. For a large enough sample size &lt;span class=&#34;math inline&#34;&gt;\(N\)&lt;/span&gt;, the probability distribution of the sample average &lt;span class=&#34;math inline&#34;&gt;\(\bar{X}\)&lt;/span&gt; is approximately normal with expected value &lt;span class=&#34;math inline&#34;&gt;\(\mu\)&lt;/span&gt; and standard error &lt;span class=&#34;math inline&#34;&gt;\(\sigma/\sqrt{N}\)&lt;/span&gt;. If we are willing to consider &lt;span class=&#34;math inline&#34;&gt;\(N=15\)&lt;/span&gt; large enough, we can use this to construct confidence intervals.&lt;/p&gt;
+&lt;p&gt;A problem is that we don’t know &lt;span class=&#34;math inline&#34;&gt;\(\sigma\)&lt;/span&gt;. But theory tells us that we can estimate the urn model &lt;span class=&#34;math inline&#34;&gt;\(\sigma\)&lt;/span&gt; with the &lt;em&gt;sample standard deviation&lt;/em&gt; defined as
+&lt;span class=&#34;math inline&#34;&gt;\(s = \sqrt{ \sum_{i=1}^N (X_i - \bar{X})^2 / (N-1)}\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Unlike for the population standard deviation definition, we now divide by &lt;span class=&#34;math inline&#34;&gt;\(N-1\)&lt;/span&gt;. This makes &lt;span class=&#34;math inline&#34;&gt;\(s\)&lt;/span&gt; a better estimate of &lt;span class=&#34;math inline&#34;&gt;\(\sigma\)&lt;/span&gt;. There is a mathematical explanation for this, which is explained in most statistics textbooks, but we don’t cover it here.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;sd&lt;/code&gt; function in R computes the sample standard deviation:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sd(one_poll_per_pollster$spread)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.02419369&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We are now ready to form a new confidence interval based on our new data-driven model:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;results &amp;lt;- one_poll_per_pollster %&amp;gt;%
+  summarize(avg = mean(spread),
+            se = sd(spread) / sqrt(length(spread))) %&amp;gt;%
+  mutate(start = avg - 1.96 * se,
+         end = avg + 1.96 * se)
+round(results * 100, 1)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   avg  se start end
+## 1 2.9 0.6   1.7 4.1&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Our confidence interval is wider now since it incorporates the pollster variability. It does include the election night result of 2.1%. Also, note that it was small enough not to include 0, which means we were confident Clinton would win the popular vote.&lt;/p&gt;
+&lt;div class=&#34;fyi&#34;&gt;
+&lt;p&gt;&lt;strong&gt;EXERCISES&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Note that using dollar signs &lt;code&gt;$ $&lt;/code&gt; to enclose some text is how you make the fancy math you see below. If you installed &lt;code&gt;tinytex&lt;/code&gt; or some other Latex distribution in order to render your PDFs, you should be equipped to insert mathematics directly into your .Rmd file. It only works in the text – inside the code chunks, the dollar sign is still the accessor.&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;In this section, we talked about pollster bias. We used visualization to motivate the presence of such bias. Here we will give it a more rigorous treatment. We will consider two pollsters that conducted daily polls. We will look at national polls for the month before the election.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data(polls_us_election_2016)
+polls &amp;lt;- polls_us_election_2016 %&amp;gt;%
+  filter(pollster %in% c(&amp;quot;Rasmussen Reports/Pulse Opinion Research&amp;quot;,
+                         &amp;quot;The Times-Picayune/Lucid&amp;quot;) &amp;amp;
+           enddate &amp;gt;= &amp;quot;2016-10-15&amp;quot; &amp;amp;
+           state == &amp;quot;U.S.&amp;quot;) %&amp;gt;%
+  mutate(spread = rawpoll_clinton/100 - rawpoll_trump/100)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We want to answer the question: is there a poll bias? First, make a plot showing the spreads for each poll.&lt;/p&gt;
+&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;The data does seem to suggest there is a difference. However, these data are subject to variability. Perhaps the differences we observe are due to chance.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The urn model theory says nothing about pollster effect. Under the urn model, both pollsters have the same expected value: the election day difference, that we call &lt;span class=&#34;math inline&#34;&gt;\(d\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;We will model the observed data &lt;span class=&#34;math inline&#34;&gt;\(Y_{i,j}\)&lt;/span&gt; in the following way:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+Y_{i,j} = d + b_i + \varepsilon_{i,j}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;with &lt;span class=&#34;math inline&#34;&gt;\(i=1,2\)&lt;/span&gt; indexing the two pollsters, &lt;span class=&#34;math inline&#34;&gt;\(b_i\)&lt;/span&gt; the bias for pollster &lt;span class=&#34;math inline&#34;&gt;\(i\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\varepsilon_ij\)&lt;/span&gt; poll to poll chance variability. We assume the &lt;span class=&#34;math inline&#34;&gt;\(\varepsilon\)&lt;/span&gt; are independent from each other, have expected value &lt;span class=&#34;math inline&#34;&gt;\(0\)&lt;/span&gt; and standard deviation &lt;span class=&#34;math inline&#34;&gt;\(\sigma_i\)&lt;/span&gt; regardless of &lt;span class=&#34;math inline&#34;&gt;\(j\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Which of the following best represents our question?&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;Is &lt;span class=&#34;math inline&#34;&gt;\(\varepsilon_{i,j}\)&lt;/span&gt; = 0?&lt;/li&gt;
+&lt;li&gt;How close are the &lt;span class=&#34;math inline&#34;&gt;\(Y_{i,j}\)&lt;/span&gt; to &lt;span class=&#34;math inline&#34;&gt;\(d\)&lt;/span&gt;?&lt;/li&gt;
+&lt;li&gt;Is &lt;span class=&#34;math inline&#34;&gt;\(b_1 \neq b_2\)&lt;/span&gt;?&lt;/li&gt;
+&lt;li&gt;Are &lt;span class=&#34;math inline&#34;&gt;\(b_1 = 0\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(b_2 = 0\)&lt;/span&gt; ?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol start=&#34;3&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Suppose we define &lt;span class=&#34;math inline&#34;&gt;\(\bar{Y}_1\)&lt;/span&gt; as the average of poll results from the first pollster, &lt;span class=&#34;math inline&#34;&gt;\(Y_{1,1},\dots,Y_{1,N_1}\)&lt;/span&gt; with &lt;span class=&#34;math inline&#34;&gt;\(N_1\)&lt;/span&gt; the number of polls conducted by the first pollster:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;polls %&amp;gt;%
+  filter(pollster==&amp;quot;Rasmussen Reports/Pulse Opinion Research&amp;quot;) %&amp;gt;%
+  summarize(N_1 = n())&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;What is the expected value of &lt;span class=&#34;math inline&#34;&gt;\(\bar{Y}_1\)&lt;/span&gt;?&lt;/p&gt;
+&lt;ol start=&#34;4&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;What is the sample variance &lt;span class=&#34;math inline&#34;&gt;\(s^2_1\)&lt;/span&gt; of the sample &lt;span class=&#34;math inline&#34;&gt;\(Y_1\)&lt;/span&gt;? Using &lt;span class=&#34;math inline&#34;&gt;\(s^2_1\)&lt;/span&gt;, what is the standard error of the mean &lt;span class=&#34;math inline&#34;&gt;\(\bar{Y}_1\)&lt;/span&gt;?&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Suppose we define &lt;span class=&#34;math inline&#34;&gt;\(\bar{Y}_2\)&lt;/span&gt; as the average of poll results from the second pollster, &lt;span class=&#34;math inline&#34;&gt;\(Y_{2,1},\dots,Y_{2,N_2}\)&lt;/span&gt; with &lt;span class=&#34;math inline&#34;&gt;\(N_2\)&lt;/span&gt; the number of polls conducted by the second pollster. What is the expected value &lt;span class=&#34;math inline&#34;&gt;\(\bar{Y}_2\)&lt;/span&gt;, the sample variance &lt;span class=&#34;math inline&#34;&gt;\(s^2_2\)&lt;/span&gt;, and the standard error of the mean &lt;span class=&#34;math inline&#34;&gt;\(\bar{Y}_2\)&lt;/span&gt;?&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;What does the CLT tell us about the distribution of a new random variable that is defined as &lt;span class=&#34;math inline&#34;&gt;\(\bar{Y}_2 - \bar{Y}_1\)&lt;/span&gt;?&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;Nothing because this is not the average of a sample.&lt;/li&gt;
+&lt;li&gt;Because the &lt;span class=&#34;math inline&#34;&gt;\(Y_{ij}\)&lt;/span&gt; are approximately normal, so are the averages.&lt;/li&gt;
+&lt;li&gt;Note that &lt;span class=&#34;math inline&#34;&gt;\(\bar{Y}_2\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\bar{Y}_1\)&lt;/span&gt; are sample averages, so if we assume &lt;span class=&#34;math inline&#34;&gt;\(N_2\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(N_1\)&lt;/span&gt; are large enough, each is approximately normal. The difference of normals is also normal.&lt;/li&gt;
+&lt;li&gt;The data are not 0 or 1, so CLT does not apply.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol start=&#34;7&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;The new random variable defined as &lt;span class=&#34;math inline&#34;&gt;\(\bar{Y}_2 - \bar{Y}_1\)&lt;/span&gt; has an expected value of &lt;span class=&#34;math inline&#34;&gt;\(b_2 - b_1\)&lt;/span&gt;. To see this, take the equation from problem 2 defined for each pollster, write out the difference, and take expectations. &lt;span class=&#34;math inline&#34;&gt;\(b_2 = b_1\)&lt;/span&gt; is the pollster bias difference we want to learn about statistically. If our model holds, then this random variable has an approximately normal distribution and we know its standard error – by the rules of random variable variance, the standard error is the square root of the variance of the new random variable, and the variance of the new variable is the &lt;em&gt;sum of the variances minus twice the covariance (which is zero by our assumptions)&lt;/em&gt;. The standard error of our new random variable depends on the standard errors of the &lt;span class=&#34;math inline&#34;&gt;\(Y\)&lt;/span&gt; above, which we already estimated in 3-5.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The statistic formed by dividing our estimate of &lt;span class=&#34;math inline&#34;&gt;\(b_2-b_1\)&lt;/span&gt; by its estimated standard error:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\frac{\bar{Y}_2 - \bar{Y}_1}{\sqrt{\underbrace{s_2^2/N_2}_{\text{Std error of mean from 4, squared}} + \underbrace{s_1^2/N_1}_{\text{Std error of mean from 5, squared}}}}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;is called the t-statistic. Now you should be able to do the calculations necessary to answer the question: is &lt;span class=&#34;math inline&#34;&gt;\(b_2 - b_1\)&lt;/span&gt; different from 0? Hint: you can build a 95% confidence interval around your estimate.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=TbKkjm-gheY&#34; class=&#34;uri&#34;&gt;https://www.youtube.com/watch?v=TbKkjm-gheY&lt;/a&gt;&lt;a href=&#34;#fnref1&#34; class=&#34;footnote-back&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn2&#34;&gt;&lt;p&gt;&lt;a href=&#34;https://www.nytimes.com/interactive/2016/upshot/presidential-polls-forecast.html&#34; class=&#34;uri&#34;&gt;https://www.nytimes.com/interactive/2016/upshot/presidential-polls-forecast.html&lt;/a&gt;&lt;a href=&#34;#fnref2&#34; class=&#34;footnote-back&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn3&#34;&gt;&lt;p&gt;&lt;a href=&#34;https://fivethirtyeight.com/features/trump-is-just-a-normal-polling-error-behind-clinton/&#34; class=&#34;uri&#34;&gt;https://fivethirtyeight.com/features/trump-is-just-a-normal-polling-error-behind-clinton/&lt;/a&gt;&lt;a href=&#34;#fnref3&#34; class=&#34;footnote-back&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn4&#34;&gt;&lt;p&gt;&lt;a href=&#34;https://projects.fivethirtyeight.com/2016-election-forecast/&#34; class=&#34;uri&#34;&gt;https://projects.fivethirtyeight.com/2016-election-forecast/&lt;/a&gt;&lt;a href=&#34;#fnref4&#34; class=&#34;footnote-back&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Correlations and Simple Models</title>
+      <link>https://ssc442kirkpatrick.netlify.app/assignment/05-assignment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://ssc442kirkpatrick.netlify.app/assignment/05-assignment/</guid>
+      <description>
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#backstory-and-set-up&#34;&gt;Backstory and Set Up&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#data-exploration-and-processing&#34;&gt;Data Exploration and Processing&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;!-- Updated 8.30.22 --&gt;
+&lt;div class=&#34;fyi&#34;&gt;
+&lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;You must turn in a PDF document of your &lt;code&gt;R Markdown&lt;/code&gt; code. Submit this to D2L by 11:59 PM Eastern Time on Monday, October 10th.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;backstory-and-set-up&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Backstory and Set Up&lt;/h2&gt;
+&lt;p&gt;You have been recently hired to Zillow’s Zestimate product team as a junior analyst. As a part of their regular hazing, they have given you access to a small subset of their historic sales data. Your job is to present some basic predictions for housing values in a small geographic area (Ames, IA) using this historical pricing.&lt;/p&gt;
+&lt;p&gt;First, let’s load the data.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ameslist  &amp;lt;- read.table(&amp;#39;https://raw.githubusercontent.com/ajkirkpatrick/FS20/postS21_rev/classdata/ames.csv&amp;#39;, 
+                   header = TRUE,
+                   sep = &amp;#39;,&amp;#39;) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Before we proceed, let’s note a few things about the (simple) code above. First, we have specified &lt;code&gt;header = TRUE&lt;/code&gt; because—you guessed it—the original dataset has headers. Although simple, this is an incredibly important step because it allows &lt;code&gt;R&lt;/code&gt; to do some smart &lt;code&gt;R&lt;/code&gt; things. Specifically, once the headers are in, the variables are formatted as &lt;code&gt;int&lt;/code&gt; and &lt;code&gt;factor&lt;/code&gt; where appropriate. It is absolutely vital that we format the data correctly; otherwise, many &lt;code&gt;R&lt;/code&gt; commands will whine at us.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Try it:&lt;/strong&gt; Run the above, but instead specifying &lt;code&gt;header = FALSE&lt;/code&gt;. What data type are the various columns? Now try ommitting the line altogether. What is the default behavior of the &lt;code&gt;read.table&lt;/code&gt; function?&lt;a href=&#34;#fn1&#34; class=&#34;footnote-ref&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div id=&#34;data-exploration-and-processing&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Data Exploration and Processing&lt;/h3&gt;
+&lt;p&gt;We are not going to tell you anything about this data. This is intended to replicate a real-world experience that you will all encounter in the (possibly near) future: someone hands you data and you’re expected to make sense of it. Fortunately for us, this data is (somewhat) self-contained. We’ll first check the variable names to try to divine some information. Recall, we have a handy little function for that:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;names(ameslist)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Note that, when doing data exploration, we will sometimes choose to not save our output. This is a judgement call; here we’ve chosen to merely inspect the variables rather than diving in.&lt;/p&gt;
+&lt;p&gt;Inspection yields some obvious truths. For example:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Explanation&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Type&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;code&gt;ID&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;Unique identifier for each row&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;&lt;code&gt;int&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;&lt;code&gt;LotArea&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;Size of lot (&lt;strong&gt;units unknown&lt;/strong&gt;)&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;&lt;code&gt;int&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;code&gt;SalePrice&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;Sale price of house ($)&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;&lt;code&gt;int&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;…but we face some not-so-obvious things as well. For example:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Explanation&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Type&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;code&gt;LotShape&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;? Something about the lot&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;&lt;code&gt;factor&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;&lt;code&gt;MSSubClass&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;? No clue at all&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;&lt;code&gt;int&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;code&gt;Condition1&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;? Seems like street info&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;&lt;code&gt;factor&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;It will be difficult to learn anything about the data that is of type &lt;code&gt;int&lt;/code&gt; without outside documentation. However, we can learn something more about the &lt;code&gt;factor&lt;/code&gt;-type variables. In order to understand these a little better, we need to review some of the values that each take on.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Try it:&lt;/strong&gt; Go through the variables in the dataset and make a note about your interpretation for each. Many will be obvious, but some require additional thought.&lt;/p&gt;
+&lt;p&gt;We now turn to another central issue—and one that explains our nomenclature choice thus far: the data object is of type &lt;code&gt;list&lt;/code&gt;. To verify this for yourself, check:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;typeof(ameslist)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This isn’t ideal—for some visualization packages, for instance, we need data frames and not lists. We’ll make a mental note of this as something to potentially clean up if we desire.&lt;/p&gt;
+&lt;p&gt;Although there are some variables that would be difficult to clean, there are a few that we can address with relative ease. Consider, for instance, the variable &lt;code&gt;GarageType&lt;/code&gt;. This might not be that important, but, remember, the weather in Ames, IA is pretty crummy—a detached garage might be a dealbreaker for some would-be homebuyers. Let’s inspect the values:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;&amp;gt; unique(ameslist$GarageType)
+[1] Attchd  Detchd  BuiltIn CarPort &amp;lt;NA&amp;gt; Basment 2Types&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;With this, we could make an informed decision and create a new variable. Let’s create &lt;code&gt;OutdoorGarage&lt;/code&gt; to indicate, say, homes that have any type of garage that requires the homeowner to walk outdoors after parking their car. (For those who aren’t familiar with different garage types, a car port is not insulated and is therefore considered outdoors. A detached garage presumably requires that the person walks outside after parking. The three other types are inside the main structure, and &lt;code&gt;2Types&lt;/code&gt; we can assume includes at least one attached garage of some sort). This is going to require a bit more coding and we will have to think through each step carefully.&lt;/p&gt;
+&lt;p&gt;First, let’s create a new object that has indicator variables (that is, a variable whose values are either zero or one) for each of the &lt;code&gt;GarageType&lt;/code&gt; values. As with everything in &lt;code&gt;R&lt;/code&gt;, there’s a handy function to do this for us:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;GarageTemp = model.matrix( ~ GarageType - 1, data=ameslist )&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We now have two separate objects living in our computer’s memory: &lt;code&gt;ameslist&lt;/code&gt; and &lt;code&gt;GarageTemp&lt;/code&gt;—so named to indicate that it is a temporary object.&lt;a href=&#34;#fn2&#34; class=&#34;footnote-ref&#34; id=&#34;fnref2&#34;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt; We now need to stitch it back onto our original data; we’ll use a simple concatenation and write over our old list with the new one:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ameslist &amp;lt;- cbind(ameslist, GarageTemp)
+&amp;gt; Error in data.frame(..., check.names = FALSE) :
+  arguments imply differing number of rows: 1460, 1379&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Huh. What’s going on?&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Try it:&lt;/strong&gt; Figure out what’s going on above. Fix this code so that you have a working version.&lt;/p&gt;
+&lt;p&gt;Now that we’ve got that working (ha!) we can generate a new variable for our outdoor garage. We’ll use a somewhat gross version below because it is &lt;em&gt;verbose&lt;/em&gt;; that said, this can be easily accomplished using logical indexing for those who like that approach.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ameslist$GarageOutside &amp;lt;- ifelse(ameslist$GarageTypeDetchd == 1 | ameslist$GarageTypeCarPort == 1, 1, 0)
+unique(ameslist$GarageOutside)
+[1]  0  1 NA&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This seems to have worked. The command above &lt;code&gt;ifelse()&lt;/code&gt; does what it says: &lt;code&gt;if&lt;/code&gt; some condition is met (here, either of two variables equals one) then it returns a one; &lt;code&gt;else&lt;/code&gt; it returns a zero. Such functions are very handy, though as mentioned above, there are other ways of doing this. Also note, that while fixed the issue with &lt;code&gt;NA&lt;/code&gt; above, we’ve got new issues: we definitely don’t want &lt;code&gt;NA&lt;/code&gt; outputted from this operation. Accordingly, we’re going to need to deal with it somehow.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Try it:&lt;/strong&gt; Utilizing a similar approach to what you did above, fix this so that the only outputs are zero and one. This requires taking a stand on what the &lt;code&gt;NA&lt;/code&gt; values mean. If you think they correspond to a detached garage (or something functionally equivalent, like “no parking whatsoever”), then change the &lt;code&gt;NA&lt;/code&gt; values to zero. If you think they are mistakes, then we should drop all data with &lt;code&gt;NA&lt;/code&gt; for the this column. State what you did and why.&lt;/p&gt;
+&lt;p&gt;Generally speaking, this is a persistent issue, and you will spend an extraordinary amount of time dealing with missing data or data that does not encode a variable exactly as you want it. This is expecially true if you deal with real-world data: you will need to learn how to handle &lt;code&gt;NA&lt;/code&gt;s. There are a number of fixes (as always, Google is your friend) and anything that works is good. But you should spend some time thinking about this and learning at least one approach.&lt;/p&gt;
+&lt;div class=&#34;fyi&#34;&gt;
+&lt;p&gt;&lt;strong&gt;EXERCISES&lt;/strong&gt;&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;Prune the data to 6-8 of the variables that are &lt;code&gt;type = int&lt;/code&gt; about which you have some reasonable intuition for what they mean. Choose those that you believe are likely to be correlated with &lt;code&gt;SalePrice&lt;/code&gt;. This &lt;strong&gt;must&lt;/strong&gt; include the variable &lt;code&gt;SalePrice&lt;/code&gt; and &lt;code&gt;GrLivArea&lt;/code&gt;. Save this new dataset as &lt;code&gt;Ames&lt;/code&gt;. Produce documentation for this object in the form of a &lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/resource/markdown/#tables-1&#34;&gt;Markdown table&lt;/a&gt; or see &lt;a href=&#34;https://www.markdownguide.org/extended-syntax/&#34;&gt;further documentation here&lt;/a&gt;. This must describe each of the preserved variables, the values it can take (e.g., can it be negative?) and your definition of the variable. Counting the variable name, this means your table should have three columns. Markdown tables are entered in the text body, not code chunks, of your .rmd, so your code creating &lt;code&gt;Ames&lt;/code&gt; will be in a code chunk, and your table will be right after it.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Produce a &lt;em&gt;scatterplot matrix&lt;/em&gt; of the chosen variables&lt;a href=&#34;#fn3&#34; class=&#34;footnote-ref&#34; id=&#34;fnref3&#34;&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Compute a matrix of correlations between these variables using the function &lt;code&gt;cor()&lt;/code&gt;. Do the correlations match your prior beliefs? Briefly discuss the correlation between the chosen variables and &lt;code&gt;SalePrice&lt;/code&gt; and any correlations between these variables.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Produce a scatterplot between &lt;code&gt;SalePrice&lt;/code&gt; and &lt;code&gt;GrLivArea&lt;/code&gt;. Run a linear model using &lt;code&gt;lm()&lt;/code&gt; to explore the relationship. Finally, use the &lt;code&gt;geom_abline()&lt;/code&gt; function to plot the relationship that you’ve found in the simple linear regression. You’ll need to extract the intercept and slope from your &lt;code&gt;lm&lt;/code&gt; object. See &lt;code&gt;coef(...)&lt;/code&gt; for information on this.&lt;a href=&#34;#fn4&#34; class=&#34;footnote-ref&#34; id=&#34;fnref4&#34;&gt;&lt;sup&gt;4&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;What is the largest outlier that is above the regression line? Produce the other information about this house.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;(Bonus)&lt;/strong&gt; Create a visualization that shows the rise of air conditioning over time in homes in Ames.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;Of course, you could find out the defaults of the function by simply using the handy &lt;code&gt;?&lt;/code&gt; command. Don’t forget about this tool!&lt;a href=&#34;#fnref1&#34; class=&#34;footnote-back&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn2&#34;&gt;&lt;p&gt;It’s not exactly true that these objects are in memory. They are… sort of. But how &lt;code&gt;R&lt;/code&gt; handles memory is complicated and silly and blah blah who cares. It’s basically in memory.&lt;a href=&#34;#fnref2&#34; class=&#34;footnote-back&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn3&#34;&gt;&lt;p&gt;If you are not familiar with this type of visualization, consult the book (&lt;em&gt;Introduction to Statistical Learning&lt;/em&gt;), Chapters 2 and 3.&lt;a href=&#34;#fnref3&#34; class=&#34;footnote-back&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn4&#34;&gt;&lt;p&gt;We could also use &lt;code&gt;geom_smooth(method = &#39;lm&#39;)&lt;/code&gt; to add the regression line, but it’s good practice to work with &lt;code&gt;lm&lt;/code&gt; objects.&lt;a href=&#34;#fnref4&#34; class=&#34;footnote-back&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -3496,7 +3954,10 @@ csl: &amp;quot;https://raw.githubusercontent.com/citation-style-language/styles/
 &lt;li&gt;&lt;a href=&#34;#key-terms&#34;&gt;Key terms&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#add-chunks&#34;&gt;Add chunks&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#chunk-names&#34;&gt;Chunk names&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#chunk-options&#34;&gt;Chunk options&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#chunk-options&#34;&gt;Chunk options&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#chunk-fig.width-and-fig.height&#34;&gt;Chunk &lt;code&gt;fig.width&lt;/code&gt; and &lt;code&gt;fig.height&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#inline-chunks&#34;&gt;Inline chunks&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#output-formats&#34;&gt;Output formats&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -3552,10 +4013,14 @@ csl: &amp;quot;https://raw.githubusercontent.com/citation-style-language/styles/
 &lt;li&gt;&lt;code&gt;echo=FALSE&lt;/code&gt;: The code is not shown in the final document, but the results are&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;message=FALSE&lt;/code&gt;: Any messages that R generates (like all the notes that appear after you load a package) are omitted&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;warning=FALSE&lt;/code&gt;: Any warnings that R generates are omitted&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;include=FALSE&lt;/code&gt;: The chunk still runs, but the code and results are not included in the final document&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;include=FALSE&lt;/code&gt;: The chunk still runs, but the code and results are not included in the final document. Don’t use this on your labs as we need to see your work, but do use this for your final project when the output is to be polished and clean.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;You can also set chunk options by clicking on the little gear icon in the top right corner of any chunk:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;../../../../../../../img/reference/chunk-options.png&#34; width=&#34;70%&#34; /&gt;&lt;/p&gt;
+&lt;div id=&#34;chunk-fig.width-and-fig.height&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Chunk &lt;code&gt;fig.width&lt;/code&gt; and &lt;code&gt;fig.height&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;When a code chunk includes a plot (like from &lt;code&gt;ggplot&lt;/code&gt;), the “canvas” size used can affect the output. You may have noticed if you plot directly in Rstudio, the plot resizes when you change the pane size. Each chunk has its own canvas size, and you can change that. So, if you have a chunk with a large plot, you can change the &lt;code&gt;fig.width=7.5&lt;/code&gt; in the chunk options. Note that units default to inches, so no more than 7.5 will fit on a regular-sized sheet of paper (or appropriately sized PDF).&lt;/p&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;inline-chunks&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Inline chunks&lt;/h2&gt;

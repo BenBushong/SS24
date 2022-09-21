@@ -472,10 +472,10 @@ surv_income %>% ggplot(aes(income, infant_survival_rate, label = group, color = 
 
 The relationship between these two variables is almost perfectly linear and the graph shows a dramatic difference. While in the West less than 0.5% of infants die, in Sub-Saharan Africa the rate is higher than 6%!
 
-Note that the plot uses a new transformation, the logistic transformation.
+Note that the plot uses a new transformation, the logit transformation.
 
-### Logistic transformation {#logit}
-The logistic or logit transformation for a proportion or rate $p$ is defined as:
+### Logit transformation {#logit}
+The logit transformation for a proportion or rate $p$ is defined as:
 
 $$f(p) = \log \left( \frac{p}{1-p} \right)$$
 
