@@ -772,7 +772,7 @@ dslabs::gapminder %>%
   ggplot(aes(x = year, y = gdp/population, color = life_expectancy)) + 
   scale_color_gradient2(low = 'red', mid = 'white', high = 'blue', midpoint = 72.5) + 
   geom_point(size = 5) +
-  labs(x = 'Year', y = 'GDP Per Capita', fill = 'Life Expectancy')
+  labs(x = 'Year', y = 'GDP Per Capita', color = 'Life Expectancy')
 ```
 
 The midpoint specification is extra useful when there is a threshold (like 50% of the vote) that indicates a different qualitative outcome.
@@ -785,7 +785,7 @@ dslabs::gapminder %>%
   ggplot(aes(x = year, y = gdp/population, color = life_expectancy)) + 
   scale_color_gradient2(low = color_blind_friendly_cols[3], mid = color_blind_friendly_cols[4], high = color_blind_friendly_cols[5], midpoint = 72.5) + 
   geom_point(size = 5) +
-  labs(x = 'Year', y = 'GDP Per Capita', fill = 'Life Expectancy')
+  labs(x = 'Year', y = 'GDP Per Capita', color = 'Life Expectancy')
 ```
 
 

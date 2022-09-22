@@ -1208,6 +1208,9 @@ grid.arrange(p1, p2, ncol = 2) # we&#39;ll cover this later</code></pre>
 <p><img src="/content/03-content_files/figure-html/show-data-2-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>For example, this plot gives us an idea of the range of the data. However, this plot has limitations as well, since we can’t really see all the 238 and 812 points plotted for females and males, respectively, and many points are plotted on top of each other. As we have previously described, visualizing the distribution is much more informative. But before doing this, we point out two ways we can improve a plot showing all the points.</p>
 <p>The first is to add <em>jitter</em>, which adds a small random shift to each point. In this case, adding horizontal jitter does not alter the interpretation, since the point heights do not change, but we minimize the number of points that fall on top of each other and, therefore, get a better visual sense of how the data is distributed. A second improvement comes from using <em>alpha blending</em>: making the points somewhat transparent. The more points fall on top of each other, the darker the plot, which also helps us get a sense of how the points are distributed. Here is the same plot with jitter and alpha blending:</p>
+<pre class="r"><code>heights %&gt;%
+  ggplot(aes(sex, height)) +
+  geom_jitter(width = 0.1, alpha = 0.2)</code></pre>
 <p><img src="/content/03-content_files/figure-html/show-points-with-jitter-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Now we start getting a sense that, on average, males are taller than females. We also note dark horizontal bands of points, demonstrating that many report values that are rounded to the nearest integer.</p>
 </div>
@@ -1395,7 +1398,7 @@ grid.arrange(custom_a, custom_b)</code></pre>
   ggplot(aes(x = year, y = gdp/population, color = life_expectancy)) + 
   scale_color_gradient2(low = &#39;red&#39;, mid = &#39;white&#39;, high = &#39;blue&#39;, midpoint = 72.5) + 
   geom_point(size = 5) +
-  labs(x = &#39;Year&#39;, y = &#39;GDP Per Capita&#39;, fill = &#39;Life Expectancy&#39;)</code></pre>
+  labs(x = &#39;Year&#39;, y = &#39;GDP Per Capita&#39;, color = &#39;Life Expectancy&#39;)</code></pre>
 <p><img src="/content/03-content_files/figure-html/unnamed-chunk-19-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>The midpoint specification is extra useful when there is a threshold (like 50% of the vote) that indicates a different qualitative outcome.</p>
 <p>The gradient2 method does not always work with the colorblind discrete palette - the colors interpolated may be in the range in which colorblindness tends to be a problem:</p>
@@ -1404,7 +1407,7 @@ grid.arrange(custom_a, custom_b)</code></pre>
   ggplot(aes(x = year, y = gdp/population, color = life_expectancy)) + 
   scale_color_gradient2(low = color_blind_friendly_cols[3], mid = color_blind_friendly_cols[4], high = color_blind_friendly_cols[5], midpoint = 72.5) + 
   geom_point(size = 5) +
-  labs(x = &#39;Year&#39;, y = &#39;GDP Per Capita&#39;, fill = &#39;Life Expectancy&#39;)</code></pre>
+  labs(x = &#39;Year&#39;, y = &#39;GDP Per Capita&#39;, color = &#39;Life Expectancy&#39;)</code></pre>
 <p><img src="/content/03-content_files/figure-html/unnamed-chunk-20-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 </div>
