@@ -17,7 +17,6 @@ editor_options:
   chunk_output_type: console
 ---
 
-### We left off at "Using a Continuous Color Palatte" on Tuesday. Let's pick up there.
 
 # Adding graphics to an Rmarkdown file
 
@@ -26,19 +25,24 @@ If you are incorporating an image (.png or .jpg) from another site on the web, y
 
 Note that using a web address for an image means if the image owner changes the address or removes the image, you won't be able to re-knit your document. See the next section for downloading the image and inserting into your document.
 
-There are two ways of inserting an image: in markdown text, or in a code chunk. Both work. I prefer using the code chunk method, which uses `knitr::include_graphics`. This is an R function, so you use it inside a code chunk. When you are including an image inside a code chunk, the code chunk options can be sued to control the `fig.width` or `fig.height`, and `fig.align`. Here's the code starting with the code chunk
+There are two ways of inserting an image: in markdown text, or in a code chunk. Both work. I prefer using the code chunk method, which uses `knitr::include_graphics`. This is an R function, so you use it inside a code chunk. When you are including an image inside a code chunk, the code chunk options can be used to control the `fig.width` or `fig.height`, and `fig.align`. For instance, `fig.width = '75%'` will use 75% of the available page width, whatever it may be. The down side is that you have to pull a copy of the image from the web and save it locally (earlier versions of Rmarkdown would do this for you automatically, but this feature was removed in rmarkdown v1.6 for security reasons). Here's the code to do so:
 
 ### Images inserted in code chunks
 
+````markdown
 ```
-{r insert-image, fig.width = 4, fig.align='center', echo = TRUE, eval = F}
-knitr::include_graphics(path = "https://msu.edu/-/media/assets/msu/images/audience-student/students-sis-home.jpg")
+{r insert-image, fig.width = '75%', fig.align='center', echo = TRUE, eval = F}
+download.file("https://msu.edu/-/media/assets/msu/images/audience-student/students-sis-home.jpg", destfile = 'temporary.jpg')
+knitr::include_graphics(path = 'temporary.jpg')
 ```
+````
 
 
 ```{r insert-image, echo=FALSE, fig.align='center'}
 knitr::include_graphics(path = "https://msu.edu/-/media/assets/msu/images/audience-student/students-sis-home.jpg")
 ```
+
+The file you specify with `destfile` doesn't matter - R will create that file, but you do need to use the corresponding suffix (don't use `temporary.jpg` if you're downloading a `.png`). By default, the file will be saved in the same folder as your .rmd file. When `include_graphics` goes to read the file, it will start looking relative to the folder that contains your .rmd file. That is, `download.file` will copy the image to the same place that `include_graphics` looks for it. See below for more on relative filepaths.
 
 ### Images inserted via Markdown
 The markdown language is what controls the text outside of the R code chunks. It has its own way of inserting images. Here the image is inserted in the text, **not** in a code chunk.
