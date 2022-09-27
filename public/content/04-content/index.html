@@ -242,7 +242,7 @@
   <meta property="twitter:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
   
     
-    <meta property="article:modified_time" content="2022-09-20T14:50:31-04:00">
+    <meta property="article:modified_time" content="2022-09-27T11:33:30-04:00">
   
 
   
@@ -759,7 +759,7 @@ str(read_csv(&#39;https://ssc442kirkpatrick.netlify.app/projects/03-lab/data/une
                    labels = 2006:2016) + 
   theme(axis.text.x = element_text(angle = 90, vjust = .5, hjust = 1)) +
   geom_vline(xintercept = &#39;2008-07-01&#39;)</code></pre>
-<p><img src="/content/04-content_files/figure-html/unnamed-chunk-3-1.png" width="95%" /></p>
+<p><img src="/content/04-content_files/figure-html/unnamed-chunk-3-1.png" width="672" height="9in" /></p>
 <p>For Exercise 2, many of you ran into an issue where the x-axis limits went far beyond the two years we wanted to use (2006, 2009). I’m still not certain exactly where this issue came from, but we can always set the “window” for the plot using <code>coord_cartesian(xlim = c(2006, 2009))</code></p>
 <pre class="r"><code>unemployment %&gt;%
   dplyr::filter(year %in% c(2006, 2009) &amp; division %in% c(&#39;East North Central&#39;)) %&gt;%
@@ -841,12 +841,12 @@ events &lt;- replicate(B, sample(beads, 1))</code></pre>
 tab</code></pre>
 <pre><code>## events
 ## blue  red 
-## 6050 3950</code></pre>
+## 5949 4051</code></pre>
 <p>and <code>prop.table</code> gives us the proportions:</p>
 <pre class="r"><code>prop.table(tab)</code></pre>
 <pre><code>## events
-##  blue   red 
-## 0.605 0.395</code></pre>
+##   blue    red 
+## 0.5949 0.4051</code></pre>
 <p>The numbers above are the estimated probabilities provided by this Monte Carlo simulation. Statistical theory, not covered here, tells us that as <span class="math inline">\(B\)</span> gets larger, the estimates get closer to 3/5=.6 and 2/5=.4.</p>
 <p>Although this is a simple and not very useful example, we will use Monte Carlo simulations to estimate probabilities in cases in which it is harder to compute the exact ones. Before delving into more complex examples, we use simple ones to demonstrate the computing tools available in R.</p>
 <div id="setting-the-random-seed" class="section level3">
@@ -1001,7 +1001,16 @@ all_phone_numbers[index,]</code></pre>
 <p>Instead of using the numbers 1 through 10, the default, it uses what we provided through <code>v</code>: the digits 0 through 9.</p>
 <p>To compute all possible ways we can choose two cards when the order matters, we type:</p>
 <pre class="r"><code>hands &lt;- permutations(52, 2, v = deck)</code></pre>
-<p>This is a matrix with two columns and 2652 rows. With a matrix we can get the first and second cards like this:</p>
+<p>This is a matrix with two columns and 2652 rows. Here’s what it looks like:</p>
+<pre class="r"><code>head(hands)</code></pre>
+<pre><code>##      [,1]        [,2]            
+## [1,] &quot;Ace Clubs&quot; &quot;Ace Diamonds&quot;  
+## [2,] &quot;Ace Clubs&quot; &quot;Ace Hearts&quot;    
+## [3,] &quot;Ace Clubs&quot; &quot;Ace Spades&quot;    
+## [4,] &quot;Ace Clubs&quot; &quot;Deuce Clubs&quot;   
+## [5,] &quot;Ace Clubs&quot; &quot;Deuce Diamonds&quot;
+## [6,] &quot;Ace Clubs&quot; &quot;Deuce Hearts&quot;</code></pre>
+<p>With a matrix we can get the first and second cards like this:</p>
 <pre class="r"><code>first_card &lt;- hands[,1]
 second_card &lt;- hands[,2]</code></pre>
 <p>Now the cases for which the first hand was a King can be computed like this:</p>
@@ -1627,7 +1636,7 @@ pnorm(0, mu, se)</code></pre>
                 </div>
 
                 <div class="body-footer">
-                    <p>Last updated on September 20, 2022</p>
+                    <p>Last updated on September 27, 2022</p>
 
                     
 

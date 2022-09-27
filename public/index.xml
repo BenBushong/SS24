@@ -8617,7 +8617,7 @@ str(read_csv(&amp;#39;https://ssc442kirkpatrick.netlify.app/projects/03-lab/data
                    labels = 2006:2016) + 
   theme(axis.text.x = element_text(angle = 90, vjust = .5, hjust = 1)) +
   geom_vline(xintercept = &amp;#39;2008-07-01&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/content/04-content_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;95%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/content/04-content_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; height=&#34;9in&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;For Exercise 2, many of you ran into an issue where the x-axis limits went far beyond the two years we wanted to use (2006, 2009). I’m still not certain exactly where this issue came from, but we can always set the “window” for the plot using &lt;code&gt;coord_cartesian(xlim = c(2006, 2009))&lt;/code&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;unemployment %&amp;gt;%
   dplyr::filter(year %in% c(2006, 2009) &amp;amp; division %in% c(&amp;#39;East North Central&amp;#39;)) %&amp;gt;%
@@ -8699,12 +8699,12 @@ events &amp;lt;- replicate(B, sample(beads, 1))&lt;/code&gt;&lt;/pre&gt;
 tab&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## events
 ## blue  red 
-## 6050 3950&lt;/code&gt;&lt;/pre&gt;
+## 5949 4051&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;and &lt;code&gt;prop.table&lt;/code&gt; gives us the proportions:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;prop.table(tab)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## events
-##  blue   red 
-## 0.605 0.395&lt;/code&gt;&lt;/pre&gt;
+##   blue    red 
+## 0.5949 0.4051&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The numbers above are the estimated probabilities provided by this Monte Carlo simulation. Statistical theory, not covered here, tells us that as &lt;span class=&#34;math inline&#34;&gt;\(B\)&lt;/span&gt; gets larger, the estimates get closer to 3/5=.6 and 2/5=.4.&lt;/p&gt;
 &lt;p&gt;Although this is a simple and not very useful example, we will use Monte Carlo simulations to estimate probabilities in cases in which it is harder to compute the exact ones. Before delving into more complex examples, we use simple ones to demonstrate the computing tools available in R.&lt;/p&gt;
 &lt;div id=&#34;setting-the-random-seed&#34; class=&#34;section level3&#34;&gt;
@@ -8859,7 +8859,16 @@ all_phone_numbers[index,]&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Instead of using the numbers 1 through 10, the default, it uses what we provided through &lt;code&gt;v&lt;/code&gt;: the digits 0 through 9.&lt;/p&gt;
 &lt;p&gt;To compute all possible ways we can choose two cards when the order matters, we type:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;hands &amp;lt;- permutations(52, 2, v = deck)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This is a matrix with two columns and 2652 rows. With a matrix we can get the first and second cards like this:&lt;/p&gt;
+&lt;p&gt;This is a matrix with two columns and 2652 rows. Here’s what it looks like:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;head(hands)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      [,1]        [,2]            
+## [1,] &amp;quot;Ace Clubs&amp;quot; &amp;quot;Ace Diamonds&amp;quot;  
+## [2,] &amp;quot;Ace Clubs&amp;quot; &amp;quot;Ace Hearts&amp;quot;    
+## [3,] &amp;quot;Ace Clubs&amp;quot; &amp;quot;Ace Spades&amp;quot;    
+## [4,] &amp;quot;Ace Clubs&amp;quot; &amp;quot;Deuce Clubs&amp;quot;   
+## [5,] &amp;quot;Ace Clubs&amp;quot; &amp;quot;Deuce Diamonds&amp;quot;
+## [6,] &amp;quot;Ace Clubs&amp;quot; &amp;quot;Deuce Hearts&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;With a matrix we can get the first and second cards like this:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;first_card &amp;lt;- hands[,1]
 second_card &amp;lt;- hands[,2]&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Now the cases for which the first hand was a King can be computed like this:&lt;/p&gt;

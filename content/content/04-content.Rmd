@@ -52,7 +52,7 @@ A large part of the challenge of Exercise 1 was getting all of the important ele
 - If each plot has a *common* x-axis, then `facet_wrap` will only put the axis labels on the bottom row. If you used `scale = 'free_x'` then you'll have a lot of extra x axis labels.
 - Set the `fig.width` or `out.width` to '95%' and let the height be determined by the plot
 
-```{r, echo = T, out.width = '95%'}
+```{r, echo = T, out.height = '9in'}
 ggplot(unemployment, aes(x = date, y = unemployment, group = state)) +
   geom_line() + 
   facet_wrap(vars(state), ncol = 3) +
@@ -385,7 +385,13 @@ To compute all possible ways we can choose two cards when the order matters, we 
 hands <- permutations(52, 2, v = deck)
 ```
 
-This is a matrix with two columns and `r nrow(hands)` rows. With a matrix we can get the first and second cards like this:
+This is a matrix with two columns and `r nrow(hands)` rows. Here's what it looks like:
+
+```{r}
+head(hands)
+```
+
+With a matrix we can get the first and second cards like this:
 
 ```{r}
 first_card <- hands[,1]
