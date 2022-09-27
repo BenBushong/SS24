@@ -52,14 +52,17 @@ A large part of the challenge of Exercise 1 was getting all of the important ele
 - If each plot has a *common* x-axis, then `facet_wrap` will only put the axis labels on the bottom row. If you used `scale = 'free_x'` then you'll have a lot of extra x axis labels.
 - Set the `fig.width` or `out.width` to '95%' and let the height be determined by the plot
 
-```{r, echo = T, out.height = '9in'}
-ggplot(unemployment, aes(x = date, y = unemployment, group = state)) +
+```{r, echo = T, fig.dim = c(6,12)}
+p = ggplot(unemployment, aes(x = date, y = unemployment, group = state)) +
   geom_line() + 
   facet_wrap(vars(state), ncol = 3) +
   scale_x_discrete(breaks = paste0(2006:2016, '-01-01'),
                    labels = 2006:2016) + 
   theme(axis.text.x = element_text(angle = 90, vjust = .5, hjust = 1)) +
   geom_vline(xintercept = '2008-07-01')
+
+p
+
 ```
 
 For Exercise 2, many of you ran into an issue where the x-axis limits went far beyond the two years we wanted to use (2006, 2009). I'm still not certain exactly where this issue came from, but we can always set the "window" for the plot using `coord_cartesian(xlim = c(2006, 2009))`

@@ -3598,14 +3598,16 @@ str(read_csv(&amp;#39;https://ssc442kirkpatrick.netlify.app/projects/03-lab/data
 &lt;li&gt;If each plot has a &lt;em&gt;common&lt;/em&gt; x-axis, then &lt;code&gt;facet_wrap&lt;/code&gt; will only put the axis labels on the bottom row. If you used &lt;code&gt;scale = &#39;free_x&#39;&lt;/code&gt; then you’ll have a lot of extra x axis labels.&lt;/li&gt;
 &lt;li&gt;Set the &lt;code&gt;fig.width&lt;/code&gt; or &lt;code&gt;out.width&lt;/code&gt; to ‘95%’ and let the height be determined by the plot&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(unemployment, aes(x = date, y = unemployment, group = state)) +
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p = ggplot(unemployment, aes(x = date, y = unemployment, group = state)) +
   geom_line() + 
   facet_wrap(vars(state), ncol = 3) +
   scale_x_discrete(breaks = paste0(2006:2016, &amp;#39;-01-01&amp;#39;),
                    labels = 2006:2016) + 
   theme(axis.text.x = element_text(angle = 90, vjust = .5, hjust = 1)) +
-  geom_vline(xintercept = &amp;#39;2008-07-01&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/content/04-content_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; height=&#34;9in&#34; /&gt;&lt;/p&gt;
+  geom_vline(xintercept = &amp;#39;2008-07-01&amp;#39;)
+
+p&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/content/04-content_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;For Exercise 2, many of you ran into an issue where the x-axis limits went far beyond the two years we wanted to use (2006, 2009). I’m still not certain exactly where this issue came from, but we can always set the “window” for the plot using &lt;code&gt;coord_cartesian(xlim = c(2006, 2009))&lt;/code&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;unemployment %&amp;gt;%
   dplyr::filter(year %in% c(2006, 2009) &amp;amp; division %in% c(&amp;#39;East North Central&amp;#39;)) %&amp;gt;%
@@ -3676,7 +3678,7 @@ beads&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] &amp;quot;red&amp;quot;  &amp;quot;red&amp;quot;  &amp;quot;blue&amp;quot; &amp;quot;blue&amp;quot; &amp;quot;blue&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;and then use &lt;code&gt;sample&lt;/code&gt; to pick a bead at random:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sample(beads, 1)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;red&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;blue&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;This line of code produces one random outcome. We want to repeat this experiment an infinite number of times, but it is impossible to repeat forever. Instead, we repeat the experiment a large enough number of times to make the results practically equivalent to repeating forever. &lt;strong&gt;This is an example of a &lt;em&gt;Monte Carlo&lt;/em&gt; simulation&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;Much of what mathematical and theoretical statisticians study, which we do not cover in this class, relates to providing rigorous definitions of “practically equivalent” as well as studying how close a large number of experiments gets us to what happens in the limit. Later in this lecture, we provide a practical approach to deciding what is “large enough”.&lt;/p&gt;
 &lt;p&gt;To perform our first Monte Carlo simulation, we use the &lt;code&gt;replicate&lt;/code&gt; function, which permits us to repeat the same task any number of times. Here, we repeat the random event &lt;span class=&#34;math inline&#34;&gt;\(B =\)&lt;/span&gt; 10,000 times:&lt;/p&gt;
@@ -3687,12 +3689,12 @@ events &amp;lt;- replicate(B, sample(beads, 1))&lt;/code&gt;&lt;/pre&gt;
 tab&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## events
 ## blue  red 
-## 5949 4051&lt;/code&gt;&lt;/pre&gt;
+## 6070 3930&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;and &lt;code&gt;prop.table&lt;/code&gt; gives us the proportions:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;prop.table(tab)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## events
-##   blue    red 
-## 0.5949 0.4051&lt;/code&gt;&lt;/pre&gt;
+##  blue   red 
+## 0.607 0.393&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The numbers above are the estimated probabilities provided by this Monte Carlo simulation. Statistical theory, not covered here, tells us that as &lt;span class=&#34;math inline&#34;&gt;\(B\)&lt;/span&gt; gets larger, the estimates get closer to 3/5=.6 and 2/5=.4.&lt;/p&gt;
 &lt;p&gt;Although this is a simple and not very useful example, we will use Monte Carlo simulations to estimate probabilities in cases in which it is harder to compute the exact ones. Before delving into more complex examples, we use simple ones to demonstrate the computing tools available in R.&lt;/p&gt;
 &lt;div id=&#34;setting-the-random-seed&#34; class=&#34;section level3&#34;&gt;
