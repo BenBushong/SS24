@@ -19,8 +19,8 @@ output:
 <ul>
 <li><a href="#supplemental-readings">Supplemental Readings</a></li>
 <li><a href="#guiding-questions">Guiding Questions</a></li>
-<li><a href="#slides">Slides</a></li>
 </ul></li>
+<li><a href="#yesterdays-lab-lab-03">Yesterday’s Lab (Lab 03)</a></li>
 <li><a href="#discrete-probability">Discrete probability</a>
 <ul>
 <li><a href="#relative-frequency">Relative frequency</a></li>
@@ -103,10 +103,77 @@ output:
 <li>What is the right way to visualize election uncertainty?</li>
 </ul>
 </div>
-<div id="slides" class="section level3">
-<h3>Slides</h3>
-<p>As with last week, today’s lecture will ask you to work with <code>R</code> during the lecture.</p>
 </div>
+<div id="yesterdays-lab-lab-03" class="section level1">
+<h1>Yesterday’s Lab (Lab 03)</h1>
+<p>Let’s go over a few helpful things for future labs. First off, we can load a .csv straight from the web (though it is very good practice to download the file and use it locally if you’re not sure if the file will exist in the future. Reproducibility of research is a big deal!</p>
+<pre class="r"><code>unemployment = read.csv(&#39;https://ssc442kirkpatrick.netlify.app/projects/03-lab/data/unemployment.csv&#39;)
+str(unemployment)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    6732 obs. of  8 variables:
+##  $ year        : int  2016 2016 2016 2016 2016 2016 2016 2016 2016 2016 ...
+##  $ state       : chr  &quot;Alabama&quot; &quot;Alabama&quot; &quot;Alabama&quot; &quot;Alabama&quot; ...
+##  $ month       : int  12 11 10 9 8 7 6 5 4 3 ...
+##  $ month_name  : chr  &quot;December&quot; &quot;November&quot; &quot;October&quot; &quot;September&quot; ...
+##  $ unemployment: num  5.7 5.8 5.9 5.9 5.8 5.8 5.8 5.8 5.9 5.9 ...
+##  $ date        : chr  &quot;2016-12-01&quot; &quot;2016-11-01&quot; &quot;2016-10-01&quot; &quot;2016-09-01&quot; ...
+##  $ region      : chr  &quot;South&quot; &quot;South&quot; &quot;South&quot; &quot;South&quot; ...
+##  $ division    : chr  &quot;East South Central&quot; &quot;East South Central&quot; &quot;East South Central&quot; &quot;East South Central&quot; ...</code></pre>
+<p>Note that I used <code>read.csv</code> and not <code>read_csv</code> which is part of the tidyverse/dplyr ecosystem. <code>read_csv</code> tries to be helpful and will parse your data for conversions – it will find your date column and will turn it into a Date format, which we aren’t working with yet.</p>
+<pre class="r"><code>library(tidyverse)
+str(read_csv(&#39;https://ssc442kirkpatrick.netlify.app/projects/03-lab/data/unemployment.csv&#39;))</code></pre>
+<pre><code>## spec_tbl_df [6,732 × 8] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+##  $ year        : num [1:6732] 2016 2016 2016 2016 2016 ...
+##  $ state       : chr [1:6732] &quot;Alabama&quot; &quot;Alabama&quot; &quot;Alabama&quot; &quot;Alabama&quot; ...
+##  $ month       : num [1:6732] 12 11 10 9 8 7 6 5 4 3 ...
+##  $ month_name  : chr [1:6732] &quot;December&quot; &quot;November&quot; &quot;October&quot; &quot;September&quot; ...
+##  $ unemployment: num [1:6732] 5.7 5.8 5.9 5.9 5.8 5.8 5.8 5.8 5.9 5.9 ...
+##  $ date        : Date[1:6732], format: &quot;2016-12-01&quot; &quot;2016-11-01&quot; ...
+##  $ region      : chr [1:6732] &quot;South&quot; &quot;South&quot; &quot;South&quot; &quot;South&quot; ...
+##  $ division    : chr [1:6732] &quot;East South Central&quot; &quot;East South Central&quot; &quot;East South Central&quot; &quot;East South Central&quot; ...
+##  - attr(*, &quot;spec&quot;)=
+##   .. cols(
+##   ..   year = col_double(),
+##   ..   state = col_character(),
+##   ..   month = col_double(),
+##   ..   month_name = col_character(),
+##   ..   unemployment = col_double(),
+##   ..   date = col_date(format = &quot;&quot;),
+##   ..   region = col_character(),
+##   ..   division = col_character()
+##   .. )
+##  - attr(*, &quot;problems&quot;)=&lt;externalptr&gt;</code></pre>
+<p>A large part of the challenge of Exercise 1 was getting all of the important elements legible. A few tips to make this happen, drawn from previous lectures:</p>
+<ul>
+<li><code>facet_wrap</code> lets you choose the number of columns. No reason we need to have the default 10 columns. Fewer columns = more room for the x-axis</li>
+<li>We know how to set the <code>breaks</code> and <code>labels</code> for the x-axis using <code>scale_x_discrete()</code></li>
+<li>If each plot has a <em>common</em> x-axis, then <code>facet_wrap</code> will only put the axis labels on the bottom row. If you used <code>scale = 'free_x'</code> then you’ll have a lot of extra x axis labels.</li>
+<li>Set the <code>fig.width</code> or <code>out.width</code> to ‘95%’ and let the height be determined by the plot</li>
+</ul>
+<pre class="r"><code>ggplot(unemployment, aes(x = date, y = unemployment, group = state)) +
+  geom_line() + 
+  facet_wrap(vars(state), ncol = 3) +
+  scale_x_discrete(breaks = paste0(2006:2016, &#39;-01-01&#39;),
+                   labels = 2006:2016) + 
+  theme(axis.text.x = element_text(angle = 90, vjust = .5, hjust = 1)) +
+  geom_vline(xintercept = &#39;2008-07-01&#39;)</code></pre>
+<p><img src="/content/04-content_files/figure-html/unnamed-chunk-3-1.png" width="95%" /></p>
+<p>For Exercise 2, many of you ran into an issue where the x-axis limits went far beyond the two years we wanted to use (2006, 2009). I’m still not certain exactly where this issue came from, but we can always set the “window” for the plot using <code>coord_cartesian(xlim = c(2006, 2009))</code></p>
+<pre class="r"><code>unemployment %&gt;%
+  dplyr::filter(year %in% c(2006, 2009) &amp; division %in% c(&#39;East North Central&#39;)) %&gt;%
+  dplyr::filter(month==1) %&gt;%
+  dplyr::mutate(year = as.factor(year)) %&gt;% 
+  ggplot(aes(x = year, y = unemployment, group = state, col = state)) + 
+  geom_line(size = 2) + 
+  geom_text(data = unemployment %&gt;% filter(year == 2006 &amp; division %in% c(&#39;East North Central&#39;) &amp; month==1),
+                                           aes(x = &#39;2006&#39;, y = unemployment, label =state),
+            nudge_x = -.10) +
+  geom_text(data = unemployment %&gt;% filter(year == 2009 &amp; division %in% c(&#39;East North Central&#39;) &amp; month==1),
+                                           aes(x = &#39;2009&#39;, y = unemployment, label = paste(unemployment, &#39;%&#39;)),
+            nudge_x = .10) +
+  scale_color_viridis_d(guide = &#39;none&#39;, option = &#39;D&#39;) +
+  theme_bw() +
+  coord_cartesian(xlim = c(1.25,1.75))</code></pre>
+<p><img src="/content/04-content_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 </div>
 <div id="discrete-probability" class="section level1">
 <h1>Discrete probability</h1>
@@ -160,7 +227,7 @@ beads</code></pre>
 <pre><code>## [1] &quot;red&quot;  &quot;red&quot;  &quot;blue&quot; &quot;blue&quot; &quot;blue&quot;</code></pre>
 <p>and then use <code>sample</code> to pick a bead at random:</p>
 <pre class="r"><code>sample(beads, 1)</code></pre>
-<pre><code>## [1] &quot;blue&quot;</code></pre>
+<pre><code>## [1] &quot;red&quot;</code></pre>
 <p>This line of code produces one random outcome. We want to repeat this experiment an infinite number of times, but it is impossible to repeat forever. Instead, we repeat the experiment a large enough number of times to make the results practically equivalent to repeating forever. <strong>This is an example of a <em>Monte Carlo</em> simulation</strong>.</p>
 <p>Much of what mathematical and theoretical statisticians study, which we do not cover in this class, relates to providing rigorous definitions of “practically equivalent” as well as studying how close a large number of experiments gets us to what happens in the limit. Later in this lecture, we provide a practical approach to deciding what is “large enough”.</p>
 <p>To perform our first Monte Carlo simulation, we use the <code>replicate</code> function, which permits us to repeat the same task any number of times. Here, we repeat the random event <span class="math inline">\(B =\)</span> 10,000 times:</p>
@@ -171,12 +238,12 @@ events &lt;- replicate(B, sample(beads, 1))</code></pre>
 tab</code></pre>
 <pre><code>## events
 ## blue  red 
-## 6042 3958</code></pre>
+## 6050 3950</code></pre>
 <p>and <code>prop.table</code> gives us the proportions:</p>
 <pre class="r"><code>prop.table(tab)</code></pre>
 <pre><code>## events
-##   blue    red 
-## 0.6042 0.3958</code></pre>
+##  blue   red 
+## 0.605 0.395</code></pre>
 <p>The numbers above are the estimated probabilities provided by this Monte Carlo simulation. Statistical theory, not covered here, tells us that as <span class="math inline">\(B\)</span> gets larger, the estimates get closer to 3/5=.6 and 2/5=.4.</p>
 <p>Although this is a simple and not very useful example, we will use Monte Carlo simulations to estimate probabilities in cases in which it is harder to compute the exact ones. Before delving into more complex examples, we use simple ones to demonstrate the computing tools available in R.</p>
 <div id="setting-the-random-seed" class="section level3">
