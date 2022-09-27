@@ -20,6 +20,7 @@ output:
 <li><a href="#supplemental-readings">Supplemental Readings</a></li>
 <li><a href="#guiding-questions">Guiding Questions</a></li>
 </ul></li>
+<li><a href="#groups">Groups</a></li>
 <li><a href="#yesterdays-lab-lab-03">Yesterday’s Lab (Lab 03)</a></li>
 <li><a href="#discrete-probability">Discrete probability</a>
 <ul>
@@ -103,6 +104,10 @@ output:
 <li>What is the right way to visualize election uncertainty?</li>
 </ul>
 </div>
+</div>
+<div id="groups" class="section level1">
+<h1>Groups</h1>
+<p>Everyone has been assigned to a group. If you did not get a group assignment yesterday, let me know <strong>right now</strong>.</p>
 </div>
 <div id="yesterdays-lab-lab-03" class="section level1">
 <h1>Yesterday’s Lab (Lab 03)</h1>
@@ -240,12 +245,12 @@ events &lt;- replicate(B, sample(beads, 1))</code></pre>
 tab</code></pre>
 <pre><code>## events
 ## blue  red 
-## 6070 3930</code></pre>
+## 6076 3924</code></pre>
 <p>and <code>prop.table</code> gives us the proportions:</p>
 <pre class="r"><code>prop.table(tab)</code></pre>
 <pre><code>## events
-##  blue   red 
-## 0.607 0.393</code></pre>
+##   blue    red 
+## 0.6076 0.3924</code></pre>
 <p>The numbers above are the estimated probabilities provided by this Monte Carlo simulation. Statistical theory, not covered here, tells us that as <span class="math inline">\(B\)</span> gets larger, the estimates get closer to 3/5=.6 and 2/5=.4.</p>
 <p>Although this is a simple and not very useful example, we will use Monte Carlo simulations to estimate probabilities in cases in which it is harder to compute the exact ones. Before delving into more complex examples, we use simple ones to demonstrate the computing tools available in R.</p>
 <div id="setting-the-random-seed" class="section level3">
@@ -900,6 +905,9 @@ s &lt;- sqrt(mean((x-m)^2))</code></pre>
 <p>Using mathematical notation we write:</p>
 <p><span class="math display">\[
 \mu = \frac{1}{n} \sum_{i=1}^n x_i \\
+\]</span>
+and
+<span class="math display">\[
 \sigma =  \sqrt{\frac{1}{n} \sum_{i=1}^n (x_i - \mu)^2}
 \]</span></p>
 <p>However, be aware that the <code>sd</code> function returns a slightly different result:</p>
@@ -923,7 +931,7 @@ s-sd(x)*sqrt((n-1) / n)</code></pre>
 </div>
 <div id="central-limit-theorem" class="section level2">
 <h2>Central Limit Theorem</h2>
-<p>The Central Limit Theorem (CLT) tells us that when the number of draws, also called the <em>sample size</em>, is large, the probability distribution of the sum of the independent draws is approximately normal. Because sampling models are used for so many data generation processes, the CLT is considered one of the most important mathematical insights in history.</p>
+<p>The Central Limit Theorem (CLT) tells us that when the number of draws, also called the <em>sample size</em>, is large, the probability distribution of the <strong>sum</strong> of the independent draws is approximately normal. Because sampling models are used for so many data generation processes, the CLT is considered one of the most important mathematical insights in history.</p>
 <p>Previously, we discussed that if we know that the distribution of a list of numbers is approximated by the normal distribution, all we need to describe the list are the average and standard deviation. We also know that the same applies to probability distributions. If a random variable has a probability distribution that is approximated with the normal distribution, then all we need to describe the probability distribution are the average and standard deviation, referred to as the expected value and standard error.</p>
 <p>We previously ran this Monte Carlo simulation:</p>
 <pre class="r"><code>n &lt;- 1000

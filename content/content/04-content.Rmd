@@ -29,6 +29,11 @@ output:
 - How have past attempts to visualize uncertainty failed?
 - What is the right way to visualize election uncertainty?
 
+
+# Groups
+Everyone has been assigned to a group. If you did not get a group assignment yesterday, let me know **right now**.
+
+
 # Yesterday's Lab (Lab 03)
 
 Let's go over a few helpful things for future labs. First off, we can load a .csv straight from the web (though it is very good practice to download the file and use it locally if you're not sure if the file will exist in the future. Reproducibility of research is a big deal!
@@ -1216,6 +1221,9 @@ Using mathematical notation we write:
 
 $$
 \mu = \frac{1}{n} \sum_{i=1}^n x_i \\
+$$
+and
+$$
 \sigma =  \sqrt{\frac{1}{n} \sum_{i=1}^n (x_i - \mu)^2}
 $$
 
@@ -1251,7 +1259,7 @@ So be careful when using the `sd` function in R. However, keep in mind that thro
 
 ## Central Limit Theorem
 
-The Central Limit Theorem (CLT) tells us that when the number of draws, also called the _sample size_, is large, the probability distribution of the sum of the independent draws is approximately normal. Because sampling models are used for so many data generation processes, the CLT is considered one of the most important mathematical insights in history.
+The Central Limit Theorem (CLT) tells us that when the number of draws, also called the _sample size_, is large, the probability distribution of the **sum** of the independent draws is approximately normal. Because sampling models are used for so many data generation processes, the CLT is considered one of the most important mathematical insights in history.
 
 Previously, we discussed that if we know that the distribution of a list of numbers is approximated by the normal distribution, all we need to describe the list are the average and standard deviation. We also know that the same applies to probability distributions. If a random variable has a probability distribution that is approximated with the normal distribution, then all we need to describe the probability distribution are the average and standard deviation, referred to as the expected value and standard error.
 
