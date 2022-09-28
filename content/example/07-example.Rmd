@@ -1,6 +1,7 @@
 ---
 title: "Linear Regression: Model Selection"
 linktitle: "7: Linear Regression III"
+read_date: "2022-10-20"
 output:
   blogdown::html_page:
     toc: true

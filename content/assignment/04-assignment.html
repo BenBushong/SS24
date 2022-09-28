@@ -57,9 +57,9 @@ editor_options:
 <p>A few weeks before the 2012 election Nate Silver was giving Obama a 90% chance of winning. How was Mr. Silver so confident? We will use a Monte Carlo simulation to illustrate the insight Mr. Silver had and others missed. To do this, we generate results for 12 polls taken the week before the election. We mimic sample sizes from actual polls and construct and report 95% confidence intervals for each of the 12 polls. We save the results from this simulation in a data frame and add a poll ID column.</p>
 <pre class="r"><code>library(tidyverse)
 library(dslabs)
-d &lt;- 0.039
+d &lt;- 0.039 # true spread
 Ns &lt;- c(1298, 533, 1342, 897, 774, 254, 812, 324, 1291, 1056, 2172, 516)
-p &lt;- (d + 1) / 2
+p &lt;- (d + 1) / 2 # true pr(clinton vote)
 
 polls &lt;- map_df(Ns, function(N) {
   x &lt;- sample(c(0,1), size=N, replace=TRUE, prob=c(1-p, p))
@@ -269,7 +269,7 @@ polls &lt;- polls_us_election_2016 %&gt;%
            enddate &gt;= &quot;2016-10-15&quot; &amp;
            state == &quot;U.S.&quot;) %&gt;%
   mutate(spread = rawpoll_clinton/100 - rawpoll_trump/100)</code></pre>
-<p>We want to answer the question: is there a poll bias? First, make a plot showing the spreads for each poll.</p>
+<p>We want to answer the question: <strong>is there a poll bias?</strong> First, make a plot showing the spreads for each poll.</p>
 <ol start="2" style="list-style-type: decimal">
 <li>The data does seem to suggest there is a difference. However, these data are subject to variability. Perhaps the differences we observe are due to chance.</li>
 </ol>
@@ -311,7 +311,7 @@ Y_{i,j} = d + b_i + \varepsilon_{i,j}
 <p><span class="math display">\[
 \frac{\bar{Y}_2 - \bar{Y}_1}{\sqrt{\underbrace{s_2^2/N_2}_{\text{Std error of mean from 4, squared}} + \underbrace{s_1^2/N_1}_{\text{Std error of mean from 5, squared}}}}
 \]</span></p>
-<p>is called the t-statistic. Now you should be able to do the calculations necessary to answer the question: is <span class="math inline">\(b_2 - b_1\)</span> different from 0? Hint: you can build a 95% confidence interval around your estimate.</p>
+<p>is called the t-statistic. Now you should be able to do the calculations necessary to answer the question: is <span class="math inline">\(b_2 - b_1\)</span> different from 0? Hint: you can build a 95% confidence interval around your estimate and see if it includes 0.</p>
 </div>
 </div>
 </div>

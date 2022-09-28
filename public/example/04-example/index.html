@@ -242,7 +242,7 @@
   <meta property="twitter:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
   
     
-      <meta property="article:published_time" content="2022-09-13T00:00:00&#43;00:00">
+      <meta property="article:published_time" content="2022-09-27T00:00:00&#43;00:00">
     
     <meta property="article:modified_time" content="2022-09-13T11:14:31-04:00">
   
@@ -581,6 +581,18 @@
         <a href="/example/04-example/">4: Uncertainty</a>
       </li>
       
+      <li >
+        <a href="/example/05-example/">5: Linear Regression I</a>
+      </li>
+      
+      <li >
+        <a href="/example/06-example/">6: Linear Regression II</a>
+      </li>
+      
+      <li >
+        <a href="/example/07-example/">7: Linear Regression III</a>
+      </li>
+      
     </ul>
     
 
@@ -825,7 +837,7 @@ x_hat &lt;- replicate(B, {
 <h3>Bias: why not run a very large poll?</h3>
 <p>For realistic values of <span class="math inline">\(p\)</span>, say from 0.35 to 0.65, if we run a very large poll with 100,000 people, theory tells us that we would predict the election perfectly since the largest possible margin of error is around 0.3%:</p>
 <p><img src="/example/04-example_files/figure-html/standard-error-versus-p-1.png" width="672" /></p>
-<p>One reason is that running such a poll is very expensive. Another possibly more important reason is that theory has its limitations. Polling is much more complicated than picking beads from an urn. Some people might lie to pollsters and others might not have phones. But perhaps the most important way an actual poll differs from an urn model is that we actually don’t know for sure who is in our population and who is not. How do we know who is going to vote? Are we reaching all possible voters? Hence, even if our margin of error is very small, it might not be exactly right that our expected value is <span class="math inline">\(p\)</span>. We call this bias. Historically, we observe that polls are indeed biased, although not by that much. The typical bias appears to be about 1-2%. This makes election forecasting a bit more interesting and we will talk about how to model this shortly.</p>
+<p>One reason is that running such a poll is very expensive. Another possibly more important reason is that theory has its limitations. Polling is much more complicated than picking beads from an urn. Some people might lie to pollsters and others might not have phones. But perhaps the most important way an actual poll differs from an urn model is that we actually don’t know for sure who is in our population and who is not. How do we know who is going to vote? Are we reaching all possible voters? Hence, even if our margin of error is very small, it might not be exactly right that our expected value is <span class="math inline">\(p\)</span>. We call this bias. Historically, we observe that polls are indeed biased, although not by that much. The typical bias appears to be about 1-2%. This makes election forecasting a bit more interesting and we will talk about how to model this in our Assignment for this week.</p>
 </div>
 </div>
 </div>
