@@ -912,14 +912,13 @@ Note that it does not look normal.
 
 ## Continuous distributions
 
-The normal distribution is not the only useful theoretical distribution.  Other continuous distributions that we may encounter are the student-t, Chi-square, exponential, gamma, beta, and beta-binomial. `R` provides functions to compute the density, the quantiles, the cumulative distribution functions and to generate Monte Carlo simulations. `R` uses a convention that lets us remember the names, namely using the letters `d`, `q`, `p`, and `r` in front of a shorthand for the distribution. We have already seen the functions `dnorm`, `pnorm`, and `rnorm` for the normal distribution. The functions `qnorm` gives us the quantiles. We can therefore draw a distribution like this:
+The normal distribution is not the only useful theoretical distribution.  Other continuous distributions that we may encounter are the student-t, Chi-square, exponential, gamma, beta, and beta-binomial. `R` provides functions to compute the density, the quantiles, the cumulative distribution functions and to generate Monte Carlo simulations. `R` uses a convention that lets us remember the names, namely using the letters `d`, `q`, `p`, and `r` in front of a shorthand for the distribution. We have already seen the functions `dnorm`, `pnorm`, and `rnorm` for the normal distribution. Remember that `dnorm` gives us the PDF, `pnorm` gives us the CDF, `rnorm` gives us random draws from the normal, and the function `qnorm` gives us the quantiles (the input to `qnorm`, then, must be between 0 and 1). 
 
-```{r normal-density, eval=FALSE}
-x <- seq(-4, 4, length.out = 100)
-qplot(x, f, geom = "line", data = data.frame(x, f = dnorm(x)))
+```{r}
+qnorm(.25, mean = 0, sd = 1)
+qnorm(.25, mean = -10, sd = 5)
+qnorm(.975, mean = 0, sd = 1)
 ```
-
-For the student-t, described later as we move toward hypothesis testing, the shorthand `t` is used so the functions are `dt` for the density, `qt` for the quantiles, `pt` for the cumulative distribution function, and `rt` for Monte Carlo simulation.
 
 
 :::fyi
@@ -1120,7 +1119,7 @@ m <- sum(x)/length(x)
 s <- sqrt(sum((x - m)^2) / length(x))
 ```
 
-A random variable $X$ has a distribution function. To define this, we do not need a list of numbers. It is a theoretical concept. In this case, we define the distribution as the $F(a)$ that answers the question: what is the probability that $X$ is less than or equal to $a$? There is no list of numbers.
+A random variable $X$ has a distribution **function**. To define this, we do not need a list of numbers. It is a theoretical concept. In this case, we define the distribution as the $F(a)$ that answers the question: what is the probability that $X$ is less than or equal to $a$? There is no list of numbers.
 
 However, if $X$ is defined by drawing from an urn with numbers in it, then there is a list: the list of numbers inside the urn. In this case, the distribution of that list is the probability distribution of $X$ and the average and standard deviation of that list are the expected value and standard error of the random variable.
 
