@@ -175,7 +175,7 @@ se&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Therefore, there is a small chance that we will be close. A poll of only &lt;span class=&#34;math inline&#34;&gt;\(N=25\)&lt;/span&gt; people is not really very useful, at least not for a close election.&lt;/p&gt;
 &lt;div id=&#34;margin-of-error&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Margin of Error&lt;/h3&gt;
-&lt;p&gt;Earlier we mentioned the &lt;em&gt;margin of error&lt;/em&gt;. Now we can define it because it is simply two times the standard error, which we can now estimate. In our case it is:&lt;/p&gt;
+&lt;p&gt;Earlier we mentioned the &lt;em&gt;margin of error&lt;/em&gt;. Now we can define it because it is simply 1.96 times the standard error, which we can now estimate. In our case it is:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;1.96*se&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 0.1958431&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Why do we multiply by 1.96? Because if you ask what is the probability that we are within 1.96 standard errors from &lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt;, we get:&lt;/p&gt;
@@ -197,7 +197,7 @@ which is:&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;a-monte-carlo-simulation&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;A Monte Carlo simulation&lt;/h3&gt;
-&lt;p&gt;Suppose we want to use a Monte Carlo simulation to corroborate the tools we have built using probability theory. To create the simulation, we would write code like this:&lt;/p&gt;
+&lt;p&gt;(Optional) Suppose we want to use a Monte Carlo simulation to corroborate the tools we have built using probability theory. To create the simulation, we would write code like this:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;B &amp;lt;- 10000
 N &amp;lt;- 1000
 x_hat &amp;lt;- replicate(B, {

@@ -244,7 +244,7 @@
     
       <meta property="article:published_time" content="2022-09-29T00:00:00&#43;00:00">
     
-    <meta property="article:modified_time" content="2022-09-28T08:08:12-04:00">
+    <meta property="article:modified_time" content="2022-09-29T10:48:41-04:00">
   
 
   
@@ -781,7 +781,7 @@ se</code></pre>
 <p>Therefore, there is a small chance that we will be close. A poll of only <span class="math inline">\(N=25\)</span> people is not really very useful, at least not for a close election.</p>
 <div id="margin-of-error" class="section level3">
 <h3>Margin of Error</h3>
-<p>Earlier we mentioned the <em>margin of error</em>. Now we can define it because it is simply two times the standard error, which we can now estimate. In our case it is:</p>
+<p>Earlier we mentioned the <em>margin of error</em>. Now we can define it because it is simply 1.96 times the standard error, which we can now estimate. In our case it is:</p>
 <pre class="r"><code>1.96*se</code></pre>
 <pre><code>## [1] 0.1958431</code></pre>
 <p>Why do we multiply by 1.96? Because if you ask what is the probability that we are within 1.96 standard errors from <span class="math inline">\(p\)</span>, we get:</p>
@@ -803,7 +803,7 @@ which is:</p>
 </div>
 <div id="a-monte-carlo-simulation" class="section level3">
 <h3>A Monte Carlo simulation</h3>
-<p>Suppose we want to use a Monte Carlo simulation to corroborate the tools we have built using probability theory. To create the simulation, we would write code like this:</p>
+<p>(Optional) Suppose we want to use a Monte Carlo simulation to corroborate the tools we have built using probability theory. To create the simulation, we would write code like this:</p>
 <pre class="r"><code>B &lt;- 10000
 N &lt;- 1000
 x_hat &lt;- replicate(B, {
@@ -1071,7 +1071,7 @@ head(weather_atl_long)</code></pre>
                 </div>
 
                 <div class="body-footer">
-                    <p>Last updated on September 28, 2022</p>
+                    <p>Last updated on September 29, 2022</p>
 
                     
 

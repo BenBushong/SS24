@@ -241,7 +241,7 @@ Therefore, there is a small chance that we will be close. A poll of only $N=25$ 
 
 ### Margin of Error
 
-Earlier we mentioned the _margin of error_. Now we can define it because it is simply two times the standard error, which we can now estimate. In our case it is:
+Earlier we mentioned the _margin of error_. Now we can define it because it is simply 1.96 times the standard error, which we can now estimate. In our case it is:
 
 ```{r}
 1.96*se
@@ -274,9 +274,7 @@ From the table above, we see that typical sample sizes range from 700 to 3500. T
 
 
 ### A Monte Carlo simulation
-
-
-Suppose we want to use a Monte Carlo simulation to corroborate the tools we have built using probability theory. To create the simulation, we would write code like this:
+(Optional) Suppose we want to use a Monte Carlo simulation to corroborate the tools we have built using probability theory. To create the simulation, we would write code like this:
 
 ```{r, eval=FALSE}
 B <- 10000
