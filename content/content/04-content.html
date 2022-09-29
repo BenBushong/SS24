@@ -234,7 +234,7 @@ beads</code></pre>
 <pre><code>## [1] &quot;red&quot;  &quot;red&quot;  &quot;blue&quot; &quot;blue&quot; &quot;blue&quot;</code></pre>
 <p>and then use <code>sample</code> to pick a bead at random:</p>
 <pre class="r"><code>sample(beads, 1)</code></pre>
-<pre><code>## [1] &quot;blue&quot;</code></pre>
+<pre><code>## [1] &quot;red&quot;</code></pre>
 <p>This line of code produces one random outcome. We want to repeat this experiment an infinite number of times, but it is impossible to repeat forever. Instead, we repeat the experiment a large enough number of times to make the results practically equivalent to repeating forever. <strong>This is an example of a <em>Monte Carlo</em> simulation</strong>.</p>
 <p>Much of what mathematical and theoretical statisticians study, which we do not cover in this class, relates to providing rigorous definitions of “practically equivalent” as well as studying how close a large number of experiments gets us to what happens in the limit. Later in this lecture, we provide a practical approach to deciding what is “large enough”.</p>
 <p>To perform our first Monte Carlo simulation, we use the <code>replicate</code> function, which permits us to repeat the same task any number of times. Here, we repeat the random event <span class="math inline">\(B =\)</span> 10,000 times:</p>
@@ -245,12 +245,12 @@ events &lt;- replicate(B, sample(beads, 1))</code></pre>
 tab</code></pre>
 <pre><code>## events
 ## blue  red 
-## 6016 3984</code></pre>
+## 5968 4032</code></pre>
 <p>and <code>prop.table</code> gives us the proportions:</p>
 <pre class="r"><code>prop.table(tab)</code></pre>
 <pre><code>## events
 ##   blue    red 
-## 0.6016 0.3984</code></pre>
+## 0.5968 0.4032</code></pre>
 <p>The numbers above are the estimated probabilities provided by this Monte Carlo simulation. Statistical theory, not covered here, tells us that as <span class="math inline">\(B\)</span> gets larger, the estimates get closer to 3/5=.6 and 2/5=.4.</p>
 <p>Although this is a simple and not very useful example, we will use Monte Carlo simulations to estimate probabilities in cases in which it is harder to compute the exact ones. Before delving into more complex examples, we use simple ones to demonstrate the computing tools available in R.</p>
 <div id="setting-the-random-seed" class="section level3">
@@ -729,10 +729,13 @@ tallest &lt;- replicate(B, {
 </div>
 <div id="continuous-distributions" class="section level2">
 <h2>Continuous distributions</h2>
-<p>The normal distribution is not the only useful theoretical distribution. Other continuous distributions that we may encounter are the student-t, Chi-square, exponential, gamma, beta, and beta-binomial. <code>R</code> provides functions to compute the density, the quantiles, the cumulative distribution functions and to generate Monte Carlo simulations. <code>R</code> uses a convention that lets us remember the names, namely using the letters <code>d</code>, <code>q</code>, <code>p</code>, and <code>r</code> in front of a shorthand for the distribution. We have already seen the functions <code>dnorm</code>, <code>pnorm</code>, and <code>rnorm</code> for the normal distribution. The functions <code>qnorm</code> gives us the quantiles. We can therefore draw a distribution like this:</p>
-<pre class="r"><code>x &lt;- seq(-4, 4, length.out = 100)
-qplot(x, f, geom = &quot;line&quot;, data = data.frame(x, f = dnorm(x)))</code></pre>
-<p>For the student-t, described later as we move toward hypothesis testing, the shorthand <code>t</code> is used so the functions are <code>dt</code> for the density, <code>qt</code> for the quantiles, <code>pt</code> for the cumulative distribution function, and <code>rt</code> for Monte Carlo simulation.</p>
+<p>The normal distribution is not the only useful theoretical distribution. Other continuous distributions that we may encounter are the student-t, Chi-square, exponential, gamma, beta, and beta-binomial. <code>R</code> provides functions to compute the density, the quantiles, the cumulative distribution functions and to generate Monte Carlo simulations. <code>R</code> uses a convention that lets us remember the names, namely using the letters <code>d</code>, <code>q</code>, <code>p</code>, and <code>r</code> in front of a shorthand for the distribution. We have already seen the functions <code>dnorm</code>, <code>pnorm</code>, and <code>rnorm</code> for the normal distribution. Remember that <code>dnorm</code> gives us the PDF, <code>pnorm</code> gives us the CDF, <code>rnorm</code> gives us random draws from the normal, and the function <code>qnorm</code> gives us the quantiles (the input to <code>qnorm</code>, then, must be between 0 and 1).</p>
+<pre class="r"><code>qnorm(.25, mean = 0, sd = 1)</code></pre>
+<pre><code>## [1] -0.6744898</code></pre>
+<pre class="r"><code>qnorm(.25, mean = -10, sd = 5)</code></pre>
+<pre><code>## [1] -13.37245</code></pre>
+<pre class="r"><code>qnorm(.975, mean = 0, sd = 1)</code></pre>
+<pre><code>## [1] 1.959964</code></pre>
 <div class="fyi">
 <p><strong>TRY IT</strong></p>
 <ol style="list-style-type: decimal">
@@ -825,26 +828,14 @@ S &lt;- replicate(B, roulette_winnings(n))</code></pre>
 <p>We can visualize the distribution of <span class="math inline">\(S\)</span> by creating a histogram showing the probability <span class="math inline">\(F(b)-F(a)\)</span> for several intervals <span class="math inline">\((a,b]\)</span>:</p>
 <p><img src="/content/04-content_files/figure-html/normal-approximates-distribution-1.png" width="672" /></p>
 <p>We see that the distribution appears to be approximately normal. A qq-plot will confirm that the normal approximation is close to a perfect approximation for this distribution. If, in fact, the distribution is normal, then all we need to define the distribution is the average and the standard deviation. Because we have the original values from which the distribution is created, we can easily compute these with <code>mean(S)</code> and <code>sd(S)</code>. The blue curve you see added to the histogram above is a normal density with this average and standard deviation.</p>
-<p>This average and this standard deviation have special names. They are referred to as the <em>expected value</em> and <em>standard error</em> of the random variable <span class="math inline">\(S\)</span>. We will say more about these in the next section.</p>
-<p>Statistical theory provides a way to derive the distribution of random variables defined as independent random draws from an urn. Specifically, in our example above, we can show that <span class="math inline">\((S+n)/2\)</span> follows a binomial distribution. We therefore do not need to run for Monte Carlo simulations to know the probability distribution of <span class="math inline">\(S\)</span>. We did this for illustrative purposes.</p>
-<p>We can use the function <code>dbinom</code> and <code>pbinom</code> to compute the probabilities exactly. For example, to compute <span class="math inline">\(\mbox{Pr}(S &lt; 0)\)</span> we note that:</p>
-<p><span class="math display">\[\mbox{Pr}(S &lt; 0) = \mbox{Pr}((S+n)/2 &lt; (0+n)/2)\]</span></p>
-<p>and we can use the <code>pbinom</code> to compute <span class="math display">\[\mbox{Pr}(S \leq 0)\]</span></p>
-<pre class="r"><code>n &lt;- 1000
-pbinom(n/2, size = n, prob = 10/19)</code></pre>
-<pre><code>## [1] 0.05109794</code></pre>
-<p>Because this is a discrete probability function, to get <span class="math inline">\(\mbox{Pr}(S &lt; 0)\)</span> rather than <span class="math inline">\(\mbox{Pr}(S \leq 0)\)</span>, we write:</p>
-<pre class="r"><code>pbinom(n/2-1, size = n, prob = 10/19)</code></pre>
-<pre><code>## [1] 0.04479591</code></pre>
-<p>For the details of the binomial distribution, you can consult any basic probability book or even Wikipedia<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>.</p>
-<p>Here we do not cover these details. Instead, we will discuss an incredibly useful approximation provided by mathematical theory that applies generally to sums and averages of draws from any urn: the Central Limit Theorem (CLT).</p>
+<p>This average and this standard deviation have special names. They are referred to as the <em>expected value</em> and <em>standard error</em> of the random variable <span class="math inline">\(S\)</span>. We will say more about these in the next section where we will discuss an incredibly useful approximation provided by mathematical theory that applies generally to sums and averages of draws from any urn: the Central Limit Theorem (CLT).</p>
 </div>
 <div id="distributions-versus-probability-distributions" class="section level2">
 <h2>Distributions versus probability distributions</h2>
 <p>Before we continue, let’s make an important distinction and connection between the distribution of a list of numbers and a probability distribution. In the visualization lectures, we described how any list of numbers <span class="math inline">\(x_1,\dots,x_n\)</span> has a distribution. The definition is quite straightforward. We define <span class="math inline">\(F(a)\)</span> as the function that tells us what proportion of the list is less than or equal to <span class="math inline">\(a\)</span>. Because they are useful summaries when the distribution is approximately normal, we define the average and standard deviation. These are defined with a straightforward operation of the vector containing the list of numbers <code>x</code>:</p>
 <pre class="r"><code>m &lt;- sum(x)/length(x)
 s &lt;- sqrt(sum((x - m)^2) / length(x))</code></pre>
-<p>A random variable <span class="math inline">\(X\)</span> has a distribution function. To define this, we do not need a list of numbers. It is a theoretical concept. In this case, we define the distribution as the <span class="math inline">\(F(a)\)</span> that answers the question: what is the probability that <span class="math inline">\(X\)</span> is less than or equal to <span class="math inline">\(a\)</span>? There is no list of numbers.</p>
+<p>A random variable <span class="math inline">\(X\)</span> has a distribution <strong>function</strong>. To define this, we do not need a list of numbers. It is a theoretical concept. In this case, we define the distribution as the <span class="math inline">\(F(a)\)</span> that answers the question: what is the probability that <span class="math inline">\(X\)</span> is less than or equal to <span class="math inline">\(a\)</span>? There is no list of numbers.</p>
 <p>However, if <span class="math inline">\(X\)</span> is defined by drawing from an urn with numbers in it, then there is a list: the list of numbers inside the urn. In this case, the distribution of that list is the probability distribution of <span class="math inline">\(X\)</span> and the average and standard deviation of that list are the expected value and standard error of the random variable.</p>
 <p>Another way to think about it that does not involve an urn is to run a Monte Carlo simulation and generate a very large list of outcomes of <span class="math inline">\(X\)</span>. These outcomes are a list of numbers. The distribution of this list will be a very good approximation of the probability distribution of <span class="math inline">\(X\)</span>. The longer the list, the better the approximation. The average and standard deviation of this list will approximate the expected value and standard error of the random variable.</p>
 </div>
@@ -964,7 +955,7 @@ pnorm(0, mu, se)</code></pre>
 <h3>How large is large in the Central Limit Theorem?</h3>
 <p>The CLT works when the number of draws is large. But large is a relative term. In many circumstances as few as 30 draws is enough to make the CLT useful. In some specific instances, as few as 10 is enough. However, these should not be considered general rules. Note, for example, that when the probability of success is very small, we need much larger sample sizes.</p>
 <p>By way of illustration, let’s consider the lottery. In the lottery, the chances of winning are less than 1 in a million. Thousands of people play so the number of draws is very large. Yet the number of winners, the sum of the draws, range between 0 and 4. This sum is certainly not well approximated by a normal distribution, so the CLT does not apply, even with the very large sample size. This is generally true when the probability of a success is very low. In these cases, the Poisson distribution is more appropriate.</p>
-<p>You can examine the properties of the Poisson distribution using <code>dpois</code> and <code>ppois</code>. You can generate random variables following this distribution with <code>rpois</code>. However, we do not cover the theory here. You can learn about the Poisson distribution in any probability textbook and even Wikipedia<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a></p>
+<p>You can examine the properties of the Poisson distribution using <code>dpois</code> and <code>ppois</code>. You can generate random variables following this distribution with <code>rpois</code>. However, we do not cover the theory here. You can learn about the Poisson distribution in any probability textbook and even Wikipedia<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a></p>
 </div>
 </div>
 <div id="statistical-properties-of-averages" class="section level2">
@@ -1028,7 +1019,6 @@ pnorm(0, mu, se)</code></pre>
 <li id="fn3"><p><a href="https://en.wikipedia.org/wiki/Monty_Hall_problem" class="uri">https://en.wikipedia.org/wiki/Monty_Hall_problem</a><a href="#fnref3" class="footnote-back">↩︎</a></p></li>
 <li id="fn4"><p><a href="https://en.wikipedia.org/w/index.php?title=Financial_crisis_of_2007%E2%80%932008" class="uri">https://en.wikipedia.org/w/index.php?title=Financial_crisis_of_2007%E2%80%932008</a><a href="#fnref4" class="footnote-back">↩︎</a></p></li>
 <li id="fn5"><p><a href="https://en.wikipedia.org/w/index.php?title=Security_(finance)" class="uri">https://en.wikipedia.org/w/index.php?title=Security_(finance)</a><a href="#fnref5" class="footnote-back">↩︎</a></p></li>
-<li id="fn6"><p><a href="https://en.wikipedia.org/w/index.php?title=Binomial_distribution" class="uri">https://en.wikipedia.org/w/index.php?title=Binomial_distribution</a><a href="#fnref6" class="footnote-back">↩︎</a></p></li>
-<li id="fn7"><p><a href="https://en.wikipedia.org/w/index.php?title=Poisson_distribution" class="uri">https://en.wikipedia.org/w/index.php?title=Poisson_distribution</a><a href="#fnref7" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p><a href="https://en.wikipedia.org/w/index.php?title=Poisson_distribution" class="uri">https://en.wikipedia.org/w/index.php?title=Poisson_distribution</a><a href="#fnref6" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>

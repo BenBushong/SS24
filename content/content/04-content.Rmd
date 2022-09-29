@@ -1084,30 +1084,7 @@ data.frame(S=S) %>% ggplot(aes(S, ..density..)) +
 
 We see that the distribution appears to be approximately normal. A qq-plot will confirm that the normal approximation is close to a perfect approximation for this distribution. If, in fact, the distribution is normal, then all we need to define the distribution is the average and the standard deviation. Because we have the original values from which the distribution is created, we can easily compute these with `mean(S)` and `sd(S)`. The blue curve you see added to the histogram above is a normal density with this average and standard deviation.
 
-This average and this standard deviation have special names. They are referred to as the _expected value_ and _standard error_ of the random variable $S$. We will say more about these in the next section.
-
-Statistical theory provides a way to derive the distribution of random variables defined as independent random draws from an urn. Specifically, in our example above, we can show that $(S+n)/2$ follows a binomial distribution. We therefore do not need to run for Monte Carlo simulations to know the probability distribution of $S$. We did this for illustrative purposes.
-
-We can use the function `dbinom` and `pbinom` to compute the probabilities exactly. For example, to compute $\mbox{Pr}(S < 0)$ we note that:
-
-$$\mbox{Pr}(S < 0) = \mbox{Pr}((S+n)/2 < (0+n)/2)$$
-
-and we can use the `pbinom` to compute $$\mbox{Pr}(S \leq 0)$$
-
-```{r}
-n <- 1000
-pbinom(n/2, size = n, prob = 10/19)
-```
-
-Because this is a discrete probability function, to get $\mbox{Pr}(S < 0)$ rather than $\mbox{Pr}(S \leq 0)$, we write:
-
-```{r}
-pbinom(n/2-1, size = n, prob = 10/19)
-```
-
-For the details of the binomial distribution, you can consult any basic probability book or even Wikipedia^[https://en.wikipedia.org/w/index.php?title=Binomial_distribution].
-
-Here we do not cover these details. Instead, we will discuss an incredibly useful approximation provided by mathematical theory that applies generally to sums and averages of draws from any urn: the Central Limit Theorem (CLT).
+This average and this standard deviation have special names. They are referred to as the _expected value_ and _standard error_ of the random variable $S$. We will say more about these in the next section where we will discuss an incredibly useful approximation provided by mathematical theory that applies generally to sums and averages of draws from any urn: the Central Limit Theorem (CLT).
 
 
 ## Distributions versus probability distributions
