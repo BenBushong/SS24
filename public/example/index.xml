@@ -15,7 +15,7 @@
     <item>
       <title>Visualizing Uncertainty</title>
       <link>https://ssc442kirkpatrick.netlify.app/example/04-example/</link>
-      <pubDate>Tue, 27 Sep 2022 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 29 Sep 2022 00:00:00 +0000</pubDate>
       <guid>https://ssc442kirkpatrick.netlify.app/example/04-example/</guid>
       <description>
 
@@ -36,6 +36,7 @@
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#clt&#34;&gt;Central Limit Theorem&lt;/a&gt;
 &lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#margin-of-error&#34;&gt;Margin of Error&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#a-monte-carlo-simulation&#34;&gt;A Monte Carlo simulation&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#the-spread&#34;&gt;The spread&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#bias-why-not-run-a-very-large-poll&#34;&gt;Bias: why not run a very large poll?&lt;/a&gt;&lt;/li&gt;
@@ -113,7 +114,7 @@ take_poll(25)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;parameters&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Parameters&lt;/h3&gt;
-&lt;p&gt;Just like we use variables to define unknowns in systems of equations, in statistical inference we define &lt;em&gt;parameters&lt;/em&gt; to define unknown parts of our models. In the urn model which we are using to mimic an opinion poll, we do not know the proportion of blue beads in the urn. We define the parameters &lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt; to represent this quantity. &lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt; is the average of the urn because if we take the average of the 1s (blue) and 0s (red), we get the proportion of blue beads. Since our main goal is figuring out what is &lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt;, we are going to &lt;em&gt;estimate this parameter&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Just like we use variables to define unknowns in systems of equations, in statistical inference we define &lt;em&gt;parameters&lt;/em&gt; to define unknown parts of our models. In the urn model which we are using to mimic an opinion poll, &lt;strong&gt;we do not know the proportion of blue beads in the urn&lt;/strong&gt;. We define the parameters &lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt; to represent this quantity. &lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt; is the average of the urn because if we take the average of the 1s (blue) and 0s (red), we get the proportion of blue beads. Since our main goal is figuring out what is &lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt;, we are going to &lt;em&gt;estimate this parameter&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;The ideas presented here on how we estimate parameters, and provide insights into how good these estimates are, extrapolate to many data science tasks. For example, we may want to determine the difference in health improvement between patients receiving treatment and a control group. We may ask, what are the health effects of smoking on a population? What are the differences in racial groups of fatal shootings by police? What is the rate of change in life expectancy in the US during the last 10 years? All these questions can be framed as a task of estimating a parameter from a sample.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;polling-versus-forecasting&#34; class=&#34;section level3&#34;&gt;
@@ -172,6 +173,8 @@ se&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pnorm(0.01/se) - pnorm(-0.01/se)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 0.07971926&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Therefore, there is a small chance that we will be close. A poll of only &lt;span class=&#34;math inline&#34;&gt;\(N=25\)&lt;/span&gt; people is not really very useful, at least not for a close election.&lt;/p&gt;
+&lt;div id=&#34;margin-of-error&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Margin of Error&lt;/h3&gt;
 &lt;p&gt;Earlier we mentioned the &lt;em&gt;margin of error&lt;/em&gt;. Now we can define it because it is simply two times the standard error, which we can now estimate. In our case it is:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;1.96*se&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 0.1958431&lt;/code&gt;&lt;/pre&gt;
@@ -191,6 +194,7 @@ which is:&lt;/p&gt;
 &lt;p&gt;Hence, there is a 95% probability that &lt;span class=&#34;math inline&#34;&gt;\(\bar{X}\)&lt;/span&gt; will be within &lt;span class=&#34;math inline&#34;&gt;\(1.96\times \hat{SE}(\bar{X})\)&lt;/span&gt;, in our case within about 0.2, of &lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt;. Note that 95% is somewhat of an arbitrary choice and sometimes other percentages are used, but it is the most commonly used value to define margin of error. We often round 1.96 up to 2 for simplicity of presentation.&lt;/p&gt;
 &lt;p&gt;In summary, the CLT tells us that our poll based on a sample size of &lt;span class=&#34;math inline&#34;&gt;\(25\)&lt;/span&gt; is not very useful. We don’t really learn much when the margin of error is this large. All we can really say is that the popular vote will not be won by a large margin. This is why pollsters tend to use larger sample sizes.&lt;/p&gt;
 &lt;p&gt;From the table above, we see that typical sample sizes range from 700 to 3500. To see how this gives us a much more practical result, notice that if we had obtained a &lt;span class=&#34;math inline&#34;&gt;\(\bar{X}\)&lt;/span&gt;=0.48 with a sample size of 2,000, our standard error &lt;span class=&#34;math inline&#34;&gt;\(\hat{\mbox{SE}}(\bar{X})\)&lt;/span&gt; would have been 0.0111714. So our result is an estimate of &lt;code&gt;48&lt;/code&gt;% with a margin of error of 2%. In this case, the result is much more informative and would make us think that there are more red balls than blue. Keep in mind, however, that this is hypothetical. We did not take a poll of 2,000 since we don’t want to ruin the competition.&lt;/p&gt;
+&lt;/div&gt;
 &lt;div id=&#34;a-monte-carlo-simulation&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;A Monte Carlo simulation&lt;/h3&gt;
 &lt;p&gt;Suppose we want to use a Monte Carlo simulation to corroborate the tools we have built using probability theory. To create the simulation, we would write code like this:&lt;/p&gt;

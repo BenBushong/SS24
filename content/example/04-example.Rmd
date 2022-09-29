@@ -239,6 +239,8 @@ pnorm(0.01/se) - pnorm(-0.01/se)
 
 Therefore, there is a small chance that we will be close. A poll of only $N=25$ people is not really very useful, at least not for a close election.
 
+### Margin of Error
+
 Earlier we mentioned the _margin of error_. Now we can define it because it is simply two times the standard error, which we can now estimate. In our case it is:
 
 ```{r}

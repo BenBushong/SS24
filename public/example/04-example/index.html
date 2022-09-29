@@ -30,7 +30,7 @@
   
     
   
-  <meta name="description" content="Part 1: Statistical Inference and PollsPollsThe sampling model for pollsPopulations, samples, parameters, and estimatesThe sample averageParametersPolling versus forecastingProperties of our estimate: expected value and standard errorCentral Limit TheoremA Monte Carlo simulationThe spreadBias: why not run a very large poll?Part 2: (Supplemental) Additional Visualization TechniquesCodeLoad and clean dataHistogramsDensity plotsBox, violin, and rain cloud plotsProbabilistic thinking is central in the human experience.">
+  <meta name="description" content="Part 1: Statistical Inference and PollsPollsThe sampling model for pollsPopulations, samples, parameters, and estimatesThe sample averageParametersPolling versus forecastingProperties of our estimate: expected value and standard errorCentral Limit TheoremMargin of ErrorA Monte Carlo simulationThe spreadBias: why not run a very large poll?Part 2: (Supplemental) Additional Visualization TechniquesCodeLoad and clean dataHistogramsDensity plotsBox, violin, and rain cloud plotsProbabilistic thinking is central in the human experience.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://ssc442kirkpatrick.netlify.app/example/04-example/">
@@ -238,11 +238,11 @@
   <meta property="og:site_name" content="Data Analytics">
   <meta property="og:url" content="https://ssc442kirkpatrick.netlify.app/example/04-example/">
   <meta property="og:title" content="Visualizing Uncertainty | Data Analytics">
-  <meta property="og:description" content="Part 1: Statistical Inference and PollsPollsThe sampling model for pollsPopulations, samples, parameters, and estimatesThe sample averageParametersPolling versus forecastingProperties of our estimate: expected value and standard errorCentral Limit TheoremA Monte Carlo simulationThe spreadBias: why not run a very large poll?Part 2: (Supplemental) Additional Visualization TechniquesCodeLoad and clean dataHistogramsDensity plotsBox, violin, and rain cloud plotsProbabilistic thinking is central in the human experience."><meta property="og:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png">
+  <meta property="og:description" content="Part 1: Statistical Inference and PollsPollsThe sampling model for pollsPopulations, samples, parameters, and estimatesThe sample averageParametersPolling versus forecastingProperties of our estimate: expected value and standard errorCentral Limit TheoremMargin of ErrorA Monte Carlo simulationThe spreadBias: why not run a very large poll?Part 2: (Supplemental) Additional Visualization TechniquesCodeLoad and clean dataHistogramsDensity plotsBox, violin, and rain cloud plotsProbabilistic thinking is central in the human experience."><meta property="og:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png">
   <meta property="twitter:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
   
     
-      <meta property="article:published_time" content="2022-09-27T00:00:00&#43;00:00">
+      <meta property="article:published_time" content="2022-09-29T00:00:00&#43;00:00">
     
     <meta property="article:modified_time" content="2022-09-28T08:08:12-04:00">
   
@@ -642,6 +642,7 @@
 </ul></li>
 <li><a href="#clt">Central Limit Theorem</a>
 <ul>
+<li><a href="#margin-of-error">Margin of Error</a></li>
 <li><a href="#a-monte-carlo-simulation">A Monte Carlo simulation</a></li>
 <li><a href="#the-spread">The spread</a></li>
 <li><a href="#bias-why-not-run-a-very-large-poll">Bias: why not run a very large poll?</a></li>
@@ -719,7 +720,7 @@ take_poll(25)</code></pre>
 </div>
 <div id="parameters" class="section level3">
 <h3>Parameters</h3>
-<p>Just like we use variables to define unknowns in systems of equations, in statistical inference we define <em>parameters</em> to define unknown parts of our models. In the urn model which we are using to mimic an opinion poll, we do not know the proportion of blue beads in the urn. We define the parameters <span class="math inline">\(p\)</span> to represent this quantity. <span class="math inline">\(p\)</span> is the average of the urn because if we take the average of the 1s (blue) and 0s (red), we get the proportion of blue beads. Since our main goal is figuring out what is <span class="math inline">\(p\)</span>, we are going to <em>estimate this parameter</em>.</p>
+<p>Just like we use variables to define unknowns in systems of equations, in statistical inference we define <em>parameters</em> to define unknown parts of our models. In the urn model which we are using to mimic an opinion poll, <strong>we do not know the proportion of blue beads in the urn</strong>. We define the parameters <span class="math inline">\(p\)</span> to represent this quantity. <span class="math inline">\(p\)</span> is the average of the urn because if we take the average of the 1s (blue) and 0s (red), we get the proportion of blue beads. Since our main goal is figuring out what is <span class="math inline">\(p\)</span>, we are going to <em>estimate this parameter</em>.</p>
 <p>The ideas presented here on how we estimate parameters, and provide insights into how good these estimates are, extrapolate to many data science tasks. For example, we may want to determine the difference in health improvement between patients receiving treatment and a control group. We may ask, what are the health effects of smoking on a population? What are the differences in racial groups of fatal shootings by police? What is the rate of change in life expectancy in the US during the last 10 years? All these questions can be framed as a task of estimating a parameter from a sample.</p>
 </div>
 <div id="polling-versus-forecasting" class="section level3">
@@ -778,6 +779,8 @@ se</code></pre>
 <pre class="r"><code>pnorm(0.01/se) - pnorm(-0.01/se)</code></pre>
 <pre><code>## [1] 0.07971926</code></pre>
 <p>Therefore, there is a small chance that we will be close. A poll of only <span class="math inline">\(N=25\)</span> people is not really very useful, at least not for a close election.</p>
+<div id="margin-of-error" class="section level3">
+<h3>Margin of Error</h3>
 <p>Earlier we mentioned the <em>margin of error</em>. Now we can define it because it is simply two times the standard error, which we can now estimate. In our case it is:</p>
 <pre class="r"><code>1.96*se</code></pre>
 <pre><code>## [1] 0.1958431</code></pre>
@@ -797,6 +800,7 @@ which is:</p>
 <p>Hence, there is a 95% probability that <span class="math inline">\(\bar{X}\)</span> will be within <span class="math inline">\(1.96\times \hat{SE}(\bar{X})\)</span>, in our case within about 0.2, of <span class="math inline">\(p\)</span>. Note that 95% is somewhat of an arbitrary choice and sometimes other percentages are used, but it is the most commonly used value to define margin of error. We often round 1.96 up to 2 for simplicity of presentation.</p>
 <p>In summary, the CLT tells us that our poll based on a sample size of <span class="math inline">\(25\)</span> is not very useful. We don’t really learn much when the margin of error is this large. All we can really say is that the popular vote will not be won by a large margin. This is why pollsters tend to use larger sample sizes.</p>
 <p>From the table above, we see that typical sample sizes range from 700 to 3500. To see how this gives us a much more practical result, notice that if we had obtained a <span class="math inline">\(\bar{X}\)</span>=0.48 with a sample size of 2,000, our standard error <span class="math inline">\(\hat{\mbox{SE}}(\bar{X})\)</span> would have been 0.0111714. So our result is an estimate of <code>48</code>% with a margin of error of 2%. In this case, the result is much more informative and would make us think that there are more red balls than blue. Keep in mind, however, that this is hypothetical. We did not take a poll of 2,000 since we don’t want to ruin the competition.</p>
+</div>
 <div id="a-monte-carlo-simulation" class="section level3">
 <h3>A Monte Carlo simulation</h3>
 <p>Suppose we want to use a Monte Carlo simulation to corroborate the tools we have built using probability theory. To create the simulation, we would write code like this:</p>
