@@ -681,7 +681,7 @@
 </div>
 <div id="getting-started" class="section level2">
 <h2>Getting Started</h2>
-<p>Today’s lecture will ask you to touch real data during the lecture. Please download the following dataset and load it into <code>R</code> (or right-click the address and use that to load into <code>R</code>).</p>
+<p>Later in today’s lecture will ask you to touch real data during the lecture. Please download the following dataset and load it into <code>R</code> (or right-click the address and use that to load into <code>R</code>).</p>
 <ul>
 <li><a href="/projects/data/ames.csv"><i class="fas fa-file-csv"></i> <code>Ames.csv</code></a></li>
 </ul>
@@ -747,7 +747,7 @@ with <span class="math inline">\(\mu_x, \mu_y\)</span> the averages of <span cla
 <h3>Sample correlation is a random variable</h3>
 <p>Before we continue connecting correlation to regression, let’s remind ourselves about random variability.</p>
 <p>In most data science applications, we observe data that includes random variation. For example, in many cases, we do not observe data for the entire population of interest but rather for a random sample. As with the average and standard deviation, the <em>sample correlation</em> is the most commonly used estimate of the population correlation. This implies that the correlation we compute and use as a summary is a random variable.</p>
-<p>By way of illustration, let’s assume that the 179 pairs of fathers and sons is our entire population. A less fortunate geneticist can only afford measurements from a random sample of 25 pairs. The sample correlation can be computed with:</p>
+<p>By way of illustration, let’s assume that the 179 pairs of fathers and sons is our <span style="     color: red !important;">entire population</span>. A less fortunate geneticist can only afford measurements from a random sample of 25 pairs. The sample correlation can be computed with:</p>
 <pre class="r"><code>R &lt;- sample_n(galton_heights, 25, replace = TRUE) %&gt;%
   summarize(r = cor(father, son)) %&gt;% pull(r)</code></pre>
 <p><code>R</code> is a random variable. We can run a Monte Carlo simulation to see its distribution:</p>
@@ -760,7 +760,7 @@ R &lt;- replicate(B, {
 })
 qplot(R, geom = &quot;histogram&quot;, binwidth = 0.05, color = I(&quot;black&quot;))</code></pre>
 <p><img src="/content/05-content_files/figure-html/sample-correlation-distribution-1.png" width="672" /></p>
-<p>We see that the expected value of <code>R</code> is the population correlation:</p>
+<p>We see that the expected value of <code>R</code> is the “population” correlation:</p>
 <pre class="r"><code>mean(R)</code></pre>
 <pre><code>## [1] 0.4307393</code></pre>
 <p>and that it has a relatively high standard error relative to the range of values <code>R</code> can take:</p>
@@ -961,8 +961,8 @@ b_2 &lt;- mu_x - m_2 * mu_y</code></pre>
 <div class="fyi">
 <p><strong>TRY IT</strong></p>
 <ol style="list-style-type: decimal">
-<li><p>Load the <code>GaltonFamilies</code> data from the <strong>HistData</strong>. The children in each family are listed by gender and then by height. Create a dataset called <code>galton_heights</code> by picking a male and female at random.</p></li>
-<li><p>Make a scatterplot for heights between mothers and daughters, mothers and sons, fathers and daughters, and fathers and sons.</p></li>
+<li><p>Load the <code>GaltonFamilies</code> data from the <strong>HistData</strong>. The children in each family are listed by gender and then by height. Create a dataset called <code>galton_heights</code> by picking a male and female at random from each family (hint: <code>group_by</code> appropriately and use <code>sample_n</code>).</p></li>
+<li><p>Make a scatterplot for heights between mothers and daughters, mothers and sons, fathers and daughters, and fathers and sons. You may have to use <code>gridExtra</code> or <code>patchwork</code>)</p></li>
 <li><p>Compute the correlation in heights between mothers and daughters, mothers and sons, fathers and daughters, and fathers and sons.</p></li>
 </ol>
 </div>

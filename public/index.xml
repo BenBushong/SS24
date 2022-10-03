@@ -11475,7 +11475,7 @@ pnorm(0, mu, se)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;getting-started&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Getting Started&lt;/h2&gt;
-&lt;p&gt;Today’s lecture will ask you to touch real data during the lecture. Please download the following dataset and load it into &lt;code&gt;R&lt;/code&gt; (or right-click the address and use that to load into &lt;code&gt;R&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;Later in today’s lecture will ask you to touch real data during the lecture. Please download the following dataset and load it into &lt;code&gt;R&lt;/code&gt; (or right-click the address and use that to load into &lt;code&gt;R&lt;/code&gt;).&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/projects/data/ames.csv&#34;&gt;&lt;i class=&#34;fas fa-file-csv&#34;&gt;&lt;/i&gt; &lt;code&gt;Ames.csv&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -11541,7 +11541,7 @@ with &lt;span class=&#34;math inline&#34;&gt;\(\mu_x, \mu_y\)&lt;/span&gt; the a
 &lt;h3&gt;Sample correlation is a random variable&lt;/h3&gt;
 &lt;p&gt;Before we continue connecting correlation to regression, let’s remind ourselves about random variability.&lt;/p&gt;
 &lt;p&gt;In most data science applications, we observe data that includes random variation. For example, in many cases, we do not observe data for the entire population of interest but rather for a random sample. As with the average and standard deviation, the &lt;em&gt;sample correlation&lt;/em&gt; is the most commonly used estimate of the population correlation. This implies that the correlation we compute and use as a summary is a random variable.&lt;/p&gt;
-&lt;p&gt;By way of illustration, let’s assume that the 179 pairs of fathers and sons is our entire population. A less fortunate geneticist can only afford measurements from a random sample of 25 pairs. The sample correlation can be computed with:&lt;/p&gt;
+&lt;p&gt;By way of illustration, let’s assume that the 179 pairs of fathers and sons is our &lt;span style=&#34;     color: red !important;&#34;&gt;entire population&lt;/span&gt;. A less fortunate geneticist can only afford measurements from a random sample of 25 pairs. The sample correlation can be computed with:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;R &amp;lt;- sample_n(galton_heights, 25, replace = TRUE) %&amp;gt;%
   summarize(r = cor(father, son)) %&amp;gt;% pull(r)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;code&gt;R&lt;/code&gt; is a random variable. We can run a Monte Carlo simulation to see its distribution:&lt;/p&gt;
@@ -11554,7 +11554,7 @@ R &amp;lt;- replicate(B, {
 })
 qplot(R, geom = &amp;quot;histogram&amp;quot;, binwidth = 0.05, color = I(&amp;quot;black&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/content/05-content_files/figure-html/sample-correlation-distribution-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;We see that the expected value of &lt;code&gt;R&lt;/code&gt; is the population correlation:&lt;/p&gt;
+&lt;p&gt;We see that the expected value of &lt;code&gt;R&lt;/code&gt; is the “population” correlation:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean(R)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 0.4307393&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;and that it has a relatively high standard error relative to the range of values &lt;code&gt;R&lt;/code&gt; can take:&lt;/p&gt;
@@ -11755,8 +11755,8 @@ b_2 &amp;lt;- mu_x - m_2 * mu_y&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;fyi&#34;&gt;
 &lt;p&gt;&lt;strong&gt;TRY IT&lt;/strong&gt;&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;&lt;p&gt;Load the &lt;code&gt;GaltonFamilies&lt;/code&gt; data from the &lt;strong&gt;HistData&lt;/strong&gt;. The children in each family are listed by gender and then by height. Create a dataset called &lt;code&gt;galton_heights&lt;/code&gt; by picking a male and female at random.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Make a scatterplot for heights between mothers and daughters, mothers and sons, fathers and daughters, and fathers and sons.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Load the &lt;code&gt;GaltonFamilies&lt;/code&gt; data from the &lt;strong&gt;HistData&lt;/strong&gt;. The children in each family are listed by gender and then by height. Create a dataset called &lt;code&gt;galton_heights&lt;/code&gt; by picking a male and female at random from each family (hint: &lt;code&gt;group_by&lt;/code&gt; appropriately and use &lt;code&gt;sample_n&lt;/code&gt;).&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Make a scatterplot for heights between mothers and daughters, mothers and sons, fathers and daughters, and fathers and sons. You may have to use &lt;code&gt;gridExtra&lt;/code&gt; or &lt;code&gt;patchwork&lt;/code&gt;)&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Compute the correlation in heights between mothers and daughters, mothers and sons, fathers and daughters, and fathers and sons.&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;

@@ -38,7 +38,7 @@ output:
 <!-- ``` -->
 
 ## Getting Started
-Today's lecture will ask you to touch real data during the lecture. Please download the following dataset and load it into `R` (or right-click the address and use that to load into `R`).
+Later in today's lecture will ask you to touch real data during the lecture. Please download the following dataset and load it into `R` (or right-click the address and use that to load into `R`).
 
 - [<i class="fas fa-file-csv"></i> `Ames.csv`](/projects/data/ames.csv)
 
@@ -147,7 +147,7 @@ Before we continue connecting correlation to regression, let's remind ourselves 
 
 In most data science applications, we observe data that includes random variation. For example, in many cases, we do not observe data for the entire population of interest but rather for a random sample. As with the average and standard deviation, the *sample correlation* is the most commonly used estimate of the population correlation. This implies that the correlation we compute and use as a summary is a random variable.
 
-By way of illustration, let's assume that the `r nrow(galton_heights)` pairs of fathers and sons is our entire population. A less fortunate geneticist can only afford measurements from a random sample of 25 pairs. The sample correlation can be computed with:
+By way of illustration, let's assume that the `r nrow(galton_heights)` pairs of fathers and sons is our `r kableExtra::text_spec("entire population", color = 'red')`. A less fortunate geneticist can only afford measurements from a random sample of 25 pairs. The sample correlation can be computed with:
 
 ```{r}
 R <- sample_n(galton_heights, 25, replace = TRUE) %>%
@@ -167,7 +167,7 @@ R <- replicate(B, {
 qplot(R, geom = "histogram", binwidth = 0.05, color = I("black"))
 ```
 
-We see that the expected value of `R` is the population correlation:
+We see that the expected value of `R` is the "population" correlation:
 
 ```{r}
 mean(R)
@@ -489,9 +489,9 @@ galton_heights %>%
 
 __TRY IT__
 
-1. Load the `GaltonFamilies` data from the __HistData__. The children in each family are listed by gender and then by height. Create a dataset called `galton_heights` by picking a male and female at random.
+1. Load the `GaltonFamilies` data from the __HistData__. The children in each family are listed by gender and then by height. Create a dataset called `galton_heights` by picking a male and female at random from each family (hint: `group_by` appropriately and use `sample_n`).
 
-2. Make a scatterplot for heights between mothers and daughters, mothers and sons, fathers and daughters, and fathers and sons.
+2. Make a scatterplot for heights between mothers and daughters, mothers and sons, fathers and daughters, and fathers and sons. You may have to use `gridExtra` or `patchwork`)
 
 3. Compute the correlation in heights between mothers and daughters, mothers and sons, fathers and daughters, and fathers and sons.
 
