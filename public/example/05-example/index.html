@@ -30,8 +30,8 @@
   
     
   
-  <meta name="description" content="PreliminariesCodeLoad and clean dataLegal dual y-axesCombining plotsScatterplot matricesCorrelogramsSimple regressionCoefficient plotsMarginal effects plotsLecture VideoToday’s example will pivot between the content from this week and the example below.
-We will also use the Ames data again (in addition to the Atlanta weather data). The Ames data is linked below:
+  <meta name="description" content="PreliminariesCodeLoad and clean dataLegal dual y-axesCombining plotsScatterplot matricesCorrelogramsSimple regressionCoefficient plotsMarginal effects plotsToday’s example will pivot between the content from this week and the example below.
+We will also use the Ames data and some Atlanta weather data. The Ames data and Atlanta weather data are linked below:
  Ames.csvPreliminariesFor this example, we’re again going to use historical weather data from Dark Sky about wind speed and temperature trends for downtown Atlanta (specifically 33.">
 
   
@@ -240,8 +240,8 @@ We will also use the Ames data again (in addition to the Atlanta weather data). 
   <meta property="og:site_name" content="Data Analytics">
   <meta property="og:url" content="https://ssc442kirkpatrick.netlify.app/example/05-example/">
   <meta property="og:title" content="Introduction to Regression | Data Analytics">
-  <meta property="og:description" content="PreliminariesCodeLoad and clean dataLegal dual y-axesCombining plotsScatterplot matricesCorrelogramsSimple regressionCoefficient plotsMarginal effects plotsLecture VideoToday’s example will pivot between the content from this week and the example below.
-We will also use the Ames data again (in addition to the Atlanta weather data). The Ames data is linked below:
+  <meta property="og:description" content="PreliminariesCodeLoad and clean dataLegal dual y-axesCombining plotsScatterplot matricesCorrelogramsSimple regressionCoefficient plotsMarginal effects plotsToday’s example will pivot between the content from this week and the example below.
+We will also use the Ames data and some Atlanta weather data. The Ames data and Atlanta weather data are linked below:
  Ames.csvPreliminariesFor this example, we’re again going to use historical weather data from Dark Sky about wind speed and temperature trends for downtown Atlanta (specifically 33."><meta property="og:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png">
   <meta property="twitter:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
   
@@ -641,13 +641,12 @@ We will also use the Ames data again (in addition to the Atlanta weather data). 
 <li><a href="#coefficient-plots">Coefficient plots</a></li>
 <li><a href="#marginal-effects-plots">Marginal effects plots</a></li>
 </ul></li>
-<li><a href="#lecture-video">Lecture Video</a></li>
 </ul>
 </div>
 
 <div class="fyi">
 <p>Today’s example will pivot between the content from this week and the example below.</p>
-<p>We will also use the Ames data again (in addition to the Atlanta weather data). The Ames data is linked below:</p>
+<p>We will also use the Ames data and some Atlanta weather data. The Ames data and Atlanta weather data are linked below:</p>
 <ul>
 <li><a href="/projects/data/ames.csv"><i class="fas fa-file-csv"></i> <code>Ames.csv</code></a></li>
 </ul>
@@ -667,9 +666,9 @@ We will also use the Ames data again (in addition to the Atlanta weather data). 
 <p>First, we load the libraries we’ll be using:</p>
 <pre class="r"><code>library(tidyverse)  # For ggplot, dplyr, and friends
 library(patchwork)  # For combining ggplot plots
-library(GGally)     # For scatterplot matrices
+library(GGally)     # New one, for scatterplot matrices
 library(broom)      # For converting model objects to data frames</code></pre>
-<p>Then we load the data with <code>read_csv()</code>. Here we assume that the CSV file lives in a subfolder named <code>data</code>:</p>
+<p>Then we load the data with <code>read_csv()</code>. This is <code>tidyverse</code>’s CSV reader (base <code>R</code> is <code>read.csv</code>). Here we assume that the CSV file was downloaded and lives in a subfolder named <code>data</code>:</p>
 <pre class="r"><code>weather_atl &lt;- read_csv(&quot;data/atl-weather-2019.csv&quot;)</code></pre>
 </div>
 <div id="legal-dual-y-axes" class="section level3">
@@ -730,7 +729,10 @@ humidity_plot</code></pre>
 
 temp_plot + humidity_plot</code></pre>
 <p><img src="/example/05-example_files/figure-html/patchwork-first-1.png" width="576" style="display: block; margin: auto;" /></p>
-<p>By default, <strong>patchwork</strong> will put these side-by-side, but we can change that with the <code>plot_layout()</code> function:</p>
+<p>By default, <strong>patchwork</strong> will put these side-by-side. We can specify that we want the plots to be oriented over/under:</p>
+<pre class="r"><code>temp_plot / humidity_plot</code></pre>
+<p><img src="/example/05-example_files/figure-html/patchwork-vertical-1-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p>Or we can change the orientation with the <code>plot_layout()</code> function:</p>
 <pre class="r"><code>temp_plot + humidity_plot +
   plot_layout(ncol = 1)</code></pre>
 <p><img src="/example/05-example_files/figure-html/patchwork-vertical-1.png" width="576" style="display: block; margin: auto;" /></p>
@@ -751,19 +753,20 @@ ggpairs(weather_correlations)</code></pre>
 <p><img src="/example/05-example_files/figure-html/ggpairs-1.png" width="864" style="display: block; margin: auto;" /></p>
 <p>It looks like high and low temperatures are extremely highly positively correlated (r = 0.92). Wind spped and temperature are moderately negatively correlated, with low temperatures having a stronger negative correlation (r = -0.45). There’s no correlation whatsoever between low temperatures and the precipitation probability (r = -0.03) or humidity and high temperatures (r = -0.03).</p>
 <p>Even though <code>ggpairs()</code> doesn’t use the standard <code>ggplot(...) + geom_whatever()</code> syntax we’re familiar with, it does behind the scenes, so you can add regular ggplot layers to it:</p>
-<pre class="r"><code>ggpairs(weather_correlations) +
+<pre class="r"><code>ggpairs(weather_correlations) + 
   labs(title = &quot;Correlations!&quot;) +
   theme_dark()</code></pre>
+<p><img src="/example/05-example_files/figure-html/ggpairs-layers-1.png" width="576" style="display: block; margin: auto;" /></p>
 <div class="fyi">
 <p><strong>TRY IT</strong></p>
-<p>Make a ggpairs plot for some of the Ames data.</p>
+<p>Make a ggpairs plot for some of the Ames data. You can use <code>str</code> on the data to see which variables might be worth using. Choose 4-5 of them and make a plot.</p>
 </div>
 </div>
 <div id="correlograms" class="section level3">
 <h3>Correlograms</h3>
 <p>Scatterplot matrices typically include way too much information to be used in actual publications. I use them when doing my own analysis just to see how different variables are related, but I rarely polish them up for public consumption. In the readings for today, Claus Wilke showed a type of plot called a <a href="https://serialmentor.com/dataviz/visualizing-associations.html#associations-correlograms"><em>correlogram</em></a> which <em>is</em> more appropriate for publication.</p>
 <p>These are essentially heatmaps of the different correlation coefficients. To make these with ggplot, we need to do a little bit of extra data processing, mostly to reshape data into a long, tidy format that we can plot. Here’s how.</p>
-<p>First we need to build a correlation matrix of the main variables we care about. Ordinarily the <code>cor()</code> function in R takes two arguments—x and y—and it will return a single correlation value. If you feed a data frame into <code>cor()</code> though, it’ll calculate the correlation between each pair of columns</p>
+<p>First we need to build a correlation matrix of the main variables we care about. Ordinarily the <code>cor()</code> function in R takes two arguments—x and y—and it will return a single correlation value. If you feed a data frame into <code>cor()</code> though, it’ll calculate the correlation between each pair of columns. <span style="     color: red !important;">But be careful - don’t feed in hundreds of variables by accident!</span></p>
 <pre class="r"><code># Create a correlation matrix
 things_to_correlate &lt;- weather_atl %&gt;%
   select(temperatureHigh, temperatureLow, humidity, windSpeed, precipProbability) %&gt;%
@@ -830,7 +833,7 @@ things_to_correlate_long</code></pre>
   geom_text(aes(label = nice_cor)) +
   scale_fill_gradient2(low = &quot;#E16462&quot;, mid = &quot;white&quot;, high = &quot;#0D0887&quot;,
                        limits = c(-1, 1)) +
-  labs(x = NULL, y = NULL) +
+  labs(x = NULL, y = NULL, fill = &#39;Corr.&#39;) +
   coord_equal() +
   theme_minimal() +
   theme(panel.grid = element_blank())</code></pre>
@@ -842,25 +845,48 @@ things_to_correlate_long</code></pre>
   geom_point(aes(size = abs(cor))) +
   scale_color_gradient2(low = &quot;#E16462&quot;, mid = &quot;white&quot;, high = &quot;#0D0887&quot;,
                         limits = c(-1, 1)) +
-  scale_size_area(max_size = 15, limits = c(-1, 1), guide = FALSE) +
-  labs(x = NULL, y = NULL) +
+  scale_size_area(max_size = 15, limits = c(-1, 1), guide = &#39;none&#39;) +
+  labs(x = NULL, y = NULL, color = &#39;Corr.&#39;) +
   coord_equal() +
   theme_minimal() +
-  theme(panel.grid = element_blank())</code></pre>
-<pre><code>## Warning: It is deprecated to specify `guide = FALSE` to remove a guide. Please use `guide = &quot;none&quot;` instead.</code></pre>
+  theme(panel.grid.minor = element_blank())</code></pre>
 <p><img src="/example/05-example_files/figure-html/cor-points-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 <div id="simple-regression" class="section level3">
 <h3>Simple regression</h3>
 <p>We finally get to this week’s content. Although correlation is nice, we eventually may want to visualize regression. The lecture has shown us some very intuitive, straightforward ways to think about regression (aka, a line). Simple regression is easy to visualize, since you’re only working with an <span class="math inline">\(X\)</span> and a <span class="math inline">\(Y\)</span>. For instance, what’s the relationship between humidity and high temperatures during the summer?</p>
-<p>First, let’s filter the data to only look at the summer. We also add a column to scale up the humidity value—right now it’s on a scale of 0-1 (for percentages), but when interpreting regression we talk about increases in whole units, so we’d talk about moving from 0% humidity to 100% humidity, which isn’t helpful, so instead we multiply everything by 100 so we can talk about moving from 50% humidity to 51% humidity. We also scale up a couple other variables that we’ll use in the larger model later.</p>
+<p>First, let’s filter the Atlanta weather data to only look at the summer. We also add a column to scale up the humidity value—right now it’s on a scale of 0-1 (for percentages), but when interpreting regression we talk about increases in whole units, so we’d talk about moving from 0% humidity to 100% humidity, which isn’t helpful, so instead we multiply everything by 100 so we can talk about moving from 50% humidity to 51% humidity. We also scale up a couple other variables that we’ll use in the larger model later.</p>
 <pre class="r"><code>weather_atl_summer &lt;- weather_atl %&gt;%
   filter(time &gt;= &quot;2019-05-01&quot;, time &lt;= &quot;2019-09-30&quot;) %&gt;%
   mutate(humidity_scaled = humidity * 100,
          moonPhase_scaled = moonPhase * 100,
          precipProbability_scaled = precipProbability * 100,
          cloudCover_scaled = cloudCover * 100)</code></pre>
-<p>Then we can build a simple regression model:</p>
+<p>Then we can build a simple regression model for the high temperature “regressed on” humidity. First, we’ll use the formula from <a href="content/05-content/#the-regression-line-1">Content 05</a>:</p>
+<pre class="r"><code>weather_atl_summer %&gt;%
+  dplyr::summarize(mu_x = mean(humidity_scaled),
+                   mu_y = mean(temperatureHigh),
+                   sd_x = sd(humidity_scaled),
+                   sd_y = sd(temperatureHigh),
+                   rho = sum(((temperatureHigh-mu_y)/sd_y)*((humidity_scaled-mu_x)/sd_x))/(n()-1) ) %&gt;%
+                  # Note in rho we had to use that same &quot;N-1&quot; correction. cor() does this for us automatically
+  dplyr::mutate(beta_1 = rho*(sd_y/sd_x),
+                beta_0 = mu_y - beta_1*mu_x)</code></pre>
+<pre><code>## # A tibble: 1 × 7
+##    mu_x  mu_y  sd_x  sd_y    rho beta_1 beta_0
+##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+## 1  64.8  88.5  10.6  5.33 -0.481 -0.241   104.</code></pre>
+<p>We can use base-<code>R</code> functions for regression. The workhorse is <code>lm()</code>. To use <code>lm</code> we have to supply:</p>
+<ol style="list-style-type: decimal">
+<li>The <strong>formula</strong> for our regression. It starts with the “thing we want to explain” (our “target” or “dependent”) variable, the <code>~</code>, and then our “explanatory” or “independent” variables. <code>temperatureHigh ~ humidity_scaled</code>.</li>
+</ol>
+<ul>
+<li>Notice we don’t need to say <code>weather_atl_summer$temperatureHigh</code>. This is because we also supply…</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>The <strong>data</strong> to use. Here <code>data = weather_atl_summer</code>.</li>
+</ol>
+<p>The result will be an <code>lm</code> object. You can use <code>summary(model_simple)</code> to see a summary of results. We’ll use <code>tidy</code> (part of <code>broom</code> which is part of the <code>tidyverse</code>) to convert the results into a tibble:</p>
 <pre class="r"><code>model_simple &lt;- lm(temperatureHigh ~ humidity_scaled,
                    data = weather_atl_summer)
 
@@ -872,8 +898,11 @@ tidy(model_simple, conf.int = TRUE)</code></pre>
 ## 2 humidity_scaled   -0.241    0.0358     -6.74 3.21e-10   -0.312    -0.170</code></pre>
 <p>We can interpret these coefficients like so:</p>
 <ul>
-<li>The intercept shows that the average temperature when there’s 0% humidity is 104°. There are no days with 0% humidity though, so we can ignore the intercept—it’s really just here so that we can draw the line.</li>
-<li>The coefficient for <code>humidity_scaled</code> shows that a one percent increase in humidity is associated with a 0.241° decrease in temperature, on average.</li>
+<li><p>The intercept, by definition of an intercept, shows that the average temperature when there’s 0% humidity is 104°. There are no days with 0% humidity though, so we can ignore the intercept—it’s really just here so that we can draw the line.</p></li>
+<li><p>The coefficient for <code>humidity_scaled</code> shows that a one percent increase in humidity is associated with a 0.241° decrease in temperature, on average.</p>
+<ul>
+<li>The 95% confidence interval (remember, this slope coefficient <em>is a random variable</em>) does not include zero.</li>
+</ul></li>
 </ul>
 <p>Visualizing this model is simple, since there are only two variables:</p>
 <pre class="r"><code>ggplot(weather_atl_summer,
@@ -881,12 +910,12 @@ tidy(model_simple, conf.int = TRUE)</code></pre>
   geom_point() +
   geom_smooth(method = &quot;lm&quot;)</code></pre>
 <p><img src="/example/05-example_files/figure-html/plot-simple-model-1.png" width="576" style="display: block; margin: auto;" /></p>
-<p>And indeed, as humidity increases, temperatures decrease.</p>
+<p>And indeed, as humidity increases, temperatures mostly decrease.</p>
 </div>
 <div id="coefficient-plots" class="section level3">
 <h3>Coefficient plots</h3>
 <p>But if we use multiple variables in the model (and we will do this a lot going forward), it gets really hard to visualize the results since we’re working with multiple dimensions. Instead, we can use coefficient plots to see the individual coefficients in the model.</p>
-<p>First, let’s build a more complex model:</p>
+<p>First, let’s build a more complex model, where “complex” is defined as “more things explaining our outcome, high temp”:</p>
 <pre class="r"><code>model_complex &lt;- lm(temperatureHigh ~ humidity_scaled + moonPhase_scaled +
                       precipProbability_scaled + windSpeed + pressure + cloudCover_scaled,
                     data = weather_atl_summer)
@@ -929,12 +958,12 @@ ggplot(model_tidied,
 <p>Instead of just looking at the coefficients, we can also see the effect of moving different variables up and down like sliders and switches. Remember that regression coefficients allow us to build actual mathematical formulas that predict the value of Y. The coefficients from <code>model_compex</code> yield the following big hairy ugly equation:</p>
 <p><span class="math display">\[
 \begin{aligned}
-\hat{\text{High temperature}} =&amp; 262 - 0.11 \times \text{humidity_scaled } \\
+\widehat{\text{High temperature}} =&amp; 262 - 0.11 \times \text{humidity_scaled } \\
 &amp; + 0.01 \times \text{moonPhase_scaled } + 0.04 \times \text{precipProbability_scaled } \\
 &amp; - 1.78 \times \text{windSpeed} - 0.16 \times \text{pressure} - 0.095 \times \text{cloudCover_scaled}
 \end{aligned}
 \]</span></p>
-<p>If we plug in values for each of the explanatory variables, we can get the predicted value of high temperature, or <span class="math inline">\(\hat{y}\)</span>.</p>
+<p>If we plug in values for each of the explanatory variables, we can get the predicted expected value of high temperature, or <span class="math inline">\(\hat{y}\)</span>.</p>
 <p>The <code>augment()</code> function in the <strong>broom</strong> library allows us to take a data frame of explanatory variable values, plug them into the model equation, and get predictions out. For example, let’s set each of the variables to some arbitrary values (50% for humidity, moon phase, chance of rain, and cloud cover; 1000 for pressure, and 1 MPH for wind speed).</p>
 <pre class="r"><code>newdata_example &lt;- tibble(humidity_scaled = 50, moonPhase_scaled = 50,
                           precipProbability_scaled = 50, windSpeed = 1,
@@ -1045,16 +1074,11 @@ ggplot(predicted_values_fancy, aes(x = windSpeed, y = .fitted)) +
   geom_line(aes(color = cloudCover_scaled), size = 1) +
   labs(x = &quot;Wind speed (MPH)&quot;, y = &quot;Predicted high temperature (F)&quot;) +
   theme_minimal() +
-  guides(fill = FALSE, color = FALSE) +
+  guides(fill = &#39;none&#39;, color = &#39;none&#39;) +
   facet_wrap(vars(cloudCover_scaled), nrow = 1)</code></pre>
-<pre><code>## Warning: `guides(&lt;scale&gt; = FALSE)` is deprecated. Please use `guides(&lt;scale&gt; = &quot;none&quot;)` instead.</code></pre>
 <p><img src="/example/05-example_files/figure-html/mfx-complex-1.png" width="864" style="display: block; margin: auto;" /></p>
 <p>Nice. Temperatures go down slightly as cloud cover increases. If we wanted to improve the model, we’d add an interaction term between cloud cover and windspeed so that each line would have a different slope in addition to a different intercept, but that’s beyond the scope of this class.</p>
 </div>
-</div>
-<div id="lecture-video" class="section level2">
-<h2>Lecture Video</h2>
-<p>The lecture video for Tuesday (this material, but we only made it about 2/3rds of the way) is <a href="https://mediaspace.msu.edu/media/SSC442+-+Example+05+-+Feb+17th/1_c66sr1i4">available here <i class="fas fa-film"></i></a></p>
 </div>
 
                     </div>

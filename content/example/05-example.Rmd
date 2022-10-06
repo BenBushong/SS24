@@ -19,7 +19,7 @@ editor_options:
 
 Today's example will pivot between the content from this week and the example below.
 
-We will also use the Ames data again (in addition to the Atlanta weather data). The Ames data is linked below:
+We will also use the Ames data and some Atlanta weather data. The Ames data and Atlanta weather data are linked below:
 
 - [<i class="fas fa-file-csv"></i> `Ames.csv`](/projects/data/ames.csv)
 
@@ -49,11 +49,11 @@ First, we load the libraries we'll be using:
 ```{r load-libraries, message=FALSE, warning=FALSE}
 library(tidyverse)  # For ggplot, dplyr, and friends
 library(patchwork)  # For combining ggplot plots
-library(GGally)     # For scatterplot matrices
+library(GGally)     # New one, for scatterplot matrices
 library(broom)      # For converting model objects to data frames
 ```
 
-Then we load the data with `read_csv()`. Here we assume that the CSV file lives in a subfolder named `data`:
+Then we load the data with `read_csv()`. This is `tidyverse`'s CSV reader (base `R` is `read.csv`). Here we assume that the CSV file was downloaded and lives in a subfolder named `data`:
 
 ```{r load-data-fake, eval=FALSE}
 weather_atl <- read_csv("data/atl-weather-2019.csv")
@@ -61,6 +61,11 @@ weather_atl <- read_csv("data/atl-weather-2019.csv")
 
 ```{r load-data-real, include=FALSE, message=FALSE}
 weather_atl <- read_csv(here::here("static", "data", "atl-weather-2019.csv"))
+```
+
+
+```{r load-data-real-Ames, include=FALSE, message = FALSE}
+ames <- read_csv('https://ssc442kirkpatrick.netlify.app/projects/data/ames.csv')
 ```
 
 ### Legal dual y-axes
@@ -143,12 +148,21 @@ library(patchwork)
 temp_plot + humidity_plot
 ```
 
-By default, **patchwork** will put these side-by-side, but we can change that with the `plot_layout()` function:
+By default, **patchwork** will put these side-by-side. We can specify that we want the plots to be oriented over/under:
+
+```{r patchwork-vertical-1, message = FALSE}
+
+temp_plot / humidity_plot
+
+```
+
+Or we can change the orientation with the `plot_layout()` function:
 
 ```{r patchwork-vertical, message=FALSE}
 temp_plot + humidity_plot +
   plot_layout(ncol = 1)
 ```
+
 
 We can also play with other arguments in `plot_layout()`. If we want to make the temperature plot taller and shrink the humidity section, we can specify the proportions for the plot heights. Here, the temperature plot is 70% of the height and the humidity plot is 30%:
 
@@ -156,6 +170,7 @@ We can also play with other arguments in `plot_layout()`. If we want to make the
 temp_plot + humidity_plot +
   plot_layout(ncol = 1, heights = c(0.7, 0.3))
 ```
+
 
 ### Scatterplot matrices
 
@@ -174,8 +189,8 @@ It looks like high and low temperatures are extremely highly positively correlat
 
 Even though `ggpairs()` doesn't use the standard `ggplot(...) + geom_whatever()` syntax we're familiar with, it does behind the scenes, so you can add regular ggplot layers to it:
 
-```{r ggpairs-layers, eval=FALSE}
-ggpairs(weather_correlations) +
+```{r ggpairs-layers, eval=TRUE}
+ggpairs(weather_correlations) + 
   labs(title = "Correlations!") +
   theme_dark()
 ```
@@ -184,7 +199,7 @@ ggpairs(weather_correlations) +
 
 __TRY IT__
 
-Make a ggpairs plot for some of the Ames data.
+Make a ggpairs plot for some of the Ames data. You can use `str` on the data to see which variables might be worth using. Choose 4-5 of them and make a plot.
 
 :::
 
@@ -194,7 +209,7 @@ Scatterplot matrices typically include way too much information to be used in ac
 
 These are essentially heatmaps of the different correlation coefficients. To make these with ggplot, we need to do a little bit of extra data processing, mostly to reshape data into a long, tidy format that we can plot. Here's how.
 
-First we need to build a correlation matrix of the main variables we care about. Ordinarily the `cor()` function in R takes two arguments—x and y—and it will return a single correlation value. If you feed a data frame into `cor()` though, it'll calculate the correlation between each pair of columns
+First we need to build a correlation matrix of the main variables we care about. Ordinarily the `cor()` function in R takes two arguments—x and y—and it will return a single correlation value. If you feed a data frame into `cor()` though, it'll calculate the correlation between each pair of columns. `r kableExtra::text_spec("But be careful - don't feed in hundreds of variables by accident!", color = 'red')`
 
 ```{r create-cor-mat, width=150}
 # Create a correlation matrix
@@ -250,7 +265,7 @@ ggplot(things_to_correlate_long,
   geom_text(aes(label = nice_cor)) +
   scale_fill_gradient2(low = "#E16462", mid = "white", high = "#0D0887",
                        limits = c(-1, 1)) +
-  labs(x = NULL, y = NULL) +
+  labs(x = NULL, y = NULL, fill = 'Corr.') +
   coord_equal() +
   theme_minimal() +
   theme(panel.grid = element_blank())
@@ -265,11 +280,11 @@ ggplot(things_to_correlate_long,
   geom_point(aes(size = abs(cor))) +
   scale_color_gradient2(low = "#E16462", mid = "white", high = "#0D0887",
                         limits = c(-1, 1)) +
-  scale_size_area(max_size = 15, limits = c(-1, 1), guide = FALSE) +
-  labs(x = NULL, y = NULL) +
+  scale_size_area(max_size = 15, limits = c(-1, 1), guide = 'none') +
+  labs(x = NULL, y = NULL, color = 'Corr.') +
   coord_equal() +
   theme_minimal() +
-  theme(panel.grid = element_blank())
+  theme(panel.grid.minor = element_blank())
 ```
 
 
@@ -277,7 +292,7 @@ ggplot(things_to_correlate_long,
 
 We finally get to this week's content. Although correlation is nice, we eventually may want to visualize regression. The lecture has shown us some very intuitive, straightforward ways to think about regression (aka, a line). Simple regression is easy to visualize, since you're only working with an $X$ and a $Y$. For instance, what's the relationship between humidity and high temperatures during the summer?
 
-First, let's filter the data to only look at the summer. We also add a column to scale up the humidity value—right now it's on a scale of 0-1 (for percentages), but when interpreting regression we talk about increases in whole units, so we'd talk about moving from 0% humidity to 100% humidity, which isn't helpful, so instead we multiply everything by 100 so we can talk about moving from 50% humidity to 51% humidity. We also scale up a couple other variables that we'll use in the larger model later.
+First, let's filter the Atlanta weather data to only look at the summer. We also add a column to scale up the humidity value—right now it's on a scale of 0-1 (for percentages), but when interpreting regression we talk about increases in whole units, so we'd talk about moving from 0% humidity to 100% humidity, which isn't helpful, so instead we multiply everything by 100 so we can talk about moving from 50% humidity to 51% humidity. We also scale up a couple other variables that we'll use in the larger model later.
 
 ```{r subset-summer}
 weather_atl_summer <- weather_atl %>%
@@ -288,7 +303,30 @@ weather_atl_summer <- weather_atl %>%
          cloudCover_scaled = cloudCover * 100)
 ```
 
-Then we can build a simple regression model:
+Then we can build a simple regression model for the high temperature "regressed on" humidity. First, we'll use the formula from [Content 05](content/05-content/#the-regression-line-1):
+
+```{r simple-model-corr, message = FALSE}
+
+weather_atl_summer %>%
+  dplyr::summarize(mu_x = mean(humidity_scaled),
+                   mu_y = mean(temperatureHigh),
+                   sd_x = sd(humidity_scaled),
+                   sd_y = sd(temperatureHigh),
+                   rho = sum(((temperatureHigh-mu_y)/sd_y)*((humidity_scaled-mu_x)/sd_x))/(n()-1) ) %>%
+                  # Note in rho we had to use that same "N-1" correction. cor() does this for us automatically
+  dplyr::mutate(beta_1 = rho*(sd_y/sd_x),
+                beta_0 = mu_y - beta_1*mu_x)
+
+```
+
+We can use base-`R` functions for regression. The workhorse is `lm()`. To use `lm` we have to supply:
+
+1. The **formula** for our regression. It starts with the "thing we want to explain" (our "target" or "dependent") variable, the `~`, and then our "explanatory" or "independent" variables. `temperatureHigh ~ humidity_scaled`.
+  - Notice we don't need to say `weather_atl_summer$temperatureHigh`. This is because we also supply...
+
+2. The **data** to use. Here `data = weather_atl_summer`.
+
+The result will be an `lm` object. You can use `summary(model_simple)` to see a summary of results. We'll use `tidy` (part of `broom` which is part of the `tidyverse`) to convert the results into a tibble:
 
 ```{r simple-model, message=FALSE}
 model_simple <- lm(temperatureHigh ~ humidity_scaled,
@@ -299,8 +337,10 @@ tidy(model_simple, conf.int = TRUE)
 
 We can interpret these coefficients like so:
 
-- The intercept shows that the average temperature when there's 0% humidity is 104°. There are no days with 0% humidity though, so we can ignore the intercept—it's really just here so that we can draw the line.
+- The intercept, by definition of an intercept, shows that the average temperature when there's 0% humidity is 104°. There are no days with 0% humidity though, so we can ignore the intercept—it's really just here so that we can draw the line.
+
 - The coefficient for `humidity_scaled` shows that a one percent increase in humidity is associated with a 0.241° decrease in temperature, on average.
+  - The 95% confidence interval (remember, this slope coefficient *is a random variable*) does not include zero.
 
 Visualizing this model is simple, since there are only two variables:
 
@@ -311,13 +351,13 @@ ggplot(weather_atl_summer,
   geom_smooth(method = "lm")
 ```
 
-And indeed, as humidity increases, temperatures decrease.
+And indeed, as humidity increases, temperatures mostly decrease.
 
 ### Coefficient plots
 
 But if we use multiple variables in the model (and we will do this a lot going forward), it gets really hard to visualize the results since we're working with multiple dimensions. Instead, we can use coefficient plots to see the individual coefficients in the model.
 
-First, let's build a more complex model:
+First, let's build a more complex model, where "complex" is defined as "more things explaining our outcome, high temp":
 
 ```{r complex-model}
 model_complex <- lm(temperatureHigh ~ humidity_scaled + moonPhase_scaled +
@@ -358,13 +398,13 @@ Instead of just looking at the coefficients, we can also see the effect of movin
 
 $$
 \begin{aligned}
-\hat{\text{High temperature}} =& 262 - 0.11 \times \text{humidity_scaled } \\
+\widehat{\text{High temperature}} =& 262 - 0.11 \times \text{humidity_scaled } \\
 & + 0.01 \times \text{moonPhase_scaled } + 0.04 \times \text{precipProbability_scaled } \\
 & - 1.78 \times \text{windSpeed} - 0.16 \times \text{pressure} - 0.095 \times \text{cloudCover_scaled}
 \end{aligned}
 $$
 
-If we plug in values for each of the explanatory variables, we can get the predicted value of high temperature, or $\hat{y}$.
+If we plug in values for each of the explanatory variables, we can get the predicted expected value of high temperature, or $\hat{y}$.
 
 The `augment()` function in the **broom** library allows us to take a data frame of explanatory variable values, plug them into the model equation, and get predictions out. For example, let's set each of the variables to some arbitrary values (50% for humidity, moon phase, chance of rain, and cloud cover; 1000 for pressure, and 1 MPH for wind speed).
 
@@ -440,7 +480,7 @@ Notice now that `windSpeed` repeats four times (0, 0, 0, 0, 0.5, 0.5, etc.), sin
 
 We can plot this now, just like before, with wind speed on the x-axis, the predicted temperature on the y-axis, and colored and faceted by cloud cover:
 
-```{r mfx-complex, fig.width=9, fig.height=4}
+```{r mfx-complex, fig.width=9, fig.height=4, message = F, error = F}
 predicted_values_fancy <- augment(model_complex, newdata = newdata_fancy, se_fit=TRUE) %>%
   mutate(conf.low = .fitted + (-1.96 * .se.fit),
          conf.high = .fitted + (1.96 * .se.fit)) %>%
@@ -453,15 +493,10 @@ ggplot(predicted_values_fancy, aes(x = windSpeed, y = .fitted)) +
   geom_line(aes(color = cloudCover_scaled), size = 1) +
   labs(x = "Wind speed (MPH)", y = "Predicted high temperature (F)") +
   theme_minimal() +
-  guides(fill = FALSE, color = FALSE) +
+  guides(fill = 'none', color = 'none') +
   facet_wrap(vars(cloudCover_scaled), nrow = 1)
 ```
 
 Nice. Temperatures go down slightly as cloud cover increases. If we wanted to improve the model, we'd add an interaction term between cloud cover and windspeed so that each line would have a different slope in addition to a different intercept, but that's beyond the scope of this class.
-
-
-
-## Lecture Video
-The lecture video for Tuesday (this material, but we only made it about 2/3rds of the way) is [available here <i class="fas fa-film"></i>](https://mediaspace.msu.edu/media/SSC442+-+Example+05+-+Feb+17th/1_c66sr1i4)
 
 

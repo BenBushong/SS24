@@ -72,12 +72,6 @@ It will be difficult to learn anything about the data that is of type `int` with
 
 **Try it:** Go through the variables in the dataset and make a note about your interpretation for each. Many will be obvious, but some require additional thought.
 
-We now turn to another central issue---and one that explains our nomenclature choice thus far: the data object is of type `list`. To verify this for yourself, check:
-```{r, eval=FALSE}
-typeof(ameslist)
-```
-This isn't ideal---for some visualization packages, for instance, we need data frames and not lists. We'll make a mental note of this as something to potentially clean up if we desire.
-
 Although there are some variables that would be difficult to clean, there are a few that we can address with relative ease. Consider, for instance, the variable `GarageType`. This might not be that important, but, remember, the weather in Ames, IA is pretty crummy---a detached garage might be a dealbreaker for some would-be homebuyers. Let's inspect the values:
 
 ```{r, eval=FALSE}
@@ -87,7 +81,9 @@ Although there are some variables that would be difficult to clean, there are a 
 
 With this, we could make an informed decision and create a new variable. Let's create `OutdoorGarage` to indicate, say, homes that have any type of garage that requires the homeowner to walk outdoors after parking their car. (For those who aren't familiar with different garage types, a car port is not insulated and is therefore considered outdoors. A detached garage presumably requires that the person walks outside after parking. The three other types are inside the main structure, and `2Types` we can assume includes at least one attached garage of some sort). This is going to require a bit more coding and we will have to think through each step carefully.
 
-First, let's create a new object that has indicator variables (that is, a variable whose values are either zero or one) for each of the `GarageType` values. As with everything in `R`, there's a handy function to do this for us:
+First, let's create a new object that has indicator variables (that is, a variable whose values are either zero or one) for each of the `GarageType` values. That is, it has a $1$ if the variable takes on some specific value, and a $0$ otherwise. Do this for all but one of the different values in `GarageType`, and your descriptive variable is now represented by numbers. 
+
+As with everything in `R`, there's a handy function to do this for us:
 
 ```{r, eval=FALSE}
 GarageTemp = model.matrix( ~ GarageType - 1, data=ameslist )
@@ -102,19 +98,25 @@ ameslist <- cbind(ameslist, GarageTemp)
 
 Huh. What's going on?
 
-**Try it:** Figure out what's going on above. Fix this code so that you have a working version.
+:::fyi
 
-Now that we've got that working (ha!) we can generate a new variable for our outdoor garage. We'll use a somewhat gross version below because it is *verbose*; that said, this can be easily accomplished using logical indexing for those who like that approach.
+__EXERCISE 1 of 5__
+
+1. Figure out what's going on above. Figure out where the 1460-1379 = 81 rows of data are going when using `model.matrix`. Fix this issue so that you have a working version.
+
+:::
+
+Now that we've got that working (ha!) we can generate a new variable for our outdoor garage:
 
 ```{r, eval=FALSE}
 ameslist$GarageOutside <- ifelse(ameslist$GarageTypeDetchd == 1 | ameslist$GarageTypeCarPort == 1, 1, 0)
-unique(ameslist$GarageOutside)
+unique(ameslist$GarageOutside) 
 [1]  0  1 NA
 ```
 
 This seems to have worked. The command above `ifelse()` does what it says: `if` some condition is met (here, either of two variables equals one) then it returns a one; `else` it returns a zero. Such functions are very handy, though as mentioned above, there are other ways of doing this. Also note, that while fixed the issue with `NA` above, we've got new issues: we definitely don't want `NA` outputted from this operation. Accordingly, we're going to need to deal with it somehow.
 
-**Try it:** Utilizing a similar approach to what you did above, fix this so that the only outputs are zero and one. This requires taking a stand on what the `NA` values mean. If you think they correspond to a detached garage (or something functionally equivalent, like "no parking whatsoever"), then change the `NA` values to zero. If you think they are mistakes, then we should drop all data with `NA` for the this column. State what you did and why.
+**Try it:** Utilizing a similar approach to what you did above, fix this so that the only outputs are zero and one. This requires taking a stand on what the `NA` values mean. If you think they correspond to a detached garage (or something functionally equivalent, like "no parking whatsoever"), then change the `NA` values to zero. If you think they are mistakes, then we should drop all data with `NA` for the this column. State what you did and why. You can do this just using a subset to state which values you want to replace, or you can use `case_when` and make sure your last conditional always returns a value. Refresh yourself in [Content 01](content/01-content/#case_when-1).
 
 Generally speaking, this is a persistent issue, and you will spend an extraordinary amount of time dealing with missing data or data that does not encode a variable exactly as you want it. This is expecially true if you deal with real-world data: you will need to learn how to handle `NA`s. There are a number of fixes (as always, Google is your friend) and anything that works is good. But you should spend some time thinking about this and learning at least one approach.
 
@@ -122,16 +124,16 @@ Generally speaking, this is a persistent issue, and you will spend an extraordin
 
 :::fyi
 
-__EXERCISES__
+__EXERCISES 2-5__
 
-1. Prune the data to 6-8 of the variables that are `type = int` about which you have some reasonable intuition for what they mean. Choose those that you believe are likely to be correlated with `SalePrice`. This **must** include the variable `SalePrice` and `GrLivArea`. Save this new dataset as `Ames`. Produce documentation for this object in the form of a [Markdown table](/resource/markdown/#tables-1) or see [further documentation here](https://www.markdownguide.org/extended-syntax/). This must describe each of the preserved variables, the values it can take (e.g., can it be negative?) and your definition of the variable. Counting the variable name, this means your table should have three columns. Markdown tables are entered in the text body, not code chunks, of your .rmd, so your code creating `Ames` will be in a code chunk, and your table will be right after it.
+2. Prune the data to 6-8 of the variables that are `type = int` about which you have some reasonable intuition for what they mean. Choose those that you believe are likely to be correlated with `SalePrice`. This **must** include the variable `SalePrice` and `GrLivArea`. Save this new dataset as `Ames`. Produce documentation for this object in the form of a [Markdown table](/resource/markdown/#tables-1) or see [further documentation here](https://www.markdownguide.org/extended-syntax/). This must describe each of the preserved variables, the values it can take (e.g., can it be negative?) and your definition of the variable. Counting the variable name, this means your table should have three columns. Markdown tables are entered in the text body, not code chunks, of your .rmd, so your code creating `Ames` will be in a code chunk, and your table will be right after it.
 
 
-2. Produce a *scatterplot matrix* of the chosen variables[^5]
+3. Produce a *scatterplot matrix* of the chosen variables[^5]
 
-3. Compute a matrix of correlations between these variables using the function `cor()`. Do the correlations match your prior beliefs? Briefly discuss the correlation between the chosen variables and `SalePrice` and any correlations between these variables.
+4. Compute a matrix of correlations between these variables using the function `cor()`. Do the correlations match your prior beliefs? Briefly discuss the correlation between the chosen variables and `SalePrice` and any correlations between these variables.
 
-4. Produce a scatterplot between `SalePrice` and `GrLivArea`. Run a linear model using `lm()` to explore the relationship. Finally, use the `geom_abline()` function to plot the relationship that you've found in the simple linear regression. You'll need to extract the intercept and slope from your `lm` object. See `coef(...)` for information on this.[^6]
+5. Produce a scatterplot between `SalePrice` and `GrLivArea`. Run a linear model using `lm()` to explore the relationship. Finally, use the `geom_abline()` function to plot the relationship that you've found in the simple linear regression. You'll need to extract the intercept and slope from your `lm` object. See `coef(...)` for information on this.[^6]
     - What is the largest outlier that is above the regression line? Produce the other information about this house.
 
 **(Bonus)** Create a visualization that shows the rise of air conditioning over time in homes in Ames.
