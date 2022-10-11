@@ -3681,40 +3681,32 @@ ggplot(predicted_values_fancy, aes(x = windSpeed, y = .fitted)) +
 &lt;div id=&#34;building-a-model&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Building a Model&lt;/h2&gt;
 &lt;p&gt;We’re now ready to start playing with a model. We will start by using the &lt;code&gt;lm()&lt;/code&gt; function to fit a simple linear regression
-model, with &lt;code&gt;SalePrice&lt;/code&gt; as the response and lstat as the predictor.&lt;/p&gt;
+model, with &lt;code&gt;SalePrice&lt;/code&gt; as the response and &lt;code&gt;GrLivArea&lt;/code&gt; as the predictor.&lt;/p&gt;
 &lt;p&gt;Recall that the basic &lt;code&gt;lm()&lt;/code&gt; syntax is &lt;code&gt;lm(y∼x,data)&lt;/code&gt;, where &lt;code&gt;y&lt;/code&gt; is the &lt;strong&gt;response&lt;/strong&gt;, &lt;code&gt;x&lt;/code&gt; is the &lt;strong&gt;predictor&lt;/strong&gt;, and &lt;code&gt;data&lt;/code&gt; is the data set in which these two variables are kept. Let’s quickly run this with two variables:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;lm.fit = lm(SalePrice ~ GrLivArea)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This yields:
-&lt;code&gt;Error in eval(expr, envir, enclos) : Object &#34;SalePrice&#34; not found&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;This command causes an error because &lt;code&gt;R&lt;/code&gt; does not know where to find the variables. We can fix this by attaching the data:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;attach(Ames)
-lm.fit = lm(SalePrice ~ GrLivArea)
-# Alternatively...
-lm.fit = lm(SalePrice ~ GrLivArea, data=Ames)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The next line tells &lt;code&gt;R&lt;/code&gt; that the variables are in the object known as &lt;code&gt;Ames&lt;/code&gt;. If you haven’t created this object yet (as in the previous lab) you’ll get an error at this stage. But once we attach &lt;code&gt;Ames&lt;/code&gt;, the first line works fine because &lt;code&gt;R&lt;/code&gt; now recognizes the variables. Alternatively, we could specify this within the &lt;code&gt;lm()&lt;/code&gt; call using &lt;code&gt;data = Ames&lt;/code&gt;. We’ve presented this way because it may be new to you; choose whichever you find most reasonable.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;lm.fit = lm(SalePrice ~ GrLivArea, data = ameslist)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;If we type &lt;code&gt;lm.fit&lt;/code&gt;, some basic information about the model is output. For more detailed information, we use &lt;code&gt;summary(lm.fit)&lt;/code&gt;. This gives us p-values and standard errors for the coefficients, as well as the &lt;span class=&#34;math inline&#34;&gt;\(R^2\)&lt;/span&gt; statistic and &lt;span class=&#34;math inline&#34;&gt;\(F\)&lt;/span&gt;-statistic for the entire model.&lt;a href=&#34;#fn1&#34; class=&#34;footnote-ref&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Utilizing these functions hels us see some interesting results. Note that we built (nearly) the simplest possible model:&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[\text{SalePrice} = \beta_0 + \beta_1*(\text{GrLivArea}) + \epsilon.\]&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;But even on its own, this model is instructive. It suggest that an increase in overall living area of 1 ft &lt;span class=&#34;math inline&#34;&gt;\(^2\)&lt;/span&gt; is correlated with an expected increase in sales price of $107. (Note that we &lt;strong&gt;cannot&lt;/strong&gt; make causal claims!)&lt;/p&gt;
-&lt;p&gt;Saving the model as we did above is useful because we can explore other pieces of information it stores. Specifically, we can use the &lt;code&gt;names()&lt;/code&gt; function in order to find out what else is stored in &lt;code&gt;lm.fit&lt;/code&gt;. Although we can extract these quan- tities by name—e.g. &lt;code&gt;lm.fit$coefficients&lt;/code&gt;—it is safer to use the extractor functions like &lt;code&gt;coef()&lt;/code&gt; to access them. We can also use a handy tool like &lt;code&gt;plot()&lt;/code&gt; applied directly to &lt;code&gt;lm.fit&lt;/code&gt; to see some interesting data that is automatically stored by the model.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Try it:&lt;/strong&gt; Use &lt;code&gt;plot()&lt;/code&gt; to explore the model above. Do you suspect that some outliers have a large influence on the data? We will explore this point specifically in the future.&lt;/p&gt;
+&lt;p&gt;Saving the model as we did above is useful because we can explore other pieces of information it stores. Specifically, we can use the &lt;code&gt;names()&lt;/code&gt; function in order to find out what else is stored in &lt;code&gt;lm.fit&lt;/code&gt;. Although we can extract these quantities by name—e.g. &lt;code&gt;lm.fit$coefficients&lt;/code&gt;—it is safer to use the extractor functions like &lt;code&gt;coef(lm.fit)&lt;/code&gt; to access them. We can also use a handy tool like &lt;code&gt;plot()&lt;/code&gt; applied directly to &lt;code&gt;lm.fit&lt;/code&gt; to see some interesting data that is automatically stored by the model.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Try it:&lt;/strong&gt; Use &lt;code&gt;plot()&lt;/code&gt; to explore the model above (it will make a sequence of plots; don’t put it in a code chunk, just use it for your own exploration). Do you suspect that some outliers have a large influence on the data? We will explore this point specifically in the future.&lt;/p&gt;
 &lt;p&gt;We can now go crazy adding variables to our model. It’s as simple as appending them to the previous code—though you should be careful executing this, as it will overwrite your previous output:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;lm.fit = lm(SalePrice ~ GrLivArea + LotArea)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;lm.fit = lm(SalePrice ~ GrLivArea + LotArea, data = ameslist)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;strong&gt;Try it:&lt;/strong&gt; Does controlling for &lt;code&gt;LotArea&lt;/code&gt; change the &lt;em&gt;qualitative&lt;/em&gt; conclusions from the previous regression? What about the &lt;em&gt;quantitative&lt;/em&gt; results? Does the direction of the change in the quantitative results make sense to you?&lt;/p&gt;
 &lt;div class=&#34;fyi&#34;&gt;
 &lt;p&gt;&lt;strong&gt;EXERCISES&lt;/strong&gt;&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;&lt;p&gt;Use the &lt;code&gt;lm()&lt;/code&gt; function in a &lt;strong&gt;simple&lt;/strong&gt; linear regression (e.g., with only one predictor) with &lt;code&gt;SalePrice&lt;/code&gt; as the response to determine the value of a garage.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Use the &lt;code&gt;lm()&lt;/code&gt; function to perform a multiple linear regression with &lt;code&gt;SalePrice&lt;/code&gt; as the response and all other variables from your &lt;code&gt;Ames&lt;/code&gt; data as the predictors. Use the &lt;code&gt;summary()&lt;/code&gt; function to print the results. Comment on the output. For instance:&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Use the &lt;code&gt;lm()&lt;/code&gt; function to perform a multiple linear regression with &lt;code&gt;SalePrice&lt;/code&gt; as the response and all other variables from your &lt;code&gt;Ames&lt;/code&gt; data as the predictors. You can do this easily with the formula &lt;code&gt;SalePrice ~ .&lt;/code&gt; which tells &lt;code&gt;lm&lt;/code&gt; to use all of the data’s columns (except &lt;code&gt;SalePrice&lt;/code&gt;) on the right-hand-side. To do this, you’ll need to drop a few variables first, though. Use &lt;code&gt;dplyr::select(-PoolQC, -MiscFeature, -Fence, -FireplaceQu, -LotFrontage, -Exterior2nd, -Electrical)&lt;/code&gt; to get rid of some variables that have a lot of &lt;code&gt;NA&lt;/code&gt; values. Use the &lt;code&gt;summary()&lt;/code&gt; or &lt;code&gt;tidy&lt;/code&gt; function to print the results. Comment on the output. For instance:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Is there a relationship between the predictors and the response?&lt;/li&gt;
 &lt;li&gt;Which predictors appear to have a statistically significant relationship to the response? (Hint: look for stars)&lt;/li&gt;
 &lt;li&gt;What does the coefficient for the year variable suggest?&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;The &lt;code&gt;:&lt;/code&gt; symbol allows you to create an interction term between two variables. Use the &lt;code&gt;:&lt;/code&gt; symbols to fit a linear regression model with &lt;em&gt;one&lt;/em&gt; well-chosen interaction effects plus your other variables. Why did you select the variables you did, and what was the result?&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;There are a few &lt;code&gt;NA&lt;/code&gt;s in the output from the regression in Question 2. You can use &lt;code&gt;tidy&lt;/code&gt; to save the output in a familiar data.frame style “tibble”, and then explore it to see what variables are coming up &lt;code&gt;NA&lt;/code&gt;. Remember what &lt;code&gt;R&lt;/code&gt; did when we tried to give it dummy variables representing all three possible values of a factor variable (see “Parameterization” in Example 06). Keeping that in mind, &lt;em&gt;scroll&lt;/em&gt; to the first &lt;code&gt;NA&lt;/code&gt; in your regression output and see if you can explain why it might be &lt;code&gt;NA&lt;/code&gt;. Please remember that we can use functions like &lt;code&gt;View()&lt;/code&gt; to explore data, but we never put &lt;code&gt;View()&lt;/code&gt; in a code chunk.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;It’s rarely a good idea to throw all the variables into a regression. We want to be smarter about building our model. We’ll use fewer variables, but include interactions. As we saw this week, the &lt;code&gt;:&lt;/code&gt; symbol allows you to create an interction term between two variables. Use the &lt;code&gt;:&lt;/code&gt; symbols to fit a linear regression model with &lt;em&gt;one&lt;/em&gt; well-chosen interaction effect plus 3-4 of the other variables of your choice. Why did you select the variables you did, and what was the result?&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Try a few (e.g., two) different transformations of the variables, such as &lt;span class=&#34;math inline&#34;&gt;\(ln(x)\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(x^2\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(\sqrt x\)&lt;/span&gt;. Do any of these make sense to include in a model of &lt;code&gt;SalePrice&lt;/code&gt;? Comment on your findings.&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;strong&gt;(Bonus; very very challenging)&lt;/strong&gt; How might we build a model to estimate the elasticity of demand from this dataset?&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&#34;footnotes&#34;&gt;
@@ -3744,7 +3736,6 @@ lm.fit = lm(SalePrice ~ GrLivArea, data=Ames)&lt;/code&gt;&lt;/pre&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#parameterization&#34;&gt;Parameterization&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#building-larger-models&#34;&gt;Building Larger Models&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#lecture-video&#34;&gt;Lecture Video&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 
@@ -4148,8 +4139,9 @@ Y = \beta_0 + (\beta_1 + \beta_3 x_2) x_1 + \beta_2 x_2 + \epsilon.
 &lt;p&gt;We will now discuss &lt;strong&gt;factor&lt;/strong&gt; variables, which is a special way that &lt;code&gt;R&lt;/code&gt; deals with categorical variables. With factor variables, a human user can simply think about the categories of a variable, and &lt;code&gt;R&lt;/code&gt; will take care of the necessary dummy variables without any 0/1 assignment being done by the user.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;is.factor(autompg$domestic)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] FALSE&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Earlier when we used the &lt;code&gt;domestic&lt;/code&gt; variable, it was &lt;strong&gt;not&lt;/strong&gt; a factor variable. It was simply a numerical variable that only took two possible values, &lt;code&gt;1&lt;/code&gt; for domestic, and &lt;code&gt;0&lt;/code&gt; for foreign. Let’s create a new variable &lt;code&gt;origin&lt;/code&gt; that stores the same information, but in a different way.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;autompg$origin[autompg$domestic == 1] = &amp;quot;domestic&amp;quot;
+&lt;p&gt;Earlier when we used the &lt;code&gt;domestic&lt;/code&gt; variable, it was &lt;strong&gt;not&lt;/strong&gt; a factor variable. It was simply a numerical variable that only took two possible values, &lt;code&gt;1&lt;/code&gt; for domestic, and &lt;code&gt;0&lt;/code&gt; for foreign. Let’s create a new variable &lt;code&gt;origin&lt;/code&gt; that stores the same information, but in a different way. First, we create an empty (all-&lt;code&gt;NA&lt;/code&gt;) variable of type &lt;code&gt;character&lt;/code&gt;. Then, we update it. Yes, we could also do this with &lt;code&gt;ifelse&lt;/code&gt; or &lt;code&gt;case_when&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;autompg$origin = as.character(NA)
+autompg$origin[autompg$domestic == 1] = &amp;quot;domestic&amp;quot;
 autompg$origin[autompg$domestic == 0] = &amp;quot;foreign&amp;quot;
 head(autompg$origin)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] &amp;quot;domestic&amp;quot; &amp;quot;domestic&amp;quot; &amp;quot;domestic&amp;quot; &amp;quot;domestic&amp;quot; &amp;quot;domestic&amp;quot; &amp;quot;domestic&amp;quot;&lt;/code&gt;&lt;/pre&gt;
@@ -4218,6 +4210,7 @@ Y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_1 x_2 + \epsilon,
 &lt;li&gt;&lt;span class=&#34;math inline&#34;&gt;\(x_1\)&lt;/span&gt; is &lt;code&gt;disp&lt;/code&gt;, the displacement in cubic inches,&lt;/li&gt;
 &lt;li&gt;&lt;span class=&#34;math inline&#34;&gt;\(x_2\)&lt;/span&gt; &lt;strong&gt;is a dummy variable created by &lt;code&gt;R&lt;/code&gt;.&lt;/strong&gt; It uses &lt;code&gt;1&lt;/code&gt; to represent a &lt;strong&gt;foreign car&lt;/strong&gt;.&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;You may recall that we saw this in action in Assignment 05 when we used &lt;code&gt;model.matrix&lt;/code&gt; on &lt;code&gt;GarageType&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;So now,&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
 \hat{\beta}_0 = 33.4793709
@@ -4644,10 +4637,6 @@ anova(additive_mod, two_way_int_mod)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
 Y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_3 + \beta_4 x_1 x_2 + \beta_5 x_1 x_3 + \beta_6 x_2 x_3 + \epsilon.
 \]&lt;/span&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;lecture-video&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Lecture Video&lt;/h2&gt;
-&lt;p&gt;The lecture video for Tuesday (this material, but we only made it about 2/3rds of the way) is &lt;a href=&#34;https://mediaspace.msu.edu/media/SSC442+-+Lecture+and+Office+Hours/1_s1ky1dhy&#34;&gt;available here &lt;i class=&#34;fas fa-film&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -12094,7 +12083,7 @@ singles_slope&lt;/code&gt;&lt;/pre&gt;
 ## 9       1.2 0.440&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The slopes are reduced, but they are not 0, which indicates that BBs are helpful for producing runs, just not as much as previously thought.
 In fact, the values above are closer to the slope we obtained from singles, 0.45, which is more consistent with our intuition. Since both singles and BB get us to first base, they should have about the same predictive power.&lt;/p&gt;
-&lt;p&gt;Although our understanding of the application tells us that HR cause BB but not the other way around, we can still check if stratifying by BB makes the effect of BB go down. To do this, we use the same code except that we swap HR and BBs to get this plot:&lt;/p&gt;
+&lt;p&gt;Although our understanding of the application tells us that HR cause BB but not the other way around, we can still check if stratifying by BB makes the effect of HR go down. To do this, we use the same code except that we swap HR and BBs to get this plot:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;## `geom_smooth()` using formula &amp;#39;y ~ x&amp;#39;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/content/06-content_files/figure-html/runs-vs-hr-by-bb-strata-1.png&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;In this case, the slopes do not change much from the original:&lt;/p&gt;
@@ -12150,9 +12139,9 @@ The simplest linear model is a constant &lt;span class=&#34;math inline&#34;&gt;
 &lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
 Y_i = \beta_0 + \beta_1 x_i + \varepsilon_i, \, i=1,\dots,N.
 \]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Here &lt;span class=&#34;math inline&#34;&gt;\(x_i\)&lt;/span&gt; is the father’s height, which is fixed (not random) due to the conditioning, and &lt;span class=&#34;math inline&#34;&gt;\(Y_i\)&lt;/span&gt; is the random son’s height that we want to predict. We further assume that &lt;span class=&#34;math inline&#34;&gt;\(\varepsilon_i\)&lt;/span&gt; are independent from each other, have expected value 0 and the standard deviation, call it &lt;span class=&#34;math inline&#34;&gt;\(\sigma\)&lt;/span&gt;, does not depend on &lt;span class=&#34;math inline&#34;&gt;\(i\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Here &lt;span class=&#34;math inline&#34;&gt;\(x_i\)&lt;/span&gt; is the father’s height, which is fixed (not random) due to the conditioning, and &lt;span class=&#34;math inline&#34;&gt;\(Y_i\)&lt;/span&gt; is the random son’s height that we want to predict. We further assume that &lt;span class=&#34;math inline&#34;&gt;\(\varepsilon_i\)&lt;/span&gt; are independent from each other, have expected value 0 and the standard deviation of &lt;span class=&#34;math inline&#34;&gt;\(\varepsilon_i\)&lt;/span&gt;, call it &lt;span class=&#34;math inline&#34;&gt;\(\sigma\)&lt;/span&gt;, does not depend on &lt;span class=&#34;math inline&#34;&gt;\(i\)&lt;/span&gt;.&lt;/p&gt;
 &lt;p&gt;In the above model, we know the &lt;span class=&#34;math inline&#34;&gt;\(x_i\)&lt;/span&gt;, but to have a useful model for prediction, we need &lt;span class=&#34;math inline&#34;&gt;\(\beta_0\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\beta_1\)&lt;/span&gt;. We estimate these from the data. Once we do this, we can predict son’s heights for any father’s height &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt;. We show how to do this in the next section.&lt;/p&gt;
-&lt;p&gt;Note that if we further assume that the &lt;span class=&#34;math inline&#34;&gt;\(\varepsilon\)&lt;/span&gt; is normally distributed, then this model is exactly the same one we derived earlier by assuming bivariate normal data. A somewhat nuanced difference is that in the first approach we assumed the data was bivariate normal and that the linear model was derived, not assumed. In practice, linear models are just assumed without necessarily assuming normality: the distribution of the &lt;span class=&#34;math inline&#34;&gt;\(\varepsilon\)&lt;/span&gt;s is not specified. Nevertheless, if your data is bivariate normal, the above linear model holds. If your data is not bivariate normal, then you will need to have other ways of justifying the model.&lt;/p&gt;
+&lt;p&gt;Note that if we further assume that the &lt;span class=&#34;math inline&#34;&gt;\(\varepsilon\)&lt;/span&gt; is normally distributed, then this model is exactly the same one we derived earlier by assuming bivariate normal data. A somewhat nuanced difference is that in the first approach we assumed the data was bivariate normal and that the linear model was derived, not assumed. In practice, linear models are just assumed without necessarily assuming normality: the distribution of the &lt;span class=&#34;math inline&#34;&gt;\(\varepsilon\)&lt;/span&gt;’s is not specified. Nevertheless, if your data is bivariate normal, the above linear model holds. If your data is not bivariate normal, then you will need to have other ways of justifying the model.&lt;/p&gt;
 &lt;div id=&#34;interpreting-linear-models&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Interpreting linear models&lt;/h3&gt;
 &lt;p&gt;One reason linear models are popular is that they are interpretable. In the case of Galton’s data, we can interpret the data like this: due to inherited genes, the son’s height prediction grows by &lt;span class=&#34;math inline&#34;&gt;\(\beta_1\)&lt;/span&gt; for each inch we increase the father’s height &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt;. Because not all sons with fathers of height &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; are of equal height, we need the term &lt;span class=&#34;math inline&#34;&gt;\(\varepsilon\)&lt;/span&gt;, which explains the remaining variability. This remaining variability includes the mother’s genetic effect, environmental factors, and other biological randomness.&lt;/p&gt;
@@ -12435,7 +12424,7 @@ tidy(fit)&lt;/code&gt;&lt;/pre&gt;
 ## # … with 2 more variables: df.residual &amp;lt;int&amp;gt;, nobs &amp;lt;int&amp;gt;, and abbreviated
 ## #   variable names ¹​adj.r.squared, ²​statistic, ³​deviance&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;You can learn more about these summaries in any regression text book.&lt;/p&gt;
-&lt;p&gt;We will see an example of &lt;code&gt;augment&lt;/code&gt; in the next section.&lt;/p&gt;
+&lt;p&gt;We will see an example of &lt;code&gt;augment&lt;/code&gt; in the next section (and you used it already to predict values in an earlier assignment).&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;case-study-moneyball-continued&#34; class=&#34;section level2&#34;&gt;
@@ -12543,7 +12532,7 @@ coefs&lt;/code&gt;&lt;/pre&gt;
 &lt;h3&gt;Adding salary and position information&lt;/h3&gt;
 &lt;p&gt;To actually build the team, we will need to know their salaries as well as their defensive position. For this, we join the &lt;code&gt;players&lt;/code&gt; data frame we just created with the player information data frame included in some of the other Lahman data tables. We will learn more about the join function (and we will discuss this further in a later lecture). For now, we just need to know that a join matches a “key” field that is shared between the two datasets. Here, it is &lt;code&gt;playerID&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Each join consists of two datasets, a shared key (or keys), and a type of join. A &lt;strong&gt;right join&lt;/strong&gt; takes any rows in X that match rows in Y, and &lt;em&gt;all&lt;/em&gt; rows in Y. A &lt;strong&gt;left join&lt;/strong&gt; takes all rows of X and any rows of Y that match. With &lt;em&gt;left&lt;/em&gt; and &lt;em&gt;right&lt;/em&gt; joins, you may end up with observations where some columns do not have data. R will give these an “NA”.&lt;/p&gt;
-&lt;p&gt;An &lt;strong&gt;inner join&lt;/strong&gt; takes only the rows in X and Y that match, so all observations will have data. A &lt;strong&gt;full join&lt;/strong&gt; takes all rows in X and Y.&lt;/p&gt;
+&lt;p&gt;An &lt;strong&gt;inner join&lt;/strong&gt; takes only the rows in X and Y that match, so all observations will have data. A &lt;strong&gt;full join&lt;/strong&gt; takes all rows in X and Y (and will give you lots of NAs if they don’t all match).&lt;/p&gt;
 &lt;p&gt;If more than one observation in Y matches the key field in X (or vice-versa), then you can get duplicated observations. We’ll cover joins more later. For now, we’ll just use &lt;strong&gt;right&lt;/strong&gt; and &lt;strong&gt;left&lt;/strong&gt; joins on data we know is safe to merge.&lt;/p&gt;
 &lt;p&gt;Start by adding the 2002 salary of each player:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;players &amp;lt;- Salaries %&amp;gt;%
@@ -12562,13 +12551,10 @@ tmp &amp;lt;- Appearances %&amp;gt;%
   ungroup()
 
 pos &amp;lt;- tmp %&amp;gt;%
-  select(position_names) %&amp;gt;%
-  apply(., 1, which.max)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Note: Using an external vector in selections is ambiguous.
-## ℹ Use `all_of(position_names)` instead of `position_names` to silence this message.
-## ℹ See &amp;lt;https://tidyselect.r-lib.org/reference/faq-external-vector.html&amp;gt;.
-## This message is displayed once per session.&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;players &amp;lt;- tibble(playerID = tmp$playerID, POS = position_names[pos]) %&amp;gt;%
+  select(all_of(position_names)) %&amp;gt;% # all_of lets us use an external vector of position names to select
+  apply(., MAR = 1, which.max) # which.max gives us the column number of the position that is the max
+
+players &amp;lt;- tibble(playerID = tmp$playerID, POS = position_names[pos]) %&amp;gt;%
   mutate(POS = str_to_upper(str_remove(POS, &amp;quot;G_&amp;quot;))) %&amp;gt;%
   filter(POS != &amp;quot;P&amp;quot;) %&amp;gt;%
   right_join(players, by=&amp;quot;playerID&amp;quot;) %&amp;gt;%
@@ -12578,7 +12564,7 @@ pos &amp;lt;- tmp %&amp;gt;%
   select(playerID, nameFirst, nameLast, debut) %&amp;gt;%
   mutate(debut = as.Date(debut)) %&amp;gt;%
   right_join(players, by=&amp;quot;playerID&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;If you are a baseball fan, you will recognize the top 10 players:&lt;/p&gt;
+&lt;p&gt;If you are a baseball fan (or were years ago), you will recognize the top 10 players:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;players %&amp;gt;% select(nameFirst, nameLast, POS, salary, R_hat) %&amp;gt;%
   arrange(desc(R_hat)) %&amp;gt;% top_n(10)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Selecting by R_hat&lt;/code&gt;&lt;/pre&gt;

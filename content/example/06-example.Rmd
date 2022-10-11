@@ -454,9 +454,10 @@ We will now discuss **factor** variables, which is a special way that `R` deals 
 is.factor(autompg$domestic)
 ```
 
-Earlier when we used the `domestic` variable, it was **not** a factor variable. It was simply a numerical variable that only took two possible values, `1` for domestic, and `0` for foreign. Let's create a new variable `origin` that stores the same information, but in a different way.
+Earlier when we used the `domestic` variable, it was **not** a factor variable. It was simply a numerical variable that only took two possible values, `1` for domestic, and `0` for foreign. Let's create a new variable `origin` that stores the same information, but in a different way. First, we create an empty (all-`NA`) variable of type `character`. Then, we update it. Yes, we could also do this with `ifelse` or `case_when`:
 
 ```{r}
+autompg$origin = as.character(NA)
 autompg$origin[autompg$domestic == 1] = "domestic"
 autompg$origin[autompg$domestic == 0] = "foreign"
 head(autompg$origin)
@@ -531,6 +532,8 @@ where
 - $Y$ is `mpg`, the fuel efficiency in miles per gallon,
 - $x_1$ is `disp`, the displacement in cubic inches,
 - $x_2$ **is a dummy variable created by `R`.** It uses `1` to represent a **foreign car**.
+
+You may recall that we saw this in action in Assignment 05 when we used `model.matrix` on `GarageType`.
 
 So now,
 
@@ -949,6 +952,3 @@ Y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_3 + \beta_4 x_1 x_2 + \beta_
 \]
 
 
-
-## Lecture Video
-The lecture video for Tuesday (this material, but we only made it about 2/3rds of the way) is [available here <i class="fas fa-film"></i>](https://mediaspace.msu.edu/media/SSC442+-+Lecture+and+Office+Hours/1_s1ky1dhy)

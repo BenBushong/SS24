@@ -30,7 +30,7 @@
   
     
   
-  <meta name="description" content="PreliminariesDummy VariablesInteractionsFactor VariablesFactors with More Than Two LevelsParameterizationBuilding Larger ModelsLecture VideoToday’s example will pivot between the content from this week and the example below.
+  <meta name="description" content="PreliminariesDummy VariablesInteractionsFactor VariablesFactors with More Than Two LevelsParameterizationBuilding Larger ModelsToday’s example will pivot between the content from this week and the example below.
 We will also use the Ames data again. Maybe some new data. Who knows. The Ames data is linked below:
  Ames.csvPreliminariesSo far in each of our analyses, we have only used numeric variables as predictors.">
 
@@ -240,7 +240,7 @@ We will also use the Ames data again. Maybe some new data. Who knows. The Ames d
   <meta property="og:site_name" content="Data Analytics">
   <meta property="og:url" content="https://ssc442kirkpatrick.netlify.app/example/06-example/">
   <meta property="og:title" content="Linear Regression: Interpreting Coefficients | Data Analytics">
-  <meta property="og:description" content="PreliminariesDummy VariablesInteractionsFactor VariablesFactors with More Than Two LevelsParameterizationBuilding Larger ModelsLecture VideoToday’s example will pivot between the content from this week and the example below.
+  <meta property="og:description" content="PreliminariesDummy VariablesInteractionsFactor VariablesFactors with More Than Two LevelsParameterizationBuilding Larger ModelsToday’s example will pivot between the content from this week and the example below.
 We will also use the Ames data again. Maybe some new data. Who knows. The Ames data is linked below:
  Ames.csvPreliminariesSo far in each of our analyses, we have only used numeric variables as predictors."><meta property="og:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png">
   <meta property="twitter:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
@@ -638,7 +638,6 @@ We will also use the Ames data again. Maybe some new data. Who knows. The Ames d
 </ul></li>
 <li><a href="#parameterization">Parameterization</a></li>
 <li><a href="#building-larger-models">Building Larger Models</a></li>
-<li><a href="#lecture-video">Lecture Video</a></li>
 </ul>
 </div>
 
@@ -1042,8 +1041,9 @@ Y = \beta_0 + (\beta_1 + \beta_3 x_2) x_1 + \beta_2 x_2 + \epsilon.
 <p>We will now discuss <strong>factor</strong> variables, which is a special way that <code>R</code> deals with categorical variables. With factor variables, a human user can simply think about the categories of a variable, and <code>R</code> will take care of the necessary dummy variables without any 0/1 assignment being done by the user.</p>
 <pre class="r"><code>is.factor(autompg$domestic)</code></pre>
 <pre><code>## [1] FALSE</code></pre>
-<p>Earlier when we used the <code>domestic</code> variable, it was <strong>not</strong> a factor variable. It was simply a numerical variable that only took two possible values, <code>1</code> for domestic, and <code>0</code> for foreign. Let’s create a new variable <code>origin</code> that stores the same information, but in a different way.</p>
-<pre class="r"><code>autompg$origin[autompg$domestic == 1] = &quot;domestic&quot;
+<p>Earlier when we used the <code>domestic</code> variable, it was <strong>not</strong> a factor variable. It was simply a numerical variable that only took two possible values, <code>1</code> for domestic, and <code>0</code> for foreign. Let’s create a new variable <code>origin</code> that stores the same information, but in a different way. First, we create an empty (all-<code>NA</code>) variable of type <code>character</code>. Then, we update it. Yes, we could also do this with <code>ifelse</code> or <code>case_when</code>:</p>
+<pre class="r"><code>autompg$origin = as.character(NA)
+autompg$origin[autompg$domestic == 1] = &quot;domestic&quot;
 autompg$origin[autompg$domestic == 0] = &quot;foreign&quot;
 head(autompg$origin)</code></pre>
 <pre><code>## [1] &quot;domestic&quot; &quot;domestic&quot; &quot;domestic&quot; &quot;domestic&quot; &quot;domestic&quot; &quot;domestic&quot;</code></pre>
@@ -1112,6 +1112,7 @@ Y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_1 x_2 + \epsilon,
 <li><span class="math inline">\(x_1\)</span> is <code>disp</code>, the displacement in cubic inches,</li>
 <li><span class="math inline">\(x_2\)</span> <strong>is a dummy variable created by <code>R</code>.</strong> It uses <code>1</code> to represent a <strong>foreign car</strong>.</li>
 </ul>
+<p>You may recall that we saw this in action in Assignment 05 when we used <code>model.matrix</code> on <code>GarageType</code>.</p>
 <p>So now,</p>
 <p><span class="math display">\[
 \hat{\beta}_0 = 33.4793709
@@ -1538,10 +1539,6 @@ anova(additive_mod, two_way_int_mod)</code></pre>
 <p><span class="math display">\[
 Y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_3 + \beta_4 x_1 x_2 + \beta_5 x_1 x_3 + \beta_6 x_2 x_3 + \epsilon.
 \]</span></p>
-</div>
-<div id="lecture-video" class="section level2">
-<h2>Lecture Video</h2>
-<p>The lecture video for Tuesday (this material, but we only made it about 2/3rds of the way) is <a href="https://mediaspace.msu.edu/media/SSC442+-+Lecture+and+Office+Hours/1_s1ky1dhy">available here <i class="fas fa-film"></i></a></p>
 </div>
 
                     </div>

@@ -39,40 +39,32 @@ editor_options:
 <div id="building-a-model" class="section level2">
 <h2>Building a Model</h2>
 <p>We’re now ready to start playing with a model. We will start by using the <code>lm()</code> function to fit a simple linear regression
-model, with <code>SalePrice</code> as the response and lstat as the predictor.</p>
+model, with <code>SalePrice</code> as the response and <code>GrLivArea</code> as the predictor.</p>
 <p>Recall that the basic <code>lm()</code> syntax is <code>lm(y∼x,data)</code>, where <code>y</code> is the <strong>response</strong>, <code>x</code> is the <strong>predictor</strong>, and <code>data</code> is the data set in which these two variables are kept. Let’s quickly run this with two variables:</p>
-<pre class="r"><code>lm.fit = lm(SalePrice ~ GrLivArea)</code></pre>
-<p>This yields:
-<code>Error in eval(expr, envir, enclos) : Object "SalePrice" not found</code></p>
-<p>This command causes an error because <code>R</code> does not know where to find the variables. We can fix this by attaching the data:</p>
-<pre class="r"><code>attach(Ames)
-lm.fit = lm(SalePrice ~ GrLivArea)
-# Alternatively...
-lm.fit = lm(SalePrice ~ GrLivArea, data=Ames)</code></pre>
-<p>The next line tells <code>R</code> that the variables are in the object known as <code>Ames</code>. If you haven’t created this object yet (as in the previous lab) you’ll get an error at this stage. But once we attach <code>Ames</code>, the first line works fine because <code>R</code> now recognizes the variables. Alternatively, we could specify this within the <code>lm()</code> call using <code>data = Ames</code>. We’ve presented this way because it may be new to you; choose whichever you find most reasonable.</p>
+<pre class="r"><code>lm.fit = lm(SalePrice ~ GrLivArea, data = ameslist)</code></pre>
 <p>If we type <code>lm.fit</code>, some basic information about the model is output. For more detailed information, we use <code>summary(lm.fit)</code>. This gives us p-values and standard errors for the coefficients, as well as the <span class="math inline">\(R^2\)</span> statistic and <span class="math inline">\(F\)</span>-statistic for the entire model.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
 <p>Utilizing these functions hels us see some interesting results. Note that we built (nearly) the simplest possible model:</p>
 <p><span class="math display">\[\text{SalePrice} = \beta_0 + \beta_1*(\text{GrLivArea}) + \epsilon.\]</span></p>
 <p>But even on its own, this model is instructive. It suggest that an increase in overall living area of 1 ft <span class="math inline">\(^2\)</span> is correlated with an expected increase in sales price of $107. (Note that we <strong>cannot</strong> make causal claims!)</p>
-<p>Saving the model as we did above is useful because we can explore other pieces of information it stores. Specifically, we can use the <code>names()</code> function in order to find out what else is stored in <code>lm.fit</code>. Although we can extract these quan- tities by name—e.g. <code>lm.fit$coefficients</code>—it is safer to use the extractor functions like <code>coef()</code> to access them. We can also use a handy tool like <code>plot()</code> applied directly to <code>lm.fit</code> to see some interesting data that is automatically stored by the model.</p>
-<p><strong>Try it:</strong> Use <code>plot()</code> to explore the model above. Do you suspect that some outliers have a large influence on the data? We will explore this point specifically in the future.</p>
+<p>Saving the model as we did above is useful because we can explore other pieces of information it stores. Specifically, we can use the <code>names()</code> function in order to find out what else is stored in <code>lm.fit</code>. Although we can extract these quantities by name—e.g. <code>lm.fit$coefficients</code>—it is safer to use the extractor functions like <code>coef(lm.fit)</code> to access them. We can also use a handy tool like <code>plot()</code> applied directly to <code>lm.fit</code> to see some interesting data that is automatically stored by the model.</p>
+<p><strong>Try it:</strong> Use <code>plot()</code> to explore the model above (it will make a sequence of plots; don’t put it in a code chunk, just use it for your own exploration). Do you suspect that some outliers have a large influence on the data? We will explore this point specifically in the future.</p>
 <p>We can now go crazy adding variables to our model. It’s as simple as appending them to the previous code—though you should be careful executing this, as it will overwrite your previous output:</p>
-<pre class="r"><code>lm.fit = lm(SalePrice ~ GrLivArea + LotArea)</code></pre>
+<pre class="r"><code>lm.fit = lm(SalePrice ~ GrLivArea + LotArea, data = ameslist)</code></pre>
 <p><strong>Try it:</strong> Does controlling for <code>LotArea</code> change the <em>qualitative</em> conclusions from the previous regression? What about the <em>quantitative</em> results? Does the direction of the change in the quantitative results make sense to you?</p>
 <div class="fyi">
 <p><strong>EXERCISES</strong></p>
 <ol style="list-style-type: decimal">
 <li><p>Use the <code>lm()</code> function in a <strong>simple</strong> linear regression (e.g., with only one predictor) with <code>SalePrice</code> as the response to determine the value of a garage.</p></li>
-<li><p>Use the <code>lm()</code> function to perform a multiple linear regression with <code>SalePrice</code> as the response and all other variables from your <code>Ames</code> data as the predictors. Use the <code>summary()</code> function to print the results. Comment on the output. For instance:</p>
+<li><p>Use the <code>lm()</code> function to perform a multiple linear regression with <code>SalePrice</code> as the response and all other variables from your <code>Ames</code> data as the predictors. You can do this easily with the formula <code>SalePrice ~ .</code> which tells <code>lm</code> to use all of the data’s columns (except <code>SalePrice</code>) on the right-hand-side. To do this, you’ll need to drop a few variables first, though. Use <code>dplyr::select(-PoolQC, -MiscFeature, -Fence, -FireplaceQu, -LotFrontage, -Exterior2nd, -Electrical)</code> to get rid of some variables that have a lot of <code>NA</code> values. Use the <code>summary()</code> or <code>tidy</code> function to print the results. Comment on the output. For instance:</p>
 <ul>
 <li>Is there a relationship between the predictors and the response?</li>
 <li>Which predictors appear to have a statistically significant relationship to the response? (Hint: look for stars)</li>
 <li>What does the coefficient for the year variable suggest?</li>
 </ul></li>
-<li><p>The <code>:</code> symbol allows you to create an interction term between two variables. Use the <code>:</code> symbols to fit a linear regression model with <em>one</em> well-chosen interaction effects plus your other variables. Why did you select the variables you did, and what was the result?</p></li>
+<li><p>There are a few <code>NA</code>s in the output from the regression in Question 2. You can use <code>tidy</code> to save the output in a familiar data.frame style “tibble”, and then explore it to see what variables are coming up <code>NA</code>. Remember what <code>R</code> did when we tried to give it dummy variables representing all three possible values of a factor variable (see “Parameterization” in Example 06). Keeping that in mind, <em>scroll</em> to the first <code>NA</code> in your regression output and see if you can explain why it might be <code>NA</code>. Please remember that we can use functions like <code>View()</code> to explore data, but we never put <code>View()</code> in a code chunk.</p></li>
+<li><p>It’s rarely a good idea to throw all the variables into a regression. We want to be smarter about building our model. We’ll use fewer variables, but include interactions. As we saw this week, the <code>:</code> symbol allows you to create an interction term between two variables. Use the <code>:</code> symbols to fit a linear regression model with <em>one</em> well-chosen interaction effect plus 3-4 of the other variables of your choice. Why did you select the variables you did, and what was the result?</p></li>
 <li><p>Try a few (e.g., two) different transformations of the variables, such as <span class="math inline">\(ln(x)\)</span>, <span class="math inline">\(x^2\)</span>, <span class="math inline">\(\sqrt x\)</span>. Do any of these make sense to include in a model of <code>SalePrice</code>? Comment on your findings.</p></li>
 </ol>
-<p><strong>(Bonus; very very challenging)</strong> How might we build a model to estimate the elasticity of demand from this dataset?</p>
 </div>
 </div>
 <div class="footnotes">

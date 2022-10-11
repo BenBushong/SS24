@@ -2358,7 +2358,6 @@ ggplot(predicted_values_fancy, aes(x = windSpeed, y = .fitted)) +
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#parameterization&#34;&gt;Parameterization&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#building-larger-models&#34;&gt;Building Larger Models&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#lecture-video&#34;&gt;Lecture Video&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 
@@ -2762,8 +2761,9 @@ Y = \beta_0 + (\beta_1 + \beta_3 x_2) x_1 + \beta_2 x_2 + \epsilon.
 &lt;p&gt;We will now discuss &lt;strong&gt;factor&lt;/strong&gt; variables, which is a special way that &lt;code&gt;R&lt;/code&gt; deals with categorical variables. With factor variables, a human user can simply think about the categories of a variable, and &lt;code&gt;R&lt;/code&gt; will take care of the necessary dummy variables without any 0/1 assignment being done by the user.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;is.factor(autompg$domestic)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] FALSE&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Earlier when we used the &lt;code&gt;domestic&lt;/code&gt; variable, it was &lt;strong&gt;not&lt;/strong&gt; a factor variable. It was simply a numerical variable that only took two possible values, &lt;code&gt;1&lt;/code&gt; for domestic, and &lt;code&gt;0&lt;/code&gt; for foreign. Let’s create a new variable &lt;code&gt;origin&lt;/code&gt; that stores the same information, but in a different way.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;autompg$origin[autompg$domestic == 1] = &amp;quot;domestic&amp;quot;
+&lt;p&gt;Earlier when we used the &lt;code&gt;domestic&lt;/code&gt; variable, it was &lt;strong&gt;not&lt;/strong&gt; a factor variable. It was simply a numerical variable that only took two possible values, &lt;code&gt;1&lt;/code&gt; for domestic, and &lt;code&gt;0&lt;/code&gt; for foreign. Let’s create a new variable &lt;code&gt;origin&lt;/code&gt; that stores the same information, but in a different way. First, we create an empty (all-&lt;code&gt;NA&lt;/code&gt;) variable of type &lt;code&gt;character&lt;/code&gt;. Then, we update it. Yes, we could also do this with &lt;code&gt;ifelse&lt;/code&gt; or &lt;code&gt;case_when&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;autompg$origin = as.character(NA)
+autompg$origin[autompg$domestic == 1] = &amp;quot;domestic&amp;quot;
 autompg$origin[autompg$domestic == 0] = &amp;quot;foreign&amp;quot;
 head(autompg$origin)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] &amp;quot;domestic&amp;quot; &amp;quot;domestic&amp;quot; &amp;quot;domestic&amp;quot; &amp;quot;domestic&amp;quot; &amp;quot;domestic&amp;quot; &amp;quot;domestic&amp;quot;&lt;/code&gt;&lt;/pre&gt;
@@ -2832,6 +2832,7 @@ Y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_1 x_2 + \epsilon,
 &lt;li&gt;&lt;span class=&#34;math inline&#34;&gt;\(x_1\)&lt;/span&gt; is &lt;code&gt;disp&lt;/code&gt;, the displacement in cubic inches,&lt;/li&gt;
 &lt;li&gt;&lt;span class=&#34;math inline&#34;&gt;\(x_2\)&lt;/span&gt; &lt;strong&gt;is a dummy variable created by &lt;code&gt;R&lt;/code&gt;.&lt;/strong&gt; It uses &lt;code&gt;1&lt;/code&gt; to represent a &lt;strong&gt;foreign car&lt;/strong&gt;.&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;You may recall that we saw this in action in Assignment 05 when we used &lt;code&gt;model.matrix&lt;/code&gt; on &lt;code&gt;GarageType&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;So now,&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
 \hat{\beta}_0 = 33.4793709
@@ -3258,10 +3259,6 @@ anova(additive_mod, two_way_int_mod)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
 Y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_3 + \beta_4 x_1 x_2 + \beta_5 x_1 x_3 + \beta_6 x_2 x_3 + \epsilon.
 \]&lt;/span&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;lecture-video&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Lecture Video&lt;/h2&gt;
-&lt;p&gt;The lecture video for Tuesday (this material, but we only made it about 2/3rds of the way) is &lt;a href=&#34;https://mediaspace.msu.edu/media/SSC442+-+Lecture+and+Office+Hours/1_s1ky1dhy&#34;&gt;available here &lt;i class=&#34;fas fa-film&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>

@@ -5126,7 +5126,7 @@ singles_slope&lt;/code&gt;&lt;/pre&gt;
 ## 9       1.2 0.440&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The slopes are reduced, but they are not 0, which indicates that BBs are helpful for producing runs, just not as much as previously thought.
 In fact, the values above are closer to the slope we obtained from singles, 0.45, which is more consistent with our intuition. Since both singles and BB get us to first base, they should have about the same predictive power.&lt;/p&gt;
-&lt;p&gt;Although our understanding of the application tells us that HR cause BB but not the other way around, we can still check if stratifying by BB makes the effect of BB go down. To do this, we use the same code except that we swap HR and BBs to get this plot:&lt;/p&gt;
+&lt;p&gt;Although our understanding of the application tells us that HR cause BB but not the other way around, we can still check if stratifying by BB makes the effect of HR go down. To do this, we use the same code except that we swap HR and BBs to get this plot:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;## `geom_smooth()` using formula &amp;#39;y ~ x&amp;#39;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/content/06-content_files/figure-html/runs-vs-hr-by-bb-strata-1.png&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;In this case, the slopes do not change much from the original:&lt;/p&gt;
@@ -5182,9 +5182,9 @@ The simplest linear model is a constant &lt;span class=&#34;math inline&#34;&gt;
 &lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
 Y_i = \beta_0 + \beta_1 x_i + \varepsilon_i, \, i=1,\dots,N.
 \]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Here &lt;span class=&#34;math inline&#34;&gt;\(x_i\)&lt;/span&gt; is the father’s height, which is fixed (not random) due to the conditioning, and &lt;span class=&#34;math inline&#34;&gt;\(Y_i\)&lt;/span&gt; is the random son’s height that we want to predict. We further assume that &lt;span class=&#34;math inline&#34;&gt;\(\varepsilon_i\)&lt;/span&gt; are independent from each other, have expected value 0 and the standard deviation, call it &lt;span class=&#34;math inline&#34;&gt;\(\sigma\)&lt;/span&gt;, does not depend on &lt;span class=&#34;math inline&#34;&gt;\(i\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Here &lt;span class=&#34;math inline&#34;&gt;\(x_i\)&lt;/span&gt; is the father’s height, which is fixed (not random) due to the conditioning, and &lt;span class=&#34;math inline&#34;&gt;\(Y_i\)&lt;/span&gt; is the random son’s height that we want to predict. We further assume that &lt;span class=&#34;math inline&#34;&gt;\(\varepsilon_i\)&lt;/span&gt; are independent from each other, have expected value 0 and the standard deviation of &lt;span class=&#34;math inline&#34;&gt;\(\varepsilon_i\)&lt;/span&gt;, call it &lt;span class=&#34;math inline&#34;&gt;\(\sigma\)&lt;/span&gt;, does not depend on &lt;span class=&#34;math inline&#34;&gt;\(i\)&lt;/span&gt;.&lt;/p&gt;
 &lt;p&gt;In the above model, we know the &lt;span class=&#34;math inline&#34;&gt;\(x_i\)&lt;/span&gt;, but to have a useful model for prediction, we need &lt;span class=&#34;math inline&#34;&gt;\(\beta_0\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\beta_1\)&lt;/span&gt;. We estimate these from the data. Once we do this, we can predict son’s heights for any father’s height &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt;. We show how to do this in the next section.&lt;/p&gt;
-&lt;p&gt;Note that if we further assume that the &lt;span class=&#34;math inline&#34;&gt;\(\varepsilon\)&lt;/span&gt; is normally distributed, then this model is exactly the same one we derived earlier by assuming bivariate normal data. A somewhat nuanced difference is that in the first approach we assumed the data was bivariate normal and that the linear model was derived, not assumed. In practice, linear models are just assumed without necessarily assuming normality: the distribution of the &lt;span class=&#34;math inline&#34;&gt;\(\varepsilon\)&lt;/span&gt;s is not specified. Nevertheless, if your data is bivariate normal, the above linear model holds. If your data is not bivariate normal, then you will need to have other ways of justifying the model.&lt;/p&gt;
+&lt;p&gt;Note that if we further assume that the &lt;span class=&#34;math inline&#34;&gt;\(\varepsilon\)&lt;/span&gt; is normally distributed, then this model is exactly the same one we derived earlier by assuming bivariate normal data. A somewhat nuanced difference is that in the first approach we assumed the data was bivariate normal and that the linear model was derived, not assumed. In practice, linear models are just assumed without necessarily assuming normality: the distribution of the &lt;span class=&#34;math inline&#34;&gt;\(\varepsilon\)&lt;/span&gt;’s is not specified. Nevertheless, if your data is bivariate normal, the above linear model holds. If your data is not bivariate normal, then you will need to have other ways of justifying the model.&lt;/p&gt;
 &lt;div id=&#34;interpreting-linear-models&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Interpreting linear models&lt;/h3&gt;
 &lt;p&gt;One reason linear models are popular is that they are interpretable. In the case of Galton’s data, we can interpret the data like this: due to inherited genes, the son’s height prediction grows by &lt;span class=&#34;math inline&#34;&gt;\(\beta_1\)&lt;/span&gt; for each inch we increase the father’s height &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt;. Because not all sons with fathers of height &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; are of equal height, we need the term &lt;span class=&#34;math inline&#34;&gt;\(\varepsilon\)&lt;/span&gt;, which explains the remaining variability. This remaining variability includes the mother’s genetic effect, environmental factors, and other biological randomness.&lt;/p&gt;
@@ -5467,7 +5467,7 @@ tidy(fit)&lt;/code&gt;&lt;/pre&gt;
 ## # … with 2 more variables: df.residual &amp;lt;int&amp;gt;, nobs &amp;lt;int&amp;gt;, and abbreviated
 ## #   variable names ¹​adj.r.squared, ²​statistic, ³​deviance&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;You can learn more about these summaries in any regression text book.&lt;/p&gt;
-&lt;p&gt;We will see an example of &lt;code&gt;augment&lt;/code&gt; in the next section.&lt;/p&gt;
+&lt;p&gt;We will see an example of &lt;code&gt;augment&lt;/code&gt; in the next section (and you used it already to predict values in an earlier assignment).&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;case-study-moneyball-continued&#34; class=&#34;section level2&#34;&gt;
@@ -5575,7 +5575,7 @@ coefs&lt;/code&gt;&lt;/pre&gt;
 &lt;h3&gt;Adding salary and position information&lt;/h3&gt;
 &lt;p&gt;To actually build the team, we will need to know their salaries as well as their defensive position. For this, we join the &lt;code&gt;players&lt;/code&gt; data frame we just created with the player information data frame included in some of the other Lahman data tables. We will learn more about the join function (and we will discuss this further in a later lecture). For now, we just need to know that a join matches a “key” field that is shared between the two datasets. Here, it is &lt;code&gt;playerID&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Each join consists of two datasets, a shared key (or keys), and a type of join. A &lt;strong&gt;right join&lt;/strong&gt; takes any rows in X that match rows in Y, and &lt;em&gt;all&lt;/em&gt; rows in Y. A &lt;strong&gt;left join&lt;/strong&gt; takes all rows of X and any rows of Y that match. With &lt;em&gt;left&lt;/em&gt; and &lt;em&gt;right&lt;/em&gt; joins, you may end up with observations where some columns do not have data. R will give these an “NA”.&lt;/p&gt;
-&lt;p&gt;An &lt;strong&gt;inner join&lt;/strong&gt; takes only the rows in X and Y that match, so all observations will have data. A &lt;strong&gt;full join&lt;/strong&gt; takes all rows in X and Y.&lt;/p&gt;
+&lt;p&gt;An &lt;strong&gt;inner join&lt;/strong&gt; takes only the rows in X and Y that match, so all observations will have data. A &lt;strong&gt;full join&lt;/strong&gt; takes all rows in X and Y (and will give you lots of NAs if they don’t all match).&lt;/p&gt;
 &lt;p&gt;If more than one observation in Y matches the key field in X (or vice-versa), then you can get duplicated observations. We’ll cover joins more later. For now, we’ll just use &lt;strong&gt;right&lt;/strong&gt; and &lt;strong&gt;left&lt;/strong&gt; joins on data we know is safe to merge.&lt;/p&gt;
 &lt;p&gt;Start by adding the 2002 salary of each player:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;players &amp;lt;- Salaries %&amp;gt;%
@@ -5594,13 +5594,10 @@ tmp &amp;lt;- Appearances %&amp;gt;%
   ungroup()
 
 pos &amp;lt;- tmp %&amp;gt;%
-  select(position_names) %&amp;gt;%
-  apply(., 1, which.max)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Note: Using an external vector in selections is ambiguous.
-## ℹ Use `all_of(position_names)` instead of `position_names` to silence this message.
-## ℹ See &amp;lt;https://tidyselect.r-lib.org/reference/faq-external-vector.html&amp;gt;.
-## This message is displayed once per session.&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;players &amp;lt;- tibble(playerID = tmp$playerID, POS = position_names[pos]) %&amp;gt;%
+  select(all_of(position_names)) %&amp;gt;% # all_of lets us use an external vector of position names to select
+  apply(., MAR = 1, which.max) # which.max gives us the column number of the position that is the max
+
+players &amp;lt;- tibble(playerID = tmp$playerID, POS = position_names[pos]) %&amp;gt;%
   mutate(POS = str_to_upper(str_remove(POS, &amp;quot;G_&amp;quot;))) %&amp;gt;%
   filter(POS != &amp;quot;P&amp;quot;) %&amp;gt;%
   right_join(players, by=&amp;quot;playerID&amp;quot;) %&amp;gt;%
@@ -5610,7 +5607,7 @@ pos &amp;lt;- tmp %&amp;gt;%
   select(playerID, nameFirst, nameLast, debut) %&amp;gt;%
   mutate(debut = as.Date(debut)) %&amp;gt;%
   right_join(players, by=&amp;quot;playerID&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;If you are a baseball fan, you will recognize the top 10 players:&lt;/p&gt;
+&lt;p&gt;If you are a baseball fan (or were years ago), you will recognize the top 10 players:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;players %&amp;gt;% select(nameFirst, nameLast, POS, salary, R_hat) %&amp;gt;%
   arrange(desc(R_hat)) %&amp;gt;% top_n(10)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Selecting by R_hat&lt;/code&gt;&lt;/pre&gt;
