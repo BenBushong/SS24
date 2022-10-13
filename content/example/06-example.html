@@ -799,6 +799,23 @@ Y = \mu_1 v_1 + \mu_2 v_2 + \mu_3 v_3 + \beta_1 x v_1 + \beta_2 x v_2 + \beta_3 
 <pre class="r"><code>all.equal(fitted(lm(mpg ~ disp * cyl, data = autompg)),
           fitted(lm(mpg ~ 0 + cyl + disp : cyl, data = autompg)))</code></pre>
 <pre><code>## [1] TRUE</code></pre>
+<div class="fyi">
+<p><strong>TRY IT</strong></p>
+<p>Let’s try some interaction terms using our <code>Ames</code> data from before (linked at the top of this page). For now, we’ll stick to interacting square footage (<code>GrLivArea</code>) with dummy or factor variables. As usual, we’re trying to predict <code>SalePrice</code>.</p>
+<p>What factor variables should we use? Here are some options:</p>
+<ol style="list-style-type: decimal">
+<li><code>CentralAir</code> (binary, but stored as “Y”/“N”)</li>
+<li><code>Neighborhood</code> (25 different neighborhoods, stored as <code>chr</code>)</li>
+<li><code>YearBuilt</code> (not a factor, but <code>case_when</code> can be used to make a few bins based on year)</li>
+<li><code>OverallCond</code> (subjective 1-9 scale, but stored as an integer – use <code>as.factor</code>!)</li>
+<li><code>???</code> Anything else interesting you see?</li>
+</ol>
+<p>I’d like you to choose one of the above and run two models: one with <code>GrLivArea</code> and your chosen factor variable, and one with <code>GrLivArea</code>, your chosen factor variable, <em>and the interaction of the two</em>. Once you have run these:</p>
+<ol style="list-style-type: decimal">
+<li>Be prepared to interpret the coefficients on the “baseline” coefficient on <code>GrLivArea</code>, as well as one of the coefficients on the interaction.</li>
+<li>Test the two models using <code>anova(mod1, mod2)</code> and tell us if your more flexible model is statistically better than the less flexible model.</li>
+</ol>
+</div>
 </div>
 <div id="building-larger-models" class="section level2">
 <h2>Building Larger Models</h2>

@@ -4508,6 +4508,23 @@ Y = \mu_1 v_1 + \mu_2 v_2 + \mu_3 v_3 + \beta_1 x v_1 + \beta_2 x v_2 + \beta_3 
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;all.equal(fitted(lm(mpg ~ disp * cyl, data = autompg)),
           fitted(lm(mpg ~ 0 + cyl + disp : cyl, data = autompg)))&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;fyi&#34;&gt;
+&lt;p&gt;&lt;strong&gt;TRY IT&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Let’s try some interaction terms using our &lt;code&gt;Ames&lt;/code&gt; data from before (linked at the top of this page). For now, we’ll stick to interacting square footage (&lt;code&gt;GrLivArea&lt;/code&gt;) with dummy or factor variables. As usual, we’re trying to predict &lt;code&gt;SalePrice&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;What factor variables should we use? Here are some options:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;code&gt;CentralAir&lt;/code&gt; (binary, but stored as “Y”/“N”)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Neighborhood&lt;/code&gt; (25 different neighborhoods, stored as &lt;code&gt;chr&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;YearBuilt&lt;/code&gt; (not a factor, but &lt;code&gt;case_when&lt;/code&gt; can be used to make a few bins based on year)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;OverallCond&lt;/code&gt; (subjective 1-9 scale, but stored as an integer – use &lt;code&gt;as.factor&lt;/code&gt;!)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;???&lt;/code&gt; Anything else interesting you see?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;I’d like you to choose one of the above and run two models: one with &lt;code&gt;GrLivArea&lt;/code&gt; and your chosen factor variable, and one with &lt;code&gt;GrLivArea&lt;/code&gt;, your chosen factor variable, &lt;em&gt;and the interaction of the two&lt;/em&gt;. Once you have run these:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Be prepared to interpret the coefficients on the “baseline” coefficient on &lt;code&gt;GrLivArea&lt;/code&gt;, as well as one of the coefficients on the interaction.&lt;/li&gt;
+&lt;li&gt;Test the two models using &lt;code&gt;anova(mod1, mod2)&lt;/code&gt; and tell us if your more flexible model is statistically better than the less flexible model.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;building-larger-models&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Building Larger Models&lt;/h2&gt;

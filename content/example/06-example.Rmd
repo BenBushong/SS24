@@ -821,6 +821,29 @@ all.equal(fitted(lm(mpg ~ disp * cyl, data = autompg)),
           fitted(lm(mpg ~ 0 + cyl + disp : cyl, data = autompg)))
 ```
 
+
+:::fyi
+
+__TRY IT__
+
+Let's try some interaction terms using our `Ames` data from before (linked at the top of this page). For now, we'll stick to interacting square footage (`GrLivArea`) with dummy or factor variables. As usual, we're trying to predict `SalePrice`.
+
+What factor variables should we use? Here are some options:
+
+1. `CentralAir` (binary, but stored as "Y"/"N")
+2. `Neighborhood` (25 different neighborhoods, stored as `chr`)
+3. `YearBuilt` (not a factor, but `case_when` can be used to make a few bins based on year)
+4. `OverallCond` (subjective 1-9 scale, but stored as an integer -- use `as.factor`!)
+5. `???` Anything else interesting you see?
+
+I'd like you to choose one of the above and run two models: one with `GrLivArea` and your chosen factor variable, and one with `GrLivArea`, your chosen factor variable, *and the interaction of the two*. Once you have run these:
+
+1. Be prepared to interpret the coefficients on the "baseline" coefficient on `GrLivArea`, as well as one of the coefficients on the interaction.
+2. Test the two models using `anova(mod1, mod2)` and tell us if your more flexible model is statistically better than the less flexible model.
+
+:::
+
+
 ## Building Larger Models
 
 Now that we have seen how to incorporate categorical predictors as well as interaction terms, we can start to build much larger, much more flexible models which can potentially fit data better.
