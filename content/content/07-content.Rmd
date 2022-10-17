@@ -12,7 +12,7 @@ output:
     toc: true
 ---
 
-```{r opts, echo = FALSE}
+```{r opts, echo = FALSE, include = FALSE}
 require(knitr)
 knitr::opts_chunk$set(warning = FALSE, error = FALSE, message = FALSE)
 
@@ -59,7 +59,7 @@ Does this mean that margarine causes divorces? Or do divorces cause people to ea
 
 You can see many more absurd examples on the Spurious Correlations website^[http://tylervigen.com/spurious-correlations].
 
-The cases presented in the spurious correlation site are all instances of what is generally called _data dredging_, _data fishing_, or _data snooping_. It's basically a form of what in the US they call _cherry picking_. An example of data dredging would be if you look through many results produced by a random process and pick the one that shows a relationship that supports a theory you want to defend.
+The cases presented in the spurious correlation site are all instances of what is generally called _data dredging_, _data fishing_, or _data snooping_. It's basically a form of what in the US we call _cherry picking_. An example of data dredging would be if you look through many results produced by a random process and pick the one that shows a relationship that supports a theory you want to defend.
 
 A Monte Carlo simulation can be used to show how data dredging can result in finding high correlations among uncorrelated variables. We will save the results of our simulation into a tibble:
 
@@ -207,16 +207,28 @@ Incorrect interpretation due to confounders is ubiquitous in the lay press and t
 Admission data from six U.C. Berkeley majors, from 1973, showed that more men were being admitted than women: 44% men were admitted compared to 30% women. PJ Bickel, EA Hammel, and JW O'Connell. Science (1975). We can load the data and calculate the "headline" number:
 
 ```{r}
+library(dslabs)
 data(admissions)
 admissions %>% group_by(gender) %>%
   summarize(percentage =
               round(sum(admitted*applicants)/sum(applicants),1))
+# Note: "admitted" is PERCENT admitted
 ```
 
-The chi-squared test compares two groups with binary outcomes (like "admit" and "nonadmit"). The null hypothesis is that the groups are not differently distributed between the outcomes. A low p-value rejects this hypothesis. Here, the test clearly rejects the hypothesis that gender and admission are independent:
+The chi-squared test compares two groups with binary outcomes (like "admit" and "nonadmit"). The null hypothesis is that the groups are not differently distributed between the outcomes. Here's what the data looks like going in -- its in counts of "admitted" and "not admitted".
 
 ```{r}
 
+admissions %>% group_by(gender) %>%
+  summarize(total_admitted = round(sum(admitted / 100 * applicants)),
+            not_admitted = sum(applicants) - sum(total_admitted)) %>%
+  select(-gender) 
+```
+
+
+A low p-value rejects this hypothesis. Here, the test clearly rejects the hypothesis that gender and admission are independent:
+
+```{r}
 admissions %>% group_by(gender) %>%
   summarize(total_admitted = round(sum(admitted / 100 * applicants)),
             not_admitted = sum(applicants) - sum(total_admitted)) %>%
@@ -224,12 +236,13 @@ admissions %>% group_by(gender) %>%
   do(tidy(chisq.test(.))) %>% .$p.value
 ```
 
+
 But closer inspection shows a paradoxical result. Here are the percent admissions by major:
 
 ```{r}
 admissions %>% select(major, gender, admitted) %>%
   spread(gender, admitted) %>%
-  mutate(women_minus_men = women - men)
+  mutate(women_minus_men_pct = women - men)
 ```
 
 Four out of the six majors favor women. More importantly, all the differences are much smaller than the 14.2 difference that we see when examining the totals.
@@ -255,7 +268,7 @@ There seems to be association. The plot suggests that women were much more likel
 
 ### Confounding explained graphically
 
-The following plot shows the number of applicants that were admitted and those that were not by:
+The following plot shows the number of applicants that were admitted and those that were not by major and gender:
 
 ```{r confounding, echo=FALSE}
 admissions %>%
@@ -288,7 +301,7 @@ admissions %>%
   geom_point()
 ```
 
-Now we see that major by major, there is not much difference. The size of the dot represents the number of applicants, and explains the paradox: we see large red dots and small blue dots for the easiest majors, A and B.
+Now we see that major by major, there is not much difference. The size of the dot represents the number of applicants, and explains the paradox: we see large red dots and small blue dots for the easiest (least selective) majors, A and B.
 
 If we average the difference by major, we find that the percent is actually 3.5% higher for women.
 
@@ -299,7 +312,7 @@ admissions %>%  group_by(gender) %>% summarize(average = mean(admitted))
 
 ## Simpson's paradox
 
-The case we have just covered is an example of Simpson's paradox. It is called a paradox because we see the sign of the correlation  flip when comparing the entire publication and specific strata. As an illustrative example, suppose you have three random variables $X$, $Y$, and $Z$ and that we observe realizations of these. Here is a plot of simulated observations for $X$ and $Y$ along with the sample correlation:
+The case we have just covered is an example of Simpson's paradox. It is called a paradox because we see the sign of the correlation flip when comparing the entire publication and specific strata. As an illustrative example, suppose you have three random variables $X$, $Y$, and $Z$ and that we observe realizations of these. Here is a plot of simulated observations for $X$ and $Y$ along with the sample correlation:
 
 ```{r simpsons-paradox, echo=FALSE}
 N <- 100

@@ -30,7 +30,7 @@
   
     
   
-  <meta name="description" content="Required ReadingGuiding QuestionAssociation is not causationSpurious correlationOutliersReversing cause and effectConfoundersExample: UC Berkeley admissionsConfounding explained graphicallyAverage after stratifyingSimpson’s paradox## Loading required package: knitrRequired ReadingThis page.Guiding QuestionWhen can we make causal claims about the relationship between variables?As with recent weeks, we will work with real data during the lecture.">
+  <meta name="description" content="Required ReadingGuiding QuestionAssociation is not causationSpurious correlationOutliersReversing cause and effectConfoundersExample: UC Berkeley admissionsConfounding explained graphicallyAverage after stratifyingSimpson’s paradoxRequired ReadingThis page.Guiding QuestionWhen can we make causal claims about the relationship between variables?As with recent weeks, we will work with real data during the lecture.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://ssc442kirkpatrick.netlify.app/content/07-content/">
@@ -238,7 +238,7 @@
   <meta property="og:site_name" content="Data Analytics">
   <meta property="og:url" content="https://ssc442kirkpatrick.netlify.app/content/07-content/">
   <meta property="og:title" content="Linear Regression III | Data Analytics">
-  <meta property="og:description" content="Required ReadingGuiding QuestionAssociation is not causationSpurious correlationOutliersReversing cause and effectConfoundersExample: UC Berkeley admissionsConfounding explained graphicallyAverage after stratifyingSimpson’s paradox## Loading required package: knitrRequired ReadingThis page.Guiding QuestionWhen can we make causal claims about the relationship between variables?As with recent weeks, we will work with real data during the lecture."><meta property="og:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png">
+  <meta property="og:description" content="Required ReadingGuiding QuestionAssociation is not causationSpurious correlationOutliersReversing cause and effectConfoundersExample: UC Berkeley admissionsConfounding explained graphicallyAverage after stratifyingSimpson’s paradoxRequired ReadingThis page.Guiding QuestionWhen can we make causal claims about the relationship between variables?As with recent weeks, we will work with real data during the lecture."><meta property="og:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png">
   <meta property="twitter:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
   
     
@@ -650,7 +650,6 @@
 </ul>
 </div>
 
-<pre><code>## Loading required package: knitr</code></pre>
 <div id="required-reading" class="section level2">
 <h2>Required Reading</h2>
 <ul>
@@ -677,7 +676,7 @@
 <p><img src="/content/07-content_files/figure-html/divorce-versus-margarine-1.png" width="672" /></p>
 <p>Does this mean that margarine causes divorces? Or do divorces cause people to eat more margarine? Of course the answer to both these questions is no. This is just an example of what we call a <em>spurious correlation</em>.</p>
 <p>You can see many more absurd examples on the Spurious Correlations website<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.</p>
-<p>The cases presented in the spurious correlation site are all instances of what is generally called <em>data dredging</em>, <em>data fishing</em>, or <em>data snooping</em>. It’s basically a form of what in the US they call <em>cherry picking</em>. An example of data dredging would be if you look through many results produced by a random process and pick the one that shows a relationship that supports a theory you want to defend.</p>
+<p>The cases presented in the spurious correlation site are all instances of what is generally called <em>data dredging</em>, <em>data fishing</em>, or <em>data snooping</em>. It’s basically a form of what in the US we call <em>cherry picking</em>. An example of data dredging would be if you look through many results produced by a random process and pick the one that shows a relationship that supports a theory you want to defend.</p>
 <p>A Monte Carlo simulation can be used to show how data dredging can result in finding high correlations among uncorrelated variables. We will save the results of our simulation into a tibble:</p>
 <pre class="r"><code>N &lt;- 25
 g &lt;- 1000000
@@ -788,7 +787,8 @@ GaltonFamilies %&gt;%
 <div id="example-uc-berkeley-admissions" class="section level3">
 <h3>Example: UC Berkeley admissions</h3>
 <p>Admission data from six U.C. Berkeley majors, from 1973, showed that more men were being admitted than women: 44% men were admitted compared to 30% women. PJ Bickel, EA Hammel, and JW O’Connell. Science (1975). We can load the data and calculate the “headline” number:</p>
-<pre class="r"><code>data(admissions)
+<pre class="r"><code>library(dslabs)
+data(admissions)
 admissions %&gt;% group_by(gender) %&gt;%
   summarize(percentage =
               round(sum(admitted*applicants)/sum(applicants),1))</code></pre>
@@ -797,7 +797,18 @@ admissions %&gt;% group_by(gender) %&gt;%
 ##   &lt;chr&gt;       &lt;dbl&gt;
 ## 1 men          44.5
 ## 2 women        30.3</code></pre>
-<p>The chi-squared test compares two groups with binary outcomes (like “admit” and “nonadmit”). The null hypothesis is that the groups are not differently distributed between the outcomes. A low p-value rejects this hypothesis. Here, the test clearly rejects the hypothesis that gender and admission are independent:</p>
+<pre class="r"><code># Note: &quot;admitted&quot; is PERCENT admitted</code></pre>
+<p>The chi-squared test compares two groups with binary outcomes (like “admit” and “nonadmit”). The null hypothesis is that the groups are not differently distributed between the outcomes. Here’s what the data looks like going in – its in counts of “admitted” and “not admitted”.</p>
+<pre class="r"><code>admissions %&gt;% group_by(gender) %&gt;%
+  summarize(total_admitted = round(sum(admitted / 100 * applicants)),
+            not_admitted = sum(applicants) - sum(total_admitted)) %&gt;%
+  select(-gender) </code></pre>
+<pre><code>## # A tibble: 2 × 2
+##   total_admitted not_admitted
+##            &lt;dbl&gt;        &lt;dbl&gt;
+## 1           1198         1493
+## 2            557         1278</code></pre>
+<p>A low p-value rejects this hypothesis. Here, the test clearly rejects the hypothesis that gender and admission are independent:</p>
 <pre class="r"><code>admissions %&gt;% group_by(gender) %&gt;%
   summarize(total_admitted = round(sum(admitted / 100 * applicants)),
             not_admitted = sum(applicants) - sum(total_admitted)) %&gt;%
@@ -807,14 +818,14 @@ admissions %&gt;% group_by(gender) %&gt;%
 <p>But closer inspection shows a paradoxical result. Here are the percent admissions by major:</p>
 <pre class="r"><code>admissions %&gt;% select(major, gender, admitted) %&gt;%
   spread(gender, admitted) %&gt;%
-  mutate(women_minus_men = women - men)</code></pre>
-<pre><code>##   major men women women_minus_men
-## 1     A  62    82              20
-## 2     B  63    68               5
-## 3     C  37    34              -3
-## 4     D  33    35               2
-## 5     E  28    24              -4
-## 6     F   6     7               1</code></pre>
+  mutate(women_minus_men_pct = women - men)</code></pre>
+<pre><code>##   major men women women_minus_men_pct
+## 1     A  62    82                  20
+## 2     B  63    68                   5
+## 3     C  37    34                  -3
+## 4     D  33    35                   2
+## 5     E  28    24                  -4
+## 6     F   6     7                   1</code></pre>
 <p>Four out of the six majors favor women. More importantly, all the differences are much smaller than the 14.2 difference that we see when examining the totals.</p>
 <p>The paradox is that analyzing the totals suggests a dependence between admission and gender, but when the data is grouped by major, this dependence seems to disappear. What’s going on? This actually can happen if an uncounted confounder is driving most of the variability.</p>
 <p>So let’s define three variables: <span class="math inline">\(X\)</span> is 1 for men and 0 for women, <span class="math inline">\(Y\)</span> is 1 for those admitted and 0 otherwise, and <span class="math inline">\(Z\)</span> quantifies the selectivity of the major. A gender bias claim would be based on the fact that <span class="math inline">\(\mbox{Pr}(Y=1 | X = x)\)</span> is higher for <span class="math inline">\(x=1\)</span> than <span class="math inline">\(x=0\)</span>. However, <span class="math inline">\(Z\)</span> is an important confounder to consider. Clearly <span class="math inline">\(Z\)</span> is associated with <span class="math inline">\(Y\)</span>, as the more selective a major, the lower <span class="math inline">\(\mbox{Pr}(Y=1 | Z = z)\)</span>. But is major selectivity <span class="math inline">\(Z\)</span> associated with gender <span class="math inline">\(X\)</span>?</p>
@@ -831,7 +842,7 @@ admissions %&gt;% group_by(gender) %&gt;%
 </div>
 <div id="confounding-explained-graphically" class="section level3">
 <h3>Confounding explained graphically</h3>
-<p>The following plot shows the number of applicants that were admitted and those that were not by:</p>
+<p>The following plot shows the number of applicants that were admitted and those that were not by major and gender:</p>
 <p><img src="/content/07-content_files/figure-html/confounding-1.png" width="672" /></p>
 <!--
 
@@ -853,7 +864,7 @@ admissions %>%
   ggplot(aes(major, admitted, col = gender, size = applicants)) +
   geom_point()</code></pre>
 <p><img src="/content/07-content_files/figure-html/admission-by-major-1.png" width="672" /></p>
-<p>Now we see that major by major, there is not much difference. The size of the dot represents the number of applicants, and explains the paradox: we see large red dots and small blue dots for the easiest majors, A and B.</p>
+<p>Now we see that major by major, there is not much difference. The size of the dot represents the number of applicants, and explains the paradox: we see large red dots and small blue dots for the easiest (least selective) majors, A and B.</p>
 <p>If we average the difference by major, we find that the percent is actually 3.5% higher for women.</p>
 <pre class="r"><code>admissions %&gt;%  group_by(gender) %&gt;% summarize(average = mean(admitted))</code></pre>
 <pre><code>## # A tibble: 2 × 2

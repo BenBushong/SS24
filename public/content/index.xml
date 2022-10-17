@@ -6521,7 +6521,6 @@ tidy(fit)&lt;/code&gt;&lt;/pre&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 
-&lt;pre&gt;&lt;code&gt;## Loading required package: knitr&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;required-reading&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Required Reading&lt;/h2&gt;
 &lt;ul&gt;
@@ -6548,7 +6547,7 @@ tidy(fit)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/content/07-content_files/figure-html/divorce-versus-margarine-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Does this mean that margarine causes divorces? Or do divorces cause people to eat more margarine? Of course the answer to both these questions is no. This is just an example of what we call a &lt;em&gt;spurious correlation&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;You can see many more absurd examples on the Spurious Correlations website&lt;a href=&#34;#fn1&#34; class=&#34;footnote-ref&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;The cases presented in the spurious correlation site are all instances of what is generally called &lt;em&gt;data dredging&lt;/em&gt;, &lt;em&gt;data fishing&lt;/em&gt;, or &lt;em&gt;data snooping&lt;/em&gt;. It’s basically a form of what in the US they call &lt;em&gt;cherry picking&lt;/em&gt;. An example of data dredging would be if you look through many results produced by a random process and pick the one that shows a relationship that supports a theory you want to defend.&lt;/p&gt;
+&lt;p&gt;The cases presented in the spurious correlation site are all instances of what is generally called &lt;em&gt;data dredging&lt;/em&gt;, &lt;em&gt;data fishing&lt;/em&gt;, or &lt;em&gt;data snooping&lt;/em&gt;. It’s basically a form of what in the US we call &lt;em&gt;cherry picking&lt;/em&gt;. An example of data dredging would be if you look through many results produced by a random process and pick the one that shows a relationship that supports a theory you want to defend.&lt;/p&gt;
 &lt;p&gt;A Monte Carlo simulation can be used to show how data dredging can result in finding high correlations among uncorrelated variables. We will save the results of our simulation into a tibble:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;N &amp;lt;- 25
 g &amp;lt;- 1000000
@@ -6659,7 +6658,8 @@ GaltonFamilies %&amp;gt;%
 &lt;div id=&#34;example-uc-berkeley-admissions&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Example: UC Berkeley admissions&lt;/h3&gt;
 &lt;p&gt;Admission data from six U.C. Berkeley majors, from 1973, showed that more men were being admitted than women: 44% men were admitted compared to 30% women. PJ Bickel, EA Hammel, and JW O’Connell. Science (1975). We can load the data and calculate the “headline” number:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data(admissions)
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(dslabs)
+data(admissions)
 admissions %&amp;gt;% group_by(gender) %&amp;gt;%
   summarize(percentage =
               round(sum(admitted*applicants)/sum(applicants),1))&lt;/code&gt;&lt;/pre&gt;
@@ -6668,7 +6668,18 @@ admissions %&amp;gt;% group_by(gender) %&amp;gt;%
 ##   &amp;lt;chr&amp;gt;       &amp;lt;dbl&amp;gt;
 ## 1 men          44.5
 ## 2 women        30.3&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The chi-squared test compares two groups with binary outcomes (like “admit” and “nonadmit”). The null hypothesis is that the groups are not differently distributed between the outcomes. A low p-value rejects this hypothesis. Here, the test clearly rejects the hypothesis that gender and admission are independent:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Note: &amp;quot;admitted&amp;quot; is PERCENT admitted&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The chi-squared test compares two groups with binary outcomes (like “admit” and “nonadmit”). The null hypothesis is that the groups are not differently distributed between the outcomes. Here’s what the data looks like going in – its in counts of “admitted” and “not admitted”.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;admissions %&amp;gt;% group_by(gender) %&amp;gt;%
+  summarize(total_admitted = round(sum(admitted / 100 * applicants)),
+            not_admitted = sum(applicants) - sum(total_admitted)) %&amp;gt;%
+  select(-gender) &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 2 × 2
+##   total_admitted not_admitted
+##            &amp;lt;dbl&amp;gt;        &amp;lt;dbl&amp;gt;
+## 1           1198         1493
+## 2            557         1278&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;A low p-value rejects this hypothesis. Here, the test clearly rejects the hypothesis that gender and admission are independent:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;admissions %&amp;gt;% group_by(gender) %&amp;gt;%
   summarize(total_admitted = round(sum(admitted / 100 * applicants)),
             not_admitted = sum(applicants) - sum(total_admitted)) %&amp;gt;%
@@ -6678,14 +6689,14 @@ admissions %&amp;gt;% group_by(gender) %&amp;gt;%
 &lt;p&gt;But closer inspection shows a paradoxical result. Here are the percent admissions by major:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;admissions %&amp;gt;% select(major, gender, admitted) %&amp;gt;%
   spread(gender, admitted) %&amp;gt;%
-  mutate(women_minus_men = women - men)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##   major men women women_minus_men
-## 1     A  62    82              20
-## 2     B  63    68               5
-## 3     C  37    34              -3
-## 4     D  33    35               2
-## 5     E  28    24              -4
-## 6     F   6     7               1&lt;/code&gt;&lt;/pre&gt;
+  mutate(women_minus_men_pct = women - men)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   major men women women_minus_men_pct
+## 1     A  62    82                  20
+## 2     B  63    68                   5
+## 3     C  37    34                  -3
+## 4     D  33    35                   2
+## 5     E  28    24                  -4
+## 6     F   6     7                   1&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Four out of the six majors favor women. More importantly, all the differences are much smaller than the 14.2 difference that we see when examining the totals.&lt;/p&gt;
 &lt;p&gt;The paradox is that analyzing the totals suggests a dependence between admission and gender, but when the data is grouped by major, this dependence seems to disappear. What’s going on? This actually can happen if an uncounted confounder is driving most of the variability.&lt;/p&gt;
 &lt;p&gt;So let’s define three variables: &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt; is 1 for men and 0 for women, &lt;span class=&#34;math inline&#34;&gt;\(Y\)&lt;/span&gt; is 1 for those admitted and 0 otherwise, and &lt;span class=&#34;math inline&#34;&gt;\(Z\)&lt;/span&gt; quantifies the selectivity of the major. A gender bias claim would be based on the fact that &lt;span class=&#34;math inline&#34;&gt;\(\mbox{Pr}(Y=1 | X = x)\)&lt;/span&gt; is higher for &lt;span class=&#34;math inline&#34;&gt;\(x=1\)&lt;/span&gt; than &lt;span class=&#34;math inline&#34;&gt;\(x=0\)&lt;/span&gt;. However, &lt;span class=&#34;math inline&#34;&gt;\(Z\)&lt;/span&gt; is an important confounder to consider. Clearly &lt;span class=&#34;math inline&#34;&gt;\(Z\)&lt;/span&gt; is associated with &lt;span class=&#34;math inline&#34;&gt;\(Y\)&lt;/span&gt;, as the more selective a major, the lower &lt;span class=&#34;math inline&#34;&gt;\(\mbox{Pr}(Y=1 | Z = z)\)&lt;/span&gt;. But is major selectivity &lt;span class=&#34;math inline&#34;&gt;\(Z\)&lt;/span&gt; associated with gender &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt;?&lt;/p&gt;
@@ -6702,7 +6713,7 @@ admissions %&amp;gt;% group_by(gender) %&amp;gt;%
 &lt;/div&gt;
 &lt;div id=&#34;confounding-explained-graphically&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Confounding explained graphically&lt;/h3&gt;
-&lt;p&gt;The following plot shows the number of applicants that were admitted and those that were not by:&lt;/p&gt;
+&lt;p&gt;The following plot shows the number of applicants that were admitted and those that were not by major and gender:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/content/07-content_files/figure-html/confounding-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;!--
 
@@ -6724,7 +6735,7 @@ admissions %&gt;%
   ggplot(aes(major, admitted, col = gender, size = applicants)) +
   geom_point()&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/content/07-content_files/figure-html/admission-by-major-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Now we see that major by major, there is not much difference. The size of the dot represents the number of applicants, and explains the paradox: we see large red dots and small blue dots for the easiest majors, A and B.&lt;/p&gt;
+&lt;p&gt;Now we see that major by major, there is not much difference. The size of the dot represents the number of applicants, and explains the paradox: we see large red dots and small blue dots for the easiest (least selective) majors, A and B.&lt;/p&gt;
 &lt;p&gt;If we average the difference by major, we find that the percent is actually 3.5% higher for women.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;admissions %&amp;gt;%  group_by(gender) %&amp;gt;% summarize(average = mean(admitted))&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 2 × 2
