@@ -29,6 +29,38 @@ As with recent weeks, we will work with real data during the lecture. Please dow
 
 - [<i class="fas fa-file-csv"></i> `Ames.csv`](/projects/data/ames.csv)
 
+## A quick `R` note:
+We learned that we can run a regression with all variables in a dataset using, for example, `SalePrice ~ .`
+
+In your lab this week, you are asked to run 15 models (!) of increasing complexity, where "complexity" is defined in one question as adding an additional linear term. So if you had $X1$, $X2$, and $X3$ as explanatory variables, you might want to have a model that is:
+
+$$Y = \beta_0 + \beta_1 X1$$
+
+and then
+
+$$Y = \beta_0 + \beta_1 X1 + \beta_2 X2$$
+
+and so on. How you do so is up to you -- you could do a list of formulas constructed with `paste`, then use `lapply` to that list. Or you could wisely use the `~ .` part of the formula and change the columns in the data you pass to `lm`. Here are a few tips pertaining to some of the ways of doing this.
+
+If you have a dataset called `DesMoines` and a character vector of all of your columns in `DesMoines` like so `varnames = c('Y','X1','X2','X3')`, and it's in the order in which you'd like to add the variables to the model, then:
+
+```
+DesMoines %>% dplyr::select(varnames[1:N])
+```
+
+would select the first `N` variables. A loop on `N` from 2 to 4 would give you `c('Y','X1')` then `c('Y','X1','X2')` and so on. 
+
+Another handy tip is using `paste` with `collapse = '+'`.
+
+```{r pastevar, echo = T}
+varnames = c('Y','X1','X2','X3')
+
+paste(varnames[2:4], collapse = ' + ')
+
+```
+
+This will put all of the things in the vector together with `+` between them. Wisely pasting `Y ~ ` onto this, then using `as.formula()` lets you make a formula object from a character vector. Handy!
+
 # Association is not causation
 
 _Association is not causation_ is perhaps the most important lesson one learns in a statistics class. _Correlation is not causation_ is another way to say this. Throughout the previous parts of this class, we have described tools useful for quantifying associations between variables. However, we must be careful not to over-interpret these associations.
@@ -354,3 +386,16 @@ dat %>% ggplot(aes(x, y, color = z)) +
 
 It is really $Z$ that is negatively correlated with $X$. If we stratify by $Z$, the $X$ and $Y$ are actually positively correlated as seen in the plot above.
 
+How do we stratify in regression? Depending on the relationship we think the variables have (conditional on $Z$). In the above example, it looks like an intercept shift would account for the differences across $Z$ (note that the plot shows the correlation between $Y$ and $X$ for each value of $Z$):
+
+```{r simpsons-regression, echo = TRUE}
+
+summary(lm(y ~ x + as.factor(z), data = dat))
+
+```
+
+If we thought that the relationship between $Y$ and $X$ were *different* for each $Z$ (not just the intercept), we could try allowing a slope-shift using interactions:
+
+```{r simpsons-regression-slope, echo = TRUE}
+summary(lm(y ~ x*as.factor(z), data = dat))
+```
