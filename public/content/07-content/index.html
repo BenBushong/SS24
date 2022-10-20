@@ -30,7 +30,7 @@
   
     
   
-  <meta name="description" content="Required ReadingGuiding QuestionAssociation is not causationSpurious correlationOutliersReversing cause and effectConfoundersExample: UC Berkeley admissionsConfounding explained graphicallyAverage after stratifyingSimpson’s paradoxRequired ReadingThis page.Guiding QuestionWhen can we make causal claims about the relationship between variables?As with recent weeks, we will work with real data during the lecture.">
+  <meta name="description" content="Required ReadingGuiding QuestionA quick R note:Association is not causationSpurious correlationOutliersReversing cause and effectConfoundersExample: UC Berkeley admissionsConfounding explained graphicallyAverage after stratifyingSimpson’s paradoxRequired ReadingThis page.Guiding QuestionWhen can we make causal claims about the relationship between variables?As with recent weeks, we will work with real data during the lecture.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://ssc442kirkpatrick.netlify.app/content/07-content/">
@@ -238,11 +238,11 @@
   <meta property="og:site_name" content="Data Analytics">
   <meta property="og:url" content="https://ssc442kirkpatrick.netlify.app/content/07-content/">
   <meta property="og:title" content="Linear Regression III | Data Analytics">
-  <meta property="og:description" content="Required ReadingGuiding QuestionAssociation is not causationSpurious correlationOutliersReversing cause and effectConfoundersExample: UC Berkeley admissionsConfounding explained graphicallyAverage after stratifyingSimpson’s paradoxRequired ReadingThis page.Guiding QuestionWhen can we make causal claims about the relationship between variables?As with recent weeks, we will work with real data during the lecture."><meta property="og:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png">
+  <meta property="og:description" content="Required ReadingGuiding QuestionA quick R note:Association is not causationSpurious correlationOutliersReversing cause and effectConfoundersExample: UC Berkeley admissionsConfounding explained graphicallyAverage after stratifyingSimpson’s paradoxRequired ReadingThis page.Guiding QuestionWhen can we make causal claims about the relationship between variables?As with recent weeks, we will work with real data during the lecture."><meta property="og:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png">
   <meta property="twitter:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
   
     
-    <meta property="article:modified_time" content="2022-10-17T10:12:10-04:00">
+    <meta property="article:modified_time" content="2022-10-18T12:31:51-04:00">
   
 
   
@@ -634,6 +634,7 @@
 <ul>
 <li><a href="#guiding-question">Guiding Question</a></li>
 </ul></li>
+<li><a href="#a-quick-r-note">A quick <code>R</code> note:</a></li>
 <li><a href="#association-is-not-causation">Association is not causation</a>
 <ul>
 <li><a href="#spurious-correlation">Spurious correlation</a></li>
@@ -666,6 +667,24 @@
 </ul>
 </div>
 </div>
+<div id="a-quick-r-note" class="section level2">
+<h2>A quick <code>R</code> note:</h2>
+<p>We learned that we can run a regression with all variables in a dataset using, for example, <code>SalePrice ~ .</code></p>
+<p>In your lab this week, you are asked to run 15 models (!) of increasing complexity, where “complexity” is defined in one question as adding an additional linear term. So if you had <span class="math inline">\(X1\)</span>, <span class="math inline">\(X2\)</span>, and <span class="math inline">\(X3\)</span> as explanatory variables, you might want to have a model that is:</p>
+<p><span class="math display">\[Y = \beta_0 + \beta_1 X1\]</span></p>
+<p>and then</p>
+<p><span class="math display">\[Y = \beta_0 + \beta_1 X1 + \beta_2 X2\]</span></p>
+<p>and so on. How you do so is up to you – you could do a list of formulas constructed with <code>paste</code>, then use <code>lapply</code> to that list. Or you could wisely use the <code>~ .</code> part of the formula and change the columns in the data you pass to <code>lm</code>. Here are a few tips pertaining to some of the ways of doing this.</p>
+<p>If you have a dataset called <code>DesMoines</code> and a character vector of all of your columns in <code>DesMoines</code> like so <code>varnames = c('Y','X1','X2','X3')</code>, and it’s in the order in which you’d like to add the variables to the model, then:</p>
+<pre><code>DesMoines %&gt;% dplyr::select(varnames[1:N])</code></pre>
+<p>would select the first <code>N</code> variables. A loop on <code>N</code> from 2 to 4 would give you <code>c('Y','X1')</code> then <code>c('Y','X1','X2')</code> and so on.</p>
+<p>Another handy tip is using <code>paste</code> with <code>collapse = '+'</code>.</p>
+<pre class="r"><code>varnames = c(&#39;Y&#39;,&#39;X1&#39;,&#39;X2&#39;,&#39;X3&#39;)
+
+paste(varnames[2:4], collapse = &#39; + &#39;)</code></pre>
+<pre><code>## [1] &quot;X1 + X2 + X3&quot;</code></pre>
+<p>This will put all of the things in the vector together with <code>+</code> between them. Wisely pasting <code>Y ~</code> onto this, then using <code>as.formula()</code> lets you make a formula object from a character vector. Handy!</p>
+</div>
 <div id="association-is-not-causation" class="section level1">
 <h1>Association is not causation</h1>
 <p><em>Association is not causation</em> is perhaps the most important lesson one learns in a statistics class. <em>Correlation is not causation</em> is another way to say this. Throughout the previous parts of this class, we have described tools useful for quantifying associations between variables. However, we must be careful not to over-interpret these associations.</p>
@@ -693,18 +712,18 @@ res</code></pre>
 <pre><code>## # A tibble: 1,000,000 × 2
 ##     group     r
 ##     &lt;int&gt; &lt;dbl&gt;
-##  1 924551 0.837
-##  2 775641 0.805
-##  3 853756 0.771
-##  4 579380 0.766
-##  5  72327 0.753
-##  6 423337 0.751
-##  7 218343 0.749
-##  8  76863 0.747
-##  9  29961 0.745
-## 10 773520 0.737
+##  1 545726 0.832
+##  2 411615 0.781
+##  3 775435 0.779
+##  4 659628 0.766
+##  5 639207 0.765
+##  6 957444 0.763
+##  7 866723 0.762
+##  8 305000 0.757
+##  9 446549 0.752
+## 10 306773 0.751
 ## # … with 999,990 more rows</code></pre>
-<p>We see a maximum correlation of 0.837 and if you just plot the data from the group achieving this correlation, it shows a convincing plot that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are in fact correlated:</p>
+<p>We see a maximum correlation of 0.832 and if you just plot the data from the group achieving this correlation, it shows a convincing plot that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are in fact correlated:</p>
 <pre class="r"><code>sim_data %&gt;% filter(group == res$group[which.max(res$r)]) %&gt;%
   ggplot(aes(x, y)) +
   geom_point() +
@@ -713,7 +732,7 @@ res</code></pre>
 <p>Remember that the correlation summary is a random variable. Here is the distribution generated by the Monte Carlo simulation:</p>
 <pre class="r"><code>res %&gt;% ggplot(aes(x=r)) + geom_histogram(binwidth = 0.1, color = &quot;black&quot;)</code></pre>
 <p><img src="/content/07-content_files/figure-html/null-corr-hist-1.png" width="672" /></p>
-<p>It’s just a mathematical fact that if we observe random correlations that are expected to be 0, but have a standard error of 0.2042103, the largest one will be close to 1.</p>
+<p>It’s just a mathematical fact that if we observe random correlations that are expected to be 0, but have a standard error of 0.2041906, the largest one will be close to 1.</p>
 <p>If we performed regression on this group and interpreted the p-value, we would incorrectly claim this was a statistically significant relation:</p>
 <pre class="r"><code>library(broom)
 sim_data %&gt;%
@@ -723,7 +742,7 @@ sim_data %&gt;%
 <pre><code>## # A tibble: 1 × 5
 ##   term  estimate std.error statistic     p.value
 ##   &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;
-## 1 x         1.03     0.141      7.32 0.000000189</code></pre>
+## 1 x        0.688    0.0955      7.20 0.000000249</code></pre>
 <p>Now, imagine that instead of a whole lot of simulated data, you had a whole lot of actual data and waded through enough of it to find two unrelated variables that happened to show up as correlated (like divorce rates and pounds of margarine consumed). This particular form of data dredging is referred to as <em>p-hacking</em>. P-hacking is a topic of much discussion because it is a problem in scientific publications. Because publishers tend to reward statistically significant results over negative results, there is an incentive to report significant results. In epidemiology and the social sciences, for example, researchers may look for associations between an adverse outcome and a lot of different variables that represent exposures and report only the one exposure that resulted in a small p-value. Furthermore, they might try fitting several different models to account for confounding and pick the one that yields the smallest p-value. In experimental disciplines, an experiment might be repeated more than once, yet only the results of the one experiment with a small p-value reported. This does not necessarily happen due to unethical behavior, but rather as a result of statistical ignorance or wishful thinking. In advanced statistics courses, you can learn methods to adjust for these multiple comparisons.</p>
 </div>
 <div id="outliers" class="section level2">
@@ -881,6 +900,58 @@ admissions %>%
 <p>You can see that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are negatively correlated. However, once we stratify by <span class="math inline">\(Z\)</span> (shown in different colors below) another pattern emerges:</p>
 <p><img src="/content/07-content_files/figure-html/simpsons-paradox-explained-1.png" width="672" /></p>
 <p>It is really <span class="math inline">\(Z\)</span> that is negatively correlated with <span class="math inline">\(X\)</span>. If we stratify by <span class="math inline">\(Z\)</span>, the <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are actually positively correlated as seen in the plot above.</p>
+<p>How do we stratify in regression? Depending on the relationship we think the variables have (conditional on <span class="math inline">\(Z\)</span>). In the above example, it looks like an intercept shift would account for the differences across <span class="math inline">\(Z\)</span> (note that the plot shows the correlation between <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span> for each value of <span class="math inline">\(Z\)</span>):</p>
+<pre class="r"><code>summary(lm(y ~ x + as.factor(z), data = dat))</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = y ~ x + as.factor(z), data = dat)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -3.6120 -0.5354  0.0269  0.5750  1.9138 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)   -5.78432    0.34026  -17.00   &lt;2e-16 ***
+## x              0.78805    0.02999   26.28   &lt;2e-16 ***
+## as.factor(z)2  3.66771    0.12976   28.27   &lt;2e-16 ***
+## as.factor(z)3  7.24256    0.16855   42.97   &lt;2e-16 ***
+## as.factor(z)4 10.73651    0.21520   49.89   &lt;2e-16 ***
+## as.factor(z)5 14.43156    0.26816   53.82   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.824 on 494 degrees of freedom
+## Multiple R-squared:  0.9301, Adjusted R-squared:  0.9294 
+## F-statistic:  1315 on 5 and 494 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>If we thought that the relationship between <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span> were <em>different</em> for each <span class="math inline">\(Z\)</span> (not just the intercept), we could try allowing a slope-shift using interactions:</p>
+<pre class="r"><code>summary(lm(y ~ x*as.factor(z), data = dat))</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = y ~ x * as.factor(z), data = dat)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -3.6383 -0.5431  0.0197  0.5581  1.9655 
+## 
+## Coefficients:
+##                 Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)     -6.22140    0.72249  -8.611  &lt; 2e-16 ***
+## x                0.82776    0.06520  12.696  &lt; 2e-16 ***
+## as.factor(z)2    4.55366    0.95253   4.781 2.31e-06 ***
+## as.factor(z)3    8.28606    0.88257   9.389  &lt; 2e-16 ***
+## as.factor(z)4   11.02669    0.78302  14.082  &lt; 2e-16 ***
+## as.factor(z)5   14.70047    0.76182  19.296  &lt; 2e-16 ***
+## x:as.factor(z)2 -0.08900    0.09390  -0.948    0.344    
+## x:as.factor(z)3 -0.12699    0.09712  -1.307    0.192    
+## x:as.factor(z)4 -0.01018    0.08751  -0.116    0.907    
+## x:as.factor(z)5  0.01720    0.10079   0.171    0.865    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.8247 on 490 degrees of freedom
+## Multiple R-squared:  0.9306, Adjusted R-squared:  0.9293 
+## F-statistic: 729.8 on 9 and 490 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 <div class="footnotes">
@@ -901,7 +972,7 @@ admissions %>%
                 </div>
 
                 <div class="body-footer">
-                    <p>Last updated on October 17, 2022</p>
+                    <p>Last updated on October 18, 2022</p>
 
                     
 

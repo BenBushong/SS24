@@ -4921,20 +4921,22 @@ lines(model_complexity, test_rmse, type = &amp;quot;b&amp;quot;, col = &amp;quot
 &lt;p&gt;&lt;img src=&#34;img/regression.png&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;First, note that a linear model is one of many methods used in regression.&lt;/p&gt;
 &lt;p&gt;To discuss linear models in the context of prediction, we introduce the (very boring) &lt;code&gt;Advertising&lt;/code&gt; data that is discussed in the ISL text (see supplemental readings). It can be found at &lt;a href=&#34;https://www.statlearning.com/s/Advertising.csv&#34;&gt;https://www.statlearning.com/s/Advertising.csv&lt;/a&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;Advertising&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## # A tibble: 200 × 5
-##     ...1    TV radio newspaper sales
-##    &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;
-##  1     1 230.   37.8      69.2  22.1
-##  2     2  44.5  39.3      45.1  10.4
-##  3     3  17.2  45.9      69.3   9.3
-##  4     4 152.   41.3      58.5  18.5
-##  5     5 181.   10.8      58.4  12.9
-##  6     6   8.7  48.9      75     7.2
-##  7     7  57.5  32.8      23.5  11.8
-##  8     8 120.   19.6      11.6  13.2
-##  9     9   8.6   2.1       1     4.8
-## 10    10 200.    2.6      21.2  10.6
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;Advertising = Advertising %&amp;gt;% 
+  dplyr::select(TV, radio, newspaper, sales)
+Advertising&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 200 × 4
+##       TV radio newspaper sales
+##    &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;
+##  1 230.   37.8      69.2  22.1
+##  2  44.5  39.3      45.1  10.4
+##  3  17.2  45.9      69.3   9.3
+##  4 152.   41.3      58.5  18.5
+##  5 181.   10.8      58.4  12.9
+##  6   8.7  48.9      75     7.2
+##  7  57.5  32.8      23.5  11.8
+##  8 120.   19.6      11.6  13.2
+##  9   8.6   2.1       1     4.8
+## 10 200.    2.6      21.2  10.6
 ## # … with 190 more rows&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;We can take a look at the relationship between &lt;code&gt;sales&lt;/code&gt; and the three modes of advertising using the &lt;code&gt;patchwork&lt;/code&gt; package (or any number of other ways)&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(patchwork)
@@ -5035,6 +5037,9 @@ predseq = predict(flexible.lm, newdata = data.frame(TV = plotseq))
 plot(sales ~ TV, smallset, ylim = c(0, 100))
 lines(y = predseq, x = plotseq)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/example/07-example_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;and this model has complexity of:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;get_complexity(flexible.lm)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 16&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;But we don’t really believe that TV advertising of around 20 would result in almost 40 in sales. We certainly don’t trust that huge spike at 250, either! But how do we stop ourselves from overfitting?&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;avoiding-overfitting&#34; class=&#34;section level3&#34;&gt;
@@ -5042,7 +5047,7 @@ lines(y = predseq, x = plotseq)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Frequently we will take a dataset of interest and split it in two. One part of the datasets will be used to fit (train) a model, which we will call the &lt;strong&gt;training&lt;/strong&gt; data. The remainder of the original data will be used to assess how well the model is predicting, which we will call the &lt;strong&gt;test&lt;/strong&gt; data. Test data should &lt;em&gt;never&lt;/em&gt; be used to train a model.&lt;/p&gt;
 &lt;p&gt;Note that sometimes the terms &lt;em&gt;evaluation set&lt;/em&gt; and &lt;em&gt;test set&lt;/em&gt; are used interchangeably. We will give somewhat specific definitions to these later. For now we will simply use a single test set for a training set.&lt;/p&gt;
 &lt;p&gt;Here we use the &lt;code&gt;sample()&lt;/code&gt; function to obtain a random sample of the rows of the original data. We then use those row numbers (and remaining row numbers) to split the data accordingly. Notice we used the &lt;code&gt;set.seed()&lt;/code&gt; function to allow use to reproduce the same random split each time we perform this analysis.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(9)
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(90)
 num_obs = nrow(Advertising)
 
 train_index = sample(num_obs, size = trunc(0.50 * num_obs))
@@ -5063,17 +5068,17 @@ get_complexity(fit_0)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 0&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# train RMSE
 sqrt(mean((train_data$sales - predict(fit_0, train_data)) ^ 2))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 5.529258&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 5.224106&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# test RMSE
 sqrt(mean((test_data$sales - predict(fit_0, test_data)) ^ 2))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 4.914163&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 5.211881&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The previous two operations obtain the train and test RMSE. Since these are operations we are about to use repeatedly, we should use the function that we happen to have already written.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# train RMSE
 rmse(actual = train_data$sales, predicted = predict(fit_0, train_data))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 5.529258&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 5.224106&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# test RMSE
 rmse(actual = test_data$sales, predicted = predict(fit_0, test_data))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 4.914163&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 5.211881&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;This function can actually be improved for the inputs that we are using. We would like to obtain train and test RMSE for a fitted model, given a train or test dataset, and the appropriate response variable.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;get_rmse = function(model, data, response) {
   rmse(actual = subset(data, select = response, drop = TRUE),
@@ -5081,9 +5086,9 @@ rmse(actual = test_data$sales, predicted = predict(fit_0, test_data))&lt;/code&g
 }&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;By using this function, our code becomes easier to read, and it is more obvious what task we are accomplishing.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;get_rmse(model = fit_0, data = train_data, response = &amp;quot;sales&amp;quot;) # train RMSE&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 5.529258&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 5.224106&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;get_rmse(model = fit_0, data = test_data, response = &amp;quot;sales&amp;quot;) # test RMSE&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 4.914163&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 5.211881&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;adding-flexibility-to-linear-models&#34; class=&#34;section level2&#34;&gt;
@@ -5091,41 +5096,41 @@ rmse(actual = test_data$sales, predicted = predict(fit_0, test_data))&lt;/code&g
 &lt;p&gt;Each successive model we fit will be more and more flexible using both interactions and polynomial terms. We will see the training error decrease each time the model is made more flexible. We expect the test error to decrease a number of times, then eventually start going up, as a result of overfitting.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fit_1 = lm(sales ~ ., data = train_data)
 get_complexity(fit_1)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 4&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 3&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;get_rmse(model = fit_1, data = train_data, response = &amp;quot;sales&amp;quot;) # train RMSE&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 1.886583&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 1.649346&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;get_rmse(model = fit_1, data = test_data, response = &amp;quot;sales&amp;quot;) # test RMSE&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 1.465515&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 1.741642&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fit_2 = lm(sales ~ radio * newspaper * TV, data = train_data)
 get_complexity(fit_2)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 7&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;get_rmse(model = fit_2, data = train_data, response = &amp;quot;sales&amp;quot;) # train RMSE&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 1.016822&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.9875248&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;get_rmse(model = fit_2, data = test_data, response = &amp;quot;sales&amp;quot;) # test RMSE&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.9117228&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.9014459&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fit_3 = lm(sales ~ radio * newspaper * TV + I(TV ^ 2), data = train_data)
 get_complexity(fit_3)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 8&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;get_rmse(model = fit_3, data = train_data, response = &amp;quot;sales&amp;quot;) # train RMSE&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.6553091&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.6685005&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;get_rmse(model = fit_3, data = test_data, response = &amp;quot;sales&amp;quot;) # test RMSE&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.6633375&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.6242491&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fit_4 = lm(sales ~ radio * newspaper * TV +
            I(TV ^ 2) + I(radio ^ 2) + I(newspaper ^ 2), data = train_data)
 get_complexity(fit_4)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 10&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;get_rmse(model = fit_4, data = train_data, response = &amp;quot;sales&amp;quot;) # train RMSE&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.6421909&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.6676294&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;get_rmse(model = fit_4, data = test_data, response = &amp;quot;sales&amp;quot;) # test RMSE&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.7465957&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.6232819&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fit_5 = lm(sales ~ radio * newspaper * TV +
            I(TV ^ 2) * I(radio ^ 2) * I(newspaper ^ 2), data = train_data)
 get_complexity(fit_5)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 14&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;get_rmse(model = fit_5, data = train_data, response = &amp;quot;sales&amp;quot;) # train RMSE&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.6120887&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.6359041&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;get_rmse(model = fit_5, data = test_data, response = &amp;quot;sales&amp;quot;) # test RMSE&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.7864181&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.7809674&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;choosing-a-model&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Choosing a Model&lt;/h2&gt;
@@ -5151,8 +5156,9 @@ model_complexity = sapply(model_list, get_complexity)&lt;/code&gt;&lt;/pre&gt;
      col = &amp;quot;dodgerblue&amp;quot;,
      xlab = &amp;quot;Model Size&amp;quot;,
      ylab = &amp;quot;RMSE&amp;quot;)
-lines(model_complexity, test_rmse, type = &amp;quot;b&amp;quot;, col = &amp;quot;darkorange&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/example/07-example_files/figure-html/unnamed-chunk-22-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+lines(model_complexity, test_rmse, type = &amp;quot;b&amp;quot;, col = &amp;quot;darkorange&amp;quot;)
+legend(&amp;#39;topright&amp;#39;, legend = c(&amp;#39;train&amp;#39;,&amp;#39;test&amp;#39;), col = c(&amp;#39;dodgerblue&amp;#39;,&amp;#39;darkorange&amp;#39;), lty=1)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/example/07-example_files/figure-html/unnamed-chunk-23-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;We also summarize the results as a table. &lt;code&gt;fit_1&lt;/code&gt; is the least flexible, and &lt;code&gt;fit_5&lt;/code&gt; is the most flexible. We see the Train RMSE decrease as flexibility increases. We see that the Test RMSE is smallest for &lt;code&gt;fit_3&lt;/code&gt;, thus is the model we believe will perform the best on future data not used to train the model. Note this may not be the best model, but it is the best model of the models we have seen in this example.&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -5166,32 +5172,32 @@ lines(model_complexity, test_rmse, type = &amp;quot;b&amp;quot;, col = &amp;quot
 &lt;tbody&gt;
 &lt;tr class=&#34;odd&#34;&gt;
 &lt;td&gt;&lt;code&gt;fit_1&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;1.8865831&lt;/td&gt;
-&lt;td&gt;1.4655147&lt;/td&gt;
-&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;1.6493463&lt;/td&gt;
+&lt;td&gt;1.7416416&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;even&#34;&gt;
 &lt;td&gt;&lt;code&gt;fit_2&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;1.0168223&lt;/td&gt;
-&lt;td&gt;0.9117228&lt;/td&gt;
+&lt;td&gt;0.9875248&lt;/td&gt;
+&lt;td&gt;0.9014459&lt;/td&gt;
 &lt;td&gt;7&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;odd&#34;&gt;
 &lt;td&gt;&lt;code&gt;fit_3&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;0.6553091&lt;/td&gt;
-&lt;td&gt;0.6633375&lt;/td&gt;
+&lt;td&gt;0.6685005&lt;/td&gt;
+&lt;td&gt;0.6242491&lt;/td&gt;
 &lt;td&gt;8&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;even&#34;&gt;
 &lt;td&gt;&lt;code&gt;fit_4&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;0.6421909&lt;/td&gt;
-&lt;td&gt;0.7465957&lt;/td&gt;
+&lt;td&gt;0.6676294&lt;/td&gt;
+&lt;td&gt;0.6232819&lt;/td&gt;
 &lt;td&gt;10&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;odd&#34;&gt;
 &lt;td&gt;&lt;code&gt;fit_5&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;0.6120887&lt;/td&gt;
-&lt;td&gt;0.7864181&lt;/td&gt;
+&lt;td&gt;0.6359041&lt;/td&gt;
+&lt;td&gt;0.7809674&lt;/td&gt;
 &lt;td&gt;14&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -13550,6 +13556,7 @@ tidy(fit)&lt;/code&gt;&lt;/pre&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#guiding-question&#34;&gt;Guiding Question&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#a-quick-r-note&#34;&gt;A quick &lt;code&gt;R&lt;/code&gt; note:&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#association-is-not-causation&#34;&gt;Association is not causation&lt;/a&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#spurious-correlation&#34;&gt;Spurious correlation&lt;/a&gt;&lt;/li&gt;
@@ -13582,6 +13589,24 @@ tidy(fit)&lt;/code&gt;&lt;/pre&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+&lt;div id=&#34;a-quick-r-note&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;A quick &lt;code&gt;R&lt;/code&gt; note:&lt;/h2&gt;
+&lt;p&gt;We learned that we can run a regression with all variables in a dataset using, for example, &lt;code&gt;SalePrice ~ .&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;In your lab this week, you are asked to run 15 models (!) of increasing complexity, where “complexity” is defined in one question as adding an additional linear term. So if you had &lt;span class=&#34;math inline&#34;&gt;\(X1\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(X2\)&lt;/span&gt;, and &lt;span class=&#34;math inline&#34;&gt;\(X3\)&lt;/span&gt; as explanatory variables, you might want to have a model that is:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[Y = \beta_0 + \beta_1 X1\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;and then&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[Y = \beta_0 + \beta_1 X1 + \beta_2 X2\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;and so on. How you do so is up to you – you could do a list of formulas constructed with &lt;code&gt;paste&lt;/code&gt;, then use &lt;code&gt;lapply&lt;/code&gt; to that list. Or you could wisely use the &lt;code&gt;~ .&lt;/code&gt; part of the formula and change the columns in the data you pass to &lt;code&gt;lm&lt;/code&gt;. Here are a few tips pertaining to some of the ways of doing this.&lt;/p&gt;
+&lt;p&gt;If you have a dataset called &lt;code&gt;DesMoines&lt;/code&gt; and a character vector of all of your columns in &lt;code&gt;DesMoines&lt;/code&gt; like so &lt;code&gt;varnames = c(&#39;Y&#39;,&#39;X1&#39;,&#39;X2&#39;,&#39;X3&#39;)&lt;/code&gt;, and it’s in the order in which you’d like to add the variables to the model, then:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;DesMoines %&amp;gt;% dplyr::select(varnames[1:N])&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;would select the first &lt;code&gt;N&lt;/code&gt; variables. A loop on &lt;code&gt;N&lt;/code&gt; from 2 to 4 would give you &lt;code&gt;c(&#39;Y&#39;,&#39;X1&#39;)&lt;/code&gt; then &lt;code&gt;c(&#39;Y&#39;,&#39;X1&#39;,&#39;X2&#39;)&lt;/code&gt; and so on.&lt;/p&gt;
+&lt;p&gt;Another handy tip is using &lt;code&gt;paste&lt;/code&gt; with &lt;code&gt;collapse = &#39;+&#39;&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;varnames = c(&amp;#39;Y&amp;#39;,&amp;#39;X1&amp;#39;,&amp;#39;X2&amp;#39;,&amp;#39;X3&amp;#39;)
+
+paste(varnames[2:4], collapse = &amp;#39; + &amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;X1 + X2 + X3&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This will put all of the things in the vector together with &lt;code&gt;+&lt;/code&gt; between them. Wisely pasting &lt;code&gt;Y ~&lt;/code&gt; onto this, then using &lt;code&gt;as.formula()&lt;/code&gt; lets you make a formula object from a character vector. Handy!&lt;/p&gt;
+&lt;/div&gt;
 &lt;div id=&#34;association-is-not-causation&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Association is not causation&lt;/h1&gt;
 &lt;p&gt;&lt;em&gt;Association is not causation&lt;/em&gt; is perhaps the most important lesson one learns in a statistics class. &lt;em&gt;Correlation is not causation&lt;/em&gt; is another way to say this. Throughout the previous parts of this class, we have described tools useful for quantifying associations between variables. However, we must be careful not to over-interpret these associations.&lt;/p&gt;
@@ -13609,18 +13634,18 @@ res&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 1,000,000 × 2
 ##     group     r
 ##     &amp;lt;int&amp;gt; &amp;lt;dbl&amp;gt;
-##  1 924551 0.837
-##  2 775641 0.805
-##  3 853756 0.771
-##  4 579380 0.766
-##  5  72327 0.753
-##  6 423337 0.751
-##  7 218343 0.749
-##  8  76863 0.747
-##  9  29961 0.745
-## 10 773520 0.737
+##  1 545726 0.832
+##  2 411615 0.781
+##  3 775435 0.779
+##  4 659628 0.766
+##  5 639207 0.765
+##  6 957444 0.763
+##  7 866723 0.762
+##  8 305000 0.757
+##  9 446549 0.752
+## 10 306773 0.751
 ## # … with 999,990 more rows&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;We see a maximum correlation of 0.837 and if you just plot the data from the group achieving this correlation, it shows a convincing plot that &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(Y\)&lt;/span&gt; are in fact correlated:&lt;/p&gt;
+&lt;p&gt;We see a maximum correlation of 0.832 and if you just plot the data from the group achieving this correlation, it shows a convincing plot that &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(Y\)&lt;/span&gt; are in fact correlated:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sim_data %&amp;gt;% filter(group == res$group[which.max(res$r)]) %&amp;gt;%
   ggplot(aes(x, y)) +
   geom_point() +
@@ -13629,7 +13654,7 @@ res&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Remember that the correlation summary is a random variable. Here is the distribution generated by the Monte Carlo simulation:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;res %&amp;gt;% ggplot(aes(x=r)) + geom_histogram(binwidth = 0.1, color = &amp;quot;black&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/content/07-content_files/figure-html/null-corr-hist-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;It’s just a mathematical fact that if we observe random correlations that are expected to be 0, but have a standard error of 0.2042103, the largest one will be close to 1.&lt;/p&gt;
+&lt;p&gt;It’s just a mathematical fact that if we observe random correlations that are expected to be 0, but have a standard error of 0.2041906, the largest one will be close to 1.&lt;/p&gt;
 &lt;p&gt;If we performed regression on this group and interpreted the p-value, we would incorrectly claim this was a statistically significant relation:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(broom)
 sim_data %&amp;gt;%
@@ -13639,7 +13664,7 @@ sim_data %&amp;gt;%
 &lt;pre&gt;&lt;code&gt;## # A tibble: 1 × 5
 ##   term  estimate std.error statistic     p.value
 ##   &amp;lt;chr&amp;gt;    &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;       &amp;lt;dbl&amp;gt;
-## 1 x         1.03     0.141      7.32 0.000000189&lt;/code&gt;&lt;/pre&gt;
+## 1 x        0.688    0.0955      7.20 0.000000249&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Now, imagine that instead of a whole lot of simulated data, you had a whole lot of actual data and waded through enough of it to find two unrelated variables that happened to show up as correlated (like divorce rates and pounds of margarine consumed). This particular form of data dredging is referred to as &lt;em&gt;p-hacking&lt;/em&gt;. P-hacking is a topic of much discussion because it is a problem in scientific publications. Because publishers tend to reward statistically significant results over negative results, there is an incentive to report significant results. In epidemiology and the social sciences, for example, researchers may look for associations between an adverse outcome and a lot of different variables that represent exposures and report only the one exposure that resulted in a small p-value. Furthermore, they might try fitting several different models to account for confounding and pick the one that yields the smallest p-value. In experimental disciplines, an experiment might be repeated more than once, yet only the results of the one experiment with a small p-value reported. This does not necessarily happen due to unethical behavior, but rather as a result of statistical ignorance or wishful thinking. In advanced statistics courses, you can learn methods to adjust for these multiple comparisons.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;outliers&#34; class=&#34;section level2&#34;&gt;
@@ -13797,6 +13822,58 @@ admissions %&gt;%
 &lt;p&gt;You can see that &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(Y\)&lt;/span&gt; are negatively correlated. However, once we stratify by &lt;span class=&#34;math inline&#34;&gt;\(Z\)&lt;/span&gt; (shown in different colors below) another pattern emerges:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/content/07-content_files/figure-html/simpsons-paradox-explained-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;It is really &lt;span class=&#34;math inline&#34;&gt;\(Z\)&lt;/span&gt; that is negatively correlated with &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt;. If we stratify by &lt;span class=&#34;math inline&#34;&gt;\(Z\)&lt;/span&gt;, the &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(Y\)&lt;/span&gt; are actually positively correlated as seen in the plot above.&lt;/p&gt;
+&lt;p&gt;How do we stratify in regression? Depending on the relationship we think the variables have (conditional on &lt;span class=&#34;math inline&#34;&gt;\(Z\)&lt;/span&gt;). In the above example, it looks like an intercept shift would account for the differences across &lt;span class=&#34;math inline&#34;&gt;\(Z\)&lt;/span&gt; (note that the plot shows the correlation between &lt;span class=&#34;math inline&#34;&gt;\(Y\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt; for each value of &lt;span class=&#34;math inline&#34;&gt;\(Z\)&lt;/span&gt;):&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(lm(y ~ x + as.factor(z), data = dat))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Call:
+## lm(formula = y ~ x + as.factor(z), data = dat)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -3.6120 -0.5354  0.0269  0.5750  1.9138 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&amp;gt;|t|)    
+## (Intercept)   -5.78432    0.34026  -17.00   &amp;lt;2e-16 ***
+## x              0.78805    0.02999   26.28   &amp;lt;2e-16 ***
+## as.factor(z)2  3.66771    0.12976   28.27   &amp;lt;2e-16 ***
+## as.factor(z)3  7.24256    0.16855   42.97   &amp;lt;2e-16 ***
+## as.factor(z)4 10.73651    0.21520   49.89   &amp;lt;2e-16 ***
+## as.factor(z)5 14.43156    0.26816   53.82   &amp;lt;2e-16 ***
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
+## 
+## Residual standard error: 0.824 on 494 degrees of freedom
+## Multiple R-squared:  0.9301, Adjusted R-squared:  0.9294 
+## F-statistic:  1315 on 5 and 494 DF,  p-value: &amp;lt; 2.2e-16&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If we thought that the relationship between &lt;span class=&#34;math inline&#34;&gt;\(Y\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt; were &lt;em&gt;different&lt;/em&gt; for each &lt;span class=&#34;math inline&#34;&gt;\(Z\)&lt;/span&gt; (not just the intercept), we could try allowing a slope-shift using interactions:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(lm(y ~ x*as.factor(z), data = dat))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Call:
+## lm(formula = y ~ x * as.factor(z), data = dat)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -3.6383 -0.5431  0.0197  0.5581  1.9655 
+## 
+## Coefficients:
+##                 Estimate Std. Error t value Pr(&amp;gt;|t|)    
+## (Intercept)     -6.22140    0.72249  -8.611  &amp;lt; 2e-16 ***
+## x                0.82776    0.06520  12.696  &amp;lt; 2e-16 ***
+## as.factor(z)2    4.55366    0.95253   4.781 2.31e-06 ***
+## as.factor(z)3    8.28606    0.88257   9.389  &amp;lt; 2e-16 ***
+## as.factor(z)4   11.02669    0.78302  14.082  &amp;lt; 2e-16 ***
+## as.factor(z)5   14.70047    0.76182  19.296  &amp;lt; 2e-16 ***
+## x:as.factor(z)2 -0.08900    0.09390  -0.948    0.344    
+## x:as.factor(z)3 -0.12699    0.09712  -1.307    0.192    
+## x:as.factor(z)4 -0.01018    0.08751  -0.116    0.907    
+## x:as.factor(z)5  0.01720    0.10079   0.171    0.865    
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
+## 
+## Residual standard error: 0.8247 on 490 degrees of freedom
+## Multiple R-squared:  0.9306, Adjusted R-squared:  0.9293 
+## F-statistic: 729.8 on 9 and 490 DF,  p-value: &amp;lt; 2.2e-16&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&#34;footnotes&#34;&gt;
