@@ -5220,6 +5220,18 @@ legend(&amp;#39;topright&amp;#39;, legend = c(&amp;#39;train&amp;#39;,&amp;#39;t
     </item>
     
     <item>
+      <title>Least Absolute Shrinkage and Selection Operator</title>
+      <link>https://ssc442kirkpatrick.netlify.app/assignment/08-assignment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://ssc442kirkpatrick.netlify.app/assignment/08-assignment/</guid>
+      <description>
+
+
+&lt;p&gt;There is no Lab 08. Lab 07 is due on October 31st due to Fall Break, which would have been the due date for Lab 08. We pick up again at Lab 09 due the first week in November.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Design</title>
       <link>https://ssc442kirkpatrick.netlify.app/resource/design/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -14060,10 +14072,8 @@ admissions %&gt;%
                 &lt;font color=&#34;f1f1f1&#34;&gt;
                     &lt;i class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
             &lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
-                &lt;font color=&#34;f1f1f1&#34;&gt;
-                    &lt;i class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
-            &lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/example/08-content/&#34;&gt;
+                    &lt;i class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
                 &lt;font color=&#34;f1f1f1&#34;&gt;
                     &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;

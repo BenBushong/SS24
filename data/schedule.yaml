@@ -72,8 +72,8 @@ lessons:
     session: 9
     date: "Week 8 (Oct !25/27)"
     ## content: "08-content"
-    #example: "08-content"
-    #assignment: "08-assignment"
+    example: "08-content"
+    # assignment: "08-assignment"
     
   - title: 'Nonlinear Regression'
     session: 10
