@@ -27,7 +27,7 @@ We will use the lecture slides from my friend and ace economist, Ed Rubin (U of 
 
 ## The data and packages
 
-Dr. Rubin uses the `ISLR` package's `credit` dataset, which is similar to one we've used before:
+Dr. Rubin uses the `ISLR` package's `credit` dataset, which we can get from the `ISLR` package (which you may need to install). You'll also want to install the `wooldridge` package for our later work:
 
 ```{r credit-data, echo = T}
 library(ISLR)
@@ -38,7 +38,14 @@ head(credit)
 
 We will also need to load the `caret` package (which you're used before), as well as the `glmnet` package, which is new for us.
 
-Now, back to the [**lecture notes for today**](https://raw.githack.com/edrubin/EC524W20/master/lecture/005/005-slides.html#1)
+## Terminology
+I used to have this lecture at the end of our semester, but I think the intuition behind LASSO and ridge regression helps understand our "overfitting" problem. There are two terms I want to cover before we dive into the slides:
+
+1. **Bias vs. Variance**: We saw that super-overfit polynomial last week (where we took 20 observations and fit a 16th-degree polynomial). The model we fit was very flexible and bendy, but it did get most of the data points right. It had low *bias* as it was generally right, but had huge *variance* -- it was all over the place, even within a small range of advertising mode spending. **Bias vs. variance** refers to the innate tradeoff between these two things. When we used the train and test samples to get the best *out* of sample fit, we were balancing bias and variance
+
+2. **Cross validation**: This is the term for using two (or more) different subsets of sample data (e.g. test and train) to fit a model. 
+
+Now, back to the [**lecture notes for today**](https://raw.githack.com/edrubin/EC524W20/master/lecture/005/005-slides.html#5)
 
 
 
