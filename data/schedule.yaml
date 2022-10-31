@@ -78,15 +78,15 @@ lessons:
   - title: 'Nonlinear Regression'
     session: 10
     date: "Week 9 (Nov 1/3)"
-    #content: "09-content"
-    #example: "09-examples"
-    #assignment: "09-assignment"
+    content: "09-content"
+    example: "09-examples"
+    assignment: "09-assignment"
 
   - title: 'Bias vs Variance (No lab this week)'
     session: 11
     date: "Week 10 (Nov 8/10)"
-    #content: "10-content"
-    #example: "10-example"
+    content: "10-content"
+    example: "10-example"
     ## assignment: "10-assignment"
 
   - title: 'Classification'
