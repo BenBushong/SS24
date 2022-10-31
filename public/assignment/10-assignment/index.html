@@ -30,8 +30,7 @@
   
     
   
-  <meta name="description" content="Backstory and Set UpYou must turn in a PDF document of your R Markdown code. Submit this to D2L by 11:59 PM Eastern Time on Monday, Monday November 14th
-Backstory and Set UpYou work for a bank. This bank is trying to predict defaults on loans (a relatively uncommon occurence, but one that costs the bank a great deal of money when it does happen.">
+  <meta name="description" content="There is no Lab 10.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://ssc442kirkpatrick.netlify.app/assignment/10-assignment/">
@@ -238,13 +237,12 @@
   
   <meta property="og:site_name" content="Data Analytics">
   <meta property="og:url" content="https://ssc442kirkpatrick.netlify.app/assignment/10-assignment/">
-  <meta property="og:title" content="Applied Logistic Regression | Data Analytics">
-  <meta property="og:description" content="Backstory and Set UpYou must turn in a PDF document of your R Markdown code. Submit this to D2L by 11:59 PM Eastern Time on Monday, Monday November 14th
-Backstory and Set UpYou work for a bank. This bank is trying to predict defaults on loans (a relatively uncommon occurence, but one that costs the bank a great deal of money when it does happen."><meta property="og:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png">
+  <meta property="og:title" content="Bias vs. Variance | Data Analytics">
+  <meta property="og:description" content="There is no Lab 10."><meta property="og:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png">
   <meta property="twitter:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
   
     
-    <meta property="article:modified_time" content="2022-08-30T14:15:35-04:00">
+    <meta property="article:modified_time" content="2022-08-30T16:03:15-04:00">
   
 
   
@@ -271,7 +269,7 @@
   <meta name="msapplication-TileImage" content="https://ssc442kirkpatrick.netlify.app/img/mstile-144x144.png" />
 
 
-  <title>Applied Logistic Regression | Data Analytics</title>
+  <title>Bias vs. Variance | Data Analytics</title>
 
 </head>
 
@@ -570,6 +568,10 @@
         <a href="/assignment/00-assignment/">0: Introduction to R</a>
       </li>
       
+      <li class="active">
+        <a href="/assignment/10-assignment/">10: None</a>
+      </li>
+      
       <li >
         <a href="/assignment/01-assignment/">1: Visualization I</a>
       </li>
@@ -583,7 +585,7 @@
       </li>
       
       <li >
-        <a href="/assignment/04-assignment/">4: Statistical Models</a>
+        <a href="/assignment/04-assignment/">4: Statistical Models and Uncertainty</a>
       </li>
       
       <li >
@@ -599,23 +601,11 @@
       </li>
       
       <li >
-        <a href="/assignment/08-assignment/">8: LASSO</a>
+        <a href="/assignment/08-assignment/">8: None</a>
       </li>
       
       <li >
         <a href="/assignment/09-assignment/">9: Nonlinear Regression Model Evaluation</a>
-      </li>
-      
-      <li class="active">
-        <a href="/assignment/10-assignment/">10: Classification</a>
-      </li>
-      
-      <li >
-        <a href="/assignment/11-assignment/">11: Classification</a>
-      </li>
-      
-      <li >
-        <a href="/assignment/13-assignment/">13: Data Wrangling</a>
       </li>
       
     </ul>
@@ -635,10 +625,6 @@
         <a href="/assignment/project2/">Project 2</a>
       </li>
       
-      <li >
-        <a href="/assignment/final-project/">Final project</a>
-      </li>
-      
     </ul>
     
 
@@ -656,7 +642,7 @@
             <article class="article">
 
                 <div class="docs-article-container">
-                    <h1>Applied Logistic Regression</h1>
+                    <h1>Bias vs. Variance</h1>
 
                     
 
@@ -667,33 +653,8 @@
                     <div class="article-style">
                         
 
-<div id="TOC">
-<ul>
-<li><a href="#backstory-and-set-up">Backstory and Set Up</a></li>
-</ul>
-</div>
 
-<!-- Updated 8.30.22 -->
-<div class="fyi">
-<p>You must turn in a PDF document of your <code>R Markdown</code> code. Submit this to D2L by 11:59 PM Eastern Time on <strong>Monday, Monday November 14th</strong></p>
-</div>
-<div id="backstory-and-set-up" class="section level2">
-<h2>Backstory and Set Up</h2>
-<p>You work for a bank. This bank is trying to predict defaults on loans (a relatively uncommon occurence, but one that costs the bank a great deal of money when it does happen.) They’ve given you a dataset on defaults (encoded as the variable <code>y</code>). You’re going to try to predict this.</p>
-<p>This is some new data. The snippet below loads it.</p>
-<pre class="r"><code>bank &lt;- read.table(&quot;https://raw.githubusercontent.com/ajkirkpatrick/FS20/postS21_rev/classdata/bank.csv&quot;,
-                 header = TRUE,
-                 sep = &quot;,&quot;)</code></pre>
-<p>There’s not going to be a whole lot of wind-up here. You should be well-versed in doing these sorts of things by now (if not, look back at the previous lab for sample code).</p>
-<div class="fyi">
-<p><strong>EXERCISE 1</strong></p>
-<ol style="list-style-type: decimal">
-<li><p>Split the data into an 80/20 train vs. test split. Make sure you explicitly set the seed for replicability, but do not share your seed with others in the class. (We may compare some results across people.)</p></li>
-<li><p>Run a series of logistic regressions with between 1 and 4 predictors of your choice (you can use interactions).</p></li>
-<li><p>Create eight total confusion matrices: four by applying your models to the training data, and four by applying your models to the test data. <strong>Briefly discuss your findings.</strong> How does the error rate, sensitivity, and specificity change as the number of predictors increases? If you are not getting a 2x2 confusion matrix, you might need to adjust your cutoff probability. It might be the case that your model perfectly predicts the outcome variable when the setup cutoff probability is too high.</p></li>
-</ol>
-</div>
-</div>
+<p>There is no Lab 10.</p>
 
                     </div>
 
