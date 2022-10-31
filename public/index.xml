@@ -15281,7 +15281,6 @@ head(credit)&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;nonparametric-regression&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Nonparametric Regression&lt;/h1&gt;
 &lt;p&gt;In the next weeks, we will continue to explore models for making &lt;strong&gt;predictions&lt;/strong&gt;, but now we will introduce &lt;strong&gt;nonparametric models&lt;/strong&gt; that will contrast the &lt;strong&gt;parametric models&lt;/strong&gt; that we have used previously.&lt;/p&gt;
-&lt;p&gt;This content is currently &lt;strong&gt;under construction&lt;/strong&gt;. You can expect it to be a lot less polished than other sections.&lt;/p&gt;
 &lt;div id=&#34;r-setup&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;R Setup&lt;/h2&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tibble)     # data frame printing

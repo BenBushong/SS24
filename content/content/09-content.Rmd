@@ -35,8 +35,6 @@ knitr::opts_chunk$set(echo = TRUE, fig.align = "center", cache = TRUE, autodep =
 
 In the next weeks, we will continue to explore models for making **predictions**, but now we will introduce **nonparametric models** that will contrast the **parametric models** that we have used previously.
 
-This content is currently **under construction**. You can expect it to be a lot less polished than other sections.
-
 
 ## R Setup
 
