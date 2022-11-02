@@ -21,9 +21,9 @@ The class is structured with three distinct bits. First, the Tuesday lecture wil
 
 The teaching assistant for this course (Sam Tucker; tucke130@msu.edu) will host office hours each week to help promote additional understanding. I highly encourage you to utilize this resource, especially if you struggle with basic `R` programming.
 
-### Prof. K's Office Hours Wednesdays 2:00 pm to 3:00 pm [via Zoom](https://msu.zoom.us/j/91759862734?pwd=VDliRHdoQ3N4L3V4LzNFd3IzcGw2dz09) passcode: DATA
+### Prof. K's Office Hours Wednesdays 2:15 pm to 3:15 pm [via Zoom](https://msu.zoom.us/j/91759862734?pwd=VDliRHdoQ3N4L3V4LzNFd3IzcGw2dz09) passcode: DATA
 
-I will hold weekly Zoom drop-in office hours on Wednesdays from 2-3pm and via appointment (just ask!). I will be in the Zoom Room from 2-3 pm, but will stay later if and only if someone is there or you have emailed me beforehand to let me know you're planning on coming later. Drop-in office hours are time set aside for **you** to ask questions about the material, the course, the topic, or about life in general. They are a great resource and most faculty are bewildered when students don't use them. 
+Note that I moved my OH back by 15 mins. I will hold weekly Zoom drop-in office hours on Wednesdays from 2:15-3:15pm and via appointment (just ask!). I will be in the Zoom Room from 2:15-3:15 pm, but will stay later if and only if someone is there or you have emailed me beforehand to let me know you're planning on coming later. Drop-in office hours are time set aside for **you** to ask questions about the material, the course, the topic, or about life in general. They are a great resource and most faculty are bewildered when students don't use them. 
 
 All office hours are via Zoom as questions will often (but don't always) center around coding and sharing a screen in Zoom is pretty easy. Both the TA and Prof. K will monitor the course slack for questions as well.
 
