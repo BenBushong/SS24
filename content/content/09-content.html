@@ -291,17 +291,13 @@ crdt = crdt %&gt;%
   select(-Rating, everything())</code></pre>
 <p>We remove the <code>ID</code> variable as it should have no predictive power. We also move the <code>Rating</code> variable to the last column with a clever <code>dplyr</code> trick. This is in no way necessary, but is useful in creating some plots.</p>
 <pre class="r"><code># test-train split
-set.seed(1)
+set.seed(1) 
 crdt_trn_idx = sample(nrow(crdt), size = 0.8 * nrow(crdt))
-crdt_est = crdt[crdt_trn_idx, ]
-crdt_val = crdt[-crdt_trn_idx, ]</code></pre>
-<pre class="r"><code># estimation-validation split
-crdt_est_idx = sample(nrow(crdt_trn), size = 0.8 * nrow(crdt_trn))
-crdt_est = crdt_trn[crdt_est_idx, ]
-crdt_val = crdt_trn[-crdt_est_idx, ]</code></pre>
+crdt_trn = crdt[crdt_trn_idx, ]
+crdt_tst = crdt[-crdt_trn_idx, ]</code></pre>
 <p>After train-test (with 80% of the data) and estimation-validation splitting the data, we look at the train data.</p>
 <pre class="r"><code># check data
-head(crdt_est, n = 10)</code></pre>
+head(crdt_trn, n = 10)</code></pre>
 <pre><code>## # A tibble: 10 × 11
 ##    Income Limit Cards   Age Education Gender   Student Married Ethnicity Balance
 ##     &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;     &lt;int&gt; &lt;fct&gt;    &lt;fct&gt;   &lt;fct&gt;   &lt;fct&gt;       &lt;int&gt;
@@ -318,10 +314,10 @@ head(crdt_est, n = 10)</code></pre>
 ## # … with 1 more variable: Rating &lt;int&gt;</code></pre>
 <p>In this simulated data, we would like to predict the <code>Rating</code> variable. For now, let’s try to use only demographic information as predictors.<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a> In particular, let’s focus on <code>Age</code> (numeric), <code>Gender</code> (categorical), and <code>Student</code> (categorical).</p>
 <p>Let’s fit KNN models with these features, and various values of <span class="math inline">\(k\)</span>. To do so, we use the <code>knnreg()</code> function from the <code>caret</code> package.<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a> Use <code>?knnreg</code> for documentation and details.</p>
-<pre class="r"><code>crdt_knn_01 = knnreg(Rating ~ Age + Gender + Student, data = crdt_est, k = 1)
-crdt_knn_10 = knnreg(Rating ~ Age + Gender + Student, data = crdt_est, k = 10)
-crdt_knn_25 = knnreg(Rating ~ Age + Gender + Student, data = crdt_est, k = 25)
-crdt_knn_100= knnreg(Rating ~ Age + Gender + Student, data = crdt_est, k = 100)</code></pre>
+<pre class="r"><code>crdt_knn_01 = knnreg(Rating ~ Age + Gender + Student, data = crdt_trn, k = 1)
+crdt_knn_10 = knnreg(Rating ~ Age + Gender + Student, data = crdt_trn, k = 10)
+crdt_knn_25 = knnreg(Rating ~ Age + Gender + Student, data = crdt_trn, k = 25)
+crdt_knn_100= knnreg(Rating ~ Age + Gender + Student, data = crdt_trn, k = 75)</code></pre>
 <p>Here, we fit three models to the estimation data. We supply the variables that will be used as features as we would with <code>lm()</code>. We also specify how many neighbors to consider via the <code>k</code> argument.</p>
 <p>But wait a second, what is the distance from non-student to student? From male to female? In other words, how does KNN handle categorical variables? It doesn’t! Like <code>lm()</code> it creates dummy variables under the hood.</p>
 <p><strong>Note:</strong> To this point, and until we specify otherwise, we will always coerce categorical variables to be factor variables in R. We will then let modeling functions such as <code>lm()</code> or <code>knnreg()</code> deal with the creation of dummy variables internally.</p>
@@ -346,61 +342,68 @@ crdt_knn_100= knnreg(Rating ~ Age + Gender + Student, data = crdt_est, k = 100)<
 <p>What about interactions? Basically, you’d have to create them the same way as you do for linear models. We only mention this to contrast with trees in a bit.</p>
 <p>OK, so of these three models, which one performs best? (Where for now, “best” is obtaining the lowest validation RMSE.)</p>
 <p>First, note that we return to the <code>predict()</code> function as we did with <code>lm()</code>.</p>
-<pre class="r"><code>predict(crdt_knn_10, crdt_val[1:5, ])</code></pre>
+<pre class="r"><code>predict(crdt_knn_10, crdt_tst[1:5, ])</code></pre>
 <pre><code>## [1] 334.9091 346.0000 459.3333 342.0909 450.8000</code></pre>
 <p>This uses the 10-NN (10 nearest neighbors) model to make predictions (estimate the regression function) given the first five observations of the validation data. <strong>Note:</strong> We did not name the second argument to <code>predict()</code>. Again, you’ve been warned.</p>
 <p>Now that we know how to use the <code>predict()</code> function, let’s calculate the validation RMSE for each of these models.</p>
 <pre class="r"><code>knn_mod_list = list(
-  crdt_knn_01 = knnreg(Rating ~ Age + Gender + Student, data = crdt_est, k = 1),
-  crdt_knn_10 = knnreg(Rating ~ Age + Gender + Student, data = crdt_est, k = 10),
-  crdt_knn_25 = knnreg(Rating ~ Age + Gender + Student, data = crdt_est, k = 25),
-  crdt_knn_100= knnreg(Rating ~ Age + Gender + Student, data = crdt_est, k = 100)
+  crdt_knn_01 = knnreg(Rating ~ Age + Gender + Student, data = crdt_trn, k = 1),
+  crdt_knn_10 = knnreg(Rating ~ Age + Gender + Student, data = crdt_trn, k = 10),
+  crdt_knn_25 = knnreg(Rating ~ Age + Gender + Student, data = crdt_trn, k = 25),
+  crdt_knn_100= knnreg(Rating ~ Age + Gender + Student, data = crdt_trn, k = 75)
 )</code></pre>
-<pre class="r"><code>knn_val_pred = lapply(knn_mod_list, predict, crdt_val)</code></pre>
+<pre class="r"><code>knn_tst_pred = lapply(knn_mod_list, predict, crdt_tst)</code></pre>
 <pre class="r"><code>calc_rmse = function(actual, predicted) {
   sqrt(mean((actual - predicted) ^ 2))
 }</code></pre>
-<pre class="r"><code>sapply(knn_val_pred, calc_rmse, crdt_val$Rating)</code></pre>
+<pre class="r"><code>sapply(knn_tst_pred, calc_rmse, crdt_tst$Rating)</code></pre>
 <pre><code>##  crdt_knn_01  crdt_knn_10  crdt_knn_25 crdt_knn_100 
-##     163.9868     142.2242     135.3838     143.7588</code></pre>
-<p>So, of these three values of <span class="math inline">\(k\)</span>, the model with <span class="math inline">\(k = 25\)</span> achieves the lowest validation RMSE.</p>
-<p>This process, fitting a number of models with different values of the <em>tuning parameter</em>, in this case <span class="math inline">\(k\)</span>, and then finding the “best” tuning parameter value based on performance on the validation data is called <strong>tuning</strong>. In practice, we would likely consider more values of <span class="math inline">\(k\)</span>, but this should illustrate the point.</p>
+##     163.9868     142.2242     135.3838     142.6786</code></pre>
+<p>So, of these three values of <span class="math inline">\(k\)</span>, the model with <span class="math inline">\(k = 25\)</span> achieves the lowest validation (test) RMSE.</p>
+<p>This process, fitting a number of models with different values of the <em>tuning parameter</em>, in this case <span class="math inline">\(k\)</span>, and then finding the “best” tuning parameter value based on performance on the validation (test) data is called <strong>tuning</strong>. In practice, we would likely consider more values of <span class="math inline">\(k\)</span>, but this should illustrate the point.</p>
 <p>In the next lectures, we will discuss the details of model flexibility and model tuning, and how these concepts are tied together. However, even though we will present some theory behind this relationship, in practice, <strong>you must tune and validate your models</strong>. There is no theory that will inform you ahead of tuning and validation which model will be the best. By teaching you <em>how</em> to fit KNN models in R and how to calculate validation RMSE, you already have all a set of tools you can use to find a good model.</p>
 <p>Tuning isn’t necessarily something we’ve never done before – in our linear regression section, we fit our model using more and more variables (and transformations of those variables), which allowed more <em>flexibility</em> but, as we saw, resulted in over-fitting. The same principle applies to KNN when we allow <span class="math inline">\(k\)</span> to decrease towards 1.</p>
 </div>
 <div id="example-decision-tree-credit-card-data" class="section level3">
 <h3>Example Decision Tree: Credit Card Data</h3>
 <p>Let’s turn to decision trees which we will fit with the <code>rpart()</code> function from the <code>rpart</code> package. Use <code>?rpart</code> and <code>?rpart.control</code> for documentation and details. In particular, <code>?rpart.control</code> will detail the many tuning parameters of this implementation of decision tree models in R.</p>
-<p>We’ll start by using default tuning parameters.</p>
-<pre class="r"><code>crdt_tree = rpart(Rating ~ Age + Gender + Student, data = crdt_est)</code></pre>
+<pre class="r"><code>set.seed(5)
+crdt_trn_idx = sample(nrow(crdt), size = 0.8 * nrow(crdt))
+crdt_trn = crdt[crdt_trn_idx, ]
+crdt_tst = crdt[-crdt_trn_idx, ]</code></pre>
+<p>We’ll start by using default tuning parameters for <code>minsplit</code>, but I’m going to use a <code>cp</code> that gets us something interesting.</p>
+<pre class="r"><code>crdt_tree = rpart(Rating ~ Age + Gender + Student, data = crdt_trn, cp = .0095)</code></pre>
 <pre class="r"><code>crdt_tree</code></pre>
 <pre><code>## n= 320 
 ## 
 ## node), split, n, deviance, yval
 ##       * denotes terminal node
 ## 
-##  1) root 320 7922208.00 355.2781  
-##    2) Age&lt; 82.5 305 7065419.00 348.3639  
-##      4) Age&gt;=58.5 123 3041404.00 333.0488  
-##        8) Age&lt; 61.5 12   62253.67 253.8333 *
-##        9) Age&gt;=61.5 111 2895708.00 341.6126 *
-##      5) Age&lt; 58.5 182 3975667.00 358.7143  
-##       10) Age&lt; 38.5 64  828707.90 324.4531 *
-##       11) Age&gt;=38.5 118 3031089.00 377.2966 *
-##    3) Age&gt;=82.5 15  545731.70 495.8667 *</code></pre>
+##  1) root 320 7045031.0 350.6250  
+##    2) Age&lt; 82.5 306 6586876.0 344.8170  
+##      4) Age&lt; 35.5 54  471770.1 311.8704 *
+##      5) Age&gt;=35.5 252 6043929.0 351.8770  
+##       10) Age&gt;=69.5 68 1571017.0 326.0882  
+##         20) Age&lt; 77.5 39  498793.0 287.3590 *
+##         21) Age&gt;=77.5 29  935056.1 378.1724  
+##           42) Gender= Male 11  445504.2 316.2727 *
+##           43) Gender=Female 18  421648.0 416.0000 *
+##       11) Age&lt; 69.5 184 4410974.0 361.4076 *
+##    3) Age&gt;=82.5 14  222217.4 477.5714 *</code></pre>
 <p>Above we see the resulting tree printed, however, this is difficult to read. Instead, we use the <code>rpart.plot()</code> function from the <code>rpart.plot</code> package to better visualize the tree.</p>
 <pre class="r"><code>rpart.plot(crdt_tree)</code></pre>
-<p><img src="/content/09-content_files/figure-html/unnamed-chunk-40-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="/content/09-content_files/figure-html/unnamed-chunk-41-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>At each split, the variable used to split is listed together with a condition. If the condition is true for a data point, send it to the left neighborhood. Although the <code>Gender</code> available for creating splits, we only see splits based on <code>Age</code> and <code>Student</code>. This hints at the relative importance of these variables for prediction. More on this much later.</p>
 <p>Categorical variables are split based on potential categories! This is <em>excellent</em>. This means that trees naturally handle categorical features without needing to convert to numeric under the hood. We see a split that puts students into one neighborhood, and non-students into another.</p>
-<p>Notice that the splits happen in order. So for example, the third terminal node (with an average rating of 298) is based on splits of:</p>
+<p>Notice that the splits happen in order. So for example, the third terminal node (with an average rating of 316) is based on splits of:</p>
 <ul>
 <li><code>Age &lt; 83</code></li>
-<li><code>Age &lt; 70</code></li>
-<li><code>Age &gt; 39</code></li>
-<li><code>Student = Yes</code></li>
+<li><code>Age &gt; 36</code></li>
+<li><code>Age &gt; 70</code></li>
+<li><code>Age &gt; 78</code></li>
+<li><code>Gender = Male</code></li>
 </ul>
-<p>In other words, individuals in this terminal node are students who are between the ages of 39 and 70. (Only 5% of the data is represented here.) This is basically an interaction between <code>Age</code> and <code>Student</code> without any need to directly specify it! What a great feature of trees.</p>
+<p>In other words, individuals in this terminal node are students who are between the ages of 78 and 83. (Only 3% of the data is represented here.) This is basically an interaction between <code>Age</code> and <code>Student</code> without any need to directly specify it! What a great feature of trees.</p>
 <p>To recap:</p>
 <ul>
 <li>Trees do not make assumptions about the form of the regression function.</li>
@@ -408,38 +411,38 @@ crdt_knn_100= knnreg(Rating ~ Age + Gender + Student, data = crdt_est, k = 100)<
 <li>Trees naturally incorporate interaction.</li>
 </ul>
 <p>Now let’s fit another tree that is more flexible by relaxing some tuning parameters. Recall that by default, <code>cp = 0.1</code> and <code>minsplit = 20</code>.</p>
-<pre class="r"><code>crdt_tree_big = rpart(Rating ~ Age + Gender + Student, data = crdt_est,
+<pre class="r"><code>crdt_tree_big = rpart(Rating ~ Age + Gender + Student, data = crdt_trn,
                       cp = 0.0, minsplit = 20)</code></pre>
 <pre class="r"><code>rpart.plot(crdt_tree_big)</code></pre>
-<p><img src="/content/09-content_files/figure-html/unnamed-chunk-42-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="/content/09-content_files/figure-html/unnamed-chunk-43-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>To make the tree even bigger, we could reduce <code>minsplit</code>, but in practice we mostly consider the <code>cp</code> parameter. Since <code>minsplit</code> has been kept the same, but <code>cp</code> was reduced, we see the same splits as the smaller tree, but many additional splits.</p>
 <p>Now let’s fit a bunch of trees, with different values of <code>cp</code>, for tuning.</p>
 <pre class="r"><code>tree_mod_list = list(
-  crdt_tree_0000 = rpart(Rating ~ Age + Gender + Student, data = crdt_est, cp = 0.000),
-  crdt_tree_0001 = rpart(Rating ~ Age + Gender + Student, data = crdt_est, cp = 0.001),
-  crdt_tree_0010 = rpart(Rating ~ Age + Gender + Student, data = crdt_est, cp = 0.010),
-  crdt_tree_0100 = rpart(Rating ~ Age + Gender + Student, data = crdt_est, cp = 0.100)
+  crdt_tree_0000 = rpart(Rating ~ Age + Gender + Student, data = crdt_trn, cp = 0.000),
+  crdt_tree_0001 = rpart(Rating ~ Age + Gender + Student, data = crdt_trn, cp = 0.001),
+  crdt_tree_0010 = rpart(Rating ~ Age + Gender + Student, data = crdt_trn, cp = 0.010),
+  crdt_tree_0100 = rpart(Rating ~ Age + Gender + Student, data = crdt_trn, cp = 0.100)
 )</code></pre>
-<pre class="r"><code>tree_val_pred = lapply(tree_mod_list, predict, crdt_val)</code></pre>
-<pre class="r"><code>sapply(tree_val_pred, calc_rmse, crdt_val$Rating)</code></pre>
+<pre class="r"><code>tree_val_pred = lapply(tree_mod_list, predict, crdt_tst)</code></pre>
+<pre class="r"><code>sapply(tree_val_pred, calc_rmse, crdt_tst$Rating)</code></pre>
 <pre><code>## crdt_tree_0000 crdt_tree_0001 crdt_tree_0010 crdt_tree_0100 
-##       154.3480       154.0967       139.5584       142.7289</code></pre>
-<p>Here we see the least flexible model, with <code>cp = 0.100</code>, performs best.</p>
+##       182.0236       180.1045       172.6976       177.2816</code></pre>
+<p>Here we see the model, with <code>cp = 0.010</code>, performs best.</p>
 <p>Note that by only using these three features, we are severely limiting our models performance. Let’s quickly assess using all available predictors.</p>
-<pre class="r"><code>crdt_tree_all = rpart(Rating ~ ., data = crdt_est)</code></pre>
+<pre class="r"><code>crdt_tree_all = rpart(Rating ~ ., data = crdt_trn)</code></pre>
 <pre class="r"><code>rpart.plot(crdt_tree_all)</code></pre>
-<p><img src="/content/09-content_files/figure-html/unnamed-chunk-47-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="/content/09-content_files/figure-html/unnamed-chunk-48-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Notice that this model <strong>only</strong> splits based on <code>Limit</code> despite using all features. This should be a big hint about which variables are useful for prediction.</p>
 <pre class="r"><code>calc_rmse(
-  actual = crdt_val$Rating,
-  predicted = predict(crdt_tree_all, crdt_val)
+  actual = crdt_tst$Rating,
+  predicted = predict(crdt_tree_all, crdt_tst)
 )</code></pre>
-<pre><code>## [1] 32.83517</code></pre>
+<pre><code>## [1] 45.17942</code></pre>
 <p>This model performs much better. You should try something similar with the KNN models above. Also, consider comparing this result to results from last lectures using linear models.</p>
 <p>Notice that we’ve been using that trusty <code>predict()</code> function here again.</p>
-<pre class="r"><code>predict(crdt_tree_all, crdt_val[1:5, ])</code></pre>
+<pre class="r"><code>predict(crdt_tree_all, crdt_tst[1:5, ])</code></pre>
 <pre><code>##        1        2        3        4        5 
-## 565.4643 242.7317 467.4390 242.7317 467.4390</code></pre>
+## 520.7812 645.4000 520.7812 440.7368 520.7812</code></pre>
 <p>What does this code do? It estimates the mean <code>Rating</code> given the feature information (the “x” values) from the first five observations from the validation data using a decision tree model with default tuning parameters. Hopefully a theme is emerging.</p>
 </div>
 </div>

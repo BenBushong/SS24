@@ -26,25 +26,26 @@ unnamed-chunk-24	::	as_tibble
 unnamed-chunk-25	%>%	everything	ID	Rating	select
 unnamed-chunk-26	crdt	nrow	sample	set.seed
 unnamed-chunk-27	crdt_trn	nrow	sample
-unnamed-chunk-28	crdt_est	head
-unnamed-chunk-29	~	crdt_est	knnreg
+unnamed-chunk-28	crdt_trn	head
+unnamed-chunk-29	~	crdt_trn	knnreg
 unnamed-chunk-30	$	crdt_knn_10	head
 unnamed-chunk-31	$	crdt_knn_10	dist	head
 unnamed-chunk-32	$	^	crdt_knn_10	sqrt	sum
-unnamed-chunk-33	crdt_knn_10	crdt_val	predict
-unnamed-chunk-34	~	crdt_est	knnreg	list
-unnamed-chunk-35	crdt_val	knn_mod_list	lapply	predict
+unnamed-chunk-33	crdt_knn_10	crdt_tst	predict
+unnamed-chunk-34	~	crdt_trn	knnreg	list
+unnamed-chunk-35	crdt_tst	knn_mod_list	lapply	predict
 unnamed-chunk-36	^	mean	sqrt
-unnamed-chunk-37	$	calc_rmse	crdt_val	knn_val_pred	sapply
-unnamed-chunk-38	~	crdt_est	rpart
-unnamed-chunk-39	crdt_tree
-unnamed-chunk-40	crdt_tree	rpart.plot
-unnamed-chunk-41	~	crdt_est	rpart
-unnamed-chunk-42	crdt_tree_big	rpart.plot
-unnamed-chunk-43	~	crdt_est	list	rpart
-unnamed-chunk-44	crdt_val	lapply	predict	tree_mod_list
-unnamed-chunk-45	$	calc_rmse	crdt_val	sapply	tree_val_pred
-unnamed-chunk-46	~	crdt_est	rpart
-unnamed-chunk-47	crdt_tree_all	rpart.plot
-unnamed-chunk-48	$	calc_rmse	crdt_tree_all	crdt_val	predict
-unnamed-chunk-49	crdt_tree_all	crdt_val	predict
+unnamed-chunk-37	$	calc_rmse	crdt_tst	knn_tst_pred	sapply
+unnamed-chunk-38	crdt	nrow	sample	set.seed
+unnamed-chunk-39	~	crdt_trn	rpart
+unnamed-chunk-40	crdt_tree
+unnamed-chunk-41	crdt_tree	rpart.plot
+unnamed-chunk-42	~	crdt_trn	rpart
+unnamed-chunk-43	crdt_tree_big	rpart.plot
+unnamed-chunk-44	~	crdt_trn	list	rpart
+unnamed-chunk-45	crdt_tst	lapply	predict	tree_mod_list
+unnamed-chunk-46	$	calc_rmse	crdt_tst	sapply	tree_val_pred
+unnamed-chunk-47	~	crdt_trn	rpart
+unnamed-chunk-48	crdt_tree_all	rpart.plot
+unnamed-chunk-49	$	calc_rmse	crdt_tree_all	crdt_tst	predict
+unnamed-chunk-50	crdt_tree_all	crdt_tst	predict

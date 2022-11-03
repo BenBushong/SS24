@@ -4026,11 +4026,12 @@ legend(&amp;#39;topright&amp;#39;, legend = c(&amp;#39;train&amp;#39;,&amp;#39;t
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#some-functions&#34;&gt;Some functions&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#breakout-1&#34;&gt;Breakout #1&lt;/a&gt;
+&lt;li&gt;&lt;a href=&#34;#breakout-1---predicting-wage&#34;&gt;Breakout #1 - Predicting Wage&lt;/a&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#breakout-1-discussion&#34;&gt;Breakout #1 discussion&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#automating-models&#34;&gt;Automating models&lt;/a&gt;
+&lt;li&gt;&lt;a href=&#34;#automating-models&#34;&gt;Automating models&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#f22-we-already-went-thru-this-yesterday&#34;&gt;F22: We already went thru this yesterday&lt;/a&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#loops&#34;&gt;Loops&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
@@ -4045,10 +4046,8 @@ legend(&amp;#39;topright&amp;#39;, legend = c(&amp;#39;train&amp;#39;,&amp;#39;t
 
 &lt;div id=&#34;our-data-and-goal&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Our data and goal&lt;/h2&gt;
-&lt;p&gt;We want to use the &lt;code&gt;wooldridge::wage2&lt;/code&gt; data on wages to generate and tune a non-parametric model of wages using a regression tree.&lt;/p&gt;
-&lt;p&gt;We’ve learned that our RMSE calculations have a hard time with &lt;code&gt;NA&lt;/code&gt;s in the data. So let’s use the &lt;code&gt;skim&lt;/code&gt; output to drop variables with &lt;code&gt;NA&lt;/code&gt; (see &lt;code&gt;n_missing&lt;/code&gt;). Of course, there are other things we can do (impute the &lt;code&gt;NA&lt;/code&gt;s, or make dummies for them), but for now, it’s easiest to drop.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;wage_clean = wage2 %&amp;gt;%
-  dplyr::select(-brthord, -meduc, -feduc)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We want to use the &lt;code&gt;wooldridge::wage2&lt;/code&gt; data on wages to generate and tune a non-parametric model of wages using a regression tree. Use &lt;code&gt;?wage2&lt;/code&gt; (after you’ve loaded the &lt;code&gt;wooldridge&lt;/code&gt; package) to see the data dictionary.&lt;/p&gt;
+&lt;p&gt;We’ve learned that our RMSE calculations have a hard time with &lt;code&gt;NA&lt;/code&gt;s in the data. So let’s use the &lt;code&gt;skim&lt;/code&gt; output to tell us which variables have too many &lt;code&gt;NA&lt;/code&gt; (see &lt;code&gt;n_missing&lt;/code&gt;) values and should be dropped. Let’s set a high bar here, and drop anything that isn’t 100% complete. Of course, there are other things we can do (impute the &lt;code&gt;NA&lt;/code&gt;s, or make dummies for them), but for now, it’s easiest to drop them.&lt;/p&gt;
 &lt;p&gt;Once cleaned, we should be able to use &lt;code&gt;rpart(wage ~ ., data = wage_clean)&lt;/code&gt; and not have any &lt;code&gt;NA&lt;/code&gt;s in our prediction.&lt;/p&gt;
 &lt;div id=&#34;some-functions&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Some functions&lt;/h3&gt;
@@ -4062,10 +4061,10 @@ legend(&amp;#39;topright&amp;#39;, legend = c(&amp;#39;train&amp;#39;,&amp;#39;t
 }&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id=&#34;breakout-1&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Breakout #1&lt;/h2&gt;
-&lt;p&gt;I’m going to assign you to breakout rooms to work in groups of 3-4 on live-coding. One person in the group will need to have Rstudio up, be able to share screen, and have the correct packages loaded (&lt;code&gt;caret&lt;/code&gt;, &lt;code&gt;rpart&lt;/code&gt;, and &lt;code&gt;rpart.plot&lt;/code&gt;, plus &lt;code&gt;skimr&lt;/code&gt;). Copy the &lt;code&gt;rmse&lt;/code&gt; and &lt;code&gt;get_rmse&lt;/code&gt; code into a blank R script (you don’t have to use RMarkdown, just use a blank R script and run from there).&lt;/p&gt;
-&lt;p&gt;For the first breakout, all I want you to do is the following:&lt;/p&gt;
+&lt;div id=&#34;breakout-1---predicting-wage&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Breakout #1 - Predicting Wage&lt;/h2&gt;
+&lt;p&gt;I’m going to assign you to groups of 3-4 to work on live-coding. One person in the group will need to have Rstudio up, be able to share screen, and have the correct packages loaded (&lt;code&gt;caret&lt;/code&gt;, &lt;code&gt;rpart&lt;/code&gt;, and &lt;code&gt;rpart.plot&lt;/code&gt;, plus &lt;code&gt;skimr&lt;/code&gt;). Copy the &lt;code&gt;rmse&lt;/code&gt; and &lt;code&gt;get_rmse&lt;/code&gt; code into a blank R script (you don’t have to use RMarkdown, just use a blank R script and run from there).&lt;/p&gt;
+&lt;p&gt;For the first breakout, all I want you to do is the following. We are trying to predict &lt;code&gt;wage&lt;/code&gt; for this exercise:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Estimate a default regression tree on &lt;code&gt;wage_clean&lt;/code&gt; using the default parameters.&lt;/li&gt;
 &lt;li&gt;Use &lt;code&gt;rpart.plot&lt;/code&gt; to vizualize your regression tree, and &lt;em&gt;talk through the interpretation&lt;/em&gt; with each other.&lt;/li&gt;
@@ -4080,6 +4079,9 @@ legend(&amp;#39;topright&amp;#39;, legend = c(&amp;#39;train&amp;#39;,&amp;#39;t
 &lt;/div&gt;
 &lt;div id=&#34;automating-models&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Automating models&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div id=&#34;f22-we-already-went-thru-this-yesterday&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;F22: We already went thru this yesterday&lt;/h2&gt;
 &lt;p&gt;Let’s talk about a little code shortcut that helps iterate through your model selection.&lt;/p&gt;
 &lt;p&gt;First, before, we used &lt;code&gt;list()&lt;/code&gt; to store all of our models. This is because &lt;code&gt;list()&lt;/code&gt; can “hold” anything at all, unlike a &lt;code&gt;matrix&lt;/code&gt;, which is only numeric, or a &lt;code&gt;data.frame&lt;/code&gt; which needs all rows in a column to be the same data type. &lt;code&gt;list()&lt;/code&gt; is also recursive, so each element in a list can be a list. Of lists. Of lists!&lt;/p&gt;
 &lt;p&gt;Lists are also really easy to add to iteratively. We can initiate an empty list using &lt;code&gt;myList &amp;lt;- list()&lt;/code&gt;, then we can add things to it. Note that we use the double &lt;code&gt;[&lt;/code&gt; to index:&lt;/p&gt;

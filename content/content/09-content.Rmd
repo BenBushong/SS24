@@ -481,13 +481,13 @@ We remove the `ID` variable as it should have no predictive power. We also move 
 
 ```{r}
 # test-train split
-set.seed(1)
+set.seed(1) 
 crdt_trn_idx = sample(nrow(crdt), size = 0.8 * nrow(crdt))
-crdt_est = crdt[crdt_trn_idx, ]
-crdt_val = crdt[-crdt_trn_idx, ]
+crdt_trn = crdt[crdt_trn_idx, ]
+crdt_tst = crdt[-crdt_trn_idx, ]
 ```
 
-```{r, eval = FALSE}
+```{r, include = FALSE, eval = FALSE}
 # estimation-validation split
 crdt_est_idx = sample(nrow(crdt_trn), size = 0.8 * nrow(crdt_trn))
 crdt_est = crdt_trn[crdt_est_idx, ]
@@ -498,7 +498,7 @@ After train-test (with 80% of the data) and estimation-validation splitting the 
 
 ```{r}
 # check data
-head(crdt_est, n = 10)
+head(crdt_trn, n = 10)
 ```
 
 In this simulated data, we would like to predict the `Rating` variable. For now, let's try to use only demographic information as predictors.^[There is a question of whether or not we *should* use these variables. For example, should men and women be given different ratings when all other variables are the same? Using the `Gender` variable allows for this to happen. Also, you might think, just don't use the `Gender` variable. Unfortunately, it's not that easy. There is an increasingly popular field of study centered around these ideas called [machine learning **fairness**](https://en.wikipedia.org/wiki/Fairness_(machine_learning)).] In particular, let's focus on `Age` (numeric), `Gender` (categorical), and `Student` (categorical).
@@ -506,10 +506,10 @@ In this simulated data, we would like to predict the `Rating` variable. For now,
 Let's fit KNN models with these features, and various values of $k$. To do so, we use the `knnreg()` function from the `caret` package.^[There are many other KNN functions in `R`. However, the operation and syntax of `knnreg()` better matches other functions we use in this course.] Use `?knnreg` for documentation and details.
 
 ```{r}
-crdt_knn_01 = knnreg(Rating ~ Age + Gender + Student, data = crdt_est, k = 1)
-crdt_knn_10 = knnreg(Rating ~ Age + Gender + Student, data = crdt_est, k = 10)
-crdt_knn_25 = knnreg(Rating ~ Age + Gender + Student, data = crdt_est, k = 25)
-crdt_knn_100= knnreg(Rating ~ Age + Gender + Student, data = crdt_est, k = 100)
+crdt_knn_01 = knnreg(Rating ~ Age + Gender + Student, data = crdt_trn, k = 1)
+crdt_knn_10 = knnreg(Rating ~ Age + Gender + Student, data = crdt_trn, k = 10)
+crdt_knn_25 = knnreg(Rating ~ Age + Gender + Student, data = crdt_trn, k = 25)
+crdt_knn_100= knnreg(Rating ~ Age + Gender + Student, data = crdt_trn, k = 75)
 ```
 
 Here, we fit three models to the estimation data. We supply the variables that will be used as features as we would with `lm()`. We also specify how many neighbors to consider via the `k` argument.
@@ -539,7 +539,7 @@ OK, so of these three models, which one performs best? (Where for now, "best" is
 First, note that we return to the `predict()` function as we did with `lm()`.
 
 ```{r}
-predict(crdt_knn_10, crdt_val[1:5, ])
+predict(crdt_knn_10, crdt_tst[1:5, ])
 ```
 
 This uses the 10-NN (10 nearest neighbors) model to make predictions (estimate the regression function) given the first five observations of the validation data. **Note:** We did not name the second argument to `predict()`. Again, you've been warned.
@@ -548,15 +548,15 @@ Now that we know how to use the `predict()` function, let's calculate the valida
 
 ```{r}
 knn_mod_list = list(
-  crdt_knn_01 = knnreg(Rating ~ Age + Gender + Student, data = crdt_est, k = 1),
-  crdt_knn_10 = knnreg(Rating ~ Age + Gender + Student, data = crdt_est, k = 10),
-  crdt_knn_25 = knnreg(Rating ~ Age + Gender + Student, data = crdt_est, k = 25),
-  crdt_knn_100= knnreg(Rating ~ Age + Gender + Student, data = crdt_est, k = 100)
+  crdt_knn_01 = knnreg(Rating ~ Age + Gender + Student, data = crdt_trn, k = 1),
+  crdt_knn_10 = knnreg(Rating ~ Age + Gender + Student, data = crdt_trn, k = 10),
+  crdt_knn_25 = knnreg(Rating ~ Age + Gender + Student, data = crdt_trn, k = 25),
+  crdt_knn_100= knnreg(Rating ~ Age + Gender + Student, data = crdt_trn, k = 75)
 )
 ```
 
 ```{r}
-knn_val_pred = lapply(knn_mod_list, predict, crdt_val)
+knn_tst_pred = lapply(knn_mod_list, predict, crdt_tst)
 ```
 
 ```{r}
@@ -566,12 +566,12 @@ calc_rmse = function(actual, predicted) {
 ```
 
 ```{r}
-sapply(knn_val_pred, calc_rmse, crdt_val$Rating)
+sapply(knn_tst_pred, calc_rmse, crdt_tst$Rating)
 ```
 
-So, of these three values of $k$, the model with $k = 25$ achieves the lowest validation RMSE.
+So, of these three values of $k$, the model with $k = 25$ achieves the lowest validation (test) RMSE.
 
-This process, fitting a number of models with different values of the *tuning parameter*, in this case $k$, and then finding the "best" tuning parameter value based on performance on the validation data is called **tuning**. In practice, we would likely consider more values of $k$, but this should illustrate the point.
+This process, fitting a number of models with different values of the *tuning parameter*, in this case $k$, and then finding the "best" tuning parameter value based on performance on the validation (test) data is called **tuning**. In practice, we would likely consider more values of $k$, but this should illustrate the point.
 
 In the next lectures, we will discuss the details of model flexibility and model tuning, and how these concepts are tied together. However, even though we will present some theory behind this relationship, in practice, **you must tune and validate your models**. There is no theory that will inform you ahead of tuning and validation which model will be the best. By teaching you *how* to fit KNN models in R and how to calculate validation RMSE, you already have all a set of tools you can use to find a good model.
 
@@ -582,10 +582,18 @@ Tuning isn't necessarily something we've never done before -- in our linear regr
 
 Let's turn to decision trees which we will fit with the `rpart()` function from the `rpart` package. Use `?rpart` and `?rpart.control` for documentation and details. In particular, `?rpart.control` will detail the many tuning parameters of this implementation of decision tree models in R.
 
-We'll start by using default tuning parameters.
 
 ```{r}
-crdt_tree = rpart(Rating ~ Age + Gender + Student, data = crdt_est)
+set.seed(5)
+crdt_trn_idx = sample(nrow(crdt), size = 0.8 * nrow(crdt))
+crdt_trn = crdt[crdt_trn_idx, ]
+crdt_tst = crdt[-crdt_trn_idx, ]
+```
+
+We'll start by using default tuning parameters for `minsplit`, but I'm going to use a `cp` that gets us something interesting.
+
+```{r}
+crdt_tree = rpart(Rating ~ Age + Gender + Student, data = crdt_trn, cp = .0095)
 ```
 
 ```{r}
@@ -602,14 +610,15 @@ At each split, the variable used to split is listed together with a condition. I
 
 Categorical variables are split based on potential categories! This is *excellent*. This means that trees naturally handle categorical features without needing to convert to numeric under the hood. We see a split that puts students into one neighborhood, and non-students into another.
 
-Notice that the splits happen in order. So for example, the third terminal node (with an average rating of 298) is based on splits of:
+Notice that the splits happen in order. So for example, the third terminal node (with an average rating of 316) is based on splits of:
 
 - `Age < 83`
-- `Age < 70`
-- `Age > 39`
-- `Student = Yes`
+- `Age > 36`
+- `Age > 70`
+- `Age > 78`
+- `Gender = Male`
 
-In other words, individuals in this terminal node are students who are between the ages of 39 and 70. (Only 5% of the data is represented here.) This is basically an interaction between `Age` and `Student` without any need to directly specify it! What a great feature of trees.
+In other words, individuals in this terminal node are students who are between the ages of 78 and 83. (Only 3% of the data is represented here.) This is basically an interaction between `Age` and `Student` without any need to directly specify it! What a great feature of trees.
 
 To recap:
 
@@ -620,7 +629,7 @@ To recap:
 Now let's fit another tree that is more flexible by relaxing some tuning parameters. Recall that by default, `cp = 0.1` and `minsplit = 20`.
 
 ```{r}
-crdt_tree_big = rpart(Rating ~ Age + Gender + Student, data = crdt_est,
+crdt_tree_big = rpart(Rating ~ Age + Gender + Student, data = crdt_trn,
                       cp = 0.0, minsplit = 20)
 ```
 
@@ -634,27 +643,27 @@ Now let's fit a bunch of trees, with different values of `cp`, for tuning.
 
 ```{r}
 tree_mod_list = list(
-  crdt_tree_0000 = rpart(Rating ~ Age + Gender + Student, data = crdt_est, cp = 0.000),
-  crdt_tree_0001 = rpart(Rating ~ Age + Gender + Student, data = crdt_est, cp = 0.001),
-  crdt_tree_0010 = rpart(Rating ~ Age + Gender + Student, data = crdt_est, cp = 0.010),
-  crdt_tree_0100 = rpart(Rating ~ Age + Gender + Student, data = crdt_est, cp = 0.100)
+  crdt_tree_0000 = rpart(Rating ~ Age + Gender + Student, data = crdt_trn, cp = 0.000),
+  crdt_tree_0001 = rpart(Rating ~ Age + Gender + Student, data = crdt_trn, cp = 0.001),
+  crdt_tree_0010 = rpart(Rating ~ Age + Gender + Student, data = crdt_trn, cp = 0.010),
+  crdt_tree_0100 = rpart(Rating ~ Age + Gender + Student, data = crdt_trn, cp = 0.100)
 )
 ```
 
 ```{r}
-tree_val_pred = lapply(tree_mod_list, predict, crdt_val)
+tree_val_pred = lapply(tree_mod_list, predict, crdt_tst)
 ```
 
 ```{r}
-sapply(tree_val_pred, calc_rmse, crdt_val$Rating)
+sapply(tree_val_pred, calc_rmse, crdt_tst$Rating)
 ```
 
-Here we see the least flexible model, with `cp = 0.100`, performs best.
+Here we see the model, with `cp = 0.010`, performs best.
 
 Note that by only using these three features, we are severely limiting our models performance. Let's quickly assess using all available predictors.
 
 ```{r}
-crdt_tree_all = rpart(Rating ~ ., data = crdt_est)
+crdt_tree_all = rpart(Rating ~ ., data = crdt_trn)
 ```
 
 ```{r}
@@ -665,8 +674,8 @@ Notice that this model **only** splits based on `Limit` despite using all featur
 
 ```{r}
 calc_rmse(
-  actual = crdt_val$Rating,
-  predicted = predict(crdt_tree_all, crdt_val)
+  actual = crdt_tst$Rating,
+  predicted = predict(crdt_tree_all, crdt_tst)
 )
 ```
 
@@ -675,7 +684,7 @@ This model performs much better. You should try something similar with the KNN m
 Notice that we've been using that trusty `predict()` function here again.
 
 ```{r}
-predict(crdt_tree_all, crdt_val[1:5, ])
+predict(crdt_tree_all, crdt_tst[1:5, ])
 ```
 
 What does this code do? It estimates the mean `Rating` given the feature information (the "x" values) from the first five observations from the validation data using a decision tree model with default tuning parameters. Hopefully a theme is emerging.
