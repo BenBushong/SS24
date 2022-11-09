@@ -346,7 +346,7 @@ Also note that if you prefer to think of this situation using the $Y = f(X) + \e
 ```{r, eval = FALSE}
 gen_sim_data = function(f, sample_size = 100) {
   x = runif(n = sample_size, min = 0, max = 1)
-  eps = rnorm(n = sample_size, mean = 0, sd = 0.75)
+  eps = rnorm(n = sample_size, mean = 0, sd = 0.3)
   y = f(x) + eps
   tibble(x, y)
 }
@@ -644,9 +644,9 @@ get_var = function(estimate) {
 To quickly obtain these results for each of the four models, we utilize the `apply()` function.
 
 ```{r}
-bias = apply(predictions, 2, get_bias, truth = f(x = 0.90))
-variance = apply(predictions, 2, get_var)
-mse = apply(predictions, 2, get_mse, truth = f(x = 0.90))
+bias = apply(predictions, MAR = 2, get_bias, truth = f(x = 0.90))
+variance = apply(predictions, MAR = 2, get_var)
+mse = apply(predictions, MAR = 2, get_mse, truth = f(x = 0.90))
 ```
 
 We summarize these results in the following table.
@@ -828,7 +828,7 @@ How good is this estimate? Well, if $\mathcal{D}$ is a random sample from $(X, Y
 
 ## Model Flexibility
 
-Let's return to the simiulated dataset we used occaisionally in the linear regression content. Recall there was a single feature $x$ with the following properties:
+Let's return to the simulated dataset we used occaisionally in the linear regression content. Recall there was a single feature $x$ with the following properties:
 
 ```{r}
 # define regression function
