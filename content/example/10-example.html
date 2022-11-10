@@ -151,7 +151,7 @@ print(myList)</code></pre>
 ## 
 ## $I
 ## [1] &quot;This loop is on I&quot;</code></pre>
-<p>You’re going to use this in your breakout rooms today. You’re going to be asked to run some code that stores a plot in a list. To reset the list that stores things, just use <code>rm(listName)</code> (where <code>listName</code> is the name of the list).</p>
+<p>You’re going to use this in your groups / breakout rooms today. You’re going to be asked to run some code that stores a plot in a list. To reset the list that stores things, just use <code>rm(listName)</code> (where <code>listName</code> is the name of the list).</p>
 <p>Alternatively, you can make sure you run code (outside of the loop) that makes a new list. This will re-set the list to be empty going into the loop:</p>
 <pre class="r"><code>myList = list()
 for(i in c(&#39;G&#39;,&#39;H&#39;,&#39;I&#39;)){
@@ -180,27 +180,19 @@ print(myList)</code></pre>
 </ul>
 <div id="simulation" class="section level3">
 <h3>Simulation</h3>
-<p>We will use the exact code from Content 9, which I have reproduced here. I have removed the in-between parts with notation so we can focus on the example. I have <strong>copied all of the relevant code into one chunk down at the bottom as well</strong></p>
+<p>We will use the exact code from Content 10, which I have reproduced here. I have removed the in-between parts with notation so we can focus on the example. I have <strong>copied all of the relevant code into one chunk down at the bottom as well</strong></p>
 <p>We’ll need the following libraries:</p>
 <pre class="r"><code>library(ggplot2)
 library(patchwork)
 library(tidyverse)</code></pre>
-<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
-## ✔ tibble  3.1.8     ✔ dplyr   1.0.9
-## ✔ tidyr   1.2.0     ✔ stringr 1.4.1
-## ✔ readr   2.1.2     ✔ forcats 0.5.2
-## ✔ purrr   0.3.4     
-## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-## ✖ dplyr::filter() masks stats::filter()
-## ✖ dplyr::lag()    masks stats::lag()</code></pre>
-<p>And here, I’ve made a little change to Content 9’s code so we can play with sample size <code>NN</code> and the SD of the irreducible Bayes error.</p>
+<p>And here, I’ve made a little change to Content 10’s code so we can play with sample size <code>NN</code> and the SD of the irreducible Bayes error.</p>
 <pre class="r"><code>NN = 100   #----&gt; In class, we will change this to 
 #                 see how our results change in response
 SD.of.Bayes.Error = .75   #-----&gt; This, too, will change. 
 
 # Note that both of these are used in the next chunk(s) to generate data.</code></pre>
-<div id="begin-content-9-code-here" class="section level4">
-<h4>Begin Content 9 code here:</h4>
+<div id="begin-content-10-code-here" class="section level4">
+<h4>Begin Content 10 code here:</h4>
 <p>We will illustrate these decompositions, most importantly the bias-variance tradeoff, through simulation. Suppose we would like to train a model to learn the true regression function function <span class="math inline">\(f(x) = x^2\)</span>.</p>
 <pre class="r"><code>f = function(x) {
   x ^ 2
@@ -265,8 +257,8 @@ predictions = matrix(0, nrow = n_sims, ncol = n_models)</code></pre>
 <p>Compile all of the results:</p>
 <p><img src="/example/10-example_files/figure-html/unnamed-chunk-16-1.png" width="864" /></p>
 <div class="fyi">
-<p>In your breakout room and using the code below:</p>
-<p><strong>First Breakout</strong>: set <code>NN</code> = 100, the value we used in our Content 9 lecture. The value is set in one of the first code chunks. Step through the code to get your finalPlot and make sure it looks like the plot in Content 9. I changed the code to use ggplot (easier to save output), so the formatting and colors will be different - that’s OK, we want to get the same results, not copy the layout of the plot. Note that at the end of the code, a list is created that will hold all of your results. In case you need to clear this list, <code>rm(FinalResults)</code> will do so and the code will initate a new blank list to hold subsequent results.</p>
+<p>In your group / breakout room and using the code below:</p>
+<p><strong>First Breakout</strong>: set <code>NN</code> = 100, the value we used in our Content 10 lecture. The value is set in one of the first code chunks. Step through the code to get your finalPlot and make sure it looks like the plot in Content 10. I changed the code to use ggplot (easier to save output), so the formatting and colors will be different - that’s OK, we want to get the same results, not copy the layout of the plot. Note that at the end of the code, a list is created that will hold all of your results. In case you need to clear this list, <code>rm(FinalResults)</code> will do so and the code will initate a new blank list to hold subsequent results.</p>
 <p><strong>Second Breakout</strong>: set NN to a larger number. Usually, more data means more precise predictions. Run your code again stepping through it, until you get to this plot. Note that at the end of the code provided, there is a list that aggregates your results. <strong>Repeat this</strong> with a 3rd, even larger value for NN. Don’t go much beyond 50,000 or it’ll take too long. Your <code>FinalResults</code> list should have 3 elements in it. Use <code>patchwork::wrap_plots(FinalResults, nrow = 1)</code> to see all 3 side-by-side.</p>
 <p><strong>Third Breakout</strong>: Finally, change the <code>SD.of.Bayes.Error</code> value to make it higher or lower. Remember, this is the <em>irreducible</em> error. Run your code again with your first, second, and third different value for sample size <code>NN</code>. You should have 6 plots in your <code>FinalResults</code> list - 3 from before, and 3 more with the new SD of Bayes Error. Use <code>wrap_plots</code> with the right number of rows to see a 2x3 grid of the results.</p>
 <ul>
@@ -401,7 +393,7 @@ if(!exists(&#39;FinalResults&#39;)) FinalResults = list()
 
 FinalResults[[paste0(&#39;finalPlot.NN.&#39;,NN,&#39;.SDBayes.&#39;,SD.of.Bayes.Error)]] = FinalPlot
 
-# 
+# Old plot code:
 # boxplot(value ~ key, data = tall_predictions, border = &quot;darkgrey&quot;, xlab = &quot;Polynomial Degree&quot;, ylab = &quot;Predictions&quot;,
 #         main = &quot;Simulated Predictions for Polynomial Models&quot;)
 # grid()
@@ -410,6 +402,6 @@ FinalResults[[paste0(&#39;finalPlot.NN.&#39;,NN,&#39;.SDBayes.&#39;,SD.of.Bayes.
 <p>And to output <em>whatever is in your list of ggplot objects</em>:</p>
 <pre class="r"><code>## This not run automatically.
 ## To plot the whole list of ggplot objects in FinalResults:
-wrap_plots(FinalResults, nrow = 2, guides = &#39;collect&#39;)</code></pre>
+patchwork::wrap_plots(FinalResults, nrow = 2, guides = &#39;collect&#39;)</code></pre>
 </div>
 </div>

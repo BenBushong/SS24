@@ -134,7 +134,7 @@ for(i in c('G','H','I')){
 print(myList)
 ```
 
-You're going to use this in your breakout rooms today. You're going to be asked to run some code that stores a plot in a list. To reset the list that stores things, just use `rm(listName)` (where `listName` is the name of the list).
+You're going to use this in your groups / breakout rooms today. You're going to be asked to run some code that stores a plot in a list. To reset the list that stores things, just use `rm(listName)` (where `listName` is the name of the list).
 
 Alternatively, you can make sure you run code (outside of the loop) that makes a new list. This will re-set the list to be empty going into the loop:
 
@@ -163,17 +163,17 @@ Our goal today is to
 
 
 ### Simulation
-We will use the exact code from Content 9, which I have reproduced here. I have removed the in-between parts with notation so we can focus on the example. I have **copied all of the relevant code into one chunk down at the bottom as well**
+We will use the exact code from Content 10, which I have reproduced here. I have removed the in-between parts with notation so we can focus on the example. I have **copied all of the relevant code into one chunk down at the bottom as well**
 
 We'll need the following libraries:
 
-```{r, warning = FALSE, error = FALSE}
+```{r, warning = FALSE, error = FALSE, message = FALSE, echo = T}
 library(ggplot2)
 library(patchwork)
 library(tidyverse)
 ```
 
-And here, I've made a little change to Content 9's code so we can play with sample size `NN` and the SD of the irreducible Bayes error.
+And here, I've made a little change to Content 10's code so we can play with sample size `NN` and the SD of the irreducible Bayes error.
 
 ```{r}
 NN = 100   #----> In class, we will change this to 
@@ -187,7 +187,7 @@ SD.of.Bayes.Error = .75   #-----> This, too, will change.
 
 
 
-#### Begin Content 9 code here:
+#### Begin Content 10 code here:
 
 We will illustrate these decompositions, most importantly the bias-variance tradeoff, through simulation. Suppose we would like to train a model to learn the true regression function function $f(x) = x^2$.
 
@@ -329,9 +329,9 @@ FinalPlot
 
 :::fyi
 
-In your breakout room and using the code below:
+In your group / breakout room and using the code below:
 
-**First Breakout**: set `NN` = 100, the value we used in our Content 9 lecture. The value is set in one of the first code chunks. Step through the code to get your finalPlot and make sure it looks like the plot in Content 9. I changed the code to use ggplot (easier to save output), so the formatting and colors will be different - that's OK, we want to get the same results, not copy the layout of the plot. Note that at the end of the code, a list is created that will hold all of your results. In case you need to clear this list, `rm(FinalResults)` will do so and the code will initate a new blank list to hold subsequent results.
+**First Breakout**: set `NN` = 100, the value we used in our Content 10 lecture. The value is set in one of the first code chunks. Step through the code to get your finalPlot and make sure it looks like the plot in Content 10. I changed the code to use ggplot (easier to save output), so the formatting and colors will be different - that's OK, we want to get the same results, not copy the layout of the plot. Note that at the end of the code, a list is created that will hold all of your results. In case you need to clear this list, `rm(FinalResults)` will do so and the code will initate a new blank list to hold subsequent results.
 
 **Second Breakout**: set NN to a larger number. Usually, more data means more precise predictions. Run your code again stepping through it, until you get to this plot. Note that at the end of the code provided, there is a list that aggregates your results. **Repeat this** with a 3rd, even larger value for NN. Don't go much beyond 50,000 or it'll take too long. Your `FinalResults` list should have 3 elements in it. Use  `patchwork::wrap_plots(FinalResults, nrow = 1)` to see all 3 side-by-side.
 
@@ -469,7 +469,7 @@ if(!exists('FinalResults')) FinalResults = list()
 
 FinalResults[[paste0('finalPlot.NN.',NN,'.SDBayes.',SD.of.Bayes.Error)]] = FinalPlot
 
-# 
+# Old plot code:
 # boxplot(value ~ key, data = tall_predictions, border = "darkgrey", xlab = "Polynomial Degree", ylab = "Predictions",
 #         main = "Simulated Predictions for Polynomial Models")
 # grid()
@@ -482,5 +482,5 @@ And to output *whatever is in your list of ggplot objects*:
 ```{r, eval=FALSE}
 ## This not run automatically.
 ## To plot the whole list of ggplot objects in FinalResults:
-wrap_plots(FinalResults, nrow = 2, guides = 'collect')
+patchwork::wrap_plots(FinalResults, nrow = 2, guides = 'collect')
 ```

@@ -55,7 +55,7 @@ As we did with regression, we test-train split our data. In this case, using 50%
 
 ```{r}
 set.seed(44222)
-default_idx   = sample(nrow(Default), 5000)
+default_idx   = sample(nrow(Default), trunc(nrow(Default)*.5))
 default_trn = Default[default_idx, ]
 default_tst = Default[-default_idx, ]
 ```
@@ -65,7 +65,7 @@ default_tst = Default[-default_idx, ]
 
 Often, some simple visualizations can suggest simple classification rules. To quickly create some useful visualizations, we use the `featurePlot()` function from the `caret()` package.
 
-```{r, message = FALSE, warning = FALSE}
+```{r, message = FALSE, warning = FALSE, error = FALSE}
 library(caret)
 ```
 
@@ -100,7 +100,7 @@ Some notes about the arguments to this function:
 - `layout` places the individual plots into rows and columns. For some odd reason, it is given as (col, row).
 - `auto.key` defines the key at the top of the plot. The number of columns should be the number of categories.
 
-It seems that the income variable by itself is not particularly useful. However, there seems to be a big difference in default status at a `balance` of about 1400. We will use this information shortly.
+Is the `income` variable useful here? How about the `balance` variable? There seems to be a big difference in default status at a `balance` of about 1400. We will use this information shortly.
 
 ```{r, fig.height = 5, fig.width = 10, message = FALSE, warning = FALSE}
 featurePlot(x = default_trn[, c("balance", "income")],
@@ -114,7 +114,7 @@ featurePlot(x = default_trn[, c("balance", "income")],
             auto.key = list(columns = 2))
 ```
 
-Above, we create a similar plot, except with `student` as the response. We see that students often carry a slightly larger balance, and have far lower income. This will be useful to know when making more complicated classifiers.
+Above, we create a similar plot, except with `student` as the response. It's not that we want to predict `student` -- rather, we want to see if student is correlated with balance or income. We see that students often carry a slightly larger balance, and have far lower income. This will be useful to know when making more complicated classifiers.
 
 ```{r, fig.height = 6, fig.width = 6, message = FALSE, warning = FALSE}
 featurePlot(x = default_trn[, c("student", "balance", "income")],
