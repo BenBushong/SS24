@@ -242,9 +242,9 @@
   <meta property="twitter:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
   
     
-      <meta property="article:published_time" content="2022-11-10T00:00:00&#43;00:00">
+      <meta property="article:published_time" content="2022-11-14T00:00:00&#43;00:00">
     
-    <meta property="article:modified_time" content="2022-09-29T10:41:59-04:00">
+    <meta property="article:modified_time" content="2022-11-10T09:36:45-05:00">
   
 
   
@@ -1039,7 +1039,7 @@ C^B(x) = \underset{g}{\mathrm{argmax}} \ P(Y = g \mid  X = x)
       0 &amp; \hat{p}(x) \leq 0.5
 \end{cases}
 \]</span></p>
-<p>This classifier is essentially estimating the Bayes Classifier - it takes the value of <span class="math inline">\(x\)</span>, figures out which is larger, the <span class="math inline">\(\hat{P}(Y=1|X=x)\)</span> or <span class="math inline">\(\hat{P}(Y=0 | X=x)\)</span>, and returns the classification <span class="math inline">\(\hat{C}(x)\)</span> as whichever probability is larger. Since there are only two values for <span class="math inline">\(Y\in\{0,1\}\)</span>, the larger is always the one greater than <span class="math inline">\(.50\)</span>. Thus, since this is a Bayes Classificer, it minimizes classification errors.</p>
+<p>This classifier is essentially estimating the Bayes Classifier - it takes the value of <span class="math inline">\(x\)</span>, figures out which is larger, the <span class="math inline">\(\hat{P}(Y=1|X=x)\)</span> or <span class="math inline">\(\hat{P}(Y=0 | X=x)\)</span>, and returns the classification <span class="math inline">\(\hat{C}(x)\)</span> as whichever probability is larger. Since there are only two values for <span class="math inline">\(Y\in\{0,1\}\)</span>, the larger is always the one greater than <span class="math inline">\(.50\)</span>. Thus, since this is a Bayes Classifier, it minimizes classification errors.</p>
 </div>
 <div id="logistic-regression-with-glm" class="section level2">
 <h2>Logistic Regression with <code>glm()</code></h2>
@@ -1276,7 +1276,7 @@ metrics</code></pre>
 ## c = 0.50   0.9730  0.31288344   0.9952450
 ## c = 0.90   0.9688  0.04294479   1.0000000</code></pre>
 <p>We see then sensitivity decreases as the cutoff is increased. Conversely, specificity increases as the cutoff increases. This is useful if we are more interested in a particular error, instead of giving them equal weight.</p>
-<p>Note that usually the best accuracy will be seen near <span class="math inline">\(c = 0.50\)</span>.</p>
+<p>Note that usually the best accuracy will be seen near <span class="math inline">\(c = 0.50\)</span>. This is not always true, and in your lab, you may need to change your cutoff.</p>
 <p>Instead of manually checking cutoffs, we can create an ROC curve (receiver operating characteristic curve) which will sweep through all possible cutoffs, and plot the sensitivity and specificity.</p>
 <ul>
 <li><p><strong>Where on this curve would you think is the “best” place to be? Why?</strong></p></li>
@@ -1339,7 +1339,7 @@ summary(model_multi)$coefficients</code></pre>
                 </div>
 
                 <div class="body-footer">
-                    <p>Last updated on September 29, 2022</p>
+                    <p>Last updated on November 10, 2022</p>
 
                     
 
