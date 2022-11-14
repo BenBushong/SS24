@@ -429,6 +429,43 @@ my_func &amp;lt;- function(y){
     </item>
     
     <item>
+      <title>Applied Logistic Regression - Classification</title>
+      <link>https://ssc442kirkpatrick.netlify.app/assignment/11-assignment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://ssc442kirkpatrick.netlify.app/assignment/11-assignment/</guid>
+      <description>
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#backstory-and-set-up&#34;&gt;Backstory and Set Up&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;!-- Updated 8.30.22 --&gt;
+&lt;div class=&#34;fyi&#34;&gt;
+&lt;p&gt;You must turn in a PDF document of your &lt;code&gt;R Markdown&lt;/code&gt; code. Submit this to D2L by 11:59 PM Eastern Time on &lt;strong&gt;Monday, Monday November 21st&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;backstory-and-set-up&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Backstory and Set Up&lt;/h2&gt;
+&lt;p&gt;You work for a bank. This bank is trying to predict defaults on loans (a relatively uncommon occurence, but one that costs the bank a great deal of money when it does happen.) They’ve given you a dataset on defaults (encoded as the variable &lt;code&gt;y&lt;/code&gt;). You’re going to try to predict this.&lt;/p&gt;
+&lt;p&gt;This is some new data. The snippet below loads it.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;bank &amp;lt;- read.table(&amp;quot;https://raw.githubusercontent.com/ajkirkpatrick/FS20/postS21_rev/classdata/bank.csv&amp;quot;,
+                 header = TRUE,
+                 sep = &amp;quot;,&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;There’s not going to be a whole lot of wind-up here. You should be well-versed in doing these sorts of things by now (if not, look back at the previous lab for sample code).&lt;/p&gt;
+&lt;div class=&#34;fyi&#34;&gt;
+&lt;p&gt;&lt;strong&gt;EXERCISE 1&lt;/strong&gt;&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;Split the data into an 80/20 train vs. test split. Make sure you explicitly set the seed for replicability, but do not share your seed with others in the class. (We may compare some results across people.)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Run a series of logistic regressions with between 1 and 4 predictors of your choice (you can use interactions).&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Create eight total confusion matrices: four by applying your models to the training data, and four by applying your models to the test data. &lt;strong&gt;Briefly discuss your findings.&lt;/strong&gt; How does the error rate, sensitivity, and specificity change as the number of predictors increases? If you are not getting a 2x2 confusion matrix, you might need to adjust your cutoff probability. It might be the case that your model perfectly predicts the outcome variable when the setup cutoff probability is too high.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Basics of ggplot</title>
       <link>https://ssc442kirkpatrick.netlify.app/assignment/01-assignment/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
