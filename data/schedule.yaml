@@ -92,9 +92,9 @@ lessons:
   - title: 'Classification'
     session: 12
     date: "Week 11 (Nov 15/17)"
-    #content: "11-content"
-    #example: "11-example"
-    #assignment: "11-assignment"
+    content: "11-content"
+    example: "11-example"
+    assignment: "11-assignment"
 
   - title: '<i class="fas fa-star"></i> **Project 2 Due**'
     date: "Saturday Nov 19th"
@@ -129,4 +129,4 @@ lessons:
   
   - title: '<i class="fas fa-star"></i> **Final Project Due**'
     date: "Friday Dec 11th, 11:59pm"
-    # assignment: "final-project"
+    assignment: "final-project"

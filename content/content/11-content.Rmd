@@ -451,7 +451,7 @@ $$
 \end{cases}
 $$
 
-This classifier is essentially estimating the Bayes Classifier - it takes the value of $x$, figures out which is larger, the $\hat{P}(Y=1|X=x)$ or $\hat{P}(Y=0 | X=x)$, and returns the classification $\hat{C}(x)$ as whichever probability is larger. Since there are only two values for $Y\in\{0,1\}$, the larger is always the one greater than $.50$. Thus, since this is a Bayes Classificer, it minimizes classification errors.
+This classifier is essentially estimating the Bayes Classifier - it takes the value of $x$, figures out which is larger, the $\hat{P}(Y=1|X=x)$ or $\hat{P}(Y=0 | X=x)$, and returns the classification $\hat{C}(x)$ as whichever probability is larger. Since there are only two values for $Y\in\{0,1\}$, the larger is always the one greater than $.50$. Thus, since this is a Bayes Classifier, it minimizes classification errors.
 
 
 ## Logistic Regression with `glm()`
@@ -760,7 +760,7 @@ metrics
 
 We see then sensitivity decreases as the cutoff is increased. Conversely, specificity increases as the cutoff increases. This is useful if we are more interested in a particular error, instead of giving them equal weight.
 
-Note that usually the best accuracy will be seen near $c = 0.50$.
+Note that usually the best accuracy will be seen near $c = 0.50$. This is not always true, and in your lab, you may need to change your cutoff.
 
 Instead of manually checking cutoffs, we can create an ROC curve (receiver operating characteristic curve) which will sweep through all possible cutoffs, and plot the sensitivity and specificity. 
 

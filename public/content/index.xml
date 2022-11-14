@@ -15,7 +15,7 @@
     <item>
       <title>Classification</title>
       <link>https://ssc442kirkpatrick.netlify.app/content/11-content/</link>
-      <pubDate>Thu, 10 Nov 2022 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 14 Nov 2022 00:00:00 +0000</pubDate>
       <guid>https://ssc442kirkpatrick.netlify.app/content/11-content/</guid>
       <description>
 
@@ -412,7 +412,7 @@ C^B(x) = \underset{g}{\mathrm{argmax}} \ P(Y = g \mid  X = x)
       0 &amp;amp; \hat{p}(x) \leq 0.5
 \end{cases}
 \]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;This classifier is essentially estimating the Bayes Classifier - it takes the value of &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt;, figures out which is larger, the &lt;span class=&#34;math inline&#34;&gt;\(\hat{P}(Y=1|X=x)\)&lt;/span&gt; or &lt;span class=&#34;math inline&#34;&gt;\(\hat{P}(Y=0 | X=x)\)&lt;/span&gt;, and returns the classification &lt;span class=&#34;math inline&#34;&gt;\(\hat{C}(x)\)&lt;/span&gt; as whichever probability is larger. Since there are only two values for &lt;span class=&#34;math inline&#34;&gt;\(Y\in\{0,1\}\)&lt;/span&gt;, the larger is always the one greater than &lt;span class=&#34;math inline&#34;&gt;\(.50\)&lt;/span&gt;. Thus, since this is a Bayes Classificer, it minimizes classification errors.&lt;/p&gt;
+&lt;p&gt;This classifier is essentially estimating the Bayes Classifier - it takes the value of &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt;, figures out which is larger, the &lt;span class=&#34;math inline&#34;&gt;\(\hat{P}(Y=1|X=x)\)&lt;/span&gt; or &lt;span class=&#34;math inline&#34;&gt;\(\hat{P}(Y=0 | X=x)\)&lt;/span&gt;, and returns the classification &lt;span class=&#34;math inline&#34;&gt;\(\hat{C}(x)\)&lt;/span&gt; as whichever probability is larger. Since there are only two values for &lt;span class=&#34;math inline&#34;&gt;\(Y\in\{0,1\}\)&lt;/span&gt;, the larger is always the one greater than &lt;span class=&#34;math inline&#34;&gt;\(.50\)&lt;/span&gt;. Thus, since this is a Bayes Classifier, it minimizes classification errors.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;logistic-regression-with-glm&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Logistic Regression with &lt;code&gt;glm()&lt;/code&gt;&lt;/h2&gt;
@@ -649,7 +649,7 @@ metrics&lt;/code&gt;&lt;/pre&gt;
 ## c = 0.50   0.9730  0.31288344   0.9952450
 ## c = 0.90   0.9688  0.04294479   1.0000000&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;We see then sensitivity decreases as the cutoff is increased. Conversely, specificity increases as the cutoff increases. This is useful if we are more interested in a particular error, instead of giving them equal weight.&lt;/p&gt;
-&lt;p&gt;Note that usually the best accuracy will be seen near &lt;span class=&#34;math inline&#34;&gt;\(c = 0.50\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Note that usually the best accuracy will be seen near &lt;span class=&#34;math inline&#34;&gt;\(c = 0.50\)&lt;/span&gt;. This is not always true, and in your lab, you may need to change your cutoff.&lt;/p&gt;
 &lt;p&gt;Instead of manually checking cutoffs, we can create an ROC curve (receiver operating characteristic curve) which will sweep through all possible cutoffs, and plot the sensitivity and specificity.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;Where on this curve would you think is the “best” place to be? Why?&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;

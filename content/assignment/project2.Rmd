@@ -66,7 +66,7 @@ For this assignment, we are less concerned with the code (that's why we gave mos
 
 ## Part 2: Hypotheses
 
-For this part of the assignment, you need to provide five hypotheses about the relationship between variables in a dataset. You can (and should) consider making hypotheses about the dataset that you plan to use for your final project. However, this is not a requirement. All that is required is that you provide five hypotheses about some data. Your write-up should have an enumerated list of questions (e.g., "1. Are there more murders in states that have high unemployment."). You will receive 2 points for each hypothesis.
+For this part of the assignment, you need to provide five hypotheses about the relationship between variables in one of the datasets from your Project 1. You can (and should) consider making hypotheses about the dataset that you plan to use for your final project. However, this is not a requirement. All that is required is that you provide five hypotheses about some data. Your write-up should have an enumerated list of questions (e.g., "1. Are there more murders in states that have high unemployment.") along with a 1-2 sentence statement detailing why this hypothesis is interesting and should be studied. You will receive 2 points for each hypothesis. 
 
 ### Evaluation
 
