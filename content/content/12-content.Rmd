@@ -1364,6 +1364,8 @@ Use the `str_which` function to find the rows with a header. Save these results 
 
 # Web scraping
 
+**Note: we've literally never made it this far in lecture, so consider this to be "bonus" material.**
+
 ```{r, echo=FALSE}
 img_path <- "wrangling/img/"
 ```
