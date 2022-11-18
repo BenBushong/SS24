@@ -172,7 +172,7 @@ This case is relatively simple compared to the string processing challenges that
 
 The __dslabs__ package includes the raw data from which the heights dataset was obtained. You can load it like this:
 
-```{r}
+```{r, message = FALSE, warning= FALSE, error = FALSE}
 data(reported_heights)
 ```
 
@@ -901,7 +901,7 @@ words_to_numbers <- function(s){
 }
 ```
 
-Note that we can perform the above operation more efficiently with the function `recode`, which we learn about in Section \@ref(recode).
+Note that we can perform the above operation more efficiently with the function `recode`.
 Now we can see which problematic entries remain:
 
 ```{r}
@@ -1428,7 +1428,7 @@ title="List of U.S. states and territories by population">Population</a><br />
 <tr>
 ```
 
-You can actually see the data, except data values are surrounded by html code such as `<td>`. We can also see a pattern of how it is stored. If you know HTML, you can write programs that leverage knowledge of these patterns to extract what we want. We also take advantage of a language widely used to make webpages look "pretty" called Cascading Style Sheets (CSS). We say more about this in Section \@ref(css-selectors).
+You can actually see the data, except data values are surrounded by html code such as `<td>`. We can also see a pattern of how it is stored. If you know HTML, you can write programs that leverage knowledge of these patterns to extract what we want. We also take advantage of a language widely used to make webpages look "pretty" called Cascading Style Sheets (CSS). 
 
 Although we provide tools that make it possible to scrape data without knowing HTML, as a data scientist it is quite useful to learn some HTML and CSS. Not only does this improve your scraping skills, but it might come in handy if you are creating a webpage to showcase your work. There are plenty of online courses and tutorials for learning these. Two examples are Codeacademy^[https://www.codecademy.com/learn/learn-html] and W3schools^[https://www.w3schools.com/].
 
