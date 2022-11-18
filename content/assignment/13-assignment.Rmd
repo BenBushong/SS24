@@ -18,8 +18,10 @@ editor_options:
 
 
 
-fyi::
+::fyi
+
 You must turn in a PDF document of your `R Markdown` code. Submit this to D2L by 11:59 PM Eastern Time on *Monday December 5th.**
+
 ::
 
 
