@@ -191,7 +191,3 @@ Try it!
 :::
 
 
-
-
-## Lecture Video
-The lecture video for this material is [available here <i class="fas fa-film"></i>](https://mediaspace.msu.edu/media/SSC442+-+Example+13+-+Apr+21/1_cc8yi2mx?st=898)

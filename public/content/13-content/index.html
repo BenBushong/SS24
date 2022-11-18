@@ -242,7 +242,7 @@
   <meta property="twitter:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
   
     
-    <meta property="article:modified_time" content="2022-09-29T10:41:59-04:00">
+    <meta property="article:modified_time" content="2022-11-18T16:07:38-05:00">
   
 
   
@@ -618,6 +618,10 @@
       
       <li class="active">
         <a href="/content/13-content/">13: Data Wrangling</a>
+      </li>
+      
+      <li >
+        <a href="/content/14-content/">14: Geospatial with R</a>
       </li>
       
     </ul>
@@ -1409,17 +1413,17 @@ In these cases, examining the entire vector of dates will help you determine wha
 <pre><code>## [1] &quot;2001-02-09&quot;</code></pre>
 <p>The <strong>lubridate</strong> package is also useful for dealing with times. In R base, you can get the current time typing <code>Sys.time()</code>. The <strong>lubridate</strong> package provides a slightly more advanced function, <code>now</code>, that permits you to define the time zone:</p>
 <pre class="r"><code>now()</code></pre>
-<pre><code>## [1] &quot;2022-11-18 15:58:54 EST&quot;</code></pre>
+<pre><code>## [1] &quot;2022-11-18 16:21:58 EST&quot;</code></pre>
 <pre class="r"><code>now(&quot;GMT&quot;)</code></pre>
-<pre><code>## [1] &quot;2022-11-18 20:58:54 GMT&quot;</code></pre>
+<pre><code>## [1] &quot;2022-11-18 21:21:58 GMT&quot;</code></pre>
 <p>You can see all the available time zones with <code>OlsonNames()</code> function.</p>
 <p>We can also extract hours, minutes, and seconds:</p>
 <pre class="r"><code>now() %&gt;% hour()</code></pre>
-<pre><code>## [1] 15</code></pre>
+<pre><code>## [1] 16</code></pre>
 <pre class="r"><code>now() %&gt;% minute()</code></pre>
-<pre><code>## [1] 58</code></pre>
+<pre><code>## [1] 21</code></pre>
 <pre class="r"><code>now() %&gt;% second()</code></pre>
-<pre><code>## [1] 54.17764</code></pre>
+<pre><code>## [1] 58.87784</code></pre>
 <p>The package also includes a function to parse strings into times as well as parsers for time objects that include dates:</p>
 <pre class="r"><code>x &lt;- c(&quot;12:34:56&quot;)
 hms(x)</code></pre>
@@ -1492,7 +1496,7 @@ endDate - startDate</code></pre>
                 </div>
 
                 <div class="body-footer">
-                    <p>Last updated on September 29, 2022</p>
+                    <p>Last updated on November 18, 2022</p>
 
                     
 

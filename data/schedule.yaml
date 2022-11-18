@@ -106,16 +106,16 @@ lessons:
   - title: 'Text as Data'
     session: 13
     date: "Week 12 (Nov 22/!24)"
-    #content: "12-content"
-    #example: "12-example"
-    #assignment: "12-assignment"
+    content: "12-content"
+    example: "12-example"
+    assignment: "12-assignment"
 
   - title: 'Wrangling Data (Last lab)'
     session: 14
     date: "Week 13 (Nov 29/Dec 1)"
-    #content: "13-content"
-    #example: "13-example"
-    #assignment: "13-assignment"
+    content: "13-content"
+    example: "13-example"
+    assignment: "13-assignment"
   
   - title: 'Geospatial in R'
     session: 15

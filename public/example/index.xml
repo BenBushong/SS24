@@ -2321,7 +2321,7 @@ Default = ISLR::Default&lt;/code&gt;&lt;/pre&gt;
     </item>
     
     <item>
-      <title>Data Wrangling</title>
+      <title>Text as Data</title>
       <link>https://ssc442kirkpatrick.netlify.app/example/12-example/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://ssc442kirkpatrick.netlify.app/example/12-example/</guid>
@@ -2329,14 +2329,29 @@ Default = ISLR::Default&lt;/code&gt;&lt;/pre&gt;
 
 &lt;div id=&#34;TOC&#34;&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#this-class-falls-on-thanksgiving-so-we-will-not-use-it-but-the-exercises-may-be-helpful-for-your-lab.&#34;&gt;This class falls on Thanksgiving, so we will not use it, but the exercises may be helpful for your lab.&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#this-class-falls-on-thanksgiving-so-we-will-not-use-it&#34;&gt;This class falls on Thanksgiving, so we will not use it&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;this-class-falls-on-thanksgiving-so-we-will-not-use-it&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;This class falls on Thanksgiving, so we will not use it&lt;/h1&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Data Wrangling</title>
+      <link>https://ssc442kirkpatrick.netlify.app/example/13-example/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://ssc442kirkpatrick.netlify.app/example/13-example/</guid>
+      <description>
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#data-to-be-wrangled&#34;&gt;Data to be wrangled&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 
-&lt;div id=&#34;this-class-falls-on-thanksgiving-so-we-will-not-use-it-but-the-exercises-may-be-helpful-for-your-lab.&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;This class falls on Thanksgiving, so we will not use it, but the exercises may be helpful for your lab.&lt;/h1&gt;
-&lt;/div&gt;
 &lt;div id=&#34;data-to-be-wrangled&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Data to be wrangled&lt;/h1&gt;
 &lt;p&gt;You work for a travel booking website as a data analyst. A hotel has asked your company for data on corporate bookings at the hotel via your site. Specifically, they have five corporations that are frequent customers of the hotel, and they want to know who spends the most with them. They’ve asked you to help out. Most of the corporate spending is in the form of room reservations, but there are also parking fees that the hotel wants included in the analysis. Your goal: total up spending by corporation and report the biggest and smallest spenders inclusive of rooms and parking.&lt;/p&gt;
@@ -2359,20 +2374,6 @@ Default = ISLR::Default&lt;/code&gt;&lt;/pre&gt;
     </item>
     
     <item>
-      <title>Text as Data</title>
-      <link>https://ssc442kirkpatrick.netlify.app/example/13-example/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ssc442kirkpatrick.netlify.app/example/13-example/</guid>
-      <description>
-
-
-&lt;div class=&#34;fyi&#34;&gt;
-&lt;p&gt;Today’s example will come from the “Content” tab.&lt;/p&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Geospatial with R</title>
       <link>https://ssc442kirkpatrick.netlify.app/example/14-example/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -2390,7 +2391,6 @@ Default = ISLR::Default&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;&lt;a href=&#34;#tidycensus-and-geographies&#34;&gt;Tidycensus and geographies&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#wrapping-up&#34;&gt;Wrapping up&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#lecture-video&#34;&gt;Lecture Video&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
@@ -2628,10 +2628,6 @@ ing.tenure&lt;/code&gt;&lt;/pre&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;lecture-video&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Lecture Video&lt;/h2&gt;
-&lt;p&gt;The lecture video for this material is &lt;a href=&#34;https://mediaspace.msu.edu/media/SSC442+-+Example+13+-+Apr+21/1_cc8yi2mx?st=898&#34;&gt;available here &lt;i class=&#34;fas fa-film&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
