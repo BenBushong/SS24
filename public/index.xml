@@ -2884,7 +2884,48 @@ Default = ISLR::Default&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;!-- Updated 8.30.22 --&gt;
-&lt;p&gt;TBA&lt;/p&gt;
+&lt;div id=&#34;using-str_-functions-and-regex&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Using &lt;code&gt;str_&lt;/code&gt; functions and RegEx&lt;/h1&gt;
+&lt;div class=&#34;fyi&#34;&gt;
+&lt;p&gt;You must turn in a PDF document of your &lt;code&gt;R Markdown&lt;/code&gt; code. Submit this to D2L by 11:59 PM Eastern Time on &lt;strong&gt;Monday November 28th.&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;For this lab, you will need to make sure you set &lt;code&gt;echo = T&lt;/code&gt; in the knitr options that are set in your template’s first chunk. Before turning your assignment in, check to make sure your code is showing. Labs that do not show all code will earn a zero.&lt;/p&gt;
+&lt;p&gt;This lab is deceptively short. Regular expressions can take a while to learn, and can be very frustrating. Leave yourself ample time.&lt;/p&gt;
+&lt;div class=&#34;fyi&#34;&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Create the following &lt;code&gt;Sales2020&lt;/code&gt; object. We want to convert the sales into a numeric format, but have to wrestle with the extra characters. Using no more than two lines of code, convert these to numeric.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;Sales2020 = c(&amp;#39;$1,420,142&amp;#39;,
+              &amp;#39;$438,125.82&amp;#39;,
+              &amp;#39;120,223.50&amp;#39;,
+              &amp;#39;42,140&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;We have the following student names:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;Students = c(&amp;#39;Ali&amp;#39;,&amp;#39; Meza&amp;#39;,&amp;#39;McAvoy&amp;#39;, &amp;#39;Mc Evoy&amp;#39;, &amp;#39;.Donaldson&amp;#39;,&amp;#39;Kirkpatrick &amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We would like to clean these student names and place them in alphabetical order. However, we note that “Mc Evoy” is a different name from “McEvoy” (the Irish are particular about that), so we need no more than two lines of code that can print these names in order (use &lt;code&gt;order&lt;/code&gt; to place the cleaned names in order).&lt;/p&gt;
+&lt;ol start=&#34;3&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;We want to check if each of these are valid, complete (including two decimal places for cents) prices. Write a line of code that returns TRUE if the price is in US dollars and includes cents to two digits.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;Prices = c(&amp;#39;$12.95&amp;#39;,
+           &amp;#39;$\beta$&amp;#39;,
+           &amp;#39;$1944.55&amp;#39;,
+           &amp;#39;3.14&amp;#39;,
+           &amp;#39;$CAN&amp;#39;,
+           &amp;#39;$12.&amp;#39;,
+           &amp;#39;$109&amp;#39;,
+           &amp;#39;4,05&amp;#39;,
+           &amp;#39;$200.00&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;4&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;We will use groups to extract &lt;strong&gt;two&lt;/strong&gt; columns of information from the following text we scraped from a land sales website:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;landSales = c(&amp;#39;Sold 12 acres at $105 per acre&amp;#39;,
+              &amp;#39;200 ac. at $58.90 each&amp;#39;,
+              &amp;#39;.25 acre lot for $1,000.00 ea&amp;#39;,
+              &amp;#39;Offered 50 acres for $5,000 per&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We want to calculate the total amount spent on each of these transactions (which are all in “per acre” prices). In no more than 5 lines of code (each pipe is a separate line), extract the acres offered, the price per acre, and then calculate the total transaction (acres x price per acre). You can print the data.frame / tibble, or use &lt;code&gt;%&amp;gt;% knitr::kable()&lt;/code&gt; to output the table. Your final output should have four rows and three columns. Hint: use &lt;code&gt;str_match&lt;/code&gt; with groups.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 </description>
     </item>
     
@@ -2895,16 +2936,11 @@ Default = ISLR::Default&lt;/code&gt;&lt;/pre&gt;
       <guid>https://ssc442kirkpatrick.netlify.app/assignment/13-assignment/</guid>
       <description>
 
-&lt;div id=&#34;TOC&#34;&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#data-wrangling-continued&#34;&gt;Data Wrangling Continued…&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
 
 &lt;!-- Updated 8.30.22 --&gt;
-&lt;p&gt;::fyi&lt;/p&gt;
+&lt;div class=&#34;fyi&#34;&gt;
 &lt;p&gt;You must turn in a PDF document of your &lt;code&gt;R Markdown&lt;/code&gt; code. Submit this to D2L by 11:59 PM Eastern Time on *Monday December 5th.**&lt;/p&gt;
-&lt;p&gt;::&lt;/p&gt;
+&lt;/div&gt;
 &lt;div id=&#34;data-wrangling-continued&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Data Wrangling Continued…&lt;/h2&gt;
 &lt;p&gt;You still work for a travel booking website as a data analyst. The hotel has once again asked your company for data on corporate bookings at the hotel via your site. Specifically, they have five corporations that are frequent customers of the hotel, and they want to know who spends the most with them. They’ve asked you to help out. Most of the corporate spending is in the form of room reservations, but there are also parking fees that the hotel wants included in the analysis. Your goal: total up spending by corporation and report the biggest and smallest spenders inclusive of rooms and parking.&lt;/p&gt;
@@ -2924,7 +2960,6 @@ Default = ISLR::Default&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;&lt;p&gt;Visualize (using &lt;code&gt;ggplot&lt;/code&gt;) the room rates over time by room type. Can you tell what factors determine room price? Note that we know each corporation gets the same room rate as the others on the same day, so this is about room rates, not corporate spending. Make &lt;strong&gt;two&lt;/strong&gt; total plots, the first showing the room rates over time by room type, and the second explaining some feature of one of the room rates (e.g. when is the double room price high? When is it low?). Using the &lt;code&gt;month(...)&lt;/code&gt; and &lt;code&gt;day(...)&lt;/code&gt; functions from &lt;code&gt;lubridate&lt;/code&gt; will help with figuring out the patterns.&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
-&lt;p&gt;Congrats on finishing your last lab!&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -13288,7 +13323,6 @@ citi_bike &amp;lt;- fromJSON(&amp;quot;http://citibikenyc.com/stations/json&amp;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#the-date-data-type&#34;&gt;The date data type&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#lubridate&#34;&gt;The lubridate package&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#lecture-video&#34;&gt;Lecture Video&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
@@ -13852,7 +13886,7 @@ top %&amp;gt;% as_tibble()&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;a-note-about-merging-and-duplicated-rows&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;A note about merging and duplicated rows&lt;/h2&gt;
 &lt;p&gt;When we merge data, we have to be very careful about duplicated rows. Specifically, we have to be certain that the fields we use to join on are unique &lt;strong&gt;or&lt;/strong&gt; that we know they aren’t unique and intend to duplicate rows.&lt;/p&gt;
-&lt;p&gt;When we have tidy data, we have one row per observation. When we join data that has more than one row per observation, the new dataset will no longer be tidy. For instance:&lt;/p&gt;
+&lt;p&gt;When we have tidy data, we have one row per observation. When we join data that has more than one row per observation, the new dataset will no longer be tidy. Here, the &lt;code&gt;notTidyData&lt;/code&gt; is not tidy *in relation to the &lt;code&gt;tidyData&lt;/code&gt; as it does not have one observation per year and state. For instance:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tidyData &amp;lt;- bind_cols( state = c(&amp;#39;MI&amp;#39;,&amp;#39;CA&amp;#39;,&amp;#39;MI&amp;#39;,&amp;#39;CA&amp;#39;), 
                        year = c(2001, 2002, 2001, 2002),  
                        Arrests = c(10, 21, 30, 12))
@@ -13909,6 +13943,7 @@ joinedData&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 59&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;And while we might like that we have 3x the In-N-Out locations, we definitely think our data shouldn’t suddenly have more.&lt;/p&gt;
 &lt;p&gt;The reason this happens is that we do not have a unique &lt;em&gt;key&lt;/em&gt; variable. In the &lt;code&gt;WDI&lt;/code&gt; tip in Project 2, we didn’t have a single unique key variable - there were multiple values of &lt;code&gt;iso2&lt;/code&gt; country code in the data because we had multiple years for each &lt;code&gt;iso2&lt;/code&gt;. Thus, when we merged, use used &lt;code&gt;by = c(&#39;iso2&#39;,&#39;year&#39;)&lt;/code&gt; because &lt;strong&gt;the &lt;code&gt;iso2&lt;/code&gt; x &lt;code&gt;year&lt;/code&gt; combination was the unique key&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Here, each dataset would need to have a unique key on &lt;code&gt;state&lt;/code&gt; &lt;em&gt;and&lt;/em&gt; &lt;code&gt;county&lt;/code&gt; &lt;em&gt;and&lt;/em&gt; &lt;code&gt;year&lt;/code&gt; to merge without risk of messing up our data. Since &lt;code&gt;arrests&lt;/code&gt; aren’t broken out by county, we’d have to use &lt;code&gt;summarize&lt;/code&gt; to total &lt;code&gt;notTidyData&lt;/code&gt; at the &lt;code&gt;state&lt;/code&gt; and &lt;code&gt;year&lt;/code&gt; (to eliminate &lt;code&gt;county&lt;/code&gt;). Then, we’d have to decide of the number of In-N-Outs are the same for each &lt;code&gt;year&lt;/code&gt; since &lt;code&gt;notTidyData&lt;/code&gt; doesn’t have &lt;code&gt;year&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;The lesson is this: always know what your join is doing. Know your unique keys. Use &lt;code&gt;sum(duplicated(tidyData$key))&lt;/code&gt; to see if all values are unique, or &lt;code&gt;NROW(unique(tidyData %&amp;gt;% dplyr::select(key1, key2)))&lt;/code&gt; to see if all rows are unique over the 2 keys (replacing “key1” and “key2” with your key fields).&lt;/p&gt;
 &lt;p&gt;If it shouldn’t add rows, then make sure the new data has the same number of rows as the old one, or use &lt;code&gt;setequal&lt;/code&gt; to check.&lt;/p&gt;
 &lt;/div&gt;
@@ -14002,17 +14037,17 @@ In these cases, examining the entire vector of dates will help you determine wha
 &lt;pre&gt;&lt;code&gt;## [1] &amp;quot;2001-02-09&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The &lt;strong&gt;lubridate&lt;/strong&gt; package is also useful for dealing with times. In R base, you can get the current time typing &lt;code&gt;Sys.time()&lt;/code&gt;. The &lt;strong&gt;lubridate&lt;/strong&gt; package provides a slightly more advanced function, &lt;code&gt;now&lt;/code&gt;, that permits you to define the time zone:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;now()&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;2022-11-18 16:21:58 EST&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;2022-11-28 10:12:22 EST&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;now(&amp;quot;GMT&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;2022-11-18 21:21:58 GMT&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;2022-11-28 15:12:22 GMT&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;You can see all the available time zones with &lt;code&gt;OlsonNames()&lt;/code&gt; function.&lt;/p&gt;
 &lt;p&gt;We can also extract hours, minutes, and seconds:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;now() %&amp;gt;% hour()&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 16&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 10&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;now() %&amp;gt;% minute()&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 21&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 12&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;now() %&amp;gt;% second()&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 58.87784&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 22.93834&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The package also includes a function to parse strings into times as well as parsers for time objects that include dates:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- c(&amp;quot;12:34:56&amp;quot;)
 hms(x)&lt;/code&gt;&lt;/pre&gt;
@@ -14021,7 +14056,7 @@ hms(x)&lt;/code&gt;&lt;/pre&gt;
 mdy_hms(x)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] &amp;quot;2012-11-02 12:34:56 UTC&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;This package has many other useful functions. We describe two of these here that we find particularly useful.&lt;/p&gt;
-&lt;p&gt;The &lt;code&gt;make_date&lt;/code&gt; function can be used to quickly create a date object. It takes three arguments: year, month, day, hour, minute, seconds, and time zone defaulting to the epoch values on UTC time. So create an date object representing, for example, July 6, 2019 we write:&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;make_date&lt;/code&gt; function can be used to quickly create a date object. It takes three arguments: year, month, day. &lt;code&gt;make_datetime&lt;/code&gt; takes the same as &lt;code&gt;make_date&lt;/code&gt; but also adds hour, minute, seconds, and time zone like ‘US/Michigan’ but defaulting to UTC. So create an date object representing, for example, July 6, 2019 we write:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;make_date(2019, 7, 6)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] &amp;quot;2019-07-06&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;To make a vector of January 1 for the 80s we write:&lt;/p&gt;
@@ -14059,10 +14094,6 @@ endDate - startDate&lt;/code&gt;&lt;/pre&gt;
 ##  [9] &amp;quot;2021-06-14 20:20:57 UTC&amp;quot; &amp;quot;2021-06-14 21:20:57 UTC&amp;quot;
 ## [11] &amp;quot;2021-06-14 22:20:57 UTC&amp;quot; &amp;quot;2021-06-14 23:20:57 UTC&amp;quot;
 ## [13] &amp;quot;2021-06-15 00:20:57 UTC&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;lecture-video&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Lecture Video&lt;/h2&gt;
-&lt;p&gt;The lecture video for this material is &lt;a href=&#34;https://mediaspace.msu.edu/media/SSC442+-+Content+11+-+April+5th+2022/1_63z01mgu?st=407&#34;&gt;available here &lt;i class=&#34;fas fa-film&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&#34;footnotes&#34;&gt;

@@ -150,7 +150,9 @@ test_1 <- as.numeric(test_1)
 
 The `stringr` function `str_replace_all` replaces all of the first argument's instances of `,` (the second argument) with `''` (the third argument). The first input for the function is the character vector on which you'd like to operate.
 
-We can then use `mutate_all` to apply this operation to each column, since it won't affect the columns without commas. You may notice the use of `mutate_all` and `summarize_all` here. These are versions of `mutate` and `summarize` that apply a given *function* to every column in the data. Above, the function we apply to every column is the `commas` function. Note that in using `summarize_all` we pipe the data in, but we *do not list the columns* we wish to create via `summarize`. To apply `as.numeric` to each column in `murders_raw`, we'd use: `murders_raw %>% mutate_all(str_replace_all, ',', '')`. **Note, the `str_replace_all` function is NOT an analog to `mutate_all` that applies to each column in the data!**
+We can then use `mutate_all` to apply this operation to each column, since it won't affect the columns without commas. You may notice the use of `mutate_all` and `summarize_all` here. These are versions of `mutate` and `summarize` that apply a given *function* to every column in the data. Above, the function we apply to every column is the `commas` function. Note that in using `summarize_all` we pipe the data in, but we *do not list the columns* we wish to create via `summarize`. To apply `as.numeric` to each column in `murders_raw`, we'd use: `murders_raw %>% mutate_all(str_replace_all, ',', '') %>% mutate_at(2:3, as.numeric)`. 
+
+**Note, the `str_replace_all` function is NOT an analog to `mutate_all` that applies to each column in the data!**
 
 It turns out that this operation is so common that `readr` includes the function `parse_number` specifically meant to remove non-numeric characters before coercing:
 

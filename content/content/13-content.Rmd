@@ -587,7 +587,7 @@ We want to see if the monthly trend is changing so we are going to remove the ye
 
 When we merge data, we have to be very careful about duplicated rows. Specifically, we have to be certain that the fields we use to join on are unique **or** that we know they aren't unique and intend to duplicate rows.
 
-When we have tidy data, we have one row per observation. When we join data that has more than one row per observation, the new dataset will no longer be tidy. For instance:
+When we have tidy data, we have one row per observation. When we join data that has more than one row per observation, the new dataset will no longer be tidy. Here, the `notTidyData` is not tidy *in relation to the `tidyData` as it does not have one observation per year and state. For instance:
 
 ```{r}
 tidyData <- bind_cols( state = c('MI','CA','MI','CA'), 
@@ -626,6 +626,8 @@ sum(notTidyData$InNOut_locations)
 And while we might like that we have 3x the In-N-Out locations, we definitely think our data shouldn't suddenly have more.
 
 The reason this happens is that we do not have a unique *key* variable. In the `WDI` tip in Project 2, we didn't have a single unique key variable - there were multiple values of `iso2` country code in the data because we had multiple years for each `iso2`. Thus, when we merged, use used `by = c('iso2','year')` because **the `iso2` x `year` combination was the unique key**.
+
+Here, each dataset would need to have a unique key on `state` *and* `county` *and* `year` to merge without risk of messing up our data. Since `arrests` aren't broken out by county, we'd have to use `summarize` to total `notTidyData` at the `state` and `year` (to eliminate `county`). Then, we'd have to decide of the number of In-N-Outs are the same for each `year` since `notTidyData` doesn't have `year`.
 
 The lesson is this: always know what your join is doing. Know your unique keys. Use `sum(duplicated(tidyData$key))` to see if all values are unique, or `NROW(unique(tidyData %>% dplyr::select(key1, key2)))` to see if all rows are unique over the 2 keys (replacing "key1" and "key2" with your key fields).
 
@@ -777,7 +779,7 @@ mdy_hms(x)
 
 This package has many other useful functions. We describe two of these here that we find particularly useful.
 
-The `make_date` function can be used to quickly create a date object. It takes three arguments: year, month, day, hour, minute, seconds, and time zone defaulting to the epoch values on UTC time. So create an date object representing, for example, July 6, 2019 we write:
+The `make_date` function can be used to quickly create a date object. It takes three arguments: year, month, day. `make_datetime` takes the same as `make_date` but also adds hour, minute, seconds, and time zone like 'US/Michigan' but defaulting to UTC. So create an date object representing, for example, July 6, 2019 we write:
 
 ```{r}
 make_date(2019, 7, 6)
@@ -835,6 +837,3 @@ seq(from = startDate, to = endDate, by = 'hour')
 
 
 
-
-## Lecture Video
-The lecture video for this material is [available here <i class="fas fa-film"></i>](https://mediaspace.msu.edu/media/SSC442+-+Content+11+-+April+5th+2022/1_63z01mgu?st=407)

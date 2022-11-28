@@ -56,7 +56,6 @@ output:
 <ul>
 <li><a href="#the-date-data-type">The date data type</a></li>
 <li><a href="#lubridate">The lubridate package</a></li>
-<li><a href="#lecture-video">Lecture Video</a></li>
 </ul></li>
 </ul>
 </div>
@@ -620,7 +619,7 @@ top %&gt;% as_tibble()</code></pre>
 <div id="a-note-about-merging-and-duplicated-rows" class="section level2">
 <h2>A note about merging and duplicated rows</h2>
 <p>When we merge data, we have to be very careful about duplicated rows. Specifically, we have to be certain that the fields we use to join on are unique <strong>or</strong> that we know they aren’t unique and intend to duplicate rows.</p>
-<p>When we have tidy data, we have one row per observation. When we join data that has more than one row per observation, the new dataset will no longer be tidy. For instance:</p>
+<p>When we have tidy data, we have one row per observation. When we join data that has more than one row per observation, the new dataset will no longer be tidy. Here, the <code>notTidyData</code> is not tidy *in relation to the <code>tidyData</code> as it does not have one observation per year and state. For instance:</p>
 <pre class="r"><code>tidyData &lt;- bind_cols( state = c(&#39;MI&#39;,&#39;CA&#39;,&#39;MI&#39;,&#39;CA&#39;), 
                        year = c(2001, 2002, 2001, 2002),  
                        Arrests = c(10, 21, 30, 12))
@@ -677,6 +676,7 @@ joinedData</code></pre>
 <pre><code>## [1] 59</code></pre>
 <p>And while we might like that we have 3x the In-N-Out locations, we definitely think our data shouldn’t suddenly have more.</p>
 <p>The reason this happens is that we do not have a unique <em>key</em> variable. In the <code>WDI</code> tip in Project 2, we didn’t have a single unique key variable - there were multiple values of <code>iso2</code> country code in the data because we had multiple years for each <code>iso2</code>. Thus, when we merged, use used <code>by = c('iso2','year')</code> because <strong>the <code>iso2</code> x <code>year</code> combination was the unique key</strong>.</p>
+<p>Here, each dataset would need to have a unique key on <code>state</code> <em>and</em> <code>county</code> <em>and</em> <code>year</code> to merge without risk of messing up our data. Since <code>arrests</code> aren’t broken out by county, we’d have to use <code>summarize</code> to total <code>notTidyData</code> at the <code>state</code> and <code>year</code> (to eliminate <code>county</code>). Then, we’d have to decide of the number of In-N-Outs are the same for each <code>year</code> since <code>notTidyData</code> doesn’t have <code>year</code>.</p>
 <p>The lesson is this: always know what your join is doing. Know your unique keys. Use <code>sum(duplicated(tidyData$key))</code> to see if all values are unique, or <code>NROW(unique(tidyData %&gt;% dplyr::select(key1, key2)))</code> to see if all rows are unique over the 2 keys (replacing “key1” and “key2” with your key fields).</p>
 <p>If it shouldn’t add rows, then make sure the new data has the same number of rows as the old one, or use <code>setequal</code> to check.</p>
 </div>
@@ -770,17 +770,17 @@ In these cases, examining the entire vector of dates will help you determine wha
 <pre><code>## [1] &quot;2001-02-09&quot;</code></pre>
 <p>The <strong>lubridate</strong> package is also useful for dealing with times. In R base, you can get the current time typing <code>Sys.time()</code>. The <strong>lubridate</strong> package provides a slightly more advanced function, <code>now</code>, that permits you to define the time zone:</p>
 <pre class="r"><code>now()</code></pre>
-<pre><code>## [1] &quot;2022-11-18 16:21:58 EST&quot;</code></pre>
+<pre><code>## [1] &quot;2022-11-28 10:12:22 EST&quot;</code></pre>
 <pre class="r"><code>now(&quot;GMT&quot;)</code></pre>
-<pre><code>## [1] &quot;2022-11-18 21:21:58 GMT&quot;</code></pre>
+<pre><code>## [1] &quot;2022-11-28 15:12:22 GMT&quot;</code></pre>
 <p>You can see all the available time zones with <code>OlsonNames()</code> function.</p>
 <p>We can also extract hours, minutes, and seconds:</p>
 <pre class="r"><code>now() %&gt;% hour()</code></pre>
-<pre><code>## [1] 16</code></pre>
+<pre><code>## [1] 10</code></pre>
 <pre class="r"><code>now() %&gt;% minute()</code></pre>
-<pre><code>## [1] 21</code></pre>
+<pre><code>## [1] 12</code></pre>
 <pre class="r"><code>now() %&gt;% second()</code></pre>
-<pre><code>## [1] 58.87784</code></pre>
+<pre><code>## [1] 22.93834</code></pre>
 <p>The package also includes a function to parse strings into times as well as parsers for time objects that include dates:</p>
 <pre class="r"><code>x &lt;- c(&quot;12:34:56&quot;)
 hms(x)</code></pre>
@@ -789,7 +789,7 @@ hms(x)</code></pre>
 mdy_hms(x)</code></pre>
 <pre><code>## [1] &quot;2012-11-02 12:34:56 UTC&quot;</code></pre>
 <p>This package has many other useful functions. We describe two of these here that we find particularly useful.</p>
-<p>The <code>make_date</code> function can be used to quickly create a date object. It takes three arguments: year, month, day, hour, minute, seconds, and time zone defaulting to the epoch values on UTC time. So create an date object representing, for example, July 6, 2019 we write:</p>
+<p>The <code>make_date</code> function can be used to quickly create a date object. It takes three arguments: year, month, day. <code>make_datetime</code> takes the same as <code>make_date</code> but also adds hour, minute, seconds, and time zone like ‘US/Michigan’ but defaulting to UTC. So create an date object representing, for example, July 6, 2019 we write:</p>
 <pre class="r"><code>make_date(2019, 7, 6)</code></pre>
 <pre><code>## [1] &quot;2019-07-06&quot;</code></pre>
 <p>To make a vector of January 1 for the 80s we write:</p>
@@ -827,10 +827,6 @@ endDate - startDate</code></pre>
 ##  [9] &quot;2021-06-14 20:20:57 UTC&quot; &quot;2021-06-14 21:20:57 UTC&quot;
 ## [11] &quot;2021-06-14 22:20:57 UTC&quot; &quot;2021-06-14 23:20:57 UTC&quot;
 ## [13] &quot;2021-06-15 00:20:57 UTC&quot;</code></pre>
-</div>
-<div id="lecture-video" class="section level2">
-<h2>Lecture Video</h2>
-<p>The lecture video for this material is <a href="https://mediaspace.msu.edu/media/SSC442+-+Content+11+-+April+5th+2022/1_63z01mgu?st=407">available here <i class="fas fa-film"></i></a></p>
 </div>
 </div>
 <div class="footnotes">
