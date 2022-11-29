@@ -60,9 +60,11 @@ head(wide_data[,1:8])
 
 One of the most used functions in the __tidyr__ package is `gather`, which is useful for converting wide data into tidy data.
 
+Looking at the data above, the fundamental problem is that **the column name contains data**. This is a problem indeed! And a common one.
+
 ### The `gather` arguments
 
-Here we want to reshape the `wide_data` dataset so that each row represents a fertility observation, which implies we need three columns to store the year, country, and the observed value. In its current form, data from different years are in different columns with the year values stored in the column names. 
+Here we want to reshape the `wide_data` dataset so that each row represents a country's yearly fertility observation, which implies we need three columns to store the year, country, and the observed value. In its current form, data from different years are in different columns with the year values stored in the column names. 
 
 As with most tidyverse functions, the `gather` function's first argument is the data frame that will be converted. Easy enough.
 

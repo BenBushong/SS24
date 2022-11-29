@@ -242,7 +242,7 @@
   <meta property="twitter:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
   
     
-    <meta property="article:modified_time" content="2022-11-28T10:21:41-05:00">
+    <meta property="article:modified_time" content="2022-11-29T06:35:54-05:00">
   
 
   
@@ -1356,7 +1356,7 @@ joinedData</code></pre>
 <pre><code>## [1] 59</code></pre>
 <p>And while we might like that we have 3x the In-N-Out locations, we definitely think our data shouldn’t suddenly have more.</p>
 <p>The reason this happens is that we do not have a unique <em>key</em> variable. In the <code>WDI</code> tip in Project 2, we didn’t have a single unique key variable - there were multiple values of <code>iso2</code> country code in the data because we had multiple years for each <code>iso2</code>. Thus, when we merged, use used <code>by = c('iso2','year')</code> because <strong>the <code>iso2</code> x <code>year</code> combination was the unique key</strong>.</p>
-<p>Here, each dataset would need to have a unique key on <code>state</code> <em>and</em> <code>county</code> <em>and</em> <code>year</code> to merge without risk of messing up our data. Since <code>arrests</code> aren’t broken out by county, we’d have to use <code>summarize</code> to total <code>notTidyData</code> at the <code>state</code> and <code>year</code> (to eliminate <code>county</code>). Then, we’d have to decide of the number of In-N-Outs are the same for each <code>year</code> since <code>notTidyData</code> doesn’t have <code>year</code>.</p>
+<p>Here, each dataset would need to have a unique key (or “primary key”) on <code>state</code> <em>and</em> <code>county</code> <em>and</em> <code>year</code> to merge without risk of messing up our data. Since <code>arrests</code> aren’t broken out by county, we’d have to use <code>summarize</code> to total <code>notTidyData</code> at the <code>state</code> and <code>year</code> (to eliminate <code>county</code>). Then, we’d have to decide of the number of In-N-Outs are the same for each <code>year</code> since <code>notTidyData</code> doesn’t have <code>year</code>.</p>
 <p>The lesson is this: always know what your join is doing. Know your unique keys. Use <code>sum(duplicated(tidyData$key))</code> to see if all values are unique, or <code>NROW(unique(tidyData %&gt;% dplyr::select(key1, key2)))</code> to see if all rows are unique over the 2 keys (replacing “key1” and “key2” with your key fields).</p>
 <p>If it shouldn’t add rows, then make sure the new data has the same number of rows as the old one, or use <code>setequal</code> to check.</p>
 </div>
@@ -1450,17 +1450,17 @@ In these cases, examining the entire vector of dates will help you determine wha
 <pre><code>## [1] &quot;2001-02-09&quot;</code></pre>
 <p>The <strong>lubridate</strong> package is also useful for dealing with times. In R base, you can get the current time typing <code>Sys.time()</code>. The <strong>lubridate</strong> package provides a slightly more advanced function, <code>now</code>, that permits you to define the time zone:</p>
 <pre class="r"><code>now()</code></pre>
-<pre><code>## [1] &quot;2022-11-29 06:30:03 EST&quot;</code></pre>
+<pre><code>## [1] &quot;2022-11-29 06:33:37 EST&quot;</code></pre>
 <pre class="r"><code>now(&quot;GMT&quot;)</code></pre>
-<pre><code>## [1] &quot;2022-11-29 11:30:03 GMT&quot;</code></pre>
+<pre><code>## [1] &quot;2022-11-29 11:33:37 GMT&quot;</code></pre>
 <p>You can see all the available time zones with <code>OlsonNames()</code> function.</p>
 <p>We can also extract hours, minutes, and seconds:</p>
 <pre class="r"><code>now() %&gt;% hour()</code></pre>
 <pre><code>## [1] 6</code></pre>
 <pre class="r"><code>now() %&gt;% minute()</code></pre>
-<pre><code>## [1] 30</code></pre>
+<pre><code>## [1] 33</code></pre>
 <pre class="r"><code>now() %&gt;% second()</code></pre>
-<pre><code>## [1] 3.801034</code></pre>
+<pre><code>## [1] 37.92335</code></pre>
 <p>The package also includes a function to parse strings into times as well as parsers for time objects that include dates:</p>
 <pre class="r"><code>x &lt;- c(&quot;12:34:56&quot;)
 hms(x)</code></pre>
@@ -1529,7 +1529,7 @@ endDate - startDate</code></pre>
                 </div>
 
                 <div class="body-footer">
-                    <p>Last updated on November 28, 2022</p>
+                    <p>Last updated on November 29, 2022</p>
 
                     
 
