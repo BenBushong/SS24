@@ -20,6 +20,8 @@ output:
 
 - Lab #8 is now Lab #14 (on geospatial) due Dec 12th. It is pretty short and easy.
 
+- Let's look at some answers for Lab 12
+
 
 
 ## Required Reading

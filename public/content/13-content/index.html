@@ -242,7 +242,7 @@
   <meta property="twitter:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
   
     
-    <meta property="article:modified_time" content="2022-11-29T06:35:54-05:00">
+    <meta property="article:modified_time" content="2022-11-29T06:42:51-05:00">
   
 
   
@@ -713,6 +713,7 @@
 <li><p>I have given everyone credit for Weekly Writing 12 (not just exempt)</p></li>
 <li><p>A few people turned in a weekly writing from last years prompt. Not good.</p></li>
 <li><p>Lab #8 is now Lab #14 (on geospatial) due Dec 12th. It is pretty short and easy.</p></li>
+<li><p>Let’s look at some answers for Lab 12</p></li>
 </ul>
 </div>
 <div id="required-reading" class="section level2">
@@ -753,9 +754,10 @@ head(wide_data[,1:8])</code></pre>
 <div id="gather" class="section level2">
 <h2><code>gather</code></h2>
 <p>One of the most used functions in the <strong>tidyr</strong> package is <code>gather</code>, which is useful for converting wide data into tidy data.</p>
+<p>Looking at the data above, the fundamental problem is that <strong>the column name contains data</strong>. This is a problem indeed! And a common one.</p>
 <div id="the-gather-arguments" class="section level3">
 <h3>The <code>gather</code> arguments</h3>
-<p>Here we want to reshape the <code>wide_data</code> dataset so that each row represents a fertility observation, which implies we need three columns to store the year, country, and the observed value. In its current form, data from different years are in different columns with the year values stored in the column names.</p>
+<p>Here we want to reshape the <code>wide_data</code> dataset so that each row represents a country’s yearly fertility observation, which implies we need three columns to store the year, country, and the observed value. In its current form, data from different years are in different columns with the year values stored in the column names.</p>
 <p>As with most tidyverse functions, the <code>gather</code> function’s first argument is the data frame that will be converted. Easy enough.</p>
 <p>The second and third arguments will tell <code>gather</code> the column names we want to assign to the columns containing the <strong>current column names</strong> and <strong>the observed data</strong>, respectively. In this case a good choice for these two arguments would be something like <code>year</code> and <code>fertility</code>. These are not currenly column names in the data – they are names we want to use to <em>hold</em> data currently located in the “wide” columns. We know this is fertility data only because we deciphered it from the file name.</p>
 <p>The fourth argument specifies the columns <strong>containing observed values</strong>; these are the columns that will be <em>gathered</em>. The default (if we leave out the 4th argument) is to gather <strong>all</strong> columns so, in most cases, we have to specify the columns. In our example we want columns <code>1960</code>, <code>1961</code> up to <code>2015</code>. Since these are non-standard column names, we have to backtick them so R doesn’t think they’re to be treated as integers:</p>
@@ -1450,17 +1452,17 @@ In these cases, examining the entire vector of dates will help you determine wha
 <pre><code>## [1] &quot;2001-02-09&quot;</code></pre>
 <p>The <strong>lubridate</strong> package is also useful for dealing with times. In R base, you can get the current time typing <code>Sys.time()</code>. The <strong>lubridate</strong> package provides a slightly more advanced function, <code>now</code>, that permits you to define the time zone:</p>
 <pre class="r"><code>now()</code></pre>
-<pre><code>## [1] &quot;2022-11-29 06:33:37 EST&quot;</code></pre>
+<pre><code>## [1] &quot;2022-11-29 08:46:41 EST&quot;</code></pre>
 <pre class="r"><code>now(&quot;GMT&quot;)</code></pre>
-<pre><code>## [1] &quot;2022-11-29 11:33:37 GMT&quot;</code></pre>
+<pre><code>## [1] &quot;2022-11-29 13:46:41 GMT&quot;</code></pre>
 <p>You can see all the available time zones with <code>OlsonNames()</code> function.</p>
 <p>We can also extract hours, minutes, and seconds:</p>
 <pre class="r"><code>now() %&gt;% hour()</code></pre>
-<pre><code>## [1] 6</code></pre>
+<pre><code>## [1] 8</code></pre>
 <pre class="r"><code>now() %&gt;% minute()</code></pre>
-<pre><code>## [1] 33</code></pre>
+<pre><code>## [1] 46</code></pre>
 <pre class="r"><code>now() %&gt;% second()</code></pre>
-<pre><code>## [1] 37.92335</code></pre>
+<pre><code>## [1] 41.42549</code></pre>
 <p>The package also includes a function to parse strings into times as well as parsers for time objects that include dates:</p>
 <pre class="r"><code>x &lt;- c(&quot;12:34:56&quot;)
 hms(x)</code></pre>

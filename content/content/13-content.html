@@ -70,6 +70,7 @@ output:
 <li><p>I have given everyone credit for Weekly Writing 12 (not just exempt)</p></li>
 <li><p>A few people turned in a weekly writing from last years prompt. Not good.</p></li>
 <li><p>Lab #8 is now Lab #14 (on geospatial) due Dec 12th. It is pretty short and easy.</p></li>
+<li><p>Let’s look at some answers for Lab 12</p></li>
 </ul>
 </div>
 <div id="required-reading" class="section level2">
@@ -808,17 +809,17 @@ In these cases, examining the entire vector of dates will help you determine wha
 <pre><code>## [1] &quot;2001-02-09&quot;</code></pre>
 <p>The <strong>lubridate</strong> package is also useful for dealing with times. In R base, you can get the current time typing <code>Sys.time()</code>. The <strong>lubridate</strong> package provides a slightly more advanced function, <code>now</code>, that permits you to define the time zone:</p>
 <pre class="r"><code>now()</code></pre>
-<pre><code>## [1] &quot;2022-11-29 06:42:28 EST&quot;</code></pre>
+<pre><code>## [1] &quot;2022-11-29 08:46:41 EST&quot;</code></pre>
 <pre class="r"><code>now(&quot;GMT&quot;)</code></pre>
-<pre><code>## [1] &quot;2022-11-29 11:42:28 GMT&quot;</code></pre>
+<pre><code>## [1] &quot;2022-11-29 13:46:41 GMT&quot;</code></pre>
 <p>You can see all the available time zones with <code>OlsonNames()</code> function.</p>
 <p>We can also extract hours, minutes, and seconds:</p>
 <pre class="r"><code>now() %&gt;% hour()</code></pre>
-<pre><code>## [1] 6</code></pre>
+<pre><code>## [1] 8</code></pre>
 <pre class="r"><code>now() %&gt;% minute()</code></pre>
-<pre><code>## [1] 42</code></pre>
+<pre><code>## [1] 46</code></pre>
 <pre class="r"><code>now() %&gt;% second()</code></pre>
-<pre><code>## [1] 28.34815</code></pre>
+<pre><code>## [1] 41.42549</code></pre>
 <p>The package also includes a function to parse strings into times as well as parsers for time objects that include dates:</p>
 <pre class="r"><code>x &lt;- c(&quot;12:34:56&quot;)
 hms(x)</code></pre>
