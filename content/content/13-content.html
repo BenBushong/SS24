@@ -15,6 +15,7 @@ output:
 
 <div id="TOC">
 <ul>
+<li><a href="#some-course-business">Some course business</a></li>
 <li><a href="#required-reading">Required Reading</a>
 <ul>
 <li><a href="#guiding-questions">Guiding Questions</a></li>
@@ -22,7 +23,10 @@ output:
 <li><a href="#introduction-to-data-wrangling">Introduction to data wrangling</a></li>
 <li><a href="#reshaping-data">Reshaping data</a>
 <ul>
-<li><a href="#gather"><code>gather</code></a></li>
+<li><a href="#gather"><code>gather</code></a>
+<ul>
+<li><a href="#the-gather-arguments">The <code>gather</code> arguments</a></li>
+</ul></li>
 <li><a href="#spread"><code>spread</code></a></li>
 <li><a href="#separate"><code>separate</code></a></li>
 <li><a href="#unite"><code>unite</code></a></li>
@@ -60,6 +64,14 @@ output:
 </ul>
 </div>
 
+<div id="some-course-business" class="section level2">
+<h2>Some course business</h2>
+<ul>
+<li><p>I have given everyone credit for Weekly Writing 12 (not just exempt)</p></li>
+<li><p>A few people turned in a weekly writing from last years prompt. Not good.</p></li>
+<li><p>Lab #8 is now Lab #14 (on geospatial) due Dec 12th. It is pretty short and easy.</p></li>
+</ul>
+</div>
 <div id="required-reading" class="section level2">
 <h2>Required Reading</h2>
 <ul>
@@ -88,11 +100,22 @@ output:
 library(dslabs)
 path &lt;- system.file(&quot;extdata&quot;, package=&quot;dslabs&quot;)
 filename &lt;- file.path(path, &quot;fertility-two-countries-example.csv&quot;)
-wide_data &lt;- read_csv(filename)</code></pre>
+wide_data &lt;- read_csv(filename)
+head(wide_data[,1:8])</code></pre>
+<pre><code>## # A tibble: 2 × 8
+##   country     `1960` `1961` `1962` `1963` `1964` `1965` `1966`
+##   &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+## 1 Germany       2.41   2.44   2.47   2.49   2.49   2.48   2.44
+## 2 South Korea   6.16   5.99   5.79   5.57   5.36   5.16   4.99</code></pre>
 <div id="gather" class="section level2">
 <h2><code>gather</code></h2>
 <p>One of the most used functions in the <strong>tidyr</strong> package is <code>gather</code>, which is useful for converting wide data into tidy data.</p>
-<p>As with most tidyverse functions, the <code>gather</code> function’s first argument is the data frame that will be converted. Here we want to reshape the <code>wide_data</code> dataset so that each row represents a fertility observation, which implies we need three columns to store the year, country, and the observed value. In its current form, data from different years are in different columns with the year values stored in the column names. Through the second and third argument we will tell <code>gather</code> the column names we want to assign to the columns containing the current column names and observations, respectively. In this case a good choice for these two arguments would be <code>year</code> and <code>fertility</code>. Note that nowhere in the data file does it tell us this is fertility data. Instead, we deciphered this from the file name. Through the fourth argument we specify the columns containing observed values; these are the columns that will be <em>gathered</em>. The default is to gather all columns so, in most cases, we have to specify the columns. In our example we want columns <code>1960</code>, <code>1961</code> up to <code>2015</code>.</p>
+<div id="the-gather-arguments" class="section level3">
+<h3>The <code>gather</code> arguments</h3>
+<p>Here we want to reshape the <code>wide_data</code> dataset so that each row represents a fertility observation, which implies we need three columns to store the year, country, and the observed value. In its current form, data from different years are in different columns with the year values stored in the column names.</p>
+<p>As with most tidyverse functions, the <code>gather</code> function’s first argument is the data frame that will be converted. Easy enough.</p>
+<p>The second and third arguments will tell <code>gather</code> the column names we want to assign to the columns containing the <strong>current column names</strong> and <strong>the observed data</strong>, respectively. In this case a good choice for these two arguments would be something like <code>year</code> and <code>fertility</code>. These are not currenly column names in the data – they are names we want to use to <em>hold</em> data currently located in the “wide” columns. We know this is fertility data only because we deciphered it from the file name.</p>
+<p>The fourth argument specifies the columns <strong>containing observed values</strong>; these are the columns that will be <em>gathered</em>. The default (if we leave out the 4th argument) is to gather <strong>all</strong> columns so, in most cases, we have to specify the columns. In our example we want columns <code>1960</code>, <code>1961</code> up to <code>2015</code>. Since these are non-standard column names, we have to backtick them so R doesn’t think they’re to be treated as integers:</p>
 <p>The code to gather the fertility data therefore looks like this:</p>
 <pre class="r"><code>new_tidy_data &lt;- gather(wide_data, year, fertility, `1960`:`2015`)</code></pre>
 <p>We can also use the pipe like this:</p>
@@ -108,10 +131,22 @@ wide_data &lt;- read_csv(filename)</code></pre>
 ## 4 South Korea 1961       5.99
 ## 5 Germany     1962       2.47
 ## 6 South Korea 1962       5.79</code></pre>
-<p>and that each year resulted in two rows since we have two countries and this column was not gathered.
+<p>We have the first column, which consists of “everything in the data that wasn’t gathered”, the next two columns are named based on the arguments we gave. The second column, named by our argument above, contains the column names of the wide data. The third column, also named by our argument above, contains the value that was in each corresponding colum x country pair. What you leave <em>out</em> of the 4th argument is important!</p>
+<p>Note that each year resulted in two rows since we have two countries and this column was not gathered.
 A somewhat quicker way to write this code is to specify which column will <strong>not</strong> be gathered, rather than all the columns that will be gathered:</p>
 <pre class="r"><code>new_tidy_data &lt;- wide_data %&gt;%
-  gather(year, fertility, -country)</code></pre>
+  gather(year, fertility, -country)
+
+head(new_tidy_data)</code></pre>
+<pre><code>## # A tibble: 6 × 3
+##   country     year  fertility
+##   &lt;chr&gt;       &lt;chr&gt;     &lt;dbl&gt;
+## 1 Germany     1960       2.41
+## 2 South Korea 1960       6.16
+## 3 Germany     1961       2.44
+## 4 South Korea 1961       5.99
+## 5 Germany     1962       2.47
+## 6 South Korea 1962       5.79</code></pre>
 <p>The <code>new_tidy_data</code> object looks like the original <code>tidy_data</code> we defined this way</p>
 <pre class="r"><code>data(&quot;gapminder&quot;)
 tidy_data &lt;- gapminder %&gt;%
@@ -131,6 +166,8 @@ class(new_tidy_data$year)</code></pre>
 <p>Now that the data is tidy, we can use this relatively simple ggplot code:</p>
 <pre class="r"><code>new_tidy_data %&gt;% ggplot(aes(year, fertility, color = country)) +
   geom_point()</code></pre>
+<p><img src="/content/13-content_files/figure-html/fertility-year-check-1.png" width="672" /></p>
+</div>
 </div>
 <div id="spread" class="section level2">
 <h2><code>spread</code></h2>
@@ -676,7 +713,7 @@ joinedData</code></pre>
 <pre><code>## [1] 59</code></pre>
 <p>And while we might like that we have 3x the In-N-Out locations, we definitely think our data shouldn’t suddenly have more.</p>
 <p>The reason this happens is that we do not have a unique <em>key</em> variable. In the <code>WDI</code> tip in Project 2, we didn’t have a single unique key variable - there were multiple values of <code>iso2</code> country code in the data because we had multiple years for each <code>iso2</code>. Thus, when we merged, use used <code>by = c('iso2','year')</code> because <strong>the <code>iso2</code> x <code>year</code> combination was the unique key</strong>.</p>
-<p>Here, each dataset would need to have a unique key on <code>state</code> <em>and</em> <code>county</code> <em>and</em> <code>year</code> to merge without risk of messing up our data. Since <code>arrests</code> aren’t broken out by county, we’d have to use <code>summarize</code> to total <code>notTidyData</code> at the <code>state</code> and <code>year</code> (to eliminate <code>county</code>). Then, we’d have to decide of the number of In-N-Outs are the same for each <code>year</code> since <code>notTidyData</code> doesn’t have <code>year</code>.</p>
+<p>Here, each dataset would need to have a unique key (or “primary key”) on <code>state</code> <em>and</em> <code>county</code> <em>and</em> <code>year</code> to merge without risk of messing up our data. Since <code>arrests</code> aren’t broken out by county, we’d have to use <code>summarize</code> to total <code>notTidyData</code> at the <code>state</code> and <code>year</code> (to eliminate <code>county</code>). Then, we’d have to decide of the number of In-N-Outs are the same for each <code>year</code> since <code>notTidyData</code> doesn’t have <code>year</code>.</p>
 <p>The lesson is this: always know what your join is doing. Know your unique keys. Use <code>sum(duplicated(tidyData$key))</code> to see if all values are unique, or <code>NROW(unique(tidyData %&gt;% dplyr::select(key1, key2)))</code> to see if all rows are unique over the 2 keys (replacing “key1” and “key2” with your key fields).</p>
 <p>If it shouldn’t add rows, then make sure the new data has the same number of rows as the old one, or use <code>setequal</code> to check.</p>
 </div>
@@ -770,17 +807,17 @@ In these cases, examining the entire vector of dates will help you determine wha
 <pre><code>## [1] &quot;2001-02-09&quot;</code></pre>
 <p>The <strong>lubridate</strong> package is also useful for dealing with times. In R base, you can get the current time typing <code>Sys.time()</code>. The <strong>lubridate</strong> package provides a slightly more advanced function, <code>now</code>, that permits you to define the time zone:</p>
 <pre class="r"><code>now()</code></pre>
-<pre><code>## [1] &quot;2022-11-28 10:12:22 EST&quot;</code></pre>
+<pre><code>## [1] &quot;2022-11-29 06:33:37 EST&quot;</code></pre>
 <pre class="r"><code>now(&quot;GMT&quot;)</code></pre>
-<pre><code>## [1] &quot;2022-11-28 15:12:22 GMT&quot;</code></pre>
+<pre><code>## [1] &quot;2022-11-29 11:33:37 GMT&quot;</code></pre>
 <p>You can see all the available time zones with <code>OlsonNames()</code> function.</p>
 <p>We can also extract hours, minutes, and seconds:</p>
 <pre class="r"><code>now() %&gt;% hour()</code></pre>
-<pre><code>## [1] 10</code></pre>
+<pre><code>## [1] 6</code></pre>
 <pre class="r"><code>now() %&gt;% minute()</code></pre>
-<pre><code>## [1] 12</code></pre>
+<pre><code>## [1] 33</code></pre>
 <pre class="r"><code>now() %&gt;% second()</code></pre>
-<pre><code>## [1] 22.93834</code></pre>
+<pre><code>## [1] 37.92335</code></pre>
 <p>The package also includes a function to parse strings into times as well as parsers for time objects that include dates:</p>
 <pre class="r"><code>x &lt;- c(&quot;12:34:56&quot;)
 hms(x)</code></pre>

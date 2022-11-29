@@ -555,6 +555,33 @@ my_func &amp;lt;- function(y){
     </item>
     
     <item>
+      <title>Applied Data Wrangling</title>
+      <link>https://ssc442kirkpatrick.netlify.app/assignment/14-assignment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://ssc442kirkpatrick.netlify.app/assignment/14-assignment/</guid>
+      <description>
+
+
+&lt;!-- Updated 8.30.22 --&gt;
+&lt;p&gt;This lab is in place of Lab #8, which we did not have (but should have).&lt;/p&gt;
+&lt;div class=&#34;fyi&#34;&gt;
+&lt;p&gt;You must turn in a PDF document of your &lt;code&gt;R Markdown&lt;/code&gt; code. Submit this to D2L by 11:59 PM Eastern Time on *Monday December 12th.**&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;This assignment builds from the Example for this week. Your assignment is to make a map of some interesting census variable for your home county. If your home county is outside the US, you can use any county you like.&lt;/p&gt;
+&lt;div class=&#34;fyi&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Exercise 1 of 1&lt;/strong&gt;&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;Load up all the necessary packages&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Find the FIPS for your home county&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Choose a variable you’re interested in. Finding census variables can be tricky!&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Using &lt;code&gt;load_variables&lt;/code&gt;, find the best representation of that variable&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Make a map of that variable at the census tract level&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Basics of ggplot</title>
       <link>https://ssc442kirkpatrick.netlify.app/assignment/01-assignment/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

@@ -4964,6 +4964,7 @@ citi_bike &amp;lt;- fromJSON(&amp;quot;http://citibikenyc.com/stations/json&amp;
 
 &lt;div id=&#34;TOC&#34;&gt;
 &lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#some-course-business&#34;&gt;Some course business&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#required-reading&#34;&gt;Required Reading&lt;/a&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#guiding-questions&#34;&gt;Guiding Questions&lt;/a&gt;&lt;/li&gt;
@@ -4971,7 +4972,10 @@ citi_bike &amp;lt;- fromJSON(&amp;quot;http://citibikenyc.com/stations/json&amp;
 &lt;li&gt;&lt;a href=&#34;#introduction-to-data-wrangling&#34;&gt;Introduction to data wrangling&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#reshaping-data&#34;&gt;Reshaping data&lt;/a&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#gather&#34;&gt;&lt;code&gt;gather&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#gather&#34;&gt;&lt;code&gt;gather&lt;/code&gt;&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#the-gather-arguments&#34;&gt;The &lt;code&gt;gather&lt;/code&gt; arguments&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#spread&#34;&gt;&lt;code&gt;spread&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#separate&#34;&gt;&lt;code&gt;separate&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#unite&#34;&gt;&lt;code&gt;unite&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
@@ -5009,6 +5013,14 @@ citi_bike &amp;lt;- fromJSON(&amp;quot;http://citibikenyc.com/stations/json&amp;
 &lt;/ul&gt;
 &lt;/div&gt;
 
+&lt;div id=&#34;some-course-business&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Some course business&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;I have given everyone credit for Weekly Writing 12 (not just exempt)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;A few people turned in a weekly writing from last years prompt. Not good.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Lab #8 is now Lab #14 (on geospatial) due Dec 12th. It is pretty short and easy.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
 &lt;div id=&#34;required-reading&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Required Reading&lt;/h2&gt;
 &lt;ul&gt;
@@ -5037,11 +5049,22 @@ citi_bike &amp;lt;- fromJSON(&amp;quot;http://citibikenyc.com/stations/json&amp;
 library(dslabs)
 path &amp;lt;- system.file(&amp;quot;extdata&amp;quot;, package=&amp;quot;dslabs&amp;quot;)
 filename &amp;lt;- file.path(path, &amp;quot;fertility-two-countries-example.csv&amp;quot;)
-wide_data &amp;lt;- read_csv(filename)&lt;/code&gt;&lt;/pre&gt;
+wide_data &amp;lt;- read_csv(filename)
+head(wide_data[,1:8])&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 2 × 8
+##   country     `1960` `1961` `1962` `1963` `1964` `1965` `1966`
+##   &amp;lt;chr&amp;gt;        &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;
+## 1 Germany       2.41   2.44   2.47   2.49   2.49   2.48   2.44
+## 2 South Korea   6.16   5.99   5.79   5.57   5.36   5.16   4.99&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;gather&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;&lt;code&gt;gather&lt;/code&gt;&lt;/h2&gt;
 &lt;p&gt;One of the most used functions in the &lt;strong&gt;tidyr&lt;/strong&gt; package is &lt;code&gt;gather&lt;/code&gt;, which is useful for converting wide data into tidy data.&lt;/p&gt;
-&lt;p&gt;As with most tidyverse functions, the &lt;code&gt;gather&lt;/code&gt; function’s first argument is the data frame that will be converted. Here we want to reshape the &lt;code&gt;wide_data&lt;/code&gt; dataset so that each row represents a fertility observation, which implies we need three columns to store the year, country, and the observed value. In its current form, data from different years are in different columns with the year values stored in the column names. Through the second and third argument we will tell &lt;code&gt;gather&lt;/code&gt; the column names we want to assign to the columns containing the current column names and observations, respectively. In this case a good choice for these two arguments would be &lt;code&gt;year&lt;/code&gt; and &lt;code&gt;fertility&lt;/code&gt;. Note that nowhere in the data file does it tell us this is fertility data. Instead, we deciphered this from the file name. Through the fourth argument we specify the columns containing observed values; these are the columns that will be &lt;em&gt;gathered&lt;/em&gt;. The default is to gather all columns so, in most cases, we have to specify the columns. In our example we want columns &lt;code&gt;1960&lt;/code&gt;, &lt;code&gt;1961&lt;/code&gt; up to &lt;code&gt;2015&lt;/code&gt;.&lt;/p&gt;
+&lt;div id=&#34;the-gather-arguments&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;The &lt;code&gt;gather&lt;/code&gt; arguments&lt;/h3&gt;
+&lt;p&gt;Here we want to reshape the &lt;code&gt;wide_data&lt;/code&gt; dataset so that each row represents a fertility observation, which implies we need three columns to store the year, country, and the observed value. In its current form, data from different years are in different columns with the year values stored in the column names.&lt;/p&gt;
+&lt;p&gt;As with most tidyverse functions, the &lt;code&gt;gather&lt;/code&gt; function’s first argument is the data frame that will be converted. Easy enough.&lt;/p&gt;
+&lt;p&gt;The second and third arguments will tell &lt;code&gt;gather&lt;/code&gt; the column names we want to assign to the columns containing the &lt;strong&gt;current column names&lt;/strong&gt; and &lt;strong&gt;the observed data&lt;/strong&gt;, respectively. In this case a good choice for these two arguments would be something like &lt;code&gt;year&lt;/code&gt; and &lt;code&gt;fertility&lt;/code&gt;. These are not currenly column names in the data – they are names we want to use to &lt;em&gt;hold&lt;/em&gt; data currently located in the “wide” columns. We know this is fertility data only because we deciphered it from the file name.&lt;/p&gt;
+&lt;p&gt;The fourth argument specifies the columns &lt;strong&gt;containing observed values&lt;/strong&gt;; these are the columns that will be &lt;em&gt;gathered&lt;/em&gt;. The default (if we leave out the 4th argument) is to gather &lt;strong&gt;all&lt;/strong&gt; columns so, in most cases, we have to specify the columns. In our example we want columns &lt;code&gt;1960&lt;/code&gt;, &lt;code&gt;1961&lt;/code&gt; up to &lt;code&gt;2015&lt;/code&gt;. Since these are non-standard column names, we have to backtick them so R doesn’t think they’re to be treated as integers:&lt;/p&gt;
 &lt;p&gt;The code to gather the fertility data therefore looks like this:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;new_tidy_data &amp;lt;- gather(wide_data, year, fertility, `1960`:`2015`)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;We can also use the pipe like this:&lt;/p&gt;
@@ -5057,10 +5080,22 @@ wide_data &amp;lt;- read_csv(filename)&lt;/code&gt;&lt;/pre&gt;
 ## 4 South Korea 1961       5.99
 ## 5 Germany     1962       2.47
 ## 6 South Korea 1962       5.79&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;and that each year resulted in two rows since we have two countries and this column was not gathered.
+&lt;p&gt;We have the first column, which consists of “everything in the data that wasn’t gathered”, the next two columns are named based on the arguments we gave. The second column, named by our argument above, contains the column names of the wide data. The third column, also named by our argument above, contains the value that was in each corresponding colum x country pair. What you leave &lt;em&gt;out&lt;/em&gt; of the 4th argument is important!&lt;/p&gt;
+&lt;p&gt;Note that each year resulted in two rows since we have two countries and this column was not gathered.
 A somewhat quicker way to write this code is to specify which column will &lt;strong&gt;not&lt;/strong&gt; be gathered, rather than all the columns that will be gathered:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;new_tidy_data &amp;lt;- wide_data %&amp;gt;%
-  gather(year, fertility, -country)&lt;/code&gt;&lt;/pre&gt;
+  gather(year, fertility, -country)
+
+head(new_tidy_data)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 × 3
+##   country     year  fertility
+##   &amp;lt;chr&amp;gt;       &amp;lt;chr&amp;gt;     &amp;lt;dbl&amp;gt;
+## 1 Germany     1960       2.41
+## 2 South Korea 1960       6.16
+## 3 Germany     1961       2.44
+## 4 South Korea 1961       5.99
+## 5 Germany     1962       2.47
+## 6 South Korea 1962       5.79&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The &lt;code&gt;new_tidy_data&lt;/code&gt; object looks like the original &lt;code&gt;tidy_data&lt;/code&gt; we defined this way&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data(&amp;quot;gapminder&amp;quot;)
 tidy_data &amp;lt;- gapminder %&amp;gt;%
@@ -5080,6 +5115,8 @@ class(new_tidy_data$year)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Now that the data is tidy, we can use this relatively simple ggplot code:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;new_tidy_data %&amp;gt;% ggplot(aes(year, fertility, color = country)) +
   geom_point()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/content/13-content_files/figure-html/fertility-year-check-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;spread&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;&lt;code&gt;spread&lt;/code&gt;&lt;/h2&gt;
@@ -5719,17 +5756,17 @@ In these cases, examining the entire vector of dates will help you determine wha
 &lt;pre&gt;&lt;code&gt;## [1] &amp;quot;2001-02-09&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The &lt;strong&gt;lubridate&lt;/strong&gt; package is also useful for dealing with times. In R base, you can get the current time typing &lt;code&gt;Sys.time()&lt;/code&gt;. The &lt;strong&gt;lubridate&lt;/strong&gt; package provides a slightly more advanced function, &lt;code&gt;now&lt;/code&gt;, that permits you to define the time zone:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;now()&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;2022-11-28 10:12:22 EST&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;2022-11-29 06:30:03 EST&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;now(&amp;quot;GMT&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;2022-11-28 15:12:22 GMT&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;2022-11-29 11:30:03 GMT&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;You can see all the available time zones with &lt;code&gt;OlsonNames()&lt;/code&gt; function.&lt;/p&gt;
 &lt;p&gt;We can also extract hours, minutes, and seconds:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;now() %&amp;gt;% hour()&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 10&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 6&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;now() %&amp;gt;% minute()&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 12&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 30&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;now() %&amp;gt;% second()&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 22.93834&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 3.801034&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The package also includes a function to parse strings into times as well as parsers for time objects that include dates:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- c(&amp;quot;12:34:56&amp;quot;)
 hms(x)&lt;/code&gt;&lt;/pre&gt;
