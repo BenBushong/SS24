@@ -2985,15 +2985,17 @@ Default = ISLR::Default&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/data/Example11_booking.csv&#34;&gt;&lt;i class=&#34;fas fa-file-csv&#34;&gt;&lt;/i&gt; &lt;code&gt;booking.csv&lt;/code&gt;&lt;/a&gt; - Contains the corporation name, the room type, and the dates someone from the corporation stayed at the hoted.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/data/Example11_roomrates.csv&#34;&gt;&lt;i class=&#34;fas fa-file-csv&#34;&gt;&lt;/i&gt; &lt;code&gt;roomrates.csv&lt;/code&gt;&lt;/a&gt; - Contains the price of each room on each day&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/data/Example11_parking.csv&#34;&gt;&lt;i class=&#34;fas fa-file-csv&#34;&gt;&lt;/i&gt; &lt;code&gt;parking.csv&lt;/code&gt;&lt;/a&gt; - Contains the corporations who negotiated free parking for employees&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Parking at the hotel is $60 if you don’t have free parking. This hotel is in California, so everyone drives and parks when they stay.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Parking at the hotel is $60 per night if you don’t have free parking. This hotel is in California, so everyone drives and parks when they stay.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class=&#34;fyi&#34;&gt;
 &lt;p&gt;Some tips:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Right-click on each of the links, copy the address, and read the URL in using &lt;code&gt;read.csv&lt;/code&gt; or &lt;code&gt;read_csv&lt;/code&gt; or whatever you prefer to read .csv’s&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Right-click on each of the links, copy the address, and read the URL in using &lt;code&gt;read.csv&lt;/code&gt; to read .csv’s&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;You’ll find you need to use most of the tools we covered on Tuesday including &lt;code&gt;gather&lt;/code&gt;, &lt;code&gt;separate&lt;/code&gt; and more.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;You’ll need &lt;code&gt;lubridate&lt;/code&gt; and &lt;code&gt;tidyverse&lt;/code&gt; loaded up.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
+&lt;p&gt;Your lab wil be based on similar data (with more wrinkles to fix) so share your code with your group when you’re done.&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>

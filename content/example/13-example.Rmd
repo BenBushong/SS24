@@ -28,7 +28,7 @@ Unfortunately, you only have the following data:
 
 - [<i class="fas fa-file-csv"></i> `parking.csv`](/data/Example11_parking.csv) - Contains the corporations who negotiated free parking for employees
 
-- Parking at the hotel is \$60 if you don't have free parking. This hotel is in California, so everyone drives and parks when they stay.
+- Parking at the hotel is \$60 per night if you don't have free parking. This hotel is in California, so everyone drives and parks when they stay.
 
 
 
@@ -36,11 +36,15 @@ Unfortunately, you only have the following data:
 
 Some tips:
 
-- Right-click on each of the links, copy the address, and read the URL in using `read.csv` or `read_csv` or whatever you prefer to read .csv's
+- Right-click on each of the links, copy the address, and read the URL in using `read.csv` to read .csv's
 
 - You'll find you need to use most of the tools we covered on Tuesday including `gather`, `separate` and more.
 
+- You'll need `lubridate` and `tidyverse` loaded up.
+
 :::
+
+Your lab wil be based on similar data (with more wrinkles to fix) so share your code with your group when you're done.
 
 
 ```{r eval = F, include=F}
