@@ -110,19 +110,19 @@ lessons:
     example: "12-example"
     assignment: "12-assignment"
 
-  - title: 'Wrangling Data (Last lab)'
+  - title: 'Wrangling Data'
     session: 14
     date: "Week 13 (Nov 29/Dec 1)"
     content: "13-content"
     example: "13-example"
     assignment: "13-assignment"
   
-  - title: 'Geospatial in R'
+  - title: 'Geospatial in R (Last lab)'
     session: 15
     date: "Week 14 (Dec 6/8)"
-    # content: "14-content"
-    # example: "TBA"
-    # assignment: "TBA"
+    content: "14-content"
+    example: "14-example"
+    assignment: "14-assignment"
 
   - title: '<span class="fake-header-table">Conclusions</span>'
     header: True
