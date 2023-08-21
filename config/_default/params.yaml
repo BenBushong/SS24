@@ -93,7 +93,7 @@ instructor:
     Please consider whether your question is short and concrete; if so, feel free to email me. If your question is deep, vague, interesting, or otherwise complex, please come to office hours or we can discuss in class. See syllabus for details.
 
 teaching_assistant:
-  name: Sam Tucker
+  name: Nick Armstrong
   email: tucke130@msu.edu
 
 course:
@@ -102,9 +102,9 @@ course:
   days: "Tuesday and Thursday"
   time: "1:30pm - 2:50pm"
   location: "116 Natural Sciences"
-  dates: "August 29 – December 7, 2022"
+  dates: "August 29 – December 7, 2023"
   copyrightYear: "2020-23"
-  slack: "https://join.slack.com/t/ssc442kirkpatrickhq/shared_invite/zt-1eku04roj-GQGFSNtlccF0ewb7tdvpOA"
+  slack: "https://join.slack.com/t/ssc442fall23/shared_invite/zt-21po16rx0-eSBByPJt~4ahKVWqqQaalQ"
   office_hours: = "Wednesday 1:15pm - 2:15pm, by Slack Sun evenings, and by appointment"
   
 university:
@@ -123,8 +123,6 @@ school:
 # Default image for social sharing and search engines. Place image in `static/img/` folder and specify image name here.
 sharing_image: "social-image.png"
 
-# Twitter username (without @). Used when a visitor shares your site on Twitter.
-twitter: ""
 
 
 ############################
