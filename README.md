@@ -1,4 +1,4 @@
-# Social Science Data Analytics Applications (SSC442; v2022)
+# Social Science Data Analytics Applications (SSC442; v2023)
 
 ## Theme
 
