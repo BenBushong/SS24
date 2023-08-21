@@ -70,8 +70,8 @@ lessons:
 
   - title: 'LASSO: Least Absolute Shrinkage and Selection'
     session: 9
-    date: "Week 8 (Oct 24/27)"
-    ## content: "08-content"
+    date: "Week 8 (Oct !24/27)"
+    ##### content: "08-content"
     # example: "08-content"
     # assignment: "08-assignment"
     

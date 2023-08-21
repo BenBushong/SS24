@@ -1,7 +1,7 @@
 ---
 title: "Geospatial with R"
 linktitle: "14: Geospatial with R"
-read_date: "2022-12-06"
+read_date: "2023-12-05"
 menu:
   content:
     parent: Course content

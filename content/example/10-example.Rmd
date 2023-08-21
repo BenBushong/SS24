@@ -1,7 +1,7 @@
 ---
 title: "Illustrating Bias vs. Variance"
 linktitle: "10: Bias vs. Variance"
-read_date: "2022-11-10"
+read_date: "2023-11-09"
 output:
   blogdown::html_page:
     toc: true

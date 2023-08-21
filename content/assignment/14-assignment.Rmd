@@ -20,7 +20,7 @@ This lab is in place of Lab #8, which we did not have (but should have).
 
 :::fyi
 
-You must turn in a PDF document of your `R Markdown` code. Submit this to D2L by 11:59 PM Eastern Time on *Monday December 12th.**
+You must turn in a PDF document of your `R Markdown` code. Submit this to D2L by 11:59 PM Eastern Time on *Monday December 11th.**
 
 ::: 
 

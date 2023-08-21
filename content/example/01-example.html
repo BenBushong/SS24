@@ -1,8 +1,8 @@
 ---
 title: "Introduction to Visualization"
 linktitle: "1: Visualization I"
-read_date: "2022-09-08"
-lastmod: "2022-09-08"
+read_date: "2023-09-07"
+lastmod: "2023-08-21"
 output:
   blogdown::html_page:
     toc: true
@@ -19,24 +19,24 @@ editor_options:
 
 <div id="TOC">
 <ul>
-<li><a href="#introduction-to-data-visualization">Introduction to data visualization</a></li>
-<li><a href="#ggplot2">ggplot2</a>
+<li><a href="#introduction-to-data-visualization" id="toc-introduction-to-data-visualization">Introduction to data visualization</a></li>
+<li><a href="#ggplot2" id="toc-ggplot2">ggplot2</a>
 <ul>
-<li><a href="#the-components-of-a-graph">The components of a graph</a></li>
-<li><a href="#ggplot-objects"><code>ggplot</code> objects</a></li>
-<li><a href="#geometries-briefly">Geometries (briefly)</a></li>
-<li><a href="#aesthetic-mappings">Aesthetic mappings</a>
+<li><a href="#the-components-of-a-graph" id="toc-the-components-of-a-graph">The components of a graph</a></li>
+<li><a href="#ggplot-objects" id="toc-ggplot-objects"><code>ggplot</code> objects</a></li>
+<li><a href="#geometries-briefly" id="toc-geometries-briefly">Geometries (briefly)</a></li>
+<li><a href="#aesthetic-mappings" id="toc-aesthetic-mappings">Aesthetic mappings</a>
 <ul>
-<li><a href="#aesthetics-in-general">Aesthetics in general</a></li>
-<li><a href="#now-back-to-aesthetic-mappings">Now, back to aesthetic mappings</a></li>
-<li><a href="#legends-for-aesthetics">Legends for aesthetics</a></li>
+<li><a href="#aesthetics-in-general" id="toc-aesthetics-in-general">Aesthetics in general</a></li>
+<li><a href="#now-back-to-aesthetic-mappings" id="toc-now-back-to-aesthetic-mappings">Now, back to aesthetic mappings</a></li>
+<li><a href="#legends-for-aesthetics" id="toc-legends-for-aesthetics">Legends for aesthetics</a></li>
 </ul></li>
-<li><a href="#annotation-layers">Annotation Layers</a>
+<li><a href="#annotation-layers" id="toc-annotation-layers">Annotation Layers</a>
 <ul>
-<li><a href="#global-versus-local-aesthetic-mappings">Global versus local aesthetic mappings</a></li>
+<li><a href="#global-versus-local-aesthetic-mappings" id="toc-global-versus-local-aesthetic-mappings">Global versus local aesthetic mappings</a></li>
 </ul></li>
-<li><a href="#try-it">Try it!</a></li>
-<li><a href="#lecture-videos">Lecture Videos</a></li>
+<li><a href="#try-it" id="toc-try-it">Try it!</a></li>
+<li><a href="#lecture-videos" id="toc-lecture-videos">Lecture Videos</a></li>
 </ul></li>
 </ul>
 </div>
@@ -78,6 +78,11 @@ murders %&gt;% ggplot(aes(x = population/10^6, y = total, label = abb)) +
 <p>We are reminded of the saying: “A picture is worth a thousand words”. Data visualization provides a powerful way to communicate a data-driven finding. In some cases, the visualization is so convincing that no follow-up analysis is required. You should consider visualization the most potent tool in your data analytics arsenal.</p>
 <p>The growing availability of informative datasets and software tools has led to increased reliance on data visualizations across many industries, academia, and government. A salient example is news organizations, which are increasingly embracing <em>data journalism</em> and including effective <em>infographics</em> as part of their reporting.</p>
 <p>A particularly salient example—given the current state of the world—is a Wall Street Journal article<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> showing data related to the impact of vaccines on battling infectious diseases. One of the graphs shows measles cases by US state through the years with a vertical line demonstrating when the vaccine was introduced.</p>
+<pre><code>## Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+## ℹ Please use `linewidth` instead.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+## generated.</code></pre>
 <p><img src="/example/01-example_files/figure-html/wsj-vaccines-example-1.png" width="100%" /></p>
 <p>(Source: <a href="http://graphics.wsj.com/infectious-diseases-and-vaccines/">Wall Street Journal</a>)</p>
 <p>Another striking example comes from a New York Times chart<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>, which summarizes scores from the NYC Regents Exams. As described in
@@ -367,7 +372,7 @@ p</code></pre>
 <p>All videos are in the SSC442 Mediaspace channel <a href="https://mediaspace.msu.edu/media/SSC442+-+Example+01+-+Jan+20th/1_i2x19sph?st=774">available here <i class="fas fa-film"></i></a>. Note - this is a Spring 2022 lecture and not Fall 2022. As of right now, I am not planning on recording or posting Fall 2022 lectures.</p>
 </div>
 </div>
-<div class="footnotes">
+<div class="footnotes footnotes-end-of-document">
 <hr />
 <ol>
 <li id="fn1"><p><a href="http://graphics.wsj.com/infectious-diseases-and-vaccines/?mc_cid=711ddeb86e" class="uri">http://graphics.wsj.com/infectious-diseases-and-vaccines/?mc_cid=711ddeb86e</a><a href="#fnref1" class="footnote-back">↩︎</a></p></li>

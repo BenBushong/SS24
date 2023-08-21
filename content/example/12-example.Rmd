@@ -1,7 +1,7 @@
 ---
 title: "Text as Data"
 linktitle: "12: Text As Data"
-read_date: "2022-11-24"
+read_date: "2023-11-23"
 output:
   blogdown::html_page:
     toc: true

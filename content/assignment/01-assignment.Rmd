@@ -18,7 +18,7 @@ editor_options:
    
 **NOTE** 
 
-You must turn in a PDF document of your `R markdown` output. Submit this to D2L by 11:59 PM on September 12th.
+You must turn in a PDF document of your `R markdown` output. Submit this to D2L by 11:59 PM on September 11th.
 
 Note: This lab has a few "try its" along the way. They are for your own practice and are not required. The lab consists of the three "exercises."
  

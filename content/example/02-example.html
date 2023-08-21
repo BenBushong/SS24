@@ -1,9 +1,9 @@
 ---
 title: "ggplot2: Everything you ever wanted to know"
 linktitle: "2: Visualization II"
-read_date: "2022-09-15"
+read_date: "2023-09-14"
 draft: false
-lastmod: "2022-09-13"
+lastmod: "2023-08-21"
 output:
   blogdown::html_page:
     toc: true
@@ -20,35 +20,35 @@ editor_options:
 
 <div id="TOC">
 <ul>
-<li><a href="#distributions">Visualizing data distributions</a>
+<li><a href="#distributions" id="toc-distributions">Visualizing data distributions</a>
 <ul>
-<li><a href="#variable-types">Variable types</a></li>
-<li><a href="#case-study-describing-student-heights">Case study: describing student heights</a>
+<li><a href="#variable-types" id="toc-variable-types">Variable types</a></li>
+<li><a href="#case-study-describing-student-heights" id="toc-case-study-describing-student-heights">Case study: describing student heights</a>
 <ul>
-<li><a href="#distribution-function">Distribution function</a></li>
-<li><a href="#cdf-intro">Cumulative distribution functions</a></li>
+<li><a href="#distribution-function" id="toc-distribution-function">Distribution function</a></li>
+<li><a href="#cdf-intro" id="toc-cdf-intro">Cumulative distribution functions</a></li>
 </ul></li>
-<li><a href="#geometries-for-describing-distributions">Geometries for describing distributions</a>
+<li><a href="#geometries-for-describing-distributions" id="toc-geometries-for-describing-distributions">Geometries for describing distributions</a>
 <ul>
-<li><a href="#histograms">Histograms</a></li>
-<li><a href="#smoothed-density">Smoothed density</a></li>
-<li><a href="#interpreting-the-y-axis">Interpreting the y-axis</a></li>
-<li><a href="#densities-permit-stratification">Densities permit stratification</a></li>
+<li><a href="#histograms" id="toc-histograms">Histograms</a></li>
+<li><a href="#smoothed-density" id="toc-smoothed-density">Smoothed density</a></li>
+<li><a href="#interpreting-the-y-axis" id="toc-interpreting-the-y-axis">Interpreting the y-axis</a></li>
+<li><a href="#densities-permit-stratification" id="toc-densities-permit-stratification">Densities permit stratification</a></li>
 </ul></li>
-<li><a href="#normal-distribution">The normal distribution</a>
+<li><a href="#normal-distribution" id="toc-normal-distribution">The normal distribution</a>
 <ul>
-<li><a href="#standard-units">Standard units</a></li>
-<li><a href="#quantile-quantile-plots">Quantile-quantile plots</a></li>
-<li><a href="#percentiles">Percentiles</a></li>
+<li><a href="#standard-units" id="toc-standard-units">Standard units</a></li>
+<li><a href="#quantile-quantile-plots" id="toc-quantile-quantile-plots">Quantile-quantile plots</a></li>
+<li><a href="#percentiles" id="toc-percentiles">Percentiles</a></li>
 </ul></li>
-<li><a href="#other-geometries">ggplot2 geometries</a>
+<li><a href="#other-geometries" id="toc-other-geometries">ggplot2 geometries</a>
 <ul>
-<li><a href="#barplots">Barplots</a></li>
-<li><a href="#histograms-1">Histograms</a></li>
-<li><a href="#density-plots">Density plots</a></li>
-<li><a href="#boxplots">Boxplots</a></li>
+<li><a href="#barplots" id="toc-barplots">Barplots</a></li>
+<li><a href="#histograms-1" id="toc-histograms-1">Histograms</a></li>
+<li><a href="#density-plots" id="toc-density-plots">Density plots</a></li>
+<li><a href="#boxplots" id="toc-boxplots">Boxplots</a></li>
 </ul></li>
-<li><a href="#try-it">Try it!</a></li>
+<li><a href="#try-it" id="toc-try-it">Try it!</a></li>
 </ul></li>
 </ul>
 </div>
@@ -130,6 +130,11 @@ and so on. In fact, we can report the proportion of values between any two heigh
 <p>The smooth density is basically the curve that goes through the top of the histogram bars when the bins are very, very small. To make the curve not depend on the hypothetical size of the hypothetical list, we compute the curve on frequencies rather than counts. We do this by using the double-dot object <code>..density..</code>. Objects surrounded by <code>..</code> are objects that are <em>calculated by ggplot</em>. If we look at <code>?geom_histogram</code>, and go down to “Computed variables”, we see that we could use <code>..count..</code> to get “number of points in a bin”; <code>..ncount..</code> for the count scaled to a max of 1; or <code>..ndensity..</code> which scales the density to a max of 1 (which is a strange one). We can manually set the y aesthetic mapping, which defaults to <code>..count..</code>, to <code>..density..</code>:</p>
 <pre class="r"><code>x %&gt;% ggplot(aes(x = height)) +
   geom_histogram(aes(y=..density..), binwidth = 0.1, color = &quot;black&quot;) </code></pre>
+<pre><code>## Warning: The dot-dot notation (`..density..`) was deprecated in ggplot2 3.4.0.
+## ℹ Please use `after_stat(density)` instead.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+## generated.</code></pre>
 <p><img src="/example/02-example_files/figure-html/simulated-density-1-1.png" width="672" /></p>
 <p>Now, back to reality. We don’t have millions of measurements. In this concrete example, we have 812 and we can’t make a histogram with very small bins.</p>
 <p>We therefore make a histogram, using bin sizes appropriate for our data and computing frequencies rather than counts, and we draw a smooth curve that goes through the tops of the histogram bars. The following plots (loosely) demonstrate the steps that the computer goes through to ultimately create a smooth density:</p>
@@ -395,7 +400,7 @@ data(murders)</code></pre>
 </div>
 </div>
 </div>
-<div class="footnotes">
+<div class="footnotes footnotes-end-of-document">
 <hr />
 <ol>
 <li id="fn1"><p>Keep in mind that discrete numeric data can be considered ordinal. Although this is technically true, we usually reserve the term ordinal data for variables belonging to a small number of different groups, with each group having many members. In contrast, when we have many groups with few cases in each group, we typically refer to them as discrete numerical variables. So, for example, the number of packs of cigarettes a person smokes a day, rounded to the closest pack, would be considered ordinal, while the actual number of cigarettes would be considered a numerical variable. But, indeed, there are examples that can be considered both numerical and ordinal when it comes to visualizing data.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>

@@ -1,7 +1,7 @@
 ---
 title: "Introduction to the tidyverse"
 linktitle: "1: The Tidyverse"
-read_date: "2022-09-06"
+read_date: "2023-09-05"
 lastmod: "`r Sys.Date()`"
 menu:
   content:
@@ -19,7 +19,7 @@ output:
 - Chapter 1 of Introduction to Statistical Learning, available [here.](https://www.statlearning.com/)
 - Optional: The "Tidy Your Data" tutorial on [Rstudio Cloud Primers](https://rstudio.cloud/learn/primers)
 
-## Quick notes 9-6-2022
+## Quick notes 9-5-2023
 
 - Start labs early
 - You `install.packages("packageName")` **once** on your computer.

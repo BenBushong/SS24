@@ -1,7 +1,7 @@
 ---
 title: "Visualizations in Practice"
 linktitle: "3: Visualization II"
-read_date: "2022-09-20"
+read_date: "2023-09-19"
 menu:
   content:
     parent: Course content

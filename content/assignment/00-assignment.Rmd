@@ -14,7 +14,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-You must turn in a PDF document knitted from your R Markdown code. Submit this to "Lab 0" on D2L by 11:59 PM on Monday September 5th. You do not need to submit your .rmd file code - just the properly-knitted PDF.
+You must turn in a PDF document knitted from your R Markdown code. Submit this to "Lab 0" on D2L by 11:59 PM on Monday September 4th. You do not need to submit your .rmd file code - just the properly-knitted PDF.
 
  
 :::fyi

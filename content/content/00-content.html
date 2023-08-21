@@ -1,8 +1,8 @@
 ---
 title: "Welcome Back to R"
 linktitle: "0: Introduction to R"
-read_date: "2022-09-01"
-lastmod: "2022-09-01" 
+read_date: "2023-08-29"
+lastmod: "2023-08-21" 
 menu:
   content:
     parent: Course content
@@ -18,88 +18,88 @@ output:
 
 <div id="TOC">
 <ul>
-<li><a href="#readings">Readings</a>
+<li><a href="#readings" id="toc-readings">Readings</a>
 <ul>
-<li><a href="#guiding-question">Guiding Question</a></li>
+<li><a href="#guiding-question" id="toc-guiding-question">Guiding Question</a></li>
 </ul></li>
-<li><a href="#a-brief-introduction-to-ssc442">A Brief Introduction to SSC442</a>
+<li><a href="#a-brief-introduction-to-ssc442" id="toc-a-brief-introduction-to-ssc442">A Brief Introduction to SSC442</a>
 <ul>
-<li><a href="#about-me">About Me</a></li>
-<li><a href="#about-you">About You</a></li>
-<li><a href="#this-course">This Course</a></li>
-<li><a href="#more-about-this-course">More About This Course</a></li>
-<li><a href="#and-finally">And finally…</a></li>
+<li><a href="#about-me" id="toc-about-me">About Me</a></li>
+<li><a href="#about-you" id="toc-about-you">About You</a></li>
+<li><a href="#this-course" id="toc-this-course">This Course</a></li>
+<li><a href="#more-about-this-course" id="toc-more-about-this-course">More About This Course</a></li>
+<li><a href="#and-finally" id="toc-and-finally">And finally…</a></li>
 </ul></li>
-<li><a href="#what-is-data-analytics">What is “Data Analytics”?</a>
+<li><a href="#what-is-data-analytics" id="toc-what-is-data-analytics">What is “Data Analytics”?</a>
 <ul>
-<li><a href="#starting-point-for-this-course">Starting point for this course</a>
+<li><a href="#starting-point-for-this-course" id="toc-starting-point-for-this-course">Starting point for this course</a>
 <ul>
-<li><a href="#non-social-science-approaches-to-statistical-learning">Non-Social Science Approaches to Statistical Learning</a></li>
-<li><a href="#social-science-approaches-to-statistical-learning">Social Science Approaches to Statistical Learning</a></li>
-<li><a href="#the-pros-and-cons-of-correlation">The Pros and Cons of Correlation</a></li>
-<li><a href="#a-case-study-in-prediction">A Case Study in Prediction</a></li>
-<li><a href="#more-recent-examples-of-prediction">More Recent Examples of Prediction</a></li>
-<li><a href="#an-aside-nomenclature">An Aside: Nomenclature</a></li>
-<li><a href="#learning-from-data">Learning from Data</a></li>
+<li><a href="#non-social-science-approaches-to-statistical-learning" id="toc-non-social-science-approaches-to-statistical-learning">Non-Social Science Approaches to Statistical Learning</a></li>
+<li><a href="#social-science-approaches-to-statistical-learning" id="toc-social-science-approaches-to-statistical-learning">Social Science Approaches to Statistical Learning</a></li>
+<li><a href="#the-pros-and-cons-of-correlation" id="toc-the-pros-and-cons-of-correlation">The Pros and Cons of Correlation</a></li>
+<li><a href="#a-case-study-in-prediction" id="toc-a-case-study-in-prediction">A Case Study in Prediction</a></li>
+<li><a href="#more-recent-examples-of-prediction" id="toc-more-recent-examples-of-prediction">More Recent Examples of Prediction</a></li>
+<li><a href="#an-aside-nomenclature" id="toc-an-aside-nomenclature">An Aside: Nomenclature</a></li>
+<li><a href="#learning-from-data" id="toc-learning-from-data">Learning from Data</a></li>
 </ul></li>
-<li><a href="#case-study-us-homicides-by-firearm">Case study: US homicides by firearm</a></li>
+<li><a href="#case-study-us-homicides-by-firearm" id="toc-case-study-us-homicides-by-firearm">Case study: US homicides by firearm</a></li>
 </ul></li>
-<li><a href="#r-basics"><code>R</code> basics</a>
+<li><a href="#r-basics" id="toc-r-basics"><code>R</code> basics</a>
 <ul>
-<li><a href="#installing-r-and-r-studio-and-review-resources">Installing R and R Studio and Review Resources</a></li>
-<li><a href="#the-very-basics-of-r">The (very) basics of <code>R</code></a>
+<li><a href="#installing-r-and-r-studio-and-review-resources" id="toc-installing-r-and-r-studio-and-review-resources">Installing R and R Studio and Review Resources</a></li>
+<li><a href="#the-very-basics-of-r" id="toc-the-very-basics-of-r">The (very) basics of <code>R</code></a>
 <ul>
-<li><a href="#objects">Objects</a></li>
-<li><a href="#the-workspace">The workspace</a></li>
-<li><a href="#functions">Functions</a></li>
-<li><a href="#other-prebuilt-objects">Other prebuilt objects</a></li>
-<li><a href="#variable-names">Variable names</a></li>
-<li><a href="#saving-your-workspace">Saving your workspace</a></li>
-<li><a href="#motivating-scripts">Motivating scripts</a></li>
-<li><a href="#commenting-your-code">Commenting your code</a></li>
+<li><a href="#objects" id="toc-objects">Objects</a></li>
+<li><a href="#the-workspace" id="toc-the-workspace">The workspace</a></li>
+<li><a href="#functions" id="toc-functions">Functions</a></li>
+<li><a href="#other-prebuilt-objects" id="toc-other-prebuilt-objects">Other prebuilt objects</a></li>
+<li><a href="#variable-names" id="toc-variable-names">Variable names</a></li>
+<li><a href="#saving-your-workspace" id="toc-saving-your-workspace">Saving your workspace</a></li>
+<li><a href="#motivating-scripts" id="toc-motivating-scripts">Motivating scripts</a></li>
+<li><a href="#commenting-your-code" id="toc-commenting-your-code">Commenting your code</a></li>
 </ul></li>
-<li><a href="#data-types">Data types</a>
+<li><a href="#data-types" id="toc-data-types">Data types</a>
 <ul>
-<li><a href="#data-frames">Data frames</a></li>
-<li><a href="#examining-an-object">Examining an object</a></li>
-<li><a href="#the-accessor">The accessor: <code>$</code></a></li>
-<li><a href="#vectors-numerics-characters-and-logical">Vectors: numerics, characters, and logical</a></li>
-<li><a href="#factors">Factors</a></li>
-<li><a href="#lists">Lists</a></li>
-<li><a href="#matrices">Matrices</a></li>
+<li><a href="#data-frames" id="toc-data-frames">Data frames</a></li>
+<li><a href="#examining-an-object" id="toc-examining-an-object">Examining an object</a></li>
+<li><a href="#the-accessor" id="toc-the-accessor">The accessor: <code>$</code></a></li>
+<li><a href="#vectors-numerics-characters-and-logical" id="toc-vectors-numerics-characters-and-logical">Vectors: numerics, characters, and logical</a></li>
+<li><a href="#factors" id="toc-factors">Factors</a></li>
+<li><a href="#lists" id="toc-lists">Lists</a></li>
+<li><a href="#matrices" id="toc-matrices">Matrices</a></li>
 </ul></li>
-<li><a href="#vectors">Vectors</a>
+<li><a href="#vectors" id="toc-vectors">Vectors</a>
 <ul>
-<li><a href="#creating-vectors">Creating vectors</a></li>
-<li><a href="#names">Names</a></li>
-<li><a href="#sequences">Sequences</a></li>
-<li><a href="#subsetting">Subsetting</a></li>
+<li><a href="#creating-vectors" id="toc-creating-vectors">Creating vectors</a></li>
+<li><a href="#names" id="toc-names">Names</a></li>
+<li><a href="#sequences" id="toc-sequences">Sequences</a></li>
+<li><a href="#subsetting" id="toc-subsetting">Subsetting</a></li>
 </ul></li>
-<li><a href="#coercion">Coercion</a>
+<li><a href="#coercion" id="toc-coercion">Coercion</a>
 <ul>
-<li><a href="#not-availables-na">Not availables (NA)</a></li>
+<li><a href="#not-availables-na" id="toc-not-availables-na">Not availables (NA)</a></li>
 </ul></li>
-<li><a href="#sorting">Sorting</a>
+<li><a href="#sorting" id="toc-sorting">Sorting</a>
 <ul>
-<li><a href="#sort"><code>sort</code></a></li>
-<li><a href="#order"><code>order</code></a></li>
-<li><a href="#max-and-which.max"><code>max</code> and <code>which.max</code></a></li>
-<li><a href="#rank"><code>rank</code></a></li>
-<li><a href="#beware-of-recycling">Beware of recycling</a></li>
+<li><a href="#sort" id="toc-sort"><code>sort</code></a></li>
+<li><a href="#order" id="toc-order"><code>order</code></a></li>
+<li><a href="#max-and-which.max" id="toc-max-and-which.max"><code>max</code> and <code>which.max</code></a></li>
+<li><a href="#rank" id="toc-rank"><code>rank</code></a></li>
+<li><a href="#beware-of-recycling" id="toc-beware-of-recycling">Beware of recycling</a></li>
 </ul></li>
-<li><a href="#vector-arithmetics">Vector arithmetics</a>
+<li><a href="#vector-arithmetics" id="toc-vector-arithmetics">Vector arithmetics</a>
 <ul>
-<li><a href="#rescaling-a-vector">Rescaling a vector</a></li>
-<li><a href="#two-vectors">Two vectors</a></li>
+<li><a href="#rescaling-a-vector" id="toc-rescaling-a-vector">Rescaling a vector</a></li>
+<li><a href="#two-vectors" id="toc-two-vectors">Two vectors</a></li>
 </ul></li>
-<li><a href="#indexing">Indexing</a>
+<li><a href="#indexing" id="toc-indexing">Indexing</a>
 <ul>
-<li><a href="#subsetting-with-logicals">Subsetting with logicals</a></li>
-<li><a href="#logical-operators">Logical operators</a></li>
-<li><a href="#which"><code>which</code></a></li>
-<li><a href="#in"><code>%in%</code></a></li>
+<li><a href="#subsetting-with-logicals" id="toc-subsetting-with-logicals">Subsetting with logicals</a></li>
+<li><a href="#logical-operators" id="toc-logical-operators">Logical operators</a></li>
+<li><a href="#which" id="toc-which"><code>which</code></a></li>
+<li><a href="#in" id="toc-in"><code>%in%</code></a></li>
 </ul></li>
-<li><a href="#further-help-with-r">Further help with <code>R</code></a></li>
+<li><a href="#further-help-with-r" id="toc-further-help-with-r">Further help with <code>R</code></a></li>
 </ul></li>
 </ul>
 </div>
@@ -600,7 +600,7 @@ data(murders)</code></pre>
 <h3>Examining an object</h3>
 <p>The function <code>str</code> is useful for finding out more about the structure of an object:</p>
 <pre class="r"><code>str(murders)</code></pre>
-<pre><code>## &#39;data.frame&#39;:    51 obs. of  5 variables:
+<pre><code>## &#39;data.frame&#39;:	51 obs. of  5 variables:
 ## $ state : chr &quot;Alabama&quot; &quot;Alaska&quot; &quot;Arizona&quot; &quot;Arkansas&quot; ...
 ## $ abb : chr &quot;AL&quot; &quot;AK&quot; &quot;AZ&quot; &quot;AR&quot; ...
 ## $ region : Factor w/ 4 levels &quot;Northeast&quot;,&quot;South&quot;,..: 2 4 4 2 4 4 1 2 2 2 ...
@@ -1258,7 +1258,7 @@ data(murders)</code></pre>
 <p>Finally, there are also primers on <a href="https://rstudio.cloud/learn/primers">Rstudio.cloud</a> that can be useful. There are many ways we can help you get used to <code>R</code>, but only if you reach out.</p>
 </div>
 </div>
-<div class="footnotes">
+<div class="footnotes footnotes-end-of-document">
 <hr />
 <ol>
 <li id="fn1"><p><a href="http://abcnews.go.com/blogs/headlines/2012/12/us-gun-ownership-homicide-rate-higher-than-other-developed-countries/" class="uri">http://abcnews.go.com/blogs/headlines/2012/12/us-gun-ownership-homicide-rate-higher-than-other-developed-countries/</a><a href="#fnref1" class="footnote-back">↩︎</a></p></li>

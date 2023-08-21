@@ -1,7 +1,7 @@
 ---
 title: "Nonparametric Regression"
 linktitle: "9: Nonparametric Regression"
-read_date: "2022-11-01"
+read_date: "2023-10-31"
 menu:
   content:
     parent: Course content

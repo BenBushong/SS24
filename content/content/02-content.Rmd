@@ -1,7 +1,7 @@
 ---
 title: "Effective Visualizations"
 linktitle: "2: Visualization"
-read_date: "2022-09-13"
+read_date: "2023-09-12"
 menu:
   content:
     parent: Course content

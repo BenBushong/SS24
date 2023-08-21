@@ -1,7 +1,7 @@
 ---
 title: "Linear Regression II"
 linktitle: "6: Linear Regression II"
-read_date: "2022-10-11"
+read_date: "2023-10-10"
 menu:
   content:
     parent: Course content

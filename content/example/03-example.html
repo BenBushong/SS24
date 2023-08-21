@@ -1,9 +1,9 @@
 ---
 title: "Visualizations"
 linktitle: "3: Visualization III"
-read_date: "2022-09-22"
+read_date: "2023-09-21"
 draft: false
-lastmod: "2022-09-23"
+lastmod: "2023-08-21"
 output:
   blogdown::html_page:
     toc: true
@@ -22,32 +22,32 @@ editor_options:
 
 <div id="TOC">
 <ul>
-<li><a href="#adding-graphics-to-an-rmarkdown-file">Adding graphics to an Rmarkdown file</a>
+<li><a href="#adding-graphics-to-an-rmarkdown-file" id="toc-adding-graphics-to-an-rmarkdown-file">Adding graphics to an Rmarkdown file</a>
 <ul>
-<li><a href="#from-the-web">From the web</a></li>
-<li><a href="#images-inserted-in-code-chunks">Images inserted in code chunks</a></li>
-<li><a href="#images-inserted-via-markdown">Images inserted via Markdown</a></li>
-<li><a href="#images-from-a-local-file">Images from a local file</a></li>
+<li><a href="#from-the-web" id="toc-from-the-web">From the web</a></li>
+<li><a href="#images-inserted-in-code-chunks" id="toc-images-inserted-in-code-chunks">Images inserted in code chunks</a></li>
+<li><a href="#images-inserted-via-markdown" id="toc-images-inserted-via-markdown">Images inserted via Markdown</a></li>
+<li><a href="#images-from-a-local-file" id="toc-images-from-a-local-file">Images from a local file</a></li>
 </ul></li>
-<li><a href="#gapminder">Data visualization in practice</a>
+<li><a href="#gapminder" id="toc-gapminder">Data visualization in practice</a>
 <ul>
-<li><a href="#case-study-new-insights-on-poverty">Case study: new insights on poverty</a>
+<li><a href="#case-study-new-insights-on-poverty" id="toc-case-study-new-insights-on-poverty">Case study: new insights on poverty</a>
 <ul>
-<li><a href="#exploring-the-data">Exploring the Data</a></li>
-<li><a href="#slope-charts">Slope charts</a></li>
-<li><a href="#bland-altman-plot">Bland-Altman plot</a></li>
-<li><a href="#bump-charts">Bump charts</a></li>
-<li><a href="#themes">Themes</a></li>
-<li><a href="#small-multiples">Small multiples</a></li>
-<li><a href="#sparklines">Sparklines</a></li>
+<li><a href="#exploring-the-data" id="toc-exploring-the-data">Exploring the Data</a></li>
+<li><a href="#slope-charts" id="toc-slope-charts">Slope charts</a></li>
+<li><a href="#bland-altman-plot" id="toc-bland-altman-plot">Bland-Altman plot</a></li>
+<li><a href="#bump-charts" id="toc-bump-charts">Bump charts</a></li>
+<li><a href="#themes" id="toc-themes">Themes</a></li>
+<li><a href="#small-multiples" id="toc-small-multiples">Small multiples</a></li>
+<li><a href="#sparklines" id="toc-sparklines">Sparklines</a></li>
 </ul></li>
-<li><a href="#the-ecological-fallacy-and-importance-of-showing-the-data">The ecological fallacy and importance of showing the data</a>
+<li><a href="#the-ecological-fallacy-and-importance-of-showing-the-data" id="toc-the-ecological-fallacy-and-importance-of-showing-the-data">The ecological fallacy and importance of showing the data</a>
 <ul>
-<li><a href="#logit">Logit transformation</a></li>
-<li><a href="#show-the-data">Show the data</a></li>
+<li><a href="#logit" id="toc-logit">Logit transformation</a></li>
+<li><a href="#show-the-data" id="toc-show-the-data">Show the data</a></li>
 </ul></li>
-<li><a href="#vaccines">Case study: vaccines and infectious diseases</a></li>
-<li><a href="#try-it"><strong>TRY IT</strong></a></li>
+<li><a href="#vaccines" id="toc-vaccines">Case study: vaccines and infectious diseases</a></li>
+<li><a href="#try-it" id="toc-try-it"><strong>TRY IT</strong></a></li>
 </ul></li>
 </ul>
 </div>
@@ -343,7 +343,7 @@ ggplot(data = life_expectancy_small,
   theme_void() +
   theme(strip.text = element_text(face = &quot;bold&quot;))</code></pre>
 <p><img src="/example/03-example_files/figure-html/life-expectancy-small-minimalist-1.png" width="672" /></p>
-<p>We can do a whole part of a continent (poor Syria 😞)</p>
+<p>We can do a whole part of a continent (poor Syria 😿)</p>
 <pre class="r"><code>life_expectancy_mena &lt;- gapminder %&gt;%
   filter(region == &quot;Northern Africa&quot; | region == &quot;Western Asia&quot;)
 
@@ -503,7 +503,7 @@ dat &lt;- us_contagious_diseases %&gt;%
 </div>
 </div>
 </div>
-<div class="footnotes">
+<div class="footnotes footnotes-end-of-document">
 <hr />
 <ol>
 <li id="fn1"><p><a href="https://en.wikipedia.org/wiki/Hans_Rosling" class="uri">https://en.wikipedia.org/wiki/Hans_Rosling</a><a href="#fnref1" class="footnote-back">↩︎</a></p></li>

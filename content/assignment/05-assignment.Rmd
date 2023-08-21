@@ -20,7 +20,7 @@ editor_options:
 
 **NOTE**
 
-You must turn in a PDF document of your `R Markdown` code. Submit this to D2L by 11:59 PM Eastern Time on Monday, October 10th.
+You must turn in a PDF document of your `R Markdown` code. Submit this to D2L by 11:59 PM Eastern Time on Monday, October 9th.
 
 :::
 

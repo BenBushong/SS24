@@ -1,7 +1,7 @@
 ---
 title: "The Bias-Variance Tradeoff"
 linktitle: "10: Bias vs. Variance"
-read_date: "2022-11-08"
+read_date: "2023-11-07"
 menu:
   content:
     parent: Course content
