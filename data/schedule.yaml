@@ -4,7 +4,7 @@ lessons:
 
   - title: '(Re-) Introduction to R'
     session: 1
-    date: "Week 0 (Sep 1)"
+    date: "Week 0 (Aug 29)"
     content: "00-content"
     example: "00-example"
     assignment: "00-assignment"
