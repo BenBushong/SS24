@@ -153,13 +153,13 @@ I fundamentally believe that true knowledge of how we learn from data depends on
 
 Finally: I cannot address field-specific questions in areas outside economics to any satisfying degree.
 
-- Good news: I'm good at knowing what I don't know and have a very small ego, which means that I'm much less likely to blow smoke up your ass than other professors.
+- Good news: I'm good at knowing what I don't know and have a very small ego, which means that I'm much less likely to blow smoke up your rear than other professors.
 
 - Bad news: I can't help with certain types of questions.
 
 This course should be applicable broadly, but many of the examples will lean on my personal expertise (sorry).
 
-Your assignment: read syllabus, the content from Week 0, and the Example from Week 0 (we start on a Thursday so we have to get thru both in one day). Do your weekly writing due Saturday. Begin working on Lab 0 as it is due Monday.
+Your assignment: read syllabus, the content from Week 0, and the Example from Week 0 for Thursday. Make sure R and RStudio is running, and make sure you can knit your Rmarkdown template to PDF. Do your weekly writing due **Saturday**. Begin working on Lab 0 as it is due Monday.
 
 Things to stress from syllabus:
 
@@ -451,12 +451,17 @@ The course content below should be considered a prerequisite for success. For th
 
 
 In this class, we will be using `R` software environment for all our analyses. You will learn `R` and data analysis techniques simultaneously. To follow along you will therefore need access to `R`. We also recommend the use of an _integrated development environment_ (IDE), such as RStudio, to save your work.
-Note that it is common for a course or workshop to offer access to an `R` environment and an IDE through your web browser, as done by RStudio cloud^[https://rstudio.cloud]. If you have access to such a resource, you don't need to install `R` and RStudio. However, if you intend on becoming a practicing data analyst, we highly recommend installing these tools on your computer^[https://rafalab.github.io/dsbook/installing-r-rstudio.html]. This is not hard.
 
+Note that it is common for a course or workshop to offer access to an `R` environment and an IDE through your web browser, as done by RStudio/Posit cloud^[https://posit.cloud]. If you have access to such a resource, you don't need to install `R` and RStudio. However, if you intend on becoming a practicing data analyst, we highly recommend installing these tools on your computer^[https://rafalab.github.io/dsbook/installing-r-rstudio.html]. This is not hard.
 
+:::fyi
+**ALERT**
 
-## Installing R and R Studio and Review Resources
-Both `R` and RStudio are free and available online. If you have not yet done so, you'll need to install both R and RStudio. See the [Installing page of our course resources](/resource/install/) for instructions. This will be part of your assignment for this week. 
+RStudio, the separate _integrated development environment_ (IDE) commonly used to run `R` has re-branded. I haven't the foggiest as to why. The name is now **Posit**, so if you clicked on a link that says **RStudio** and you got **Posit**, that's fine.
+:::
+
+## Installing R and ~~R Studio~~ Posit and Review Resources
+Both `R` and ~~RStudio~~ Posit are free and available online. If you have not yet done so, you'll need to install both R and ~~RStudio~~ Posit. See the [Installing page of our course resources](/resource/install/) for instructions. This will be part of your assignment for this week. 
 
 
 I have created a video walkthrough for the basics of using R for another course, but it is useful here. You can [see part A here (labeled "Part 2a") here <i class="fas fa-film"></i>](https://mediaspace.msu.edu/media/R+Part+2a/1_kmszjw36)] and [part B here (labeled "Part 2b")  <i class="fas fa-film"></i>](https://mediaspace.msu.edu/media/R+Part+2b/1_c0vf0i63). You should already be at this level of familiarity with R, but if you need a review, this is a good place to start.
@@ -472,7 +477,7 @@ Before we get started with the motivating dataset, we need to cover the very bas
 Suppose a relatively math unsavvy student asks us for help solving several quadratic equations of the form $ax^2+bx+c = 0$. You---a savvy student---recall that the quadratic formula gives us the solutions: 
 
 $$
-\frac{-b - \sqrt{b^2 - 4ac}}{2a}\,\, \mbox{ and } \frac{-b + \sqrt{b^2 - 4ac}}{2a}
+\frac{-b + \sqrt{b^2 - 4ac}}{2a}\,\, \mbox{ and } \frac{-b - \sqrt{b^2 - 4ac}}{2a}
 $$
 
 which of course depend on the values of $a$, $b$, and $c$. That is, the quadratic equation represents a *function* with three *arguments*.
@@ -487,7 +492,7 @@ c <- -1
 
 which stores the values for later use. We use `<-` to assign values to the variables.
 
-We can also assign values using `=` instead of `<-`, but we recommend against using `=` to avoid confusion.^[This is, without a doubt, my least favorite aspect of `R`. I'd even venture to call it stupid. The logic behind this pesky `<-` is a total mystery to me, but there *is* logic to avoiding `=`. But, you do you.]
+We can also assign values using `=` instead of `<-`, but some recommend against using `=` to avoid confusion.^[This is, without a doubt, my least favorite aspect of `R`. I'd even venture to call it stupid. The logic behind this pesky `<-` is a total mystery to me, but there *is* logic to avoiding `=`. But, you do you.]
 
 :::fyi
 
@@ -518,7 +523,7 @@ As we define objects in the console, we are actually changing the _workspace_. Y
 ls()
 ```
 
-(Note that one of *my* variables listed above comes from generating the graphs above). In RStudio, the _Environment_ tab shows the values:
+(Note that one of *my* variables listed above comes from generating the graphs above). In ~~RStudio~~ Posit, the _Environment_ tab shows the values:
 
 ![](/img/rstudio-environment.png)
 
@@ -678,6 +683,8 @@ c <- -1
 ```
 
 By creating and saving a script with the code above, we would not need to retype everything each time and, instead, simply change the variable names. Try writing the script above into an editor and notice how easy it is to change the variables and receive an answer.
+
+The answer you get from the 4th and 5th lines will depend on the values of `a`, `b`, and `c`. **If** you were to type new numbers directly into your console: `c = 5.33` then re-run the last two lines, you will get a different answer. Your R "environment" is affected by what is run from a script **and** by what you type in the console. It is good (and necessary) practice to write all your code in a script (or in your Rmarkdown document), and run from the script. Always. Periodically running a script fresh from the start (clearing everything out of the environment first) is a good idea as well. 
 
 ### Commenting your code
 
@@ -1095,14 +1102,6 @@ codes
 
 There is no difference between this function call and the previous one. This is one of the many ways in which `R` is quirky compared to other languages.
 
-We can also assign names using the `names` functions:
-
-```{r}
-codes <- c(380, 124, 818)
-country <- c("italy","canada","egypt")
-names(codes) <- country
-codes
-```
 
 ### Sequences
 
@@ -1586,6 +1585,6 @@ data(murders)
 
 
 ## Further help with `R`
-If you are not comfortable with `R`, the earlier you seek out help, the better. Quietly letting the course pass by you because you don't know how to fix an error will do nobody any good. Attend TA office hours or attend Prof. K's office hours [see Syllabus](/syllabus/) for times and Zoom links. Also, join the course Slack and post questions there.
+If you are not comfortable with `R`, the earlier you seek out help, the better. Quietly letting the course pass by you because you don't know how to fix an error will do nobody any good. Attend TA office hours or attend TA or Prof. K's office hours [see Syllabus](/syllabus/) for times and Zoom links. Also, join the course Slack (see the front page of our course website for a link) and post questions there.
 
 Finally, there are also primers on [Rstudio.cloud](https://rstudio.cloud/learn/primers) that can be useful. There are many ways we can help you get used to `R`, but only if you reach out.

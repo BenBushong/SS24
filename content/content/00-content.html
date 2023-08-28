@@ -2,7 +2,7 @@
 title: "Welcome Back to R"
 linktitle: "0: Introduction to R"
 read_date: "2023-08-29"
-lastmod: "2023-08-21" 
+lastmod: "2023-08-28" 
 menu:
   content:
     parent: Course content
@@ -46,7 +46,7 @@ output:
 </ul></li>
 <li><a href="#r-basics" id="toc-r-basics"><code>R</code> basics</a>
 <ul>
-<li><a href="#installing-r-and-r-studio-and-review-resources" id="toc-installing-r-and-r-studio-and-review-resources">Installing R and R Studio and Review Resources</a></li>
+<li><a href="#installing-r-and-r-studio-posit-and-review-resources" id="toc-installing-r-and-r-studio-posit-and-review-resources">Installing R and <del>R Studio</del> Posit and Review Resources</a></li>
 <li><a href="#the-very-basics-of-r" id="toc-the-very-basics-of-r">The (very) basics of <code>R</code></a>
 <ul>
 <li><a href="#objects" id="toc-objects">Objects</a></li>
@@ -214,11 +214,11 @@ output:
 <h3>And finally…</h3>
 <p>Finally: I cannot address field-specific questions in areas outside economics to any satisfying degree.</p>
 <ul>
-<li><p>Good news: I’m good at knowing what I don’t know and have a very small ego, which means that I’m much less likely to blow smoke up your ass than other professors.</p></li>
+<li><p>Good news: I’m good at knowing what I don’t know and have a very small ego, which means that I’m much less likely to blow smoke up your rear than other professors.</p></li>
 <li><p>Bad news: I can’t help with certain types of questions.</p></li>
 </ul>
 <p>This course should be applicable broadly, but many of the examples will lean on my personal expertise (sorry).</p>
-<p>Your assignment: read syllabus, the content from Week 0, and the Example from Week 0 (we start on a Thursday so we have to get thru both in one day). Do your weekly writing due Saturday. Begin working on Lab 0 as it is due Monday.</p>
+<p>Your assignment: read syllabus, the content from Week 0, and the Example from Week 0 for Thursday. Make sure R and RStudio is running, and make sure you can knit your Rmarkdown template to PDF. Do your weekly writing due <strong>Saturday</strong>. Begin working on Lab 0 as it is due Monday.</p>
 <p>Things to stress from syllabus:</p>
 <ul>
 <li>E-mail isn’t the ideal solution for technical problems</li>
@@ -407,11 +407,15 @@ X causes Y and Y causes X (simultaneous equations)</p></li>
 <p><strong>ALERT</strong></p>
 <p>The course content below should be considered a prerequisite for success. For those concerned about basics of <code>R</code>, you absolutely must read this content and attempt the coding exercises. If you struggle to follow the content, please contact the professor or TA.</p>
 </div>
-<p>In this class, we will be using <code>R</code> software environment for all our analyses. You will learn <code>R</code> and data analysis techniques simultaneously. To follow along you will therefore need access to <code>R</code>. We also recommend the use of an <em>integrated development environment</em> (IDE), such as RStudio, to save your work.
-Note that it is common for a course or workshop to offer access to an <code>R</code> environment and an IDE through your web browser, as done by RStudio cloud<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>. If you have access to such a resource, you don’t need to install <code>R</code> and RStudio. However, if you intend on becoming a practicing data analyst, we highly recommend installing these tools on your computer<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>. This is not hard.</p>
-<div id="installing-r-and-r-studio-and-review-resources" class="section level2">
-<h2>Installing R and R Studio and Review Resources</h2>
-<p>Both <code>R</code> and RStudio are free and available online. If you have not yet done so, you’ll need to install both R and RStudio. See the <a href="/resource/install/">Installing page of our course resources</a> for instructions. This will be part of your assignment for this week.</p>
+<p>In this class, we will be using <code>R</code> software environment for all our analyses. You will learn <code>R</code> and data analysis techniques simultaneously. To follow along you will therefore need access to <code>R</code>. We also recommend the use of an <em>integrated development environment</em> (IDE), such as RStudio, to save your work.</p>
+<p>Note that it is common for a course or workshop to offer access to an <code>R</code> environment and an IDE through your web browser, as done by RStudio/Posit cloud<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>. If you have access to such a resource, you don’t need to install <code>R</code> and RStudio. However, if you intend on becoming a practicing data analyst, we highly recommend installing these tools on your computer<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>. This is not hard.</p>
+<div class="fyi">
+<p><strong>ALERT</strong></p>
+<p>RStudio, the separate <em>integrated development environment</em> (IDE) commonly used to run <code>R</code> has re-branded. I haven’t the foggiest as to why. The name is now <strong>Posit</strong>, so if you clicked on a link that says <strong>RStudio</strong> and you got <strong>Posit</strong>, that’s fine.</p>
+</div>
+<div id="installing-r-and-r-studio-posit-and-review-resources" class="section level2">
+<h2>Installing R and <del>R Studio</del> Posit and Review Resources</h2>
+<p>Both <code>R</code> and <del>RStudio</del> Posit are free and available online. If you have not yet done so, you’ll need to install both R and <del>RStudio</del> Posit. See the <a href="/resource/install/">Installing page of our course resources</a> for instructions. This will be part of your assignment for this week.</p>
 <p>I have created a video walkthrough for the basics of using R for another course, but it is useful here. You can <a href="https://mediaspace.msu.edu/media/R+Part+2a/1_kmszjw36">see part A here (labeled “Part 2a”) here <i class="fas fa-film"></i></a>] and <a href="https://mediaspace.msu.edu/media/R+Part+2b/1_c0vf0i63">part B here (labeled “Part 2b”) <i class="fas fa-film"></i></a>. You should already be at this level of familiarity with R, but if you need a review, this is a good place to start.</p>
 </div>
 <div id="the-very-basics-of-r" class="section level2">
@@ -421,7 +425,7 @@ Note that it is common for a course or workshop to offer access to an <code>R</c
 <h3>Objects</h3>
 <p>Suppose a relatively math unsavvy student asks us for help solving several quadratic equations of the form <span class="math inline">\(ax^2+bx+c = 0\)</span>. You—a savvy student—recall that the quadratic formula gives us the solutions:</p>
 <p><span class="math display">\[
-\frac{-b - \sqrt{b^2 - 4ac}}{2a}\,\, \mbox{ and } \frac{-b + \sqrt{b^2 - 4ac}}{2a}
+\frac{-b + \sqrt{b^2 - 4ac}}{2a}\,\, \mbox{ and } \frac{-b - \sqrt{b^2 - 4ac}}{2a}
 \]</span></p>
 <p>which of course depend on the values of <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, and <span class="math inline">\(c\)</span>. That is, the quadratic equation represents a <em>function</em> with three <em>arguments</em>.</p>
 <p>One advantage of programming languages is that we can define variables and write expressions with these variables, similar to how we do so in math, but obtain a numeric solution. We will write out general code for the quadratic equation below, but if we are asked to solve <span class="math inline">\(x^2 + x -1 = 0\)</span>, then we define:</p>
@@ -429,7 +433,7 @@ Note that it is common for a course or workshop to offer access to an <code>R</c
 b &lt;- 1
 c &lt;- -1</code></pre>
 <p>which stores the values for later use. We use <code>&lt;-</code> to assign values to the variables.</p>
-<p>We can also assign values using <code>=</code> instead of <code>&lt;-</code>, but we recommend against using <code>=</code> to avoid confusion.<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a></p>
+<p>We can also assign values using <code>=</code> instead of <code>&lt;-</code>, but some recommend against using <code>=</code> to avoid confusion.<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a></p>
 <div class="fyi">
 <p><strong>TRY IT</strong></p>
 <p>Copy and paste the code above into your console to define the three variables. Note that <code>R</code> does not print anything when we make this assignment. This means the objects were defined successfully. Had you made a mistake, you would have received an error message. Throughout these written notes, you’ll have the most success if you continue to copy code into your own console.</p>
@@ -447,7 +451,7 @@ c &lt;- -1</code></pre>
 <p>As we define objects in the console, we are actually changing the <em>workspace</em>. You can see all the variables saved in your workspace by typing:</p>
 <pre class="r"><code>ls()</code></pre>
 <pre><code>## [1] &quot;a&quot;       &quot;b&quot;       &quot;c&quot;       &quot;dat&quot;     &quot;filter&quot;  &quot;murders&quot; &quot;select&quot;</code></pre>
-<p>(Note that one of <em>my</em> variables listed above comes from generating the graphs above). In RStudio, the <em>Environment</em> tab shows the values:</p>
+<p>(Note that one of <em>my</em> variables listed above comes from generating the graphs above). In <del>RStudio</del> Posit, the <em>Environment</em> tab shows the values:</p>
 <p><img src="/img/rstudio-environment.png" /></p>
 <p>We should see <code>a</code>, <code>b</code>, and <code>c</code>. If you try to recover the value of a variable that is not in your workspace, you receive an error. For example, if you type <code>x</code> you will receive the following message: <code>Error: object 'x' not found</code>.</p>
 <p>Now since these values are saved in variables, to obtain a solution to our equation, we use the quadratic formula:</p>
@@ -536,6 +540,7 @@ c &lt;- -1
 (-b + sqrt(b^2 - 4*a*c)) / (2*a)
 (-b - sqrt(b^2 - 4*a*c)) / (2*a)</code></pre>
 <p>By creating and saving a script with the code above, we would not need to retype everything each time and, instead, simply change the variable names. Try writing the script above into an editor and notice how easy it is to change the variables and receive an answer.</p>
+<p>The answer you get from the 4th and 5th lines will depend on the values of <code>a</code>, <code>b</code>, and <code>c</code>. <strong>If</strong> you were to type new numbers directly into your console: <code>c = 5.33</code> then re-run the last two lines, you will get a different answer. Your R “environment” is affected by what is run from a script <strong>and</strong> by what you type in the console. It is good (and necessary) practice to write all your code in a script (or in your Rmarkdown document), and run from the script. Always. Periodically running a script fresh from the start (clearing everything out of the environment first) is a good idea as well.</p>
 </div>
 <div id="commenting-your-code" class="section level3">
 <h3>Commenting your code</h3>
@@ -832,13 +837,6 @@ codes</code></pre>
 <pre><code>##  italy canada  egypt 
 ##    380    124    818</code></pre>
 <p>There is no difference between this function call and the previous one. This is one of the many ways in which <code>R</code> is quirky compared to other languages.</p>
-<p>We can also assign names using the <code>names</code> functions:</p>
-<pre class="r"><code>codes &lt;- c(380, 124, 818)
-country &lt;- c(&quot;italy&quot;,&quot;canada&quot;,&quot;egypt&quot;)
-names(codes) &lt;- country
-codes</code></pre>
-<pre><code>##  italy canada  egypt 
-##    380    124    818</code></pre>
 </div>
 <div id="sequences" class="section level3">
 <h3>Sequences</h3>
@@ -1254,7 +1252,7 @@ data(murders)</code></pre>
 </div>
 <div id="further-help-with-r" class="section level2">
 <h2>Further help with <code>R</code></h2>
-<p>If you are not comfortable with <code>R</code>, the earlier you seek out help, the better. Quietly letting the course pass by you because you don’t know how to fix an error will do nobody any good. Attend TA office hours or attend Prof. K’s office hours <a href="/syllabus/">see Syllabus</a> for times and Zoom links. Also, join the course Slack and post questions there.</p>
+<p>If you are not comfortable with <code>R</code>, the earlier you seek out help, the better. Quietly letting the course pass by you because you don’t know how to fix an error will do nobody any good. Attend TA office hours or attend TA or Prof. K’s office hours <a href="/syllabus/">see Syllabus</a> for times and Zoom links. Also, join the course Slack (see the front page of our course website for a link) and post questions there.</p>
 <p>Finally, there are also primers on <a href="https://rstudio.cloud/learn/primers">Rstudio.cloud</a> that can be useful. There are many ways we can help you get used to <code>R</code>, but only if you reach out.</p>
 </div>
 </div>
@@ -1263,7 +1261,7 @@ data(murders)</code></pre>
 <ol>
 <li id="fn1"><p><a href="http://abcnews.go.com/blogs/headlines/2012/12/us-gun-ownership-homicide-rate-higher-than-other-developed-countries/" class="uri">http://abcnews.go.com/blogs/headlines/2012/12/us-gun-ownership-homicide-rate-higher-than-other-developed-countries/</a><a href="#fnref1" class="footnote-back">↩︎</a></p></li>
 <li id="fn2"><p>I’m especially partial to Puerto Rico.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
-<li id="fn3"><p><a href="https://rstudio.cloud" class="uri">https://rstudio.cloud</a><a href="#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p><a href="https://posit.cloud" class="uri">https://posit.cloud</a><a href="#fnref3" class="footnote-back">↩︎</a></p></li>
 <li id="fn4"><p><a href="https://rafalab.github.io/dsbook/installing-r-rstudio.html" class="uri">https://rafalab.github.io/dsbook/installing-r-rstudio.html</a><a href="#fnref4" class="footnote-back">↩︎</a></p></li>
 <li id="fn5"><p>This is, without a doubt, my least favorite aspect of <code>R</code>. I’d even venture to call it stupid. The logic behind this pesky <code>&lt;-</code> is a total mystery to me, but there <em>is</em> logic to avoiding <code>=</code>. But, you do you.<a href="#fnref5" class="footnote-back">↩︎</a></p></li>
 <li id="fn6"><p>This equals sign is the reasons we assign values with <code>&lt;-</code>; then when arguments of a function are assigned values, we don’t end up with multiple equals signs. But… who cares.<a href="#fnref6" class="footnote-back">↩︎</a></p></li>

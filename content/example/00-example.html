@@ -2,7 +2,7 @@
 title: "Working with R and RStudio"
 linktitle: "0: Introduction to R"
 read_date: "2023-08-31"
-lastmod: "2023-08-21"
+lastmod: "2023-08-28"
 output:
   blogdown::html_page:
     toc: true
@@ -21,7 +21,7 @@ editor_options:
 <ul>
 <li><a href="#introduction-to-examples" id="toc-introduction-to-examples">Introduction to Examples</a>
 <ul>
-<li><a href="#getting-started" id="toc-getting-started">Getting started with <code>R</code> and RStudio Workflows</a>
+<li><a href="#getting-started" id="toc-getting-started">Getting started with <code>R</code> and <del>RStudio</del> Posit Workflows</a>
 <ul>
 <li><a href="#installing-r-and-rstudio" id="toc-installing-r-and-rstudio">Installing <code>R</code> and RStudio</a></li>
 </ul></li>
@@ -44,7 +44,7 @@ editor_options:
 <p>Examples in this class are designed to be presented in-class. Accordingly, the notes here are <em>not</em> comprehensive. Instead, they are intended to guide students through</p>
 <p>I’m also aware that my writing is dry and lifeless. If you’re reading this online without the advantage of seeing it in person, don’t worry—I’ll be “funnier” in class.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
 <div id="getting-started" class="section level2">
-<h2>Getting started with <code>R</code> and RStudio Workflows</h2>
+<h2>Getting started with <code>R</code> and <del>RStudio</del> Posit Workflows</h2>
 <p>In Content this week, we reviewed the use of R. Now, let’s talk about doing work in R.</p>
 <p><code>R</code> is not a programming language like <code>C</code> or <code>Java</code>. It was not created by software engineers for software development. Instead, it was developed by statisticians as an interactive environment for data analysis. You can read the full history in the paper A Brief History of S<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>. The interactivity is an indispensable feature in data science because, as you will soon learn, the ability to quickly explore data is a necessity for success in this field. However, like in other programming languages, you can save your work as scripts that can be easily executed at any moment. These scripts serve as a record of the analysis you performed, a key feature that facilitates reproducible work. If you are an expert programmer, you should not expect <code>R</code> to follow the conventions you are used—assuming this will leave you disappointed. If you are patient, you will come to appreciate the unequal power of <code>R</code> when it comes to data analysis and data visualization.</p>
 <p>Other attractive features of <code>R</code> are:</p>
@@ -57,7 +57,7 @@ editor_options:
 </ol>
 <div id="installing-r-and-rstudio" class="section level3">
 <h3>Installing <code>R</code> and RStudio</h3>
-<p>If you have not yet done so, you’ll need to install both R and RStudio. See the <a href="/resource/install/">Installing page of our course resources</a> for instructions.</p>
+<p>If you have not yet done so, you’ll need to install both R and RStudio/Posit (as we mentioned before, RStudio is undergoing a change in name). See the <a href="/resource/install/">Installing page of our course resources</a> for instructions.</p>
 <p>I have created a video walkthrough for the basics of using R for another course, but it is useful here. You can <a href="https://mediaspace.msu.edu/media/R+Part+2a/1_kmszjw36">see part A here (labeled “Part 2a”) here <i class="fas fa-film"></i></a>] and <a href="https://mediaspace.msu.edu/media/R+Part+2b/1_c0vf0i63">part B here (labeled “Part 2b”) <i class="fas fa-film"></i></a>. You should already be at this level of familiarity with R, but if you need a review, this is a good place to start.</p>
 </div>
 </div>
@@ -130,11 +130,12 @@ install it first.</p>
 </div>
 <div id="rmarkdown" class="section level2">
 <h2>Rmarkdown</h2>
-<p>Markdown is a general-purpose syntax for laying out documents. Rmarkdown is a combination of R and markdown, as the name implies. When using markdown, one can define headers and tables using specific notation, and depending on the rendering engine, the headers and tables (and a whole lot more) are customized. In fact, this whole website is built in R using Rmarkdown (and a lot of add-ons like Hugo and blogdown). In other contexts, the rendering engine may recognize that your headers are likely to be entries in a table of contents, and does so for you. The table of contents at the top of this document is built from the markdown headers.</p>
+<p>Markdown is a general-purpose syntax for laying out documents. Rmarkdown is a combination of R and markdown, as the name implies. When using markdown, one can define headers and tables using specific notation, and depending on the rendering engine, the headers and tables (and a whole lot more) are customized. In fact, this whole website is built in R using Rmarkdown (and a lot of add-ons like Hugo and blogdown). In other contexts, the rendering engine may recognize that your headers are likely to be entries in a table of contents, and does so for you. The table of contents at the top of this document is built from the markdown headers.<img src="00-example_insertimage_1.png" alt="Plot title." /></p>
 <p>The power of Rmarkdown is that it lets us mix formatted text with R code. That is, you can have a section of the document that understands R code, and a separate section right after that discusses the results from the R code.</p>
-<p><a href="https://raw.githubusercontent.com/ajkirkpatrick/FS20/Spring2021/Rmarkdown_templates/SSC442_Weekly_Writing_Template.Rmd">Try it out using the Weekly Writing Template</a>. If it opens in your web browser, just right-click the link and select Save As…. <strong>Make sure you save the file to its own folder on your hard drive</strong>. In converting your Rmarkdown .Rmd file to a .pdf, your system will make multiple interim files<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a>. It also creates folders to store the output of any plots or graphics you create with your R code.</p>
+<p><a href="/assignment/#weekly-writing-template-1">Try it out using the Weekly Writing Template from the Assignments tab</a>. If it opens in your web browser, just right-click the link and select Save As…. <strong>Make sure you save the file to its own folder on your hard drive</strong>. In converting your Rmarkdown .Rmd file to a .pdf, your system will make multiple interim files<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a>. It also creates folders to store the output of any plots or graphics you create with your R code.</p>
 <p>If you’re new to Rmarkdown, I have made <a href="https://mediaspace.msu.edu/media/Spring2021_R_Part3/1_yigvqy1i">a short video on how to use it <i class="fas fa-film"></i></a>. This video is for my EC420 course, but works for us as well.</p>
-<p>If we have time today, let’s open the template linked above and see what happens when we select “knit to pdf”.</p>
+<p>If we have time today, let’s open the template linked above and see what happens when we select “knit to pdf”. If you do not wind up with a PDF rendered using LaTeX that looks like the one below, then check for errors. The most common one is not having LaTeX and tinytex installed. See <a href="resource/install/">our resource page and follow instructions there</a></p>
+<p><img src="00-example_insertimage_1.png" width="511" /></p>
 </div>
 </div>
 <div class="footnotes footnotes-end-of-document">
