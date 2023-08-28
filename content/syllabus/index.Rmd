@@ -22,21 +22,23 @@ library(pander)
 Please bookmark lecture and office hour Zoom links. 
 
 ### Lecture
-We meet in 116 Natural Sciences Tuesdays and Thursdays, 12:40 - 2:00 pm. This class is in-person and will not have an online component.
+We meet in 116 Natural Sciences Tuesdays and Thursdays, 1:30 - 2:50 pm. This class is in-person and will not have an online component.
 
 
 
 ### Office hours
-Wednesdays 2:00pm - 3:00pm and by appointment
+Sunday evenings via Slack
 
-Office Hours for Prof. K are in-person, 105 Old Botany (OB is on W. Circle Drive near the Grand River parking ramp. 105 is on the first floor.)
+Fridays 10:15 - 11:45 (and by appointment) (if you are planning on arriving after 11, please email Prof. K. Otherwise, he will depart at 11).
+
+Office Hours for Prof. K are in-person, 105 Old Botany (Old Botany is on W. Circle Drive near the Grand River parking ramp. 105 is on the first floor.)
 
 ### Teaching Assistant
 Nick Armstrong - [armst427@msu.edu](mailto:armst427@msu.edu)
 
-TA Office Hours: TBA
+TA Office Hours: Wednesdays 2-3pm and via Slack (if you are arriving after 2:30pm, please email Nick to let him know. Otherwise, he will depart the Zoom at 2:30)
 
-TA Office Hours Zoom: [TBA](TBA) (Passcode: TBA)
+TA Office Hours Zoom: [https://www.aeaweb.org/content/file?id=222](https://www.aeaweb.org/content/file?id=222) (Passcode: 592204)
 
 ### Slack
 We will use Slack as a forum for asking questions about the course, including course policies and, primarily, help questions with R. Students are encouraged to help answer each others' questions, and to use the forum as a first-step for seeking help. I, and our TA, will monitor slack and answer questions regularly. You can [join our Slack channel with this link by September 20th](https://join.slack.com/t/ssc442fall23/shared_invite/zt-21po16rx0-eSBByPJt~4ahKVWqqQaalQ)
@@ -65,7 +67,7 @@ The focus of this course is conceptual. The goal is to create a working understa
 
 *…a replacement for EC420, EC422, or a course in causal inference.*
 
-As social scientists, we are most often concerned with causal inference in order to analyze and write policies. Statistical learning and the other methods we will discuss in this course are generally not well-suited to these problems, and while I’ll give a short overview of standard methods, this is only to build intuitions. Ultimately, this course has a different focus and you should still pursue standard methodological insights from your home departments.
+As social scientists, we are most often concerned with causal inference in order to anaOpelyze and write policies. Statistical learning and the other methods we will discuss in this course are generally not well-suited to these problems, and while I’ll give a short overview of standard methods, this is only to build intuitions. Ultimately, this course has a different focus and you should still pursue standard methodological insights from your home departments.
 
 *…a course on the computational aspects of the underlying methods.*
 
@@ -238,7 +240,9 @@ All class material will be posted on https://ssc442kirkpatrick.netlify.app. D2L 
 
 ### Using Office Hours
 
-Please use my drop-in Office House Wednesdays 2-3pm and by appointment. I will always stay from 2 to 2:30, but if nobody is present at 2:30, I will likely depart my office. If you wish to arrive after 2:30, just email me to let me know and I will be here. It would be remarkable if you didn’t need some assistance with the material, and I am here to help.  One of the benefits of open office hours is to accommodate many students at once; if fellow students are in my office, please join in and feel very free to show up in groups. 
+Please use my drop-in Office House Fridays 10:15 - 12:00 and by appointment. I will always stay from 10:15 to 11:00, but if nobody is present at 11:00, I will likely depart my office. If you wish to arrive after 11, just email me to let me know and I will be here. 
+
+It would be remarkable if you didn’t need some assistance with the material, and I am here to help.  One of the benefits of open office hours is to accommodate many students at once; if fellow students are in my office, please join in and feel very free to show up in groups. 
 
 As a general rule, please first seek course-related help from the TA or my drop-in office hours. However, if my scheduled office hours are always infeasible for you, let me know, and then I may encourage you to make appointments with me. I ask that you schedule your studying so that you are prepared to ask questions during office hours – office hours are not a lecture and if you’re not prepared with questions we will end up awkwardly staring at each other for an hour until you leave.
 
