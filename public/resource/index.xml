@@ -13,22 +13,23 @@
     </image>
     
     <item>
-      <title>Installing R, RStudio, tidyverse, and tinytex</title>
+      <title>Installing R, RStudio/Posit, tidyverse, and tinytex</title>
       <link>https://ssc442kirkpatrick.netlify.app/resource/install/</link>
-      <pubDate>Tue, 30 Aug 2022 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 28 Aug 2023 00:00:00 +0000</pubDate>
       <guid>https://ssc442kirkpatrick.netlify.app/resource/install/</guid>
       <description>
 
 &lt;div id=&#34;TOC&#34;&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#install-r&#34;&gt;Install &lt;code&gt;R&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#install-rstudio&#34;&gt;Install RStudio&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#install-tidyverse&#34;&gt;Install &lt;code&gt;tidyverse&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#install-tinytex&#34;&gt;Install &lt;code&gt;tinytex&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#install-r&#34; id=&#34;toc-install-r&#34;&gt;Install &lt;code&gt;R&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#install-rstudioposit&#34; id=&#34;toc-install-rstudioposit&#34;&gt;Install RStudio/Posit&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#install-tidyverse&#34; id=&#34;toc-install-tidyverse&#34;&gt;Install &lt;code&gt;tidyverse&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#install-tinytex&#34; id=&#34;toc-install-tinytex&#34;&gt;Install &lt;code&gt;tinytex&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 
-&lt;p&gt;As mentioned in the syllabus, you will do all of your work in this class with the open source programming language &lt;a href=&#34;https://cran.r-project.org/&#34;&gt;&lt;code&gt;R&lt;/code&gt;&lt;/a&gt;. You will use &lt;a href=&#34;https://www.rstudio.com/&#34;&gt;RStudio&lt;/a&gt; as the main program to access &lt;code&gt;R&lt;/code&gt;. Think of &lt;code&gt;R&lt;/code&gt; as an engine and RStudio as a car dashboard—–&lt;code&gt;R&lt;/code&gt; handles all the calculations and the actual statistics, while RStudio provides a nice interface for running &lt;code&gt;R&lt;/code&gt; code.&lt;/p&gt;
+&lt;p&gt;As mentioned in the syllabus, you will do all of your work in this class with the open source programming language &lt;a href=&#34;https://cran.r-project.org/&#34;&gt;&lt;code&gt;R&lt;/code&gt;&lt;/a&gt;. You will use &lt;a href=&#34;https://www.rstudio.com/&#34;&gt;RStudio/Posit&lt;/a&gt; as the main program to access &lt;code&gt;R&lt;/code&gt;. Think of &lt;code&gt;R&lt;/code&gt; as an engine and RStudio/Posit as a car dashboard—–&lt;code&gt;R&lt;/code&gt; handles all the calculations and the actual statistics, while RStudio provides a nice interface for running &lt;code&gt;R&lt;/code&gt; code.&lt;/p&gt;
+&lt;p&gt;RStudio is in the process of rebranding as Posit. You’ll see both along the way.&lt;/p&gt;
 &lt;p&gt;Hopefully you’re well-versed in dealing with these things, but if you’re lost, here’s how you install the required software for the course.&lt;/p&gt;
 &lt;div id=&#34;install-r&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Install &lt;code&gt;R&lt;/code&gt;&lt;/h3&gt;
@@ -48,16 +49,18 @@
 &lt;li&gt;&lt;p&gt;If you use macOS, &lt;a href=&#34;https://www.xquartz.org/&#34;&gt;download and install XQuartz&lt;/a&gt;. You do not need to do this on Windows.&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
-&lt;div id=&#34;install-rstudio&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Install RStudio&lt;/h3&gt;
-&lt;p&gt;Next, you need to install the most recent version of RStudio, the nicer graphical user interface (GUI) for &lt;code&gt;R&lt;/code&gt; (the dashboard). Once &lt;code&gt;R&lt;/code&gt; and RStudio are both installed, you can ignore &lt;code&gt;R&lt;/code&gt; and only use RStudio. RStudio will use &lt;code&gt;R&lt;/code&gt; automatically and you won’t ever have to interact with it directly.&lt;/p&gt;
+&lt;div id=&#34;install-rstudioposit&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Install RStudio/Posit&lt;/h3&gt;
+&lt;p&gt;Next, you need to install the most recent version of RStudio, the nicer graphical user interface (GUI) for &lt;code&gt;R&lt;/code&gt; (the dashboard). Once &lt;code&gt;R&lt;/code&gt; and RStudio/Posit are both installed, you can ignore &lt;code&gt;R&lt;/code&gt; and only use RStudio. RStudio will use &lt;code&gt;R&lt;/code&gt; automatically and you won’t ever have to interact with it directly.&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;&lt;p&gt;Go to the free download location on RStudio’s website: &lt;a href=&#34;https://www.rstudio.com/products/rstudio/download/#download&#34; class=&#34;uri&#34;&gt;https://www.rstudio.com/products/rstudio/download/#download&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;The website should automatically detect your operating system (macOS or Windows) and show a big download button for it:&lt;/p&gt;
+&lt;li&gt;Go to the free download location on RStudio’s website: &lt;a href=&#34;https://www.rstudio.com/products/rstudio/download/#download&#34; class=&#34;uri&#34;&gt;https://www.rstudio.com/products/rstudio/download/#download&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;The website should automatically detect your operating system (macOS or Windows) and show a big download button for it:&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;&lt;img src=&#34;../../../../../../../img/install/install-r-rstudio1.png&#34; width=&#34;50%&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;If not, scroll down a little to the large table and choose the version of RStudio that matches your operating system.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;../../../../../../../img/install/install-r-rstudio2.png&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Double click on the downloaded file (again, check your &lt;code&gt;Downloads&lt;/code&gt; folder). Click yes through all the prompts to install like any other program.&lt;/p&gt;&lt;/li&gt;
+&lt;p&gt;&lt;img src=&#34;../../../../../../../img/install/install-r-rstudio2.png&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;
+&lt;ol start=&#34;3&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Double click on the downloaded file (again, check your &lt;code&gt;Downloads&lt;/code&gt; folder). Click yes through all the prompts to install like any other program.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Double click on RStudio to run it (check your applications folder or start menu).&lt;/p&gt;
 &lt;/div&gt;
@@ -85,7 +88,7 @@
 &lt;p&gt;&lt;img src=&#34;RenderedPDF.png&#34; width=&#34;962&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;See the Markdown and R Markdown sidebars for instructions on using the template.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class=&#34;footnotes&#34;&gt;
+&lt;div class=&#34;footnotes footnotes-end-of-document&#34;&gt;
 &lt;hr /&gt;
 &lt;ol&gt;
 &lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;It’s a goofy name, but CRAN is where most &lt;code&gt;R&lt;/code&gt; packages—and R itself—lives.&lt;a href=&#34;#fnref1&#34; class=&#34;footnote-back&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
@@ -178,7 +181,7 @@
     </item>
     
     <item>
-      <title>Using Rstudio Cloud</title>
+      <title>Using Rstudio/Posit Cloud</title>
       <link>https://ssc442kirkpatrick.netlify.app/resource/rstudiocloud/</link>
       <pubDate>Mon, 28 Aug 2023 00:00:00 +0000</pubDate>
       <guid>https://ssc442kirkpatrick.netlify.app/resource/rstudiocloud/</guid>

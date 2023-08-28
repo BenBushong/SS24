@@ -1,5 +1,5 @@
 ---
-title: Using Rstudio Cloud
+title: Using Rstudio/Posit Cloud
 date: "2023-08-28"
 menu:
   resource:

@@ -1,5 +1,5 @@
 ---
-title: Installing R, RStudio, tidyverse, and tinytex
+title: Installing R, RStudio/Posit, tidyverse, and tinytex
 date: "2023-08-28"
 menu:
   resource:
