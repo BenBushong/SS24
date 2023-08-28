@@ -162,7 +162,7 @@ The power of Rmarkdown is that it lets us mix formatted text with R code. That i
 
 If you're new to Rmarkdown, I have made [a short video on how to use it <i class="fas fa-film"></i> ](https://mediaspace.msu.edu/media/Spring2021_R_Part3/1_yigvqy1i). This video is for my EC420 course, but works for us as well.
 
-If we have time today, let's open the template linked above and see what happens when we select "knit to pdf". If you do not wind up with a PDF rendered using LaTeX that looks like the one below, then check for errors. The most common one is not having LaTeX and tinytex installed. See [our resource page and follow instructions there](/resource/install/)
+If we have time today, let's open the template linked above and see what happens when we select "knit to pdf". If you do not wind up with a PDF rendered using LaTeX that looks like the one below, then check for errors. The most common one is not having tinytex and latex installed (tinytex will install a light version of latex). See [our resource page and follow instructions there to install tinytex](/resource/install/#install-tinytex-1)
 
 
 
