@@ -5724,11 +5724,11 @@ case_when(x &amp;lt; 0 ~ &amp;quot;Negative&amp;quot;,
 
 &lt;div id=&#34;TOC&#34;&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#course-times-and-zoom-links&#34; id=&#34;toc-course-times-and-zoom-links&#34;&gt;Course Times and Zoom links&lt;/a&gt;
+&lt;li&gt;&lt;a href=&#34;#course-times-and-office-hours&#34; id=&#34;toc-course-times-and-office-hours&#34;&gt;Course Times and Office Hours&lt;/a&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#lecture&#34; id=&#34;toc-lecture&#34;&gt;Lecture&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#office-hours&#34; id=&#34;toc-office-hours&#34;&gt;Office hours&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#teaching-assistant&#34; id=&#34;toc-teaching-assistant&#34;&gt;Teaching Assistant&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#office-hours---prof.-k&#34; id=&#34;toc-office-hours---prof.-k&#34;&gt;Office hours - Prof. K&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#office-hours---teaching-assistant&#34; id=&#34;toc-office-hours---teaching-assistant&#34;&gt;Office Hours - Teaching Assistant&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#slack&#34; id=&#34;toc-slack&#34;&gt;Slack&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#what-is-this-course-and-can-should-you-take-it&#34; id=&#34;toc-what-is-this-course-and-can-should-you-take-it&#34;&gt;What is This Course and Can / Should You Take It?&lt;/a&gt;&lt;/li&gt;
@@ -5760,24 +5760,23 @@ case_when(x &amp;lt; 0 ~ &amp;quot;Negative&amp;quot;,
 &lt;/ul&gt;
 &lt;/div&gt;
 
-&lt;div id=&#34;course-times-and-zoom-links&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Course Times and Zoom links&lt;/h2&gt;
-&lt;p&gt;Please bookmark lecture and office hour Zoom links.&lt;/p&gt;
+&lt;div id=&#34;course-times-and-office-hours&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Course Times and Office Hours&lt;/h2&gt;
 &lt;div id=&#34;lecture&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Lecture&lt;/h3&gt;
 &lt;p&gt;We meet in 116 Natural Sciences Tuesdays and Thursdays, 1:30 - 2:50 pm. This class is in-person and will not have an online component.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div id=&#34;office-hours&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Office hours&lt;/h3&gt;
-&lt;p&gt;Sunday evenings via Slack&lt;/p&gt;
+&lt;div id=&#34;office-hours---prof.-k&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Office hours - Prof. K&lt;/h3&gt;
 &lt;p&gt;Fridays 10:15 - 11:45 (and by appointment) (if you are planning on arriving after 11, please email Prof. K. Otherwise, he will depart at 11).&lt;/p&gt;
 &lt;p&gt;Office Hours for Prof. K are in-person, 105 Old Botany (Old Botany is on W. Circle Drive near the Grand River parking ramp. 105 is on the first floor.)&lt;/p&gt;
+&lt;p&gt;Sunday evenings office hours are via Slack after 7:30pm or so till about 9pm.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div id=&#34;teaching-assistant&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Teaching Assistant&lt;/h3&gt;
+&lt;div id=&#34;office-hours---teaching-assistant&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Office Hours - Teaching Assistant&lt;/h3&gt;
 &lt;p&gt;Nick Armstrong - &lt;a href=&#34;mailto:armst427@msu.edu&#34;&gt;armst427@msu.edu&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;TA Office Hours: Wednesdays 2-3pm and via Slack (if you are arriving after 2:30pm, please email Nick to let him know. Otherwise, he will depart the Zoom at 2:30)&lt;/p&gt;
-&lt;p&gt;TA Office Hours Zoom: &lt;a href=&#34;https://www.aeaweb.org/content/file?id=222&#34;&gt;https://www.aeaweb.org/content/file?id=222&lt;/a&gt; (Passcode: 592204)&lt;/p&gt;
+&lt;p&gt;TA Office Hours Zoom: &lt;a href=&#34;https://msu.zoom.us/j/94474676913&#34;&gt;https://msu.zoom.us/j/94474676913&lt;/a&gt; (Passcode: 592204)&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;slack&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Slack&lt;/h3&gt;

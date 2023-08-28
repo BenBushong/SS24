@@ -17,28 +17,27 @@ library(tibble)
 library(pander)
 ```
 
-## Course Times and Zoom links
-
-Please bookmark lecture and office hour Zoom links. 
+## Course Times and Office Hours
 
 ### Lecture
 We meet in 116 Natural Sciences Tuesdays and Thursdays, 1:30 - 2:50 pm. This class is in-person and will not have an online component.
 
 
-
-### Office hours
-Sunday evenings via Slack
+### Office hours - Prof. K
 
 Fridays 10:15 - 11:45 (and by appointment) (if you are planning on arriving after 11, please email Prof. K. Otherwise, he will depart at 11).
 
 Office Hours for Prof. K are in-person, 105 Old Botany (Old Botany is on W. Circle Drive near the Grand River parking ramp. 105 is on the first floor.)
 
-### Teaching Assistant
+Sunday evenings office hours are via Slack after 7:30pm or so till about 9pm.
+
+
+### Office Hours - Teaching Assistant
 Nick Armstrong - [armst427@msu.edu](mailto:armst427@msu.edu)
 
 TA Office Hours: Wednesdays 2-3pm and via Slack (if you are arriving after 2:30pm, please email Nick to let him know. Otherwise, he will depart the Zoom at 2:30)
 
-TA Office Hours Zoom: [https://www.aeaweb.org/content/file?id=222](https://www.aeaweb.org/content/file?id=222) (Passcode: 592204)
+TA Office Hours Zoom: [https://msu.zoom.us/j/94474676913](https://msu.zoom.us/j/94474676913) (Passcode: 592204)
 
 ### Slack
 We will use Slack as a forum for asking questions about the course, including course policies and, primarily, help questions with R. Students are encouraged to help answer each others' questions, and to use the forum as a first-step for seeking help. I, and our TA, will monitor slack and answer questions regularly. You can [join our Slack channel with this link by September 20th](https://join.slack.com/t/ssc442fall23/shared_invite/zt-21po16rx0-eSBByPJt~4ahKVWqqQaalQ)
