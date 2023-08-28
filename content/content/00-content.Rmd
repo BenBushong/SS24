@@ -166,7 +166,7 @@ This course should be applicable broadly, but many of the examples will lean on 
 
 Your assignment: read syllabus, the content from Week 0, and the Example from Week 0 for Thursday. Make sure R and RStudio is running, and make sure you can knit your Rmarkdown template to PDF. Do your weekly writing due **Saturday**. Begin working on Lab 0 as it is due Monday.
 
-Things to stress from syllabus:
+Things to stress from [syllabus](/syllabus/):
 
 - E-mail isn't the ideal solution for technical problems
 - No appointments necessary for regularly scheduled office hours; or by appointment.

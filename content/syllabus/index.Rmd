@@ -29,17 +29,17 @@ We meet in 116 Natural Sciences Tuesdays and Thursdays, 12:40 - 2:00 pm. This cl
 ### Office hours
 Wednesdays 2:00pm - 3:00pm and by appointment
 
-Office Hours Zoom: [https://msu.zoom.us/j/91759862734](https://msu.zoom.us/j/91759862734?pwd=VDliRHdoQ3N4L3V4LzNFd3IzcGw2dz09) (Passcode: DATA)
+Office Hours for Prof. K are in-person, 105 Old Botany (OB is on W. Circle Drive near the Grand River parking ramp. 105 is on the first floor.)
 
 ### Teaching Assistant
-Sam Tucker - [tucke130@msu.edu](mailto:tucke130@msu.edu)
+Nick Armstrong - [armst427@msu.edu](mailto:armst427@msu.edu)
 
-TA Office Hours: Monday 1:00 pm - 2:30 pm and Friday 3:30 pm - 4:30 pm
+TA Office Hours: TBA
 
-TA Office Hours Zoom: [https://msu.zoom.us/j/7575598928](https://msu.zoom.us/j/7575598928) (Passcode: SSC442)
+TA Office Hours Zoom: [TBA](TBA) (Passcode: TBA)
 
 ### Slack
-We will use Slack as a forum for asking questions about the course, including course policies and, primarily, help questions with R. Students are encouraged to help answer each others' questions, and to use the forum as a first-step for seeking help. I, and our TA, will monitor slack and answer questions regularly. You can [join our Slack channel with this link](https://join.slack.com/t/ssc442kirkpatrickhq/shared_invite/zt-1eku04roj-GQGFSNtlccF0ewb7tdvpOA)
+We will use Slack as a forum for asking questions about the course, including course policies and, primarily, help questions with R. Students are encouraged to help answer each others' questions, and to use the forum as a first-step for seeking help. I, and our TA, will monitor slack and answer questions regularly. You can [join our Slack channel with this link by September 20th](https://join.slack.com/t/ssc442fall23/shared_invite/zt-21po16rx0-eSBByPJt~4ahKVWqqQaalQ)
 
 ## What is This Course and Can / Should You Take It?
 
@@ -101,13 +101,13 @@ The course website can be found at [https://ssc442Kirkpatrick.netlify.app](https
 
 All of the readings and software in this class are **free**. There are free online version of all the texts including [**Introduction to Statistical Learning (2nd Ed)**](https://www.statlearning.com/) and `R` / RStudio are free (don't pay for RStudio). We will reference outside readings and there exist paper versions of some "books" but you won't need to buy anything^[If you've got money to burn, you can buy me a burrito.]
 
-### R and RStudio
+### R and RStudio/Posit
 
-You will do all of your analysis with the open source (and free!) programming language [`R`](https://cran.r-project.org/). You will use [RStudio](https://www.rstudio.com/) as the main program to access R. **Think of `R` as an engine and RStudio as a car dashboard**---`R` handles all the calculations produces the actual statistics and graphical output, while RStudio provides a nice interface for running `R` code.
+You will do all of your analysis with the open source (and free!) programming language [`R`](https://cran.r-project.org/). You will use [RStudio](https://www.rstudio.com/) (which is undergoing a slow-mo rebrand to "Posit" while the functionality remains the same) as the main program to access R. **Think of `R` as an engine and RStudio as a car dashboard**---`R` handles all the calculations produces the actual statistics and graphical output, while RStudio provides a nice interface for running `R` code.
 
-`R` is free, but it can sometimes be a pain to install and configure. To make life easier, you can (and should!) use the free [RStudio.cloud](http://rstudio.cloud/) service, which lets you run a full instance of RStudio in your web browser. This means you won't have to install anything on your computer to get started with `R`. We recommend this for those who may be switching between computers and are trying to get some work done. That said, while RStudio.cloud is convenient, it can be slow and it is not designed to be able to handle larger datasets or more complicated analysis and graphics. You also can't use your own custom fonts with RStudio.cloud.^[This bothers me way more than it should.] And, generally speaking, you should have (from the prerequisite course) sufficient experience to make your `R` work. If not, over the course of the semester, you'll probably want to get around to installing `R`, RStudio, and other `R` packages on your computer and wean yourself off of RStudio.cloud. If you plan on making a career out of data science, you should consider this a necessary step.
+`R` is free, but it can sometimes be a pain to install and configure. To make life easier, you can (and should!) use the free [Posit.cloud](http://posit.cloud/) (formerly Rstudio.cloud) service, which lets you run a full instance of RStudio in your web browser. This means you won't have to install anything on your computer to get started with `R`. We recommend this for those who may be switching between computers and are trying to get some work done. That said, while Posit.cloud is convenient, it can be slow and it is not designed to be able to handle larger datasets or more complicated analysis and graphics. You also can't use your own custom fonts with RStudio.cloud.^[This bothers me way more than it should.] And, generally speaking, you should have (from the prerequisite course) sufficient experience to make your `R` work. If not, over the course of the semester, you'll probably want to get around to installing `R`, RStudio, and other `R` packages on your computer and wean yourself off of RStudio.cloud. If you plan on making a career out of data science, you should consider this a necessary step.
 
-You can [find instructions for installing `R`, RStudio, and all the tidyverse packages here.](/resource/install/) And you may find some other goodies.
+You can [find instructions for installing `R`, RStudio/Posit, and all the tidyverse packages here.](/resource/install/) And you may find some other goodies.
 
 ### Online help
 
@@ -115,11 +115,9 @@ Data science and statistical programming can be difficult. Computers are stupid 
 
 Fortunately there are tons of online resources to help you with this. Two of the most important are [StackOverflow](https://stackoverflow.com/) (a Q&A site with hundreds of thousands of answers to all sorts of programming questions) and [RStudio Community](https://community.rstudio.com/) (a forum specifically designed for people using RStudio and the tidyverse (i.e. you)).
 
-If you use Twitter, post R-related questions and content with [#rstats](https://twitter.com/search?q=%23rstats). The community there is exceptionally generous and helpful.
-
 Searching for help with `R` on Google can sometimes be tricky because the program name is, um, a single letter. Google is generally smart enough to figure out what you mean when you search for "r scatterplot", but if it does struggle, try searching for "rstats" instead (e.g. "rstats scatterplot"). Likewise, whenever using a specific package, try searching for that package name instead of the letter "r" (e.g. "ggplot scatterplot"). Good, concise searches are generally more effective.
 
-**Help with Using R**: There are some excellent additional tutorials on R available through [Rstudio Clould Primers](https://rstudio.cloud/learn/primers).
+**Help with Using R**: There are some excellent additional tutorials on R available through [Rstudio/Posit Clould Primers](https://rstudio.cloud/learn/primers).
 
 ## Evaluations and Grades
 
@@ -188,6 +186,14 @@ Participation can take many forms. Most preferred is active participation during
 
 Violation of [MSU's Spartan Code of Honor](http://asmsu.msu.edu/home/initiatives/spartan-code-of-honor/) will result in a grade of 0.0 in the course. Moreover, I am required by MSU policy to report suspected cases of academic dishonesty for possible disciplinary action.^[So just don't cheat or plagiarize. This is an easy problem to avoid.]
 
+### Generative AI
+Generative AI is both a computing resource and potential avenue for cheating in violation of the Spartan Code of Honor (see Academic Integrity, below). For this course, some use of generative AI is permitted or forbidden as follows:
+
+-	For the purposes of learning R coding, data cleaning and processing, visualization, and other coding applications of R, you are fully permitted to use ChatGPT or other generative AI models provided you indicate such a use at the top of your problem set, and include a comment `# used generative AI` in your code. When “stuck” on coding, I have always encouraged students to use Stack Overflow to find similar problems and then translate the found solutions into the problem at hand. It is one of the most important skills in coding. Generative AI facilitates this process, and thus is a tool. Since R itself is a tool to help you learn and apply the material, I view using generative AI for help in specific coding tasks as a suitable use. You must, in all cases, understand what your code is doing, and be able to justify its use. If you cannot tell me, on review, what a line of code is used for, then you have not used generative AI properly.
+
+-	Using generative AI to solve a complete problem set or problem set question beyond the mechanics and specifics of R coding is absolutely prohibited. Using generative AI to solve a problem verbatim without understanding the coding solution is absolutely prohibited. Violation of this policy is a violation of the Spartan Code of Honor and will result in immediate disciplinary action. See Academic honest above. I will not hesitate to file an academic dishonesty report.
+
+
 ### Grading
 
 All grades are considered final. Any request for a re-grade beyond simple point-tallying mistakes will require that the entire assignment be re-graded. Any points previously awarded may be changed in either direction in the re-grade.
@@ -232,9 +238,9 @@ All class material will be posted on https://ssc442kirkpatrick.netlify.app. D2L 
 
 ### Using Office Hours
 
-Please use my [Drop-In Office Hours](https://msu.zoom.us/j/91759862734?pwd=VDliRHdoQ3N4L3V4LzNFd3IzcGw2dz09) (Passcode: DATA) Wednesdays 2-3pm and by appointment. It would be remarkable if you didn’t need some assistance with the material, and I am here to help.  One of the benefits of open office hours is to accommodate many students at once; if fellow students are "in my office", please join in and feel very free to show up in groups. (This bit of the syllabus obviously less critical in the COVID Era). Office hours will move around a little bit throughout the semester to attempt to meet the needs of all students.
+Please use my drop-in Office House Wednesdays 2-3pm and by appointment. I will always stay from 2 to 2:30, but if nobody is present at 2:30, I will likely depart my office. If you wish to arrive after 2:30, just email me to let me know and I will be here. It would be remarkable if you didn’t need some assistance with the material, and I am here to help.  One of the benefits of open office hours is to accommodate many students at once; if fellow students are in my office, please join in and feel very free to show up in groups. 
 
-As a general rule, please first seek course-related help from the drop-in office hours. However, if my scheduled office hours are always infeasible for you, let me know, and then I may encourage you to make appointments with me. I ask that you schedule your studying so that you are prepared to ask questions during office hours – office hours are not a lecture and if you’re not prepared with questions we will end up awkwardly staring at each other for an hour until you leave.
+As a general rule, please first seek course-related help from the TA or my drop-in office hours. However, if my scheduled office hours are always infeasible for you, let me know, and then I may encourage you to make appointments with me. I ask that you schedule your studying so that you are prepared to ask questions during office hours – office hours are not a lecture and if you’re not prepared with questions we will end up awkwardly staring at each other for an hour until you leave.
 
 Some gentle requests regarding office hours and on contacting me. First, my office hours end sharply at the end, so don’t arrive 10 minutes before the scheduled end and expect a full session. Please arrive early if you have lengthy questions, or if you don’t want to risk not having time due to others’ questions. You are free to ask me some stuff by e-mail, (e.g. a typo or something on a handout), but please know e-mail sucks for answering many types of questions. “How do I do this lab?” or “What’s up with `R`?” are short questions with long answers. Come to office hours.
 
