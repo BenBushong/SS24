@@ -1,6 +1,6 @@
 ---
 title: Installing R, RStudio, tidyverse, and tinytex
-date: "2022-08-30"
+date: "2023-08-28"
 menu:
   resource:
     parent: Guides
@@ -16,7 +16,9 @@ library(knitr)
 library(here)
 ```
 
-As mentioned in the syllabus, you will do all of your work in this class with the open source programming language [`R`](https://cran.r-project.org/). You will use [RStudio](https://www.rstudio.com/) as the main program to access `R`. Think of `R` as an engine and RStudio as a car dashboard—--`R` handles all the calculations and the actual statistics, while RStudio provides a nice interface for running `R` code.
+As mentioned in the syllabus, you will do all of your work in this class with the open source programming language [`R`](https://cran.r-project.org/). You will use [RStudio/Posit](https://www.rstudio.com/) as the main program to access `R`. Think of `R` as an engine and RStudio/Posit as a car dashboard—--`R` handles all the calculations and the actual statistics, while RStudio provides a nice interface for running `R` code.
+
+RStudio is in the process of rebranding as Posit. You'll see both along the way.
 
 Hopefully you're well-versed in dealing with these things, but if you're lost, here's how you install the required software for the course.
 
@@ -50,22 +52,22 @@ First you need to install `R` itself (the engine).
 4. If you use macOS, [download and install XQuartz](https://www.xquartz.org/). You do not need to do this on Windows.
 
 
-### Install RStudio
+### Install RStudio/Posit
 
-Next, you need to install the most recent version of RStudio, the nicer graphical user interface (GUI) for `R` (the dashboard). Once `R` and RStudio are both installed, you can ignore `R` and only use RStudio. RStudio will use `R` automatically and you won't ever have to interact with it directly.
+Next, you need to install the most recent version of RStudio, the nicer graphical user interface (GUI) for `R` (the dashboard). Once `R` and RStudio/Posit are both installed, you can ignore `R` and only use RStudio. RStudio will use `R` automatically and you won't ever have to interact with it directly.
 
 1. Go to the free download location on RStudio's website: <https://www.rstudio.com/products/rstudio/download/#download>
 2. The website should automatically detect your operating system (macOS or Windows) and show a big download button for it:
 
-    ```{r, echo=FALSE, out.width="50%"}
+```{r, echo=FALSE, out.width="50%"}
     include_graphics("/img/install/install-r-rstudio1.png", error = FALSE)
-    ```
+```
 
-    If not, scroll down a little to the large table and choose the version of RStudio that matches your operating system.
+If not, scroll down a little to the large table and choose the version of RStudio that matches your operating system.
 
-    ```{r, echo=FALSE, out.width="100%"}
-    include_graphics("/img/install/install-r-rstudio2.png", error = FALSE)
-    ```
+```{r, echo=FALSE, out.width="100%"}
+include_graphics("/img/install/install-r-rstudio2.png", error = FALSE)
+```
 
 3. Double click on the downloaded file (again, check your `Downloads` folder). Click yes through all the prompts to install like any other program.
 

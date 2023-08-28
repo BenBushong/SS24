@@ -1,6 +1,6 @@
 ---
 title: Using Rstudio Cloud
-date: "2022-08-30"
+date: "2023-08-28"
 menu:
   resource:
     parent: Guides
@@ -16,15 +16,15 @@ library(knitr)
 library(here)
 ```
 
-# What is Rstudio.cloud?
+# What is ~~Rstudio.cloud~~ Posit.cloud?
 
-Installing R and RStudio locally (on your computer) is the preferred method. Additionally, most MSU computer labs have R and RStudio installed. However, if your computer isn't able to run RStudio, or you run into errors that we can't troubleshoot, using RStudio Cloud is a viable alternative. Hosted at [Rstudio.cloud](https://rstudio.cloud), RStudio Cloud is an online, web-based version of R and RStudio. On the "pro" side, it doesn't require anything of your system except a functioning browser and can be up and running in a few minutes. The "con", though, is that you must have an internet connection to use it, and it is limited to 25 hours per month for the free account (and \$5/month for up to 75 hours per month). You shouldn't need more than 25 hours per month, but if you're very new to coding, it's possible you will.
+Installing R and RStudio/Posit locally (on your computer) is the preferred method. Additionally, most MSU computer labs have R and RStudio installed. However, if your computer isn't able to run RStudio, or you run into errors that we can't troubleshoot, using RStudio Cloud is a viable alternative. Hosted at [Posit.cloud](https://posit.cloud), ~~RStudio~~ Posit Cloud is an online, web-based version of R and RStudio. On the "pro" side, it doesn't require anything of your system except a functioning browser and can be up and running in a few minutes. The "con", though, is that you must have an internet connection to use it, and it is limited to 25 hours per month for the free account (and \$5/month for up to 75 hours per month). You shouldn't need more than 25 hours per month, but if you're very new to coding, it's possible you will.
 
+Both Rstudio.cloud and Posit.cloud take you to the same site -- posit.cloud. RStudio is in the process of rebranding to Posit. I have updated some, but not all, references here.
 
+# Setting up Posit.cloud
 
-# Setting up RStudio.cloud
-
-1. Start by going to [RStudio.cloud](https://Rstudio.cloud) and create a free account.
+1. Start by going to [Posit.cloud](https://posit.cloud) and create a free account.
 2. Click "Your Workspace"
 3. In the top right corner, click on "New Project" and name it something like "SSC442"
 
