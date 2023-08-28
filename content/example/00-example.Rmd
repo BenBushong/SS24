@@ -154,7 +154,7 @@ As we move through this course, we will constantly be adding to our toolbox of p
 
 ## Rmarkdown
 
-Markdown is a general-purpose syntax for laying out documents. Rmarkdown is a combination of R and markdown, as the name implies. When using markdown, one can define headers and tables using specific notation, and depending on the rendering engine, the headers and tables (and a whole lot more) are customized. In fact, this whole website is built in R using Rmarkdown (and a lot of add-ons like Hugo and blogdown). In other contexts, the rendering engine may recognize that your headers are likely to be entries in a table of contents, and does so for you. The table of contents at the top of this document is built from the markdown headers.![Plot title. ](00-example_insertimage_1.png)
+Markdown is a general-purpose syntax for laying out documents. Rmarkdown is a combination of R and markdown, as the name implies. When using markdown, one can define headers and tables using specific notation, and depending on the rendering engine, the headers and tables (and a whole lot more) are customized. In fact, this whole website is built in R using Rmarkdown (and a lot of add-ons like Hugo and blogdown). In other contexts, the rendering engine may recognize that your headers are likely to be entries in a table of contents, and does so for you. The table of contents at the top of this document is built from the markdown headers.
 
 The power of Rmarkdown is that it lets us mix formatted text with R code. That is, you can have a section of the document that understands R code, and a separate section right after that discusses the results from the R code.
 
@@ -165,9 +165,6 @@ If you're new to Rmarkdown, I have made [a short video on how to use it <i class
 If we have time today, let's open the template linked above and see what happens when we select "knit to pdf". If you do not wind up with a PDF rendered using LaTeX that looks like the one below, then check for errors. The most common one is not having LaTeX and tinytex installed. See [our resource page and follow instructions there](resource/install/)
 
 
-```{r, eval=T, echo=F}
-knitr::include_graphics('./00-example_insertimage_1.png')
-```
 
-
+![Screentshot of header of PDF file properly rendered ](/example/00-example_files/00-example_insertimage_1.png)
 
