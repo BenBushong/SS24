@@ -3,28 +3,23 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://ssc442kirkpatrick.netlify.app/example/04-example/</loc>
-    <lastmod>2022-09-29T10:56:20-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ssc442kirkpatrick.netlify.app/example/03-example/</loc>
-    <lastmod>2022-09-23T13:37:47-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ssc442kirkpatrick.netlify.app/example/02-example/</loc>
-    <lastmod>2022-09-13T10:33:50-04:00</lastmod>
+    <loc>https://ssc442kirkpatrick.netlify.app/example/00-example/</loc>
+    <lastmod>2023-08-28T08:17:13-04:00</lastmod>
   </url>
   
   <url>
     <loc>https://ssc442kirkpatrick.netlify.app/example/01-example/</loc>
-    <lastmod>2022-09-08T06:07:33-04:00</lastmod>
+    <lastmod>2023-08-21T15:24:49-04:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ssc442kirkpatrick.netlify.app/example/00-example/</loc>
-    <lastmod>2022-08-30T07:01:25-04:00</lastmod>
+    <loc>https://ssc442kirkpatrick.netlify.app/example/02-example/</loc>
+    <lastmod>2023-08-21T15:24:49-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ssc442kirkpatrick.netlify.app/example/03-example/</loc>
+    <lastmod>2023-08-21T15:24:49-04:00</lastmod>
   </url>
   
   <url>
@@ -34,57 +29,7 @@
   
   <url>
     <loc>https://ssc442kirkpatrick.netlify.app/assignment/00-assignment/</loc>
-    <lastmod>2022-08-30T11:20:41-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ssc442kirkpatrick.netlify.app/example/10-example/</loc>
-    <lastmod>2022-11-10T09:36:45-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ssc442kirkpatrick.netlify.app/assignment/10-assignment/</loc>
-    <lastmod>2022-10-31T09:23:13-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ssc442kirkpatrick.netlify.app/assignment/11-assignment/</loc>
-    <lastmod>2022-11-14T09:30:28-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ssc442kirkpatrick.netlify.app/example/11-example/</loc>
-    <lastmod>2022-11-14T09:18:28-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ssc442kirkpatrick.netlify.app/example/12-example/</loc>
-    <lastmod>2022-11-18T16:29:22-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ssc442kirkpatrick.netlify.app/assignment/12-assignment/</loc>
-    <lastmod>2022-11-19T09:15:52-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ssc442kirkpatrick.netlify.app/assignment/13-assignment/</loc>
-    <lastmod>2022-12-01T11:30:19-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ssc442kirkpatrick.netlify.app/example/13-example/</loc>
-    <lastmod>2022-12-01T10:01:29-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ssc442kirkpatrick.netlify.app/assignment/14-assignment/</loc>
-    <lastmod>2022-11-29T06:35:54-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ssc442kirkpatrick.netlify.app/example/14-example/</loc>
-    <lastmod>2022-11-29T06:35:54-05:00</lastmod>
+    <lastmod>2023-08-21T15:24:49-04:00</lastmod>
   </url>
   
   <url>
@@ -94,7 +39,7 @@
   
   <url>
     <loc>https://ssc442kirkpatrick.netlify.app/assignment/02-assignment/</loc>
-    <lastmod>2022-08-30T11:20:41-04:00</lastmod>
+    <lastmod>2023-08-21T15:24:49-04:00</lastmod>
   </url>
   
   <url>
@@ -103,58 +48,8 @@
   </url>
   
   <url>
-    <loc>https://ssc442kirkpatrick.netlify.app/assignment/04-assignment/</loc>
-    <lastmod>2022-09-28T08:08:12-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ssc442kirkpatrick.netlify.app/assignment/05-assignment/</loc>
-    <lastmod>2022-10-06T07:40:00-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ssc442kirkpatrick.netlify.app/example/05-example/</loc>
-    <lastmod>2022-10-06T07:40:00-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ssc442kirkpatrick.netlify.app/assignment/06-assignment/</loc>
-    <lastmod>2022-10-11T09:08:40-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ssc442kirkpatrick.netlify.app/example/06-example/</loc>
-    <lastmod>2022-10-13T11:12:20-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ssc442kirkpatrick.netlify.app/assignment/07-assignment/</loc>
-    <lastmod>2022-10-17T10:12:10-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ssc442kirkpatrick.netlify.app/example/07-example/</loc>
-    <lastmod>2022-10-20T11:26:04-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ssc442kirkpatrick.netlify.app/assignment/08-assignment/</loc>
-    <lastmod>2022-10-23T06:47:57-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ssc442kirkpatrick.netlify.app/assignment/09-assignment/</loc>
-    <lastmod>2022-10-31T09:13:50-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ssc442kirkpatrick.netlify.app/example/09-example/</loc>
-    <lastmod>2022-11-03T11:38:57-04:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://ssc442kirkpatrick.netlify.app/assignment/</loc>
-    <lastmod>2022-08-30T07:19:15-04:00</lastmod>
+    <lastmod>2023-08-21T14:50:23-04:00</lastmod>
   </url>
   
   <url>
@@ -218,33 +113,13 @@
   </url>
   
   <url>
-    <loc>https://ssc442kirkpatrick.netlify.app/content/11-content/</loc>
-    <lastmod>2022-11-14T09:18:28-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ssc442kirkpatrick.netlify.app/assignment/final-project/</loc>
-    <lastmod>2022-11-14T09:18:28-05:00</lastmod>
+    <loc>https://ssc442kirkpatrick.netlify.app/content/00-content/</loc>
+    <lastmod>2023-08-28T08:17:13-04:00</lastmod>
   </url>
   
   <url>
     <loc>https://ssc442kirkpatrick.netlify.app/content/01-content/</loc>
-    <lastmod>2022-09-06T11:29:31-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ssc442kirkpatrick.netlify.app/content/00-content/</loc>
-    <lastmod>2022-09-01T11:46:27-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ssc442kirkpatrick.netlify.app/assignment/project1/</loc>
-    <lastmod>2022-08-30T11:20:41-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ssc442kirkpatrick.netlify.app/assignment/project2/</loc>
-    <lastmod>2022-11-14T09:18:28-05:00</lastmod>
+    <lastmod>2023-08-21T15:24:49-04:00</lastmod>
   </url>
   
   <url>
@@ -263,63 +138,13 @@
   </url>
   
   <url>
-    <loc>https://ssc442kirkpatrick.netlify.app/content/10-content/</loc>
-    <lastmod>2022-10-31T09:10:30-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ssc442kirkpatrick.netlify.app/content/12-content/</loc>
-    <lastmod>2022-11-18T15:50:34-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ssc442kirkpatrick.netlify.app/content/13-content/</loc>
-    <lastmod>2022-11-29T10:12:52-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ssc442kirkpatrick.netlify.app/content/14-content/</loc>
-    <lastmod>2022-12-06T11:18:03-05:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://ssc442kirkpatrick.netlify.app/content/02-content/</loc>
-    <lastmod>2022-08-29T19:20:38-04:00</lastmod>
+    <lastmod>2023-08-21T15:24:49-04:00</lastmod>
   </url>
   
   <url>
     <loc>https://ssc442kirkpatrick.netlify.app/content/03-content/</loc>
-    <lastmod>2022-09-22T11:49:39-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ssc442kirkpatrick.netlify.app/content/04-content/</loc>
-    <lastmod>2022-09-29T10:38:49-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ssc442kirkpatrick.netlify.app/content/05-content/</loc>
-    <lastmod>2022-10-03T15:26:57-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ssc442kirkpatrick.netlify.app/content/06-content/</loc>
-    <lastmod>2022-10-11T09:08:40-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ssc442kirkpatrick.netlify.app/content/07-content/</loc>
-    <lastmod>2022-10-18T12:31:51-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ssc442kirkpatrick.netlify.app/content/08-content/</loc>
-    <lastmod>2022-10-26T16:02:18-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ssc442kirkpatrick.netlify.app/content/09-content/</loc>
-    <lastmod>2022-11-03T11:38:57-04:00</lastmod>
+    <lastmod>2023-08-21T15:24:49-04:00</lastmod>
   </url>
   
   <url>

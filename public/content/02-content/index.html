@@ -242,7 +242,7 @@
   <meta property="twitter:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
   
     
-    <meta property="article:modified_time" content="2022-08-29T19:20:38-04:00">
+    <meta property="article:modified_time" content="2023-08-21T15:24:49-04:00">
   
 
   
@@ -497,7 +497,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link " href="https://join.slack.com/t/ssc442kirkpatrickhq/shared_invite/zt-1eku04roj-GQGFSNtlccF0ewb7tdvpOA" target="_blank" rel="noopener"><span><i class="fab fa-slack"></i></span></a>
+          <a class="nav-link " href="https://join.slack.com/t/ssc442fall23/shared_invite/zt-21po16rx0-eSBByPJt~4ahKVWqqQaalQ" target="_blank" rel="noopener"><span><i class="fab fa-slack"></i></span></a>
         </li>
 
         
@@ -580,50 +580,6 @@
         <a href="/content/03-content/">3: Visualization II</a>
       </li>
       
-      <li >
-        <a href="/content/04-content/">4: Uncertainty</a>
-      </li>
-      
-      <li >
-        <a href="/content/05-content/">5: Linear Regression I</a>
-      </li>
-      
-      <li >
-        <a href="/content/06-content/">6: Linear Regression II</a>
-      </li>
-      
-      <li >
-        <a href="/content/07-content/">7: Linear Regression III</a>
-      </li>
-      
-      <li >
-        <a href="/content/08-content/">8: Shrinkage with LASSO and Ridge</a>
-      </li>
-      
-      <li >
-        <a href="/content/09-content/">9: Nonparametric Regression</a>
-      </li>
-      
-      <li >
-        <a href="/content/10-content/">10: Bias vs. Variance</a>
-      </li>
-      
-      <li >
-        <a href="/content/11-content/">11: Classification</a>
-      </li>
-      
-      <li >
-        <a href="/content/12-content/">12: Text as Data</a>
-      </li>
-      
-      <li >
-        <a href="/content/13-content/">13: Data Wrangling</a>
-      </li>
-      
-      <li >
-        <a href="/content/14-content/">14: Geospatial with R</a>
-      </li>
-      
     </ul>
     
 
@@ -647,7 +603,7 @@
 
                     
                     <div class="due-date p-2 mb-3 bg-content text-white">
-                        Content for Tuesday, September 13, 2022
+                        Content for Tuesday, September 12, 2023
                     </div>
                     
 
@@ -658,29 +614,29 @@
 
 <div id="TOC">
 <ul>
-<li><a href="#readings">Readings</a>
+<li><a href="#readings" id="toc-readings">Readings</a>
 <ul>
-<li><a href="#guiding-questions">Guiding Questions</a></li>
-<li><a href="#starting-up">Starting up</a></li>
+<li><a href="#guiding-questions" id="toc-guiding-questions">Guiding Questions</a></li>
+<li><a href="#starting-up" id="toc-starting-up">Starting up</a></li>
 </ul></li>
-<li><a href="#scales-and-transformations">Scales and transformations</a>
+<li><a href="#scales-and-transformations" id="toc-scales-and-transformations">Scales and transformations</a>
 <ul>
-<li><a href="#log-transformations">Log transformations</a></li>
-<li><a href="#transforming-data-vs.-transforming-using-scale_...">Transforming data vs. transforming using <code>scale_...</code></a></li>
+<li><a href="#log-transformations" id="toc-log-transformations">Log transformations</a></li>
+<li><a href="#transforming-data-vs.-transforming-using-scale_..." id="toc-transforming-data-vs.-transforming-using-scale_...">Transforming data vs. transforming using <code>scale_...</code></a></li>
 </ul></li>
-<li><a href="#axis-labels-legends-and-titles">Axis labels, legends, and titles</a>
+<li><a href="#axis-labels-legends-and-titles" id="toc-axis-labels-legends-and-titles">Axis labels, legends, and titles</a>
 <ul>
-<li><a href="#changing-axis-titles">Changing axis titles</a></li>
-<li><a href="#titles">Titles</a></li>
+<li><a href="#changing-axis-titles" id="toc-changing-axis-titles">Changing axis titles</a></li>
+<li><a href="#titles" id="toc-titles">Titles</a></li>
 </ul></li>
-<li><a href="#axis-ticks">Axis ticks</a></li>
-<li><a href="#additional-geometries">Additional geometries</a>
+<li><a href="#axis-ticks" id="toc-axis-ticks">Axis ticks</a></li>
+<li><a href="#additional-geometries" id="toc-additional-geometries">Additional geometries</a>
 <ul>
-<li><a href="#geom_line"><code>geom_line</code></a></li>
-<li><a href="#using-different-data-with-different-geometries">Using different data with different geometries</a></li>
-<li><a href="#multiple-geometries">Multiple geometries</a></li>
+<li><a href="#geom_line" id="toc-geom_line"><code>geom_line</code></a></li>
+<li><a href="#using-different-data-with-different-geometries" id="toc-using-different-data-with-different-geometries">Using different data with different geometries</a></li>
+<li><a href="#multiple-geometries" id="toc-multiple-geometries">Multiple geometries</a></li>
 </ul></li>
-<li><a href="#try-it">Try it!</a></li>
+<li><a href="#try-it" id="toc-try-it">Try it!</a></li>
 </ul>
 </div>
 
@@ -811,6 +767,11 @@ We have manually set both the location and the label for the y-axis. Note that R
                      labels = c(&#39;Zero&#39;,&#39;Fifty&#39;,&#39;One hundred&#39;,&#39;Seven hundred twenty one&#39;,&#39;One thousand&#39;,&#39;Fifteen hundred&#39;),
                      minor_breaks = NULL) +
   labs(x = &#39;Population&#39;, y = &#39;Total murders&#39;, color = &#39;US Region&#39;)</code></pre>
+<pre><code>## Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+## ℹ Please use `linewidth` instead.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+## generated.</code></pre>
 <p><img src="/content/02-content_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <p>Combining geometries is as easy as adding the layers with <code>+</code>.</p>
 <div id="geom_line" class="section level3">
@@ -822,12 +783,12 @@ head(AAPL)</code></pre>
 <pre><code>## # A tibble: 6 × 8
 ##   symbol date        open  high   low close     volume adjusted
 ##   &lt;chr&gt;  &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;
-## 1 AAPL   2009-01-02  3.07  3.25  3.04  3.24  746015200     2.77
-## 2 AAPL   2009-01-05  3.33  3.44  3.31  3.38 1181608400     2.88
-## 3 AAPL   2009-01-06  3.43  3.47  3.30  3.32 1289310400     2.84
-## 4 AAPL   2009-01-07  3.28  3.30  3.22  3.25  753048800     2.78
-## 5 AAPL   2009-01-08  3.23  3.33  3.22  3.31  673500800     2.83
-## 6 AAPL   2009-01-09  3.33  3.34  3.22  3.24  546845600     2.76</code></pre>
+## 1 AAPL   2009-01-02  3.07  3.25  3.04  3.24  746015200     2.75
+## 2 AAPL   2009-01-05  3.33  3.43  3.31  3.38 1181608400     2.87
+## 3 AAPL   2009-01-06  3.43  3.47  3.30  3.32 1289310400     2.82
+## 4 AAPL   2009-01-07  3.28  3.30  3.22  3.25  753048800     2.76
+## 5 AAPL   2009-01-08  3.23  3.33  3.22  3.31  673500800     2.81
+## 6 AAPL   2009-01-09  3.33  3.34  3.22  3.23  546845600     2.75</code></pre>
 <p>Now, we can plot a line graph of the Apple closing stock price over the requested date range. We want this to be a time series, so the x-axis will be the date and the y-axis will be the closing price.</p>
 <pre class="r"><code>ggplot(AAPL, aes(x = date, y = close)) +
   geom_line() +
@@ -998,7 +959,7 @@ Print the object <code>p</code> defined in exercise one and describe what you se
                 </div>
 
                 <div class="body-footer">
-                    <p>Last updated on August 29, 2022</p>
+                    <p>Last updated on August 21, 2023</p>
 
                     
 
@@ -1015,7 +976,7 @@ Print the object <code>p</code> defined in exercise one and describe what you se
     <div class="row course-info">
         <div class="col-md-7">
             <p>
-                <strong>SSC 442: Data Analytics (Fall Semester 2022)</strong><br>
+                <strong>SSC 442: Data Analytics (Fall Semester 2023)</strong><br>
 
                 <a href="https://www.msu.edu" target="_blank" rel="noopener">Michigan State University</a> &emsp;&emsp;
                 <a href="https://socialscience.msu.edu/" target="_blank" rel="noopener">College of Social Science</a>
@@ -1030,7 +991,7 @@ Print the object <code>p</code> defined in exercise one and describe what you se
 
             <p>
                 <i class="far fa-calendar-alt"></i> Tuesday and Thursday &emsp;&emsp;
-                <i class="far fa-clock"></i> 12:40pm - 2:00pm 
+                <i class="far fa-clock"></i> 1:30pm - 2:50pm 
                 <br><i class="fas fa-university"></i> 116 Natural Sciences
             </p>
         </div>

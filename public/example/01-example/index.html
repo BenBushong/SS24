@@ -242,9 +242,9 @@
   <meta property="twitter:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
   
     
-      <meta property="article:published_time" content="2022-09-08T00:00:00&#43;00:00">
+      <meta property="article:published_time" content="2023-08-21T00:00:00&#43;00:00">
     
-    <meta property="article:modified_time" content="2022-09-08T06:07:33-04:00">
+    <meta property="article:modified_time" content="2023-08-21T15:24:49-04:00">
   
 
   
@@ -499,7 +499,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link " href="https://join.slack.com/t/ssc442kirkpatrickhq/shared_invite/zt-1eku04roj-GQGFSNtlccF0ewb7tdvpOA" target="_blank" rel="noopener"><span><i class="fab fa-slack"></i></span></a>
+          <a class="nav-link " href="https://join.slack.com/t/ssc442fall23/shared_invite/zt-21po16rx0-eSBByPJt~4ahKVWqqQaalQ" target="_blank" rel="noopener"><span><i class="fab fa-slack"></i></span></a>
         </li>
 
         
@@ -577,46 +577,6 @@
         <a href="/example/03-example/">3: Visualization III</a>
       </li>
       
-      <li >
-        <a href="/example/04-example/">4: Uncertainty</a>
-      </li>
-      
-      <li >
-        <a href="/example/05-example/">5: Linear Regression I</a>
-      </li>
-      
-      <li >
-        <a href="/example/06-example/">6: Linear Regression II</a>
-      </li>
-      
-      <li >
-        <a href="/example/07-example/">7: Linear Regression III</a>
-      </li>
-      
-      <li >
-        <a href="/example/09-example/">9: Nonparametric Regression</a>
-      </li>
-      
-      <li >
-        <a href="/example/10-example/">10: Bias vs. Variance</a>
-      </li>
-      
-      <li >
-        <a href="/example/11-example/">11: Classification</a>
-      </li>
-      
-      <li >
-        <a href="/example/12-example/">12: Text As Data</a>
-      </li>
-      
-      <li >
-        <a href="/example/13-example/">13: Data Wrangling</a>
-      </li>
-      
-      <li >
-        <a href="/example/14-example/">14: Geospatial with R</a>
-      </li>
-      
     </ul>
     
 
@@ -640,7 +600,7 @@
 
                     
                     <div class="due-date p-2 mb-3 bg-content text-white">
-                        Content for Thursday, September 8, 2022
+                        Content for Thursday, September 7, 2023
                     </div>
                     
 
@@ -651,24 +611,24 @@
 
 <div id="TOC">
 <ul>
-<li><a href="#introduction-to-data-visualization">Introduction to data visualization</a></li>
-<li><a href="#ggplot2">ggplot2</a>
+<li><a href="#introduction-to-data-visualization" id="toc-introduction-to-data-visualization">Introduction to data visualization</a></li>
+<li><a href="#ggplot2" id="toc-ggplot2">ggplot2</a>
 <ul>
-<li><a href="#the-components-of-a-graph">The components of a graph</a></li>
-<li><a href="#ggplot-objects"><code>ggplot</code> objects</a></li>
-<li><a href="#geometries-briefly">Geometries (briefly)</a></li>
-<li><a href="#aesthetic-mappings">Aesthetic mappings</a>
+<li><a href="#the-components-of-a-graph" id="toc-the-components-of-a-graph">The components of a graph</a></li>
+<li><a href="#ggplot-objects" id="toc-ggplot-objects"><code>ggplot</code> objects</a></li>
+<li><a href="#geometries-briefly" id="toc-geometries-briefly">Geometries (briefly)</a></li>
+<li><a href="#aesthetic-mappings" id="toc-aesthetic-mappings">Aesthetic mappings</a>
 <ul>
-<li><a href="#aesthetics-in-general">Aesthetics in general</a></li>
-<li><a href="#now-back-to-aesthetic-mappings">Now, back to aesthetic mappings</a></li>
-<li><a href="#legends-for-aesthetics">Legends for aesthetics</a></li>
+<li><a href="#aesthetics-in-general" id="toc-aesthetics-in-general">Aesthetics in general</a></li>
+<li><a href="#now-back-to-aesthetic-mappings" id="toc-now-back-to-aesthetic-mappings">Now, back to aesthetic mappings</a></li>
+<li><a href="#legends-for-aesthetics" id="toc-legends-for-aesthetics">Legends for aesthetics</a></li>
 </ul></li>
-<li><a href="#annotation-layers">Annotation Layers</a>
+<li><a href="#annotation-layers" id="toc-annotation-layers">Annotation Layers</a>
 <ul>
-<li><a href="#global-versus-local-aesthetic-mappings">Global versus local aesthetic mappings</a></li>
+<li><a href="#global-versus-local-aesthetic-mappings" id="toc-global-versus-local-aesthetic-mappings">Global versus local aesthetic mappings</a></li>
 </ul></li>
-<li><a href="#try-it">Try it!</a></li>
-<li><a href="#lecture-videos">Lecture Videos</a></li>
+<li><a href="#try-it" id="toc-try-it">Try it!</a></li>
+<li><a href="#lecture-videos" id="toc-lecture-videos">Lecture Videos</a></li>
 </ul></li>
 </ul>
 </div>
@@ -710,6 +670,11 @@ murders %&gt;% ggplot(aes(x = population/10^6, y = total, label = abb)) +
 <p>We are reminded of the saying: “A picture is worth a thousand words”. Data visualization provides a powerful way to communicate a data-driven finding. In some cases, the visualization is so convincing that no follow-up analysis is required. You should consider visualization the most potent tool in your data analytics arsenal.</p>
 <p>The growing availability of informative datasets and software tools has led to increased reliance on data visualizations across many industries, academia, and government. A salient example is news organizations, which are increasingly embracing <em>data journalism</em> and including effective <em>infographics</em> as part of their reporting.</p>
 <p>A particularly salient example—given the current state of the world—is a Wall Street Journal article<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> showing data related to the impact of vaccines on battling infectious diseases. One of the graphs shows measles cases by US state through the years with a vertical line demonstrating when the vaccine was introduced.</p>
+<pre><code>## Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+## ℹ Please use `linewidth` instead.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+## generated.</code></pre>
 <p><img src="/example/01-example_files/figure-html/wsj-vaccines-example-1.png" width="100%" /></p>
 <p>(Source: <a href="http://graphics.wsj.com/infectious-diseases-and-vaccines/">Wall Street Journal</a>)</p>
 <p>Another striking example comes from a New York Times chart<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>, which summarizes scores from the NYC Regents Exams. As described in
@@ -999,7 +964,7 @@ p</code></pre>
 <p>All videos are in the SSC442 Mediaspace channel <a href="https://mediaspace.msu.edu/media/SSC442+-+Example+01+-+Jan+20th/1_i2x19sph?st=774">available here <i class="fas fa-film"></i></a>. Note - this is a Spring 2022 lecture and not Fall 2022. As of right now, I am not planning on recording or posting Fall 2022 lectures.</p>
 </div>
 </div>
-<div class="footnotes">
+<div class="footnotes footnotes-end-of-document">
 <hr />
 <ol>
 <li id="fn1"><p><a href="http://graphics.wsj.com/infectious-diseases-and-vaccines/?mc_cid=711ddeb86e" class="uri">http://graphics.wsj.com/infectious-diseases-and-vaccines/?mc_cid=711ddeb86e</a><a href="#fnref1" class="footnote-back">↩︎</a></p></li>
@@ -1025,7 +990,7 @@ p</code></pre>
                 </div>
 
                 <div class="body-footer">
-                    <p>Last updated on September 8, 2022</p>
+                    <p>Last updated on August 21, 2023</p>
 
                     
 
@@ -1042,7 +1007,7 @@ p</code></pre>
     <div class="row course-info">
         <div class="col-md-7">
             <p>
-                <strong>SSC 442: Data Analytics (Fall Semester 2022)</strong><br>
+                <strong>SSC 442: Data Analytics (Fall Semester 2023)</strong><br>
 
                 <a href="https://www.msu.edu" target="_blank" rel="noopener">Michigan State University</a> &emsp;&emsp;
                 <a href="https://socialscience.msu.edu/" target="_blank" rel="noopener">College of Social Science</a>
@@ -1057,7 +1022,7 @@ p</code></pre>
 
             <p>
                 <i class="far fa-calendar-alt"></i> Tuesday and Thursday &emsp;&emsp;
-                <i class="far fa-clock"></i> 12:40pm - 2:00pm 
+                <i class="far fa-clock"></i> 1:30pm - 2:50pm 
                 <br><i class="fas fa-university"></i> 116 Natural Sciences
             </p>
         </div>
