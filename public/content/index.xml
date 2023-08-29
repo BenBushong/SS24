@@ -15,7 +15,7 @@
     <item>
       <title>Welcome Back to R</title>
       <link>https://ssc442kirkpatrick.netlify.app/content/00-content/</link>
-      <pubDate>Mon, 28 Aug 2023 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 29 Aug 2023 00:00:00 +0000</pubDate>
       <guid>https://ssc442kirkpatrick.netlify.app/content/00-content/</guid>
       <description>
 
@@ -48,7 +48,7 @@
 &lt;li&gt;&lt;a href=&#34;#case-study-us-homicides-by-firearm&#34; id=&#34;toc-case-study-us-homicides-by-firearm&#34;&gt;Case study: US homicides by firearm&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#getting-started&#34; id=&#34;toc-getting-started&#34;&gt;Getting started with &lt;code&gt;R&lt;/code&gt; and &lt;del&gt;RStudio&lt;/del&gt; Posit Workflows&lt;/a&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#installing-r-and-rstudio&#34; id=&#34;toc-installing-r-and-rstudio&#34;&gt;Installing &lt;code&gt;R&lt;/code&gt; and RStudio&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#installing-r-and-rstudio-posit&#34; id=&#34;toc-installing-r-and-rstudio-posit&#34;&gt;Installing &lt;code&gt;R&lt;/code&gt; and &lt;del&gt;RStudio&lt;/del&gt; Posit&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#the-r-console&#34; id=&#34;toc-the-r-console&#34;&gt;The &lt;code&gt;R&lt;/code&gt; console&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#scripts&#34; id=&#34;toc-scripts&#34;&gt;Scripts&lt;/a&gt;&lt;/li&gt;
@@ -102,12 +102,14 @@
 &lt;li&gt;&lt;p&gt;interest in this course on a 10-point scale (1: not at all interested; 10: helllllll yeah)&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;p&gt;You &lt;strong&gt;must&lt;/strong&gt; spend 5 minutes emailing me a little bit about your interests before the next class.&lt;/p&gt;
+&lt;p&gt;You &lt;strong&gt;must&lt;/strong&gt; spend 5 minutes emailing me a little bit about your interests before the next class. This counts towards your “participation” grade (more on that later)&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;this-course&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;This Course&lt;/h3&gt;
-&lt;p&gt;The syllabus is posted on the course website. I’ll walk through highlights now, but read it later – it’s long.
-- But eventually, please read it. It is “required.”&lt;/p&gt;
+&lt;p&gt;The syllabus is posted on the course website. I’ll walk through highlights now, but read it later – it’s long.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;But eventually, please read it. It is required.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;Syllabus highlights:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Grade is composed of weekly writings, labs, and projects (see syllabus page for exact points)
@@ -122,8 +124,8 @@
 &lt;/ul&gt;
 &lt;div id=&#34;course-structure&#34; class=&#34;section level4&#34;&gt;
 &lt;h4&gt;Course Structure&lt;/h4&gt;
-&lt;p&gt;Here’s how each week will work: before class on Tuesday, you’ll read the &lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/content/&#34;&gt;content&lt;/a&gt; for the week. On Tuesday, you’ll come to lecture and participate. Before Thursday, you’ll read the &lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/example/&#34;&gt;example&lt;/a&gt; for the week, and on Thursday you’ll come to lecture ready to participate. On Saturday night by 11:59pm, you’ll turn in your &lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/assignment/#weekly-writings&#34;&gt;Weekly Writing assignment&lt;/a&gt; responding to the weekly writing question given during class on Tuesday or Thursday, rendered to PDF by RMarkdown and using the proper template. By Monday at 11:59pm, you’ll turn in your &lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/assignment/#labs&#34;&gt;Lab assignment&lt;/a&gt;, also using the RMarkdown template.&lt;/p&gt;
-&lt;p&gt;You’ll repeat this each week until we’re out of labs. You’ll also work with your assigned group on the Group Project.&lt;/p&gt;
+&lt;p&gt;Here’s how each week will work: before class on Tuesday, you’ll read the &lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/content/&#34;&gt;content&lt;/a&gt; for the week. On Tuesday, you’ll come to lecture. Before Thursday, you’ll read the &lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/example/&#34;&gt;example&lt;/a&gt; for the week, and on Thursday you’ll come to lecture ready to participate with a charged laptop. On Saturday night by 11:59pm, you’ll turn in your &lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/assignment/#weekly-writings&#34;&gt;Weekly Writing assignment&lt;/a&gt; responding to the weekly writing prompt &lt;strong&gt;given during class on Tuesday or Thursday&lt;/strong&gt;, rendered to PDF by RMarkdown and using the proper template (see &lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/assignment&#34;&gt;assignments&lt;/a&gt;). By Monday at 11:59pm, you’ll turn in your &lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/assignment/#labs&#34;&gt;Lab assignment&lt;/a&gt;, also using the RMarkdown template.&lt;/p&gt;
+&lt;p&gt;You’ll repeat this each week until we’re out of labs. If a holiday occurs on a due date, then the assignment or lab is due the next non-holiday day at 11:59pm. You’ll also work with your assigned group on the Group Project. We’ll assign groups after the drop deadline has passed.&lt;/p&gt;
 &lt;p&gt;Now, let’s look at &lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/syllabus/#course-times-and-zoom-links&#34;&gt;the Syllabus for important information about office hours&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;grading&#34; class=&#34;section level4&#34;&gt;
@@ -145,7 +147,7 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;Most ideas will be new.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Sometimes (often?) the material itself will be confusing or interesting—or both!&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;del&gt;Teaching online is incredibly challenging (no feedback) and chat is vital to success.&lt;/del&gt; We’re back in person!&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;del&gt;Teaching online is incredibly challenging (no feedback) and chat is vital to success.&lt;/del&gt; We’re back in person and I/we have a healthy aversion to zoom!&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; If I find that attendance is terrible, I may have to start incorporating attendance into participation.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Return of the Please: If there is some topic that you really want to learn about, ask. If you are uncomfortable asking in front of the whole group, please see me during office hours.&lt;/p&gt;
@@ -167,7 +169,7 @@
 &lt;li&gt;&lt;p&gt;You’ll &lt;strong&gt;actually learn&lt;/strong&gt; stuff. (Probably. Hopefully?)&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Also good news: level of required math is reasonably low. High-school algebra or equivalent should be fine.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;-Bad news: notation-heavy slides and reading.&lt;/p&gt;
+&lt;p&gt;-Bad news: some notation-heavy slides and reading.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;and-finally&#34; class=&#34;section level3&#34;&gt;
@@ -178,12 +180,12 @@
 &lt;li&gt;&lt;p&gt;Bad news: I can’t help with certain types of questions.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;This course should be applicable broadly, but many of the examples will lean on my personal expertise (sorry).&lt;/p&gt;
-&lt;p&gt;Your assignment: read syllabus, the content from Week 0, and the Example from Week 0 for Thursday. Make sure R and RStudio is running, and make sure you can knit your Rmarkdown template to PDF. Do your weekly writing due &lt;strong&gt;Saturday&lt;/strong&gt;. Begin working on Lab 0 as it is due Monday.&lt;/p&gt;
+&lt;p&gt;Your assignment: read syllabus, the content from Week 0 if you haven’t already, and the Example from Week 0 for Thursday. Make sure R and RStudio is running on your computer or you have a RStudio.cloud/Posit.cloud account, and make sure you can knit your Rmarkdown template to PDF. Do your weekly writing due &lt;strong&gt;Saturday&lt;/strong&gt;. Begin working on Lab 0 as it is due Monday.&lt;/p&gt;
 &lt;p&gt;Things to stress from &lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/syllabus/&#34;&gt;syllabus&lt;/a&gt;:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;E-mail isn’t the ideal solution for technical problems
 &lt;ul&gt;
-&lt;li&gt;If you do send an email, please start it with &lt;code&gt;[SSC442]&lt;/code&gt; and the subject.s&lt;/li&gt;
+&lt;li&gt;If you do send an email, please start it with &lt;code&gt;[SSC442]&lt;/code&gt; and the subject.&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;No appointments necessary for regularly scheduled office hours; or by appointment and via Slack&lt;/li&gt;
 &lt;li&gt;TA office hours are great as well. Our TA has experience in this course.&lt;/li&gt;
@@ -375,8 +377,8 @@ X causes Y and Y causes X (simultaneous equations)&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;There is a large, growing, and active community of &lt;code&gt;R&lt;/code&gt; users and, as a result, there are numerous resources for learning and asking questions&lt;a href=&#34;#fn5&#34; class=&#34;footnote-ref&#34; id=&#34;fnref5&#34;&gt;&lt;sup&gt;5&lt;/sup&gt;&lt;/a&gt; &lt;a href=&#34;#fn6&#34; class=&#34;footnote-ref&#34; id=&#34;fnref6&#34;&gt;&lt;sup&gt;6&lt;/sup&gt;&lt;/a&gt; &lt;a href=&#34;#fn7&#34; class=&#34;footnote-ref&#34; id=&#34;fnref7&#34;&gt;&lt;sup&gt;7&lt;/sup&gt;&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;It is easy for others to contribute add-ons which enables developers to share software implementations of new data science methodologies. The latest methods and tools are developed in &lt;code&gt;R&lt;/code&gt; for a wide variety of disciplines and since social science is so broad, &lt;code&gt;R&lt;/code&gt; is one of the few tools that spans the varied social sciences.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;div id=&#34;installing-r-and-rstudio&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Installing &lt;code&gt;R&lt;/code&gt; and RStudio&lt;/h3&gt;
+&lt;div id=&#34;installing-r-and-rstudio-posit&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Installing &lt;code&gt;R&lt;/code&gt; and &lt;del&gt;RStudio&lt;/del&gt; Posit&lt;/h3&gt;
 &lt;p&gt;If you have not yet done so, you’ll need to install both R and RStudio/Posit (as we mentioned before, RStudio is undergoing a change in name). See the &lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/resource/install/&#34;&gt;Installing page of our course resources&lt;/a&gt; for instructions.&lt;/p&gt;
 &lt;p&gt;I have created a video walkthrough for the basics of using R for another course, but it is useful here. You can &lt;a href=&#34;https://mediaspace.msu.edu/media/R+Part+2a/1_kmszjw36&#34;&gt;see part A here (labeled “Part 2a”) here &lt;i class=&#34;fas fa-film&#34;&gt;&lt;/i&gt;&lt;/a&gt;] and &lt;a href=&#34;https://mediaspace.msu.edu/media/R+Part+2b/1_c0vf0i63&#34;&gt;part B here (labeled “Part 2b”) &lt;i class=&#34;fas fa-film&#34;&gt;&lt;/i&gt;&lt;/a&gt;. You should already be at this level of familiarity with R, but if you need a review, this is a good place to start.&lt;/p&gt;
 &lt;/div&gt;
@@ -397,7 +399,7 @@ X causes Y and Y causes X (simultaneous equations)&lt;/p&gt;&lt;/li&gt;
 &lt;/div&gt;
 &lt;div id=&#34;rstudio&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;RStudio&lt;/h2&gt;
-&lt;p&gt;RStudio will be our launching pad for data science projects. It not only provides an editor for us to create and edit our scripts but also provides many other useful tools. In this section, we go over some of the basics.&lt;/p&gt;
+&lt;p&gt;RStudio (undergoing a re-brand to “Posit”) will be our launching pad for data science projects. It not only provides an editor for us to create and edit our scripts but also provides many other useful tools. In this section, we go over some of the basics.&lt;/p&gt;
 &lt;div id=&#34;the-panes&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;The panes&lt;/h3&gt;
 &lt;p&gt;When you start RStudio for the first time, you will see three panes. The left pane shows the &lt;code&gt;R&lt;/code&gt; console. On the right, the top pane includes tabs such as &lt;em&gt;Environment&lt;/em&gt; and &lt;em&gt;History&lt;/em&gt;, while the bottom pane shows five tabs: &lt;em&gt;File&lt;/em&gt;, &lt;em&gt;Plots&lt;/em&gt;, &lt;em&gt;Packages&lt;/em&gt;, &lt;em&gt;Help&lt;/em&gt;, and &lt;em&gt;Viewer&lt;/em&gt; (these tabs may change in new versions). You can click on each tab to move across the different features.&lt;/p&gt;
@@ -427,12 +429,12 @@ X causes Y and Y causes X (simultaneous equations)&lt;/p&gt;&lt;/li&gt;
 &lt;/div&gt;
 &lt;div id=&#34;installing-r-packages&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Installing &lt;code&gt;R&lt;/code&gt; packages&lt;/h2&gt;
-&lt;p&gt;The functionality provided by a fresh install of &lt;code&gt;R&lt;/code&gt; is only a small fraction of what is possible. In fact, we refer to what you get after your first install as &lt;em&gt;base R&lt;/em&gt;. The extra functionality comes from add-ons available from developers. There are currently hundreds of these available from CRAN and many others shared via other repositories such as GitHub. However, because not everybody needs all available functionality, &lt;code&gt;R&lt;/code&gt; instead makes different components available via &lt;em&gt;packages&lt;/em&gt;. &lt;code&gt;R&lt;/code&gt; makes it very easy to install packages from within R. For example, to install the &lt;strong&gt;dslabs&lt;/strong&gt; package, which we use to share datasets and code related to this course, you would type:&lt;/p&gt;
+&lt;p&gt;The functionality provided by a fresh install of &lt;code&gt;R&lt;/code&gt; is only a small fraction of what is possible. In fact, we refer to what you get after your first install as &lt;em&gt;base R&lt;/em&gt;. The extra functionality comes from add-ons available from developers. There are currently hundreds of these available from CRAN and many others shared via other repositories such as GitHub. However, because not everybody needs all available functionality, &lt;code&gt;R&lt;/code&gt; instead makes different components available via &lt;em&gt;packages&lt;/em&gt;. &lt;code&gt;R&lt;/code&gt; makes it very easy to install packages from within R. For example, to install the &lt;strong&gt;dslabs&lt;/strong&gt; package, which we use to share datasets and code related to this course, you would type directly into the console:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;install.packages(&amp;quot;dslabs&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;In RStudio, you can navigate to the &lt;em&gt;Tools&lt;/em&gt; tab and select install packages. We can then load the package into our &lt;code&gt;R&lt;/code&gt; sessions using the &lt;code&gt;library&lt;/code&gt; function:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(dslabs)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;As you go through this course, you will see that we load packages without installing them. This is because once you install a package, it remains installed and only needs to be loaded with &lt;code&gt;library&lt;/code&gt;. The package remains loaded until we quit the &lt;code&gt;R&lt;/code&gt; session. If you try to load a package and get an error, it probably means you need to
-install it first.&lt;/p&gt;
+&lt;p&gt;As you go through this course, you will see that we load packages without installing them. This is because once you install a package, it remains installed and only needs to be loaded with &lt;code&gt;library&lt;/code&gt;. The package remains loaded until we quit the &lt;code&gt;R&lt;/code&gt; session. If you try to load a package and get an error, it probably means you need to install it first.&lt;/p&gt;
+&lt;p&gt;This also means that strange things can happen if you add &lt;code&gt;install.packages()&lt;/code&gt; to a script – you’ll be re-installing the package every time you run the script, and that will lead to errors. Lots of them. So you install the packages &lt;strong&gt;once and only once&lt;/strong&gt; on your computer via the packages pane or directly in the console, then you never install that package again.&lt;/p&gt;
 &lt;p&gt;We can install more than one package at once by feeding a character vector to this function:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;install.packages(c(&amp;quot;tidyverse&amp;quot;, &amp;quot;dslabs&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;One advantage of using RStudio is that it auto-completes package names once you start typing, which is helpful when you do not remember the exact spelling of the package. Once you select your package, we recommend selecting all the defaults. Note that installing &lt;strong&gt;tidyverse&lt;/strong&gt; actually installs several packages. This commonly occurs when a package has &lt;em&gt;dependencies&lt;/em&gt;, or uses functions from other packages. When you load a package using &lt;code&gt;library&lt;/code&gt;, you also load its dependencies.&lt;/p&gt;
@@ -448,7 +450,8 @@ install it first.&lt;/p&gt;
 &lt;p&gt;The power of Rmarkdown is that it lets us mix formatted text with R code. That is, you can have a section of the document that understands R code, and a separate section right after that discusses the results from the R code.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/assignment/#weekly-writing-template-1&#34;&gt;Try it out using the Weekly Writing Template from the Assignments tab&lt;/a&gt;. If it opens in your web browser, just right-click the link and select Save As…. &lt;strong&gt;Make sure you save the file to its own folder on your hard drive&lt;/strong&gt;. In converting your Rmarkdown .Rmd file to a .pdf, your system will make multiple interim files&lt;a href=&#34;#fn10&#34; class=&#34;footnote-ref&#34; id=&#34;fnref10&#34;&gt;&lt;sup&gt;10&lt;/sup&gt;&lt;/a&gt;. It also creates folders to store the output of any plots or graphics you create with your R code.&lt;/p&gt;
 &lt;p&gt;If you’re new to Rmarkdown, I have made &lt;a href=&#34;https://mediaspace.msu.edu/media/Spring2021_R_Part3/1_yigvqy1i&#34;&gt;a short video on how to use it &lt;i class=&#34;fas fa-film&#34;&gt;&lt;/i&gt;&lt;/a&gt;. This video is for my EC420 course, but works for us as well.&lt;/p&gt;
-&lt;p&gt;If we have time today, let’s open the template linked above and see what happens when we select “knit to pdf”. If you do not wind up with a PDF rendered using LaTeX that looks like the one below, then check for errors. The most common one is not having tinytex and latex installed (tinytex will install a light version of latex). See &lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/resource/install/#install-tinytex-1&#34;&gt;our resource page and follow instructions there to install tinytex&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;To use Rmarkdown, you’ll have to install a few packages (like &lt;code&gt;knitr&lt;/code&gt; and &lt;code&gt;tinytex&lt;/code&gt;) and you’ll have to install a copy of LaTeX installed. Follow &lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/resource/install/#install-tinytex-1&#34;&gt;these instructions if you haven’t ever used RMarkdown with LaTeX&lt;/a&gt; to install LaTeX.&lt;/p&gt;
+&lt;p&gt;If we have time today, let’s open the template linked above and see what happens when we select “knit to pdf”. If you do not wind up with a PDF rendered using LaTeX that looks like the one below, then check for errors. The most common one is not having tinytex and latex installed (tinytex will install a light version of latex).&lt;/p&gt;
 &lt;div class=&#34;figure&#34;&gt;
 &lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/example/00-example_files/00-example_insertimage_1.png&#34; alt=&#34;&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;Screentshot of header of PDF file properly rendered&lt;/p&gt;
