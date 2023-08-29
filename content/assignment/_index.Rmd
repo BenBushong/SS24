@@ -71,8 +71,6 @@ You may work together on the labs, but you must turn in your own answers.
 You will turn these labs in via D2L. You will write them using `R Markdown` and this [<i class="fas fa-file-download"></i> lab assignment template](/files/SSC442_Lab_Assignment_Template.Rmd). You must `knit` your work to a PDF document (this will be what you turn in). Your output must be rendered in latex. I do not accept rendering to HTML or Word and then converting to PDF. 
 
 
-
-
 ## Projects
 
 To give you practice with the data and design principles you'll learn in this class, you will complete two projects en route to the overarching final project of the course. **Both these mini projects and the final project must be completed in groups.** I will assign groups after the drop deadline passes. Groups will be 2-3 people. You are allowed to form your own groups, but I will assign groups. More details will follow later.
