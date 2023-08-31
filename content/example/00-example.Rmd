@@ -23,6 +23,19 @@ readr::write_csv(gapminder::gapminder, here::here("static", "data", "gapminder.c
 ```
 
 
+# Frontmatter (F23)
+I like to use this spot to publish course announcements. Not so much for y'all, but more so I remember. If you see any announcements that don't say "F23" there's a good change it's leftover from earlier course offerings.
+
+### Participation extra credit
+A careful read of our syllabus under "class participation" will show that I do give extra credit for answering questions and (mainly) sharing completed R coding tasks. That is, we'll walk through some examples, and when we hit a "try it", I'll ask you to give it a go. Then, after a few minutes, I'll ask if anyone wants to share their answer. I have set up a Zoom **purely for the purpose of sharing your screen and not, I repeat NOT, for the purpose of simulcasting class**: [bit.ly/KIRKPATRICK](bit.ly/KIRKPATRICK) will take you right to the Zoom. The CAPS are important in the address. You get one point of participation extra credit. Five points is worth 1% of a grade boost, so these aren't neglible EC points!
+
+### Assignment / Exercises
+The Assignments page has all of our weekly lab assignments (including Week 0's, due on ~~Monday~~ Tuesday at 11:59pm). The assignments often have a preamble and some code that has to be used to set you up for the questions. **The questions to be completed and turned in are under "Exercises" at the very end**.
+
+### For econ majors
+[MSU Econ Social - September 5th, 4-6PM, Bessey Hall](/files/Econ-social-event-flyer.png)
+
+
 # Introduction to Examples
 
 Examples in this class are designed to be presented in-class. Accordingly, the notes here are *not* comprehensive. Instead, they are intended to guide students through

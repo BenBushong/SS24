@@ -35,6 +35,8 @@ For future lectures, the guiding questions will be more pointed and at a higher 
 - What are the different data types in `R`?
 - How do you index specific elements of a vector? Why might you want to do that?
 
+
+
 # A Brief Introduction to SSC442
 
 ### About Me
