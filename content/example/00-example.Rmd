@@ -32,8 +32,14 @@ A careful read of our syllabus under "class participation" will show that I do g
 ### Assignment / Exercises
 The Assignments page has all of our weekly lab assignments (including Week 0's, due on ~~Monday~~ Tuesday at 11:59pm). The assignments often have a preamble and some code that has to be used to set you up for the questions. **The questions to be completed and turned in are under "Exercises" at the very end**.
 
+### DMs are not open
+I don't like to use the DM feature of Slack. Not because I don't like getting DM's (I don't, but that's not why), but because the point of Slack is so we can all learn together. If you have a question, even if you're worried it's a silly question, then *others* will, I promise, have the same question. Asking in the proper public channel will answer everyone's question at once. Corollary to this: you should check the Slack to see if your question has already been asked.
+
+Another reason is that the TA will often be faster at response than I will be, depending on day of week and time of day (I start my day before some of you even go to bed). If you DM me, the TA can't see it and can't reply.
+
 ### For econ majors
 [MSU Econ Social - September 5th, 4-6PM, Bessey Hall](/files/Econ-social-event-flyer.png)
+
 
 
 # Introduction to Examples
@@ -1164,7 +1170,7 @@ Note that we will be using `%in%` often throughout the course
 
 :::fyi
 
-**EXERCISES**
+**TRY IT**
   
 Start by loading the library and data.
 ```{r}
@@ -1182,7 +1188,7 @@ data(murders)
 
 5. In a previous exercise we computed the murder rate for each state and the average of these numbers. How many states are below the average?
   
-  6. Use the match function to identify the states with abbreviations AK, MI, and IA. Hint: start by defining an index of the entries of `murders$abb` that match the three abbreviations, then use the `[` operator to extract the states.
+6. Use the match function to identify the states with abbreviations AK, MI, and IA. Hint: start by defining an index of the entries of `murders$abb` that match the three abbreviations, then use the `[` operator to extract the states.
 
 7. Use the `%in%` operator to create a logical vector that answers the question: which of the following are actual abbreviations: MA, ME, MI, MO, MU?
   
