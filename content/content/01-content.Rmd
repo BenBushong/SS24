@@ -27,9 +27,6 @@ output:
 - You load an already-installed package using `library(packageName)` in a code chunk
   - Never in your console
   - When RMarkdown knits, it starts a whole new, empty session that has no knowledge of what you typed into the console
-- Weekly Writing on Saturday night, Lab on Monday night.  
-  - Repeat every week
-  - See [Schedule](/schedule/)
 - Slack
   - Use it.
   - I would very much prefer posting in the class-visible channels. Others can learn from your issues.
@@ -37,37 +34,7 @@ output:
 
 
 
-  
-  
-  
-
-### Guiding Question
-
-For future lectures, the guiding questions will be more pointed and at a higher level to help steer your thinking. Here, we want to ensure you remember some basics and accordingly the questions are straightforward.
-
-- Why do we want tidy data?
-- What are the challenges associated with shaping things into a tidy format?
-
-<!---
-## Slides
-
-The slides below are a much broader overview about goals for the class and thinking about relationships that we might explore with data. The technical aspects of this lecture will be explored in greater detail in the Thursday practical lecture.
-
-```{r show-slide-tabs, echo=FALSE, results="asis", warning=F, message = F}
-# detach("package:dplyr")
-# library(dplyr)
-
-
-source(here::here("R", "slide_tabs.R"))
-sections <- tibble::tribble(
-  ~name, ~slide, ~active,
-  "Overview", "Overview", TRUE,
-)
-slide_tabs(sections, "/slides/01-slides.html")
-```
--->
-
-## Group Projects
+### Group Projects
 Your final is a group project. You will also have two "mini" projects. They comprise a large part of your grade.
 
 You need to start planning soon.
@@ -87,11 +54,26 @@ To aid in your planning, here are the required elements of your final project.
 Your mini-projects along the way will be more structured, but will serve to guide you towards the final project.
 
 ### Teams
-Please form teams of 3-5 people. Once all agree to be on a team, have one person email our TA, Sam, tucke130@msu.edu **and cc all of the members of the team** so that nobody is surprised to be included on a team. Title the email *[SSC442] - Group Formation*. Tell us your team name (be creative), and list in the email the names of all of the team members and their email address (in addition to cc-ing those team members on the email).
+Please form teams of 2-3 people. Once all agree to be on a team, have one person email our TA, Nick, armst427\@msu.edu **and cc all of the members of the team** so that nobody is surprised to be included on a team. Title the email *[SSC442] - Group Formation*. Tell us your team name (be creative), and list in the email the names of all of the team members and their email address (in addition to cc-ing those team members on the email).
 
-If you opt to not form a team, you will be automatically added to the "willing to be randomly assigned" pool and will be paired with another 3-4 persons.
+If you opt to not form a team, you will be automatically added to the "willing to be randomly assigned" pool and will be paired with another 1-2 persons.
 
-Send this email by **Sunday September 18th** and we will assign un-teamed folks at the beginning of the following week. Project 1 is due October 15th. See [schedule](/schedule/) for all the important project dates.
+Send this email by **September 21st** and we will assign un-teamed folks at the beginning of the following week. Project 1 is due in mid-October. See [schedule](/schedule/) for all the important project dates.
+
+  
+  
+
+### Guiding Question
+
+For future lectures, the guiding questions will be more pointed and at a higher level to help steer your thinking. Here, we want to ensure you remember some basics and accordingly the questions are straightforward.
+
+- Why do we want tidy data?
+- What are the challenges associated with shaping things into a tidy format?
+
+<!---
+## Slides
+
+The slides below are a much broader overview about goals for the class and thinking about relationships that we might explore with data. The technical aspects of this lecture will be explored in greater detail in the Thursday practical lecture.
 
 #### More on your team
 
@@ -104,6 +86,8 @@ Send this email by **Sunday September 18th** and we will assign un-teamed folks 
 To combat additional freeloading, we will use a reporting system for work contributed. More details will follow. 
 
 **Now back to our regularly scheduled programming**...
+--> 
+
 
 ## Randomness and Data Analytics
 And the fabulous importance of probabilistic inference...

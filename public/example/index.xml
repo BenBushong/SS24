@@ -15,7 +15,7 @@
     <item>
       <title>Working with R and RStudio</title>
       <link>https://ssc442kirkpatrick.netlify.app/example/00-example/</link>
-      <pubDate>Mon, 28 Aug 2023 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 31 Aug 2023 00:00:00 +0000</pubDate>
       <guid>https://ssc442kirkpatrick.netlify.app/example/00-example/</guid>
       <description>
 &lt;script src=&#34;https://ssc442kirkpatrick.netlify.app/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
@@ -23,6 +23,13 @@
 
 &lt;div id=&#34;TOC&#34;&gt;
 &lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#frontmatter-f23&#34; id=&#34;toc-frontmatter-f23&#34;&gt;Frontmatter (F23)&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#participation-extra-credit&#34; id=&#34;toc-participation-extra-credit&#34;&gt;Participation extra credit&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#assignment-exercises&#34; id=&#34;toc-assignment-exercises&#34;&gt;Assignment / Exercises&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#dms-are-not-open&#34; id=&#34;toc-dms-are-not-open&#34;&gt;DMs are not open&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#for-econ-majors-and-those-curious-or-econ-adjacent-yall&#34; id=&#34;toc-for-econ-majors-and-those-curious-or-econ-adjacent-yall&#34;&gt;For econ majors and those curious or econ-adjacent (y’all)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#introduction-to-examples&#34; id=&#34;toc-introduction-to-examples&#34;&gt;Introduction to Examples&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#r-basics&#34; id=&#34;toc-r-basics&#34;&gt;&lt;code&gt;R&lt;/code&gt; basics&lt;/a&gt;
 &lt;ul&gt;
@@ -81,6 +88,27 @@
 &lt;/ul&gt;
 &lt;/div&gt;
 
+&lt;div id=&#34;frontmatter-f23&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Frontmatter (F23)&lt;/h1&gt;
+&lt;p&gt;I like to use this spot to publish course announcements. Not so much for y’all, but more so I remember. If you see any announcements that don’t say “F23” there’s a good change it’s leftover from earlier course offerings.&lt;/p&gt;
+&lt;div id=&#34;participation-extra-credit&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Participation extra credit&lt;/h3&gt;
+&lt;p&gt;A careful read of our syllabus under “class participation” will show that I do give extra credit for answering questions and (mainly) sharing completed R coding tasks. That is, we’ll walk through some examples, and when we hit a “try it”, I’ll ask you to give it a go. Then, after a few minutes, I’ll ask if anyone wants to share their answer. I have set up a Zoom &lt;strong&gt;purely for the purpose of sharing your screen and not, I repeat NOT, for the purpose of simulcasting class&lt;/strong&gt;: &lt;a href=&#34;bit.ly/KIRKPATRICK&#34;&gt;bit.ly/KIRKPATRICK&lt;/a&gt; will take you right to the Zoom. The CAPS are important in the address. You get one point of participation extra credit. Five points is worth 1% of a grade boost, so these aren’t neglible EC points!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;assignment-exercises&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Assignment / Exercises&lt;/h3&gt;
+&lt;p&gt;The Assignments page has all of our weekly lab assignments (including Week 0’s, due on &lt;del&gt;Monday&lt;/del&gt; Tuesday at 11:59pm). The assignments often have a preamble and some code that has to be used to set you up for the questions. &lt;strong&gt;The questions to be completed and turned in are under “Exercises” at the very end&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;dms-are-not-open&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;DMs are not open&lt;/h3&gt;
+&lt;p&gt;I don’t like to use the DM feature of Slack. Not because I don’t like getting DM’s (I don’t, but that’s not why), but because the point of Slack is so we can all learn together. If you have a question, even if you’re worried it’s a silly question, then &lt;em&gt;others&lt;/em&gt; will, I promise, have the same question. Asking in the proper public channel will answer everyone’s question at once. Corollary to this: you should check the Slack to see if your question has already been asked.&lt;/p&gt;
+&lt;p&gt;Another reason is that the TA will often be faster at response than I will be, depending on day of week and time of day (I start my day before some of you even go to bed). If you DM me, the TA can’t see it and can’t reply.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;for-econ-majors-and-those-curious-or-econ-adjacent-yall&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;For econ majors and those curious or econ-adjacent (y’all)&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/files/Econ-social-event-flyer.png&#34;&gt;MSU Econ Social - September 5th, 4-6PM, Bessey Hall&lt;/a&gt;. MSU Dairy Store ice cream, Groovy Donuts and cider, and econ swag. You can RSVP at the link below (just to get a headcount).&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 &lt;div id=&#34;introduction-to-examples&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Introduction to Examples&lt;/h1&gt;
 &lt;p&gt;Examples in this class are designed to be presented in-class. Accordingly, the notes here are &lt;em&gt;not&lt;/em&gt; comprehensive. Instead, they are intended to guide students through&lt;/p&gt;
@@ -922,7 +950,7 @@ murder_rate[ind]&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] FALSE FALSE  TRUE&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Note that we will be using &lt;code&gt;%in%&lt;/code&gt; often throughout the course&lt;/p&gt;
 &lt;div class=&#34;fyi&#34;&gt;
-&lt;p&gt;&lt;strong&gt;EXERCISES&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;TRY IT&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Start by loading the library and data.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(dslabs)
 data(murders)&lt;/code&gt;&lt;/pre&gt;
