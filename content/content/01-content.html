@@ -2,7 +2,7 @@
 title: "Introduction to the tidyverse"
 linktitle: "1: The Tidyverse"
 read_date: "2023-09-05"
-lastmod: "2023-09-05"
+lastmod: "2023-09-08"
 menu:
   content:
     parent: Course content
@@ -48,7 +48,7 @@ output:
 <ul>
 <li><a href="#summarize" id="toc-summarize"><code>summarize</code></a></li>
 <li><a href="#pull" id="toc-pull"><code>pull</code></a></li>
-<li><a href="#group-by" id="toc-group-by">Group then summarize with <code>group_by</code></a></li>
+<li><a href="#group-then-summarize-with-group_by" id="toc-group-then-summarize-with-group_by">Group then summarize with <code>group_by</code></a></li>
 </ul></li>
 <li><a href="#sorting-data-frames" id="toc-sorting-data-frames">Sorting data frames</a>
 <ul>
@@ -250,7 +250,8 @@ Y = f(X) + e
 <p>On any particular sample you may be wrong, but not often.</p>
 <div class="fyi">
 <p><strong>NOTE</strong></p>
-<p>This week’s content is split into two “halves”: the critical data manipulation information contained below and a more-entertaining discussion of visualization included in the Exercises.</p>
+<p>This week’s content is split into two “halves”: the critical data manipulation information contained below and a more-entertaining discussion of visualization included in the Exercises. That’s a pretty jarring change, so here’s a picture of my dog.
+<img src="/content/01-content_files/Thibodaux.jpg" /></p>
 </div>
 </div>
 </div>
@@ -559,7 +560,7 @@ us_murder_rate</code></pre>
 <pre class="r"><code>class(us_murder_rate)</code></pre>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
 </div>
-<div id="group-by" class="section level3">
+<div id="group-then-summarize-with-group_by" class="section level3">
 <h3>Group then summarize with <code>group_by</code></h3>
 <p>A common operation in data exploration is to first split data into groups and then compute summaries for each group. For example, we may want to compute the average and standard deviation for men’s and women’s heights separately. The <code>group_by</code> function helps us do this.</p>
 <p>If we type this:</p>
@@ -691,7 +692,7 @@ mean(na_example)</code></pre>
 </div>
 <div id="tibbles" class="section level2">
 <h2>Tibbles</h2>
-<p>Tidy data must be stored in data frames. We introduced the data frame in Section <a href="#data-frames"><strong>??</strong></a> and have been using the <code>murders</code> data frame throughout the unit. In Section <a href="#group-by"><strong>??</strong></a> we introduced the <code>group_by</code> function, which permits stratifying data before computing summary statistics. But where is the group information stored in the data frame?</p>
+<p>Tidy data must be stored in data frames. We introduced the data frame in our section on data.frames and have been using the <code>murders</code> data frame throughout the unit. In an earlier section we introduced the <code>group_by</code> function, which permits stratifying data before computing summary statistics. But where is the group information stored in the data frame?</p>
 <pre class="r"><code>murders %&gt;% group_by(region)</code></pre>
 <pre><code>## # A tibble: 51 × 6
 ## # Groups:   region [4]

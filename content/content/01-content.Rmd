@@ -225,8 +225,8 @@ On any particular sample you may be wrong, but not often.
 :::fyi
 **NOTE** 
 
-This week's content is split into two "halves": the critical data manipulation information contained below and a more-entertaining discussion of visualization included in the Exercises.
-
+This week's content is split into two "halves": the critical data manipulation information contained below and a more-entertaining discussion of visualization included in the Exercises. That's a pretty jarring change, so here's a picture of my dog.
+![](/content/01-content_files/Thibodaux.jpg)
 
 :::
 
@@ -634,7 +634,7 @@ which is now a numeric:
 class(us_murder_rate)
 ```
 
-### Group then summarize with `group_by` {#group-by}
+### Group then summarize with `group_by`
 
 A common operation in data exploration is to first split data into groups and then compute summaries for each group. For example, we may want to compute the average and standard deviation for men's and women's heights separately. The `group_by` function helps us do this.
 
@@ -762,7 +762,7 @@ Hint: Use `filter` and `summarize` and use the `na.rm = TRUE` argument when comp
 
 ## Tibbles
 
-Tidy data must be stored in data frames. We introduced the data frame in Section \@ref(data-frames) and have been using the `murders` data frame throughout the unit. In Section \@ref(group-by) we introduced the `group_by` function, which permits stratifying data before computing summary statistics. But where is the group information stored in the data frame?
+Tidy data must be stored in data frames. We introduced the data frame in our section on data.frames and have been using the `murders` data frame throughout the unit. In an earlier section we introduced the `group_by` function, which permits stratifying data before computing summary statistics. But where is the group information stored in the data frame?
 
 ```{r}
 murders %>% group_by(region)

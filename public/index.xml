@@ -4278,7 +4278,7 @@ mpg %&amp;gt;%
     <item>
       <title>Introduction to the tidyverse</title>
       <link>https://ssc442kirkpatrick.netlify.app/content/01-content/</link>
-      <pubDate>Tue, 05 Sep 2023 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 08 Sep 2023 00:00:00 +0000</pubDate>
       <guid>https://ssc442kirkpatrick.netlify.app/content/01-content/</guid>
       <description>
 
@@ -4316,7 +4316,7 @@ mpg %&amp;gt;%
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#summarize&#34; id=&#34;toc-summarize&#34;&gt;&lt;code&gt;summarize&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#pull&#34; id=&#34;toc-pull&#34;&gt;&lt;code&gt;pull&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#group-by&#34; id=&#34;toc-group-by&#34;&gt;Group then summarize with &lt;code&gt;group_by&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#group-then-summarize-with-group_by&#34; id=&#34;toc-group-then-summarize-with-group_by&#34;&gt;Group then summarize with &lt;code&gt;group_by&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#sorting-data-frames&#34; id=&#34;toc-sorting-data-frames&#34;&gt;Sorting data frames&lt;/a&gt;
 &lt;ul&gt;
@@ -4518,7 +4518,8 @@ Y = f(X) + e
 &lt;p&gt;On any particular sample you may be wrong, but not often.&lt;/p&gt;
 &lt;div class=&#34;fyi&#34;&gt;
 &lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;This week’s content is split into two “halves”: the critical data manipulation information contained below and a more-entertaining discussion of visualization included in the Exercises.&lt;/p&gt;
+&lt;p&gt;This week’s content is split into two “halves”: the critical data manipulation information contained below and a more-entertaining discussion of visualization included in the Exercises. That’s a pretty jarring change, so here’s a picture of my dog.
+&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/content/01-content_files/Thibodaux.jpg&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -4827,7 +4828,7 @@ us_murder_rate&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;class(us_murder_rate)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] &amp;quot;numeric&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;div id=&#34;group-by&#34; class=&#34;section level3&#34;&gt;
+&lt;div id=&#34;group-then-summarize-with-group_by&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Group then summarize with &lt;code&gt;group_by&lt;/code&gt;&lt;/h3&gt;
 &lt;p&gt;A common operation in data exploration is to first split data into groups and then compute summaries for each group. For example, we may want to compute the average and standard deviation for men’s and women’s heights separately. The &lt;code&gt;group_by&lt;/code&gt; function helps us do this.&lt;/p&gt;
 &lt;p&gt;If we type this:&lt;/p&gt;
@@ -4959,7 +4960,7 @@ mean(na_example)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;tibbles&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Tibbles&lt;/h2&gt;
-&lt;p&gt;Tidy data must be stored in data frames. We introduced the data frame in Section &lt;a href=&#34;#data-frames&#34;&gt;&lt;strong&gt;??&lt;/strong&gt;&lt;/a&gt; and have been using the &lt;code&gt;murders&lt;/code&gt; data frame throughout the unit. In Section &lt;a href=&#34;#group-by&#34;&gt;&lt;strong&gt;??&lt;/strong&gt;&lt;/a&gt; we introduced the &lt;code&gt;group_by&lt;/code&gt; function, which permits stratifying data before computing summary statistics. But where is the group information stored in the data frame?&lt;/p&gt;
+&lt;p&gt;Tidy data must be stored in data frames. We introduced the data frame in our section on data.frames and have been using the &lt;code&gt;murders&lt;/code&gt; data frame throughout the unit. In an earlier section we introduced the &lt;code&gt;group_by&lt;/code&gt; function, which permits stratifying data before computing summary statistics. But where is the group information stored in the data frame?&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;murders %&amp;gt;% group_by(region)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 51 × 6
 ## # Groups:   region [4]
