@@ -19,3 +19,4 @@ blogdown::build_site(local=T, build_rmd = tobuild.indexes)
 blogdown::build_site(local=T, build_rmd = "C:/Users/jkirk/OneDrive - Michigan State University/Teaching/SSC442_SS21/content/example/04-example.Rmd")
 
 
+blogdown::build_dir(dir =  "C:/Users/jkirk/OneDrive - Michigan State University/Teaching/SSC442_SS21/content/resource", force = T)
