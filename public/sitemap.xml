@@ -109,6 +109,11 @@
   
   <url>
     <loc>https://ssc442kirkpatrick.netlify.app/example/</loc>
+    <lastmod>2023-09-08T11:19:09-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ssc442kirkpatrick.netlify.app/resource/</loc>
     <lastmod>2023-09-08T08:15:15-04:00</lastmod>
   </url>
   
@@ -140,6 +145,11 @@
   <url>
     <loc>https://ssc442kirkpatrick.netlify.app/assignment/project2/</loc>
     <lastmod>2023-09-08T09:24:36-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ssc442kirkpatrick.netlify.app/syllabus/</loc>
+    <lastmod>2023-09-08T08:15:15-04:00</lastmod>
   </url>
   
   <url>
@@ -175,6 +185,11 @@
   <url>
     <loc>https://ssc442kirkpatrick.netlify.app/</loc>
     <lastmod>2020-06-22T18:44:37-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ssc442kirkpatrick.netlify.app/schedule/</loc>
+    <lastmod>2023-09-08T08:15:15-04:00</lastmod>
   </url>
   
 </urlset>
