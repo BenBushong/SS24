@@ -30,10 +30,10 @@
   
     
   
-  <meta name="description" content="What is Rstudio.cloud Posit.cloud?Setting up Posit.cloudWhat is Rstudio.cloud Posit.cloud?Installing R and RStudio/Posit locally (on your computer) is the preferred method. Additionally, most MSU computer labs have R and RStudio installed. However, if your computer isn’t able to run RStudio, or you run into errors that we can’t troubleshoot, using RStudio Cloud is a viable alternative. Hosted at Posit.cloud, RStudio Posit Cloud is an online, web-based version of R and RStudio.">
+  <meta name="description" content="Key termsAdd chunksChunk namesChunk optionsChunk fig.width and fig.heightInline chunksOutput formatsR Markdown is regular Markdown with R code and output sprinkled in. You can do everything you can with regular Markdown, but you can incorporate graphs, tables, and other R output directly in your document. You can create HTML, PDF, and Word documents, PowerPoint and HTML presentations, websites, books, and even interactive dashboards with R Markdown.">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://ssc442kirkpatrick.netlify.app/resource/rstudiocloud/">
+  <link rel="alternate" hreflang="en-us" href="https://ssc442kirkpatrick.netlify.app/resource/rmarkdown/">
 
   
 
@@ -221,7 +221,7 @@
   <link rel="icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_2.png">
   <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png">
 
-  <link rel="canonical" href="https://ssc442kirkpatrick.netlify.app/resource/rstudiocloud/">
+  <link rel="canonical" href="https://ssc442kirkpatrick.netlify.app/resource/rmarkdown/">
 
   
   
@@ -236,15 +236,13 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="Data Analytics">
-  <meta property="og:url" content="https://ssc442kirkpatrick.netlify.app/resource/rstudiocloud/">
-  <meta property="og:title" content="Using Rstudio/Posit Cloud | Data Analytics">
-  <meta property="og:description" content="What is Rstudio.cloud Posit.cloud?Setting up Posit.cloudWhat is Rstudio.cloud Posit.cloud?Installing R and RStudio/Posit locally (on your computer) is the preferred method. Additionally, most MSU computer labs have R and RStudio installed. However, if your computer isn’t able to run RStudio, or you run into errors that we can’t troubleshoot, using RStudio Cloud is a viable alternative. Hosted at Posit.cloud, RStudio Posit Cloud is an online, web-based version of R and RStudio."><meta property="og:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png">
+  <meta property="og:url" content="https://ssc442kirkpatrick.netlify.app/resource/rmarkdown/">
+  <meta property="og:title" content="Using R Markdown | Data Analytics">
+  <meta property="og:description" content="Key termsAdd chunksChunk namesChunk optionsChunk fig.width and fig.heightInline chunksOutput formatsR Markdown is regular Markdown with R code and output sprinkled in. You can do everything you can with regular Markdown, but you can incorporate graphs, tables, and other R output directly in your document. You can create HTML, PDF, and Word documents, PowerPoint and HTML presentations, websites, books, and even interactive dashboards with R Markdown."><meta property="og:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png">
   <meta property="twitter:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
   
     
-      <meta property="article:published_time" content="2023-08-28T00:00:00&#43;00:00">
-    
-    <meta property="article:modified_time" content="2023-09-08T11:56:48-04:00">
+    <meta property="article:modified_time" content="2023-09-08T11:42:28-04:00">
   
 
   
@@ -271,7 +269,7 @@
   <meta name="msapplication-TileImage" content="https://ssc442kirkpatrick.netlify.app/img/mstile-144x144.png" />
 
 
-  <title>Using Rstudio/Posit Cloud | Data Analytics</title>
+  <title>Using R Markdown | Data Analytics</title>
 
 </head>
 
@@ -561,11 +559,11 @@
     <a class="docs-toc-link" href="/resource/rstudiocloud/">Guides</a>
     <ul class="nav docs-sidenav">
       
-      <li class="active">
+      <li >
         <a href="/resource/rstudiocloud/">Using Rstudio/Posit Cloud</a>
       </li>
       
-      <li >
+      <li class="active">
         <a href="/resource/rmarkdown/">Using R Markdown</a>
       </li>
       
@@ -596,7 +594,7 @@
             <article class="article">
 
                 <div class="docs-article-container">
-                    <h1>Using Rstudio/Posit Cloud</h1>
+                    <h1>Using R Markdown</h1>
 
                     
 
@@ -609,49 +607,122 @@
 
 <div id="TOC">
 <ul>
-<li><a href="#what-is-rstudio.cloud-posit.cloud" id="toc-what-is-rstudio.cloud-posit.cloud">What is <del>Rstudio.cloud</del> Posit.cloud?</a></li>
-<li><a href="#setting-up-posit.cloud" id="toc-setting-up-posit.cloud">Setting up Posit.cloud</a></li>
+<li><a href="#key-terms" id="toc-key-terms">Key terms</a></li>
+<li><a href="#add-chunks" id="toc-add-chunks">Add chunks</a></li>
+<li><a href="#chunk-names" id="toc-chunk-names">Chunk names</a></li>
+<li><a href="#chunk-options" id="toc-chunk-options">Chunk options</a>
+<ul>
+<li><a href="#chunk-fig.width-and-fig.height" id="toc-chunk-fig.width-and-fig.height">Chunk <code>fig.width</code> and <code>fig.height</code></a></li>
+</ul></li>
+<li><a href="#inline-chunks" id="toc-inline-chunks">Inline chunks</a></li>
+<li><a href="#output-formats" id="toc-output-formats">Output formats</a></li>
 </ul>
 </div>
 
-<div id="what-is-rstudio.cloud-posit.cloud" class="section level1">
-<h1>What is <del>Rstudio.cloud</del> Posit.cloud?</h1>
-<p>Installing R and RStudio/Posit locally (on your computer) is the preferred method. Additionally, most MSU computer labs have R and RStudio installed. However, if your computer isn’t able to run RStudio, or you run into errors that we can’t troubleshoot, using RStudio Cloud is a viable alternative. Hosted at <a href="https://posit.cloud">Posit.cloud</a>, <del>RStudio</del> Posit Cloud is an online, web-based version of R and RStudio. On the “pro” side, it doesn’t require anything of your system except a functioning browser and can be up and running in a few minutes. The “con”, though, is that you must have an internet connection to use it, and it is limited to 25 hours per month for the free account (and $5/month for up to 75 hours per month). You shouldn’t need more than 25 hours per month, but if you’re very new to coding, it’s possible you will.</p>
-<p>Both Rstudio.cloud and Posit.cloud take you to the same site – posit.cloud. RStudio is in the process of rebranding to Posit. I have updated some, but not all, references here.</p>
-</div>
-<div id="setting-up-posit.cloud" class="section level1">
-<h1>Setting up Posit.cloud</h1>
-<ol style="list-style-type: decimal">
-<li>Start by going to <a href="https://posit.cloud">Posit.cloud</a> and create a free account.</li>
-<li>Click “Your Workspace”</li>
-<li>In the top right corner, click on “New Project” and name it something like “SSC442”</li>
-</ol>
-<p><img src="RSC1.png" width="80%" /></p>
-<ol start="4" style="list-style-type: decimal">
-<li>The “Files” tab in the lower-right pane shows your cloud project storage space. Let’s add a <code>templates</code> folder and store the two course assignment templates there.</li>
-</ol>
+<p><a href="https://rmarkdown.rstudio.com/">R Markdown</a> is <a href="/reference/markdown/">regular Markdown</a> with R code and output sprinkled in. You can do everything you can with <a href="/reference/markdown/">regular Markdown</a>, but you can incorporate graphs, tables, and other R output directly in your document. You can create HTML, PDF, and Word documents, PowerPoint and HTML presentations, websites, books, and even <a href="https://rmarkdown.rstudio.com/flexdashboard/index.html">interactive dashboards</a> with R Markdown. This whole course website is created with R Markdown (and <a href="https://bookdown.org/yihui/blogdown/">a package named <strong>blogdown</strong></a>).</p>
+<p>The <a href="https://rmarkdown.rstudio.com/">documentation for R Markdown</a> is extremely comprehensive, and their <a href="https://rmarkdown.rstudio.com/lesson-1.html">tutorials</a> and <a href="https://rmarkdown.rstudio.com/lesson-15.html">cheatsheets</a> are excellent—rely on those.</p>
+<p>I have created a video walkthrough for using R Markdown for another course, but it is useful here. You can <a href="https://mediaspace.msu.edu/media/R+Part+3/1_yigvqy1i">see it here <i class="fas fa-film"></i></a>]</p>
+<p>Here are the most important things you’ll need to know about R Markdown in this class:</p>
+<div id="key-terms" class="section level2">
+<h2>Key terms</h2>
 <ul>
-<li>Go to <a href="/assignment/">assignments</a>, scroll down, and <strong>right-click on the Weekly Writing template and select “Save As…”</strong> and save it to your desktop</li>
-<li>Do the same for the Lab Assignment template. Clicking on the link will open the text of the file in a browser window and you cannot just copy the text into an R file.</li>
-<li>With the files on your computer, go back to RStudio.cloud and in the Files tab, click on “New Folder” and name it <code>templates</code></li>
-<li>Upload the templates one at a time to the folder.</li>
+<li><p><strong>Document</strong>: A Markdown file where you type stuff</p></li>
+<li><p><strong>Chunk</strong>: A piece of R code that is included in your document. It looks like this:</p>
+<pre class="markdown"><code>```{r}
+# Code goes here
+```</code></pre>
+<p>There must be an empty line before and after the chunk. The final three backticks must be the only thing on the line—if you add more text, or if you forget to add the backticks, or accidentally delete the backticks, your document will not knit correctly.</p></li>
+<li><p><strong>Knit</strong>: When you “knit” a document, R runs each of the chunks sequentially and converts the output of each chunk into Markdown. R then runs the knitted document through <a href="https://pandoc.org/">pandoc</a> to convert it to HTML or PDF or Word (or whatever output you’ve selected). We will always use PDF for this course.</p>
+<p>You can knit by clicking on the “Knit” button at the top of the editor window, or by pressing <code>⌘⇧K</code> on macOS or <code>control + shift + K</code> on Windows.</p>
+<p><img src="../../../../../../../img/assignments/knit-button.png" width="30%" /></p></li>
 </ul>
-<ol start="5" style="list-style-type: decimal">
-<li>Use the green up arrow to navigate the “Files” tab back to your main directory and create a folder for <code>Labs</code> and one for <code>Weekly Writings</code>.</li>
-<li>Open the Lab Assignment template</li>
-<li>At the top of the template in the upper-left pane, you’ll see a warning that RStudio needs to install some packages. <strong>Click “Install”</strong></li>
-</ol>
-<p><img src="RSC3.png" width="80%" /></p>
-<ol start="8" style="list-style-type: decimal">
-<li>After R finishes installing packages (less than a minute), click the “Knit” button on the toolbar.</li>
-<li>RMarkdown will need to install a few more packages. Click “Yes”.</li>
-</ol>
-<p><img src="RSC4.png" width="80%" /></p>
-<ol start="10" style="list-style-type: decimal">
-<li>A pop-up window will open showing you the PDF of the rendered template. Congrats, you are ready to get to work!</li>
-</ol>
-<p><img src="RSC5.png" width="80%" /></p>
-<p>Your RStudio.cloud version of RStudio will work just like a “local” install on a computer. Make sure you “Save As…” when you do your Lab or Weekly Writing assignments so that you don’t have to re-upload the templates. Keep a separate folder for each Lab inside the Labs to keep things clean in your workspace.</p>
+</div>
+<div id="add-chunks" class="section level2">
+<h2>Add chunks</h2>
+<p>There are three ways to insert chunks:</p>
+<ul>
+<li><p>Press <code>⌘⌥I</code> on macOS or <code>control + alt + I</code> on Windows</p></li>
+<li><p>Click on the “Insert” button at the top of the editor window</p>
+<p><img src="../../../../../../../img/reference/insert-chunk.png" width="30%" /></p></li>
+<li><p>Manually type all the backticks and curly braces (don’t do this)</p></li>
+</ul>
+</div>
+<div id="chunk-names" class="section level2">
+<h2>Chunk names</h2>
+<p>You can add names to chunks to make it easier to navigate your document. If you click on the little dropdown menu at the bottom of your editor in RStudio, you can see a table of contents that shows all the headings and chunks. If you name chunks, they’ll appear in the list. If you don’t include a name, the chunk will still show up, but you won’t know what it does.</p>
+<p><img src="../../../../../../../img/reference/chunk-toc.png" width="40%" /></p>
+<p>To add a name, include it immediately after the <code>{r</code> in the first line of the chunk. Names cannot contain spaces, but they can contain underscores and dashes. <strong>All chunk names in your document must be unique.</strong></p>
+<pre class="markdown"><code>```{r name-of-this-chunk}
+# Code goes here
+```</code></pre>
+</div>
+<div id="chunk-options" class="section level2">
+<h2>Chunk options</h2>
+<p>There are a bunch of different options you can set for each chunk. You can see a complete list in the <a href="https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf">RMarkdown Reference Guide</a> or at <a href="https://yihui.org/knitr/options/"><strong>knitr</strong>’s website</a>.</p>
+<p>Options go inside the <code>{r}</code> section of the chunk:</p>
+<pre class="markdown"><code>```{r name-of-this-chunk, warning=FALSE, message=FALSE}
+# Code goes here
+```</code></pre>
+<p>The most common chunk options are these:</p>
+<ul>
+<li><code>fig.width=5</code> and <code>fig.height=3</code> (<em>or whatever number you want</em>): Set the dimensions for figures</li>
+<li><code>echo=FALSE</code>: The code is not shown in the final document, but the results are</li>
+<li><code>message=FALSE</code>: Any messages that R generates (like all the notes that appear after you load a package) are omitted</li>
+<li><code>warning=FALSE</code>: Any warnings that R generates are omitted</li>
+<li><code>include=FALSE</code>: The chunk still runs, but the code and results are not included in the final document. Don’t use this on your labs as we need to see your work, but do use this for your final project when the output is to be polished and clean.</li>
+</ul>
+<p>You can also set chunk options by clicking on the little gear icon in the top right corner of any chunk:</p>
+<p><img src="../../../../../../../img/reference/chunk-options.png" width="70%" /></p>
+<div id="chunk-fig.width-and-fig.height" class="section level3">
+<h3>Chunk <code>fig.width</code> and <code>fig.height</code></h3>
+<p>When a code chunk includes a plot (like from <code>ggplot</code>), the “canvas” size used can affect the output. You may have noticed if you plot directly in Rstudio, the plot resizes when you change the pane size. Each chunk has its own canvas size, and you can change that. So, if you have a chunk with a large plot, you can change the <code>fig.width=7.5</code> in the chunk options. Note that units default to inches, so no more than 7.5 will fit on a regular-sized sheet of paper (or appropriately sized PDF).</p>
+</div>
+</div>
+<div id="inline-chunks" class="section level2">
+<h2>Inline chunks</h2>
+<p>You can also include R output directly in your text, which is really helpful if you want to report numbers from your analysis. To do this, use <code>`r r_code_here`</code>.</p>
+<p>It’s generally easiest to calculate numbers in a regular chunk beforehand and then use an inline chunk to display the value in your text. For instance, this document…</p>
+<pre class="markdown"><code>```{r find-avg-mpg, echo=FALSE}
+avg_mpg &lt;- mean(mtcars$mpg)
+```
+
+The average fuel efficiency for cars from 1974 was `r round(avg_mpg, 1)` miles per gallon.</code></pre>
+<p>… would knit into this:</p>
+<blockquote>
+<p>The average fuel efficiency for cars from 1974 was 20.1 miles per gallon.</p>
+</blockquote>
+</div>
+<div id="output-formats" class="section level2">
+<h2>Output formats</h2>
+<p>You can specify what kind of document you create when you knit in the <a href="/reference/markdown/#front-matter">YAML front matter</a>.</p>
+<pre class="yaml"><code>title: &quot;My document&quot;
+output:
+  html_document: default
+  pdf_document: default
+  word_document: default</code></pre>
+<p>You can also click on the down arrow on the “Knit” button to choose the output <em>and</em> generate the appropriate YAML. If you click on the gear icon next to the “Knit” button and choose “Output options”, you change settings for each specific output type, like default figure dimensions or whether or not a table of contents is included.</p>
+<p><img src="../../../../../../../img/reference/output-options.png" width="35%" /></p>
+<p>The first output type listed under <code>output:</code> will be what is generated when you click on the “Knit” button or press the keyboard shortcut (<code>⌘⇧K</code> on macOS; <code>control + shift + K</code> on Windows). If you choose a different output with the “Knit” button menu, that output will be moved to the top of the <code>output</code> section.</p>
+<p>The indentation of the YAML section matters, especially when you have settings nested under each output type. Here’s what a typical <code>output</code> section might look like:</p>
+<pre class="yaml"><code>---
+title: &quot;My document&quot;
+author: &quot;My name&quot;
+date: &quot;January 13, 2020&quot;
+output: 
+  html_document: 
+    toc: yes
+    fig_caption: yes
+    fig_height: 8
+    fig_width: 10
+  pdf_document: 
+    latex_engine: xelatex  # More modern PDF typesetting engine
+    toc: yes
+  word_document: 
+    toc: yes
+    fig_caption: yes
+    fig_height: 4
+    fig_width: 5
+---</code></pre>
 </div>
 
                     </div>
