@@ -15,3 +15,5 @@ tobuild = grep(tobuild, pattern='NOTUSED', invert=T, value=T)
 
 blogdown::build_site(local=T, build_rmd = tobuild)
 blogdown::build_site(local=T, build_rmd = "C:/Users/jkirk/OneDrive - Michigan State University/Teaching/SSC442_SS21/content/example/04-example.Rmd")
+
+
