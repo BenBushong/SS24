@@ -1,5 +1,8 @@
 ---
 title: Helpful resources
+menu:
+  resource:
+    weight: 1
 type: docs
 weight: 1
 ---
