@@ -12,12 +12,14 @@ output:
       toc: TRUE
 ---
 
+
+
 ```{r setup, include=FALSE}
 library(knitr)
 library(here)
 ```
 
-# What is ~~Rstudio.cloud~~ Posit.cloud?
+# What is ~~Rstudio.cloud~~ Posit.cloud? 
 
 Installing R and RStudio/Posit locally (on your computer) is the preferred method. Additionally, most MSU computer labs have R and RStudio installed. However, if your computer isn't able to run RStudio, or you run into errors that we can't troubleshoot, using RStudio Cloud is a viable alternative. Hosted at [Posit.cloud](https://posit.cloud), ~~RStudio~~ Posit Cloud is an online, web-based version of R and RStudio. On the "pro" side, it doesn't require anything of your system except a functioning browser and can be up and running in a few minutes. The "con", though, is that you must have an internet connection to use it, and it is limited to 25 hours per month for the free account (and \$5/month for up to 75 hours per month). You shouldn't need more than 25 hours per month, but if you're very new to coding, it's possible you will.
 
