@@ -13,6 +13,7 @@ output:
     toc: true
 ---
 
+
 ## Readings  
 
 - This page.
@@ -226,6 +227,7 @@ On any particular sample you may be wrong, but not often.
 **NOTE** 
 
 This week's content is split into two "halves": the critical data manipulation information contained below and a more-entertaining discussion of visualization included in the Exercises. That's a pretty jarring change, so here's a picture of my dog.
+
 ![](/content/01-content_files/Thibodaux.jpg)
 
 :::
