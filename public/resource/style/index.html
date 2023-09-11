@@ -30,10 +30,11 @@
   
     
   
-  <meta name="description" content="What is Rstudio.cloud Posit.cloud?Setting up Posit.cloudWhat is Rstudio.cloud Posit.cloud?Installing R and RStudio/Posit locally (on your computer) is the preferred method. Additionally, most MSU computer labs have R and RStudio installed. However, if your computer isn’t able to run RStudio, or you run into errors that we can’t troubleshoot, using RStudio Cloud is a viable alternative. Hosted at Posit.cloud, RStudio Posit Cloud is an online, web-based version of R and RStudio.">
+  <meta name="description" content="R style conventionsMain style things to pay attention to for this classSpacingLong linesPipes (%&gt;%) and ggplot layers (&#43;)CommentsR style conventionsR is fairly forgiving about how you type code (unlike other languages like Python, where miscounting spaces can ruin your code!). All of these things will do exactly the same thing:
+mpg %&gt;% filter(cty &gt; 10, class == &quot;compact&quot;)mpg %&gt;% filter(cty &gt; 10, class == &quot;compact&quot;)mpg %&gt;% filter(cty &gt; 10, class == &quot;compact&quot;)mpg %&gt;% filter(cty&gt;10, class==&quot;compact&quot;)filter(mpg,cty&gt;10,class==&quot;compact&quot;)mpg %&gt;% filter(cty &gt; 10, class == &quot;compact&quot;)filter ( mpg,cty&gt;10, class==&quot;compact&quot; )But you’ll notice that only a few of those iterations (the first three) are easily readable.">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://ssc442kirkpatrick.netlify.app/resource/rstudiocloud/">
+  <link rel="alternate" hreflang="en-us" href="https://ssc442kirkpatrick.netlify.app/resource/style/">
 
   
 
@@ -221,7 +222,7 @@
   <link rel="icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_2.png">
   <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png">
 
-  <link rel="canonical" href="https://ssc442kirkpatrick.netlify.app/resource/rstudiocloud/">
+  <link rel="canonical" href="https://ssc442kirkpatrick.netlify.app/resource/style/">
 
   
   
@@ -236,13 +237,14 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="Data Analytics">
-  <meta property="og:url" content="https://ssc442kirkpatrick.netlify.app/resource/rstudiocloud/">
-  <meta property="og:title" content="Using Rstudio Cloud | Data Analytics">
-  <meta property="og:description" content="What is Rstudio.cloud Posit.cloud?Setting up Posit.cloudWhat is Rstudio.cloud Posit.cloud?Installing R and RStudio/Posit locally (on your computer) is the preferred method. Additionally, most MSU computer labs have R and RStudio installed. However, if your computer isn’t able to run RStudio, or you run into errors that we can’t troubleshoot, using RStudio Cloud is a viable alternative. Hosted at Posit.cloud, RStudio Posit Cloud is an online, web-based version of R and RStudio."><meta property="og:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png">
+  <meta property="og:url" content="https://ssc442kirkpatrick.netlify.app/resource/style/">
+  <meta property="og:title" content="R style suggestions | Data Analytics">
+  <meta property="og:description" content="R style conventionsMain style things to pay attention to for this classSpacingLong linesPipes (%&gt;%) and ggplot layers (&#43;)CommentsR style conventionsR is fairly forgiving about how you type code (unlike other languages like Python, where miscounting spaces can ruin your code!). All of these things will do exactly the same thing:
+mpg %&gt;% filter(cty &gt; 10, class == &quot;compact&quot;)mpg %&gt;% filter(cty &gt; 10, class == &quot;compact&quot;)mpg %&gt;% filter(cty &gt; 10, class == &quot;compact&quot;)mpg %&gt;% filter(cty&gt;10, class==&quot;compact&quot;)filter(mpg,cty&gt;10,class==&quot;compact&quot;)mpg %&gt;% filter(cty &gt; 10, class == &quot;compact&quot;)filter ( mpg,cty&gt;10, class==&quot;compact&quot; )But you’ll notice that only a few of those iterations (the first three) are easily readable."><meta property="og:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png">
   <meta property="twitter:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
   
     
-    <meta property="article:modified_time" content="2023-09-11T10:37:11-04:00">
+    <meta property="article:modified_time" content="2023-09-08T11:42:28-04:00">
   
 
   
@@ -269,7 +271,7 @@
   <meta name="msapplication-TileImage" content="https://ssc442kirkpatrick.netlify.app/img/mstile-144x144.png" />
 
 
-  <title>Using Rstudio Cloud | Data Analytics</title>
+  <title>R style suggestions | Data Analytics</title>
 
 </head>
 
@@ -563,11 +565,11 @@
         <a href="/resource/install/">Installing R, RStudio (Posit), tidyverse, and tinytex</a>
       </li>
       
-      <li class="active">
+      <li >
         <a href="/resource/rstudiocloud/">Using Rstudio Cloud</a>
       </li>
       
-      <li >
+      <li class="active">
         <a href="/resource/style/">R style suggestions</a>
       </li>
       
@@ -614,7 +616,7 @@
             <article class="article">
 
                 <div class="docs-article-container">
-                    <h1>Using Rstudio Cloud</h1>
+                    <h1>R style suggestions</h1>
 
                     
 
@@ -627,49 +629,182 @@
 
 <div id="TOC">
 <ul>
-<li><a href="#what-is-rstudio.cloud-posit.cloud" id="toc-what-is-rstudio.cloud-posit.cloud">What is <del>Rstudio.cloud</del> Posit.cloud?</a></li>
-<li><a href="#setting-up-posit.cloud" id="toc-setting-up-posit.cloud">Setting up Posit.cloud</a></li>
+<li><a href="#r-style-conventions" id="toc-r-style-conventions">R style conventions</a></li>
+<li><a href="#main-style-things-to-pay-attention-to-for-this-class" id="toc-main-style-things-to-pay-attention-to-for-this-class">Main style things to pay attention to for this class</a>
+<ul>
+<li><a href="#spacing" id="toc-spacing">Spacing</a></li>
+<li><a href="#long-lines" id="toc-long-lines">Long lines</a></li>
+<li><a href="#pipes-and-ggplot-layers" id="toc-pipes-and-ggplot-layers">Pipes (<code>%&gt;%</code>) and ggplot layers (<code>+</code>)</a></li>
+<li><a href="#comments" id="toc-comments">Comments</a></li>
+</ul></li>
 </ul>
 </div>
 
-<div id="what-is-rstudio.cloud-posit.cloud" class="section level1">
-<h1>What is <del>Rstudio.cloud</del> Posit.cloud?</h1>
-<p>Installing R and RStudio/Posit locally (on your computer) is the preferred method. Additionally, most MSU computer labs have R and RStudio installed. However, if your computer isn’t able to run RStudio, or you run into errors that we can’t troubleshoot, using RStudio Cloud is a viable alternative. Hosted at <a href="https://posit.cloud">Posit.cloud</a>, <del>RStudio</del> Posit Cloud is an online, web-based version of R and RStudio. On the “pro” side, it doesn’t require anything of your system except a functioning browser and can be up and running in a few minutes. The “con”, though, is that you must have an internet connection to use it, and it is limited to 25 hours per month for the free account (and $5/month for up to 75 hours per month). You shouldn’t need more than 25 hours per month, but if you’re very new to coding, it’s possible you will.</p>
-<p>Both Rstudio.cloud and Posit.cloud take you to the same site – posit.cloud. RStudio is in the process of rebranding to Posit. I have updated some, but not all, references here.</p>
+<div id="r-style-conventions" class="section level2">
+<h2>R style conventions</h2>
+<p>R is fairly forgiving about how you type code (unlike other languages like Python, where miscounting spaces can ruin your code!). All of these things will do exactly the same thing:</p>
+<pre class="r"><code>mpg %&gt;% 
+  filter(cty &gt; 10, class == &quot;compact&quot;)
+
+mpg %&gt;% filter(cty &gt; 10, class == &quot;compact&quot;)
+
+mpg %&gt;% 
+  filter(cty &gt; 10, 
+         class == &quot;compact&quot;)
+
+mpg %&gt;% filter(cty&gt;10, class==&quot;compact&quot;)
+
+filter(mpg,cty&gt;10,class==&quot;compact&quot;)
+
+mpg %&gt;% 
+filter(cty &gt; 10, 
+                        class == &quot;compact&quot;)
+
+filter ( mpg,cty&gt;10,     class==&quot;compact&quot; )</code></pre>
+<p>But you’ll notice that only a few of those iterations (the first three) are easily readable.</p>
+<p>To help improve readability and make it easier to share code with others, there’s <a href="https://style.tidyverse.org/index.html">an unofficial style guide for writing R code</a>. It’s fairly short and just has lots of examples of good and bad ways of writing code (naming variables, dealing with long lines, using proper indentation levels, etc.)—you should glance through it some time.</p>
+<p>RStudio has a built-in way of cleaning up your code. Select some code, press <kbd>ctrl</kbd> + <kbd>i</kbd> (on Windows) or <kbd>⌘</kbd> + <kbd>i</kbd> (on macOS), and R will reformat the code for you. It’s not always perfect, but it’s really helpful for getting indentation right without having to manually hit <kbd>space</kbd> a billion times.</p>
 </div>
-<div id="setting-up-posit.cloud" class="section level1">
-<h1>Setting up Posit.cloud</h1>
-<ol style="list-style-type: decimal">
-<li>Start by going to <a href="https://posit.cloud">Posit.cloud</a> and create a free account.</li>
-<li>Click “Your Workspace”</li>
-<li>In the top right corner, click on “New Project” and name it something like “SSC442”</li>
-</ol>
-<p><img src="RSC1.png" width="80%" /></p>
-<ol start="4" style="list-style-type: decimal">
-<li>The “Files” tab in the lower-right pane shows your cloud project storage space. Let’s add a <code>templates</code> folder and store the two course assignment templates there.</li>
-</ol>
-<ul>
-<li>Go to <a href="/assignment/">assignments</a>, scroll down, and <strong>right-click on the Weekly Writing template and select “Save As…”</strong> and save it to your desktop</li>
-<li>Do the same for the Lab Assignment template. Clicking on the link will open the text of the file in a browser window and you cannot just copy the text into an R file.</li>
-<li>With the files on your computer, go back to RStudio.cloud and in the Files tab, click on “New Folder” and name it <code>templates</code></li>
-<li>Upload the templates one at a time to the folder.</li>
-</ul>
-<ol start="5" style="list-style-type: decimal">
-<li>Use the green up arrow to navigate the “Files” tab back to your main directory and create a folder for <code>Labs</code> and one for <code>Weekly Writings</code>.</li>
-<li>Open the Lab Assignment template</li>
-<li>At the top of the template in the upper-left pane, you’ll see a warning that RStudio needs to install some packages. <strong>Click “Install”</strong></li>
-</ol>
-<p><img src="RSC3.png" width="80%" /></p>
-<ol start="8" style="list-style-type: decimal">
-<li>After R finishes installing packages (less than a minute), click the “Knit” button on the toolbar.</li>
-<li>RMarkdown will need to install a few more packages. Click “Yes”.</li>
-</ol>
-<p><img src="RSC4.png" width="80%" /></p>
-<ol start="10" style="list-style-type: decimal">
-<li>A pop-up window will open showing you the PDF of the rendered template. Congrats, you are ready to get to work!</li>
-</ol>
-<p><img src="RSC5.png" width="80%" /></p>
-<p>Your RStudio.cloud version of RStudio will work just like a “local” install on a computer. Make sure you “Save As…” when you do your Lab or Weekly Writing assignments so that you don’t have to re-upload the templates. Keep a separate folder for each Lab inside the Labs to keep things clean in your workspace.</p>
+<div id="main-style-things-to-pay-attention-to-for-this-class" class="section level2">
+<h2>Main style things to pay attention to for this class</h2>
+<blockquote>
+<p><em>Important note</em>: I won’t ever grade you on any of this! If you submit something like <code>filter(mpg,cty&gt;10,class=="compact")</code>, I might recommend adding spaces, but it won’t affect your grade or points or anything.</p>
+</blockquote>
+<div id="spacing" class="section level3">
+<h3>Spacing</h3>
+<blockquote>
+<p>See the <a href="https://style.tidyverse.org/syntax.html#spacing">“Spacing” section</a> in the tidyverse style guide.</p>
+</blockquote>
+<p>Put spaces after commas (like in regular English):</p>
+<pre class="r"><code># Good
+filter(mpg, cty &gt; 10)
+
+# Bad
+filter(mpg , cty &gt; 10)
+filter(mpg ,cty &gt; 10)
+filter(mpg,cty &gt; 10)</code></pre>
+<p>Put spaces around operators like <code>+</code>, <code>-</code>, <code>&gt;</code>, <code>=</code>, etc.:</p>
+<pre class="r"><code># Good
+filter(mpg, cty &gt; 10)
+
+# Bad
+filter(mpg, cty&gt;10)
+filter(mpg, cty&gt; 10)
+filter(mpg, cty &gt;10)</code></pre>
+<p>Don’t put spaces around parentheses that are parts of functions:</p>
+<pre class="r"><code># Good
+filter(mpg, cty &gt; 10)
+
+# Bad
+filter (mpg, cty &gt; 10)
+filter ( mpg, cty &gt; 10)
+filter( mpg, cty &gt; 10 )</code></pre>
+</div>
+<div id="long-lines" class="section level3">
+<h3>Long lines</h3>
+<blockquote>
+<p>See the <a href="https://style.tidyverse.org/syntax.html#long-lines">“Long lines” section</a> in the tidyverse style guide.</p>
+</blockquote>
+<p>It’s generally good practice to not have really long lines of code. A good suggestion is to keep lines at a maximum of 80 characters. Instead of counting characters by hand (ew), in RStudio go to “Tools” &gt; “Global Options” &gt; “Code” &gt; “Display” and check the box for “Show margin”. You should now see a really thin line indicating 80 characters. Again, you can go beyond this—that’s fine. It’s just good practice to avoid going too far past it.</p>
+<p>You can add line breaks inside longer lines of code. Line breaks should come after commas, and things like function arguments should align within the function:</p>
+<pre class="r"><code># Good
+filter(mpg, cty &gt; 10, class == &quot;compact&quot;)
+
+# Good
+filter(mpg, cty &gt; 10, 
+       class == &quot;compact&quot;)
+
+# Good
+filter(mpg,
+       cty &gt; 10,
+       class == &quot;compact&quot;)
+
+# Bad
+filter(mpg, cty &gt; 10, class %in% c(&quot;compact&quot;, &quot;pickup&quot;, &quot;midsize&quot;, &quot;subcompact&quot;, &quot;suv&quot;, &quot;2seater&quot;, &quot;minivan&quot;))
+
+# Good
+filter(mpg, 
+       cty &gt; 10, 
+       class %in% c(&quot;compact&quot;, &quot;pickup&quot;, &quot;midsize&quot;, &quot;subcompact&quot;, 
+                    &quot;suv&quot;, &quot;2seater&quot;, &quot;minivan&quot;))</code></pre>
+</div>
+<div id="pipes-and-ggplot-layers" class="section level3">
+<h3>Pipes (<code>%&gt;%</code>) and ggplot layers (<code>+</code>)</h3>
+<p>Put each layer of a ggplot plot on separate lines, with the <code>+</code> at the end of the line, indented with two spaces:</p>
+<pre class="r"><code># Good
+ggplot(mpg, aes(x = cty, y = hwy, color = class)) +
+  geom_point() +
+  geom_smooth() +
+  theme_bw()
+
+# Bad
+ggplot(mpg, aes(x = cty, y = hwy, color = class)) +
+  geom_point() + geom_smooth() +
+  theme_bw()
+
+# Super bad
+ggplot(mpg, aes(x = cty, y = hwy, color = class)) + geom_point() + geom_smooth() + theme_bw()
+
+# Super bad and won&#39;t even work
+ggplot(mpg, aes(x = cty, y = hwy, color = class))
+  + geom_point()
+  + geom_smooth() 
+  + theme_bw()</code></pre>
+<p>Put each step in a dplyr pipeline on separate lines, with the <code>%&gt;%</code> at the end of the line, indented with two spaces:</p>
+<pre class="r"><code># Good
+mpg %&gt;% 
+  filter(cty &gt; 10) %&gt;% 
+  group_by(class) %&gt;% 
+  summarize(avg_hwy = mean(hwy))
+
+# Bad
+mpg %&gt;% filter(cty &gt; 10) %&gt;% group_by(class) %&gt;% 
+  summarize(avg_hwy = mean(hwy))
+
+# Super bad
+mpg %&gt;% filter(cty &gt; 10) %&gt;% group_by(class) %&gt;% summarize(avg_hwy = mean(hwy))
+
+# Super bad and won&#39;t even work
+mpg %&gt;% 
+  filter(cty &gt; 10)
+  %&gt;% group_by(class)
+  %&gt;% summarize(avg_hwy = mean(hwy))</code></pre>
+</div>
+<div id="comments" class="section level3">
+<h3>Comments</h3>
+<blockquote>
+<p>See the <a href="https://style.tidyverse.org/syntax.html#comments">“Comments” section</a> in the tidyverse style guide.</p>
+</blockquote>
+<p>Comments should start with a comment symbol and a single space: <code>#</code></p>
+<pre class="r"><code># Good
+
+#Bad
+
+    #Bad</code></pre>
+<p>If the comment is really short (and won’t cause you to go over 80 characters in the line), you can include it in the same line as the code, separated by at least two spaces (it works with one space, but using a couple can enhance readability):</p>
+<pre class="r"><code>mpg %&gt;% 
+  filter(cty &gt; 10) %&gt;%  # Only rows where cty is 10 +
+  group_by(class) %&gt;%  # Divide into class groups
+  summarize(avg_hwy = mean(hwy))  # Find the average hwy in each group</code></pre>
+<p>You can add extra spaces to get inline comments to align, if you want:</p>
+<pre class="r"><code>mpg %&gt;% 
+  filter(cty &gt; 10) %&gt;%            # Only rows where cty is 10 +
+  group_by(class) %&gt;%             # Divide into class groups
+  summarize(avg_hwy = mean(hwy))  # Find the average hwy in each group</code></pre>
+<p>If the comment is really long, you can break it into multiple lines. RStudio can do this for you if you go to “Code” &gt; “Reflow comment”</p>
+<pre class="r"><code># Good
+# Happy families are all alike; every unhappy family is unhappy in its own way.
+# Everything was in confusion in the Oblonskys’ house. The wife had discovered
+# that the husband was carrying on an intrigue with a French girl, who had been
+# a governess in their family, and she had announced to her husband that she
+# could not go on living in the same house with him. This position of affairs
+# had now lasted three days, and not only the husband and wife themselves, but
+# all the members of their family and household, were painfully conscious of it.
+
+# Bad
+# Happy families are all alike; every unhappy family is unhappy in its own way. Everything was in confusion in the Oblonskys’ house. The wife had discovered that the husband was carrying on an intrigue with a French girl, who had been a governess in their family, and she had announced to her husband that she could not go on living in the same house with him. This position of affairs had now lasted three days, and not only the husband and wife themselves, but all the members of their family and household, were painfully conscious of it.</code></pre>
+<p>Though, if you’re dealing with comments that are <em>that</em> long, consider putting the text in R Markdown instead and having it be actual prose.</p>
+</div>
 </div>
 
                     </div>
@@ -682,7 +817,7 @@
                 </div>
 
                 <div class="body-footer">
-                    <p>Last updated on September 11, 2023</p>
+                    <p>Last updated on September 8, 2023</p>
 
                     
 

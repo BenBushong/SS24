@@ -30,10 +30,10 @@
   
     
   
-  <meta name="description" content="What is Rstudio.cloud Posit.cloud?Setting up Posit.cloudWhat is Rstudio.cloud Posit.cloud?Installing R and RStudio/Posit locally (on your computer) is the preferred method. Additionally, most MSU computer labs have R and RStudio installed. However, if your computer isn’t able to run RStudio, or you run into errors that we can’t troubleshoot, using RStudio Cloud is a viable alternative. Hosted at Posit.cloud, RStudio Posit Cloud is an online, web-based version of R and RStudio.">
+  <meta name="description" content="Interesting and excellent real world examplesHow to select the appropriate chart typeGeneral resourcesVisualization in ExcelVisualization in TableauInteresting and excellent real world examplesThe Stories Behind a LineAustralia as 100 people: You can make something like this with d3 and the potato project.Marrying Later, Staying Single LongerHow to select the appropriate chart typeMany people have created many useful tools for selecting the correct chart type for a given dataset or question.">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://ssc442kirkpatrick.netlify.app/resource/rstudiocloud/">
+  <link rel="alternate" hreflang="en-us" href="https://ssc442kirkpatrick.netlify.app/resource/visualization/">
 
   
 
@@ -221,7 +221,7 @@
   <link rel="icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_2.png">
   <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png">
 
-  <link rel="canonical" href="https://ssc442kirkpatrick.netlify.app/resource/rstudiocloud/">
+  <link rel="canonical" href="https://ssc442kirkpatrick.netlify.app/resource/visualization/">
 
   
   
@@ -236,13 +236,13 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="Data Analytics">
-  <meta property="og:url" content="https://ssc442kirkpatrick.netlify.app/resource/rstudiocloud/">
-  <meta property="og:title" content="Using Rstudio Cloud | Data Analytics">
-  <meta property="og:description" content="What is Rstudio.cloud Posit.cloud?Setting up Posit.cloudWhat is Rstudio.cloud Posit.cloud?Installing R and RStudio/Posit locally (on your computer) is the preferred method. Additionally, most MSU computer labs have R and RStudio installed. However, if your computer isn’t able to run RStudio, or you run into errors that we can’t troubleshoot, using RStudio Cloud is a viable alternative. Hosted at Posit.cloud, RStudio Posit Cloud is an online, web-based version of R and RStudio."><meta property="og:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png">
+  <meta property="og:url" content="https://ssc442kirkpatrick.netlify.app/resource/visualization/">
+  <meta property="og:title" content="Visualization | Data Analytics">
+  <meta property="og:description" content="Interesting and excellent real world examplesHow to select the appropriate chart typeGeneral resourcesVisualization in ExcelVisualization in TableauInteresting and excellent real world examplesThe Stories Behind a LineAustralia as 100 people: You can make something like this with d3 and the potato project.Marrying Later, Staying Single LongerHow to select the appropriate chart typeMany people have created many useful tools for selecting the correct chart type for a given dataset or question."><meta property="og:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png">
   <meta property="twitter:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
   
     
-    <meta property="article:modified_time" content="2023-09-11T10:37:11-04:00">
+    <meta property="article:modified_time" content="2023-09-08T11:42:28-04:00">
   
 
   
@@ -269,7 +269,7 @@
   <meta name="msapplication-TileImage" content="https://ssc442kirkpatrick.netlify.app/img/mstile-144x144.png" />
 
 
-  <title>Using Rstudio Cloud | Data Analytics</title>
+  <title>Visualization | Data Analytics</title>
 
 </head>
 
@@ -563,7 +563,7 @@
         <a href="/resource/install/">Installing R, RStudio (Posit), tidyverse, and tinytex</a>
       </li>
       
-      <li class="active">
+      <li >
         <a href="/resource/rstudiocloud/">Using Rstudio Cloud</a>
       </li>
       
@@ -593,7 +593,7 @@
     <a class="docs-toc-link" href="/resource/visualization/">Resources</a>
     <ul class="nav docs-sidenav">
       
-      <li >
+      <li class="active">
         <a href="/resource/visualization/">Visualization</a>
       </li>
       
@@ -614,7 +614,7 @@
             <article class="article">
 
                 <div class="docs-article-container">
-                    <h1>Using Rstudio Cloud</h1>
+                    <h1>Visualization</h1>
 
                     
 
@@ -627,49 +627,62 @@
 
 <div id="TOC">
 <ul>
-<li><a href="#what-is-rstudio.cloud-posit.cloud" id="toc-what-is-rstudio.cloud-posit.cloud">What is <del>Rstudio.cloud</del> Posit.cloud?</a></li>
-<li><a href="#setting-up-posit.cloud" id="toc-setting-up-posit.cloud">Setting up Posit.cloud</a></li>
+<li><a href="#interesting-and-excellent-real-world-examples" id="toc-interesting-and-excellent-real-world-examples">Interesting and excellent real world examples</a></li>
+<li><a href="#how-to-select-the-appropriate-chart-type" id="toc-how-to-select-the-appropriate-chart-type">How to select the appropriate chart type</a></li>
+<li><a href="#general-resources" id="toc-general-resources">General resources</a></li>
+<li><a href="#visualization-in-excel" id="toc-visualization-in-excel">Visualization in Excel</a></li>
+<li><a href="#visualization-in-tableau" id="toc-visualization-in-tableau">Visualization in Tableau</a></li>
 </ul>
 </div>
 
-<div id="what-is-rstudio.cloud-posit.cloud" class="section level1">
-<h1>What is <del>Rstudio.cloud</del> Posit.cloud?</h1>
-<p>Installing R and RStudio/Posit locally (on your computer) is the preferred method. Additionally, most MSU computer labs have R and RStudio installed. However, if your computer isn’t able to run RStudio, or you run into errors that we can’t troubleshoot, using RStudio Cloud is a viable alternative. Hosted at <a href="https://posit.cloud">Posit.cloud</a>, <del>RStudio</del> Posit Cloud is an online, web-based version of R and RStudio. On the “pro” side, it doesn’t require anything of your system except a functioning browser and can be up and running in a few minutes. The “con”, though, is that you must have an internet connection to use it, and it is limited to 25 hours per month for the free account (and $5/month for up to 75 hours per month). You shouldn’t need more than 25 hours per month, but if you’re very new to coding, it’s possible you will.</p>
-<p>Both Rstudio.cloud and Posit.cloud take you to the same site – posit.cloud. RStudio is in the process of rebranding to Posit. I have updated some, but not all, references here.</p>
-</div>
-<div id="setting-up-posit.cloud" class="section level1">
-<h1>Setting up Posit.cloud</h1>
-<ol style="list-style-type: decimal">
-<li>Start by going to <a href="https://posit.cloud">Posit.cloud</a> and create a free account.</li>
-<li>Click “Your Workspace”</li>
-<li>In the top right corner, click on “New Project” and name it something like “SSC442”</li>
-</ol>
-<p><img src="RSC1.png" width="80%" /></p>
-<ol start="4" style="list-style-type: decimal">
-<li>The “Files” tab in the lower-right pane shows your cloud project storage space. Let’s add a <code>templates</code> folder and store the two course assignment templates there.</li>
-</ol>
+<div id="interesting-and-excellent-real-world-examples" class="section level2">
+<h2>Interesting and excellent real world examples</h2>
 <ul>
-<li>Go to <a href="/assignment/">assignments</a>, scroll down, and <strong>right-click on the Weekly Writing template and select “Save As…”</strong> and save it to your desktop</li>
-<li>Do the same for the Lab Assignment template. Clicking on the link will open the text of the file in a browser window and you cannot just copy the text into an R file.</li>
-<li>With the files on your computer, go back to RStudio.cloud and in the Files tab, click on “New Folder” and name it <code>templates</code></li>
-<li>Upload the templates one at a time to the folder.</li>
+<li><a href="http://www.storiesbehindaline.com/">The Stories Behind a Line</a></li>
+<li><a href="https://flowingdata.com/2017/06/28/australia-as-100-people/">Australia as 100 people</a>: You can make something like this with <a href="https://d3js.org/">d3</a> and the <a href="https://github.com/civisanalytics/potato">potato project</a>.</li>
+<li><a href="https://flowingdata.com/2017/07/17/marrying-age-over-the-past-century/">Marrying Later, Staying Single Longer</a></li>
 </ul>
-<ol start="5" style="list-style-type: decimal">
-<li>Use the green up arrow to navigate the “Files” tab back to your main directory and create a folder for <code>Labs</code> and one for <code>Weekly Writings</code>.</li>
-<li>Open the Lab Assignment template</li>
-<li>At the top of the template in the upper-left pane, you’ll see a warning that RStudio needs to install some packages. <strong>Click “Install”</strong></li>
-</ol>
-<p><img src="RSC3.png" width="80%" /></p>
-<ol start="8" style="list-style-type: decimal">
-<li>After R finishes installing packages (less than a minute), click the “Knit” button on the toolbar.</li>
-<li>RMarkdown will need to install a few more packages. Click “Yes”.</li>
-</ol>
-<p><img src="RSC4.png" width="80%" /></p>
-<ol start="10" style="list-style-type: decimal">
-<li>A pop-up window will open showing you the PDF of the rendered template. Congrats, you are ready to get to work!</li>
-</ol>
-<p><img src="RSC5.png" width="80%" /></p>
-<p>Your RStudio.cloud version of RStudio will work just like a “local” install on a computer. Make sure you “Save As…” when you do your Lab or Weekly Writing assignments so that you don’t have to re-upload the templates. Keep a separate folder for each Lab inside the Labs to keep things clean in your workspace.</p>
+</div>
+<div id="how-to-select-the-appropriate-chart-type" class="section level2">
+<h2>How to select the appropriate chart type</h2>
+<p>Many people have created many useful tools for selecting the correct chart type for a given dataset or question. Here are some of the best:</p>
+<ul>
+<li><a href="http://www.datavizcatalogue.com/"><strong>The Data Visualisation Catalogue</strong></a>: Descriptions, explanations, examples, and tools for creating 60 different types of visualizations.</li>
+<li><a href="http://datavizproject.com/"><strong>The Data Viz Project</strong></a>: Descriptions and examples for 150 different types of visualizations. Also allows you to search by data shape and chart function (comparison, correlation, distribution, geographical, part to whole, trend over time, etc.).</li>
+<li><a href="https://www.data-to-viz.com/"><strong>From Data to Viz</strong></a>: A decision tree for dozens of chart types with links to R and Python code.</li>
+<li><a href="http://chartmaker.visualisingdata.com/"><strong>The Chartmaker Directory</strong></a>: Examples of how to create 51 different types of visualizations in 31 different software packages, including Excel, Tableau, and R.</li>
+<li><a href="http://shinyapps.stat.ubc.ca/r-graph-catalog/"><strong>R Graph Catalog</strong></a>: R code for 124 ggplot graphs.</li>
+<li><a href="http://annkemery.com/essentials/"><strong>Emery’s Essentials</strong></a>: Descriptions and examples of 26 different chart types.</li>
+</ul>
+</div>
+<div id="general-resources" class="section level2">
+<h2>General resources</h2>
+<ul>
+<li><a href="http://www.storytellingwithdata.com/"><strong>Storytelling with Data</strong></a>: Blog and site full of resources by Cole Nussbaumer Knaflic.</li>
+<li><a href="http://annkemery.com/blog/"><strong>Ann K. Emery’s blog</strong></a>: Blog and tutorials by <a href="https://twitter.com/AnnKEmery">Ann Emery</a>.</li>
+<li><a href="http://stephanieevergreen.com/"><strong>Evergreen Data</strong></a>: Helful resources by <a href="https://twitter.com/evergreendata">Stephanie Evergreen</a>.</li>
+<li><a href="https://policyviz.com/"><strong>PolicyViz</strong></a>: Regular podcast and site full of helpful resources by <a href="https://twitter.com/jschwabish">Jon Schwabisch</a>.</li>
+<li><a href="http://www.visualisingdata.com/"><strong>Visualising Data</strong></a>: Fantastic collection of visualization resources, articles, and tutorials by <a href="https://twitter.com/visualisingdata">Andy Kirk</a>.</li>
+<li><a href="http://infowetrust.com/"><strong>Info We Trust</strong></a>: Detailed explorations of visualizations by <a href="https://twitter.com/infowetrust">RJ Andrews</a>, including a <a href="http://infowetrust.com/history/">beautiful visual history of the field</a>.</li>
+<li><a href="https://flowingdata.com/"><strong>FlowingData</strong></a>: Blog by <a href="https://twitter.com/flowingdata">Nathan Yau</a>.</li>
+<li><a href="http://www.informationisbeautiful.net/"><strong>Information is Beautiful</strong></a>: Blog by <a href="https://twitter.com/mccandelish">David McCandless</a>.</li>
+<li><a href="http://junkcharts.typepad.com/"><strong>Junk Charts</strong></a>: Blog by <a href="https://twitter.com/junkcharts">Kaiser Fung</a>.</li>
+<li><a href="http://viz.wtf/"><strong>WTF Visualizations</strong></a>: Visualizations that make you ask “wtf?”</li>
+<li><a href="http://annkemery.com/checklist/"><strong>The Data Visualization Checklist</strong></a>: A helpful set of criteria for grading the effectiveness of a graphic.</li>
+<li><a href="https://docs.google.com/document/d/1kKRadOiF0LruItsvGA40fSDZkAQfCqC_Ela0gBdo8A4/edit"><strong>Data Literacy Starter Kit</strong></a>: Compilation of resources to become data literate by <a href="http://lauracalloway.com/">Laura Calloway</a>.</li>
+<li><a href="http://seeingdata.org/"><strong>Seeing Data</strong></a>: A series of research projects about perceptions and visualizations.</li>
+</ul>
+</div>
+<div id="visualization-in-excel" class="section level2">
+<h2>Visualization in Excel</h2>
+<ul>
+<li><a href="http://stephanieevergreen.com/how-to/"><strong>How to Build Data Visualizations in Excel</strong></a>: Detailed tutorials for creating 14 different visualizations in Excel.</li>
+<li><a href="http://annkemery.com/category/visualizing-data/tutorials/"><strong>Ann Emery’s tutorials</strong></a>: Fantastic series of tutorials for creating charts in Excel.</li>
+</ul>
+</div>
+<div id="visualization-in-tableau" class="section level2">
+<h2>Visualization in Tableau</h2>
+<p>Because it is focused entirely on visualization (and because it’s a well-supported commercial product), Tableau has a <a href="https://www.tableau.com/learn/training">phenomenal library of tutorials and training videos</a>. There’s <a href="https://www.quora.com/What-are-some-good-video-tutorials-for-learning-Tableau">a helpful collections of videos here</a>, as well.</p>
 </div>
 
                     </div>
@@ -682,7 +695,7 @@
                 </div>
 
                 <div class="body-footer">
-                    <p>Last updated on September 11, 2023</p>
+                    <p>Last updated on September 8, 2023</p>
 
                     
 

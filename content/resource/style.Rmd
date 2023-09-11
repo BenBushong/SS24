@@ -2,7 +2,8 @@
 title: R style suggestions 
 menu:
   resource:
-    parent: Resources
+    parent: Guides
+    weight: 3
 type: docs
 weight: 3
 output:

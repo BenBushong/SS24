@@ -2,7 +2,7 @@
 title: Visualization
 menu:
   resource:
-    parent: Resources
+    parent: Guides
 type: docs
 weight: 2
 output:
