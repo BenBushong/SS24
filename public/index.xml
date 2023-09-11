@@ -2711,57 +2711,87 @@ head(weather_atl_long)&lt;/code&gt;&lt;/pre&gt;
     </item>
     
     <item>
-      <title>Using Rstudio/Posit Cloud</title>
-      <link>https://ssc442kirkpatrick.netlify.app/resource/rstudiocloud/</link>
+      <title>Installing R, RStudio (Posit), tidyverse, and tinytex</title>
+      <link>https://ssc442kirkpatrick.netlify.app/resource/install/</link>
       <pubDate>Mon, 28 Aug 2023 00:00:00 +0000</pubDate>
-      <guid>https://ssc442kirkpatrick.netlify.app/resource/rstudiocloud/</guid>
+      <guid>https://ssc442kirkpatrick.netlify.app/resource/install/</guid>
       <description>
 
 &lt;div id=&#34;TOC&#34;&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#what-is-rstudio.cloud-posit.cloud&#34; id=&#34;toc-what-is-rstudio.cloud-posit.cloud&#34;&gt;What is &lt;del&gt;Rstudio.cloud&lt;/del&gt; Posit.cloud?&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#setting-up-posit.cloud&#34; id=&#34;toc-setting-up-posit.cloud&#34;&gt;Setting up Posit.cloud&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#install-r&#34; id=&#34;toc-install-r&#34;&gt;Install &lt;code&gt;R&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#install-rstudioposit&#34; id=&#34;toc-install-rstudioposit&#34;&gt;Install RStudio/Posit&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#install-tidyverse&#34; id=&#34;toc-install-tidyverse&#34;&gt;Install &lt;code&gt;tidyverse&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#install-tinytex&#34; id=&#34;toc-install-tinytex&#34;&gt;Install &lt;code&gt;tinytex&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 
-&lt;div id=&#34;what-is-rstudio.cloud-posit.cloud&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;What is &lt;del&gt;Rstudio.cloud&lt;/del&gt; Posit.cloud?&lt;/h1&gt;
-&lt;p&gt;Installing R and RStudio/Posit locally (on your computer) is the preferred method. Additionally, most MSU computer labs have R and RStudio installed. However, if your computer isn’t able to run RStudio, or you run into errors that we can’t troubleshoot, using RStudio Cloud is a viable alternative. Hosted at &lt;a href=&#34;https://posit.cloud&#34;&gt;Posit.cloud&lt;/a&gt;, &lt;del&gt;RStudio&lt;/del&gt; Posit Cloud is an online, web-based version of R and RStudio. On the “pro” side, it doesn’t require anything of your system except a functioning browser and can be up and running in a few minutes. The “con”, though, is that you must have an internet connection to use it, and it is limited to 25 hours per month for the free account (and $5/month for up to 75 hours per month). You shouldn’t need more than 25 hours per month, but if you’re very new to coding, it’s possible you will.&lt;/p&gt;
-&lt;p&gt;Both Rstudio.cloud and Posit.cloud take you to the same site – posit.cloud. RStudio is in the process of rebranding to Posit. I have updated some, but not all, references here.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;setting-up-posit.cloud&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Setting up Posit.cloud&lt;/h1&gt;
+&lt;p&gt;As mentioned in the syllabus, you will do all of your work in this class with the open source programming language &lt;a href=&#34;https://cran.r-project.org/&#34;&gt;&lt;code&gt;R&lt;/code&gt;&lt;/a&gt;. You will use &lt;a href=&#34;https://www.rstudio.com/&#34;&gt;RStudio/Posit&lt;/a&gt; as the main program to access &lt;code&gt;R&lt;/code&gt;. Think of &lt;code&gt;R&lt;/code&gt; as an engine and RStudio/Posit as a car dashboard—–&lt;code&gt;R&lt;/code&gt; handles all the calculations and the actual statistics, while RStudio provides a nice interface for running &lt;code&gt;R&lt;/code&gt; code.&lt;/p&gt;
+&lt;p&gt;RStudio is in the process of rebranding as Posit. You’ll see both along the way.&lt;/p&gt;
+&lt;p&gt;Hopefully you’re well-versed in dealing with these things, but if you’re lost, here’s how you install the required software for the course.&lt;/p&gt;
+&lt;div id=&#34;install-r&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Install &lt;code&gt;R&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;I have created a video walkthrough for installing R for another course, but it is useful here. You can &lt;a href=&#34;https://mediaspace.msu.edu/media/R+Part+1/1_b8nafkzx&#34;&gt;see it here &lt;i class=&#34;fas fa-film&#34;&gt;&lt;/i&gt;&lt;/a&gt;]&lt;/p&gt;
+&lt;p&gt;First you need to install &lt;code&gt;R&lt;/code&gt; itself (the engine).&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;Start by going to &lt;a href=&#34;https://posit.cloud&#34;&gt;Posit.cloud&lt;/a&gt; and create a free account.&lt;/li&gt;
-&lt;li&gt;Click “Your Workspace”&lt;/li&gt;
-&lt;li&gt;In the top right corner, click on “New Project” and name it something like “SSC442”&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;RSC1.png&#34; width=&#34;80%&#34; /&gt;&lt;/p&gt;
-&lt;ol start=&#34;4&#34; style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;The “Files” tab in the lower-right pane shows your cloud project storage space. Let’s add a &lt;code&gt;templates&lt;/code&gt; folder and store the two course assignment templates there.&lt;/li&gt;
-&lt;/ol&gt;
+&lt;li&gt;&lt;p&gt;Go to the CRAN (Collective &lt;code&gt;R&lt;/code&gt; Archive Network)&lt;a href=&#34;#fn1&#34; class=&#34;footnote-ref&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; website: &lt;a href=&#34;https://cran.r-project.org/&#34; class=&#34;uri&#34;&gt;https://cran.r-project.org/&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Click on “Download &lt;code&gt;R&lt;/code&gt; for &lt;code&gt;XXX&lt;/code&gt;”, where &lt;code&gt;XXX&lt;/code&gt; is either Mac or Windows:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../../../../../../img/install/install-r-links.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Go to &lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/assignment/&#34;&gt;assignments&lt;/a&gt;, scroll down, and &lt;strong&gt;right-click on the Weekly Writing template and select “Save As…”&lt;/strong&gt; and save it to your desktop&lt;/li&gt;
-&lt;li&gt;Do the same for the Lab Assignment template. Clicking on the link will open the text of the file in a browser window and you cannot just copy the text into an R file.&lt;/li&gt;
-&lt;li&gt;With the files on your computer, go back to RStudio.cloud and in the Files tab, click on “New Folder” and name it &lt;code&gt;templates&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Upload the templates one at a time to the folder.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;5&#34; style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;Use the green up arrow to navigate the “Files” tab back to your main directory and create a folder for &lt;code&gt;Labs&lt;/code&gt; and one for &lt;code&gt;Weekly Writings&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Open the Lab Assignment template&lt;/li&gt;
-&lt;li&gt;At the top of the template in the upper-left pane, you’ll see a warning that RStudio needs to install some packages. &lt;strong&gt;Click “Install”&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;If you use macOS, scroll down to the first &lt;code&gt;.pkg&lt;/code&gt; file in the list of files (in this picture, it’s &lt;code&gt;R-4.0.0.pkg&lt;/code&gt;; as of Summer 2022 now, the current version is also 4.2.1 so use the most recent one) and download it.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../../../../../../img/install/install-r-mac.png&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;If you use Windows, click “base” (or click on the bolded “install R for the first time” link) and download it.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../../../../../../img/install/install-r-windows.png&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Double click on the downloaded file (check your &lt;code&gt;Downloads&lt;/code&gt; folder). Click yes through all the prompts to install like any other program.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;If you use macOS, &lt;a href=&#34;https://www.xquartz.org/&#34;&gt;download and install XQuartz&lt;/a&gt;. You do not need to do this on Windows.&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;RSC3.png&#34; width=&#34;80%&#34; /&gt;&lt;/p&gt;
-&lt;ol start=&#34;8&#34; style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;After R finishes installing packages (less than a minute), click the “Knit” button on the toolbar.&lt;/li&gt;
-&lt;li&gt;RMarkdown will need to install a few more packages. Click “Yes”.&lt;/li&gt;
+&lt;/div&gt;
+&lt;div id=&#34;install-rstudioposit&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Install RStudio/Posit&lt;/h3&gt;
+&lt;p&gt;Next, you need to install the most recent version of RStudio, the nicer graphical user interface (GUI) for &lt;code&gt;R&lt;/code&gt; (the dashboard). Once &lt;code&gt;R&lt;/code&gt; and RStudio/Posit are both installed, you can ignore &lt;code&gt;R&lt;/code&gt; and only use RStudio. RStudio will use &lt;code&gt;R&lt;/code&gt; automatically and you won’t ever have to interact with it directly.&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Go to the free download location on RStudio’s website: &lt;a href=&#34;https://www.rstudio.com/products/rstudio/download/#download&#34; class=&#34;uri&#34;&gt;https://www.rstudio.com/products/rstudio/download/#download&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;The website should automatically detect your operating system (macOS or Windows) and show a big download button for it:&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;RSC4.png&#34; width=&#34;80%&#34; /&gt;&lt;/p&gt;
-&lt;ol start=&#34;10&#34; style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;A pop-up window will open showing you the PDF of the rendered template. Congrats, you are ready to get to work!&lt;/li&gt;
+&lt;p&gt;&lt;img src=&#34;../../../../../../../img/install/install-r-rstudio1.png&#34; width=&#34;50%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;If not, scroll down a little to the large table and choose the version of RStudio that matches your operating system.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../../../../../../img/install/install-r-rstudio2.png&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;
+&lt;ol start=&#34;3&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Double click on the downloaded file (again, check your &lt;code&gt;Downloads&lt;/code&gt; folder). Click yes through all the prompts to install like any other program.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;RSC5.png&#34; width=&#34;80%&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Your RStudio.cloud version of RStudio will work just like a “local” install on a computer. Make sure you “Save As…” when you do your Lab or Weekly Writing assignments so that you don’t have to re-upload the templates. Keep a separate folder for each Lab inside the Labs to keep things clean in your workspace.&lt;/p&gt;
+&lt;p&gt;Double click on RStudio to run it (check your applications folder or start menu).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;install-tidyverse&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Install &lt;code&gt;tidyverse&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;R&lt;/code&gt; packages are easy to install with RStudio. Select the packages panel, click on “Install,” type the name of the package you want to install, and press enter.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../../../../../../img/install/install-r-package-panel.png&#34; width=&#34;40%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;This can sometimes be tedious when you’re installing lots of packages, though. &lt;a href=&#34;https://www.tidyverse.org/&#34;&gt;The tidyverse&lt;/a&gt;, for instance, consists of dozens of packages (including the ever-present &lt;strong&gt;ggplot2&lt;/strong&gt;) that all work together. Rather than install each individually, you can install a single magical package and get them all at the same time.&lt;/p&gt;
+&lt;p&gt;Go to the packages panel in RStudio, click on “Install,” type “tidyverse”, and press enter. You’ll see a bunch of output in the RStudio console as all the tidyverse packages are installed.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../../../../../../img/install/install-r-tidyverse.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Notice also that RStudio will generate a line of code for you and run it: &lt;code&gt;install.packages(&#34;tidyverse&#34;)&lt;/code&gt;. You can also just paste and run this instead of using the packages panel. Hopefully you’ve experienced installing packages before now; if not, consider this a crash course!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;install-tinytex&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Install &lt;code&gt;tinytex&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;When you knit to PDF, &lt;code&gt;R&lt;/code&gt; uses a special scientific typesetting program named LaTeX.&lt;a href=&#34;#fn2&#34; class=&#34;footnote-ref&#34; id=&#34;fnref2&#34;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;LaTeX is neat and makes pretty documents, but it’s a huge program—&lt;a href=&#34;https://tug.org/mactex/mactex-download.html&#34;&gt;the macOS version, for instance, is nearly 4 GB&lt;/a&gt;. To make life easier, there’s &lt;a href=&#34;https://yihui.org/tinytex/&#34;&gt;an &lt;code&gt;R&lt;/code&gt; package named &lt;strong&gt;tinytex&lt;/strong&gt;&lt;/a&gt; that installs a minimal LaTeX program and that automatically deals with differences between macOS and Windows.&lt;/p&gt;
+&lt;p&gt;Here’s how to install &lt;strong&gt;tinytex&lt;/strong&gt; so you can knit to pretty PDFs:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Use the Packages in panel in RStudio to install &lt;strong&gt;tinytex&lt;/strong&gt; like you did above with &lt;strong&gt;tidyverse&lt;/strong&gt;. Alternatively, run &lt;code&gt;install.packages(&#34;tinytex&#34;)&lt;/code&gt; in the console.&lt;/li&gt;
+&lt;li&gt;Run &lt;code&gt;tinytex::install_tinytex()&lt;/code&gt; in the console.&lt;/li&gt;
+&lt;li&gt;Wait for a bit while &lt;code&gt;R&lt;/code&gt; downloads and installs everything you need.&lt;/li&gt;
+&lt;li&gt;The end! You should now be able to knit to PDF.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Find the course assignment template (for SSC442, see the &lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/assignment/&#34;&gt;Assignments&lt;/a&gt; page), right-click to download it (don’t just click on it - that won’t work), open it in Rstudio, and without changing anything, click the “knit” button to test out your install. Your system should open a PDF that looks like something like this:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;RenderedPDF.png&#34; width=&#34;962&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;See the Markdown and R Markdown sidebars for instructions on using the template.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;footnotes footnotes-end-of-document&#34;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;It’s a goofy name, but CRAN is where most &lt;code&gt;R&lt;/code&gt; packages—and R itself—lives.&lt;a href=&#34;#fnref1&#34; class=&#34;footnote-back&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn2&#34;&gt;&lt;p&gt;Pronounced “lay-tek” for those who are correct; or “lah-tex” to those who love goofy nerdy pronunciation. Technically speaking, the x is the “ch” sound in “Bach”, but most people just say it as “k”. While either saying “lay” or “lah” is correct, “layteks” is frowned upon because it clearly shows you’re not cool.&lt;a href=&#34;#fnref2&#34; class=&#34;footnote-back&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -3858,6 +3888,62 @@ Y_{i,j} = d + b_i + \varepsilon_{i,j}
     </item>
     
     <item>
+      <title>Using Rstudio (Posit) Cloud</title>
+      <link>https://ssc442kirkpatrick.netlify.app/resource/rstudiocloud/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://ssc442kirkpatrick.netlify.app/resource/rstudiocloud/</guid>
+      <description>
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#what-is-rstudio.cloud-posit.cloud&#34; id=&#34;toc-what-is-rstudio.cloud-posit.cloud&#34;&gt;What is &lt;del&gt;Rstudio.cloud&lt;/del&gt; Posit.cloud?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#setting-up-posit.cloud&#34; id=&#34;toc-setting-up-posit.cloud&#34;&gt;Setting up Posit.cloud&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;what-is-rstudio.cloud-posit.cloud&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;What is &lt;del&gt;Rstudio.cloud&lt;/del&gt; Posit.cloud?&lt;/h1&gt;
+&lt;p&gt;Installing R and RStudio/Posit locally (on your computer) is the preferred method. Additionally, most MSU computer labs have R and RStudio installed. However, if your computer isn’t able to run RStudio, or you run into errors that we can’t troubleshoot, using RStudio Cloud is a viable alternative. Hosted at &lt;a href=&#34;https://posit.cloud&#34;&gt;Posit.cloud&lt;/a&gt;, &lt;del&gt;RStudio&lt;/del&gt; Posit Cloud is an online, web-based version of R and RStudio. On the “pro” side, it doesn’t require anything of your system except a functioning browser and can be up and running in a few minutes. The “con”, though, is that you must have an internet connection to use it, and it is limited to 25 hours per month for the free account (and $5/month for up to 75 hours per month). You shouldn’t need more than 25 hours per month, but if you’re very new to coding, it’s possible you will.&lt;/p&gt;
+&lt;p&gt;Both Rstudio.cloud and Posit.cloud take you to the same site – posit.cloud. RStudio is in the process of rebranding to Posit. I have updated some, but not all, references here.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;setting-up-posit.cloud&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Setting up Posit.cloud&lt;/h1&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Start by going to &lt;a href=&#34;https://posit.cloud&#34;&gt;Posit.cloud&lt;/a&gt; and create a free account.&lt;/li&gt;
+&lt;li&gt;Click “Your Workspace”&lt;/li&gt;
+&lt;li&gt;In the top right corner, click on “New Project” and name it something like “SSC442”&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;RSC1.png&#34; width=&#34;80%&#34; /&gt;&lt;/p&gt;
+&lt;ol start=&#34;4&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;The “Files” tab in the lower-right pane shows your cloud project storage space. Let’s add a &lt;code&gt;templates&lt;/code&gt; folder and store the two course assignment templates there.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Go to &lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/assignment/&#34;&gt;assignments&lt;/a&gt;, scroll down, and &lt;strong&gt;right-click on the Weekly Writing template and select “Save As…”&lt;/strong&gt; and save it to your desktop&lt;/li&gt;
+&lt;li&gt;Do the same for the Lab Assignment template. Clicking on the link will open the text of the file in a browser window and you cannot just copy the text into an R file.&lt;/li&gt;
+&lt;li&gt;With the files on your computer, go back to RStudio.cloud and in the Files tab, click on “New Folder” and name it &lt;code&gt;templates&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Upload the templates one at a time to the folder.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;5&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Use the green up arrow to navigate the “Files” tab back to your main directory and create a folder for &lt;code&gt;Labs&lt;/code&gt; and one for &lt;code&gt;Weekly Writings&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Open the Lab Assignment template&lt;/li&gt;
+&lt;li&gt;At the top of the template in the upper-left pane, you’ll see a warning that RStudio needs to install some packages. &lt;strong&gt;Click “Install”&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;RSC3.png&#34; width=&#34;80%&#34; /&gt;&lt;/p&gt;
+&lt;ol start=&#34;8&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;After R finishes installing packages (less than a minute), click the “Knit” button on the toolbar.&lt;/li&gt;
+&lt;li&gt;RMarkdown will need to install a few more packages. Click “Yes”.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;RSC4.png&#34; width=&#34;80%&#34; /&gt;&lt;/p&gt;
+&lt;ol start=&#34;10&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;A pop-up window will open showing you the PDF of the rendered template. Congrats, you are ready to get to work!&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;RSC5.png&#34; width=&#34;80%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Your RStudio.cloud version of RStudio will work just like a “local” install on a computer. Make sure you “Save As…” when you do your Lab or Weekly Writing assignments so that you don’t have to re-upload the templates. Keep a separate folder for each Lab inside the Labs to keep things clean in your workspace.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Using R Markdown</title>
       <link>https://ssc442kirkpatrick.netlify.app/resource/rmarkdown/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -3983,6 +4069,37 @@ output:
     fig_width: 5
 ---&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Data</title>
+      <link>https://ssc442kirkpatrick.netlify.app/resource/data/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://ssc442kirkpatrick.netlify.app/resource/data/</guid>
+      <description>
+
+
+&lt;p&gt;There are a ton of places to find data related to public policy and administration (as well as data on pretty much any topic you want) online:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://tinyletter.com/data-is-plural&#34;&gt;&lt;strong&gt;Data is Plural newsletter&lt;/strong&gt;&lt;/a&gt;: Jeremy Singer-Vine sends a weekly newsletter of the most interesting public datasets he’s found. You should subscribe to it. &lt;a href=&#34;https://docs.google.com/spreadsheets/d/1wZhPLMCHKJvwOkP4juclhjFgqIY8fQFMemwKL2c64vk/edit#gid=0&#34;&gt;He also has an archive of all the datasets he’s highlighted.&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://toolbox.google.com/datasetsearch&#34;&gt;&lt;strong&gt;Google Dataset Search&lt;/strong&gt;&lt;/a&gt;: Google indexes thousands of public datasets; search for them here.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://www.kaggle.com/datasets&#34;&gt;&lt;strong&gt;Kaggle&lt;/strong&gt;&lt;/a&gt;: Kaggle hosts machine learning competitions where people compete to create the fastest, most efficient, most predictive algorithms. A byproduct of these competitions is a host of fascinating datasets that are generally free and open to the public. See, for example, &lt;a href=&#34;https://www.kaggle.com/hugomathien/soccer&#34;&gt;the European Soccer Database&lt;/a&gt;, the &lt;a href=&#34;https://www.kaggle.com/rtatman/salem-witchcraft-dataset&#34;&gt;Salem Witchcraft Dataset&lt;/a&gt; or results from an &lt;a href=&#34;https://www.kaggle.com/rtatman/oreo-flavors-tastetest-ratings&#34;&gt;Oreo flavors taste test&lt;/a&gt;. &lt;strong&gt;Note: when you are asked in an assignment or project to find data, Kaggle is not a valid source. You learn nothing about farming by getting fruit from the market. Similarly, you learn nothing about data analysis by getting pre-packaged data from Kaggle.&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://www.threesixtygiving.org/data/data-registry/&#34;&gt;&lt;strong&gt;360Giving&lt;/strong&gt;&lt;/a&gt;: Dozens of British foundations follow a standard file format for sharing grant data and have made that data available online.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://us-cities.survey.okfn.org/&#34;&gt;&lt;strong&gt;US City Open Data Census&lt;/strong&gt;&lt;/a&gt;: More than 100 US cities have committed to sharing dozens of types of data, including data about crime, budgets, campaign finance, lobbying, transit, and zoning. This site from the &lt;a href=&#34;http://sunlightfoundation.com/&#34;&gt;Sunlight Foundation&lt;/a&gt; and &lt;a href=&#34;http://www.codeforamerica.org//&#34;&gt;Code for America&lt;/a&gt; collects this data and rates cities by how well they’re doing.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Political science and economics datasets&lt;/strong&gt;: There’s a wealth of data available for political science- and economics-related topics:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/briatte/srqm/wiki/Data&#34;&gt;&lt;strong&gt;François Briatte’s extensive curated lists&lt;/strong&gt;&lt;/a&gt;: Includes data from/about intergovernmental organizations (IGOs), nongovernmental organizations (NGOs), public opinion surveys, parliaments and legislatures, wars, human rights, elections, and municipalities.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/leeper/poliscitoys/issues/1&#34;&gt;&lt;strong&gt;Thomas Leeper’s list of political science datasets&lt;/strong&gt;&lt;/a&gt;: Good short list of useful datasets, divided by type of data (country-level data, survey data, social media data, event data, text data, etc.).&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/erikgahner/PolData&#34;&gt;&lt;strong&gt;Erik Gahner’s list of political science datasets&lt;/strong&gt;&lt;/a&gt;: Huge list of useful datasets, divided by topic (governance, elections, policy, political elites, etc.)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Geospatial datasets&lt;/strong&gt;: For our geospatial unit, many entities (government agencies, etc.) post repositories of spatial data via arcgis.com, which is owned by ESRI, the company that makes the predominant commercial GIS software. The data owner decides what data to post and how to present it, but arcgis.com provides the hosting. R has excellent geospatial functionalities, so we cover (when time permits) geospatial data. It is easy to find geospatial data to import into R. Here are a few:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://gis-michigan.opendata.arcgis.com/&#34;&gt;&lt;strong&gt;State of Michigan Open Data Portal&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://hifld-geoplatform.opendata.arcgis.com/&#34;&gt;&lt;strong&gt;Homeland Infrastructure Foundation-Level Data (HIFLD)&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://coel.maps.arcgis.com/apps/webappviewer/index.html?id=076f31109b974149ac3e1c2379aac8d6&#34;&gt;&lt;strong&gt;City of East Lansing Data Viewer&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     

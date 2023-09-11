@@ -28,8 +28,8 @@
   </url>
   
   <url>
-    <loc>https://ssc442kirkpatrick.netlify.app/resource/rstudiocloud/</loc>
-    <lastmod>2023-09-08T11:56:48-04:00</lastmod>
+    <loc>https://ssc442kirkpatrick.netlify.app/resource/install/</loc>
+    <lastmod>2023-09-08T11:42:28-04:00</lastmod>
   </url>
   
   <url>
@@ -78,7 +78,17 @@
   </url>
   
   <url>
+    <loc>https://ssc442kirkpatrick.netlify.app/resource/rstudiocloud/</loc>
+    <lastmod>2023-09-08T11:56:48-04:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ssc442kirkpatrick.netlify.app/resource/rmarkdown/</loc>
+    <lastmod>2023-09-08T12:02:54-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ssc442kirkpatrick.netlify.app/resource/data/</loc>
     <lastmod>2023-09-08T11:42:28-04:00</lastmod>
   </url>
   
