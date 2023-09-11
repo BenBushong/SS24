@@ -26,7 +26,7 @@ Hopefully you're well-versed in dealing with these things, but if you're lost, h
 
 ### Install `R`
 
-I have created a video walkthrough for installing R for another course, but it is useful here. You can [see it here <i class="fas fa-film"></i> ](https://mediaspace.msu.edu/media/R+Part+1/1_b8nafkzx)]
+I have created a video walkthrough for installing R for another course, but it is useful here. You can [see it here <i class="fas fa-film"></i>](https://mediaspace.msu.edu/media/R+Part+1/1_b8nafkzx)]
 
 First you need to install `R` itself (the engine).
 
@@ -62,7 +62,7 @@ Next, you need to install the most recent version of RStudio, the nicer graphica
 2. The website should automatically detect your operating system (macOS or Windows) and show a big download button for it:
 
 ```{r, echo=FALSE, out.width="50%"}
-    include_graphics("/img/install/install-r-rstudio1.png", error = FALSE)
+include_graphics("/img/install/install-r-rstudio1.png", error = FALSE)
 ```
 
 If not, scroll down a little to the large table and choose the version of RStudio that matches your operating system.
