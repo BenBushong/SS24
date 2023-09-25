@@ -17,6 +17,11 @@ editor_options:
   chunk_output_type: console
 ---
 
+```{r}
+# 9-25-2023, I changed the bland-altman to no longer use `spread`
+# And added fig.width=8 as a good use of size (since '75%' seems to no longer work?)
+library(emo)
+```
 
 # Adding graphics to an Rmarkdown file
 
@@ -31,7 +36,7 @@ There are two ways of inserting an image: in markdown text, or in a code chunk. 
 
 ````markdown
 ```
-{r insert-image, fig.width = '75%', fig.align='center', echo = TRUE, eval = F}
+{r insert-image, fig.width = '75%', fig.align='center', echo = TRUE}
 download.file("https://msu.edu/-/media/assets/msu/images/audience-student/students-sis-home.jpg", destfile = 'temporary.jpg')
 knitr::include_graphics(path = 'temporary.jpg')
 ```
@@ -43,6 +48,8 @@ knitr::include_graphics(path = "https://msu.edu/-/media/assets/msu/images/audien
 ```
 
 The file you specify with `destfile` doesn't matter - R will create that file, but you do need to use the corresponding suffix (don't use `temporary.jpg` if you're downloading a `.png`). By default, the file will be saved in the same folder as your .rmd file. When `include_graphics` goes to read the file, it will start looking relative to the folder that contains your .rmd file. That is, `download.file` will copy the image to the same place that `include_graphics` looks for it. See below for more on relative filepaths.
+
+Note the code chunk option set above as well - `fig.width='75%'`, which is stated in the curly-brackets that head the chunk. This is where Knitr finds details about how you want to handle the output. Before, we saw that `echo=T` would add a copy of the code itself to the output (vs. `echo=F` which output only the result). Similarly, `fig.width='75%'` should size the output to take up about 75\% of the text width. You can also use `fig.width=8` to set the output to 8 inches wide (closet to the width of a sheet of paper), which will maximize the space used for your plot. You may need this if/when you start plotting larger things. Hint. 
 
 ### Images inserted via Markdown
 The markdown language is what controls the text outside of the R code chunks. It has its own way of inserting images. Here the image is inserted in the text, **not** in a code chunk.
@@ -205,13 +212,13 @@ In the scatterplot, we have followed the principle _use common axes_ since we ar
 
 Since we are primarily interested in the difference, it makes sense to dedicate one of our axes to it. The Bland-Altman plot, also known as the Tukey mean-difference plot and the MA-plot, shows the difference versus the average:
 
-```{r, bland-altman}
+```{r, bland-altman, echo=T}
+
 dat %>%
-  mutate(year = paste0("life_expectancy_", year)) %>%
-  select(country, year, life_expectancy) %>%
-  spread(year, life_expectancy) %>%
-  mutate(average = (life_expectancy_2015 + life_expectancy_2010)/2,
-         difference = life_expectancy_2015 - life_expectancy_2010) %>%
+  group_by(country) %>%
+  filter(year %in% c(2010, 2015)) %>%
+  dplyr::summarize(average = mean(life_expectancy),
+                   difference = life_expectancy[year==2015]-life_expectancy[year==2010]) %>%
   ggplot(aes(average, difference, label = country)) +
   geom_point() +
   geom_text_repel() +

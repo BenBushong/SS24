@@ -30,7 +30,7 @@
   
     
   
-  <meta name="description" content="Adding graphics to an Rmarkdown fileFrom the webImages inserted in code chunksImages inserted via MarkdownImages from a local fileData visualization in practiceCase study: new insights on povertyExploring the DataSlope chartsBland-Altman plotBump chartsThemesSmall multiplesSparklinesThe ecological fallacy and importance of showing the dataLogit transformationShow the dataCase study: vaccines and infectious diseasesTRY ITAdding graphics to an Rmarkdown fileFrom the webIf you are incorporating an image (.">
+  <meta name="description" content="Adding graphics to an Rmarkdown fileFrom the webImages inserted in code chunksImages inserted via MarkdownImages from a local fileData visualization in practiceCase study: new insights on povertyExploring the DataSlope chartsBland-Altman plotBump chartsThemesSmall multiplesSparklinesThe ecological fallacy and importance of showing the dataLogit transformationShow the dataCase study: vaccines and infectious diseasesTRY IT# 9-25-2023, I changed the bland-altman to no longer use `spread`# And added fig.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://ssc442kirkpatrick.netlify.app/example/03-example/">
@@ -238,11 +238,11 @@
   <meta property="og:site_name" content="Data Analytics">
   <meta property="og:url" content="https://ssc442kirkpatrick.netlify.app/example/03-example/">
   <meta property="og:title" content="Visualizations | Data Analytics">
-  <meta property="og:description" content="Adding graphics to an Rmarkdown fileFrom the webImages inserted in code chunksImages inserted via MarkdownImages from a local fileData visualization in practiceCase study: new insights on povertyExploring the DataSlope chartsBland-Altman plotBump chartsThemesSmall multiplesSparklinesThe ecological fallacy and importance of showing the dataLogit transformationShow the dataCase study: vaccines and infectious diseasesTRY ITAdding graphics to an Rmarkdown fileFrom the webIf you are incorporating an image (."><meta property="og:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png">
+  <meta property="og:description" content="Adding graphics to an Rmarkdown fileFrom the webImages inserted in code chunksImages inserted via MarkdownImages from a local fileData visualization in practiceCase study: new insights on povertyExploring the DataSlope chartsBland-Altman plotBump chartsThemesSmall multiplesSparklinesThe ecological fallacy and importance of showing the dataLogit transformationShow the dataCase study: vaccines and infectious diseasesTRY IT# 9-25-2023, I changed the bland-altman to no longer use `spread`# And added fig."><meta property="og:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png">
   <meta property="twitter:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
   
     
-      <meta property="article:published_time" content="2023-09-08T00:00:00&#43;00:00">
+      <meta property="article:published_time" content="2023-09-25T00:00:00&#43;00:00">
     
     <meta property="article:modified_time" content="2023-09-08T09:24:36-04:00">
   
@@ -581,6 +581,10 @@
         <a href="/example/04-example/">4: Uncertainty</a>
       </li>
       
+      <li >
+        <a href="/example/05-example/">5: Linear Regression I</a>
+      </li>
+      
     </ul>
     
 
@@ -647,6 +651,9 @@
 </ul>
 </div>
 
+<pre class="r"><code># 9-25-2023, I changed the bland-altman to no longer use `spread`
+# And added fig.width=8 as a good use of size (since &#39;75%&#39; seems to no longer work?)
+library(emo)</code></pre>
 <div id="adding-graphics-to-an-rmarkdown-file" class="section level1">
 <h1>Adding graphics to an Rmarkdown file</h1>
 <div id="from-the-web" class="section level3">
@@ -658,12 +665,13 @@
 <div id="images-inserted-in-code-chunks" class="section level3">
 <h3>Images inserted in code chunks</h3>
 <pre class="markdown"><code>```
-{r insert-image, fig.width = &#39;75%&#39;, fig.align=&#39;center&#39;, echo = TRUE, eval = F}
+{r insert-image, fig.width = &#39;75%&#39;, fig.align=&#39;center&#39;, echo = TRUE}
 download.file(&quot;https://msu.edu/-/media/assets/msu/images/audience-student/students-sis-home.jpg&quot;, destfile = &#39;temporary.jpg&#39;)
 knitr::include_graphics(path = &#39;temporary.jpg&#39;)
 ```</code></pre>
 <p><img src="https://msu.edu/-/media/assets/msu/images/audience-student/students-sis-home.jpg" style="display: block; margin: auto;" /></p>
 <p>The file you specify with <code>destfile</code> doesn’t matter - R will create that file, but you do need to use the corresponding suffix (don’t use <code>temporary.jpg</code> if you’re downloading a <code>.png</code>). By default, the file will be saved in the same folder as your .rmd file. When <code>include_graphics</code> goes to read the file, it will start looking relative to the folder that contains your .rmd file. That is, <code>download.file</code> will copy the image to the same place that <code>include_graphics</code> looks for it. See below for more on relative filepaths.</p>
+<p>Note the code chunk option set above as well - <code>fig.width='75%'</code>, which is stated in the curly-brackets that head the chunk. This is where Knitr finds details about how you want to handle the output. Before, we saw that <code>echo=T</code> would add a copy of the code itself to the output (vs. <code>echo=F</code> which output only the result). Similarly, <code>fig.width='75%'</code> should size the output to take up about 75% of the text width. You can also use <code>fig.width=8</code> to set the output to 8 inches wide (closet to the width of a sheet of paper), which will maximize the space used for your plot. You may need this if/when you start plotting larger things. Hint.</p>
 </div>
 <div id="images-inserted-via-markdown" class="section level3">
 <h3>Images inserted via Markdown</h3>
@@ -844,11 +852,10 @@ dat %&gt;%
 <h3>Bland-Altman plot</h3>
 <p>Since we are primarily interested in the difference, it makes sense to dedicate one of our axes to it. The Bland-Altman plot, also known as the Tukey mean-difference plot and the MA-plot, shows the difference versus the average:</p>
 <pre class="r"><code>dat %&gt;%
-  mutate(year = paste0(&quot;life_expectancy_&quot;, year)) %&gt;%
-  select(country, year, life_expectancy) %&gt;%
-  spread(year, life_expectancy) %&gt;%
-  mutate(average = (life_expectancy_2015 + life_expectancy_2010)/2,
-         difference = life_expectancy_2015 - life_expectancy_2010) %&gt;%
+  group_by(country) %&gt;%
+  filter(year %in% c(2010, 2015)) %&gt;%
+  dplyr::summarize(average = mean(life_expectancy),
+                   difference = life_expectancy[year==2015]-life_expectancy[year==2010]) %&gt;%
   ggplot(aes(average, difference, label = country)) +
   geom_point() +
   geom_text_repel() +
@@ -897,18 +904,18 @@ bumpplot</code></pre>
 <p>A pre-constructed set of instructions for making a visual theme can be had by using a theme’s <code>ggplot</code> function. Let’s look at two of my favorites.</p>
 <p><code>theme_bw()</code> uses the black-and-white theme, which is helpful in making a nice, clean plot:</p>
 <pre class="r"><code>bumpplot + theme_bw()</code></pre>
-<p><img src="/example/03-example_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="/example/03-example_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p>The background shading is gone, which gives the plot a nice, crisp feel. It adds the black outline around the plot, but doesn’t mess with the colors in the plot.</p>
 <p>Here’s <code>theme_minimal()</code></p>
 <pre class="r"><code>bumpplot + theme_minimal()</code></pre>
-<p><img src="/example/03-example_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="/example/03-example_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>Themes can alter things in the plot as well. If we really want to strip it down and remove the Y-axis (which is rarely a good idea, but in a bump chart, it makes sense):</p>
 <pre class="r"><code>bumpplot + theme_void()</code></pre>
-<p><img src="/example/03-example_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="/example/03-example_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <p>Now <strong>that’s</strong> clean!</p>
 <p>In our opening unit, we had a plot that was styled after the plots in the magazine, <em>The Economist</em>. That’s a theme (in the <code>ggthemes</code> package that we loaded at the top)!</p>
 <pre class="r"><code>bumpplot + theme_economist()</code></pre>
-<p><img src="/example/03-example_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="/example/03-example_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <p>Themes affect some of the plot elements that we haven’t gotten much into (like length of axis ticks and the color of the panel grid behind the plot). We can use a theme, then make further changes to the theme. We won’t go into a lot of detail, but here’s an example. Use the <code>?theme</code> to learn more about what you can change. Half the challenge is finding the right term for the thing you want to tweak! Theme changes occur in code order, so you can update a pre-set theme with your own details:</p>
 <pre class="r"><code>bumpplot +   theme_bw() + theme(strip.text = element_text(face = &quot;bold&quot;),
                    plot.title = element_text(face = &quot;bold&quot;),
@@ -928,7 +935,7 @@ ggplot(data = life_expectancy_small,
        mapping = aes(x = year, y = life_expectancy)) +
   geom_line(size = 1) +
   facet_wrap(vars(country))</code></pre>
-<p><img src="/example/03-example_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="/example/03-example_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <p>Small multiples! That’s all we need to do.</p>
 <p>We can do some fancier things, though. We can make this plot hyper minimalist with a <strong>theme</strong>:</p>
 <pre class="r"><code>ggplot(data = life_expectancy_small,
@@ -938,7 +945,7 @@ ggplot(data = life_expectancy_small,
   theme_void() +
   theme(strip.text = element_text(face = &quot;bold&quot;))</code></pre>
 <p><img src="/example/03-example_files/figure-html/life-expectancy-small-minimalist-1.png" width="672" /></p>
-<p>We can do a whole part of a continent (poor Syria 😭)</p>
+<p>We can do a whole part of a continent (poor Syria 😞)</p>
 <pre class="r"><code>life_expectancy_mena &lt;- gapminder %&gt;%
   filter(region == &quot;Northern Africa&quot; | region == &quot;Western Asia&quot;)
 
