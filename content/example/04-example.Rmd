@@ -18,6 +18,13 @@ editor_options:
 ---
 
 
+### F23 Course Business
+- My Office Hours won't start till 11am on Friday due to a department meeting.
+
+- Groups are out. Start working!
+
+### Back to our regularly scheduled programming
+
 Probabilistic thinking is central in the human experience. How we describe that thinking is mixed, but most of the time we use (rather imprecise) language. With only a few moments of searching, one can find thousands of articles that use probabilistic words to describe events. Here are some examples:
 
 > "'Highly unlikely' State of the Union will happen amid shutdown" – The Hill
