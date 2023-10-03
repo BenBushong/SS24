@@ -50,20 +50,20 @@ lessons:
   - title: 'Linear Regression II'
     session: 7
     date: "Week 6 (Oct 10/12)"
-    #content: "06-content"
-    #example: "06-example"
-    #assignment: "06-assignment"
+    content: "06-content"
+    example: "06-example"
+    assignment: "06-assignment"
 
   - title: '<i class="fas fa-star"></i> **Project 1 Due**'
     date: "Saturday Oct 14th"
-    # assignment: "project1"
+    assignment: "project1"
 
   - title: 'Linear Regression III'
     session: 8
     date: "Week 7 (Oct 17/19)"
-    # content: "07-content"
-    # example: "07-example"
-    # assignment: "07-assignment"
+    content: "07-content"
+    example: "07-example"
+    assignment: "07-assignment"
     
   - title: '<span class="fake-header-table">Applications of Data Analysis</span>'
     header: True
@@ -72,8 +72,8 @@ lessons:
     session: 9
     date: "Week 8 (Oct !24/27)"
     ##### content: "08-content"
-    # example: "08-content"
-    # assignment: "08-assignment"
+    example: "08-content"
+    assignment: "08-assignment"
     
   - title: 'Nonlinear Regression'
     session: 10
