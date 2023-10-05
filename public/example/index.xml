@@ -2751,7 +2751,12 @@ data(murders)&lt;/code&gt;&lt;/pre&gt;
 
 &lt;div class=&#34;fyi&#34;&gt;
 &lt;p&gt;Today’s example will pivot between the content from this week and the example below.&lt;/p&gt;
-&lt;p&gt;We will also use the Ames data and some Atlanta weather data. The Ames data and Atlanta weather data are linked below:&lt;/p&gt;
+&lt;p&gt;In today’s lecture I will ask you to use real data during the lecture. Please download the following dataset and load it into &lt;code&gt;R&lt;/code&gt; (or right-click the address and use that to load into &lt;code&gt;R&lt;/code&gt;).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/projects/data/ames.csv&#34;&gt;&lt;i class=&#34;fas fa-file-csv&#34;&gt;&lt;/i&gt; &lt;code&gt;Ames.csv&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This dataset is from houses in Ames, Iowa. (Thrilling!) We will use this dataset during the lecture to illustrate some of the points discussed below.&lt;/p&gt;
+&lt;p&gt;We will also use some Atlanta weather data. The Atlanta weather data is linked below:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/projects/data/ames.csv&#34;&gt;&lt;i class=&#34;fas fa-file-csv&#34;&gt;&lt;/i&gt; &lt;code&gt;Ames.csv&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;

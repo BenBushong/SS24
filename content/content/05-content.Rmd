@@ -37,13 +37,6 @@ output:
 <!-- slide_tabs(sections, "/slides/05-slides.html") -->
 <!-- ``` -->
 
-## Getting Started
-Later in today's lecture will ask you to touch real data during the lecture. Please download the following dataset and load it into `R` (or right-click the address and use that to load into `R`).
-
-- [<i class="fas fa-file-csv"></i> `Ames.csv`](/projects/data/ames.csv)
-
-This dataset is from houses in Ames, Iowa. (Thrilling!) We will use this dataset during the lecture to illustrate some of the points discussed below.
-
 
 # Introduction to Linear Regression {#regression}
 
