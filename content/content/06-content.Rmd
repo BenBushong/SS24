@@ -176,7 +176,7 @@ Linear regression will help us parse all this out and quantify the associations.
 
 ### Regression applied to baseball statistics
 
-Can we use regression with these data? First, notice that the HR and Run data appear to be bivariate normal. We save the plot into the object `p` as we will use it again later.
+Can we use regression with these data? First, notice that the HR and Run data appear to be bivariate normal. We may have skipped the bivariate normal from before, but it just means that two variables share a joint normal distribution -- each has it's own mean, but conditional on some value of one, the other is normally distributed around it's conditional value. We save the plot into the object `p` as we will use it again later.
 
 ```{r hr-runs-bivariate}
 library(Lahman)
@@ -371,7 +371,7 @@ $$
 \mbox{E}[R \mid BB = x_1, \, HR = x_2] = \beta_0 + \beta_1(x_2) x_1 + \beta_2(x_1) x_2
 $$
 
-with the slopes for $x_1$ changing for different values of $x_2$ and vice versa. But is there an easier approach?
+with the slopes for $x_1$ changing for different values of $x_2$ and vice versa (think of $\beta_1(x_2)$ as a function that gives a different slope depending on $x_2$). But is there an easier approach?
 
 If we take random variability into account, the slopes in the strata don't appear to change much. If these slopes are in fact the same, this implies that $\beta_1(x_2)$ and $\beta_2(x_1)$ are constants. This in turn implies that the expectation of runs conditioned on HR and BB can be written like this:
 
@@ -476,7 +476,9 @@ fit <- lm(son ~ father, data = galton_heights)
 fit$coef
 ```
 
-The most common way we use `lm` is by using the character `~` to let `lm` know which is the variable we are predicting (left of `~`) and which we are using to predict (right of `~`). The intercept is added automatically to the model that will be fit.
+The most common way we use `lm` is by using the character `~` to let `lm` know which is the variable we are predicting (left of `~`) and which we are using to predict (right of `~`). The intercept is added *automatically* to the model that will be fit.
+
+Note that while `lm(galton_heights$son ~ galton_heights$father)` will work, it will cause problems later when we try to predict using our model. Do not write your regressions like this. Use the formula and `data = ` notation. 
 
 The object `fit` includes more information about the fit. We can use the function `summary` to extract more of this information (not shown):
 
@@ -811,7 +813,7 @@ pa_per_game <- Batting %>% filter(yearID == 2002) %>%
   mean
 ```
 
-We compute the per-plate-appearance rates for players available in 2002 on data from 1997-2001. To avoid small sample artifacts, we filter players with less than 200 plate appearances per year. Here is the entire calculation in one line:
+We compute the per-plate-appearance rates for players available in 2002 on data from 1997-2001. To avoid small sample artifacts, we filter players with less than 1,000 plate appearances per year. Here is the entire calculation in one line:
 
 ```{r}
 players <- Batting %>% filter(yearID %in% 1997:2001) %>%

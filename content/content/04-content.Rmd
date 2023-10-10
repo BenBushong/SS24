@@ -1193,7 +1193,7 @@ m <- mean(x)
 s <- sqrt(mean((x-m)^2))
 ```
 
-Using mathematical notation we write:
+The SD is the the square root of the sample variance, and the sample variance is the square of the sample SD. Using mathematical notation we write:
 
 $$
 \mu = \frac{1}{n} \sum_{i=1}^n x_i \\

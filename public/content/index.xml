@@ -4181,7 +4181,7 @@ Teams %&amp;gt;% filter(yearID %in% 1961:2001) %&amp;gt;%
 &lt;/div&gt;
 &lt;div id=&#34;regression-applied-to-baseball-statistics&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Regression applied to baseball statistics&lt;/h3&gt;
-&lt;p&gt;Can we use regression with these data? First, notice that the HR and Run data appear to be bivariate normal. We save the plot into the object &lt;code&gt;p&lt;/code&gt; as we will use it again later.&lt;/p&gt;
+&lt;p&gt;Can we use regression with these data? First, notice that the HR and Run data appear to be bivariate normal. We may have skipped the bivariate normal from before, but it just means that two variables share a joint normal distribution – each has it’s own mean, but conditional on some value of one, the other is normally distributed around it’s conditional value. We save the plot into the object &lt;code&gt;p&lt;/code&gt; as we will use it again later.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(Lahman)
 p &amp;lt;- Teams %&amp;gt;% filter(yearID %in% 1961:2001 ) %&amp;gt;%
   mutate(HR_per_game = HR/G, R_per_game = R/G) %&amp;gt;%
@@ -4344,7 +4344,7 @@ hr_slope&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
 \mbox{E}[R \mid BB = x_1, \, HR = x_2] = \beta_0 + \beta_1(x_2) x_1 + \beta_2(x_1) x_2
 \]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;with the slopes for &lt;span class=&#34;math inline&#34;&gt;\(x_1\)&lt;/span&gt; changing for different values of &lt;span class=&#34;math inline&#34;&gt;\(x_2\)&lt;/span&gt; and vice versa. But is there an easier approach?&lt;/p&gt;
+&lt;p&gt;with the slopes for &lt;span class=&#34;math inline&#34;&gt;\(x_1\)&lt;/span&gt; changing for different values of &lt;span class=&#34;math inline&#34;&gt;\(x_2\)&lt;/span&gt; and vice versa (think of &lt;span class=&#34;math inline&#34;&gt;\(\beta_1(x_2)\)&lt;/span&gt; as a function that gives a different slope depending on &lt;span class=&#34;math inline&#34;&gt;\(x_2\)&lt;/span&gt;). But is there an easier approach?&lt;/p&gt;
 &lt;p&gt;If we take random variability into account, the slopes in the strata don’t appear to change much. If these slopes are in fact the same, this implies that &lt;span class=&#34;math inline&#34;&gt;\(\beta_1(x_2)\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\beta_2(x_1)\)&lt;/span&gt; are constants. This in turn implies that the expectation of runs conditioned on HR and BB can be written like this:&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
 \mbox{E}[R \mid BB = x_1, \, HR = x_2] = \beta_0 + \beta_1 x_1 + \beta_2 x_2
@@ -4417,7 +4417,8 @@ Y_i = \beta_0 + \beta_1 x_i + \varepsilon_i
 fit$coef&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## (Intercept)      father 
 ##   37.287605    0.461392&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The most common way we use &lt;code&gt;lm&lt;/code&gt; is by using the character &lt;code&gt;~&lt;/code&gt; to let &lt;code&gt;lm&lt;/code&gt; know which is the variable we are predicting (left of &lt;code&gt;~&lt;/code&gt;) and which we are using to predict (right of &lt;code&gt;~&lt;/code&gt;). The intercept is added automatically to the model that will be fit.&lt;/p&gt;
+&lt;p&gt;The most common way we use &lt;code&gt;lm&lt;/code&gt; is by using the character &lt;code&gt;~&lt;/code&gt; to let &lt;code&gt;lm&lt;/code&gt; know which is the variable we are predicting (left of &lt;code&gt;~&lt;/code&gt;) and which we are using to predict (right of &lt;code&gt;~&lt;/code&gt;). The intercept is added &lt;em&gt;automatically&lt;/em&gt; to the model that will be fit.&lt;/p&gt;
+&lt;p&gt;Note that while &lt;code&gt;lm(galton_heights$son ~ galton_heights$father)&lt;/code&gt; will work, it will cause problems later when we try to predict using our model. Do not write your regressions like this. Use the formula and &lt;code&gt;data =&lt;/code&gt; notation.&lt;/p&gt;
 &lt;p&gt;The object &lt;code&gt;fit&lt;/code&gt; includes more information about the fit. We can use the function &lt;code&gt;summary&lt;/code&gt; to extract more of this information (not shown):&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(fit)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## 
@@ -4732,7 +4733,7 @@ coefs&lt;/code&gt;&lt;/pre&gt;
   summarize(pa_per_game = sum(AB+BB)/max(G)) %&amp;gt;%
   pull(pa_per_game) %&amp;gt;%
   mean&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;We compute the per-plate-appearance rates for players available in 2002 on data from 1997-2001. To avoid small sample artifacts, we filter players with less than 200 plate appearances per year. Here is the entire calculation in one line:&lt;/p&gt;
+&lt;p&gt;We compute the per-plate-appearance rates for players available in 2002 on data from 1997-2001. To avoid small sample artifacts, we filter players with less than 1,000 plate appearances per year. Here is the entire calculation in one line:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;players &amp;lt;- Batting %&amp;gt;% filter(yearID %in% 1997:2001) %&amp;gt;%
   group_by(playerID) %&amp;gt;%
   mutate(PA = BB + AB) %&amp;gt;%

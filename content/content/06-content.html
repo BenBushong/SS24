@@ -172,7 +172,7 @@ Teams %&gt;% filter(yearID %in% 1961:2001) %&gt;%
 </div>
 <div id="regression-applied-to-baseball-statistics" class="section level3">
 <h3>Regression applied to baseball statistics</h3>
-<p>Can we use regression with these data? First, notice that the HR and Run data appear to be bivariate normal. We save the plot into the object <code>p</code> as we will use it again later.</p>
+<p>Can we use regression with these data? First, notice that the HR and Run data appear to be bivariate normal. We may have skipped the bivariate normal from before, but it just means that two variables share a joint normal distribution – each has it’s own mean, but conditional on some value of one, the other is normally distributed around it’s conditional value. We save the plot into the object <code>p</code> as we will use it again later.</p>
 <pre class="r"><code>library(Lahman)
 p &lt;- Teams %&gt;% filter(yearID %in% 1961:2001 ) %&gt;%
   mutate(HR_per_game = HR/G, R_per_game = R/G) %&gt;%
@@ -335,7 +335,7 @@ hr_slope</code></pre>
 <p><span class="math display">\[
 \mbox{E}[R \mid BB = x_1, \, HR = x_2] = \beta_0 + \beta_1(x_2) x_1 + \beta_2(x_1) x_2
 \]</span></p>
-<p>with the slopes for <span class="math inline">\(x_1\)</span> changing for different values of <span class="math inline">\(x_2\)</span> and vice versa. But is there an easier approach?</p>
+<p>with the slopes for <span class="math inline">\(x_1\)</span> changing for different values of <span class="math inline">\(x_2\)</span> and vice versa (think of <span class="math inline">\(\beta_1(x_2)\)</span> as a function that gives a different slope depending on <span class="math inline">\(x_2\)</span>). But is there an easier approach?</p>
 <p>If we take random variability into account, the slopes in the strata don’t appear to change much. If these slopes are in fact the same, this implies that <span class="math inline">\(\beta_1(x_2)\)</span> and <span class="math inline">\(\beta_2(x_1)\)</span> are constants. This in turn implies that the expectation of runs conditioned on HR and BB can be written like this:</p>
 <p><span class="math display">\[
 \mbox{E}[R \mid BB = x_1, \, HR = x_2] = \beta_0 + \beta_1 x_1 + \beta_2 x_2
@@ -408,7 +408,8 @@ Y_i = \beta_0 + \beta_1 x_i + \varepsilon_i
 fit$coef</code></pre>
 <pre><code>## (Intercept)      father 
 ##   37.287605    0.461392</code></pre>
-<p>The most common way we use <code>lm</code> is by using the character <code>~</code> to let <code>lm</code> know which is the variable we are predicting (left of <code>~</code>) and which we are using to predict (right of <code>~</code>). The intercept is added automatically to the model that will be fit.</p>
+<p>The most common way we use <code>lm</code> is by using the character <code>~</code> to let <code>lm</code> know which is the variable we are predicting (left of <code>~</code>) and which we are using to predict (right of <code>~</code>). The intercept is added <em>automatically</em> to the model that will be fit.</p>
+<p>Note that while <code>lm(galton_heights$son ~ galton_heights$father)</code> will work, it will cause problems later when we try to predict using our model. Do not write your regressions like this. Use the formula and <code>data =</code> notation.</p>
 <p>The object <code>fit</code> includes more information about the fit. We can use the function <code>summary</code> to extract more of this information (not shown):</p>
 <pre class="r"><code>summary(fit)</code></pre>
 <pre><code>## 
@@ -723,7 +724,7 @@ coefs</code></pre>
   summarize(pa_per_game = sum(AB+BB)/max(G)) %&gt;%
   pull(pa_per_game) %&gt;%
   mean</code></pre>
-<p>We compute the per-plate-appearance rates for players available in 2002 on data from 1997-2001. To avoid small sample artifacts, we filter players with less than 200 plate appearances per year. Here is the entire calculation in one line:</p>
+<p>We compute the per-plate-appearance rates for players available in 2002 on data from 1997-2001. To avoid small sample artifacts, we filter players with less than 1,000 plate appearances per year. Here is the entire calculation in one line:</p>
 <pre class="r"><code>players &lt;- Batting %&gt;% filter(yearID %in% 1997:2001) %&gt;%
   group_by(playerID) %&gt;%
   mutate(PA = BB + AB) %&gt;%
