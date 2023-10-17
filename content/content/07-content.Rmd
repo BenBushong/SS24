@@ -295,7 +295,7 @@ admissions %>%
   geom_text()
 ```
 
-There seems to be association. The plot suggests that women were much more likely to apply to the two "hard" majors: gender and major's selectivity are confounded. Compare, for example, major B and major E. Major E is much harder to enter than major B and over 60% of applicants to major E were women, while less than 30% of the applicants of major B were women.
+There seems to be association. The plot suggests that women were much more likely to apply to the four "hard" majors: gender and major selectivity are confounded. Compare, for example, major B and major E. Major E is much harder to enter than major B and over 60% of applicants to major E were women, while less than 30% of the applicants of major B were women.
 
 
 ### Confounding explained graphically
@@ -330,7 +330,8 @@ In this plot, we can see that if we condition or stratify by major, and then loo
 ```{r admission-by-major}
 admissions %>%
   ggplot(aes(major, admitted, col = gender, size = applicants)) +
-  geom_point()
+  geom_point() + 
+  labs(x = 'Percent Admitted')
 ```
 
 Now we see that major by major, there is not much difference. The size of the dot represents the number of applicants, and explains the paradox: we see large red dots and small blue dots for the easiest (least selective) majors, A and B.

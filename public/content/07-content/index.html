@@ -877,7 +877,7 @@ admissions %&gt;% group_by(gender) %&gt;%
   ggplot(aes(major_selectivity, percent_women_applicants, label = major)) +
   geom_text()</code></pre>
 <p><img src="/content/07-content_files/figure-html/uc-berkeley-majors-1.png" width="672" /></p>
-<p>There seems to be association. The plot suggests that women were much more likely to apply to the two “hard” majors: gender and major’s selectivity are confounded. Compare, for example, major B and major E. Major E is much harder to enter than major B and over 60% of applicants to major E were women, while less than 30% of the applicants of major B were women.</p>
+<p>There seems to be association. The plot suggests that women were much more likely to apply to the four “hard” majors: gender and major selectivity are confounded. Compare, for example, major B and major E. Major E is much harder to enter than major B and over 60% of applicants to major E were women, while less than 30% of the applicants of major B were women.</p>
 </div>
 <div id="confounding-explained-graphically" class="section level3">
 <h3>Confounding explained graphically</h3>
@@ -901,7 +901,8 @@ admissions %>%
 <p>In this plot, we can see that if we condition or stratify by major, and then look at differences, we control for the confounder and this effect goes away:</p>
 <pre class="r"><code>admissions %&gt;%
   ggplot(aes(major, admitted, col = gender, size = applicants)) +
-  geom_point()</code></pre>
+  geom_point() + 
+  labs(x = &#39;Percent Admitted&#39;)</code></pre>
 <p><img src="/content/07-content_files/figure-html/admission-by-major-1.png" width="672" /></p>
 <p>Now we see that major by major, there is not much difference. The size of the dot represents the number of applicants, and explains the paradox: we see large red dots and small blue dots for the easiest (least selective) majors, A and B.</p>
 <p>If we average the difference by major, we find that the percent is actually 3.5% higher for women.</p>

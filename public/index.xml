@@ -17045,7 +17045,7 @@ admissions %&amp;gt;% group_by(gender) %&amp;gt;%
   ggplot(aes(major_selectivity, percent_women_applicants, label = major)) +
   geom_text()&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/content/07-content_files/figure-html/uc-berkeley-majors-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;There seems to be association. The plot suggests that women were much more likely to apply to the two “hard” majors: gender and major’s selectivity are confounded. Compare, for example, major B and major E. Major E is much harder to enter than major B and over 60% of applicants to major E were women, while less than 30% of the applicants of major B were women.&lt;/p&gt;
+&lt;p&gt;There seems to be association. The plot suggests that women were much more likely to apply to the four “hard” majors: gender and major selectivity are confounded. Compare, for example, major B and major E. Major E is much harder to enter than major B and over 60% of applicants to major E were women, while less than 30% of the applicants of major B were women.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;confounding-explained-graphically&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Confounding explained graphically&lt;/h3&gt;
@@ -17069,7 +17069,8 @@ admissions %&gt;%
 &lt;p&gt;In this plot, we can see that if we condition or stratify by major, and then look at differences, we control for the confounder and this effect goes away:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;admissions %&amp;gt;%
   ggplot(aes(major, admitted, col = gender, size = applicants)) +
-  geom_point()&lt;/code&gt;&lt;/pre&gt;
+  geom_point() + 
+  labs(x = &amp;#39;Percent Admitted&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/content/07-content_files/figure-html/admission-by-major-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Now we see that major by major, there is not much difference. The size of the dot represents the number of applicants, and explains the paradox: we see large red dots and small blue dots for the easiest (least selective) majors, A and B.&lt;/p&gt;
 &lt;p&gt;If we average the difference by major, we find that the percent is actually 3.5% higher for women.&lt;/p&gt;
