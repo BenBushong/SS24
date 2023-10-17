@@ -78,27 +78,27 @@ lessons:
   - title: 'Nonlinear Regression'
     session: 10
     date: "Week 9 (Oct 31 / Nov 2)"
-    # content: "09-content"
-    # example: "09-examples"
-    # assignment: "09-assignment"
+    content: "09-content"
+    example: "09-examples"
+    assignment: "09-assignment"
 
   - title: 'Bias vs Variance (No lab this week)'
     session: 11
     date: "Week 10 (Nov 7/11)"
-    # content: "10-content"
-    # example: "10-example"
+    content: "10-content"
+    example: "10-example"
     ## assignment: "10-assignment"
 
   - title: 'Classification'
     session: 12
     date: "Week 11 (Nov 14/16)"
-    #content: "11-content"
-    #example: "11-example"
-    #assignment: "11-assignment"
+    content: "11-content"
+    example: "11-example"
+    assignment: "11-assignment"
 
   - title: '<i class="fas fa-star"></i> **Project 2 Due**'
     date: "Saturday Nov 18th"
-    #assignment: "project2"
+    assignment: "project2"
     
   - title: '<span class="fake-header-table">Further Extensions</span>'
     header: True
@@ -106,9 +106,9 @@ lessons:
   - title: 'Text as Data'
     session: 13
     date: "Week 12 (Nov 21/!23)"
-    #content: "12-content"
+    content: "12-content"
     #example: "12-example"
-    #assignment: "12-assignment"
+    assignment: "12-assignment"
 
   - title: 'Wrangling Data'
     session: 14

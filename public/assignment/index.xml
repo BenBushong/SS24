@@ -418,6 +418,109 @@ my_func &amp;lt;- function(y){
     </item>
     
     <item>
+      <title>Bias vs. Variance</title>
+      <link>https://ssc442kirkpatrick.netlify.app/assignment/10-assignment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://ssc442kirkpatrick.netlify.app/assignment/10-assignment/</guid>
+      <description>
+
+
+&lt;p&gt;There is no Lab 10.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Applied Logistic Regression - Classification</title>
+      <link>https://ssc442kirkpatrick.netlify.app/assignment/11-assignment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://ssc442kirkpatrick.netlify.app/assignment/11-assignment/</guid>
+      <description>
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#backstory-and-set-up&#34; id=&#34;toc-backstory-and-set-up&#34;&gt;Backstory and Set Up&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;!-- Updated 8.30.22 --&gt;
+&lt;div class=&#34;fyi&#34;&gt;
+&lt;p&gt;You must turn in a PDF document of your &lt;code&gt;R Markdown&lt;/code&gt; code. Submit this to D2L by 11:59 PM Eastern Time on the date listed on the syllabus calendar&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;backstory-and-set-up&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Backstory and Set Up&lt;/h2&gt;
+&lt;p&gt;You work for a bank. This bank is trying to predict defaults on loans (a relatively uncommon occurence, but one that costs the bank a great deal of money when it does happen.) They’ve given you a dataset on defaults (encoded as the variable &lt;code&gt;y&lt;/code&gt;). You’re going to try to predict this.&lt;/p&gt;
+&lt;p&gt;This is some new data. The snippet below loads it.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;bank &amp;lt;- read.table(&amp;quot;https://raw.githubusercontent.com/ajkirkpatrick/FS20/postS21_rev/classdata/bank.csv&amp;quot;,
+                 header = TRUE,
+                 sep = &amp;quot;,&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;There’s not going to be a whole lot of wind-up here. You should be well-versed in doing these sorts of things by now (if not, look back at the previous lab for sample code).&lt;/p&gt;
+&lt;div class=&#34;fyi&#34;&gt;
+&lt;p&gt;&lt;strong&gt;EXERCISE 1&lt;/strong&gt;&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;Split the data into an 80/20 train vs. test split. Make sure you explicitly set the seed for replicability, but do not share your seed with others in the class. (We may compare some results across people.)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Run a series of logistic regressions with between 1 and 4 predictors of your choice (you can use interactions).&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Create eight total confusion matrices: four by applying your models to the training data, and four by applying your models to the test data. &lt;strong&gt;Briefly discuss your findings.&lt;/strong&gt; How does the error rate, sensitivity, and specificity change as the number of predictors increases? If you are not getting a 2x2 confusion matrix, you might need to adjust your cutoff probability. It might be the case that your model perfectly predicts the outcome variable when the setup cutoff probability is too high.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Text as Data</title>
+      <link>https://ssc442kirkpatrick.netlify.app/assignment/12-assignment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://ssc442kirkpatrick.netlify.app/assignment/12-assignment/</guid>
+      <description>
+
+
+&lt;!-- Updated 8.30.22 --&gt;
+&lt;div id=&#34;using-str_-functions-and-regex&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Using &lt;code&gt;str_&lt;/code&gt; functions and RegEx&lt;/h1&gt;
+&lt;div class=&#34;fyi&#34;&gt;
+&lt;p&gt;You must turn in a PDF document of your &lt;code&gt;R Markdown&lt;/code&gt; code. Submit this to D2L by 11:59 PM Eastern Time on the date listed on the syllabus calendar&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;For this lab, you will need to make sure you set &lt;code&gt;echo = T&lt;/code&gt; in the knitr options that are set in your template’s first chunk. Before turning your assignment in, check to make sure your code is showing. Labs that do not show all code will earn a zero.&lt;/p&gt;
+&lt;p&gt;This lab is deceptively short. Regular expressions can take a while to learn, and can be very frustrating. Leave yourself ample time.&lt;/p&gt;
+&lt;div class=&#34;fyi&#34;&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Create the following &lt;code&gt;Sales2020&lt;/code&gt; object. We want to convert the sales into a numeric format, but have to wrestle with the extra characters. Using no more than two lines of code, convert these to numeric.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;Sales2020 = c(&amp;#39;$1,420,142&amp;#39;,
+              &amp;#39;$438,125.82&amp;#39;,
+              &amp;#39;120,223.50&amp;#39;,
+              &amp;#39;42,140&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;We have the following student names:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;Students = c(&amp;#39;Ali&amp;#39;,&amp;#39; Meza&amp;#39;,&amp;#39;McAvoy&amp;#39;, &amp;#39;Mc Evoy&amp;#39;, &amp;#39;.Donaldson&amp;#39;,&amp;#39;Kirkpatrick &amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We would like to clean these student names and place them in alphabetical order. However, we note that “Mc Evoy” is a different name from “McEvoy” (the Irish are particular about that), so we need no more than two lines of code that can print these names in order (use &lt;code&gt;order&lt;/code&gt; to place the cleaned names in order).&lt;/p&gt;
+&lt;ol start=&#34;3&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;We want to check if each of these are valid, complete (including two decimal places for cents) prices. Write a line of code that returns TRUE if the price is in US dollars and includes cents to two digits.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;Prices = c(&amp;#39;$12.95&amp;#39;,
+           &amp;#39;$\beta$&amp;#39;,
+           &amp;#39;$1944.55&amp;#39;,
+           &amp;#39;3.14&amp;#39;,
+           &amp;#39;$CAN&amp;#39;,
+           &amp;#39;$12.&amp;#39;,
+           &amp;#39;$109&amp;#39;,
+           &amp;#39;4,05&amp;#39;,
+           &amp;#39;$200.00&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;4&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;We will use groups to extract &lt;strong&gt;two&lt;/strong&gt; columns of information from the following text we scraped from a land sales website:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;landSales = c(&amp;#39;Sold 12 acres at $105 per acre&amp;#39;,
+              &amp;#39;200 ac. at $58.90 each&amp;#39;,
+              &amp;#39;.25 acre lot for $1,000.00 ea&amp;#39;,
+              &amp;#39;Offered 50 acres for $5,000 per&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We want to calculate the total amount spent on each of these transactions (which are all in “per acre” prices). In no more than 5 lines of code (each pipe is a separate line), extract the acres offered, the price per acre, and then calculate the total transaction (acres x price per acre). You can print the data.frame / tibble, or use &lt;code&gt;%&amp;gt;% knitr::kable()&lt;/code&gt; to output the table. Your final output should have four rows and three columns. Hint: use &lt;code&gt;str_match&lt;/code&gt; with groups.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Basics of ggplot</title>
       <link>https://ssc442kirkpatrick.netlify.app/assignment/01-assignment/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1558,6 +1661,276 @@ lines(model_complexity, test_rmse, type = &amp;quot;b&amp;quot;, col = &amp;quot
 
 
 &lt;p&gt;There is no Lab 08. Lab 07 is due on October 30th due to Fall Break, which would have been the due date for Lab 08. We pick up again at Lab 09 due the first week in November.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Nonlinear Regression Model Evaluation</title>
+      <link>https://ssc442kirkpatrick.netlify.app/assignment/09-assignment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://ssc442kirkpatrick.netlify.app/assignment/09-assignment/</guid>
+      <description>
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#backstory-and-set-up&#34; id=&#34;toc-backstory-and-set-up&#34;&gt;Backstory and Set Up&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;!-- Updated 8.30.22 --&gt;
+&lt;div class=&#34;fyi&#34;&gt;
+&lt;p&gt;You must turn in a PDF document of your &lt;code&gt;R Markdown&lt;/code&gt; knitted document. Submit this to D2L by 11:59 PM Eastern Time on the date listed on the Syllabus calendar&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;backstory-and-set-up&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Backstory and Set Up&lt;/h2&gt;
+&lt;p&gt;You work for a bank. This bank is trying to predict defaults on loans (a relatively uncommon occurence, but one that costs the bank a great deal of money when it does happen.) They’ve given you a dataset on defaults (encoded as the variable &lt;code&gt;y&lt;/code&gt;). You’re going to try to predict this.&lt;/p&gt;
+&lt;p&gt;This is some new data. The snippet below loads it.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;bank &amp;lt;- read.table(&amp;quot;https://raw.githubusercontent.com/ajkirkpatrick/FS20/Spring2021/classdata/bank.csv&amp;quot;,
+                 header = TRUE,
+                 sep = &amp;quot;,&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;There’s not going to be a whole lot of wind-up here. You should be well-versed in doing these sorts of things by now (if not, look back at the previous lab for sample code).&lt;/p&gt;
+&lt;div class=&#34;fyi&#34;&gt;
+&lt;p&gt;&lt;strong&gt;EXERCISE 1&lt;/strong&gt;&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;Split the data into an 80/20 train vs. test split. Make sure you explicitly set the seed for replicability, but do not share your seed with others in the class. (We may compare some results across people.)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Run a series of KNN models with &lt;span class=&#34;math inline&#34;&gt;\(k\)&lt;/span&gt; ranging from 2 to 100. (You need not do every &lt;span class=&#34;math inline&#34;&gt;\(k\)&lt;/span&gt; between 2 and 100, but you can easily write a short function to do this; see the Content tab).&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Create a chart plotting the model complexity as the &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt;-axis variable and RMSE as the &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt;-axis variable for &lt;strong&gt;both&lt;/strong&gt; the training and test data. What do you think is the optimal &lt;span class=&#34;math inline&#34;&gt;\(k\)&lt;/span&gt;?&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Project 2</title>
+      <link>https://ssc442kirkpatrick.netlify.app/assignment/project2/</link>
+      <pubDate>Tue, 17 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>https://ssc442kirkpatrick.netlify.app/assignment/project2/</guid>
+      <description>
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#part-1-instructions&#34; id=&#34;toc-part-1-instructions&#34;&gt;Part 1: Instructions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#part-2-hypotheses&#34; id=&#34;toc-part-2-hypotheses&#34;&gt;Part 2: Hypotheses&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#evaluation&#34; id=&#34;toc-evaluation&#34;&gt;Evaluation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#data-cleaning-code&#34; id=&#34;toc-data-cleaning-code&#34;&gt;Data cleaning code&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#data-to-possibly-use-in-your-plot&#34; id=&#34;toc-data-to-possibly-use-in-your-plot&#34;&gt;Data to possibly use in your plot&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#country-totals-over-time&#34; id=&#34;toc-country-totals-over-time&#34;&gt;Country totals over time&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#cumulative-country-totals-over-time&#34; id=&#34;toc-cumulative-country-totals-over-time&#34;&gt;Cumulative country totals over time&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#continent-totals-over-time&#34; id=&#34;toc-continent-totals-over-time&#34;&gt;Continent totals over time&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#cumulative-continent-totals-over-time&#34; id=&#34;toc-cumulative-continent-totals-over-time&#34;&gt;Cumulative continent totals over time&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#what-about-other-data&#34; id=&#34;toc-what-about-other-data&#34;&gt;What about other data?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;fyi&#34;&gt;
+&lt;p&gt;As with Project 1, only one group member needs to upload the project to D2L. It &lt;strong&gt;must&lt;/strong&gt; contain the names of all group members somewhere near the top.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;The United States has resettled more than 600,000 refugees from 60 different countries since 2006.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../../../../../../img/assignments/refugees_welcome.jpg&#34; width=&#34;70%&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;In this project, you will use &lt;strong&gt;R, ggplot&lt;/strong&gt; and some form of graphics editor to explore where these refugees have come from.&lt;/p&gt;
+&lt;div id=&#34;part-1-instructions&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Part 1: Instructions&lt;/h2&gt;
+&lt;p&gt;Here’s what you need to do:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Download&lt;/strong&gt; the Department of Homeland Security’s annual count of people granted refugee status between 2006-2015:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/data/refugee_status.csv&#34;&gt;&lt;i class=&#34;fas fa-file-csv&#34;&gt;&lt;/i&gt; DHS refugees, 2006-2015&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Save this somewhere on your computer (you might need to right click on this link and choose “Save link as…”, since your browser may try to display it as text). This data was originally &lt;a href=&#34;https://www.kaggle.com/dhs/refugee-report&#34;&gt;uploaded by the Department of Homeland Security to Kaggle&lt;/a&gt;, and is provided with a public domain license.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Clean&lt;/strong&gt; the data using the code we’ve given you below. As always, this code is presented without guarantee. You may need to deal with a few issues, depending on your computer’s setup.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Summarize&lt;/strong&gt; the data somehow. There is data for 60 countries over 10 years, so you’ll probably need to aggregate or reshape the data somehow (unless you do a 60-country sparkline). I’ve included some examples down below.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Create&lt;/strong&gt; an appropriate time-based visualization based on the data. I’ve shown a few different ways to summarize the data so that it’s plottable down below. Don’t just calculate overall averages or totals per country—the visualization needs to deal with change over time, and it needs to illustrate something non-obvious and insightful in the data. &lt;em&gt;Do as much polishing and refining in R&lt;/em&gt;—make adjustments to the colors, scales, labels, grid lines, and even fonts, etc. You may have more than one visualization, but only one is required. If you have more than one, they must be visually consistent (same appearance, coordinated colors, etc.)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Refine and polish&lt;/strong&gt; the saved image, adding annotations, changing colors, and otherwise enhancing it.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Design and create&lt;/strong&gt; an infographic “poster”. Your poster should look like a polished image that you might see on a newspaper website like &lt;a href=&#34;https://www.nytimes.com/interactive/2020/04/11/business/economy/coronavirus-us-economy-spending.html&#34;&gt;the NYT&lt;/a&gt;. Your infographic “poster” should include an eye-catching title, your plot, the caption describing the plot, and 2-4 short paragraphs succinctly describing the insights you are sharing about the data. You can (and should consider) integrating other images like national flags or arrows to convey some semantic meaning. *You may do the layout of the infographic “poster” in any software you choose - Publisher (do people still use that?), Adobe Illustrator, etc. Again, the idea is to have a polished plot with an interesting insight from the data, a polished layout to make it attractive, and a polished 2-4 paragraphs that sets up the plot and elaborates on your insight.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Upload&lt;/strong&gt; the following outputs to D2L:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Your code (.Rmd) that generates the graphic.&lt;/li&gt;
+&lt;li&gt;Your final poster, saved as a PDF.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;For this assignment, we are less concerned with the code (that’s why we gave most of it to you), and more concerned with the &lt;em&gt;design&lt;/em&gt;. Choose good colors based on palettes. Choose good, clean fonts. Use the heck out of &lt;code&gt;theme()&lt;/code&gt;. Add informative design elements. Make it look beautiful. Refer to &lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/resource/design/&#34;&gt;the design resources here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Please seek out help when you need it!&lt;/strong&gt; You know enough R (and have enough examples of code from class and your readings) to be able to do this. &lt;em&gt;You can do this,&lt;/em&gt; and you’ll feel like a budding dataviz witch/wizard when you’re done.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;part-2-hypotheses&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Part 2: Hypotheses&lt;/h2&gt;
+&lt;p&gt;For this part of the assignment, you need to provide five hypotheses about the relationship between variables in one of the datasets from your Project 1. You can (and should) consider making hypotheses about the dataset that you plan to use for your final project. However, this is not a requirement. All that is required is that you provide five hypotheses about some data. Your write-up should have an enumerated list of questions (e.g., “1. Are there more murders in states that have high unemployment.”) along with a 1-2 sentence statement detailing why this hypothesis is interesting and should be studied. You will receive 2 points for each hypothesis.&lt;/p&gt;
+&lt;div id=&#34;evaluation&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Evaluation&lt;/h3&gt;
+&lt;p&gt;I will evaluate these projects (not the TA). I will only give top marks to those groups showing initiative and cleverness. I will use the following weights for final scores:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Part 1&lt;/strong&gt;&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;Technical difficulty: Does the final project show mastery of the skills we’ve discussed thus far? (15 points)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Professionalism of visuals: Does the visualizations look like something you might see on TV or in the newspaper? (15 points)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Poster clarity: Does your poster clearly convey some point? (10 points)&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Part 2&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Each hypothesis is worth 2 points. (This is intended to be some free points for all; 10 points)&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;data-cleaning-code&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Data cleaning code&lt;/h2&gt;
+&lt;p&gt;The data isn’t perfectly clean and tidy, but it’s real world data, so this is normal. Because the emphasis for this assignment is on design, not code, we’ve provided code to help you clean up the data.&lt;/p&gt;
+&lt;p&gt;These are the main issues with the data:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;There are non-numeric values in the data, like &lt;code&gt;-&lt;/code&gt;, &lt;code&gt;X&lt;/code&gt;, and &lt;code&gt;D&lt;/code&gt;. The data isn’t very well documented; we’re assuming &lt;code&gt;-&lt;/code&gt; indicates a missing value, but we’re not sure what &lt;code&gt;X&lt;/code&gt; and &lt;code&gt;D&lt;/code&gt; mean, so for this assignment, we’ll just assume they’re also missing.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The data generally includes rows for dozens of countries, but there are also rows for some continents, “unknown,” “other,” and a total row. Because &lt;a href=&#34;https://twitter.com/africasacountry&#34;&gt;Africa is not a country&lt;/a&gt;, and neither are the other continents, we want to exclude all non-countries.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Maintaining consistent country names across different datasets is &lt;em&gt;literally&lt;/em&gt; the woooooooorst. Countries have different formal official names and datasets are never consistent in how they use those names.&lt;a href=&#34;#fn1&#34; class=&#34;footnote-ref&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; It’s such a tricky problem that social scientists have spent their careers just figuring out how to properly name and code countries. Really.&lt;a href=&#34;#fn2&#34; class=&#34;footnote-ref&#34; id=&#34;fnref2&#34;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt; There are international standards for country codes, though, like &lt;a href=&#34;https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3&#34;&gt;ISO 3166-1 alpha 3&lt;/a&gt; (my favorite), also known as ISO3. It’s not perfect—it omits microstates (some Polynesian countries) and gray area states (Palestine, Kosovo)—but it’s an international standard, so it has that going for it.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;To ensure that country names are consistent in this data, we use the &lt;strong&gt;countrycode&lt;/strong&gt; package (install it if you don’t have it), which is amazing. The &lt;code&gt;countrycode()&lt;/code&gt; function will take a country name in a given coding scheme and convert it to a different coding scheme using this syntax:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;  countrycode(variable, &amp;quot;current-coding-scheme&amp;quot;, &amp;quot;new-coding-scheme&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;It also does a farily good job at guessing and parsing inconsistent country names (e.g. it will recognize “Congo, Democratic Republic”, even though it should technically be “Democratic Republic of the Congo”). Here, we use &lt;code&gt;countrycode()&lt;/code&gt; to convert the inconsistent country names into ISO3 codes. We then create a cleaner version of the &lt;code&gt;origin_country&lt;/code&gt; column by converting the ISO3 codes back into country names. Note that the function chokes on North Korea initially, since it’s included as “Korea, North”—we use the &lt;code&gt;custom_match&lt;/code&gt; argument to help the function out.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The data isn’t tidy—there are individual columns for each year. &lt;code&gt;gather()&lt;/code&gt; takes every column and changes it to a row. We exclude the country, region, continent, and ISO3 code from the change-into-rows transformation with &lt;code&gt;-origin_country, -iso3, -origin_region, -origin_continent&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Currently, the year is being treated as a number, but it’s helpful to also treat it as an actual date. We create a new variable named &lt;code&gt;year_date&lt;/code&gt; that converts the raw number (e.g. 2009) into a date. The date needs to have at least a month, day, and year, so we actually convert it to January 1, 2009 with &lt;code&gt;ymd(paste0(year, &#34;-01-01&#34;))&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)    # For ggplot, dplyr, and friends
+library(countrycode)  # For dealing with country names, abbreviations, and codes
+library(lubridate)    # For dealing with dates
+library(WDI)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;refugees_raw &amp;lt;- read_csv(&amp;quot;data/refugee_status.csv&amp;quot;, na = c(&amp;quot;-&amp;quot;, &amp;quot;X&amp;quot;, &amp;quot;D&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;non_countries &amp;lt;- c(&amp;quot;Africa&amp;quot;, &amp;quot;Asia&amp;quot;, &amp;quot;Europe&amp;quot;, &amp;quot;North America&amp;quot;, &amp;quot;Oceania&amp;quot;,
+                   &amp;quot;South America&amp;quot;, &amp;quot;Unknown&amp;quot;, &amp;quot;Other&amp;quot;, &amp;quot;Total&amp;quot;)
+
+refugees_clean &amp;lt;- refugees_raw %&amp;gt;%
+  # Make this column name easier to work with
+  rename(origin_country = `Continent/Country of Nationality`) %&amp;gt;%
+  # Get rid of non-countries
+  filter(!(origin_country %in% non_countries)) %&amp;gt;%
+  # Convert country names to ISO3 codes
+  mutate(iso3 = countrycode(origin_country, &amp;quot;country.name&amp;quot;, &amp;quot;iso3c&amp;quot;,
+                            custom_match = c(&amp;quot;Korea, North&amp;quot; = &amp;quot;PRK&amp;quot;))) %&amp;gt;%
+  # Convert ISO3 codes to country names, regions, and continents
+  mutate(origin_country = countrycode(iso3, &amp;quot;iso3c&amp;quot;, &amp;quot;country.name&amp;quot;),
+         origin_region = countrycode(iso3, &amp;quot;iso3c&amp;quot;, &amp;quot;region&amp;quot;),
+         origin_continent = countrycode(iso3, &amp;quot;iso3c&amp;quot;, &amp;quot;continent&amp;quot;)) %&amp;gt;%
+  # Make this data tidy
+  gather(year, number, -origin_country, -iso3, -origin_region, -origin_continent) %&amp;gt;%
+  # Make sure the year column is numeric + make an actual date column for years
+  mutate(year = as.numeric(year),
+         year_date = ymd(paste0(year, &amp;quot;-01-01&amp;quot;)))&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;data-to-possibly-use-in-your-plot&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Data to possibly use in your plot&lt;/h2&gt;
+&lt;p&gt;Here are some possible summaries of the data you might use…&lt;/p&gt;
+&lt;div id=&#34;country-totals-over-time&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Country totals over time&lt;/h3&gt;
+&lt;p&gt;This is just the &lt;code&gt;refugees_clean&lt;/code&gt; data frame I gave you. You’ll want to filter it and select specific countries, though—you won’t really be able to plot 60 countries all at once unless you use sparklines.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 × 7
+##   origin_country iso3  origin_region    origin_continent  year number year_date 
+##   &amp;lt;chr&amp;gt;          &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt;            &amp;lt;chr&amp;gt;            &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt; &amp;lt;date&amp;gt;    
+## 1 Afghanistan    AFG   South Asia       Asia              2006    651 2006-01-01
+## 2 Angola         AGO   Sub-Saharan Afr… Africa            2006     13 2006-01-01
+## 3 Armenia        ARM   Europe &amp;amp; Centra… Asia              2006     87 2006-01-01
+## 4 Azerbaijan     AZE   Europe &amp;amp; Centra… Asia              2006     77 2006-01-01
+## 5 Belarus        BLR   Europe &amp;amp; Centra… Europe            2006    350 2006-01-01
+## 6 Bhutan         BTN   South Asia       Asia              2006      3 2006-01-01&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;cumulative-country-totals-over-time&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Cumulative country totals over time&lt;/h3&gt;
+&lt;p&gt;Note the &lt;code&gt;cumsum()&lt;/code&gt; function—it calculates the cumulative sum of a column.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;refugees_countries_cumulative &amp;lt;- refugees_clean %&amp;gt;%
+  arrange(year_date) %&amp;gt;%
+  group_by(origin_country) %&amp;gt;%
+  mutate(cumulative_total = cumsum(number))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 × 7
+## # Groups:   origin_country [1]
+##   origin_country iso3  origin_continent  year number year_date  cumulative_total
+##   &amp;lt;chr&amp;gt;          &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt;            &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt; &amp;lt;date&amp;gt;                &amp;lt;dbl&amp;gt;
+## 1 Afghanistan    AFG   Asia              2006    651 2006-01-01              651
+## 2 Afghanistan    AFG   Asia              2007    441 2007-01-01             1092
+## 3 Afghanistan    AFG   Asia              2008    576 2008-01-01             1668
+## 4 Afghanistan    AFG   Asia              2009    349 2009-01-01             2017
+## 5 Afghanistan    AFG   Asia              2010    515 2010-01-01             2532
+## 6 Afghanistan    AFG   Asia              2011    428 2011-01-01             2960&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;continent-totals-over-time&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Continent totals over time&lt;/h3&gt;
+&lt;p&gt;Note the &lt;code&gt;na.rm = TRUE&lt;/code&gt; argument in &lt;code&gt;sum()&lt;/code&gt;. This makes R ignore any missing data when calculating the total. Without it, if R finds a missing value in the column, it will mark the final sum as &lt;code&gt;NA&lt;/code&gt; too, which we don’t want.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;refugees_continents &amp;lt;- refugees_clean %&amp;gt;%
+  group_by(origin_continent, year_date) %&amp;gt;%
+  summarize(total = sum(number, na.rm = TRUE))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## `summarise()` has grouped output by &amp;#39;origin_continent&amp;#39;. You can override using
+## the `.groups` argument.&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 × 3
+## # Groups:   origin_continent [1]
+##   origin_continent year_date  total
+##   &amp;lt;chr&amp;gt;            &amp;lt;date&amp;gt;     &amp;lt;dbl&amp;gt;
+## 1 Africa           2006-01-01 18116
+## 2 Africa           2007-01-01 17473
+## 3 Africa           2008-01-01  8931
+## 4 Africa           2009-01-01  9664
+## 5 Africa           2010-01-01 13303
+## 6 Africa           2011-01-01  7677&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;cumulative-continent-totals-over-time&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Cumulative continent totals over time&lt;/h3&gt;
+&lt;p&gt;Note that there are two &lt;code&gt;group_by()&lt;/code&gt; functions here. First we get the total number of refugees per continent per year, then we group by continent only to get the cumulative sum of refugees across continents.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;refugees_continents_cumulative &amp;lt;- refugees_clean %&amp;gt;%
+  group_by(origin_continent, year_date) %&amp;gt;%
+  summarize(total = sum(number, na.rm = TRUE)) %&amp;gt;%
+  arrange(year_date) %&amp;gt;%
+  group_by(origin_continent) %&amp;gt;%
+  mutate(cumulative_total = cumsum(total))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## `summarise()` has grouped output by &amp;#39;origin_continent&amp;#39;. You can override using
+## the `.groups` argument.&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 × 4
+## # Groups:   origin_continent [1]
+##   origin_continent year_date  total cumulative_total
+##   &amp;lt;chr&amp;gt;            &amp;lt;date&amp;gt;     &amp;lt;dbl&amp;gt;            &amp;lt;dbl&amp;gt;
+## 1 Africa           2006-01-01 18116            18116
+## 2 Africa           2007-01-01 17473            35589
+## 3 Africa           2008-01-01  8931            44520
+## 4 Africa           2009-01-01  9664            54184
+## 5 Africa           2010-01-01 13303            67487
+## 6 Africa           2011-01-01  7677            75164&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;what-about-other-data&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;What about other data?&lt;/h3&gt;
+&lt;p&gt;In your prerequisite course, you learned how to use the &lt;code&gt;merge&lt;/code&gt; function (and possibly its Tidyverse cousin, &lt;code&gt;left_join&lt;/code&gt;). Since our refugee data has a standardized country code, we can find other datasets that might have useful information.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;WDI&lt;/code&gt; package acts as an interface to the World Bank Development Inidcators dataset, which has a &lt;em&gt;lot&lt;/em&gt; of information on the countries in our data. To merge WDI data to our refugee data, we’ll need to make a little change to our cleaning code - &lt;code&gt;WDI&lt;/code&gt; needs the iso2 country code, which is a unique 2-letter code instead of the iso3 3-letter code we have. Here’s the cleaning data:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;refugees_clean &amp;lt;- refugees_raw %&amp;gt;%
+  rename(origin_country = `Continent/Country of Nationality`) %&amp;gt;%
+  dplyr::filter(!(origin_country %in% non_countries)) %&amp;gt;%
+  mutate(iso2 = countrycode(origin_country, &amp;quot;country.name&amp;quot;, &amp;quot;iso2c&amp;quot;,
+                            custom_match = c(&amp;quot;Korea, North&amp;quot; = &amp;quot;KP&amp;quot;))) %&amp;gt;%
+  mutate(origin_country = countrycode(iso2, &amp;quot;iso2c&amp;quot;, &amp;quot;country.name&amp;quot;),
+         origin_region = countrycode(iso2, &amp;quot;iso2c&amp;quot;, &amp;quot;region&amp;quot;),
+         origin_continent = countrycode(iso2, &amp;quot;iso2c&amp;quot;, &amp;quot;continent&amp;quot;)) %&amp;gt;%
+  gather(year, number, -origin_country, -iso2, -origin_region, -origin_continent) %&amp;gt;%
+  mutate(year = as.numeric(year),
+         year_date = ymd(paste0(year, &amp;quot;-01-01&amp;quot;)),
+         iso2c = iso2)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The only difference here is that we now have iso2 instead of iso3. If you use your iso3 field in your code, you’ll have to create both.&lt;/p&gt;
+&lt;p&gt;Now, the &lt;code&gt;WDI&lt;/code&gt; function:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(WDI)
+myData = WDI(country = refugees_clean$iso2, indicator = &amp;#39;SP.POP.TOTL&amp;#39;, start = 2006, end = 2015)  %&amp;gt;%
+      dplyr::select(-country)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The function needs four arguments (see &lt;code&gt;?WDI&lt;/code&gt; after installing the &lt;code&gt;WDI&lt;/code&gt; package for more). The first has to be list of iso2 codes, which we have…in the form of the &lt;code&gt;iso2&lt;/code&gt; column. So we pass that column as the first argument, and &lt;code&gt;WDI&lt;/code&gt; will give us data for every country in that column.&lt;/p&gt;
+&lt;p&gt;The second argument, &lt;code&gt;indicator&lt;/code&gt;, tells &lt;code&gt;WDI&lt;/code&gt; what data you want. The &lt;a href=&#34;https://databank.worldbank.org/metadataglossary/World-Development-Indicators/series&#34;&gt;WDI data dictionary is here&lt;/a&gt;. Use the drop-down under “Select Database” and choose just the World Development Indicators option to simplify. Then, use the search box to search for intersting indicators. The website shows the “code” of each of the indicators. That’s the code you use. For instance, &lt;code&gt;SP.POP.TOTL&lt;/code&gt; is the total population by country, so you can generate per-capita measures of refugees if you want. Finally, &lt;code&gt;WDI&lt;/code&gt; needs the start and end years. Our data is 2006 to 2015, so that makes the most sense.&lt;/p&gt;
+&lt;p&gt;Now, once you have &lt;code&gt;myData&lt;/code&gt; retrieved from &lt;code&gt;WDI&lt;/code&gt;, take a look at it. We need to see which columns to merge on - that is, which columns should R match to put the data together? We want to merge on &lt;code&gt;&#39;iso2c&#39;&lt;/code&gt; and on &lt;code&gt;&#39;year&#39;&lt;/code&gt; because &lt;code&gt;WDI&lt;/code&gt; gives us a tidy data frame by country-year.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;refugees_clean_merged = left_join(refugees_clean, myData, by = c(&amp;#39;iso2c&amp;#39;,&amp;#39;year&amp;#39;)) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We didn’t have an &lt;code&gt;iso2c&lt;/code&gt; column before, just an &lt;code&gt;iso2&lt;/code&gt; column, so you might notice that the new cleaning code I gave you added &lt;code&gt;iso2c = iso2&lt;/code&gt; at the end using &lt;code&gt;mutate&lt;/code&gt;. That way, the column names that we’re using to merge will match.&lt;/p&gt;
+&lt;p&gt;You can search the WDI data dictionary and find the “Code” for the indicator you’d like to use, then just merge it into your data. Look at your data closely before you merge, and make sure you know what you’re merging in. Use the slack if you get stuck. Happy data hunting!&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;head(refugees_clean_merged %&amp;gt;% dplyr::select(origin_country, number, iso2, year, SP.POP.TOTL))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 × 5
+##   origin_country number iso2   year SP.POP.TOTL
+##   &amp;lt;chr&amp;gt;           &amp;lt;dbl&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;dbl&amp;gt;       &amp;lt;dbl&amp;gt;
+## 1 Afghanistan       651 AF     2006    25442944
+## 2 Angola             13 AO     2006    20162340
+## 3 Armenia            87 AM     2006     3026486
+## 4 Azerbaijan         77 AZ     2006     8484550
+## 5 Belarus           350 BY     2006     9604924
+## 6 Bhutan              3 BT     2006      673260&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;footnotes footnotes-end-of-document&#34;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;For instance, “North Korea”, “Korea, North”, “DPRK”, “Korea, Democratic People’s Republic of”, and “Democratic People’s Republic of Korea”, and “Korea (DPRK)” are all perfectly normal versions of the country’s name and you’ll find them all in the wild.&lt;a href=&#34;#fnref1&#34; class=&#34;footnote-back&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn2&#34;&gt;&lt;p&gt;See Gleditsch, Kristian S. &amp;amp; Michael D. Ward. 1999. &lt;a href=&#34;https://www.tandfonline.com/doi/abs/10.1080/03050629908434958&#34;&gt;“Interstate System Membership: A Revised List of the Independent States since 1816.”&lt;/a&gt; &lt;em&gt;International Interactions&lt;/em&gt; 25: 393-413; or the &lt;a href=&#34;http://www.paulhensel.org/icownames.html&#34;&gt;“ICOW Historical State Names Data Set”&lt;/a&gt;.&lt;a href=&#34;#fnref2&#34; class=&#34;footnote-back&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
 </description>
     </item>
     

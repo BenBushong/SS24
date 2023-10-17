@@ -1,8 +1,8 @@
 ---
 title: "Project 2"
 linktitle: "Project 2"
-date: "2022-08-30"
-due_date: "2022-11-19"
+date: "2023-10-17"
+due_date: "2023-11-18"
 due_time: "11:59 PM"
 output:
   blogdown::html_page:
