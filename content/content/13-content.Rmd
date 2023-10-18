@@ -12,17 +12,6 @@ output:
     toc: true
 ---
 
-## Some course business
-
-- I have given everyone credit for Weekly Writing 12 (not just exempt)
-
-- A few people turned in a weekly writing from last years prompt. Not good.
-
-- Lab #8 is now Lab #14 (on geospatial) due Dec 12th. It is pretty short and easy.
-
-- Let's look at some answers for Lab 12
-
-
 
 ## Required Reading
 

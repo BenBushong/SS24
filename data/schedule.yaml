@@ -113,9 +113,9 @@ lessons:
   - title: 'Wrangling Data'
     session: 14
     date: "Week 13 (Nov 28/30)"
-    # content: "13-content"
-    # example: "13-example"
-    # assignment: "13-assignment"
+    content: "13-content"
+    example: "13-example"
+    assignment: "13-assignment"
   
   - title: 'Geospatial in R (Last lab)'
     session: 15
