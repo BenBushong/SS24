@@ -664,6 +664,15 @@
 <p><img src="img/regression.png" /></p>
 <p>First, note that a linear model is one of many methods used in regression.</p>
 <p>To discuss linear models in the context of prediction, we introduce the (very boring) <code>Advertising</code> data that is discussed in the ISL text (see supplemental readings). It can be found at <a href="https://www.statlearning.com/s/Advertising.csv">https://www.statlearning.com/s/Advertising.csv</a>.</p>
+<pre class="r"><code>Advertising &lt;- read_csv(&#39;https://www.statlearning.com/s/Advertising.csv&#39;)</code></pre>
+<pre><code>## New names:
+## Rows: 200 Columns: 5
+## ── Column specification
+## ──────────────────────────────────────────────────────── Delimiter: &quot;,&quot; dbl
+## (5): ...1, TV, radio, newspaper, sales
+## ℹ Use `spec()` to retrieve the full column specification for this data. ℹ
+## Specify the column types or set `show_col_types = FALSE` to quiet this message.
+## • `` -&gt; `...1`</code></pre>
 <pre class="r"><code>Advertising = Advertising %&gt;% 
   dplyr::select(TV, radio, newspaper, sales)
 Advertising</code></pre>
@@ -696,7 +705,7 @@ tv + rad + news</code></pre>
 <p><span class="math display">\[
 \text{RMSE}(\hat{f}, \text{Data}) = \sqrt{\frac{1}{n}\displaystyle\sum_{i = 1}^{n}\left(y_i - \hat{f}(\bf{x}_i)\right)^2}
 \]</span></p>
-<p>While for the sake of comparing models, the choice between RMSE and MSE is arbitrary, we have a preference for RMSE, as it has the same units as the response variable. Also, notice that in the prediction context MSE refers to an average, whereas in an ANOVA context, the denominator for MSE may not be <span class="math inline">\(n\)</span>.</p>
+<p>While for the sake of comparing models, the choice between RMSE and MSE is arbitrary, we have a preference for RMSE, as it has the same units as the response variable. Also, notice that in the prediction context MSE refers to an average, whereas in an ANOVA (<code>summary(lm(...))</code>) context, the denominator for MSE may not be <span class="math inline">\(n\)</span>.</p>
 <p>For a linear model , the estimate of <span class="math inline">\(f\)</span>, <span class="math inline">\(\hat{f}\)</span>, is given by the fitted regression line.</p>
 <p><span class="math display">\[
 \hat{y}({\bf{x}_i}) = \hat{f}({\bf{x}_i})

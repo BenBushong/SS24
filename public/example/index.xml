@@ -4665,6 +4665,15 @@ Y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_3 + \beta_4 x_1 x_2 + \beta_
 &lt;p&gt;&lt;img src=&#34;img/regression.png&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;First, note that a linear model is one of many methods used in regression.&lt;/p&gt;
 &lt;p&gt;To discuss linear models in the context of prediction, we introduce the (very boring) &lt;code&gt;Advertising&lt;/code&gt; data that is discussed in the ISL text (see supplemental readings). It can be found at &lt;a href=&#34;https://www.statlearning.com/s/Advertising.csv&#34;&gt;https://www.statlearning.com/s/Advertising.csv&lt;/a&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;Advertising &amp;lt;- read_csv(&amp;#39;https://www.statlearning.com/s/Advertising.csv&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## New names:
+## Rows: 200 Columns: 5
+## ── Column specification
+## ──────────────────────────────────────────────────────── Delimiter: &amp;quot;,&amp;quot; dbl
+## (5): ...1, TV, radio, newspaper, sales
+## ℹ Use `spec()` to retrieve the full column specification for this data. ℹ
+## Specify the column types or set `show_col_types = FALSE` to quiet this message.
+## • `` -&amp;gt; `...1`&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;Advertising = Advertising %&amp;gt;% 
   dplyr::select(TV, radio, newspaper, sales)
 Advertising&lt;/code&gt;&lt;/pre&gt;
@@ -4697,7 +4706,7 @@ tv + rad + news&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
 \text{RMSE}(\hat{f}, \text{Data}) = \sqrt{\frac{1}{n}\displaystyle\sum_{i = 1}^{n}\left(y_i - \hat{f}(\bf{x}_i)\right)^2}
 \]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;While for the sake of comparing models, the choice between RMSE and MSE is arbitrary, we have a preference for RMSE, as it has the same units as the response variable. Also, notice that in the prediction context MSE refers to an average, whereas in an ANOVA context, the denominator for MSE may not be &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;While for the sake of comparing models, the choice between RMSE and MSE is arbitrary, we have a preference for RMSE, as it has the same units as the response variable. Also, notice that in the prediction context MSE refers to an average, whereas in an ANOVA (&lt;code&gt;summary(lm(...))&lt;/code&gt;) context, the denominator for MSE may not be &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt;.&lt;/p&gt;
 &lt;p&gt;For a linear model , the estimate of &lt;span class=&#34;math inline&#34;&gt;\(f\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(\hat{f}\)&lt;/span&gt;, is given by the fitted regression line.&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
 \hat{y}({\bf{x}_i}) = \hat{f}({\bf{x}_i})
@@ -4978,36 +4987,35 @@ legend(&amp;#39;topright&amp;#39;, legend = c(&amp;#39;train&amp;#39;,&amp;#39;t
 
 &lt;div id=&#34;TOC&#34;&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#our-data-and-goal&#34; id=&#34;toc-our-data-and-goal&#34;&gt;Our data and goal&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#some-functions&#34; id=&#34;toc-some-functions&#34;&gt;Some functions&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#our-data-and-goal&#34; id=&#34;toc-our-data-and-goal&#34;&gt;Our data and goal&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#breakout-1---predicting-wage&#34; id=&#34;toc-breakout-1---predicting-wage&#34;&gt;Breakout #1 - Predicting Wage&lt;/a&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#breakout-1-discussion&#34; id=&#34;toc-breakout-1-discussion&#34;&gt;Breakout #1 discussion&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#automating-models&#34; id=&#34;toc-automating-models&#34;&gt;Automating models&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#f22-we-already-went-thru-this-yesterday&#34; id=&#34;toc-f22-we-already-went-thru-this-yesterday&#34;&gt;F22: We already went thru this yesterday&lt;/a&gt;
+&lt;li&gt;&lt;a href=&#34;#automating-models&#34; id=&#34;toc-automating-models&#34;&gt;Automating models&lt;/a&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#loops&#34; id=&#34;toc-loops&#34;&gt;Loops&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#using-lapply-to-repeat-something&#34; id=&#34;toc-using-lapply-to-repeat-something&#34;&gt;Using &lt;code&gt;lapply&lt;/code&gt; to repeat something&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#lab-7&#34; id=&#34;toc-lab-7&#34;&gt;Lab 7&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#breakout-2&#34; id=&#34;toc-breakout-2&#34;&gt;Breakout #2&lt;/a&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#breakout-2-discussion&#34; id=&#34;toc-breakout-2-discussion&#34;&gt;Breakout #2 discussion&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#getting-rmse-from-the-list&#34; id=&#34;toc-getting-rmse-from-the-list&#34;&gt;Getting RMSE from the list&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#breakout-3-if-time&#34; id=&#34;toc-breakout-3-if-time&#34;&gt;Breakout #3 (if time)&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 
 &lt;div id=&#34;our-data-and-goal&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Our data and goal&lt;/h2&gt;
-&lt;p&gt;We want to use the &lt;code&gt;wooldridge::wage2&lt;/code&gt; data on wages to generate and tune a non-parametric model of wages using a regression tree. Use &lt;code&gt;?wage2&lt;/code&gt; (after you’ve loaded the &lt;code&gt;wooldridge&lt;/code&gt; package) to see the data dictionary.&lt;/p&gt;
+&lt;p&gt;We want to use the &lt;code&gt;wooldridge::wage2&lt;/code&gt; data on wages to generate and tune a non-parametric model of wages using a regression tree (or decision tree, same thing). Use &lt;code&gt;?wage2&lt;/code&gt; (after you’ve loaded the &lt;code&gt;wooldridge&lt;/code&gt; package) to see the data dictionary.&lt;/p&gt;
 &lt;p&gt;We’ve learned that our RMSE calculations have a hard time with &lt;code&gt;NA&lt;/code&gt;s in the data. So let’s use the &lt;code&gt;skim&lt;/code&gt; output to tell us which variables have too many &lt;code&gt;NA&lt;/code&gt; (see &lt;code&gt;n_missing&lt;/code&gt;) values and should be dropped. Let’s set a high bar here, and drop anything that isn’t 100% complete. Of course, there are other things we can do (impute the &lt;code&gt;NA&lt;/code&gt;s, or make dummies for them), but for now, it’s easiest to drop them.&lt;/p&gt;
-&lt;p&gt;Once cleaned, we should be able to use &lt;code&gt;rpart(wage ~ ., data = wage_clean)&lt;/code&gt; and not have any &lt;code&gt;NA&lt;/code&gt;s in our prediction.&lt;/p&gt;
-&lt;div id=&#34;some-functions&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Some functions&lt;/h3&gt;
-&lt;p&gt;These functions are taken from our previous Content and Examples:&lt;/p&gt;
+&lt;p&gt;Remember, &lt;code&gt;skim()&lt;/code&gt; is for your own exploration, it’s not something that you should include in your output.&lt;/p&gt;
+&lt;p&gt;Once cleaned, we should be able to use &lt;code&gt;rpart(wage ~ ., data = wage_clean)&lt;/code&gt; and not have any &lt;code&gt;NA&lt;/code&gt;s in our prediction. That’s what we’ll do in our first Breakout.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;breakout-1---predicting-wage&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Breakout #1 - Predicting Wage&lt;/h2&gt;
+&lt;p&gt;I’m going to have you form groups of 2-3 to work on live-coding. One person in the group will need to have Rstudio up, be able to share screen, and have the correct packages loaded (&lt;code&gt;caret&lt;/code&gt;, &lt;code&gt;rpart&lt;/code&gt;, and &lt;code&gt;rpart.plot&lt;/code&gt;, plus &lt;code&gt;skimr&lt;/code&gt;). Copy the &lt;code&gt;rmse&lt;/code&gt; and &lt;code&gt;get_rmse&lt;/code&gt; code into a blank R script (you don’t have to use RMarkdown, just use a blank R script and run from there). You’ll also want to have these functions from last week loaded:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;rmse = function(actual, predicted) {
   sqrt(mean((actual - predicted) ^ 2))
 }&lt;/code&gt;&lt;/pre&gt;
@@ -5015,29 +5023,21 @@ legend(&amp;#39;topright&amp;#39;, legend = c(&amp;#39;train&amp;#39;,&amp;#39;t
   rmse(actual = subset(data, select = response, drop = TRUE),
        predicted = predict(model, data))
 }&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;breakout-1---predicting-wage&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Breakout #1 - Predicting Wage&lt;/h2&gt;
-&lt;p&gt;I’m going to assign you to groups of 3-4 to work on live-coding. One person in the group will need to have Rstudio up, be able to share screen, and have the correct packages loaded (&lt;code&gt;caret&lt;/code&gt;, &lt;code&gt;rpart&lt;/code&gt;, and &lt;code&gt;rpart.plot&lt;/code&gt;, plus &lt;code&gt;skimr&lt;/code&gt;). Copy the &lt;code&gt;rmse&lt;/code&gt; and &lt;code&gt;get_rmse&lt;/code&gt; code into a blank R script (you don’t have to use RMarkdown, just use a blank R script and run from there).&lt;/p&gt;
 &lt;p&gt;For the first breakout, all I want you to do is the following. We are trying to predict &lt;code&gt;wage&lt;/code&gt; for this exercise:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Estimate a default regression tree on &lt;code&gt;wage_clean&lt;/code&gt; using the default parameters.&lt;/li&gt;
+&lt;li&gt;Estimate a default regression tree on &lt;code&gt;wage_clean&lt;/code&gt; using the default parameters (use the whole dataset for now, we’ll train-test on the problem set).&lt;/li&gt;
 &lt;li&gt;Use &lt;code&gt;rpart.plot&lt;/code&gt; to vizualize your regression tree, and &lt;em&gt;talk through the interpretation&lt;/em&gt; with each other.&lt;/li&gt;
 &lt;li&gt;Calculate the RMSE for your regression tree.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;I’ll bring you back in about 5 minutes. Remember, you can use &lt;code&gt;?wage2&lt;/code&gt; to see the variable names. Make sure you know what variables are showing up in the plot and explaining &lt;code&gt;wage&lt;/code&gt; in your model. You may find something odd at first and may need to drop more variables…&lt;/p&gt;
+&lt;p&gt;We’ll spend about 5 minutes on this. Remember, you can use &lt;code&gt;?wage2&lt;/code&gt; to see the variable names. Make sure you know what variables are showing up in the plot and explaining &lt;code&gt;wage&lt;/code&gt; in your model. You may find something odd at first and may need to drop more variables…&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;5 minutes&lt;/strong&gt;&lt;/p&gt;
 &lt;div id=&#34;breakout-1-discussion&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Breakout #1 discussion&lt;/h3&gt;
-&lt;p&gt;Let’s choose a group to share their plot and discuss the results.&lt;/p&gt;
+&lt;p&gt;Let’s choose a group to share their plot and discuss the results. Use our sharing zoom link: &lt;a href=&#34;bit.ly/KIRKPATRICK&#34;&gt;bit.ly/KIRKPATRICK&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;automating-models&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Automating models&lt;/h2&gt;
-&lt;/div&gt;
-&lt;div id=&#34;f22-we-already-went-thru-this-yesterday&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;F22: We already went thru this yesterday&lt;/h2&gt;
 &lt;p&gt;Let’s talk about a little code shortcut that helps iterate through your model selection.&lt;/p&gt;
 &lt;p&gt;First, before, we used &lt;code&gt;list()&lt;/code&gt; to store all of our models. This is because &lt;code&gt;list()&lt;/code&gt; can “hold” anything at all, unlike a &lt;code&gt;matrix&lt;/code&gt;, which is only numeric, or a &lt;code&gt;data.frame&lt;/code&gt; which needs all rows in a column to be the same data type. &lt;code&gt;list()&lt;/code&gt; is also recursive, so each element in a list can be a list. Of lists. Of lists!&lt;/p&gt;
 &lt;p&gt;Lists are also really easy to add to iteratively. We can initiate an empty list using &lt;code&gt;myList &amp;lt;- list()&lt;/code&gt;, then we can add things to it. Note that we use the double &lt;code&gt;[&lt;/code&gt; to index:&lt;/p&gt;
@@ -5046,7 +5046,7 @@ myList[[&amp;#39;first&amp;#39;]] = &amp;#39;This is the first thing on my list&
 print(myList)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## $first
 ## [1] &amp;quot;This is the first thing on my list&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Lists let you name the “containers” (much like you can name colums in a &lt;code&gt;data.frame&lt;/code&gt;). Our first one is called “first”. We can add more later:&lt;/p&gt;
+&lt;p&gt;Lists let you name the “containers” (much like you can name colums in a &lt;code&gt;data.frame&lt;/code&gt;). Our first one is called “first”. We can add more later, but they always have to be unique:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;myList[[&amp;#39;second&amp;#39;]] = c(1,2,3)
 print(myList)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## $first
@@ -5099,31 +5099,23 @@ for(i in c(0, 0.01, 0.02)){
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;rpart.plot(myList[[&amp;#39;Tuning0.01&amp;#39;]])&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/example/09-example_files/figure-html/unnamed-chunk-12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;breakout-2&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Breakout #2&lt;/h2&gt;
-&lt;p&gt;Let’s send you back to your breakout rooms. Using the loop method, generate 5 regression trees to explain &lt;code&gt;wage&lt;/code&gt; in &lt;code&gt;wage_clean&lt;/code&gt;. You can iterate through values of &lt;code&gt;cp&lt;/code&gt;, the complexity parameter, or &lt;code&gt;minsplit&lt;/code&gt;, the minimum # of points that have to be in each split.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;10 minutes&lt;/strong&gt;&lt;/p&gt;
-&lt;div id=&#34;breakout-2-discussion&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Breakout #2 discussion&lt;/h3&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;getting-rmse-from-the-list&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Getting RMSE from the list&lt;/h2&gt;
-&lt;p&gt;Finally, we want to move towards getting the RMSE for each of these trees. We’ve done this before using &lt;code&gt;lapply&lt;/code&gt;. Let’s introduce a neat coding shortcut, the &lt;code&gt;anonymous function&lt;/code&gt;:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;myRMSE &amp;lt;- lapply(myList, function(x){
-                  get_rmse(x, wage_clean, &amp;#39;wage&amp;#39;)
-                  } )
+&lt;div id=&#34;using-lapply-to-repeat-something&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Using &lt;code&gt;lapply&lt;/code&gt; to repeat something&lt;/h3&gt;
+&lt;p&gt;Once we have a list built, &lt;code&gt;lapply&lt;/code&gt; lets us do something to each element of the list, and then returns a list of results (of the same length as the input).&lt;/p&gt;
+&lt;p&gt;Note that in the above &lt;code&gt;myList&lt;/code&gt;, we don’t actually have the &lt;code&gt;cp&lt;/code&gt; parameter recorded anywhere except in the name of the list element. If we want to plot with &lt;code&gt;cp&lt;/code&gt; on the x-axis, we’d need to have the number. Later on, we’ll cover text as data and learn how to extract it, but an easier way is to &lt;code&gt;lapply&lt;/code&gt; a function that extracts the &lt;code&gt;cp&lt;/code&gt; used over the list.&lt;/p&gt;
+&lt;p&gt;You can retrieve the &lt;code&gt;cp&lt;/code&gt; and &lt;code&gt;minsplit&lt;/code&gt; arguments from the tree by noting that the rpart object is itself technically a list, and it has an element called &lt;code&gt;control&lt;/code&gt; that is itself a list, and that list has &lt;code&gt;cp&lt;/code&gt; and &lt;code&gt;minsplit&lt;/code&gt; as used in the estimation. You can use the &lt;code&gt;$&lt;/code&gt; accessor on lists:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;myTree = myList[[2]]
 
-print(myRMSE)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## $Tuning0
-## [1] 292.5856
-## 
-## $Tuning0.01
-## [1] 359.4592
-## 
-## $Tuning0.02
-## [1] 367.2748&lt;/code&gt;&lt;/pre&gt;
+myTree$control$cp&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.01&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The only problem here is that we don’t have a function written that does &lt;code&gt;$control$cp&lt;/code&gt;. We can use an &lt;em&gt;anonymous function&lt;/em&gt; in &lt;code&gt;lapply&lt;/code&gt; as follows:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cp_list = lapply(myList, function(x){
+  x$control$cp
+})
+
+unlist(cp_list)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    Tuning0 Tuning0.01 Tuning0.02 
+##       0.00       0.01       0.02&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Well, it gets us the right answer, but whaaaaaat is going on? Curly brackets? &lt;code&gt;x&lt;/code&gt;?&lt;/p&gt;
 &lt;p&gt;This is an “anonymous function”, or a function created on the fly. Here’s how it works in &lt;code&gt;lapply&lt;/code&gt;:&lt;/p&gt;
 &lt;ul&gt;
@@ -5133,30 +5125,197 @@ print(myRMSE)&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;&lt;code&gt;x&lt;/code&gt; is going to be each list element in &lt;code&gt;myList&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;Think of it as a loop:
 &lt;ul&gt;
-&lt;li&gt;Take the first element of &lt;code&gt;myList&lt;/code&gt; and refer to it as &lt;code&gt;x&lt;/code&gt;. Run the function.&lt;/li&gt;
-&lt;li&gt;Then it’ll take the second element of &lt;code&gt;myList&lt;/code&gt; and refer to it as &lt;code&gt;x&lt;/code&gt; and run the function.&lt;/li&gt;
+&lt;li&gt;Take the first element of &lt;code&gt;myList&lt;/code&gt; and refer to it as &lt;code&gt;x&lt;/code&gt;. Run the function’s code.&lt;/li&gt;
+&lt;li&gt;Then it’ll take the second element of &lt;code&gt;myList&lt;/code&gt; and refer to it as &lt;code&gt;x&lt;/code&gt; and run the function’s code.&lt;/li&gt;
 &lt;li&gt;Repeat until all elements of &lt;code&gt;x&lt;/code&gt; have been used.&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;Once the anonymous function has been applied to &lt;code&gt;x&lt;/code&gt;, the result is passed back and saved as the new element of the list output, always in the same position from where the &lt;code&gt;x&lt;/code&gt; was taken.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;So you can think of it like this:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;x = myList[[1]]
-myList[[1]] = get_rmse(x, wage_clean, &amp;#39;wage&amp;#39;)
+myList[[1]] = x$control$cp
 
 x = myList[[2]]
-myList[[2]] = get_rmse(x, wage_clean, &amp;#39;wage&amp;#39;)
+myList[[2]] = x$control$cp
 
 x = myList[[3]]
-myList[[3]] = get_rmse(x, wage_clean, &amp;#39;wage&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;You can refer to &lt;code&gt;myList&lt;/code&gt; by name:
-- &lt;code&gt;myList[[&#39;Tuning0.01&#39;]]&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Or you can refer to &lt;code&gt;myList&lt;/code&gt; by the index:
-- &lt;code&gt;myList[[2]]&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Just like you can refer to &lt;code&gt;data.frame&lt;/code&gt; columns by name or by index.&lt;/p&gt;
+myList[[3]] = x$control$cp&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;As long as every entry in &lt;code&gt;myList&lt;/code&gt; is an rpart object with &lt;code&gt;control$cp&lt;/code&gt;, then you’ll get those values in a list. &lt;code&gt;unlist&lt;/code&gt; just coerces the list to a vector. This is also the same way we get the RMSE, but instead of the anonymous function, we write one out and use that.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;lab-7&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Lab 7&lt;/h3&gt;
+&lt;p&gt;In Lab 7, linear models, you were asked to make increasingly complex models by adding variables. In regression trees and kNN, complexity comes from a tuning parameter. But many people have asked about ways of doing Lab 7, so here are two possible solutions.&lt;/p&gt;
+&lt;div id=&#34;solution-1-make-a-list-of-models&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Solution 1: Make a list of models&lt;/h4&gt;
+&lt;p&gt;First, we make a vector of all of our possible explanatory variables:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;wagenames = names(wage2) 
+wagenames = wagenames[!wagenames %in% c(&amp;#39;wage&amp;#39;,&amp;#39;lwage&amp;#39;)]
+wagenames&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] &amp;quot;hours&amp;quot;   &amp;quot;IQ&amp;quot;      &amp;quot;KWW&amp;quot;     &amp;quot;educ&amp;quot;    &amp;quot;exper&amp;quot;   &amp;quot;tenure&amp;quot;  &amp;quot;age&amp;quot;    
+##  [8] &amp;quot;married&amp;quot; &amp;quot;black&amp;quot;   &amp;quot;south&amp;quot;   &amp;quot;urban&amp;quot;   &amp;quot;sibs&amp;quot;    &amp;quot;brthord&amp;quot; &amp;quot;meduc&amp;quot;  
+## [15] &amp;quot;feduc&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And we’ll do all the interactions, quadratic terms, and put them all in one long vector:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;wagenamesintx = expand.grid(wagenames, wagenames)
+wagenamesintx = paste0(wagenamesintx[,1], &amp;#39;:&amp;#39;, wagenamesintx[,2])
+
+wagenamessquared = paste0(wagenames, &amp;#39;^2&amp;#39;)
+
+wageparameters = c(wagenames, wagenamesintx, wagenamessquared)
+wageparameters[c(1,10,100,200)] # just to see a few&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;hours&amp;quot;         &amp;quot;south&amp;quot;         &amp;quot;south:tenure&amp;quot;  &amp;quot;exper:brthord&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now we need to make a list of formulas that start with &lt;code&gt;wage ~&lt;/code&gt; and include an ever-increasing number of entries in &lt;code&gt;wageparameters&lt;/code&gt; (and, to be nested, always includes the previous iteration). We’ll do this by taking an index of &lt;code&gt;[1:N]&lt;/code&gt; where &lt;code&gt;N&lt;/code&gt; gets bigger.&lt;/p&gt;
+&lt;p&gt;There are 255 possible entries, so we want to sequence along that and always need round numbers:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;complexity = round(seq(from = 1, to = length(wageparameters),  length.out = 15)) 
+
+modelList = lapply(complexity, function(x){
+  list_formula_start = &amp;#39;wage ~ &amp;#39;
+  list_formula_rhs = paste0(wageparameters[1:x], collapse = &amp;#39; + &amp;#39;)
+  return(paste0(list_formula_start, list_formula_rhs))
+})
+
+print(modelList[1:3])&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [[1]]
+## [1] &amp;quot;wage ~ hours&amp;quot;
+## 
+## [[2]]
+## [1] &amp;quot;wage ~ hours + IQ + KWW + educ + exper + tenure + age + married + black + south + urban + sibs + brthord + meduc + feduc + hours:hours + IQ:hours + KWW:hours + educ:hours&amp;quot;
+## 
+## [[3]]
+## [1] &amp;quot;wage ~ hours + IQ + KWW + educ + exper + tenure + age + married + black + south + urban + sibs + brthord + meduc + feduc + hours:hours + IQ:hours + KWW:hours + educ:hours + exper:hours + tenure:hours + age:hours + married:hours + black:hours + south:hours + urban:hours + sibs:hours + brthord:hours + meduc:hours + feduc:hours + hours:IQ + IQ:IQ + KWW:IQ + educ:IQ + exper:IQ + tenure:IQ + age:IQ&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Finally, we start using &lt;code&gt;lapply&lt;/code&gt; to estimate the model:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;myOLS = lapply(modelList, function(y){
+  lm(y, data = wage2)
+})
+
+lapply(myOLS[1:3], summary)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [[1]]
+## 
+## Call:
+## lm(formula = y, data = wage2)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -839.72 -287.21  -52.38  200.46 2131.26 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&amp;gt;|t|)    
+## (Intercept)  981.315     81.575   12.03   &amp;lt;2e-16 ***
+## hours         -0.532      1.832   -0.29    0.772    
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
+## 
+## Residual standard error: 404.6 on 933 degrees of freedom
+## Multiple R-squared:  9.033e-05,	Adjusted R-squared:  -0.0009814 
+## F-statistic: 0.08429 on 1 and 933 DF,  p-value: 0.7716
+## 
+## 
+## [[2]]
+## 
+## Call:
+## lm(formula = y, data = wage2)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -823.41 -209.85  -36.73  169.56 1945.67 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&amp;gt;|t|)    
+## (Intercept) -333.4545   673.8072  -0.495 0.620853    
+## hours        -12.1500    14.0223  -0.866 0.386553    
+## IQ             8.4166     6.9960   1.203 0.229395    
+## KWW          -16.7569    12.7468  -1.315 0.189112    
+## educ          29.6737    48.0285   0.618 0.536903    
+## exper          9.9812     4.4862   2.225 0.026435 *  
+## tenure         2.9739     2.9258   1.016 0.309808    
+## age            8.9932     6.0635   1.483 0.138520    
+## married      178.8599    46.4966   3.847 0.000132 ***
+## black       -100.5218    56.4193  -1.782 0.075271 .  
+## south        -23.3841    31.0616  -0.753 0.451828    
+## urban        179.0588    31.5547   5.675  2.1e-08 ***
+## sibs           8.6548     7.9696   1.086 0.277895    
+## brthord      -18.0249    11.7300  -1.537 0.124871    
+## meduc          7.1703     6.2323   1.151 0.250362    
+## feduc          8.8008     5.4714   1.609 0.108214    
+## hours:IQ      -0.1226     0.1566  -0.783 0.434026    
+## hours:KWW      0.4812     0.2801   1.718 0.086282 .  
+## hours:educ     0.1991     1.0457   0.190 0.849036    
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
+## 
+## Residual standard error: 354.1 on 644 degrees of freedom
+##   (272 observations deleted due to missingness)
+## Multiple R-squared:  0.262,	Adjusted R-squared:  0.2414 
+## F-statistic:  12.7 on 18 and 644 DF,  p-value: &amp;lt; 2.2e-16
+## 
+## 
+## [[3]]
+## 
+## Call:
+## lm(formula = y, data = wage2)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -876.85 -208.34  -41.58  184.31 1964.55 
+## 
+## Coefficients:
+##                 Estimate Std. Error t value Pr(&amp;gt;|t|)   
+## (Intercept)   2526.42104 1778.98063   1.420  0.15606   
+## hours          -28.84096   27.34871  -1.055  0.29203   
+## IQ             -11.05195   14.41481  -0.767  0.44354   
+## KWW            -32.51353   21.95935  -1.481  0.13921   
+## educ           -65.27306   87.11894  -0.749  0.45399   
+## exper          -56.47871   43.73030  -1.292  0.19700   
+## tenure          61.99723   27.55945   2.250  0.02482 * 
+## age            -20.60242   53.42036  -0.386  0.69987   
+## married        174.59592  291.22705   0.600  0.54904   
+## black          129.07837  389.95580   0.331  0.74075   
+## south         -219.74759  209.99378  -1.046  0.29576   
+## urban          294.24907  215.20016   1.367  0.17201   
+## sibs            33.26592   57.47098   0.579  0.56291   
+## brthord        -12.35032   81.74380  -0.151  0.87996   
+## meduc          -14.65740   42.07236  -0.348  0.72767   
+## feduc           45.44872   37.63676   1.208  0.22767   
+## hours:IQ        -0.13457    0.17547  -0.767  0.44345   
+## hours:KWW        0.50497    0.31608   1.598  0.11064   
+## hours:educ       1.70417    1.35782   1.255  0.20992   
+## hours:exper      1.28802    0.68683   1.875  0.06121 . 
+## hours:tenure    -1.23958    0.44602  -2.779  0.00561 **
+## hours:age       -0.12173    0.82131  -0.148  0.88222   
+## hours:married    0.10483    6.63109   0.016  0.98739   
+## hours:black     -5.90930    8.93377  -0.661  0.50856   
+## hours:south      4.48976    4.76877   0.941  0.34681   
+## hours:urban     -2.64292    4.85060  -0.545  0.58604   
+## hours:sibs      -0.59065    1.30658  -0.452  0.65138   
+## hours:brthord   -0.14475    1.88695  -0.077  0.93888   
+## hours:meduc      0.54974    0.95729   0.574  0.56600   
+## hours:feduc     -0.86832    0.83946  -1.034  0.30136   
+## IQ:KWW           0.14886    0.15533   0.958  0.33823   
+## IQ:educ          0.24425    0.57544   0.424  0.67138   
+## IQ:exper         0.09552    0.31666   0.302  0.76302   
+## IQ:tenure       -0.04357    0.20709  -0.210  0.83342   
+## IQ:age           0.32399    0.41337   0.784  0.43347   
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
+## 
+## Residual standard error: 353.2 on 628 degrees of freedom
+##   (272 observations deleted due to missingness)
+## Multiple R-squared:  0.2838,	Adjusted R-squared:  0.2451 
+## F-statistic:  7.32 on 34 and 628 DF,  p-value: &amp;lt; 2.2e-16&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;breakout-2&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Breakout #2&lt;/h2&gt;
+&lt;p&gt;Using the loop method or the &lt;code&gt;lapply&lt;/code&gt; method, generate 10 regression trees to explain &lt;code&gt;wage&lt;/code&gt; in &lt;code&gt;wage_clean&lt;/code&gt;. You can iterate through values of &lt;code&gt;cp&lt;/code&gt;, the complexity parameter, &lt;strong&gt;or&lt;/strong&gt; &lt;code&gt;minsplit&lt;/code&gt;, the minimum # of points that have to be in each split.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;10 minutes&lt;/strong&gt;&lt;/p&gt;
+&lt;div id=&#34;breakout-2-discussion&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Breakout #2 discussion&lt;/h3&gt;
+&lt;p&gt;We’ll ask someone to share (a few of) their group’s 10 regression trees using &lt;code&gt;rpart.plot&lt;/code&gt;. Use &lt;a href=&#34;bit.ly/KIRKPATRICK&#34;&gt;bit.ly/KIRKPATRICK&lt;/a&gt; to volunteer to share.&lt;/p&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;breakout-3-if-time&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Breakout #3 (if time)&lt;/h2&gt;
-&lt;p&gt;Let’s send you to the breakout rooms one more time, and use &lt;code&gt;lapply&lt;/code&gt; to get a list of your RMSE’s (one for each of your models). Note that we are not yet splitting into &lt;code&gt;test&lt;/code&gt; and &lt;code&gt;train&lt;/code&gt; (which you &lt;strong&gt;will&lt;/strong&gt; need to do on your lab assignment).&lt;/p&gt;
+&lt;p&gt;Use &lt;code&gt;lapply&lt;/code&gt; to get a list of your RMSE’s (one for each of your models). The anonymous function may come in handy here (though it’s not necessary). Note that we are not yet splitting into &lt;code&gt;test&lt;/code&gt; and &lt;code&gt;train&lt;/code&gt; (which you &lt;strong&gt;will&lt;/strong&gt; need to do on your lab assignment).&lt;/p&gt;
 &lt;p&gt;Once you have your list, &lt;strong&gt;create the plot of RMSEs&lt;/strong&gt; similar to the one we looked at in Content this week. Note: you can use &lt;code&gt;unlist(myRMSE)&lt;/code&gt; to get a numeric vector of the RMSE’s (as long as all of the elements in &lt;code&gt;myRMSE&lt;/code&gt; are numeric). Then, it’s a matter of plotting either with base &lt;code&gt;plot&lt;/code&gt; or with &lt;code&gt;ggplot&lt;/code&gt; (if you use &lt;code&gt;ggplot&lt;/code&gt; you’ll have to &lt;code&gt;tidy&lt;/code&gt; the RMSE by adding the index column or naming the x-axis).&lt;/p&gt;
 &lt;/div&gt;
 </description>

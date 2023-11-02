@@ -29,12 +29,13 @@ First, note that a linear model is one of many methods used in regression.
 library(readr)
 library(ggplot2)
 library(tidyverse)
-Advertising <- read_csv('https://www.statlearning.com/s/Advertising.csv')
+
 ```
 
 To discuss linear models in the context of prediction, we introduce the (very boring) `Advertising` data that is discussed in the ISL text (see supplemental readings). It can be found at [https://www.statlearning.com/s/Advertising.csv](https://www.statlearning.com/s/Advertising.csv).
 
 ```{r}
+Advertising <- read_csv('https://www.statlearning.com/s/Advertising.csv')
 Advertising = Advertising %>% 
   dplyr::select(TV, radio, newspaper, sales)
 Advertising
@@ -61,7 +62,7 @@ $$
 \text{RMSE}(\hat{f}, \text{Data}) = \sqrt{\frac{1}{n}\displaystyle\sum_{i = 1}^{n}\left(y_i - \hat{f}(\bf{x}_i)\right)^2}
 $$
 
-While for the sake of comparing models, the choice between RMSE and MSE is arbitrary, we have a preference for RMSE, as it has the same units as the response variable. Also, notice that in the prediction context MSE refers to an average, whereas in an ANOVA context, the denominator for MSE may not be $n$.
+While for the sake of comparing models, the choice between RMSE and MSE is arbitrary, we have a preference for RMSE, as it has the same units as the response variable. Also, notice that in the prediction context MSE refers to an average, whereas in an ANOVA (`summary(lm(...))`) context, the denominator for MSE may not be $n$.
 
 For a linear model , the estimate of $f$, $\hat{f}$, is given by the fitted regression line.
 
