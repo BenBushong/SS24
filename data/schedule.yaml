@@ -120,13 +120,13 @@ lessons:
   - title: 'Geospatial in R (Last lab)'
     session: 15
     date: "Week 14 (Dec 5/7)"
-    # content: "14-content"
-    # example: "14-example"
-    # assignment: "14-assignment"
+    content: "14-content"
+    example: "14-example"
+    assignment: "14-assignment"
 
   - title: '<span class="fake-header-table">Conclusions</span>'
     header: True
   
   - title: '<i class="fas fa-star"></i> **Final Project Due**'
     date: "Thursday Dec 14th, 11:59pm"
-    # assignment: "final-project"
+    assignment: "final-project"
