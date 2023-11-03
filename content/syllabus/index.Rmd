@@ -1,7 +1,7 @@
 ---
 title: Syllabus
 slug: syllabus
-publishDate: "2022-08-30"
+publishDate: "2023-08-30"
 citeproc: true
 bibliography: ../../static/bib/references.bib
 csl: ../../static/bib/chicago-syllabus-no-bib.csl
@@ -25,7 +25,7 @@ We meet in 116 Natural Sciences Tuesdays and Thursdays, 1:30 - 2:50 pm. This cla
 
 ### Office hours - Prof. K
 
-Fridays 10:15 - 11:45 (and by appointment) (if you are planning on arriving after 11, please email Prof. K. Otherwise, he will depart at 11).
+~~Fridays 10:15 - 11:45~~ Wednesdays 1:00-2:30 (and by appointment) (if you are planning on arriving after 2, please email Prof. K. Otherwise, he will depart at 2).
 
 Office Hours for Prof. K are in-person, 105 Old Botany (Old Botany is on W. Circle Drive near the Grand River parking ramp. 105 is on the first floor.)
 
