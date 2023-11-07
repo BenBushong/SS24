@@ -14,7 +14,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-<!-- Updated 11/7/23 fixed data no default y is still character -->
+<!-- Updated 11/7/23 fixed data no default y is still character, not yet knit -->
 
 :::fyi
 
@@ -29,9 +29,8 @@ This is some new data. The snippet below loads it.
 
 ```{r}
 
-bank <- read.table("https://ssc442kirkpatrick.netlify.app/data/bank23.csv",
-                 header = TRUE,
-                 sep = ",")
+bank <- read.csv("https://ssc442kirkpatrick.netlify.app/data/bank23.csv",
+                 stringsAsFactors = FALSE)
 ``` 
 
 There's not going to be a whole lot of wind-up here. You should be well-versed in doing these sorts of things by now (if not, look back at the previous lab for sample code).
