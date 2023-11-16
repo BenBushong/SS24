@@ -1783,10 +1783,10 @@ lines(model_complexity, test_rmse, type = &amp;quot;b&amp;quot;, col = &amp;quot
 &lt;/div&gt;
 
 &lt;!-- Revised assignment 5-5-2022 --&gt;
-&lt;p&gt;:::&lt;/p&gt;
+&lt;div class=&#34;fyi&#34;&gt;
 &lt;p&gt;One member of each group should turn in the group’s work on D2L. The turned-in copy should have the group member’s names at the top.&lt;/p&gt;
 &lt;p&gt;Turn in your copies by &lt;strong&gt;11:59 on the date listed on the Schedule&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;:::&lt;/p&gt;
+&lt;/div&gt;
 &lt;div id=&#34;requirements&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Requirements&lt;/h2&gt;
 &lt;p&gt;Data analytics is inherently a hands-on endeavor. Accordingly, the final project for this class is hands-on. As per the overview page, the final project has the following elements:&lt;/p&gt;
@@ -1795,7 +1795,7 @@ lines(model_complexity, test_rmse, type = &amp;quot;b&amp;quot;, col = &amp;quot
 &lt;/ol&gt;
 &lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;&lt;p&gt;You must visualize (at least) three &lt;strong&gt;interesting&lt;/strong&gt; features of that data. Visualizations should aid the reader in understanding something about the data that might not be readily aparent.[^4]&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;You must come up with some analysis—using tools from the course—which relates your data to either a &lt;strong&gt;prediction&lt;/strong&gt; or a &lt;strong&gt;policy conclusion&lt;/strong&gt;. For example, if you collected data from Major League Baseball games, you could try to “predict” whether a left-hander was pitching based solely on the outcomes of the batsmen. If you assembled data from COVID lockdowns and unemployment, you could try to understand the labor market and its reaction to COVID.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;You must come up with some analysis—using tools from the course—which relates your data to either a &lt;strong&gt;prediction&lt;/strong&gt; or a &lt;strong&gt;policy conclusion&lt;/strong&gt;. For example, if you collected data from Major League Baseball games, you could try to “predict” whether a left-hander was pitching based solely on the outcomes of the batsmen. If you assembled data from COVID lockdowns and unemployment, you could test hypotheses about the labor market and its reaction to COVID.&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;If you choose a &lt;strong&gt;prediction&lt;/strong&gt; project, you should employ all of the tools we have learned regarding training and testing, and report the relevant measures of fit.&lt;/p&gt;
 &lt;p&gt;If you choose a &lt;strong&gt;policy conclusion&lt;/strong&gt; project, you should explore the relationship you’re studying. If you find that low-income workers were most likely to be laid off during COVID, you should examine if this corresponds to, say, industry of employment (e.g. “service jobs were worst hit, and are most likely the job held by low-income workers”).&lt;/p&gt;
