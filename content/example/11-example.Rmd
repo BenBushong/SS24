@@ -22,6 +22,14 @@ Today's example will build on material in the "Content" tab.
 
 :::
 
+## Some (F23) Business
+
+- I won't be here the Thursday *after* Thanksgiving
+
+- We will meet the Tuesday *before* Thanksgiving
+
+- Let's look at the ROC curve one more time.
+
 
 
 ## Predicting Defaults

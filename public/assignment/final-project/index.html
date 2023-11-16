@@ -250,9 +250,9 @@ RequirementsData analytics is inherently a hands-on endeavor. Accordingly, the 
   <meta property="twitter:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
   
     
-      <meta property="article:published_time" content="2022-10-15T00:00:00&#43;00:00">
+      <meta property="article:published_time" content="2023-11-16T00:00:00&#43;00:00">
     
-    <meta property="article:modified_time" content="2023-09-08T09:24:36-04:00">
+    <meta property="article:modified_time" content="2023-09-08T11:56:48-04:00">
   
 
   
@@ -676,7 +676,7 @@ RequirementsData analytics is inherently a hands-on endeavor. Accordingly, the 
 
                     
                     <div class="due-date p-2 mb-3 bg-assignment text-white">
-                        Due by <strong>11:59 PM</strong> on Sunday, December 11, 2022
+                        Due by <strong>11:59 PM</strong> on Wednesday, December 14, 2022
                     </div>
                     
 
@@ -710,7 +710,7 @@ RequirementsData analytics is inherently a hands-on endeavor. Accordingly, the 
 <h2>Requirements</h2>
 <p>Data analytics is inherently a hands-on endeavor. Accordingly, the final project for this class is hands-on. As per the overview page, the final project has the following elements:</p>
 <ol style="list-style-type: decimal">
-<li>For your final project in this class, you will analyze <strong>existing data</strong> in some area of interest to you.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> Aggregating data from multiple sources is strongly encouraged.</li>
+<li>For your final project in this class, you will analyze <strong>existing data</strong> in some area of interest to you. You will aggregate (merge) datasets, “find a pattern in the data that cannot be expressed in a closed form”, and communicate your findings in a memo.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></li>
 </ol>
 <ol start="2" style="list-style-type: decimal">
 <li><p>You must visualize (at least) three <strong>interesting</strong> features of that data. Visualizations should aid the reader in understanding something about the data that might not be readily aparent.[^4]</p></li>
@@ -719,22 +719,21 @@ RequirementsData analytics is inherently a hands-on endeavor. Accordingly, the 
 <p>If you choose a <strong>prediction</strong> project, you should employ all of the tools we have learned regarding training and testing, and report the relevant measures of fit.</p>
 <p>If you choose a <strong>policy conclusion</strong> project, you should explore the relationship you’re studying. If you find that low-income workers were most likely to be laid off during COVID, you should examine if this corresponds to, say, industry of employment (e.g. “service jobs were worst hit, and are most likely the job held by low-income workers”).</p>
 <ol start="4" style="list-style-type: decimal">
-<li>You will submit <strong>three things</strong> via D2L:</li>
+<li>You will submit <strong>two things</strong> via D2L:</li>
 </ol>
 <ul>
-<li><p>A PDF of your report (see the outline below for details of what this needs to contain) rendered from your R Markdown using LaTeX as in our problem sets. You might want to write the prose-heavy sections in a word processor like Word or Google Docs and copy/paste the text into your <code>R</code> Markdown document, since RStudio doesn’t have a nice spell checker or grammar checker. This should have <em>no visible <code>R</code> code, warnings, or messages in it</em>. To do this, you must set <code>echo = FALSE</code> in the code chunk options <code>knitr::opts_chunk$set(echo = FALSE, ...)</code> at the beginning of your document template before you knit.</p></li>
+<li><p>A PDF of your report (see the outline below for details of what this needs to contain) rendered from your R Markdown using LaTeX as in our labs. You might want to write the prose-heavy sections in a word processor like Word or Google Docs and copy/paste the text into your <code>R</code> Markdown document, since RStudio doesn’t have a nice spell checker or grammar checker. This should have <em>no visible <code>R</code> code, warnings, or messages in it anywhere</em>. To do this, you must set <code>echo = FALSE</code> in the code chunk options <code>knitr::opts_chunk$set(echo = FALSE, ...)</code> at the beginning of your document template before you knit, and review your text carefully before turning it in.</p></li>
 <li><p>The same PDF as above, but with all the R code in it (set <code>echo = TRUE</code> at the beginning of your document and reknit the file). Please label files in an obvious way. I will usually grade from this document.</p></li>
-<li><p>A CSV file of your data; or a link to the data online if your code pulls from the internet. This must be a separate file titled “data.csv” or “data.txt” as applicable.</p></li>
 </ul>
 <p>This project is due by <strong>11:59 PM on the date listed on the Schedule</strong> <span style="color: #81056F; font-weight: bold"> No late work will be accepted. For real. MSU has grading deadlines and I’ve given you every second that can be spared.</span></p>
 <p><strong>There is no final exam. This project is your final exam.</strong></p>
 <p>The project will <strong><em>not</em></strong> be graded using a check system, and will be graded by me (the main instructor, not a TA). I will evaluate the following four elements of your project:</p>
 <ol style="list-style-type: decimal">
-<li><p>Technical skills: Was the project easy? Does it showcase mastery of data analysis? (20%)</p></li>
+<li><p>Technical skills: Was the project easy? Does it showcase mastery of R for data analysis? (20%)</p></li>
 <li><p>Visual design: Was the information smartly conveyed and usable? Was it beautiful? (25%)</p></li>
-<li><p>Analytic design: Was the analysis appropriate? Was it sensible, given the dataset? (20%)</p></li>
+<li><p>Analytic design: Was the analysis appropriate? Was it sensible, given the dataset? Did you miss any glaring issues? (20%)</p></li>
 <li><p>Story: Did we learn something? Did you explore your findings sufficiently deeply? (25%)</p></li>
-<li><p>Following instructions: Did you surpress <code>R</code> code as asked? Did you submit a separate datafile and label it correctly? (10%)</p></li>
+<li><p>Following instructions: Did you surpress <code>R</code> code as asked? (10%)</p></li>
 </ol>
 <p>If you’ve engaged with the course content and completed the exercises and mini projects throughout the course, you should do just fine with the final project.</p>
 </div>
@@ -767,11 +766,12 @@ RequirementsData analytics is inherently a hands-on endeavor. Accordingly, the 
 <div id="suggested-outline" class="section level2">
 <h2>Suggested outline</h2>
 <p>You must write and present your analysis as if presenting to a <strong>C-suite executive</strong>. If you are not familiar with this terminology, the C-suite includes, e.g., the CEO, CFO, and COO of a given company. Generally speaking, such executives are not particularly analytically oriented, and therefore your explanations need to be clear, consise (their time is valuable) and contain actionable (or valuable) information.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> The report should be no more than 3 pages (excluding figures and tables).
-- Concretely, this requires a written memo, which describes the data, analyses, and results. This must be clear and easy to understand for a non-expert in your field. Figures and tables do not apply to the page limit. You must use headers (<code>#</code> at the beginning of a line for sections, <code>##</code> for subsections, etc.) for each of these sections. Make sure you inspect your final product before you upload it.</p>
+- Concretely, this requires a written memo, which describes the data, analyses, and results. This must be clear and easy to understand for a non-expert in your field. Figures and tables do not apply to the page limit. You must use headers (<code>#</code> at the beginning of a line for sections, <code>##</code> for subsections, etc.) for each of these sections. Make sure you inspect your final product before you upload it.
+- As in Project 1, <em>do not narrarate your process</em>. “We tried using <code>summarize()</code> and then found that…” has no business in a C-suite memo. Nor does “we looked at X then decided that Y was…”. Tell the reader what data you used and what you found, and not about the process.</p>
 <p>Below is a very loose guide to the sort of content that we expect for the final project.</p>
 <div id="introduction" class="section level3">
 <h3>Introduction</h3>
-<p>Describe the motivation for this analysis. Briefly describe the dataset, and explain why the analysis you’re undertaking matters for society. (Or matters for some decision-making. You should not feel constrained to asking only “big questions.” The best projects will be narrow-scope but well-defined.) (<strong>≈300 words</strong>)</p>
+<p>Describe the motivation for this analysis. Briefly describe the dataset(s), and explain why the analysis you’re undertaking matters for society. (Or matters for some decision-making. You should not feel constrained to asking only “big questions.” The best projects will be narrow-scope but well-defined.) (<strong>≈300 words</strong>)</p>
 </div>
 <div id="theory-and-background" class="section level3">
 <h3>Theory and Background</h3>
@@ -804,7 +804,7 @@ RequirementsData analytics is inherently a hands-on endeavor. Accordingly, the 
 <div class="footnotes footnotes-end-of-document">
 <hr />
 <ol>
-<li id="fn1"><p>Note that <strong>existing</strong> is taken to mean that you are not permitted to collect data by interacting with other people. That is not to say that you cannot gather data that previously has not been gathered into a single place—this sort of exercise is encouraged. But you cannot stand with a clipboard outside a store and count visitors (for instance).<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn1"><p>Note that <strong>existing</strong> is taken to mean that you are not permitted to collect data by interacting with other people. That is not to say that you cannot gather data that previously has not been gathered into a single place—this sort of exercise is necessary. But you cannot stand with a clipboard outside a store and count visitors (for instance). That would require involving the Institutional Review Board (IRB) and nobody wants to do that.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
 <li id="fn2"><p>This exercise provides you with an opportunity to identify your marketable skills and to practice them. I encourage those who will be looking for jobs soon to take this exercise seriously.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>

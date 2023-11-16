@@ -14,9 +14,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-<!-- Updated 8.30.22 -->
 
-This lab is in place of Lab #8, which we did not have (but should have).
 
 :::fyi
 

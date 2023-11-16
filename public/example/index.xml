@@ -3133,12 +3133,20 @@ patchwork::wrap_plots(FinalResults, nrow = 2, guides = &amp;#39;collect&amp;#39;
 
 &lt;div id=&#34;TOC&#34;&gt;
 &lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#some-f23-business&#34; id=&#34;toc-some-f23-business&#34;&gt;Some (F23) Business&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#predicting-defaults&#34; id=&#34;toc-predicting-defaults&#34;&gt;Predicting Defaults&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 
 &lt;div class=&#34;fyi&#34;&gt;
 &lt;p&gt;Today’s example will build on material in the “Content” tab.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;some-f23-business&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Some (F23) Business&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;I won’t be here the Thursday &lt;em&gt;after&lt;/em&gt; Thanksgiving&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;We will meet the Tuesday &lt;em&gt;before&lt;/em&gt; Thanksgiving&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
 &lt;div id=&#34;predicting-defaults&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Predicting Defaults&lt;/h2&gt;
