@@ -14,7 +14,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-<!-- Updated 11/7/23 fixed data no default y is still character, not yet knit -->
+<!-- Updated 11/7/23 fixed data/bank23.csv data no default y is still character, not yet knit -->
 
 :::fyi
 
