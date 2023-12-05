@@ -177,7 +177,7 @@ Finding census variables via `tidycensus` can be frustrating, and other sources 
 
 :::fyi
 
-Try it! (This will be your Lab 14, due on Monday Dec 12, 2022 at 11:59pm)
+Try it! (This will be your Lab 14, due on Monday)
 
 1. Load up all the necessary packages
 

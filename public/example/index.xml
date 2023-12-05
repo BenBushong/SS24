@@ -3474,7 +3474,7 @@ ing.tenure&lt;/code&gt;&lt;/pre&gt;
 &lt;h3&gt;Wrapping up&lt;/h3&gt;
 &lt;p&gt;Finding census variables via &lt;code&gt;tidycensus&lt;/code&gt; can be frustrating, and other sources exist to help lookup census tables. One useful tip is that you can use the “filter” button in your Rstudio &lt;code&gt;View()&lt;/code&gt; window to interactively filter the &lt;code&gt;concept&lt;/code&gt; column from &lt;code&gt;load_variables&lt;/code&gt;. Once you find what you want there, then use the &lt;code&gt;get_acs&lt;/code&gt; function in your code. Fundamentally, it’s a lot of information with the ability to subset in many way, which makes it hard to wade through and find what you’re looking for.&lt;/p&gt;
 &lt;div class=&#34;fyi&#34;&gt;
-&lt;p&gt;Try it! (This will be your Lab 14, due on Monday Dec 12, 2022 at 11:59pm)&lt;/p&gt;
+&lt;p&gt;Try it! (This will be your Lab 14, due on Monday)&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;Load up all the necessary packages&lt;/li&gt;
 &lt;/ol&gt;
