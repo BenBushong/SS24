@@ -1070,12 +1070,12 @@ head(poly.merge)</code></pre>
 ## Bounding box:  xmin: -115.7061 ymin: 31.5082 xmax: -111.5061 ymax: 39.30285
 ## Geodetic CRS:  NAD83
 ##                         Name Description randomData STATEFP  STATENS
-## 1             Lower Colorado                     27      32 01779793
-## 1.1           Lower Colorado                     27      06 01779778
-## 1.2           Lower Colorado                     27      04 01779777
-## 2   Lower Colorado-Lake Mead                     15      49 01455989
-## 2.1 Lower Colorado-Lake Mead                     15      32 01779793
-## 2.2 Lower Colorado-Lake Mead                     15      04 01779777
+## 1             Lower Colorado                     18      32 01779793
+## 1.1           Lower Colorado                     18      06 01779778
+## 1.2           Lower Colorado                     18      04 01779777
+## 2   Lower Colorado-Lake Mead                     23      49 01455989
+## 2.1 Lower Colorado-Lake Mead                     23      32 01779793
+## 2.2 Lower Colorado-Lake Mead                     23      04 01779777
 ##        AFFGEOID GEOID STUSPS       NAME LSAD        ALAND      AWATER
 ## 1   0400000US32    32     NV     Nevada   00 284537290201  1839636284
 ## 1.1 0400000US06    06     CA California   00 403671756816 20293573058
@@ -1090,7 +1090,7 @@ head(poly.merge)</code></pre>
 ## 2   POLYGON ((-115.0786 39.3005...
 ## 2.1 POLYGON ((-115.0786 39.3005...
 ## 2.2 POLYGON ((-115.0786 39.3005...</code></pre>
-<p>Now, every HUC-4 like “Lower Colorado” has multiple observations, one for each STUSPS that it touches. When we plot it, though, each of those observations are still attached to the same HUC-4 polygon.</p>
+<p>Now, every HUC-4 like “Lower Colorado” has multiple observations, one for each STUSPS that it touches. When we plot it, though, each of those observations are still attached to the same HUC-4 polygon. Technically, R is plotting the same HUC multiple times (once for each state) on top of each other, so we don’t see them. This is the equivalent of merging your data in a way that duplicates observations.</p>
 <pre class="r"><code>ggplot(poly.merge) + geom_sf() + 
   theme_minimal()</code></pre>
 <p><img src="/content/14-content_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
@@ -1105,12 +1105,12 @@ head(poly.merge.largest)</code></pre>
 ## Bounding box:  xmin: -121.255 ymin: 31.5082 xmax: -111.5061 ymax: 42.3448
 ## Geodetic CRS:  NAD83
 ##                           Name Description randomData STATEFP  STATENS
-## 1               Lower Colorado                     27      04 01779777
-## 2     Lower Colorado-Lake Mead                     15      04 01779777
-## 3    Northern Mojave-Mono Lake                     22      06 01779778
-## 4 Central Nevada Desert Basins                     24      32 01779793
-## 5               North Lahontan                     28      06 01779778
-## 6   Black Rock Desert-Humboldt                     29      32 01779793
+## 1               Lower Colorado                     18      04 01779777
+## 2     Lower Colorado-Lake Mead                     23      04 01779777
+## 3    Northern Mojave-Mono Lake                     25      06 01779778
+## 4 Central Nevada Desert Basins                     15      32 01779793
+## 5               North Lahontan                     26      06 01779778
+## 6   Black Rock Desert-Humboldt                     25      32 01779793
 ##      AFFGEOID GEOID STUSPS       NAME LSAD        ALAND      AWATER
 ## 1 0400000US04    04     AZ    Arizona   00 294363973043   855871553
 ## 2 0400000US04    04     AZ    Arizona   00 294363973043   855871553
@@ -1135,12 +1135,12 @@ head(poly.merge.largest)</code></pre>
 ## Bounding box:  xmin: -121.255 ymin: 31.5082 xmax: -111.5061 ymax: 42.3448
 ## Geodetic CRS:  NAD83
 ##                           Name Description randomData STATEFP STATENS AFFGEOID
-## 1               Lower Colorado                     27    &lt;NA&gt;    &lt;NA&gt;     &lt;NA&gt;
-## 2     Lower Colorado-Lake Mead                     15    &lt;NA&gt;    &lt;NA&gt;     &lt;NA&gt;
-## 3    Northern Mojave-Mono Lake                     22    &lt;NA&gt;    &lt;NA&gt;     &lt;NA&gt;
-## 4 Central Nevada Desert Basins                     24    &lt;NA&gt;    &lt;NA&gt;     &lt;NA&gt;
-## 5               North Lahontan                     28    &lt;NA&gt;    &lt;NA&gt;     &lt;NA&gt;
-## 6   Black Rock Desert-Humboldt                     29    &lt;NA&gt;    &lt;NA&gt;     &lt;NA&gt;
+## 1               Lower Colorado                     18    &lt;NA&gt;    &lt;NA&gt;     &lt;NA&gt;
+## 2     Lower Colorado-Lake Mead                     23    &lt;NA&gt;    &lt;NA&gt;     &lt;NA&gt;
+## 3    Northern Mojave-Mono Lake                     25    &lt;NA&gt;    &lt;NA&gt;     &lt;NA&gt;
+## 4 Central Nevada Desert Basins                     15    &lt;NA&gt;    &lt;NA&gt;     &lt;NA&gt;
+## 5               North Lahontan                     26    &lt;NA&gt;    &lt;NA&gt;     &lt;NA&gt;
+## 6   Black Rock Desert-Humboldt                     25    &lt;NA&gt;    &lt;NA&gt;     &lt;NA&gt;
 ##   GEOID STUSPS NAME LSAD ALAND AWATER                       geometry
 ## 1  &lt;NA&gt;   &lt;NA&gt; &lt;NA&gt; &lt;NA&gt;    NA     NA POLYGON ((-114.6233 36.0304...
 ## 2  &lt;NA&gt;   &lt;NA&gt; &lt;NA&gt; &lt;NA&gt;    NA     NA POLYGON ((-115.0786 39.3005...
@@ -1161,12 +1161,12 @@ head(poly.int)</code></pre>
 ## Bounding box:  xmin: -120.4649 ymin: 35.40541 xmax: -114.1471 ymax: 42.3448
 ## Geodetic CRS:  NAD83
 ##                             Name Description randomData STATEFP  STATENS
-## 6     Black Rock Desert-Humboldt                     29      32 01779793
-## 6.1   Black Rock Desert-Humboldt                     29      06 01779778
-## 6.2   Black Rock Desert-Humboldt                     29      41 01155107
-## 7               Central Lahontan                     23      32 01779793
-## 7.1             Central Lahontan                     23      06 01779778
-## 4   Central Nevada Desert Basins                     24      32 01779793
+## 6     Black Rock Desert-Humboldt                     25      32 01779793
+## 6.1   Black Rock Desert-Humboldt                     25      06 01779778
+## 6.2   Black Rock Desert-Humboldt                     25      41 01155107
+## 7               Central Lahontan                     20      32 01779793
+## 7.1             Central Lahontan                     20      06 01779778
+## 4   Central Nevada Desert Basins                     15      32 01779793
 ##        AFFGEOID GEOID STUSPS       NAME LSAD        ALAND      AWATER
 ## 6   0400000US32    32     NV     Nevada   00 284537290201  1839636284
 ## 6.1 0400000US06    06     CA California   00 403671756816 20293573058
@@ -1181,7 +1181,7 @@ head(poly.int)</code></pre>
 ## 7   POLYGON ((-120.0065 39.2721...
 ## 7.1 POLYGON ((-120.0016 39.5794...
 ## 4   POLYGON ((-115.1379 35.4054...</code></pre>
-<p>Now, we have a unique polygon for every combination of HUC-4 and State:</p>
+<p>Now, we have a unique polygon for every combination of HUC-4 and State (with the US):</p>
 <pre class="r"><code>ggplot() + 
   geom_sf(data = US, fill = &#39;gray50&#39;) +
   geom_sf(data = poly.int, aes(fill = STUSPS), show.legend = FALSE) +
@@ -1201,12 +1201,12 @@ head(poly.int)</code></pre>
 ## Bounding box:  xmin: -120.4649 ymin: 32.2603 xmax: -111.5061 ymax: 41.10578
 ## Geodetic CRS:  NAD83
 ##                             Name randomData STUSPS
-## 1.2               Lower Colorado         27     AZ
-## 2.2     Lower Colorado-Lake Mead         15     AZ
-## 6.1   Black Rock Desert-Humboldt         29     CA
-## 7.1             Central Lahontan         23     CA
-## 4.1 Central Nevada Desert Basins         24     CA
-## 1.1               Lower Colorado         27     CA
+## 1.2               Lower Colorado         18     AZ
+## 2.2     Lower Colorado-Lake Mead         23     AZ
+## 6.1   Black Rock Desert-Humboldt         25     CA
+## 7.1             Central Lahontan         20     CA
+## 4.1 Central Nevada Desert Basins         15     CA
+## 1.1               Lower Colorado         18     CA
 ##                           geometry
 ## 1.2 POLYGON ((-114.8165 32.5069...
 ## 2.2 POLYGON ((-114.7368 36.0159...
@@ -1236,12 +1236,12 @@ head(poly.int.summary)</code></pre>
 ## # A tibble: 6 × 3
 ##   STUSPS mean.randomData                                                geometry
 ##   &lt;chr&gt;            &lt;dbl&gt;                                          &lt;GEOMETRY [°]&gt;
-## 1 AZ                20.4 POLYGON ((-114.7368 36.01591, -114.737 36.01577, -114.…
-## 2 CA                23.3 POLYGON ((-118.9235 38.25064, -118.9497 38.26894, -118…
-## 3 ID                21.6 POLYGON ((-117.243 44.39097, -117.2351 44.37385, -117.…
-## 4 MT                22   MULTIPOLYGON (((-111.3842 44.75446, -111.3846 44.75484…
-## 5 NV                24.0 POLYGON ((-118.7021 38.09324, -118.6216 38.03439, -118…
-## 6 OR                20.1 POLYGON ((-116.7012 45.24284, -116.7016 45.24301, -116…</code></pre>
+## 1 AZ                20.8 POLYGON ((-114.7368 36.01591, -114.737 36.01577, -114.…
+## 2 CA                23.8 POLYGON ((-118.9235 38.25064, -118.9497 38.26894, -118…
+## 3 ID                14.9 POLYGON ((-117.243 44.39097, -117.2351 44.37385, -117.…
+## 4 MT                18   MULTIPOLYGON (((-111.3842 44.75446, -111.3846 44.75484…
+## 5 NV                19.3 POLYGON ((-118.7021 38.09324, -118.6216 38.03439, -118…
+## 6 OR                16.7 POLYGON ((-116.7012 45.24284, -116.7016 45.24301, -116…</code></pre>
 <p><code>sf</code> with the <code>tidyverse</code> makes it really easy to apply spatial versions of <code>summarize</code> and <code>mutate</code>. Very useful.</p>
 <p>If we had wanted to just take the average (ignoring area), we’d just leave out the <code>w = State.HUC.area</code> or just used <code>mean</code>. If we had wanted to take, say, the minimum, we would use <code>min(randomData)</code> instead of <code>weighted.mean</code>. We can use whatever function we want in <code>summarize</code>, just as we did with non-spatial data.</p>
 </div>
@@ -1256,10 +1256,18 @@ ggplot(HUC4.nv) + geom_sf(aes(fill = Name), show.legend = F) +
   geom_sf(data = US %&gt;% dplyr::filter(STUSPS==&#39;NV&#39;),  fill = NA, col = &#39;gray20&#39;, lwd = 3 ) +
   theme_minimal()</code></pre>
 <p><img src="/content/14-content_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
+<p>If we wanted to actually crop to the state of Nevada (<code>st_crop</code> only uses the bounding box of Nevada), we’d use <code>st_intersection</code> but do the intersection with just the state of Nevada:</p>
+<pre class="r"><code>HUC4.nv = HUC4 %&gt;%
+  st_intersection(US %&gt;% dplyr::filter(STUSPS==&#39;NV&#39;))
+
+ggplot(HUC4.nv) + geom_sf(aes(fill = Name), show.legend = F) +
+  geom_sf(data = US %&gt;% dplyr::filter(STUSPS==&#39;NV&#39;),  fill = NA, col = &#39;gray20&#39;, lwd = 3 ) +
+  theme_minimal()</code></pre>
+<p><img src="/content/14-content_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
+<p>Note that the data for each HUC-4 remains unchanged. If there were something in that data (like “population” or “area”) that is specific to the entire polygon representing the HUC, then cropping the HUC outside of Nevada may lead to misleading data. The moral of the story is: be careful and thoughtful!</p>
 <div id="bounding-boxes" class="section level3">
 <h3>Bounding boxes</h3>
-<p>Notice that this forms a box around Nevada and uses that to crop. To get the shape of Nevada, we would have to use <code>st_intersection</code>.</p>
-<p>But this introduces a useful concept: the <em>bounding box</em>. The bounding box is defined by the closest 4 points that form a box that perfectly encloses the object (even when the object is not a rectangle). The extent of the above plot is the bounding box for Nevada.</p>
+<p>This introduces a useful concept: the <em>bounding box</em>. The bounding box is defined by the closest 4 points that form a box that perfectly encloses the object (even when the object is not a rectangle). The extent of the above plot is the bounding box for Nevada.</p>
 <pre class="r"><code>Nevada.bbox = st_bbox(US %&gt;% dplyr::filter(STUSPS==&#39;NV&#39;))
 Nevada.bbox</code></pre>
 <pre><code>##       xmin       ymin       xmax       ymax 
@@ -1292,7 +1300,7 @@ ggplot(mi.redlining) +
   scale_fill_manual(values = c(&#39;A&#39; = &#39;green&#39;, &#39;B&#39; = &#39;blue&#39;, &#39;C&#39; = &#39;yellow&#39;, &#39;D&#39; = &#39;red&#39;),
                     aesthetics = c(&#39;color&#39;,&#39;fill&#39;)) +
   theme_minimal()</code></pre>
-<p><img src="/content/14-content_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
+<p><img src="/content/14-content_files/figure-html/unnamed-chunk-35-1.png" width="672" /></p>
 <p>We can tell that our polygons have plotted, but since we have the whole state of Michigan, they’re almost unreadable. We need to set our window over the lower part of the lower peninsula. We’ll use <code>coord_sf</code> to do this, but first we need to define a window. Since windows are almost always rectangular, we can use the <code>st_bbox(mi.redlining)</code>, but we have to pull out the xlim (xmin, xmax) and ylim (ymin, ymax):</p>
 <pre class="r"><code>ggplot(mi.redlining) +
   geom_sf(aes(fill = holc_grade, col = holc_grade)) + 
@@ -1302,7 +1310,7 @@ ggplot(mi.redlining) +
   theme_minimal() +
   coord_sf(xlim = st_bbox(mi.redlining)[c(1, 3)],
            ylim = st_bbox(mi.redlining)[c(2, 4)])</code></pre>
-<p><img src="/content/14-content_files/figure-html/unnamed-chunk-35-1.png" width="672" /></p>
+<p><img src="/content/14-content_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
 </div>
 </div>
 <div id="distance-matrices" class="section level2">
@@ -1341,7 +1349,7 @@ ourDistance</code></pre>
 ## 4 Kalamazoo     HIGHLAND CENTRAL PROCESSING FACILITY             169087.
 ## 5 Traverse City KALKASKA GAS PLANT                                34088.
 ## 6 Marquette     KALKASKA GAS PLANT                               272214.</code></pre>
-<p>But wait, what is going on in the last line there? Well, recall our distance matrix and <code>max.index</code>:</p>
+<p>But wait, what is going on in the last line of code there? Well, recall our distance matrix and <code>max.index</code>:</p>
 <pre class="r"><code>ourDistance</code></pre>
 <pre><code>## Units: [m]
 ##          [,1]      [,2]      [,3]      [,4]

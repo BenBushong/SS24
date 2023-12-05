@@ -359,7 +359,7 @@ poly.merge = HUC4 %>%
 head(poly.merge)
 ```
 
-Now, every HUC-4 like "Lower Colorado" has multiple observations, one for each STUSPS that it touches. When we plot it, though, each of those observations are still attached to the same HUC-4 polygon.
+Now, every HUC-4 like "Lower Colorado" has multiple observations, one for each STUSPS that it touches. When we plot it, though, each of those observations are still attached to the same HUC-4 polygon. Technically, R is plotting the same HUC multiple times (once for each state) on top of each other, so we don't see them. This is the equivalent of merging your data in a way that duplicates observations.
 
 ```{r, message = F, warning=F}
 ggplot(poly.merge) + geom_sf() + 
@@ -394,7 +394,7 @@ poly.int = HUC4 %>%
 head(poly.int)
 ```
 
-Now, we have a unique polygon for every combination of HUC-4 and State:
+Now, we have a unique polygon for every combination of HUC-4 and State (with the US):
 
 ```{r}
 ggplot() + 
@@ -456,11 +456,22 @@ ggplot(HUC4.nv) + geom_sf(aes(fill = Name), show.legend = F) +
 ```
 
 
+If we wanted to actually crop to the state of Nevada (`st_crop` only uses the bounding box of Nevada), we'd use `st_intersection` but do the intersection with just the state of Nevada:
+
+```{r, echo=T, warning = F, message = F}
+HUC4.nv = HUC4 %>%
+  st_intersection(US %>% dplyr::filter(STUSPS=='NV'))
+
+ggplot(HUC4.nv) + geom_sf(aes(fill = Name), show.legend = F) +
+  geom_sf(data = US %>% dplyr::filter(STUSPS=='NV'),  fill = NA, col = 'gray20', lwd = 3 ) +
+  theme_minimal()
+```
+
+Note that the data for each HUC-4 remains unchanged. If there were something in that data (like "population" or "area") that is specific to the entire polygon representing the HUC, then cropping the HUC outside of Nevada may lead to misleading data. The moral of the story is: be careful and thoughtful!
+
 ### Bounding boxes
 
-Notice that this forms a box around Nevada and uses that to crop. To get the shape of Nevada, we would have to use `st_intersection`.
-
-But this introduces a useful concept: the *bounding box*. The bounding box is defined by the closest 4 points that form a box that perfectly encloses the object (even when the object is not a rectangle). The extent of the above plot is the bounding box for Nevada.
+This introduces a useful concept: the *bounding box*. The bounding box is defined by the closest 4 points that form a box that perfectly encloses the object (even when the object is not a rectangle). The extent of the above plot is the bounding box for Nevada.
 
 ```{r, echo=T}
 Nevada.bbox = st_bbox(US %>% dplyr::filter(STUSPS=='NV'))
@@ -531,7 +542,7 @@ tibble(City = ourCities.spatial$City,
   
 ```
 
-But wait, what is going on in the last line there? Well, recall our distance matrix and `max.index`:
+But wait, what is going on in the last line of code there? Well, recall our distance matrix and `max.index`:
 
 ```{r}
 ourDistance
