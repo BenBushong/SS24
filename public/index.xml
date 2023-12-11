@@ -14557,12 +14557,12 @@ head(poly.merge)&lt;/code&gt;&lt;/pre&gt;
 ## Bounding box:  xmin: -115.7061 ymin: 31.5082 xmax: -111.5061 ymax: 39.30285
 ## Geodetic CRS:  NAD83
 ##                         Name Description randomData STATEFP  STATENS
-## 1             Lower Colorado                     18      32 01779793
-## 1.1           Lower Colorado                     18      06 01779778
-## 1.2           Lower Colorado                     18      04 01779777
-## 2   Lower Colorado-Lake Mead                     23      49 01455989
-## 2.1 Lower Colorado-Lake Mead                     23      32 01779793
-## 2.2 Lower Colorado-Lake Mead                     23      04 01779777
+## 1             Lower Colorado                     20      32 01779793
+## 1.1           Lower Colorado                     20      06 01779778
+## 1.2           Lower Colorado                     20      04 01779777
+## 2   Lower Colorado-Lake Mead                     21      49 01455989
+## 2.1 Lower Colorado-Lake Mead                     21      32 01779793
+## 2.2 Lower Colorado-Lake Mead                     21      04 01779777
 ##        AFFGEOID GEOID STUSPS       NAME LSAD        ALAND      AWATER
 ## 1   0400000US32    32     NV     Nevada   00 284537290201  1839636284
 ## 1.1 0400000US06    06     CA California   00 403671756816 20293573058
@@ -14592,12 +14592,12 @@ head(poly.merge.largest)&lt;/code&gt;&lt;/pre&gt;
 ## Bounding box:  xmin: -121.255 ymin: 31.5082 xmax: -111.5061 ymax: 42.3448
 ## Geodetic CRS:  NAD83
 ##                           Name Description randomData STATEFP  STATENS
-## 1               Lower Colorado                     18      04 01779777
-## 2     Lower Colorado-Lake Mead                     23      04 01779777
-## 3    Northern Mojave-Mono Lake                     25      06 01779778
-## 4 Central Nevada Desert Basins                     15      32 01779793
-## 5               North Lahontan                     26      06 01779778
-## 6   Black Rock Desert-Humboldt                     25      32 01779793
+## 1               Lower Colorado                     20      04 01779777
+## 2     Lower Colorado-Lake Mead                     21      04 01779777
+## 3    Northern Mojave-Mono Lake                     15      06 01779778
+## 4 Central Nevada Desert Basins                     19      32 01779793
+## 5               North Lahontan                     24      06 01779778
+## 6   Black Rock Desert-Humboldt                     23      32 01779793
 ##      AFFGEOID GEOID STUSPS       NAME LSAD        ALAND      AWATER
 ## 1 0400000US04    04     AZ    Arizona   00 294363973043   855871553
 ## 2 0400000US04    04     AZ    Arizona   00 294363973043   855871553
@@ -14622,12 +14622,12 @@ head(poly.merge.largest)&lt;/code&gt;&lt;/pre&gt;
 ## Bounding box:  xmin: -121.255 ymin: 31.5082 xmax: -111.5061 ymax: 42.3448
 ## Geodetic CRS:  NAD83
 ##                           Name Description randomData STATEFP STATENS AFFGEOID
-## 1               Lower Colorado                     18    &amp;lt;NA&amp;gt;    &amp;lt;NA&amp;gt;     &amp;lt;NA&amp;gt;
-## 2     Lower Colorado-Lake Mead                     23    &amp;lt;NA&amp;gt;    &amp;lt;NA&amp;gt;     &amp;lt;NA&amp;gt;
-## 3    Northern Mojave-Mono Lake                     25    &amp;lt;NA&amp;gt;    &amp;lt;NA&amp;gt;     &amp;lt;NA&amp;gt;
-## 4 Central Nevada Desert Basins                     15    &amp;lt;NA&amp;gt;    &amp;lt;NA&amp;gt;     &amp;lt;NA&amp;gt;
-## 5               North Lahontan                     26    &amp;lt;NA&amp;gt;    &amp;lt;NA&amp;gt;     &amp;lt;NA&amp;gt;
-## 6   Black Rock Desert-Humboldt                     25    &amp;lt;NA&amp;gt;    &amp;lt;NA&amp;gt;     &amp;lt;NA&amp;gt;
+## 1               Lower Colorado                     20    &amp;lt;NA&amp;gt;    &amp;lt;NA&amp;gt;     &amp;lt;NA&amp;gt;
+## 2     Lower Colorado-Lake Mead                     21    &amp;lt;NA&amp;gt;    &amp;lt;NA&amp;gt;     &amp;lt;NA&amp;gt;
+## 3    Northern Mojave-Mono Lake                     15    &amp;lt;NA&amp;gt;    &amp;lt;NA&amp;gt;     &amp;lt;NA&amp;gt;
+## 4 Central Nevada Desert Basins                     19    &amp;lt;NA&amp;gt;    &amp;lt;NA&amp;gt;     &amp;lt;NA&amp;gt;
+## 5               North Lahontan                     24    &amp;lt;NA&amp;gt;    &amp;lt;NA&amp;gt;     &amp;lt;NA&amp;gt;
+## 6   Black Rock Desert-Humboldt                     23    &amp;lt;NA&amp;gt;    &amp;lt;NA&amp;gt;     &amp;lt;NA&amp;gt;
 ##   GEOID STUSPS NAME LSAD ALAND AWATER                       geometry
 ## 1  &amp;lt;NA&amp;gt;   &amp;lt;NA&amp;gt; &amp;lt;NA&amp;gt; &amp;lt;NA&amp;gt;    NA     NA POLYGON ((-114.6233 36.0304...
 ## 2  &amp;lt;NA&amp;gt;   &amp;lt;NA&amp;gt; &amp;lt;NA&amp;gt; &amp;lt;NA&amp;gt;    NA     NA POLYGON ((-115.0786 39.3005...
@@ -14648,12 +14648,12 @@ head(poly.int)&lt;/code&gt;&lt;/pre&gt;
 ## Bounding box:  xmin: -120.4649 ymin: 35.40541 xmax: -114.1471 ymax: 42.3448
 ## Geodetic CRS:  NAD83
 ##                             Name Description randomData STATEFP  STATENS
-## 6     Black Rock Desert-Humboldt                     25      32 01779793
-## 6.1   Black Rock Desert-Humboldt                     25      06 01779778
-## 6.2   Black Rock Desert-Humboldt                     25      41 01155107
+## 6     Black Rock Desert-Humboldt                     23      32 01779793
+## 6.1   Black Rock Desert-Humboldt                     23      06 01779778
+## 6.2   Black Rock Desert-Humboldt                     23      41 01155107
 ## 7               Central Lahontan                     20      32 01779793
 ## 7.1             Central Lahontan                     20      06 01779778
-## 4   Central Nevada Desert Basins                     15      32 01779793
+## 4   Central Nevada Desert Basins                     19      32 01779793
 ##        AFFGEOID GEOID STUSPS       NAME LSAD        ALAND      AWATER
 ## 6   0400000US32    32     NV     Nevada   00 284537290201  1839636284
 ## 6.1 0400000US06    06     CA California   00 403671756816 20293573058
@@ -14688,12 +14688,12 @@ head(poly.int)&lt;/code&gt;&lt;/pre&gt;
 ## Bounding box:  xmin: -120.4649 ymin: 32.2603 xmax: -111.5061 ymax: 41.10578
 ## Geodetic CRS:  NAD83
 ##                             Name randomData STUSPS
-## 1.2               Lower Colorado         18     AZ
-## 2.2     Lower Colorado-Lake Mead         23     AZ
-## 6.1   Black Rock Desert-Humboldt         25     CA
+## 1.2               Lower Colorado         20     AZ
+## 2.2     Lower Colorado-Lake Mead         21     AZ
+## 6.1   Black Rock Desert-Humboldt         23     CA
 ## 7.1             Central Lahontan         20     CA
-## 4.1 Central Nevada Desert Basins         15     CA
-## 1.1               Lower Colorado         18     CA
+## 4.1 Central Nevada Desert Basins         19     CA
+## 1.1               Lower Colorado         20     CA
 ##                           geometry
 ## 1.2 POLYGON ((-114.8165 32.5069...
 ## 2.2 POLYGON ((-114.7368 36.0159...
@@ -14723,12 +14723,12 @@ head(poly.int.summary)&lt;/code&gt;&lt;/pre&gt;
 ## # A tibble: 6 × 3
 ##   STUSPS mean.randomData                                                geometry
 ##   &amp;lt;chr&amp;gt;            &amp;lt;dbl&amp;gt;                                          &amp;lt;GEOMETRY [°]&amp;gt;
-## 1 AZ                20.8 POLYGON ((-114.7368 36.01591, -114.737 36.01577, -114.…
-## 2 CA                23.8 POLYGON ((-118.9235 38.25064, -118.9497 38.26894, -118…
-## 3 ID                14.9 POLYGON ((-117.243 44.39097, -117.2351 44.37385, -117.…
-## 4 MT                18   MULTIPOLYGON (((-111.3842 44.75446, -111.3846 44.75484…
-## 5 NV                19.3 POLYGON ((-118.7021 38.09324, -118.6216 38.03439, -118…
-## 6 OR                16.7 POLYGON ((-116.7012 45.24284, -116.7016 45.24301, -116…&lt;/code&gt;&lt;/pre&gt;
+## 1 AZ                20.6 POLYGON ((-114.7368 36.01591, -114.737 36.01577, -114.…
+## 2 CA                16.9 POLYGON ((-118.9235 38.25064, -118.9497 38.26894, -118…
+## 3 ID                22.9 POLYGON ((-117.243 44.39097, -117.2351 44.37385, -117.…
+## 4 MT                23   MULTIPOLYGON (((-111.3842 44.75446, -111.3846 44.75484…
+## 5 NV                20.4 POLYGON ((-118.7021 38.09324, -118.6216 38.03439, -118…
+## 6 OR                21.4 POLYGON ((-116.7012 45.24284, -116.7016 45.24301, -116…&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;code&gt;sf&lt;/code&gt; with the &lt;code&gt;tidyverse&lt;/code&gt; makes it really easy to apply spatial versions of &lt;code&gt;summarize&lt;/code&gt; and &lt;code&gt;mutate&lt;/code&gt;. Very useful.&lt;/p&gt;
 &lt;p&gt;If we had wanted to just take the average (ignoring area), we’d just leave out the &lt;code&gt;w = State.HUC.area&lt;/code&gt; or just used &lt;code&gt;mean&lt;/code&gt;. If we had wanted to take, say, the minimum, we would use &lt;code&gt;min(randomData)&lt;/code&gt; instead of &lt;code&gt;weighted.mean&lt;/code&gt;. We can use whatever function we want in &lt;code&gt;summarize&lt;/code&gt;, just as we did with non-spatial data.&lt;/p&gt;
 &lt;/div&gt;
@@ -14760,37 +14760,37 @@ Nevada.bbox&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##       xmin       ymin       xmax       ymax 
 ## -120.00646   35.00186 -114.03965   42.00221&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The bounding box can be used to frame a “window” in a &lt;code&gt;ggplot&lt;/code&gt; using &lt;code&gt;geom_sf()&lt;/code&gt;. That is, sometimes, we want to &lt;em&gt;plot&lt;/em&gt; just a subsection of a map, but we still want the data to be the whole map. Here’s an example using the HOLC Redlining Maps, which were created in the 1930’s and were used to segregate US housing up until the 1970’s. They are available at the &lt;a href=&#34;https://dsl.richmond.edu/panorama/redlining&#34;&gt;University of Richmond’s &lt;em&gt;Mapping Inequality&lt;/em&gt; site&lt;/a&gt;. We can load Lansing and Detroit using the code below:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;lansing = st_read(&amp;#39;https://dsl.richmond.edu/panorama/redlining/static/downloads/geojson/MILansing19XX.geojson&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Reading layer `MILansing19XX&amp;#39; from data source 
-##   `https://dsl.richmond.edu/panorama/redlining/static/downloads/geojson/MILansing19XX.geojson&amp;#39; 
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;lansing = st_read(&amp;#39;https://dsl.richmond.edu/panorama/redlining/static/citiesData/MILansing19XX/geojson.json&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Reading layer `geojson&amp;#39; from data source 
+##   `https://dsl.richmond.edu/panorama/redlining/static/citiesData/MILansing19XX/geojson.json&amp;#39; 
 ##   using driver `GeoJSON&amp;#39;
-## Simple feature collection with 4 features and 4 fields
+## Simple feature collection with 5 features and 14 fields
 ## Geometry type: MULTIPOLYGON
 ## Dimension:     XY
 ## Bounding box:  xmin: -84.60737 ymin: 42.67877 xmax: -84.45292 ymax: 42.77022
 ## Geodetic CRS:  WGS 84&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;detroit = st_read(&amp;#39;https://dsl.richmond.edu/panorama/redlining/static/downloads/geojson/MIDetroit1939.geojson&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Reading layer `MIDetroit1939&amp;#39; from data source 
-##   `https://dsl.richmond.edu/panorama/redlining/static/downloads/geojson/MIDetroit1939.geojson&amp;#39; 
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;detroit = st_read(&amp;#39;https://dsl.richmond.edu/panorama/redlining/static/citiesData/MIDetroit1939/geojson.json&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Reading layer `geojson&amp;#39; from data source 
+##   `https://dsl.richmond.edu/panorama/redlining/static/citiesData/MIDetroit1939/geojson.json&amp;#39; 
 ##   using driver `GeoJSON&amp;#39;
-## Simple feature collection with 238 features and 4 fields
+## Simple feature collection with 239 features and 14 fields
 ## Geometry type: MULTIPOLYGON
 ## Dimension:     XY
-## Bounding box:  xmin: -83.40036 ymin: 42.13495 xmax: -82.87286 ymax: 42.56012
+## Bounding box:  xmin: -83.40036 ymin: 42.13495 xmax: -82.87287 ymax: 42.56012
 ## Geodetic CRS:  WGS 84&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mi.redlining = bind_rows(lansing, detroit) %&amp;gt;%
   st_transform(st_crs(MI))
 
 ggplot(mi.redlining) +
-  geom_sf(aes(fill = holc_grade, col = holc_grade)) + 
+  geom_sf(aes(fill = grade, col = grade)) + 
   geom_sf(data = MI, fill = NA, col = &amp;#39;gray50&amp;#39;) +
-  scale_fill_manual(values = c(&amp;#39;A&amp;#39; = &amp;#39;green&amp;#39;, &amp;#39;B&amp;#39; = &amp;#39;blue&amp;#39;, &amp;#39;C&amp;#39; = &amp;#39;yellow&amp;#39;, &amp;#39;D&amp;#39; = &amp;#39;red&amp;#39;),
+  scale_fill_manual(values = c(&amp;#39;A&amp;#39; = &amp;#39;darkgreen&amp;#39;, &amp;#39;B&amp;#39; = &amp;#39;blue&amp;#39;, &amp;#39;C&amp;#39; = &amp;#39;yellow&amp;#39;, &amp;#39;D&amp;#39; = &amp;#39;red&amp;#39;),
                     aesthetics = c(&amp;#39;color&amp;#39;,&amp;#39;fill&amp;#39;)) +
   theme_minimal()&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/content/14-content_files/figure-html/unnamed-chunk-35-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;We can tell that our polygons have plotted, but since we have the whole state of Michigan, they’re almost unreadable. We need to set our window over the lower part of the lower peninsula. We’ll use &lt;code&gt;coord_sf&lt;/code&gt; to do this, but first we need to define a window. Since windows are almost always rectangular, we can use the &lt;code&gt;st_bbox(mi.redlining)&lt;/code&gt;, but we have to pull out the xlim (xmin, xmax) and ylim (ymin, ymax):&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mi.redlining) +
-  geom_sf(aes(fill = holc_grade, col = holc_grade)) + 
+  geom_sf(aes(fill = grade, col = grade)) + 
   geom_sf(data = MI, fill = NA, col = &amp;#39;gray50&amp;#39;) +
   scale_fill_manual(values = c(&amp;#39;A&amp;#39; = &amp;#39;green&amp;#39;, &amp;#39;B&amp;#39; = &amp;#39;blue&amp;#39;, &amp;#39;C&amp;#39; = &amp;#39;yellow&amp;#39;, &amp;#39;D&amp;#39; = &amp;#39;red&amp;#39;),
                     aesthetics = c(&amp;#39;color&amp;#39;,&amp;#39;fill&amp;#39;)) +
@@ -14886,7 +14886,25 @@ ourCities %&amp;gt;% dplyr::mutate(Closest.GreatLake = GL$FEAT_NAME[closest.GL.i
 &lt;ul&gt;
 &lt;li&gt;There are &lt;a href=&#34;https://www.rstudio.com/resources/cheatsheets/&#34;&gt;lots of useful RStudio cheat sheets, actually.&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;If you want to remove the Great Lakes from your map, here’s how you do it&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;First, retrieve the geojson file of the great lakes. Only WI DNR seems to have a public shapefile of the Great Lakes (an informal complaint has been registered with MI-EGLE, grrrr) which you can download as a &lt;a href=&#34;https://data-wi-dnr.opendata.arcgis.com/datasets/great-lakes/explore&#34;&gt;geojson from here&lt;/a&gt; – see the little cloud download button, and select geojson. This one doesn’t have a link to take it directly, so download the file to your local drive, keep it with your .RMD file, and load it direction from your local path.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Second, use the code below as an example. You may have a different shapefile you want to clip to the Great Lakes – put it in place of &lt;code&gt;MI&lt;/code&gt; below. Note that we use a spatial version of the &lt;code&gt;difference&lt;/code&gt; function, which gives us “everything in the first that isn’t in the second”.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;library(sf)
+library(tidyverse)
+library(tigris)
+
+
+MI = counties(state = &amp;#39;MI&amp;#39;, year = 2019) # your school district map here
+GreatLakes = st_read(&amp;#39;/PUT YOUR LOCAL FILEPATH TO THE GEOJSON HERE.geojson&amp;#39;) %&amp;gt;%  # put your local filepath in here
+  st_transform(st_crs(MI)) %&amp;gt;%  # need them to be in the same projection
+  st_make_valid() %&amp;gt;%  # this fixes an issue with the shapefile after projection
+  st_union()  # we will put all the lakes together as we don&amp;#39;t care which lake is being used to erase county/district boundaries
+
+
+MIx = st_difference(MI, GreatLakes)  # spatial version of the difference function&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
