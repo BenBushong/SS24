@@ -20,7 +20,7 @@ design:
     text_color_light: true
 
 cta_note:
-  label: SSC442 • Fall 2023<br>College of Social Science<br>Michigan State University
+  label: SSC442 • Spring 2024<br>College of Social Science<br>Michigan State University
 ---
 
 ****

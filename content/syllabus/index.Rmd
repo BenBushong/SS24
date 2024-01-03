@@ -190,9 +190,7 @@ Violation of [MSU's Spartan Code of Honor](http://asmsu.msu.edu/home/initiatives
 ### Generative AI
 Generative AI is both a computing resource and potential avenue for cheating in violation of the Spartan Code of Honor (see Academic Integrity, below). For this course, some use of generative AI is permitted or forbidden as follows:
 
--	For the purposes of learning R coding, data cleaning and processing, visualization, and other coding applications of R, you are fully permitted to use ChatGPT or other generative AI models provided you indicate such a use at the top of your problem set, and include a comment `# used generative AI` in your code. When “stuck” on coding, I have always encouraged students to use Stack Overflow to find similar problems and then translate the found solutions into the problem at hand. It is one of the most important skills in coding. Generative AI facilitates this process, and thus is a tool. Since R itself is a tool to help you learn and apply the material, I view using generative AI for help in specific coding tasks as a suitable use. You must, in all cases, understand what your code is doing, and be able to justify its use. If you cannot tell me, on review, what a line of code is used for, then you have not used generative AI properly.
-
--	Using generative AI to solve a complete problem set or problem set question beyond the mechanics and specifics of R coding is absolutely prohibited. Using generative AI to solve a problem verbatim without understanding the coding solution is absolutely prohibited. Violation of this policy is a violation of the Spartan Code of Honor and will result in immediate disciplinary action. See Academic honest above. I will not hesitate to file an academic dishonesty report.
+-	For the purposes of learning `R` coding, data cleaning and processing, visualization, and other coding applications of R, you are fully permitted to use ChatGPT or other generative AI models provided you indicate such a use at the top of your problem set, and include a comment `#Used Generative AI` in your code. When “stuck” on coding, I have always encouraged students to use Stack Overflow to find similar problems and then translate the found solutions into the problem at hand. It is one of the most important skills in coding. Generative AI facilitates this process, and thus is a tool. Since `R` itself is a tool to help you learn and apply the material, I view using generative AI for help in specific coding tasks as a suitable use. You must, in all cases, understand what your code is doing, and be able to justify its use. If you cannot tell me, on review, what a line of code is used for, then you have not used generative AI properly.
 
 
 ### Grading
@@ -210,15 +208,6 @@ If you need a special accommodation for a disability, religious observance, or h
 Michigan State University is committed to providing equal opportunity for participation in all programs, services and activities. Requests for accommodations by persons with disabilities may be made by contacting the Resource Center for Persons with Disabilities at 517-884-RCPD or on the web at rcpd.msu.edu. Once your eligibility for an accommodation has been determined, you will be issued a verified individual services accommodation (“VISA”) form. Please present this form to me at the start of the term and/or two weeks prior to the accommodation date (test, project, etc). Requests received after this date will be honored whenever possible.
 
 
-## COVID-19
-
-Things are hard right now. You most likely know people who have lost their jobs, have tested positive for COVID-19, have been hospitalized, or perhaps have even died. You all have increased (or possibly decreased) work responsibilities and increased family care responsibilities. You might be caring for extra people right now, and you are likely facing uncertain job prospects.
-
-**I'm fully committed to making sure that you learn everything you were hoping to learn from this class!** I will make whatever accommodations I can to help you finish your exercises, do well on your projects, and learn and understand the class material. Under ordinary conditions, I am flexible and lenient with grading and course expectations when students face difficult challenges. Under pandemic conditions, that flexibility and leniency is intensified.
-
-If you feel like you're behind or not understanding everything, **do not suffer in silence!** *Please* contact me. I'm available at [e-mail](mailto:jkirk@msu.edu).
-
-
 ## Mandated Reporting
 
 Essays, journals, and other materials submitted for this class are generally considered confidential pursuant to the University's student record policies.  However, students should be aware that University employees, including instructors, may not be able to maintain confidentiality when it conflicts with their responsibility to report certain issues to protect the health and safety of MSU community members and others.  As the instructor, I must report the following information to other University offices (including the Department of Police and Public Safety) if you share it with me:
@@ -229,12 +218,11 @@ These reports may trigger contact from a campus official who will want to talk w
 
 ## Acknowledgements
 
-This syllabus and course structure was developed by Prof. Ben Bushong with iterative refinements by myself. All credit goes to Prof. Bushong. All errors are my own.
-
+This course structure and content has been improved greatly by Professor Kirkpatrick. All remaining errors are my own.
 
 ## Miscellanea
 
-All class material will be posted on https://ssc442kirkpatrick.netlify.app. D2L will be used sparingly for submission of weekly writings and assignments and distribution of grades.
+All class material will be posted on https://ssc442.netlify.app. D2L will be used sparingly for submission of weekly writings and assignments and distribution of grades.
 
 
 ### Using Office Hours
@@ -265,7 +253,7 @@ Some general tips:
 
 > Subject: [SSC442] Lab, Question 2, Typo
 >
-> Hi Prof. Kirkpatrick,
+> Hi Prof. Bushong,
 >
 > There seems to be a typo in the Lab on Question 2. The problem says to use a column of data that doesn't seem to exist. Can you correct this or which should we use?
 >
@@ -274,5 +262,5 @@ Some general tips:
 
 
 ### Letters of Recommendation / References
-If you are applying for further study or another pursuit that requires letters of recommendation and you’d like me to recommend you, I will be glad to write a letter on your behalf if your final grade is a 4.0. Grades below a 4.0 may be handled on a case-by-case basis. In addition, you should have held at least three substantial conversations with me about the course material or other academic subjects over the course of the semester.
+At this time, I am essentially not writing letters of recommendation. If you want to convince me to do so, you'll likely need to work exceptionally hard. Consider this a warning. 
 
