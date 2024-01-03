@@ -1,7 +1,7 @@
 ---
 title: Syllabus
 slug: syllabus
-publishDate: "2023-08-30"
+publishDate: "2024-01-01"
 citeproc: true
 bibliography: ../../static/bib/references.bib
 csl: ../../static/bib/chicago-syllabus-no-bib.csl
@@ -23,7 +23,7 @@ library(pander)
 We meet in 116 Natural Sciences Tuesdays and Thursdays, 1:30 - 2:50 pm. This class is in-person and will not have an online component.
 
 
-### Office hours - Prof. K
+### Office hours - Professor Bushong
 
 ~~Fridays 10:15 - 11:45~~ Thursdays 11:00 am - 12 noon (and by appointment). If you are planning on coming after 11:45, please let me know.
 
@@ -40,7 +40,7 @@ TA Office Hours: Wednesdays 2-3pm and via Slack (if you are arriving after 2:30p
 TA Office Hours Zoom: [https://msu.zoom.us/j/94474676913](https://msu.zoom.us/j/94474676913) (Passcode: 592204)
 
 ### Slack
-We will use Slack as a forum for asking questions about the course, including course policies and, primarily, help questions with R. Students are encouraged to help answer each others' questions, and to use the forum as a first-step for seeking help. I, and our TA, will monitor slack and answer questions regularly. You can [join our Slack channel with this link by September 20th](https://join.slack.com/t/ssc442fall23/shared_invite/zt-21po16rx0-eSBByPJt~4ahKVWqqQaalQ)
+We will use Slack as a forum for asking questions about the course, including course policies and, primarily, help questions with `R`. Students are encouraged to help answer each others' questions, and to use the forum as a first-step for seeking help. I, and our TA, will monitor slack and answer questions regularly. You can [join our Slack channel with this link by September 20th](https://join.slack.com/t/ssc442fall23/shared_invite/zt-21po16rx0-eSBByPJt~4ahKVWqqQaalQ)
 
 ## What is This Course and Can / Should You Take It?
 
