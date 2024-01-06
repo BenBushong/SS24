@@ -1,8 +1,8 @@
 ---
 title: "Welcome Back to R"
 linktitle: "0: Introduction to R"
-read_date: "2023-08-29"
-lastmod: "2023-09-08" 
+read_date: "2024-01-09"
+lastmod: "2024-01-06" 
 menu:
   content:
     parent: Course content
@@ -23,10 +23,9 @@ output:
 <li><a href="#a-brief-introduction-to-ssc442" id="toc-a-brief-introduction-to-ssc442">A Brief Introduction to SSC442</a>
 <ul>
 <li><a href="#about-me" id="toc-about-me">About Me</a></li>
-<li><a href="#about-you" id="toc-about-you">About You</a></li>
 <li><a href="#this-course" id="toc-this-course">This Course</a></li>
 <li><a href="#more-about-this-course" id="toc-more-about-this-course">More About This Course</a></li>
-<li><a href="#and-finally" id="toc-and-finally">And finally…</a></li>
+<li><a href="#things-to-remember-tldr" id="toc-things-to-remember-tldr">Things To Remember (tl;dr)</a></li>
 </ul></li>
 <li><a href="#what-is-data-analytics" id="toc-what-is-data-analytics">What is “Data Analytics”?</a>
 <ul>
@@ -40,7 +39,8 @@ output:
 <li><a href="#an-aside-nomenclature" id="toc-an-aside-nomenclature">An Aside: Nomenclature</a></li>
 <li><a href="#learning-from-data" id="toc-learning-from-data">Learning from Data</a></li>
 </ul></li>
-<li><a href="#case-study-us-homicides-by-firearm" id="toc-case-study-us-homicides-by-firearm">Case study: US homicides by firearm</a></li>
+<li><a href="#case-study-1-global-renewable-energy-production" id="toc-case-study-1-global-renewable-energy-production">Case study 1: Global Renewable Energy Production</a></li>
+<li><a href="#case-study-2-us-homicides-by-firearm" id="toc-case-study-2-us-homicides-by-firearm">Case study 2: US homicides by firearm</a></li>
 <li><a href="#getting-started" id="toc-getting-started">Getting started with <code>R</code> and <del>RStudio</del> Posit Workflows</a>
 <ul>
 <li><a href="#installing-r-and-rstudio-posit" id="toc-installing-r-and-rstudio-posit">Installing <code>R</code> and <del>RStudio</del> Posit</a></li>
@@ -81,23 +81,8 @@ output:
 <h1>A Brief Introduction to SSC442</h1>
 <div id="about-me" class="section level3">
 <h3>About Me</h3>
-<p><strong>Me:</strong> My primary area of expertise is environmental and energy (applied) economics.</p>
-<p>This class is totally, unapologetically a work in progress. It was developed mainly by Prof. Bushong with refinements by myself.</p>
-<p>Material is a mish-mash of stuff from courses offered at Caltech, Stanford, Harvard, and Duke…so, yeah, it will be challenging. Hopefully, you’ll find it fun!</p>
-<p>My research: occasionally touches the topics in the course, but mostly utilizes things in the course as tools.</p>
-</div>
-<div id="about-you" class="section level3">
-<h3>About You</h3>
-<div class="fyi">
-<p><em>New phone who dis?</em> Please email me jkirk@msu.edu with the subject [SSC442] Who Dis. In the message, tell me:</p>
-<ul>
-<li><p>name (with pronunciation guide)</p></li>
-<li><p>major</p></li>
-<li><p>desired graduation year and semester</p></li>
-<li><p>interest in this course on a 10-point scale (1: not at all interested; 10: helllllll yeah)</p></li>
-</ul>
-</div>
-<p>You <strong>must</strong> spend 5 minutes emailing me a little bit about your interests before the next class. This counts towards your “participation” grade (more on that later)</p>
+<p><strong>Me:</strong> My primary area of expertise is economics. In brief, I am a behavioral economist whose research examines how cognitive biases and erroneous social beliefs influence decision-making and our interactions with others. In my research, I utilize a mix of theoretical modeling and experimental studies. These approaches guide the work in the Spartan Psychology and Economics Advanced Research (SPEAR) lab, which I formed in 2023. My teaching emphasizes how psychological factors shape economic choices (EC404; EC895) and the importance of rigorous empirical methods (SSC442).</p>
+<p>While my research occasionally touches the topics in the course, it mostly utilizes tools and techniques from this course as tools.</p>
 </div>
 <div id="this-course" class="section level3">
 <h3>This Course</h3>
@@ -106,8 +91,15 @@ output:
 <li>But eventually, please read it. It is required.</li>
 </ul>
 <p>Syllabus highlights:</p>
+<p>This class is totally, unapologetically a work in progress. Material is a mish-mash of stuff from courses offered at Caltech, Stanford, Harvard, and Duke…so, yeah, it will be challenging. Hopefully, you’ll find it fun! Because this is an ever-evolving field, there may be more hiccups than you might otherwise expect:</p>
 <ul>
-<li>Grade is composed of weekly writings, labs, and projects (see syllabus page for exact points)
+<li><p>Some of the lectures will be too long or too short.</p></li>
+<li><p>Some of the lectures won’t make sense at first</p></li>
+<li><p>Some of the time I’ll forget what I intended to say and awkwardly stare at you for a few moments (sorry).</p></li>
+</ul>
+<p>I promise to improve the course with feedback, so if you have comments please speak up.</p>
+<ul>
+<li>Your grade is composed of weekly writings, labs, and projects (see syllabus page for exact points)
 <ul>
 <li>Weekly writings: 19%</li>
 <li>Participation: 4%</li>
@@ -142,41 +134,14 @@ output:
 <ul>
 <li><p>Most ideas will be new.</p></li>
 <li><p>Sometimes (often?) the material itself will be confusing or interesting—or both!</p></li>
-<li><p><del>Teaching online is incredibly challenging (no feedback) and chat is vital to success.</del> We’re back in person and I/we have a healthy aversion to zoom!</p></li>
 <li><p><strong>Note:</strong> If I find that attendance is terrible, I may have to start incorporating attendance into participation.</p></li>
 </ul>
-<p>Return of the Please: If there is some topic that you really want to learn about, ask. If you are uncomfortable asking in front of the whole group, please see me during office hours.</p>
-<p>Because this is a new-ish course:</p>
-<ul>
-<li><p>Some of the lectures will be way too long or too short.</p></li>
-<li><p>Some of the lectures won’t make sense at first</p></li>
-<li><p>Some of the time I’ll forget what I intended to say and awkwardly stare at you for a few moments (sorry).</p></li>
-</ul>
-<p>Comment <strong>throughout</strong> the course, not just at the end.</p>
 <p>I encourage measured feedback and thoughtful responses to questions. If I call on you and you don’t know immediately, don’t freak out. If you don’t know, it’s totally okay to say you don’t know.</p>
-<div id="super-big-important-explanation-of-the-course" class="section level4">
-<h4>SUPER BIG IMPORTANT EXPLANATION OF THE COURSE</h4>
-<p>I teach using “math”.</p>
-<p>…Don’t be afraid. The math won’t hurt you.</p>
-<p>I fundamentally believe that true knowledge of how we learn from data depends on a basic understanding of the underlying mathematics.</p>
-<p>-Good news: no black boxes.</p>
-<ul>
-<li><p>You’ll <strong>actually learn</strong> stuff. (Probably. Hopefully?)</p></li>
-<li><p>Also good news: level of required math is reasonably low. High-school algebra or equivalent should be fine.</p></li>
-</ul>
-<p>-Bad news: some notation-heavy slides and reading.</p>
 </div>
-</div>
-<div id="and-finally" class="section level3">
-<h3>And finally…</h3>
-<p>Finally: I cannot address field-specific questions in areas outside economics to any satisfying degree.</p>
-<ul>
-<li><p>Good news: I’m good at knowing what I don’t know and have a very small ego, which means that I’m much less likely to blow smoke up your rear than other professors.</p></li>
-<li><p>Bad news: I can’t help with certain types of questions.</p></li>
-</ul>
-<p>This course should be applicable broadly, but many of the examples will lean on my personal expertise (sorry).</p>
-<p>Your assignment: read syllabus, the content from Week 0 if you haven’t already, and the Example from Week 0 for Thursday. Make sure R and RStudio is running on your computer or you have a RStudio.cloud/Posit.cloud account, and make sure you can knit your Rmarkdown template to PDF. Do your weekly writing due <strong>Saturday</strong>. Begin working on Lab 0 as it is due Monday.</p>
-<p>Things to stress from <a href="/syllabus/">syllabus</a>:</p>
+<div id="things-to-remember-tldr" class="section level3">
+<h3>Things To Remember (tl;dr)</h3>
+<p>Do your weekly writing due <strong>Saturday</strong>. Begin working on Lab 0 as it is due Monday.</p>
+<p>Keys from the <a href="/syllabus/">syllabus</a>:</p>
 <ul>
 <li>E-mail isn’t the ideal solution for technical problems
 <ul>
@@ -186,7 +151,7 @@ output:
 <li>TA office hours are great as well. Our TA has experience in this course.</li>
 <li>Notify me immediately if you need accommodations because of RCPD or religious convictions; If you approach me at the last minute, I may not be able to help.</li>
 </ul>
-<p>Despite my hard-assness in these intro slides: I’m here to help and I am not in the business of giving bad grades for no reason.</p>
+<p>Despite my hard-assness in these introductory notes: I’m here to help and I am not in the business of giving bad grades for no reason.</p>
 </div>
 </div>
 <div id="what-is-data-analytics" class="section level1">
@@ -342,9 +307,15 @@ X causes Y and Y causes X (simultaneous equations)</p></li>
 </ol>
 </div>
 </div>
-<div id="case-study-us-homicides-by-firearm" class="section level2">
-<h2>Case study: US homicides by firearm</h2>
-<p>Imagine you live in Europe (if only!) and are offered a job in a US company with many locations in every state. It is a great job, but headlines such as <strong>US Gun Homicide Rate Higher Than Other Developed Countries</strong><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> have you worried. Fox News runs a scary looking graphic, and charts like the one below only add to that concern:</p>
+<div id="case-study-1-global-renewable-energy-production" class="section level2">
+<h2>Case study 1: Global Renewable Energy Production</h2>
+<p>Imagine you are evaluating countries for a potential investment in renewable energy. Headlines like “Renewable Energy Capacity Growth Worldwide” have piqued your interest. Reports from various sources show diverse graphs and charts and you’re curious about the underlying data. You want to know which countries are leading the way in renewable energy production and which are lagging behind. You want to know which countries are growing their renewable energy production the fastest. In short: you want to know which countries are the best bets for investment. You might see something like the following:</p>
+<p><img src="/content/00-content_files/figure-html/unnamed-chunk-2-1.png" width="70%" />
+You might want to look into the underlying data (in this case, fabricated) and think about what to do next. In this sense, you have <em>learned from data</em>.</p>
+</div>
+<div id="case-study-2-us-homicides-by-firearm" class="section level2">
+<h2>Case study 2: US homicides by firearm</h2>
+<p>Imagine you live in Europe (if only!) and are offered a job in a US company with many locations in every state. It is a great job, but headlines such as <strong>US Gun Homicide Rate Higher Than Other Developed Countries</strong><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> have you worried. Fox News runs a scary looking graphic, and charts like the one below only add to you anxiety:</p>
 <p><img src="/content/00-content_files/figure-html/murder-rate-example-1-1.png" width="70%" /></p>
 <!--(Source:
 [Ma’ayan Rosenzweigh/ABC News](https://abcnews.go.com/blogs/headlines/2012/12/us-gun-ownership-homicide-rate-higher-than-other-developed-countries/), Data from UNODC Homicide Statistics) -->
@@ -447,9 +418,9 @@ X causes Y and Y causes X (simultaneous equations)</p></li>
 <p>If you’re new to Rmarkdown, I have made <a href="https://mediaspace.msu.edu/media/Spring2021_R_Part3/1_yigvqy1i">a short video on how to use it <i class="fas fa-film"></i></a>. This video is for my EC420 course, but works for us as well.</p>
 <p>To use Rmarkdown, you’ll have to install a few packages (like <code>knitr</code> and <code>tinytex</code>) and you’ll have to install a copy of LaTeX installed. Follow <a href="/resource/install/#install-tinytex-1">these instructions if you haven’t ever used RMarkdown with LaTeX</a> to install LaTeX.</p>
 <p>If we have time today, let’s open the template linked above and see what happens when we select “knit to pdf”. If you do not wind up with a PDF rendered using LaTeX that looks like the one below, then check for errors. The most common one is not having tinytex and latex installed (tinytex will install a light version of latex).</p>
-<div class="figure">
-<img src="/example/00-example_files/00-example_insertimage_1.png" alt="" />
-<p class="caption">Screentshot of header of PDF file properly rendered</p>
+<div class="float">
+<img src="/example/00-example_files/00-example_insertimage_1.png" alt="Screentshot of header of PDF file properly rendered" />
+<div class="figcaption">Screentshot of header of PDF file properly rendered</div>
 </div>
 </div>
 </div>

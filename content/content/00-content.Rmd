@@ -1,7 +1,7 @@
 ---
 title: "Welcome Back to R"
 linktitle: "0: Introduction to R"
-read_date: "2023-08-29"
+read_date: "2024-01-09"
 lastmod: "`r Sys.Date()`" 
 menu:
   content:
@@ -13,12 +13,11 @@ output:
     toc: true
 ---
 
-
 ```{r, include=F, eval=T}
 library(tidyverse)
 
 ```
-## Readings  
+## Readings
  
 As noted in the syllabus, your readings will be assigned each week in this area. For this initial week, please read the course content. **Read closely** the following:
 
@@ -36,35 +35,13 @@ For future lectures, the guiding questions will be more pointed and at a higher 
 - How do you index specific elements of a vector? Why might you want to do that?
 
 
-
 # A Brief Introduction to SSC442
 
 ### About Me
 
-**Me:** My primary area of expertise is environmental and energy (applied) economics.
+**Me:** My primary area of expertise is economics. In brief, I am a behavioral economist whose research examines how cognitive biases and erroneous social beliefs influence decision-making and our interactions with others. In my research, I utilize a mix of theoretical modeling and experimental studies. These approaches guide the work in the Spartan Psychology and Economics Advanced Research (SPEAR) lab, which I formed in 2023. My teaching emphasizes how psychological factors shape economic choices (EC404; EC895) and the importance of rigorous empirical methods (SSC442). 
 
-This class is totally, unapologetically a work in progress. It was developed mainly by Prof. Bushong with refinements by myself.
-
-Material is a mish-mash of stuff from courses offered at Caltech, Stanford, Harvard, and Duke...so, yeah, it will be challenging. Hopefully, you'll find it fun!
-
-My research: occasionally touches the topics in the course, but mostly utilizes things in the course as tools.
-
-### About You
-
-:::fyi
-*New phone who dis?*  Please email me jkirk\@msu.edu with the subject [SSC442] Who Dis. In the message, tell me:
-
-- name (with pronunciation guide)
-
-- major
-
-- desired graduation year and semester
-
-- interest in this course on a 10-point scale (1: not at all interested; 10: helllllll yeah)
-
-:::
-
-You **must** spend 5 minutes emailing me a little bit about your interests before the next class. This counts towards your "participation" grade (more on that later)
+While my research occasionally touches the topics in the course, it mostly utilizes tools and techniques from this course as tools.
 
 ### This Course
 
@@ -74,7 +51,17 @@ The syllabus is posted on the course website. I'll walk through highlights now, 
 
 Syllabus highlights:
 
-- Grade is composed of weekly writings, labs, and projects (see syllabus page for exact points)
+This class is totally, unapologetically a work in progress. Material is a mish-mash of stuff from courses offered at Caltech, Stanford, Harvard, and Duke...so, yeah, it will be challenging. Hopefully, you'll find it fun! Because this is an ever-evolving field, there may be more hiccups than you might otherwise expect: 
+
+- Some of the lectures will be too long or too short.
+
+- Some of the lectures won't make sense at first
+
+- Some of the time I'll forget what I intended to say and awkwardly stare at you for a few moments (sorry).
+
+I promise to improve the course with feedback, so if you have comments please speak up. 
+
+- Your grade is composed of weekly writings, labs, and projects (see syllabus page for exact points)
   - Weekly writings: 19\%
   - Participation: 4\%
   - Labs: 32\%
@@ -119,57 +106,15 @@ The "main text" is this website. The secondary text is Introduction to Statistic
 
 - Sometimes (often?) the material itself will be confusing or interesting---or both!
 
-- ~~Teaching online is incredibly challenging (no feedback) and chat is vital to success.~~ We're back in person and I/we have a healthy aversion to zoom!
-
 - **Note:** If I find that attendance is terrible, I may have to start incorporating attendance into participation.
-
-Return of the Please: If there is some topic that you really want to learn about, ask. If you are uncomfortable asking in front of the whole group, please see me during office hours.
-
-Because this is a new-ish course:
-
-- Some of the lectures will be way too long or too short.
-
-- Some of the lectures won't make sense at first
-
-- Some of the time I'll forget what I intended to say and awkwardly stare at you for a few moments (sorry).
-
-Comment **throughout** the course, not just at the end.
 
 I encourage measured feedback and thoughtful responses to questions. If I call on you and you don't know immediately, don't freak out. If you don't know, it's totally okay to say you don't know.
 
+### Things To Remember (tl;dr)
 
-#### SUPER BIG IMPORTANT EXPLANATION OF THE COURSE
+Do your weekly writing due **Saturday**. Begin working on Lab 0 as it is due Monday.
 
-
-I teach using "math".
-
-...Don't be afraid. The math won't hurt you.
-
-I fundamentally believe that true knowledge of how we learn from data depends on a basic understanding of the underlying mathematics.
-
--Good news: no black boxes.
-
-  - You'll **actually learn** stuff. (Probably. Hopefully?)
-  
-- Also good news: level of required math is reasonably low. High-school algebra or equivalent should be fine.
-
--Bad news: some notation-heavy slides and reading.
-
-
-
-### And finally...
-
-Finally: I cannot address field-specific questions in areas outside economics to any satisfying degree.
-
-- Good news: I'm good at knowing what I don't know and have a very small ego, which means that I'm much less likely to blow smoke up your rear than other professors.
-
-- Bad news: I can't help with certain types of questions.
-
-This course should be applicable broadly, but many of the examples will lean on my personal expertise (sorry).
-
-Your assignment: read syllabus, the content from Week 0 if you haven't already, and the Example from Week 0 for Thursday. Make sure R and RStudio is running on your computer or you have a RStudio.cloud/Posit.cloud account, and make sure you can knit your Rmarkdown template to PDF. Do your weekly writing due **Saturday**. Begin working on Lab 0 as it is due Monday.
-
-Things to stress from [syllabus](/syllabus/):
+Keys from the [syllabus](/syllabus/):
 
 - E-mail isn't the ideal solution for technical problems
   - If you do send an email, please start it with `[SSC442]` and the subject.
@@ -177,13 +122,7 @@ Things to stress from [syllabus](/syllabus/):
 - TA office hours are great as well. Our TA has experience in this course.
 - Notify me immediately if you need accommodations because of RCPD or religious convictions; If you approach me at the last minute, I may not be able to help.
 
-Despite my hard-assness in these intro slides: I'm here to help and I am not in the business of giving bad grades for no reason.
-
-
-
-
-
-
+Despite my hard-assness in these introductory notes: I'm here to help and I am not in the business of giving bad grades for no reason.
 
 
 # What is "Data Analytics"?
@@ -342,11 +281,43 @@ The following are the basic requirements for statistical learning:
 3. You have data.
 
 
+## Case study 1: Global Renewable Energy Production
 
-##  Case study: US homicides by firearm
+Imagine you are evaluating countries for a potential investment in renewable energy. Headlines like "Renewable Energy Capacity Growth Worldwide" have piqued your interest. Reports from various sources show diverse graphs and charts and you're curious about the underlying data. You want to know which countries are leading the way in renewable energy production and which are lagging behind. You want to know which countries are growing their renewable energy production the fastest. In short: you want to know which countries are the best bets for investment. You might see something like the following: 
 
-Imagine you live in Europe (if only!) and are offered a job in a US company with many locations in every state. It is a great job, but headlines such as **US Gun Homicide Rate Higher Than Other Developed Countries**^[http://abcnews.go.com/blogs/headlines/2012/12/us-gun-ownership-homicide-rate-higher-than-other-developed-countries/] have you worried. Fox News runs a scary looking graphic, and charts like the one below only add to that concern: 
- 
+```{r, echo=FALSE, warning=FALSE, message=FALSE, out.width="70%"}
+library(tidyverse)
+library(ggplot2)
+library(ggflags)
+library(countrycode)
+library(tweetrmd)
+
+dat <- tibble(country = toupper(c("Germany", "China", "USA", "India", "Spain", "UK", "Italy", "Brazil")),
+              capacity = c(60.1, 45.5, 40.3, 35.7, 30.2, 25.8, 22.4, 20.1),
+              label = c(as.character(c(60.1, 45.5, 40.3, 35.7, 30.2, 25.8, 22.4, 20.1))),
+              code = c("de", "cn", "us", "in", "es", "gb", "it", "br"))
+
+dat %>%
+  mutate(country = reorder(country, -capacity)) %>%
+  ggplot(aes(country, capacity, label = label)) +
+  geom_bar(stat = "identity", fill = "darkgreen") +
+  geom_text(nudge_y = 1.6, color = "darkgreen", size = 5) +
+  geom_flag(y = -.5, aes(country = code), size = 12) +
+  scale_y_continuous(breaks = c(0, 10, 20, 30, 40, 50, 60, 70), limits = c(0,70)) +
+  ggtitle(toupper("Renewable Energy Capacity in Key Countries (in GW)")) +
+  xlab("") +
+  ylab("Renewable Energy Capacity (in Gigawatts)") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(size = 8, vjust = -12),
+        axis.ticks.x=element_blank(),
+        axis.line.x = element_blank(),
+        plot.margin = unit(c(1,1,1,1), "cm"))
+```
+You might want to look into the underlying data (in this case, fabricated) and think about what to do next. In this sense, you have *learned from data*. 
+
+##  Case study 2: US homicides by firearm
+
+Imagine you live in Europe (if only!) and are offered a job in a US company with many locations in every state. It is a great job, but headlines such as **US Gun Homicide Rate Higher Than Other Developed Countries**^[http://abcnews.go.com/blogs/headlines/2012/12/us-gun-ownership-homicide-rate-higher-than-other-developed-countries/] have you worried. Fox News runs a scary looking graphic, and charts like the one below only add to you anxiety:
 
 ```{r murder-rate-example-1, echo=FALSE, warning=FALSE, message=FALSE, out.width="70%"}
 ##from http://abcnews.go.com/images/International/homocides_g8_countries_640x360_wmain.jpg

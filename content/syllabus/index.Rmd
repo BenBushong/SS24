@@ -98,7 +98,7 @@ knitr::include_graphics("/img/syllabus/hosrt_error_tweet.png", error = FALSE)
 
 ## Course materials
 
-The course website can be found at [https://ssc442Kirkpatrick.netlify.app](https://ssc442Kirkpatrick.netlify.app) (but you know that. You're on it right now.)
+The course website can be found at [https://ssc442.netlify.app](https://ssc442.netlify.app) (but you know that. You're on it right now.)
 
 All of the readings and software in this class are **free**. There are free online version of all the texts including [**Introduction to Statistical Learning (2nd Ed)**](https://www.statlearning.com/) and `R` / RStudio are free (don't pay for RStudio). We will reference outside readings and there exist paper versions of some "books" but you won't need to buy anything^[If you've got money to burn, you can buy me a burrito.]
 
