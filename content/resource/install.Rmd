@@ -119,7 +119,7 @@ knitr::include_graphics("/img/install/RenderedPDF.png", error = FALSE)
 See the Markdown and R Markdown sidebars for instructions on using the template.
 
 
-### Uh-oh Trouble
+### Uh-oh Trouble: Some common errors
 
 It's not uncommon to have some issues when you first try to knit, and often they are easy to fix. Frustratingly, R does not give very informative errors, so troubleshooting is a bit of an art.
 
@@ -209,7 +209,7 @@ knitr::include_graphics("/img/install/FixMacPermissions2.png", error=FALSE)
 
 
 
-### What about this error....?
+#### What about this error....?
 
 If you are still hitting an error, then head to the course Slack. When you post a question, make sure to
 
@@ -220,7 +220,7 @@ If you are still hitting an error, then head to the course Slack. When you post 
 
 We rarely see problems that cannot be addressed with some proper troubleshooting.
 
-### And if it still doesn't work and the lab is due in one hour...?
+#### And if it still doesn't work and the lab is due in one hour...?
 
 Set up an account on posit.cloud (former Rstudio.cloud). Make a workspace, follow the package / tinyTex installation instructions, upload your template, and work there. You will not run into system issues there, and it is always available and free. 
 
