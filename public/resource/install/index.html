@@ -30,7 +30,7 @@
   
     
   
-  <meta name="description" content="Install RInstall RStudio/PositInstall tidyverseInstall tinytexAs mentioned in the syllabus, you will do all of your work in this class with the open source programming language R. You will use RStudio/Posit as the main program to access R. Think of R as an engine and RStudio/Posit as a car dashboard—–R handles all the calculations and the actual statistics, while RStudio provides a nice interface for running R code.">
+  <meta name="description" content="Install RInstall RStudio/PositInstall tidyverseInstall tinytexUh-oh TroubleWhat about this error….?And if it still doesn’t work and the lab is due in one hour…?As mentioned in the syllabus, you will do all of your work in this class with the open source programming language R. You will use RStudio/Posit as the main program to access R. Think of R as an engine and RStudio/Posit as a car dashboard—–R handles all the calculations and the actual statistics, while RStudio provides a nice interface for running R code.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://ssc442kirkpatrick.netlify.app/resource/install/">
@@ -238,7 +238,7 @@
   <meta property="og:site_name" content="Data Analytics">
   <meta property="og:url" content="https://ssc442kirkpatrick.netlify.app/resource/install/">
   <meta property="og:title" content="Installing R, RStudio (Posit), tidyverse, and tinytex | Data Analytics">
-  <meta property="og:description" content="Install RInstall RStudio/PositInstall tidyverseInstall tinytexAs mentioned in the syllabus, you will do all of your work in this class with the open source programming language R. You will use RStudio/Posit as the main program to access R. Think of R as an engine and RStudio/Posit as a car dashboard—–R handles all the calculations and the actual statistics, while RStudio provides a nice interface for running R code."><meta property="og:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png">
+  <meta property="og:description" content="Install RInstall RStudio/PositInstall tidyverseInstall tinytexUh-oh TroubleWhat about this error….?And if it still doesn’t work and the lab is due in one hour…?As mentioned in the syllabus, you will do all of your work in this class with the open source programming language R. You will use RStudio/Posit as the main program to access R. Think of R as an engine and RStudio/Posit as a car dashboard—–R handles all the calculations and the actual statistics, while RStudio provides a nice interface for running R code."><meta property="og:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png">
   <meta property="twitter:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
   
     
@@ -633,6 +633,9 @@
 <li><a href="#install-rstudioposit" id="toc-install-rstudioposit">Install RStudio/Posit</a></li>
 <li><a href="#install-tidyverse" id="toc-install-tidyverse">Install <code>tidyverse</code></a></li>
 <li><a href="#install-tinytex" id="toc-install-tinytex">Install <code>tinytex</code></a></li>
+<li><a href="#uh-oh-trouble" id="toc-uh-oh-trouble">Uh-oh Trouble</a></li>
+<li><a href="#what-about-this-error." id="toc-what-about-this-error.">What about this error….?</a></li>
+<li><a href="#and-if-it-still-doesnt-work-and-the-lab-is-due-in-one-hour" id="toc-and-if-it-still-doesnt-work-and-the-lab-is-due-in-one-hour">And if it still doesn’t work and the lab is due in one hour…?</a></li>
 </ul>
 </div>
 
@@ -648,9 +651,13 @@
 <li>Click on “Download <code>R</code> for <code>XXX</code>”, where <code>XXX</code> is either Mac or Windows:</li>
 </ol>
 <p><img src="../../../../../../../img/install/install-r-links.png" width="60%" /></p>
-<pre><code>- If you use macOS, scroll down to the first `.pkg` file in the list of files (in this picture, it&#39;s `R-4.0.0.pkg`; as of Summer 2022 now, the current version is also 4.2.1 so use the most recent one) and download it.</code></pre>
+<ul>
+<li>If you use macOS, scroll down to the first <code>.pkg</code> file in the list of files. In this picture, it’s <code>R-4.0.0.pkg</code>. R is constantly being updated so <strong>choose the most recent one</strong> and download it.</li>
+</ul>
 <p><img src="../../../../../../../img/install/install-r-mac.png" width="100%" /></p>
-<pre><code>- If you use Windows, click &quot;base&quot; (or click on the bolded &quot;install R for the first time&quot; link) and download it.</code></pre>
+<ul>
+<li>If you use Windows, click “base” (or click on the bolded “install R for the first time” link) and download it.</li>
+</ul>
 <p><img src="../../../../../../../img/install/install-r-windows.png" width="100%" /></p>
 <ol start="3" style="list-style-type: decimal">
 <li><p>Double click on the downloaded file (check your <code>Downloads</code> folder). Click yes through all the prompts to install like any other program.</p></li>
@@ -665,7 +672,7 @@
 <li>The website should automatically detect your operating system (macOS or Windows) and show a big download button for it:</li>
 </ol>
 <p><img src="../../../../../../../img/install/install-r-rstudio1.png" width="50%" /></p>
-<p>If not, scroll down a little to the large table and choose the version of RStudio that matches your operating system.</p>
+<p>If not, scroll down a little to the large table and choose the newest version of RStudio that matches your operating system (this picture will be out of date quickly; choose the most recent version available)</p>
 <p><img src="../../../../../../../img/install/install-r-rstudio2.png" width="100%" /></p>
 <ol start="3" style="list-style-type: decimal">
 <li>Double click on the downloaded file (again, check your <code>Downloads</code> folder). Click yes through all the prompts to install like any other program.</li>
@@ -693,8 +700,70 @@
 <li>The end! You should now be able to knit to PDF.</li>
 </ol>
 <p>Find the course assignment template (for SSC442, see the <a href="/assignment/">Assignments</a> page), right-click to download it (don’t just click on it - that won’t work), open it in Rstudio, and without changing anything, click the “knit” button to test out your install. Your system should open a PDF that looks like something like this:</p>
-<p><img src="RenderedPDF.png" width="962" /></p>
+<p><img src="../../../../../../../img/install/RenderedPDF.png" /><!-- --></p>
 <p>See the Markdown and R Markdown sidebars for instructions on using the template.</p>
+</div>
+<div id="uh-oh-trouble" class="section level3">
+<h3>Uh-oh Trouble</h3>
+<p>It’s not uncommon to have some issues when you first try to knit, and often they are easy to fix. Frustratingly, R does not give very informative errors, so troubleshooting is a bit of an art.</p>
+<p>First, make sure you followed the steps above and that no errors happened along the way. If your computer tells you that it failed to download something, then that’s the first thing to fix and not something related to R or R Studio. Now, assuming the previous steps all completed…</p>
+<div id="the-unicode-error" class="section level4">
+<h4>The unicode error</h4>
+<p><strong>What is it?</strong></p>
+<p>While R does not usually give informative errors, one that can be easily diagnosed with the error is one that has the words “unicode error” in it. It will look something like this (note the <code>! LaTeX Error: Unicode character</code> part ):</p>
+<p><img src="../../../../../../../img/install/Unicode.png" /><!-- --></p>
+<p>This error means you’re trying to use a character that LaTeX (the engine that renders your PDF) isn’t able to handle. In the above example, the issue is Unicode character <code>U+03B2</code>. If you google <code>Unicode U+03B2</code> you will learn that it is the greek letter beta.</p>
+<p><strong>Why did it happen?</strong></p>
+<p>Two possibilities:</p>
+<ol style="list-style-type: decimal">
+<li><p>If your computer’s system location is set such that it uses an Asian locale to set the format for your date (which is probably the case if your system date is displayed using non-arabic numerals), then the Unicode error is probably coming from this. You can check this by typing in the R Console <code>format(Sys.time(), '%d %B, %Y')</code>. If it returns non-arabic numerals, this is the issue.</p></li>
+<li><p>You copy-pasted an assignment question and in the text you copied, there was a greek letter or other character that LaTeX can’t handle.</p></li>
+</ol>
+<p><strong>How do I fix it?</strong></p>
+<ul>
+<li><strong>An easy fix</strong> for issue #1 is to replace the line in the course assignment template that uses the system date with the date written out. The header pictured below sets up all the information RMarkdown needs to give to LaTeX. The date YAML header here is asking R to run the command <code>format(...)</code> and use whatever is returned as the date, and in this case, it’s returning characters that LaTeX can’t process. To fix, replace everything inside the quotes with the date, written out: “January 1, 2024”. Take out the backticks and the letter <code>r</code>, but keep the outside double-quotes. You’ll have to manually write the date on your assignments like it’s 2005.</li>
+</ul>
+<p><img src="../../../../../../../img/install/UnicodeFix.png" /><!-- --></p>
+<ul>
+<li><strong>An easy fix</strong> for issue #2 is to take out the offending character. If you want to use greek letters, LaTeX has it’s own method for that: <code>$\beta$</code> will render to a greek letter beta. Most greek letters can be typeset this way (with the backslash and everything).</li>
+</ul>
+</div>
+<div id="the-tex-capacity-exceeded-error" class="section level4">
+<h4>The Tex Capacity Exceeded error</h4>
+<p>Looks like this:</p>
+<p><img src="../../../../../../../img/install/TexCapacityExceeded.png" /><!-- --></p>
+<p><strong>Why did it happen</strong></p>
+<p>Somewhere in your code chunk in your .RMD, you have left a line that looks like this:</p>
+<pre><code>myDataFrame</code></pre>
+<p>You might have been working with some data (in a <code>data.frame</code> called <code>myDataFrame</code>) and left it alone on a line. When you put it alone on a line, R tries to print out the whole thing. When it’s a very large data.frame (many columns and many rows), then it spits out too much for LaTeX to handle, and you get this error.</p>
+<p><strong>How do I fix it?</strong></p>
+<p>Find the line in your code (not in the text, but in the code) and remove it.</p>
+</div>
+<div id="mac-permissions" class="section level4">
+<h4>Mac permissions</h4>
+<p>This error looks <em>something</em> like this:</p>
+<p><img src="../../../../../../../img/install/MacPermissions.png" /><!-- --></p>
+<p><strong>Why did it happen?</strong></p>
+<p>The key here is that it says something about not having permission to write in <code>usr/bin</code>. This means your mac somehow thinks it can’t write to the hard drive, or at least the folder that contains your R. It usually occurs when you’re trying to update packages, or install <code>tinyTex</code>.</p>
+<p><strong>How do I fix it</strong>?</p>
+<p>The error gives a link that tells you how to do it. It requires using <code>terminal</code> on your mac (hit command+space and type “terminal” to open the terminal). Then, follow the instructions at <a href="https://github.com/rstudio/tinytex/issues/24">the given link</a>. Type these two lines in verbatim into the terminal (don’t copy-paste):</p>
+<p><img src="../../../../../../../img/install/FixMacPermissions1.png" /><!-- --></p>
+<p>If the error happened when you were trying to install <code>tinyTex</code>, then also do this step afterwards (also from the link):</p>
+<p><img src="../../../../../../../img/install/FixMacPermissions2.png" /><!-- --></p>
+</div>
+</div>
+<div id="what-about-this-error." class="section level3">
+<h3>What about this error….?</h3>
+<p>If you are still hitting an error, then head to the course Slack. When you post a question, make sure to</p>
+<ol style="list-style-type: decimal">
+<li><p>Include a screenshot (use <code>screenshot</code> on mac or <code>snipping tool</code> on Windows). Both of these programs can save the screenshot to the clipboard, which lets you paste <em>directly into Slack</em> so you don’t have to save an image then upload. On mac, command+shift+4 lets you draw a box around the screen to capture and then lets you paste it directly. It’s quite handy!</p></li>
+<li><p>State what you have tried to do to address the issue.</p></li>
+</ol>
+<p>We rarely see problems that cannot be addressed with some proper troubleshooting.</p>
+</div>
+<div id="and-if-it-still-doesnt-work-and-the-lab-is-due-in-one-hour" class="section level3">
+<h3>And if it still doesn’t work and the lab is due in one hour…?</h3>
+<p>Set up an account on posit.cloud (former Rstudio.cloud). Make a workspace, follow the package / tinyTex installation instructions, upload your template, and work there. You will not run into system issues there, and it is always available and free.</p>
 </div>
 <div class="footnotes footnotes-end-of-document">
 <hr />
