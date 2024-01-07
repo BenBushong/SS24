@@ -17,6 +17,10 @@ editor_options:
 
 <!-- Revised assignment 5-5-2022 -->
 
+<!-- Fix footnote 4. In description of intro, mention that data should be described in passing (briefly allude to). Theory section should say "don't describe data here" (Tolly was confused b/c intro asks for data description). Theory And Background should be a header, not a section with word-count (people had "Theory and Background" then "Theory" then "Background" then "Hypotheses" this is is a mess! . Make sure it's clear intro = brief mention of data; theory = no data; later on: data. Probably remove due_date as well? Also, make it clearer that this should not narrarate: "We" should not appear anywhere maybe? Just tell me what you need to tell me. 
+
+Maybe I should describe more what I want for the plots (a la British BakeOff). Mention color-blind friendly colors and proper names and such. Add where the plots should be in the flow? -->
+
 :::fyi
 
 One member of each group should turn in the group's work on D2L. The turned-in copy should have the group member's names at the top.
@@ -33,7 +37,7 @@ Data analytics is inherently a hands-on endeavor. Accordingly, the final project
 
 [^3]: Note that **existing** is taken to mean that you are not permitted to collect data by interacting with other people. That is not to say that you cannot gather data that previously has not been gathered into a single place---this sort of exercise is necessary. But you cannot stand with a clipboard outside a store and count visitors (for instance). That would require involving the Institutional Review Board (IRB) and nobody wants to do that.
 
-2. You must visualize (at least) three **interesting** features of that data. Visualizations should aid the reader in understanding something about the data that might not be readily aparent.[^4]
+2. You must visualize (at least) three **interesting** features of that data. Visualizations should aid the reader in understanding something about the data that might not be readily apparent.[^4]
 
 3. You must come up with some analysis---using tools from the course---which relates your data to either a **prediction** or a **policy conclusion**. For example, if you collected data from Major League Baseball games, you could try to "predict" whether a left-hander was pitching based solely on the outcomes of the batsmen. If you assembled data from COVID lockdowns and unemployment, you could test hypotheses about the labor market and its reaction to COVID. 
 
