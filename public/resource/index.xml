@@ -91,13 +91,8 @@
 &lt;li&gt;Wait for a bit while &lt;code&gt;R&lt;/code&gt; downloads and installs everything you need.&lt;/li&gt;
 &lt;li&gt;The end! You should now be able to knit to PDF.&lt;/li&gt;
 &lt;/ol&gt;
-<<<<<<< HEAD
 &lt;p&gt;Find the course assignment template (for SSC442, see the &lt;a href=&#34;https://ssc442.netlify.app/assignment/&#34;&gt;Assignments&lt;/a&gt; page), right-click to download it (don’t just click on it - that won’t work), open it in Rstudio, and without changing anything, click the “knit” button to test out your install. Your system should open a PDF that looks like something like this:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;RenderedPDF.png&#34; width=&#34;962&#34; /&gt;&lt;/p&gt;
-=======
-&lt;p&gt;Find the course assignment template (for SSC442, see the &lt;a href=&#34;https://ssc442kirkpatrick.netlify.app/assignment/&#34;&gt;Assignments&lt;/a&gt; page), right-click to download it (don’t just click on it - that won’t work), open it in Rstudio, and without changing anything, click the “knit” button to test out your install. Your system should open a PDF that looks like something like this:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;../../../../../../../img/install/RenderedPDF.png&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
->>>>>>> Kirkpatrick-Working
 &lt;p&gt;See the Markdown and R Markdown sidebars for instructions on using the template.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;uh-oh-trouble&#34; class=&#34;section level3&#34;&gt;
@@ -173,13 +168,8 @@
     </item>
     
     <item>
-<<<<<<< HEAD
-      <title>Using Rstudio Cloud</title>
-      <link>https://ssc442.netlify.app/resource/rstudiocloud/</link>
-=======
       <title>Using Posit (Rstudio) Cloud</title>
-      <link>https://ssc442kirkpatrick.netlify.app/resource/rstudiocloud/</link>
->>>>>>> Kirkpatrick-Working
+      <link>https://ssc442.netlify.app/resource/rstudiocloud/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://ssc442.netlify.app/resource/rstudiocloud/</guid>
       <description>
