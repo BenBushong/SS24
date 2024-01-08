@@ -1,8 +1,8 @@
 ---
 title: "Project 1"
 linktitle: "Project 1"
-date: "2023-08-30"
-due_date: "2023-10-14"
+date: "2024-01-08"
+due_date: "2024-02-10"
 due_time: "11:59 PM"
 output:
   blogdown::html_page:
@@ -30,15 +30,15 @@ editor_options:
 </div>
 
 <div class="fyi">
-<p>One member of each group should turn in the group’s work on D2L. The turned-in copy should have the group member’s names at the top.</p>
-<p>Turn in your copies by <strong>11:59 on the date listed on the Schedule</strong></p>
+<p>All members of the group should turn in the group’s work on D2L. Each turned-in copy should have the entire group’s names at the top.</p>
+<p>Turn in your copies no later than <strong>Saturday, February 10th at 11:59 PM.</strong></p>
 </div>
 <div id="part-1-rats-rats-rats." class="section level2">
 <h2>Part 1: Rats, rats, rats.</h2>
 <p>New York City is full of urban wildlife, and rats are one of the city’s most infamous animal mascots. Rats in NYC are plentiful, but they also deliver food, so they’re useful too.</p>
 <p>{{% youtube "PeJUqcbool4" %}}</p>
 <p>NYC keeps incredibly detailed data regarding animal sightings, including rats, and <a href="https://www.kaggle.com/new-york-city/nyc-rat-sightings/data">it makes this data publicly available</a>.</p>
-<p>For this first project, pretend that you are an analyst with the NYC Mayor’s office, and you have been tasked with getting a better understanding of the rat problem. Your job is to use <strong>R and ggplot2</strong> to tell an interesting story hidden in the data. You must create a story by looking carefully at the data, finding some insight into where or when rat sightings occur, and describing to the Mayor how this insight may inform a strategy to address the rats. Your assignment will take the form of a memo that presents the data and insights along with appropriate visualizations that communicate the story in-line. Your memo should be approximately 2-4 pages (including plots) and, of course, will use Rmarkdown rendered to PDF using LaTeX.</p>
+<p>For this first project, pretend that you are an analyst with the NYC Mayor’s office, and you have been tasked with getting a better understanding of the rat problem. Your job is to use <strong>R and ggplot2</strong> to tell an interesting story hidden in the data. You must create a story by looking carefully at the data, finding some insight into where or when rat sightings occur, and describing to the Mayor how this insight may inform a strategy to address the rats. Your assignment will take the form of a professional memo that presents the data and insights along with appropriate visualizations that communicate the story in-line. Your memo should be approximately 2-4 pages (including plots) and, of course, will use Rmarkdown rendered to PDF using LaTeX.</p>
 <div id="instructions" class="section level3">
 <h3>Instructions</h3>
 <p>Here’s what you need to do:</p>
@@ -47,11 +47,12 @@ editor_options:
 <ul>
 <li><a href="/data/Rat_sightings.csv"><i class="fas fa-file-csv"></i> <code>Rat_sightings.csv</code></a></li>
 </ul></li>
-<li><p><strong>Summarize</strong> the data somehow. The raw data has more than 100,000 rows, which means you’ll need to aggregate the data (<code>filter()</code>, <code>group_by()</code>, and <code>summarize()</code> will be your friends). Consider looking at the number of sightings per borough, per year, per dwelling type, etc., or a combination of these, like the change in the number sightings across the 5 boroughs between 2010 and 2016.</p></li>
-<li><p><strong>Create</strong> an appropriate visualization based on the data you summarized.</p></li>
-<li><p><strong>Write</strong> a polished, professional memo presenting your analysis. We are specifically looking for a discussion of the following:</p>
+<li><p><strong>Summarize</strong> the data somehow. The raw data has more than 150,000 rows, which means you’ll need to aggregate the data (<code>filter()</code>, <code>group_by()</code>, and <code>summarize()</code> will be your friends). Consider looking at the number of sightings per borough, per year, per dwelling type, etc., or a combination of these, like the change in the number sightings across the 5 boroughs between 2010 and 2024. (Of course, I just gave you these ideas, so you’ll need to be a bit more creative than just doing exactly what I just said.)</p></li>
+<li><p><strong>Explore</strong> the data further. Once you have summarized the data in one way, use what you find to further explore other patterns you see in the data. When necessary, you may bring in other data (it is not hard to find and add to your data the population of each borough or the average daily temperature by month, etc.). Be creative, but do so to further explore and analyze. Drill down on something you see in the data to <em>tell a story</em>. Remember, as analysts, we are looking for “patterns in the data” that are not easily written in closed form.</p></li>
+<li><p><strong>Create</strong> appropriate visualizations based on the data you summarized and explored. Pay attention to every detail - color choice, labels, axis text, etc.</p></li>
+<li><p><strong>Write</strong> a polished, professional memo presenting your analysis to the Mayor. The memo should tell the story you found in the data. It should not narrarate your discovery process (e.g. it should <strong>not</strong> say “we tried looking at…and then ran ggplot(…)) but rather should weave your exploration into a narrarative driven by your graphics, with the text filling in the context. We are specifically looking for a discussion of the following:</p>
 <ul>
-<li>What story are you telling with your new graphic?</li>
+<li>What story are you telling with your graphics?</li>
 <li>How have you applied reasonable standards in visual storytelling?</li>
 <li>What policy implication is there (if any)?</li>
 </ul></li>
@@ -59,7 +60,7 @@ editor_options:
 <ul>
 <li>A PDF file of your memo with your graphics embedded in it.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> This means you’ll need to do all your coding in an <code>R</code> Markdown file and embed your code in chunks.</li>
 <li>Note that Part 2 of this project should be included in this PDF in it’s own section (see below).</li>
-<li>Nothing else. No .Rmd, no code, nothing but your clean, polished memo with Part 1 and Part 2.</li>
+<li>Nothing else. <strong>No .Rmd, no code</strong>, nothing but your clean, polished memo with Part 1 and Part 2.</li>
 </ul></li>
 </ol>
 <p>Some important notes on your assignment</p>
@@ -100,27 +101,7 @@ rats_clean &lt;- rats_raw %&gt;%
          sighting_day = day(created_date),
          sighting_weekday = wday(created_date, label = TRUE, abbr = FALSE)) %&gt;%
   filter(borough != &quot;Unspecified&quot;)</code></pre>
-<p>You’ll summarize the data with functions from <strong>dplyr</strong>, including stuff like <code>count()</code>, <code>arrange()</code>, <code>filter()</code>, <code>group_by()</code>, <code>summarize()</code>, and <code>mutate()</code>. Here are some examples of ways to summarize the data:</p>
-<pre class="r"><code># See the count of rat sightings by weekday
-rats_clean %&gt;%
-  count(sighting_weekday)
-# Assign a summarized data frame to an object to use it in a plot
-rats_by_weekday &lt;- rats_clean %&gt;%
-  count(sighting_weekday, sighting_year)
-ggplot(rats_by_weekday, aes(x = fct_rev(sighting_weekday), y = n)) +
-  geom_col() +
-  coord_flip() +
-  facet_wrap(~ sighting_year)
-# See the count of rat sightings by weekday and borough
-rats_clean %&gt;%
-  count(sighting_weekday, borough, sighting_year)
-# An alternative to count() is to specify the groups with group_by() and then
-# be explicit about how you&#39;re summarizing the groups, such as calculating the
-# mean, standard deviation, or number of observations (we do that here with
-# `n()`).
-rats_clean %&gt;%
-  group_by(sighting_weekday, borough) %&gt;%
-  summarize(n = n())</code></pre>
+<p>You’ll summarize the data with functions from <strong>dplyr</strong>, including stuff like <code>count()</code>, <code>arrange()</code>, <code>filter()</code>, <code>group_by()</code>, <code>summarize()</code>, and <code>mutate()</code>.</p>
 </div>
 </div>
 <div id="part-2-data-hunting" class="section level2">
@@ -134,13 +115,12 @@ rats_clean %&gt;%
 <p>I will evaluate these projects (not the TA). I will only give top marks to those groups showing initiative and cleverness. I will use the following weights for final scores:</p>
 <p><strong>Part 1</strong></p>
 <ol style="list-style-type: decimal">
-<li><p>Technical difficulty: Does the final project show mastery of the skills we’ve discussed thus far? Are axes and legends appropriately labeled? (12 points)</p></li>
-<li><p>Appropriateness of visuals: Do the visualizations tell a clear story? Have we learned something? (10 points)</p></li>
+<li><p>Technical difficulty: Does the final project show mastery of the skills we’ve discussed thus far? Did the underlying data analysis use and expand on the tools we learned in class? Are axes and legends appropriately labeled and are colorblind-friendly colors used? (12 points)</p></li>
+<li><p>Appropriateness of visuals: Do the visualizations communicate the analysis? (10 points)</p></li>
 <li><p>Storytelling: Does your memo clearly convey what you’re doing and why? (10 points)</p></li>
 </ol>
 <p><strong>Part 2</strong></p>
 <p>Each piece of data (and description) is worth 6 points. (18 points total)</p>
-<p>.small[Updated 4-4-2022]</p>
 </div>
 <div class="footnotes footnotes-end-of-document">
 <hr />
