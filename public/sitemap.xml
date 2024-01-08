@@ -16,11 +16,23 @@
   </url><url>
     <loc>https://ssc442.netlify.app/example/02-example/</loc>
     <lastmod>2023-09-08T09:24:36-04:00</lastmod>
+<<<<<<< HEAD
   </url><url>
     <loc>https://ssc442.netlify.app/resource/install/</loc>
     <lastmod>2023-09-11T10:37:11-04:00</lastmod>
   </url><url>
     <loc>https://ssc442.netlify.app/assignment/00-assignment/</loc>
+=======
+  </url>
+  
+  <url>
+    <loc>https://ssc442kirkpatrick.netlify.app/resource/install/</loc>
+    <lastmod>2024-01-07T13:20:17-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ssc442kirkpatrick.netlify.app/assignment/00-assignment/</loc>
+>>>>>>> Kirkpatrick-Working
     <lastmod>2023-09-08T09:24:36-04:00</lastmod>
   </url><url>
     <loc>https://ssc442.netlify.app/example/10-example/</loc>
@@ -37,11 +49,23 @@
   </url><url>
     <loc>https://ssc442.netlify.app/assignment/12-assignment/</loc>
     <lastmod>2023-10-17T12:58:29-04:00</lastmod>
+<<<<<<< HEAD
   </url><url>
     <loc>https://ssc442.netlify.app/assignment/13-assignment/</loc>
     <lastmod>2023-10-18T08:31:10-04:00</lastmod>
   </url><url>
     <loc>https://ssc442.netlify.app/example/13-example/</loc>
+=======
+  </url>
+  
+  <url>
+    <loc>https://ssc442kirkpatrick.netlify.app/assignment/13-assignment/</loc>
+    <lastmod>2024-01-07T05:00:35-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ssc442kirkpatrick.netlify.app/example/13-example/</loc>
+>>>>>>> Kirkpatrick-Working
     <lastmod>2023-10-18T08:31:10-04:00</lastmod>
   </url><url>
     <loc>https://ssc442.netlify.app/assignment/14-assignment/</loc>

@@ -1,7 +1,10 @@
 ---
 title: "Welcome Back to R"
 linktitle: "0: Introduction to R"
+<<<<<<< HEAD
 read_date: "2024-01-09"
+=======
+>>>>>>> Kirkpatrick-Working
 lastmod: "`r Sys.Date()`" 
 menu:
   content:
@@ -15,9 +18,14 @@ output:
 
 ```{r, include=F, eval=T}
 library(tidyverse)
-
 ```
+<<<<<<< HEAD
 ## Readings
+=======
+
+
+## Readings  
+>>>>>>> Kirkpatrick-Working
  
 As noted in the syllabus, your readings will be assigned each week in this area. For this initial week, please read the course content. **Read closely** the following:
 
@@ -74,7 +82,7 @@ I promise to improve the course with feedback, so if you have comments please sp
 #### Course Structure
 Here's how each week will work: before class on Tuesday, you'll read the [content](/content/) for the week. On Tuesday, you'll come to lecture. Before Thursday, you'll read the [example](/example/) for the week, and on Thursday you'll come to lecture ready to participate with a charged laptop. On Saturday night by 11:59pm, you'll turn in your [Weekly Writing assignment](/assignment/#weekly-writings) responding to the weekly writing prompt **given during class on Tuesday or Thursday**, rendered to PDF by RMarkdown and using the proper template (see [assignments](/assignment)). By Monday at 11:59pm, you'll turn in your [Lab assignment](/assignment/#labs), also using the RMarkdown template. 
 
-You'll repeat this each week until we're out of labs. If a holiday occurs on a due date, then the assignment or lab is due the next non-holiday day at 11:59pm. You'll also work with your assigned group on the Group Project. We'll assign groups after the drop deadline has passed.
+You'll repeat this each week until we're out of labs. If a holiday occurs on a due date, then the assignment or lab is due the next non-holiday day at 11:59pm or as otherwise noted. You'll also work with your assigned group on the Group Project. We'll assign groups after the drop deadline has passed.
 
 Now, let's look at [the Syllabus for important information about office hours](/syllabus/#course-times-and-zoom-links)
 
@@ -562,3 +570,19 @@ If we have time today, let's open the template linked above and see what happens
 
 
 ![Screentshot of header of PDF file properly rendered ](/example/00-example_files/00-example_insertimage_1.png)
+
+
+### Asking questions on Slack
+You should join the course Slack as soon as possible. It's a great resource for asking questions, and I'll give bonus points to people who are active in answering others' questions. I (and our TA) will also monitor the Slack. You'll often get an answer faster there than via email.
+
+When you have a question for Slack:
+
+1. Include a screenshot (use `screenshot` on mac or `snipping tool` on Windows). Both of these programs can save the screenshot to the clipboard, which lets you paste *directly into Slack* so you don't have to save an image then upload. On mac, command+shift+4 lets you draw a box around the screen to capture and then lets you paste it directly. It's quite handy! 
+
+  - Make sure the screenshot includes the code that generated the error, and the error output.
+
+2. State what you have tried to do to address the issue. (!!)
+
+
+We rarely see problems that cannot be addressed with some proper troubleshooting.
+
