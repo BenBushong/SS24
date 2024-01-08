@@ -1,7 +1,7 @@
 ---
 title: "Working with R and RStudio"
 linktitle: "0: Introduction to R"
-read_date: "2023-08-31"
+read_date: "2024-01-11"
 lastmod: "`r Sys.Date()`"
 output:
   blogdown::html_page:
@@ -23,23 +23,19 @@ readr::write_csv(gapminder::gapminder, here::here("static", "data", "gapminder.c
 ```
 
 
-# Frontmatter (F23)
-I like to use this spot to publish course announcements. Not so much for y'all, but more so I remember. If you see any announcements that don't say "F23" there's a good change it's leftover from earlier course offerings.
+# Frontmatter (Spring 2024)
+I like to use this spot to publish course announcements. Not so much for y'all, but more so I remember. If you see any announcements that don't say "Spring 2024" there's a good change it's leftover from earlier course offerings.
 
 ### Participation extra credit
-A careful read of our syllabus under "class participation" will show that I do give extra credit for answering questions and (mainly) sharing completed R coding tasks. That is, we'll walk through some examples, and when we hit a "try it", I'll ask you to give it a go. Then, after a few minutes, I'll ask if anyone wants to share their answer. I have set up a Zoom **purely for the purpose of sharing your screen and not, I repeat NOT, for the purpose of simulcasting class**: [bit.ly/KIRKPATRICK](bit.ly/KIRKPATRICK) will take you right to the Zoom. The CAPS are important in the address. You get one point of participation extra credit. Five points is worth 1% of a grade boost, so these aren't neglible EC points!
+A careful read of our syllabus under "class participation" will show that I do give extra credit for answering questions and (mainly) sharing completed R coding tasks. That is, we'll walk through some examples, and when we hit a "try it", I'll ask you to give it a go. Then, after a few minutes, I'll ask if anyone wants to share their answer. You get one point of participation extra credit. Five points is worth 1% of a grade boost, so these aren't negligible points.
 
 ### Assignment / Exercises
-The Assignments page has all of our weekly lab assignments (including Week 0's, due on ~~Monday~~ Tuesday at 11:59pm). The assignments often have a preamble and some code that has to be used to set you up for the questions. **The questions to be completed and turned in are under "Exercises" at the very end**.
+The Assignments page has all of our weekly lab assignments (including Week 0's, due on Monday at 11:59pm). The assignments often have a preamble and some code that has to be used to set you up for the questions. **The questions to be completed and turned in are under "Exercises" at the very end**.
 
-### DMs are not open
-I don't like to use the DM feature of Slack. Not because I don't like getting DM's (I don't, but that's not why), but because the point of Slack is so we can all learn together. If you have a question, even if you're worried it's a silly question, then *others* will, I promise, have the same question. Asking in the proper public channel will answer everyone's question at once. Corollary to this: you should check the Slack to see if your question has already been asked.
+### Don't Slide into My DMs
+I don't like to use the DM feature of Slack. Not because I don't like getting DM's, but because the point of Slack is so we can all learn together. If you have a question, even if you're worried it's a silly question, then *others* will, I promise, have the same question. Asking in the public channel will answer everyone's question at once. Related to this: you should check the Slack to see if your question has already been asked.
 
-Another reason is that the TA will often be faster at response than I will be, depending on day of week and time of day (I start my day before some of you even go to bed). If you DM me, the TA can't see it and can't reply.
-
-### For econ majors and those curious or econ-adjacent (y'all)
-[MSU Econ Social - September 5th, 4-6PM, Bessey Hall](/files/Econ-social-event-flyer.png). MSU Dairy Store ice cream, Groovy Donuts and cider, and econ swag. You can RSVP at the link below (just to get a headcount).
-
+Another reason is that the TA will often be faster at responding than I will be, depending on day of week and time of day (I start my day before some of you even go to bed). If you DM me, the TA can't see it and can't reply.
 
 
 # Introduction to Examples

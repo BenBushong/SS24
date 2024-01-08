@@ -1,8 +1,8 @@
 ---
 title: "Working with R and RStudio"
 linktitle: "0: Introduction to R"
-read_date: "2023-08-31"
-lastmod: "2023-09-08"
+read_date: "2024-01-11"
+lastmod: "2024-01-08"
 output:
   blogdown::html_page:
     toc: true
@@ -21,12 +21,11 @@ editor_options:
 
 <div id="TOC">
 <ul>
-<li><a href="#frontmatter-f23" id="toc-frontmatter-f23">Frontmatter (F23)</a>
+<li><a href="#frontmatter-spring-2024" id="toc-frontmatter-spring-2024">Frontmatter (Spring 2024)</a>
 <ul>
 <li><a href="#participation-extra-credit" id="toc-participation-extra-credit">Participation extra credit</a></li>
 <li><a href="#assignment-exercises" id="toc-assignment-exercises">Assignment / Exercises</a></li>
-<li><a href="#dms-are-not-open" id="toc-dms-are-not-open">DMs are not open</a></li>
-<li><a href="#for-econ-majors-and-those-curious-or-econ-adjacent-yall" id="toc-for-econ-majors-and-those-curious-or-econ-adjacent-yall">For econ majors and those curious or econ-adjacent (y’all)</a></li>
+<li><a href="#dont-slide-into-my-dms" id="toc-dont-slide-into-my-dms">Don’t Slide into My DMs</a></li>
 </ul></li>
 <li><a href="#introduction-to-examples" id="toc-introduction-to-examples">Introduction to Examples</a></li>
 <li><a href="#r-basics" id="toc-r-basics"><code>R</code> basics</a>
@@ -86,25 +85,21 @@ editor_options:
 </ul>
 </div>
 
-<div id="frontmatter-f23" class="section level1">
-<h1>Frontmatter (F23)</h1>
-<p>I like to use this spot to publish course announcements. Not so much for y’all, but more so I remember. If you see any announcements that don’t say “F23” there’s a good change it’s leftover from earlier course offerings.</p>
+<div id="frontmatter-spring-2024" class="section level1">
+<h1>Frontmatter (Spring 2024)</h1>
+<p>I like to use this spot to publish course announcements. Not so much for y’all, but more so I remember. If you see any announcements that don’t say “Spring 2024” there’s a good change it’s leftover from earlier course offerings.</p>
 <div id="participation-extra-credit" class="section level3">
 <h3>Participation extra credit</h3>
-<p>A careful read of our syllabus under “class participation” will show that I do give extra credit for answering questions and (mainly) sharing completed R coding tasks. That is, we’ll walk through some examples, and when we hit a “try it”, I’ll ask you to give it a go. Then, after a few minutes, I’ll ask if anyone wants to share their answer. I have set up a Zoom <strong>purely for the purpose of sharing your screen and not, I repeat NOT, for the purpose of simulcasting class</strong>: <a href="bit.ly/KIRKPATRICK">bit.ly/KIRKPATRICK</a> will take you right to the Zoom. The CAPS are important in the address. You get one point of participation extra credit. Five points is worth 1% of a grade boost, so these aren’t neglible EC points!</p>
+<p>A careful read of our syllabus under “class participation” will show that I do give extra credit for answering questions and (mainly) sharing completed R coding tasks. That is, we’ll walk through some examples, and when we hit a “try it”, I’ll ask you to give it a go. Then, after a few minutes, I’ll ask if anyone wants to share their answer. You get one point of participation extra credit. Five points is worth 1% of a grade boost, so these aren’t negligible points.</p>
 </div>
 <div id="assignment-exercises" class="section level3">
 <h3>Assignment / Exercises</h3>
-<p>The Assignments page has all of our weekly lab assignments (including Week 0’s, due on <del>Monday</del> Tuesday at 11:59pm). The assignments often have a preamble and some code that has to be used to set you up for the questions. <strong>The questions to be completed and turned in are under “Exercises” at the very end</strong>.</p>
+<p>The Assignments page has all of our weekly lab assignments (including Week 0’s, due on Monday at 11:59pm). The assignments often have a preamble and some code that has to be used to set you up for the questions. <strong>The questions to be completed and turned in are under “Exercises” at the very end</strong>.</p>
 </div>
-<div id="dms-are-not-open" class="section level3">
-<h3>DMs are not open</h3>
-<p>I don’t like to use the DM feature of Slack. Not because I don’t like getting DM’s (I don’t, but that’s not why), but because the point of Slack is so we can all learn together. If you have a question, even if you’re worried it’s a silly question, then <em>others</em> will, I promise, have the same question. Asking in the proper public channel will answer everyone’s question at once. Corollary to this: you should check the Slack to see if your question has already been asked.</p>
-<p>Another reason is that the TA will often be faster at response than I will be, depending on day of week and time of day (I start my day before some of you even go to bed). If you DM me, the TA can’t see it and can’t reply.</p>
-</div>
-<div id="for-econ-majors-and-those-curious-or-econ-adjacent-yall" class="section level3">
-<h3>For econ majors and those curious or econ-adjacent (y’all)</h3>
-<p><a href="/files/Econ-social-event-flyer.png">MSU Econ Social - September 5th, 4-6PM, Bessey Hall</a>. MSU Dairy Store ice cream, Groovy Donuts and cider, and econ swag. You can RSVP at the link below (just to get a headcount).</p>
+<div id="dont-slide-into-my-dms" class="section level3">
+<h3>Don’t Slide into My DMs</h3>
+<p>I don’t like to use the DM feature of Slack. Not because I don’t like getting DM’s, but because the point of Slack is so we can all learn together. If you have a question, even if you’re worried it’s a silly question, then <em>others</em> will, I promise, have the same question. Asking in the public channel will answer everyone’s question at once. Related to this: you should check the Slack to see if your question has already been asked.</p>
+<p>Another reason is that the TA will often be faster at responding than I will be, depending on day of week and time of day (I start my day before some of you even go to bed). If you DM me, the TA can’t see it and can’t reply.</p>
 </div>
 </div>
 <div id="introduction-to-examples" class="section level1">
@@ -305,7 +300,6 @@ class(a)</code></pre>
 <p>Up to now, the variables we have defined are just one number. This is not very useful for storing data. The most common way of storing a dataset in <code>R</code> is in a <em>data frame</em>. Conceptually, we can think of a data frame as a table with rows representing observations and the different variables reported for each observation defining the columns. Data frames are particularly useful for datasets because we can combine different data types into one object.</p>
 <p>A large proportion of data analysis challenges start with data stored in a data frame. For example, we stored the data for our motivating example in a data frame. You can access this dataset by loading the <strong>dslabs</strong> library and loading the <code>murders</code> dataset using the <code>data</code> function:</p>
 <pre class="r"><code>library(dslabs)</code></pre>
-<pre><code>## Warning: package &#39;dslabs&#39; was built under R version 4.2.3</code></pre>
 <pre><code>## 
 ## Attaching package: &#39;dslabs&#39;</code></pre>
 <pre><code>## The following object is masked from &#39;package:gapminder&#39;:
