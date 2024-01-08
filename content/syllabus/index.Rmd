@@ -19,28 +19,24 @@ library(pander)
 
 ## Course Times and Office Hours
 
-### Lecture
-We meet in 116 Natural Sciences Tuesdays and Thursdays, 1:30 - 2:50 pm. This class is in-person and will not have an online component.
-
+We meet in 204 Natural Sciences Tuesdays and Thursdays, 12:40 - 2:00 pm. This class is in-person and will not have an online component.
 
 ### Office hours - Professor Bushong
 
-~~Fridays 10:15 - 11:45~~ Thursdays 11:00 am - 12 noon (and by appointment). If you are planning on coming after 11:45, please let me know.
+Tuesdays and Thursdays from 4:00 - 5:00 PM in 25E Marshall-Adams Hall. Marshall-Adams is on W. Circle Drive near the Grand River parking ramp. 25E is on the lowest floor (basically a basement).
 
-Office Hours for Prof. K are in-person, 105 Old Botany (Old Botany is on W. Circle Drive near the Grand River parking ramp. 105 is on the first floor.)
-
-Sunday evenings office hours are via Slack after 7:30pm or so till about 9pm.
+Sunday evenings office hours are via Slack between 6:30 PM until about 8:00 PM. **These are bonus hours and should only be relied on sparingly.**
 
 
 ### Office Hours - Teaching Assistant
-Nick Armstrong - [armst427@msu.edu](mailto:armst427@msu.edu)
+Allen Scovel - [scovelpa@msu.edu](mailto:scovelpa@msu.edu)
 
-TA Office Hours: Wednesdays 2-3pm and via Slack (if you are arriving after 2:30pm, please email Nick to let him know. Otherwise, he will depart the Zoom at 2:30)
+TA Office Hours (**Zoom**): Mondays 5:00 PM - 6:00 PM.
 
-TA Office Hours Zoom: [https://msu.zoom.us/j/94474676913](https://msu.zoom.us/j/94474676913) (Passcode: 592204)
+TA Office Hours Zoom: **TBD.**
 
 ### Slack
-We will use Slack as a forum for asking questions about the course, including course policies and, primarily, help questions with `R`. Students are encouraged to help answer each others' questions, and to use the forum as a first-step for seeking help. I, and our TA, will monitor slack and answer questions regularly. You can [join our Slack channel with this link by September 20th](https://join.slack.com/t/ssc442fall23/shared_invite/zt-21po16rx0-eSBByPJt~4ahKVWqqQaalQ)
+We will use Slack as a forum for asking questions about the course, including course policies and, primarily, help questions with `R`. Students are encouraged to help answer each others' questions, and to use the forum as a first-step for seeking help. Myself and the TA will monitor slack and answer questions regularly. You can [join our Slack channel with this link by February 1st.](https://join.slack.com/t/ssc442ss24/shared_invite/zt-2adwyltw0-lOfoQArmm7DE_WUeIq1s5AQ)
 
 ## What is This Course and Can / Should You Take It?
 
