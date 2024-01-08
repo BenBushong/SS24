@@ -9194,7 +9194,6 @@ You might want to look into the underlying data (in this case, fabricated) and t
 &lt;li&gt;&lt;a href=&#34;#acknowledgements&#34; id=&#34;toc-acknowledgements&#34;&gt;Acknowledgements&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#miscellanea&#34; id=&#34;toc-miscellanea&#34;&gt;Miscellanea&lt;/a&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#using-office-hours&#34; id=&#34;toc-using-office-hours&#34;&gt;Using Office Hours&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#contacting-me&#34; id=&#34;toc-contacting-me&#34;&gt;Contacting Me&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#letters-of-recommendation-references&#34; id=&#34;toc-letters-of-recommendation-references&#34;&gt;Letters of Recommendation / References&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
@@ -9208,6 +9207,8 @@ You might want to look into the underlying data (in this case, fabricated) and t
 &lt;h3&gt;Office hours - Professor Bushong&lt;/h3&gt;
 &lt;p&gt;Tuesdays and Thursdays from 4:00 - 5:00 PM in 25E Marshall-Adams Hall. Marshall-Adams is on W. Circle Drive near the Grand River parking ramp. 25E is on the lowest floor (basically a basement).&lt;/p&gt;
 &lt;p&gt;Sunday evenings office hours are via Slack between 6:30 PM until about 8:00 PM. &lt;strong&gt;These are bonus hours and should only be relied on sparingly.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;It would be remarkable if you didn’t need some assistance with the material, and I am here to help. One of the benefits of open office hours is to accommodate many students at once; if fellow students are in my office, please join in and feel very free to show up in groups. As a general rule, please first seek course-related help from the course website. However, if my scheduled office hours do not work for you please let me know. I may encourage you to make appointments with me. I ask that you schedule your studying so that you are prepared to ask questions during office hours – office hours are not a lecture and if you’re not prepared with questions we will end up awkwardly staring at each other for an hour until you leave.&lt;/p&gt;
+&lt;p&gt;Some gentle requests regarding office hours and on contacting me. First, my office hours end sharply at the end, so don’t arrive 10 minutes before the scheduled end and expect a full session. Please arrive early if you have lengthy questions, or if you don’t want to risk not having time due to others’ questions. You are free to ask me some stuff by e-mail, (e.g. a typo or something on a handout), but please know e-mail sucks for answering many types of questions. “How do I do this lab?” or “What’s wrong with my &lt;code&gt;R&lt;/code&gt; setup?” are short questions with long answers. Come to office hours.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;office-hours---teaching-assistant&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Office Hours - Teaching Assistant&lt;/h3&gt;
@@ -9424,13 +9425,6 @@ These reports may trigger contact from a campus official who will want to talk w
 &lt;div id=&#34;miscellanea&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Miscellanea&lt;/h2&gt;
 &lt;p&gt;All class material will be posted on &lt;a href=&#34;https://ssc442.netlify.app&#34; class=&#34;uri&#34;&gt;https://ssc442.netlify.app&lt;/a&gt;. D2L will be used sparingly for submission of weekly writings and assignments and distribution of grades.&lt;/p&gt;
-&lt;div id=&#34;using-office-hours&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Using Office Hours&lt;/h3&gt;
-&lt;p&gt;Please use my drop-in Office House Fridays 10:15 - 12:00 and by appointment. I will always stay from 10:15 to 11:00, but if nobody is present at 11:00, I will likely depart my office. If you wish to arrive after 11, just email me to let me know and I will be here.&lt;/p&gt;
-&lt;p&gt;It would be remarkable if you didn’t need some assistance with the material, and I am here to help. One of the benefits of open office hours is to accommodate many students at once; if fellow students are in my office, please join in and feel very free to show up in groups.&lt;/p&gt;
-&lt;p&gt;As a general rule, please first seek course-related help from the TA or my drop-in office hours. However, if my scheduled office hours are always infeasible for you, let me know, and then I may encourage you to make appointments with me. I ask that you schedule your studying so that you are prepared to ask questions during office hours – office hours are not a lecture and if you’re not prepared with questions we will end up awkwardly staring at each other for an hour until you leave.&lt;/p&gt;
-&lt;p&gt;Some gentle requests regarding office hours and on contacting me. First, my office hours end sharply at the end, so don’t arrive 10 minutes before the scheduled end and expect a full session. Please arrive early if you have lengthy questions, or if you don’t want to risk not having time due to others’ questions. You are free to ask me some stuff by e-mail, (e.g. a typo or something on a handout), but please know e-mail sucks for answering many types of questions. “How do I do this lab?” or “What’s up with &lt;code&gt;R&lt;/code&gt;?” are short questions with long answers. Come to office hours.&lt;/p&gt;
-&lt;/div&gt;
 &lt;div id=&#34;contacting-me&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Contacting Me&lt;/h3&gt;
 &lt;p&gt;Email is a blessing and a curse. Instant communication is wonderful, but often email is the wrong medium to have a productive conversation about course material. Moreover, I get a &lt;strong&gt;lot&lt;/strong&gt; of emails. This means that I am frequently triaging emails into two piles: “my house is burning down” and “everything else”. Your email is unlikely to make the former pile. So… asking questions about course material is always best done in-class or in office hours. Students always roll their eyes when professors say things like that, but it’s true that if you have a question, it’s very likely someone else has the same question.&lt;/p&gt;
