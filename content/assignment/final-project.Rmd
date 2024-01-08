@@ -1,7 +1,7 @@
 ---
 title: "Final project"
-date: "2023-11-16"
-due_date: "2022-12-14"
+date: "2024-01-08"
+due_date: "2024-04-25"
 due_time: "11:59 PM"
 output:
   blogdown::html_page:
@@ -16,6 +16,10 @@ editor_options:
 ---
 
 <!-- Revised assignment 5-5-2022 -->
+
+<!-- Fix footnote 4. In description of intro, mention that data should be described in passing (briefly allude to). Theory section should say "don't describe data here" (Tolly was confused b/c intro asks for data description). Theory And Background should be a header, not a section with word-count (people had "Theory and Background" then "Theory" then "Background" then "Hypotheses" this is is a mess! . Make sure it's clear intro = brief mention of data; theory = no data; later on: data. Probably remove due_date as well? Also, make it clearer that this should not narrarate: "We" should not appear anywhere maybe? Just tell me what you need to tell me. 
+
+Maybe I should describe more what I want for the plots (a la British BakeOff). Mention color-blind friendly colors and proper names and such. Add where the plots should be in the flow? -->
 
 :::fyi
 
@@ -33,7 +37,7 @@ Data analytics is inherently a hands-on endeavor. Accordingly, the final project
 
 [^3]: Note that **existing** is taken to mean that you are not permitted to collect data by interacting with other people. That is not to say that you cannot gather data that previously has not been gathered into a single place---this sort of exercise is necessary. But you cannot stand with a clipboard outside a store and count visitors (for instance). That would require involving the Institutional Review Board (IRB) and nobody wants to do that.
 
-2. You must visualize (at least) three **interesting** features of that data. Visualizations should aid the reader in understanding something about the data that might not be readily aparent.[^4]
+2. You must visualize (at least) three **interesting** features of that data. Visualizations should aid the reader in understanding something about the data that might not be readily apparent.[^4]
 
 3. You must come up with some analysis---using tools from the course---which relates your data to either a **prediction** or a **policy conclusion**. For example, if you collected data from Major League Baseball games, you could try to "predict" whether a left-hander was pitching based solely on the outcomes of the batsmen. If you assembled data from COVID lockdowns and unemployment, you could test hypotheses about the labor market and its reaction to COVID. 
 
@@ -47,7 +51,7 @@ If you choose a **policy conclusion** project, you should explore the relationsh
 
 - The same PDF as above, but with all the R code in it (set `echo = TRUE` at the beginning of your document and reknit the file). Please label files in an obvious way. I will usually grade from this document.
 
-This project is due by **11:59 PM on the date listed on the Schedule** <span style="color: #81056F; font-weight: bold"> No late work will be accepted. For real. MSU has grading deadlines and I've given you every second that can be spared.</span>
+This project is due by **11:59 PM on the date listed on the Schedule.** <span style="color: #81056F; font-weight: bold"> No late work will be accepted. For real. MSU has grading deadlines and I've given you every second that can be spared.</span>
 
 **There is no final exam. This project is your final exam.**
 
@@ -55,16 +59,17 @@ The project will ***not*** be graded using a check system, and will be graded by
 
 1. Technical skills: Was the project easy? Does it showcase mastery of R for data analysis? (20%)
 
-2. Visual design: Was the information smartly conveyed and usable? Was it beautiful? (25%)
+2. Visual design: Was the information smartly conveyed and usable? Was it beautiful? (20%)
 
 3. Analytic design: Was the analysis appropriate? Was it sensible, given the dataset? Did you miss any glaring issues? (20%)
 
-4. Story: Did we learn something? Did you explore your findings sufficiently deeply? (25%)
+4. Story: Did we learn something? Did you explore your findings sufficiently deeply? (20%)
 
-5. Following instructions: Did you surpress `R` code as asked? (10%)
+5. Following instructions: Did you suppress `R` code as asked? Did you meet approximate word counts and did your project contain all sections? (20%)
 
-If you've engaged with the course content and completed the exercises and mini projects throughout the course, you should do just fine with the final project.
+If you've engaged with the course content and completed the exercises and mini projects throughout the course, you should be able to ace the final project.
 
+[^4]: Note that "interesting" is a subjective term. If you're not sure if something is interesting, ask me.
 
 ## Teams
 
@@ -81,19 +86,6 @@ On this front, we will be more supportive. While you have to put up with your te
 A strike is a serious matter, and will reduce that team member's grade on joint work by 10%. If any team-member gets strikes from all other members of his or her team, their grade will be reduced by 50%.
 
 Strikes are *anonymous* so that you do not need to fear social retaliation. However, they are not anonymous to allow you to issue them without thoughtful consideration. Perhaps the other person has a serious issue that is preventing them from completing work (e.g., a relative passing away). Please be thoughtful in using this remedy and consider it a last resort.
-
-<!-- > Do I really need to create a team GitHub repository? I don't like GitHub / programming/ work. -->
-
-<!-- Yes, you need to become familiar with GitHub and you and your team will work in a central repository for mini-projects and your final project. -->
-
-<!-- This is for two reasons. First, computer scientists spent a huge amount of time coming up with the solutions that are implemented in GitHub (and other flavors of `git`). Their efforts are largely dedicated toward solving a very concrete goal: how can two people edit the same thing at the same time without creating a ton of new issues. While you could use a paid variant of GitHub (e.g., you could all collaborate over the Microsoft Office suite as implemented by the 360 software that MSU provides), you'd ultimately have the following issues: -->
-<!-- 1. The software doesn't support some file types. -->
-<!-- 2. The software doesn't autosave versions.[^1] If someone accidentally deletes something, you're in trouble. -->
-<!-- 3. You have to learn an entirely new system every time you change classes / universities / jobs, because said institute doesn't buy the product you love.[^2] -->
-
-<!-- [^1]: Some products, of course, solve this problem a little bit. For example, Dropbox allows users to share files with ease (of any file type) and saves a (coarse) version history. However, Dropbox does not allow multiple users to work on the same file, and has no way of merging edits together. -->
-
-<!-- [^2]: This logic is also why we utilize only free software in this course. It sucks to get really good at, say, `SAS` (as I did many years ago) only to realize that the software costs about $10000 and many firms are unwilling to spent that. We will try our best to avoid giving you dead-end skills. -->
 
 > I'm on a smaller-than-normal team. Does this mean that I have to do more work?
 
@@ -117,26 +109,20 @@ Describe the motivation for this analysis. Briefly describe the dataset(s), and 
 
 ### Theory and Background
 
-Provide in-depth background about the data of interest and about your analytics question. (**≈300 words**)
+Provide in-depth background about your analytics question. Provide some theoretical guidance to the functional relationship you hope to explore. If you're interested on how, say, height affects scoring in the NBA, write down a proposed function that might map height to scoring. Describe how you might look for this unknown relationship in the data, but do not describe the data yet. (**≈300 words**)
 
-#### Theory
+### Hypotheses
 
-Provide some theoretical guidance to the functional relationship you hope to explore. If you're interested on how, say, height affects scoring in the NBA, write down a proposed function that might map height to scoring. Describe how you might look for this unknown relationship in the data, but do not describe the data yet. (**≈300 words**)
+Make predictions to form the questions that you will study. Declare what you think will happen (the *theory* section will explain the "why"). You should be able to reject or fail to reject these hypotheses based on your analyses. (**≈200 words**)
 
-#### Hypotheses
+### Data
 
-Make predictions to form the questions that you will study. Declare what you think will happen (the *theory* section will explain the "why"). You should be able to reject or fail to reject these hypotheses based on your analyses. (**≈250 words**)
+Given your motivations, limits on feasibility, and hypotheses, describe the data you use. (**≈150 words**)
 
-### Data and Analyses
+### Analyses
 
-#### Data
-
-Given your motivations, limits on feasibility, and hypotheses, describe the data you use. (**≈100 words**)
-
-#### Analyses
-
-Generate the analyses relevant to your hypotheses and interests. Here you must include three figures and must describe what they contain in simple, easy to digest language. Why did you visualize these elements? Your analyses also must include brief discussion.
+Generate the analyses relevant to your hypotheses and interests. Here you must include three figures and must describe what they contain in simple, easy to digest language. Why did you visualize these elements? Your analyses also must include brief discussion. (**Main part; as many words as needed**)
 
 ### Conclusion
 
-What caveats should we consider? Do you believe this is a truly causal relationship? Or, if a predictive project, how well did you do and should we bet money / diagnose / rely on your prediction? Why does any of this matter to the decision-maker? (**apx 75 words**)
+What caveats should we consider? Do you believe this is a truly causal relationship? Or, if a predictive project, how well did you do and should we bet money / diagnose / rely on your prediction? Why does any of this matter to the decision-maker? (**≈100 words**)
