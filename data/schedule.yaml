@@ -86,14 +86,14 @@ lessons:
     session: 10
     date: "Week 9a"
     content: "10-content"
-    example: "10-example"
+    # example: "10-example"
     # assignment: "10-assignment"
 
   - title: 'LASSO: Least Absolute Shrinkage and Selection'
     session: 11
     date: "Week 9b"
     # content: "08-content"
-    example: "08-content"
+    # example: "08-content"
     assignment: "08-assignment"
 
   - title: '<i class="fas fa-star"></i> **Project 2 Due**'

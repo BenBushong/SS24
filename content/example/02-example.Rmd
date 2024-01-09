@@ -1,7 +1,7 @@
 ---
 title: "ggplot2: Everything you ever wanted to know"
-linktitle: "2: Visualization II"
-read_date: "2023-09-14"
+linktitle: "3: Visualization II"
+read_date: "2024-01-25"
 lastmod: "`r Sys.Date()`"
 output:
   blogdown::html_page:

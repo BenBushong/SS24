@@ -1,9 +1,9 @@
 ---
 title: "Visualizing Uncertainty"
-linktitle: "4: Uncertainty"
-read_date: "2023-09-28"
+linktitle: "5: Uncertainty"
+read_date: "2024-02-08"
 draft: false
-lastmod: "2023-09-28"
+lastmod: "2024-01-09"
 output:
   blogdown::html_page:
     toc: true
@@ -20,8 +20,6 @@ editor_options:
 
 <div id="TOC">
 <ul>
-<li><a href="#f23-course-business" id="toc-f23-course-business">F23 Course Business</a></li>
-<li><a href="#back-to-our-regularly-scheduled-programming" id="toc-back-to-our-regularly-scheduled-programming">Back to our regularly scheduled programming</a></li>
 <li><a href="#part-1-statistical-inference-and-polls" id="toc-part-1-statistical-inference-and-polls">Part 1: Statistical Inference and Polls</a>
 <ul>
 <li><a href="#polls" id="toc-polls">Polls</a>
@@ -56,15 +54,6 @@ editor_options:
 </ul>
 </div>
 
-<div id="f23-course-business" class="section level3">
-<h3>F23 Course Business</h3>
-<ul>
-<li><p>My Office Hours won’t start till 11am on Friday due to a department meeting.</p></li>
-<li><p>Groups are out. Start working!</p></li>
-</ul>
-</div>
-<div id="back-to-our-regularly-scheduled-programming" class="section level3">
-<h3>Back to our regularly scheduled programming</h3>
 <p>Probabilistic thinking is central in the human experience. How we describe that thinking is mixed, but most of the time we use (rather imprecise) language. With only a few moments of searching, one can find thousands of articles that use probabilistic words to describe events. Here are some examples:</p>
 <blockquote>
 <p>“‘Highly unlikely’ State of the Union will happen amid shutdown” – The Hill</p>
@@ -76,9 +65,8 @@ editor_options:
 <p>“Trump predicts ‘very good chance’ of China trade deal” – CNN</p>
 </blockquote>
 <p>Yet people don’t have a good sense of what these things mean. Uncertainty is key to data analytics: if we were certain of things, A study in the 1960s explored the perception of probabilistic words like these among NATO officers. A more modern replication of this found the following basic pattern:</p>
-<p><img src="../../../../../../../img/words.png" width="80%" /></p>
+<p><img src="../../../../../../../../../../img/words.png" width="80%" /></p>
 <p>A deep, basic fact about humans is that we struggle to understand probabilities. But visualizing things can help. The graphic above shows the uncertainty about uncertainty (very meta). We can convey all manner of uncertainty with clever graphics. Today’s practical example works through some of the myriad of ways to visualize variable data. We’ll cover some territory that we’ve already hit, in hopes of locking in some key concepts.</p>
-</div>
 <div id="part-1-statistical-inference-and-polls" class="section level1">
 <h1>Part 1: Statistical Inference and Polls</h1>
 <p>In this Example we will describe, in some detail, how poll aggregators such as FiveThirtyEight use data to predict election outcomes. To understand how they do this, we first need to learn the basics of <em>Statistical Inference</em>, the part of statistics that helps distinguish patterns arising from signal from those arising from chance. Statistical inference is a broad topic and here we go over the very basics using polls as a motivating example. To describe the concepts, we complement the mathematical formulas with Monte Carlo simulations and <code>R</code> code.</p>
@@ -338,11 +326,6 @@ library(gghalves)</code></pre>
 <pre class="r"><code>ggplot(weather_atl, aes(x = windSpeed, y = fct_rev(Month), fill = Month)) +
   geom_density_ridges(quantile_lines = TRUE, quantiles = 2) +
   guides(fill = FALSE)</code></pre>
-<pre><code>## Warning: Using the `size` aesthetic with geom_segment was deprecated in ggplot2 3.4.0.
-## ℹ Please use the `linewidth` aesthetic instead.
-## This warning is displayed once every 8 hours.
-## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
-## generated.</code></pre>
 <p><img src="/example/04-example_files/figure-html/ggridges-quantile-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>Now that we have good working code, we can easily substitute in other variables by changing the x mapping:</p>
 <pre class="r"><code>ggplot(weather_atl, aes(x = temperatureHigh, y = fct_rev(Month), fill = Month)) +

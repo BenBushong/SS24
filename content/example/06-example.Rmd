@@ -1,7 +1,7 @@
 ---
 title: "Linear Regression: Interpreting Coefficients"
-linktitle: "6: Linear Regression II"
-read_date: "2023-10-12"
+linktitle: "7: Linear Regression II"
+read_date: "2024-02-22"
 output:
   blogdown::html_page:
     toc: true
@@ -21,7 +21,7 @@ Today's example will pivot between the content from this week and the example be
 
 We will also use the Ames data again. Maybe some new data. Who knows. The Ames data is linked below:
 
-- [<i class="fas fa-file-csv"></i> `Ames.csv`](/projects/data/ames.csv)
+- [<i class="fas fa-file-csv"></i> `Ames.csv`](/data/ames.csv)
 
 :::
 

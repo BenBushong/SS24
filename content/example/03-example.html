@@ -1,9 +1,9 @@
 ---
 title: "Visualizations"
-linktitle: "3: Visualization III"
-read_date: "2023-09-21"
+linktitle: "4: Visualization III"
+read_date: "2024-02-01"
 draft: false
-lastmod: "2023-09-25"
+lastmod: "2024-01-09"
 output:
   blogdown::html_page:
     toc: true
@@ -52,9 +52,7 @@ editor_options:
 </ul>
 </div>
 
-<pre class="r"><code># 9-25-2023, I changed the bland-altman to no longer use `spread`
-# And added fig.width=8 as a good use of size (since &#39;75%&#39; seems to no longer work?)
-library(emo)</code></pre>
+<pre class="r"><code>library(emo)</code></pre>
 <div id="adding-graphics-to-an-rmarkdown-file" class="section level1">
 <h1>Adding graphics to an Rmarkdown file</h1>
 <div id="from-the-web" class="section level3">
@@ -346,7 +344,7 @@ ggplot(data = life_expectancy_small,
   theme_void() +
   theme(strip.text = element_text(face = &quot;bold&quot;))</code></pre>
 <p><img src="/example/03-example_files/figure-html/life-expectancy-small-minimalist-1.png" width="672" /></p>
-<p>We can do a whole part of a continent (poor Syria 😞)</p>
+<p>We can do a whole part of a continent (poor Syria 😿)</p>
 <pre class="r"><code>life_expectancy_mena &lt;- gapminder %&gt;%
   filter(region == &quot;Northern Africa&quot; | region == &quot;Western Asia&quot;)
 

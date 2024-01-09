@@ -30,7 +30,7 @@
   
     
   
-  <meta name="description" content="Adding graphics to an Rmarkdown file  From the web Images inserted in code chunks Images inserted via Markdown Images from a local file  Data visualization in practice  Case study: new insights on poverty  Exploring the Data Slope charts Bland-Altman plot Bump charts Themes Small multiples Sparklines  The ecological fallacy and importance of showing the data  Logit transformation Show the data  Case study: vaccines and infectious diseases TRY IT    # 9-25-2023, I changed the bland-altman to no longer use `spread` # And added fig.">
+  <meta name="description" content="Adding graphics to an Rmarkdown file  From the web Images inserted in code chunks Images inserted via Markdown Images from a local file  Data visualization in practice  Case study: new insights on poverty  Exploring the Data Slope charts Bland-Altman plot Bump charts Themes Small multiples Sparklines  The ecological fallacy and importance of showing the data  Logit transformation Show the data  Case study: vaccines and infectious diseases TRY IT    library(emo) Adding graphics to an Rmarkdown file From the web If you are incorporating an image (.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://ssc442.netlify.app/example/03-example/">
@@ -238,11 +238,11 @@
   <meta property="og:site_name" content="Data Analytics">
   <meta property="og:url" content="https://ssc442.netlify.app/example/03-example/">
   <meta property="og:title" content="Visualizations | Data Analytics">
-  <meta property="og:description" content="Adding graphics to an Rmarkdown file  From the web Images inserted in code chunks Images inserted via Markdown Images from a local file  Data visualization in practice  Case study: new insights on poverty  Exploring the Data Slope charts Bland-Altman plot Bump charts Themes Small multiples Sparklines  The ecological fallacy and importance of showing the data  Logit transformation Show the data  Case study: vaccines and infectious diseases TRY IT    # 9-25-2023, I changed the bland-altman to no longer use `spread` # And added fig."><meta property="og:image" content="https://ssc442.netlify.app/img/social-image.png">
+  <meta property="og:description" content="Adding graphics to an Rmarkdown file  From the web Images inserted in code chunks Images inserted via Markdown Images from a local file  Data visualization in practice  Case study: new insights on poverty  Exploring the Data Slope charts Bland-Altman plot Bump charts Themes Small multiples Sparklines  The ecological fallacy and importance of showing the data  Logit transformation Show the data  Case study: vaccines and infectious diseases TRY IT    library(emo) Adding graphics to an Rmarkdown file From the web If you are incorporating an image (."><meta property="og:image" content="https://ssc442.netlify.app/img/social-image.png">
   <meta property="twitter:image" content="https://ssc442.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
   
     
-      <meta property="article:published_time" content="2023-09-25T00:00:00&#43;00:00">
+      <meta property="article:published_time" content="2024-01-09T00:00:00&#43;00:00">
     
     <meta property="article:modified_time" content="2023-09-25T13:29:40-04:00">
   
@@ -562,35 +562,35 @@
     <ul class="nav docs-sidenav">
       
       <li >
-        <a href="/example/00-example/">0: Introduction to R</a>
+        <a href="/example/00-example/">1: Introduction to R</a>
       </li>
       
       <li >
-        <a href="/example/01-example/">1: Visualization I</a>
+        <a href="/example/01-example/">2: Visualization I</a>
       </li>
       
       <li >
-        <a href="/example/02-example/">2: Visualization II</a>
+        <a href="/example/02-example/">3: Visualization II</a>
       </li>
       
       <li class="active">
-        <a href="/example/03-example/">3: Visualization III</a>
+        <a href="/example/03-example/">4: Visualization III</a>
       </li>
       
       <li >
-        <a href="/example/04-example/">4: Uncertainty</a>
+        <a href="/example/04-example/">5: Uncertainty</a>
       </li>
       
       <li >
-        <a href="/example/05-example/">5: Linear Regression I</a>
+        <a href="/example/05-example/">6: Linear Regression I</a>
       </li>
       
       <li >
-        <a href="/example/06-example/">6: Linear Regression II</a>
+        <a href="/example/06-example/">7: Linear Regression II</a>
       </li>
       
       <li >
-        <a href="/example/07-example/">7: Linear Regression III</a>
+        <a href="/example/07-example/">8: Linear Regression III</a>
       </li>
       
       <li >
@@ -644,7 +644,7 @@
 
                     
                     <div class="due-date p-2 mb-3 bg-content text-white">
-                        Content for Thursday, September 21, 2023
+                        Content for Thursday, February 1, 2024
                     </div>
                     
 
@@ -687,9 +687,7 @@
 </ul>
 </div>
 
-<pre class="r"><code># 9-25-2023, I changed the bland-altman to no longer use `spread`
-# And added fig.width=8 as a good use of size (since &#39;75%&#39; seems to no longer work?)
-library(emo)</code></pre>
+<pre class="r"><code>library(emo)</code></pre>
 <div id="adding-graphics-to-an-rmarkdown-file" class="section level1">
 <h1>Adding graphics to an Rmarkdown file</h1>
 <div id="from-the-web" class="section level3">
@@ -981,7 +979,7 @@ ggplot(data = life_expectancy_small,
   theme_void() +
   theme(strip.text = element_text(face = &quot;bold&quot;))</code></pre>
 <p><img src="/example/03-example_files/figure-html/life-expectancy-small-minimalist-1.png" width="672" /></p>
-<p>We can do a whole part of a continent (poor Syria 😞)</p>
+<p>We can do a whole part of a continent (poor Syria 😿)</p>
 <pre class="r"><code>life_expectancy_mena &lt;- gapminder %&gt;%
   filter(region == &quot;Northern Africa&quot; | region == &quot;Western Asia&quot;)
 

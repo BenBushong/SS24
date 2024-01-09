@@ -1,7 +1,7 @@
 ---
 title: "Introduction to Regression"
-linktitle: "5: Linear Regression I"
-read_date: "2023-10-05"
+linktitle: "6: Linear Regression I"
+read_date: "2024-02-15"
 output:
   blogdown::html_page:
     toc: true
@@ -15,19 +15,21 @@ editor_options:
   chunk_output_type: console
 ---
 
+>> Boy I'd love to get better data than the Ames data. 
+
 :::fyi
 
 Today's example will pivot between the content from this week and the example below.
 
 In today's lecture I will ask you to use real data during the lecture. Please download the following dataset and load it into `R` (or right-click the address and use that to load into `R`).
 
-- [<i class="fas fa-file-csv"></i> `Ames.csv`](/projects/data/ames.csv)
+- [<i class="fas fa-file-csv"></i> `Ames Housing Data`](/data/ames.csv)
 
 This dataset is from houses in Ames, Iowa. (Thrilling!) We will use this dataset during the lecture to illustrate some of the points discussed below.
 
 We will also use some Atlanta weather data. The Atlanta weather data is linked below:
 
-- [<i class="fas fa-file-csv"></i> `Ames.csv`](/projects/data/ames.csv)
+- [<i class="fas fa-file-csv"></i> `Atlanta Weather`](/data/atl-weather-2019.csv)
 
 :::
 

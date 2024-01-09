@@ -1,7 +1,7 @@
 ---
 title: "Visualizations"
-linktitle: "3: Visualization III"
-read_date: "2023-09-21"
+linktitle: "4: Visualization III"
+read_date: "2024-02-01"
 draft: false
 lastmod: "`r Sys.Date()`"
 output:
@@ -18,8 +18,6 @@ editor_options:
 ---
 
 ```{r}
-# 9-25-2023, I changed the bland-altman to no longer use `spread`
-# And added fig.width=8 as a good use of size (since '75%' seems to no longer work?)
 library(emo)
 ```
 
@@ -47,7 +45,7 @@ knitr::include_graphics(path = 'temporary.jpg')
 knitr::include_graphics(path = "https://msu.edu/-/media/assets/msu/images/audience-student/students-sis-home.jpg")
 ```
 
-The file you specify with `destfile` doesn't matter - R will create that file, but you do need to use the corresponding suffix (don't use `temporary.jpg` if you're downloading a `.png`). By default, the file will be saved in the same folder as your .rmd file. When `include_graphics` goes to read the file, it will start looking relative to the folder that contains your .rmd file. That is, `download.file` will copy the image to the same place that `include_graphics` looks for it. See below for more on relative filepaths.
+The file you specify with `destfile` doesn't matter - R will create that file, but you do need to use the corresponding suffix (don't use `temporary.jpg` if you're downloading a `.png`). By default, the file will be saved in the same folder as your .rmd file. When `include_graphics` goes to read the file, it will start looking relative to the folder that contains your .rmd file. That is, `download.file` will copy the image to the same place that `include_graphics` looks for it. See below for more on relative filepaths. 
 
 Note the code chunk option set above as well - `fig.width='75%'`, which is stated in the curly-brackets that head the chunk. This is where Knitr finds details about how you want to handle the output. Before, we saw that `echo=T` would add a copy of the code itself to the output (vs. `echo=F` which output only the result). Similarly, `fig.width='75%'` should size the output to take up about 75\% of the text width. You can also use `fig.width=8` to set the output to 8 inches wide (closet to the width of a sheet of paper), which will maximize the space used for your plot. You may need this if/when you start plotting larger things. Hint. 
 

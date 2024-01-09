@@ -1,6 +1,6 @@
 ---
 title: "Working with R and RStudio"
-linktitle: "0: Introduction to R"
+linktitle: "1: Introduction to R"
 read_date: "2024-01-11"
 lastmod: "`r Sys.Date()`"
 output:
@@ -33,7 +33,7 @@ A careful read of our syllabus under "class participation" will show that I do g
 The Assignments page has all of our weekly lab assignments (including Week 0's, due on Monday at 11:59pm). The assignments often have a preamble and some code that has to be used to set you up for the questions. **The questions to be completed and turned in are under "Exercises" at the very end**.
 
 ### Don't Slide into My DMs
-I don't like to use the DM feature of Slack. Not because I don't like getting DM's, but because the point of Slack is so we can all learn together. If you have a question, even if you're worried it's a silly question, then *others* will, I promise, have the same question. Asking in the public channel will answer everyone's question at once. Related to this: you should check the Slack to see if your question has already been asked.
+I don't like to use the DM feature of Slack. Not because I don't like getting DMs, but because the point of Slack is so we can all learn together. If you have a question, even if you're worried it's a silly question, then *others* will, I promise, have the same question. Asking in the public channel will answer everyone's question at once. Related to this: you should check the Slack to see if your question has already been asked.
 
 Another reason is that the TA will often be faster at responding than I will be, depending on day of week and time of day (I start my day before some of you even go to bed). If you DM me, the TA can't see it and can't reply.
 
@@ -51,7 +51,7 @@ I'm also aware that my writing is dry and lifeless. If you're reading this onlin
 :::fyi
 **ALERT**
   
-  The course content below should be considered a prerequisite for success. For those concerned about basics of `R`, you absolutely must read this content and attempt the coding exercises. If you struggle to follow the content, please contact the professor or TA.
+The course content below should be considered a prerequisite for success. For those concerned about basics of `R`, you absolutely must read this content and attempt the coding exercises. If you struggle to follow the content, please contact the professor or TA.
 :::
   
   

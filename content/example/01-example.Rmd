@@ -1,6 +1,6 @@
 ---
 title: "Introduction to Visualization"
-linktitle: "1: Visualization I"
+linktitle: "2: Visualization I"
 read_date: "2024-01-18"
 lastmod: "`r Sys.Date()`"
 output:

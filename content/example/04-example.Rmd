@@ -1,7 +1,7 @@
 ---
 title: "Visualizing Uncertainty"
-linktitle: "4: Uncertainty"
-read_date: "2023-09-28"
+linktitle: "5: Uncertainty"
+read_date: "2024-02-08"
 draft: false
 lastmod: "`r Sys.Date()`"
 output:
