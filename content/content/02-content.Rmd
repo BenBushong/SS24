@@ -1,7 +1,7 @@
 ---
 title: "Effective Visualizations"
-linktitle: "2: Visualization"
-read_date: "2023-09-12"
+linktitle: "3: Visualization"
+read_date: "2024-01-23"
 menu:
   content:
     parent: Course content
@@ -19,8 +19,8 @@ output:
 
 ### Guiding Questions
 
-- No guiding questions today as we're mostly learning some technical aspects of `ggplot`
-- We have largely reversed our __content__ and __example__ lectures for data viz.
+- Today we're mostly learning some technical aspects of `ggplot`. 
+- Why are we covering the material this way? (Good question. There's an answer!)
 
 
 ### Starting up

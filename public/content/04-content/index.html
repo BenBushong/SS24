@@ -561,35 +561,39 @@
   </div>
   
   <div class="docs-toc-item">
-    <a class="docs-toc-link" href="/content/00-content/">Course content</a>
+    <a class="docs-toc-link" href="/content/99-content/">Course content</a>
     <ul class="nav docs-sidenav">
       
       <li >
-        <a href="/content/00-content/">0: Introduction to R</a>
+        <a href="/content/99-content/">0: R Setup</a>
       </li>
       
       <li >
-        <a href="/content/01-content/">1: The Tidyverse</a>
+        <a href="/content/00-content/">1: Intro to Data Analytics</a>
       </li>
       
       <li >
-        <a href="/content/02-content/">2: Visualization</a>
+        <a href="/content/01-content/">2: The Tidyverse</a>
       </li>
       
       <li >
-        <a href="/content/03-content/">3: Visualization II</a>
+        <a href="/content/02-content/">3: Visualization</a>
+      </li>
+      
+      <li >
+        <a href="/content/03-content/">4: Visualization II</a>
       </li>
       
       <li class="active">
-        <a href="/content/04-content/">4: Uncertainty</a>
+        <a href="/content/04-content/">5: Uncertainty</a>
       </li>
       
       <li >
-        <a href="/content/05-content/">5: Linear Regression I</a>
+        <a href="/content/05-content/">6: Linear Regression I</a>
       </li>
       
       <li >
-        <a href="/content/06-content/">6: Linear Regression II</a>
+        <a href="/content/06-content/">7: Linear Regression II</a>
       </li>
       
       <li >
@@ -597,15 +601,15 @@
       </li>
       
       <li >
-        <a href="/content/08-content/">8: Shrinkage with LASSO and Ridge</a>
+        <a href="/content/10-content/">9a: Bias vs. Variance</a>
       </li>
       
       <li >
-        <a href="/content/09-content/">9: Nonparametric Regression</a>
+        <a href="/content/08-content/">9b: LASSO and Ridge</a>
       </li>
       
       <li >
-        <a href="/content/10-content/">10: Bias vs. Variance</a>
+        <a href="/content/09-content/">10: Nonparametric Regression</a>
       </li>
       
       <li >
@@ -647,7 +651,7 @@
 
                     
                     <div class="due-date p-2 mb-3 bg-content text-white">
-                        Content for Tuesday, September 26, 2023
+                        Content for Tuesday, February 6, 2024
                     </div>
                     
 
@@ -750,7 +754,7 @@
 </div>
 <div id="groups" class="section level1">
 <h1>Groups</h1>
-<p>Everyone has been assigned to a group. If you did not get a group assignment yesterday, let me know <strong>right now</strong>.</p>
+<p>Everyone should long since be assigned to a group. If you did not get a group assignment let me know <strong>right now</strong>.</p>
 </div>
 <div id="yesterdays-lab-lab-03" class="section level1">
 <h1>Yesterday’s Lab (Lab 03)</h1>
@@ -882,7 +886,7 @@ beads</code></pre>
 <pre><code>## [1] &quot;red&quot;  &quot;red&quot;  &quot;blue&quot; &quot;blue&quot; &quot;blue&quot;</code></pre>
 <p>and then use <code>sample</code> to pick a bead at random:</p>
 <pre class="r"><code>sample(beads, 1)</code></pre>
-<pre><code>## [1] &quot;blue&quot;</code></pre>
+<pre><code>## [1] &quot;red&quot;</code></pre>
 <p>This line of code produces one random outcome. We want to repeat this experiment an infinite number of times, but it is impossible to repeat forever. Instead, we repeat the experiment a large enough number of times to make the results practically equivalent to repeating forever. <strong>This is an example of a <em>Monte Carlo</em> simulation</strong>.</p>
 <p>Much of what mathematical and theoretical statisticians study, which we do not cover in this class, relates to providing rigorous definitions of “practically equivalent” as well as studying how close a large number of experiments gets us to what happens in the limit. Later in this lecture, we provide a practical approach to deciding what is “large enough”.</p>
 <p>To perform our first Monte Carlo simulation, we use the <code>replicate</code> function, which permits us to repeat the same task any number of times. Here, we repeat the random event <span class="math inline">\(B =\)</span> 10,000 times:</p>
@@ -893,12 +897,12 @@ events &lt;- replicate(B, sample(beads, 1))</code></pre>
 tab</code></pre>
 <pre><code>## events
 ## blue  red 
-## 6068 3932</code></pre>
+## 6006 3994</code></pre>
 <p>and <code>prop.table</code> gives us the proportions:</p>
 <pre class="r"><code>prop.table(tab)</code></pre>
 <pre><code>## events
 ##   blue    red 
-## 0.6068 0.3932</code></pre>
+## 0.6006 0.3994</code></pre>
 <p>The numbers above are the estimated probabilities provided by this Monte Carlo simulation. Statistical theory, not covered here, tells us that as <span class="math inline">\(B\)</span> gets larger, the estimates get closer to 3/5=.6 and 2/5=.4.</p>
 <p>Although this is a simple and not very useful example, we will use Monte Carlo simulations to estimate probabilities in cases in which it is harder to compute the exact ones. Before delving into more complex examples, we use simple ones to demonstrate the computing tools available in R.</p>
 <div id="setting-the-random-seed" class="section level3">
@@ -1546,7 +1550,7 @@ sqrt(n) * 2 * sqrt(90)/19</code></pre>
 x &lt;- heights$height
 m &lt;- mean(x)
 s &lt;- sqrt(mean((x-m)^2))</code></pre>
-<p>Using mathematical notation we write:</p>
+<p>The SD is the the square root of the sample variance, and the sample variance is the square of the sample SD. Using mathematical notation we write:</p>
 <p><span class="math display">\[
 \mu = \frac{1}{n} \sum_{i=1}^n x_i \\
 \]</span>
@@ -1567,7 +1571,7 @@ s =  \sqrt{\frac{1}{N-1} \sum_{i=1}^N (X_i - \bar{X})^2}
 <p>You can see that this is the case by typing:</p>
 <pre class="r"><code>n &lt;- length(x)
 s-sd(x)*sqrt((n-1) / n)</code></pre>
-<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] 5.329071e-15</code></pre>
 <p>For all the theory discussed here, you need to compute the actual standard deviation as defined:</p>
 <pre class="r"><code>sqrt(mean((x-m)^2))</code></pre>
 <p>So be careful when using the <code>sd</code> function in R. However, keep in mind that throughout the book we sometimes use the <code>sd</code> function when we really want the actual SD. This is because when the list size is big, these two are practically equivalent since <span class="math inline">\(\sqrt{(N-1)/N} \approx 1\)</span>.</p>

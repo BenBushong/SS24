@@ -30,7 +30,7 @@
   
     
   
-  <meta name="description" content="Readings  Guiding Questions Starting up  Scales and transformations  Log transformations Transforming data vs. transforming using scale_...  Axis labels, legends, and titles  Changing axis titles Titles  Axis ticks Additional geometries  geom_line Using different data with different geometries Multiple geometries  Try it!   Readings  This page.  Guiding Questions  No guiding questions today as we’re mostly learning some technical aspects of ggplot We have largely reversed our content and example lectures for data viz.">
+  <meta name="description" content="Readings  Guiding Questions Starting up  Scales and transformations  Log transformations Transforming data vs. transforming using scale_...  Axis labels, legends, and titles  Changing axis titles Titles  Axis ticks Additional geometries  geom_line Using different data with different geometries Multiple geometries  Try it!   Readings  This page.  Guiding Questions  Today we’re mostly learning some technical aspects of ggplot. Why are we covering the material this way?">
 
   
   <link rel="alternate" hreflang="en-us" href="https://ssc442.netlify.app/content/02-content/">
@@ -238,7 +238,7 @@
   <meta property="og:site_name" content="Data Analytics">
   <meta property="og:url" content="https://ssc442.netlify.app/content/02-content/">
   <meta property="og:title" content="Effective Visualizations | Data Analytics">
-  <meta property="og:description" content="Readings  Guiding Questions Starting up  Scales and transformations  Log transformations Transforming data vs. transforming using scale_...  Axis labels, legends, and titles  Changing axis titles Titles  Axis ticks Additional geometries  geom_line Using different data with different geometries Multiple geometries  Try it!   Readings  This page.  Guiding Questions  No guiding questions today as we’re mostly learning some technical aspects of ggplot We have largely reversed our content and example lectures for data viz."><meta property="og:image" content="https://ssc442.netlify.app/img/social-image.png">
+  <meta property="og:description" content="Readings  Guiding Questions Starting up  Scales and transformations  Log transformations Transforming data vs. transforming using scale_...  Axis labels, legends, and titles  Changing axis titles Titles  Axis ticks Additional geometries  geom_line Using different data with different geometries Multiple geometries  Try it!   Readings  This page.  Guiding Questions  Today we’re mostly learning some technical aspects of ggplot. Why are we covering the material this way?"><meta property="og:image" content="https://ssc442.netlify.app/img/social-image.png">
   <meta property="twitter:image" content="https://ssc442.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
   
     
@@ -561,35 +561,39 @@
   </div>
   
   <div class="docs-toc-item">
-    <a class="docs-toc-link" href="/content/00-content/">Course content</a>
+    <a class="docs-toc-link" href="/content/99-content/">Course content</a>
     <ul class="nav docs-sidenav">
       
       <li >
-        <a href="/content/00-content/">0: Introduction to R</a>
+        <a href="/content/99-content/">0: R Setup</a>
       </li>
       
       <li >
-        <a href="/content/01-content/">1: The Tidyverse</a>
+        <a href="/content/00-content/">1: Intro to Data Analytics</a>
+      </li>
+      
+      <li >
+        <a href="/content/01-content/">2: The Tidyverse</a>
       </li>
       
       <li class="active">
-        <a href="/content/02-content/">2: Visualization</a>
+        <a href="/content/02-content/">3: Visualization</a>
       </li>
       
       <li >
-        <a href="/content/03-content/">3: Visualization II</a>
+        <a href="/content/03-content/">4: Visualization II</a>
       </li>
       
       <li >
-        <a href="/content/04-content/">4: Uncertainty</a>
+        <a href="/content/04-content/">5: Uncertainty</a>
       </li>
       
       <li >
-        <a href="/content/05-content/">5: Linear Regression I</a>
+        <a href="/content/05-content/">6: Linear Regression I</a>
       </li>
       
       <li >
-        <a href="/content/06-content/">6: Linear Regression II</a>
+        <a href="/content/06-content/">7: Linear Regression II</a>
       </li>
       
       <li >
@@ -597,15 +601,15 @@
       </li>
       
       <li >
-        <a href="/content/08-content/">8: Shrinkage with LASSO and Ridge</a>
+        <a href="/content/10-content/">9a: Bias vs. Variance</a>
       </li>
       
       <li >
-        <a href="/content/09-content/">9: Nonparametric Regression</a>
+        <a href="/content/08-content/">9b: LASSO and Ridge</a>
       </li>
       
       <li >
-        <a href="/content/10-content/">10: Bias vs. Variance</a>
+        <a href="/content/09-content/">10: Nonparametric Regression</a>
       </li>
       
       <li >
@@ -647,7 +651,7 @@
 
                     
                     <div class="due-date p-2 mb-3 bg-content text-white">
-                        Content for Tuesday, September 12, 2023
+                        Content for Tuesday, January 23, 2024
                     </div>
                     
 
@@ -692,8 +696,8 @@
 <div id="guiding-questions" class="section level3">
 <h3>Guiding Questions</h3>
 <ul>
-<li>No guiding questions today as we’re mostly learning some technical aspects of <code>ggplot</code></li>
-<li>We have largely reversed our <strong>content</strong> and <strong>example</strong> lectures for data viz.</li>
+<li>Today we’re mostly learning some technical aspects of <code>ggplot</code>.</li>
+<li>Why are we covering the material this way? (Good question. There’s an answer!)</li>
 </ul>
 </div>
 <div id="starting-up" class="section level3">
@@ -828,11 +832,11 @@ head(AAPL)</code></pre>
 ##   symbol date        open  high   low close     volume adjusted
 ##   &lt;chr&gt;  &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;
 ## 1 AAPL   2009-01-02  3.07  3.25  3.04  3.24  746015200     2.75
-## 2 AAPL   2009-01-05  3.33  3.43  3.31  3.38 1181608400     2.87
+## 2 AAPL   2009-01-05  3.33  3.43  3.31  3.38 1181608400     2.86
 ## 3 AAPL   2009-01-06  3.43  3.47  3.30  3.32 1289310400     2.82
 ## 4 AAPL   2009-01-07  3.28  3.30  3.22  3.25  753048800     2.76
 ## 5 AAPL   2009-01-08  3.23  3.33  3.22  3.31  673500800     2.81
-## 6 AAPL   2009-01-09  3.33  3.34  3.22  3.23  546845600     2.75</code></pre>
+## 6 AAPL   2009-01-09  3.33  3.34  3.22  3.23  546845600     2.74</code></pre>
 <p>Now, we can plot a line graph of the Apple closing stock price over the requested date range. We want this to be a time series, so the x-axis will be the date and the y-axis will be the closing price.</p>
 <pre class="r"><code>ggplot(AAPL, aes(x = date, y = close)) +
   geom_line() +

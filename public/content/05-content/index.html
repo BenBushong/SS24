@@ -30,7 +30,7 @@
   
     
   
-  <meta name="description" content="Required Reading  Guiding Questions  Getting Started Introduction to Linear Regression  Case study: is height hereditary? The correlation coefficient  Sample correlation is a random variable Correlation is not always a useful summary  Conditional expectations The regression line  Regression improves precision Bivariate normal distribution (advanced) Variance explained Warning: there are two regression lines     Required Reading  This page.  Guiding Questions  The correlation between two variables tells us how they move together">
+  <meta name="description" content="Required Reading  Guiding Questions  Introduction to Linear Regression  Case study: is height hereditary? The correlation coefficient  Sample correlation is a random variable Correlation is not always a useful summary  Conditional expectations The regression line  Regression improves precision Bivariate normal distribution (advanced) Variance explained Warning: there are two regression lines     Required Reading  This page.  Guiding Questions  The correlation between two variables tells us how they move together.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://ssc442.netlify.app/content/05-content/">
@@ -238,7 +238,7 @@
   <meta property="og:site_name" content="Data Analytics">
   <meta property="og:url" content="https://ssc442.netlify.app/content/05-content/">
   <meta property="og:title" content="Introduction to Regression | Data Analytics">
-  <meta property="og:description" content="Required Reading  Guiding Questions  Getting Started Introduction to Linear Regression  Case study: is height hereditary? The correlation coefficient  Sample correlation is a random variable Correlation is not always a useful summary  Conditional expectations The regression line  Regression improves precision Bivariate normal distribution (advanced) Variance explained Warning: there are two regression lines     Required Reading  This page.  Guiding Questions  The correlation between two variables tells us how they move together"><meta property="og:image" content="https://ssc442.netlify.app/img/social-image.png">
+  <meta property="og:description" content="Required Reading  Guiding Questions  Introduction to Linear Regression  Case study: is height hereditary? The correlation coefficient  Sample correlation is a random variable Correlation is not always a useful summary  Conditional expectations The regression line  Regression improves precision Bivariate normal distribution (advanced) Variance explained Warning: there are two regression lines     Required Reading  This page.  Guiding Questions  The correlation between two variables tells us how they move together."><meta property="og:image" content="https://ssc442.netlify.app/img/social-image.png">
   <meta property="twitter:image" content="https://ssc442.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
   
     
@@ -561,35 +561,39 @@
   </div>
   
   <div class="docs-toc-item">
-    <a class="docs-toc-link" href="/content/00-content/">Course content</a>
+    <a class="docs-toc-link" href="/content/99-content/">Course content</a>
     <ul class="nav docs-sidenav">
       
       <li >
-        <a href="/content/00-content/">0: Introduction to R</a>
+        <a href="/content/99-content/">0: R Setup</a>
       </li>
       
       <li >
-        <a href="/content/01-content/">1: The Tidyverse</a>
+        <a href="/content/00-content/">1: Intro to Data Analytics</a>
       </li>
       
       <li >
-        <a href="/content/02-content/">2: Visualization</a>
+        <a href="/content/01-content/">2: The Tidyverse</a>
       </li>
       
       <li >
-        <a href="/content/03-content/">3: Visualization II</a>
+        <a href="/content/02-content/">3: Visualization</a>
       </li>
       
       <li >
-        <a href="/content/04-content/">4: Uncertainty</a>
+        <a href="/content/03-content/">4: Visualization II</a>
+      </li>
+      
+      <li >
+        <a href="/content/04-content/">5: Uncertainty</a>
       </li>
       
       <li class="active">
-        <a href="/content/05-content/">5: Linear Regression I</a>
+        <a href="/content/05-content/">6: Linear Regression I</a>
       </li>
       
       <li >
-        <a href="/content/06-content/">6: Linear Regression II</a>
+        <a href="/content/06-content/">7: Linear Regression II</a>
       </li>
       
       <li >
@@ -597,15 +601,15 @@
       </li>
       
       <li >
-        <a href="/content/08-content/">8: Shrinkage with LASSO and Ridge</a>
+        <a href="/content/10-content/">9a: Bias vs. Variance</a>
       </li>
       
       <li >
-        <a href="/content/09-content/">9: Nonparametric Regression</a>
+        <a href="/content/08-content/">9b: LASSO and Ridge</a>
       </li>
       
       <li >
-        <a href="/content/10-content/">10: Bias vs. Variance</a>
+        <a href="/content/09-content/">10: Nonparametric Regression</a>
       </li>
       
       <li >
@@ -647,7 +651,7 @@
 
                     
                     <div class="due-date p-2 mb-3 bg-content text-white">
-                        Content for Tuesday, October 3, 2023
+                        Content for Tuesday, February 13, 2024
                     </div>
                     
 
@@ -662,7 +666,6 @@
 <ul>
 <li><a href="#guiding-questions" id="toc-guiding-questions">Guiding Questions</a></li>
 </ul></li>
-<li><a href="#getting-started" id="toc-getting-started">Getting Started</a></li>
 <li><a href="#regression" id="toc-regression">Introduction to Linear Regression</a>
 <ul>
 <li><a href="#case-study-is-height-hereditary" id="toc-case-study-is-height-hereditary">Case study: is height hereditary?</a></li>
@@ -693,8 +696,10 @@
 <div id="guiding-questions" class="section level3">
 <h3>Guiding Questions</h3>
 <ul>
-<li><p>The correlation between two variables tells us how they move together</p></li>
-<li><p>Sample correlation is a random variable</p></li>
+<li>The correlation between two variables tells us how they move together. How is this helpful?</li>
+<li>Sample correlation is a random variable. What does this mean?</li>
+<li>What is the main intution for why we might want to run a linear model?</li>
+<li>How do we justify linear models?</li>
 </ul>
 <!-- ### Slides -->
 <!-- ```{r show-slide-tabs, echo=FALSE, results="asis"} -->
@@ -706,14 +711,6 @@
 <!-- slide_tabs(sections, "/slides/05-slides.html") -->
 <!-- ``` -->
 </div>
-</div>
-<div id="getting-started" class="section level2">
-<h2>Getting Started</h2>
-<p>Later in today’s lecture will ask you to touch real data during the lecture. Please download the following dataset and load it into <code>R</code> (or right-click the address and use that to load into <code>R</code>).</p>
-<ul>
-<li><a href="/projects/data/ames.csv"><i class="fas fa-file-csv"></i> <code>Ames.csv</code></a></li>
-</ul>
-<p>This dataset is from houses in Ames, Iowa. (Thrilling!) We will use this dataset during the lecture to illustrate some of the points discussed below.</p>
 </div>
 <div id="regression" class="section level1">
 <h1>Introduction to Linear Regression</h1>

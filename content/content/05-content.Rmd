@@ -1,7 +1,7 @@
 ---
 title: "Introduction to Regression"
-linktitle: "5: Linear Regression I"
-read_date: "2023-10-03"
+linktitle: "6: Linear Regression I"
+read_date: "2024-02-13"
 menu:
   content:
     parent: Course content
@@ -22,9 +22,10 @@ output:
 
 ### Guiding Questions
 
-- The correlation between two variables tells us how they move together
-
-- Sample correlation is a random variable
+- The correlation between two variables tells us how they move together. How is this helpful? 
+- Sample correlation is a random variable. What does this mean?
+- What is the main intution for why we might want to run a linear model? 
+- How do we justify linear models? 
 
 <!-- ### Slides -->
 

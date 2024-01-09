@@ -1,7 +1,7 @@
 ---
 title: "Visualizations in Practice"
-linktitle: "3: Visualization II"
-read_date: "2023-09-19"
+linktitle: "4: Visualization II"
+read_date: "2024-01-30"
 menu:
   content:
     parent: Course content
@@ -30,8 +30,6 @@ As with last week's content, the technical aspects of this lecture will be explo
 
 
 > "The greatest value of a picture is when it forces us to notice what we never expected to see." -- John Tukey
-
-
 
 
 # Data visualization principles

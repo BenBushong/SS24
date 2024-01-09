@@ -1,11 +1,11 @@
 ---
 title: "The Bias-Variance Tradeoff"
-linktitle: "10: Bias vs. Variance"
-read_date: "2023-11-07"
+linktitle: "9a: Bias vs. Variance"
+read_date: "2024-01-08"
 menu:
   content:
     parent: Course content
-    weight: 2
+    weight: 1
 type: docs
 output:
   blogdown::html_page:
@@ -382,7 +382,7 @@ mse = apply(predictions, MAR = 2, get_mse, truth = f(x = 0.90))</code></pre>
 <p>Now we can finally verify the bias-variance decomposition.</p>
 <pre class="r"><code>bias ^ 2 + variance == mse</code></pre>
 <pre><code>##     0     1     2     9 
-## FALSE FALSE  TRUE  TRUE</code></pre>
+## FALSE FALSE FALSE  TRUE</code></pre>
 <p>But wait, this says it isn’t true, except for the degree 9 model? It turns out, this is simply a computational issue. If we allow for some very small error tolerance, we see that the bias-variance decomposition is indeed true for predictions from these for models.</p>
 <pre class="r"><code>all.equal(bias ^ 2 + variance, mse)</code></pre>
 <pre><code>## [1] TRUE</code></pre>

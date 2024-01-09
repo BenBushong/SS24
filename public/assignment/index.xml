@@ -418,6 +418,18 @@ my_func &amp;lt;- function(y){
     </item>
     
     <item>
+      <title>Bias vs. Variance</title>
+      <link>https://ssc442.netlify.app/assignment/10-assignment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://ssc442.netlify.app/assignment/10-assignment/</guid>
+      <description>
+
+
+&lt;p&gt;There is no Lab 10.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Applied Logistic Regression - Classification</title>
       <link>https://ssc442.netlify.app/assignment/11-assignment/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1744,18 +1756,6 @@ lines(model_complexity, test_rmse, type = &amp;quot;b&amp;quot;, col = &amp;quot
 &lt;/ol&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Bias vs. Variance</title>
-      <link>https://ssc442.netlify.app/assignment/10-assignment/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ssc442.netlify.app/assignment/10-assignment/</guid>
-      <description>
-
-
-&lt;p&gt;There is no Lab 10.&lt;/p&gt;
 </description>
     </item>
     

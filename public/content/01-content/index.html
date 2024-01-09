@@ -30,7 +30,7 @@
   
     
   
-  <meta name="description" content="Readings Quick notes 9-5-2023  Group Projects Teams Guiding Question  Randomness and Data Analytics  Learning From Data Formalization The Target Function Why Estimate an Unknown Function? The Parable of the Marbles Outside the Data Hoeffding’s Inequality An example of Hoeffding’s Inequality  The tidyverse  Tidy data Manipulating data frames  Adding a column with mutate Subsetting with filter Selecting columns with select  The pipe: %&gt;% Summarizing data  summarize pull Group then summarize with group_by  Sorting data frames  Nested sorting The top \(n\)  Tibbles  Tibbles display better Subsets of tibbles are tibbles Tibbles can have complex entries Tibbles can be grouped Create a tibble using tibble instead of data.">
+  <meta name="description" content="Readings Some Reminders:  Group Projects Teams Guiding Question  The tidyverse  Tidy data Manipulating data frames  Adding a column with mutate Subsetting with filter Selecting columns with select  The pipe: %&gt;% Summarizing data  summarize pull Group then summarize with group_by  Sorting data frames  Nested sorting The top \(n\)  Tibbles  Tibbles display better Subsets of tibbles are tibbles Tibbles can have complex entries Tibbles can be grouped Create a tibble using tibble instead of data.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://ssc442.netlify.app/content/01-content/">
@@ -238,11 +238,11 @@
   <meta property="og:site_name" content="Data Analytics">
   <meta property="og:url" content="https://ssc442.netlify.app/content/01-content/">
   <meta property="og:title" content="Introduction to the tidyverse | Data Analytics">
-  <meta property="og:description" content="Readings Quick notes 9-5-2023  Group Projects Teams Guiding Question  Randomness and Data Analytics  Learning From Data Formalization The Target Function Why Estimate an Unknown Function? The Parable of the Marbles Outside the Data Hoeffding’s Inequality An example of Hoeffding’s Inequality  The tidyverse  Tidy data Manipulating data frames  Adding a column with mutate Subsetting with filter Selecting columns with select  The pipe: %&gt;% Summarizing data  summarize pull Group then summarize with group_by  Sorting data frames  Nested sorting The top \(n\)  Tibbles  Tibbles display better Subsets of tibbles are tibbles Tibbles can have complex entries Tibbles can be grouped Create a tibble using tibble instead of data."><meta property="og:image" content="https://ssc442.netlify.app/img/social-image.png">
+  <meta property="og:description" content="Readings Some Reminders:  Group Projects Teams Guiding Question  The tidyverse  Tidy data Manipulating data frames  Adding a column with mutate Subsetting with filter Selecting columns with select  The pipe: %&gt;% Summarizing data  summarize pull Group then summarize with group_by  Sorting data frames  Nested sorting The top \(n\)  Tibbles  Tibbles display better Subsets of tibbles are tibbles Tibbles can have complex entries Tibbles can be grouped Create a tibble using tibble instead of data."><meta property="og:image" content="https://ssc442.netlify.app/img/social-image.png">
   <meta property="twitter:image" content="https://ssc442.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
   
     
-      <meta property="article:published_time" content="2023-09-08T00:00:00&#43;00:00">
+      <meta property="article:published_time" content="2024-01-09T00:00:00&#43;00:00">
     
     <meta property="article:modified_time" content="2023-09-08T11:09:13-04:00">
   
@@ -563,35 +563,39 @@
   </div>
   
   <div class="docs-toc-item">
-    <a class="docs-toc-link" href="/content/00-content/">Course content</a>
+    <a class="docs-toc-link" href="/content/99-content/">Course content</a>
     <ul class="nav docs-sidenav">
       
       <li >
-        <a href="/content/00-content/">0: Introduction to R</a>
+        <a href="/content/99-content/">0: R Setup</a>
+      </li>
+      
+      <li >
+        <a href="/content/00-content/">1: Intro to Data Analytics</a>
       </li>
       
       <li class="active">
-        <a href="/content/01-content/">1: The Tidyverse</a>
+        <a href="/content/01-content/">2: The Tidyverse</a>
       </li>
       
       <li >
-        <a href="/content/02-content/">2: Visualization</a>
+        <a href="/content/02-content/">3: Visualization</a>
       </li>
       
       <li >
-        <a href="/content/03-content/">3: Visualization II</a>
+        <a href="/content/03-content/">4: Visualization II</a>
       </li>
       
       <li >
-        <a href="/content/04-content/">4: Uncertainty</a>
+        <a href="/content/04-content/">5: Uncertainty</a>
       </li>
       
       <li >
-        <a href="/content/05-content/">5: Linear Regression I</a>
+        <a href="/content/05-content/">6: Linear Regression I</a>
       </li>
       
       <li >
-        <a href="/content/06-content/">6: Linear Regression II</a>
+        <a href="/content/06-content/">7: Linear Regression II</a>
       </li>
       
       <li >
@@ -599,15 +603,15 @@
       </li>
       
       <li >
-        <a href="/content/08-content/">8: Shrinkage with LASSO and Ridge</a>
+        <a href="/content/10-content/">9a: Bias vs. Variance</a>
       </li>
       
       <li >
-        <a href="/content/09-content/">9: Nonparametric Regression</a>
+        <a href="/content/08-content/">9b: LASSO and Ridge</a>
       </li>
       
       <li >
-        <a href="/content/10-content/">10: Bias vs. Variance</a>
+        <a href="/content/09-content/">10: Nonparametric Regression</a>
       </li>
       
       <li >
@@ -649,7 +653,7 @@
 
                     
                     <div class="due-date p-2 mb-3 bg-content text-white">
-                        Content for Tuesday, September 5, 2023
+                        Content for Tuesday, January 16, 2024
                     </div>
                     
 
@@ -661,22 +665,11 @@
 <div id="TOC">
 <ul>
 <li><a href="#readings" id="toc-readings">Readings</a></li>
-<li><a href="#quick-notes-9-5-2023" id="toc-quick-notes-9-5-2023">Quick notes 9-5-2023</a>
+<li><a href="#some-reminders" id="toc-some-reminders">Some Reminders:</a>
 <ul>
 <li><a href="#group-projects" id="toc-group-projects">Group Projects</a></li>
 <li><a href="#teams" id="toc-teams">Teams</a></li>
 <li><a href="#guiding-question" id="toc-guiding-question">Guiding Question</a></li>
-</ul></li>
-<li><a href="#randomness-and-data-analytics" id="toc-randomness-and-data-analytics">Randomness and Data Analytics</a>
-<ul>
-<li><a href="#learning-from-data" id="toc-learning-from-data">Learning From Data</a></li>
-<li><a href="#formalization" id="toc-formalization">Formalization</a></li>
-<li><a href="#the-target-function" id="toc-the-target-function">The Target Function</a></li>
-<li><a href="#why-estimate-an-unknown-function" id="toc-why-estimate-an-unknown-function">Why Estimate an Unknown Function?</a></li>
-<li><a href="#the-parable-of-the-marbles" id="toc-the-parable-of-the-marbles">The Parable of the Marbles</a></li>
-<li><a href="#outside-the-data" id="toc-outside-the-data">Outside the Data</a></li>
-<li><a href="#hoeffdings-inequality" id="toc-hoeffdings-inequality">Hoeffding’s Inequality</a></li>
-<li><a href="#an-example-of-hoeffdings-inequality" id="toc-an-example-of-hoeffdings-inequality">An example of Hoeffding’s Inequality</a></li>
 </ul></li>
 <li><a href="#tidyverse" id="toc-tidyverse">The tidyverse</a>
 <ul>
@@ -727,10 +720,16 @@
 <li>Optional: The “Tidy Your Data” tutorial on <a href="https://rstudio.cloud/learn/primers">Rstudio Cloud Primers</a></li>
 </ul>
 </div>
-<div id="quick-notes-9-5-2023" class="section level2">
-<h2>Quick notes 9-5-2023</h2>
+<div id="some-reminders" class="section level2">
+<h2>Some Reminders:</h2>
 <ul>
-<li>Start labs early</li>
+<li>Start labs early!
+<ul>
+<li>They are not trivial.</li>
+<li>They are not short.</li>
+<li>They are not easy.</li>
+<li>They are not optional.</li>
+</ul></li>
 <li>You <code>install.packages("packageName")</code> <strong>once</strong> on your computer.
 <ul>
 <li>And never ever ever in your code.</li>
@@ -765,9 +764,9 @@
 </div>
 <div id="teams" class="section level3">
 <h3>Teams</h3>
-<p>Please form teams of 2-3 people. Once all agree to be on a team, have one person email our TA, Nick, armst427@msu.edu <strong>and cc all of the members of the team</strong> so that nobody is surprised to be included on a team. Title the email <em>[SSC442] - Group Formation</em>. Tell us your team name (be creative), and list in the email the names of all of the team members and their email address (in addition to cc-ing those team members on the email).</p>
-<p>If you opt to not form a team, you will be automatically added to the “willing to be randomly assigned” pool and will be paired with another 1-2 persons.</p>
-<p>Send this email by <strong>September 21st</strong> and we will assign un-teamed folks at the beginning of the following week. Project 1 is due in mid-October. See <a href="/schedule/">schedule</a> for all the important project dates.</p>
+<p>Please form teams of 3 people. Once all agree to be on a team, have one person email our TA Allen scovelpa@msu.edu <strong>and cc all of the members of the team</strong> so that nobody is surprised to be included on a team. Title the email <em>[SSC442] - Group Formation</em>. Tell us your team name (be creative), and list in the email the names of all of the team members and their email address (in addition to cc-ing those team members on the email).</p>
+<p>If you opt to not form a team, you will be automatically added to the “willing to be randomly assigned” pool and will be paired with two others from the “willing to be randomly assigned” pool.</p>
+<p>Send this email by <strong>January 20th</strong> and we will assign un-teamed folks at the beginning of the following week. Project 1 is due in no time. See <a href="/schedule/">schedule</a> for all the important project dates.</p>
 </div>
 <div id="guiding-question" class="section level3">
 <h3>Guiding Question</h3>
@@ -778,131 +777,10 @@
 </ul>
 </div>
 </div>
-<div id="randomness-and-data-analytics" class="section level2">
-<h2>Randomness and Data Analytics</h2>
-<p>And the fabulous importance of probabilistic inference…</p>
-<p>This half of the lecture is very “high-level,” which means it is talking about abstract concepts. It is also quite important.</p>
-<p>We want to discuss <strong>why</strong> we eventually will need to utilize tons of difficult mathematics. Why do we care so much about hypothesis tests and the like?</p>
-<p>Moreover, we can highlight why we want our data structured to behave nicely.</p>
-<div id="learning-from-data" class="section level3">
-<h3>Learning From Data</h3>
-<p>The following are the baisc requirements for statistical learning</p>
-<ol style="list-style-type: decimal">
-<li><p>A pattern exists</p></li>
-<li><p>This pattern is not easily expressed in a closed mathematical form</p></li>
-<li><p>You have data</p></li>
-</ol>
-</div>
-<div id="formalization" class="section level3">
-<h3>Formalization</h3>
-<p>We think of our outcome-of-interest as a <strong>reponse</strong> or <strong>target</strong> that we wish to predict or wish to learn something about.</p>
-<p>We generically refer to the response as <span class="math inline">\(Y\)</span></p>
-<p>Other aspects of the data are known as <strong>features, inputs, predictors</strong>, or <strong>regressors</strong>. We call one of these <span class="math inline">\(X_i\)</span>.</p>
-<ul>
-<li>The subscript <span class="math inline">\(i\)</span> indicates that we have an <span class="math inline">\(X\)</span> realized for every individual observation in our data</li>
-</ul>
-<p>We can refer to the input vector collectively as:</p>
-<p><span class="math display">\[X = \begin{bmatrix}
-x_{11} &amp; x_{12} \\
-x_{21} &amp; x_{22} \\
-\vdots &amp; \vdots \\
-x_{N1} &amp; x_{N2}
-\end{bmatrix}\]</span></p>
-<p>This is sometimes called a “rectangular array” of data. Sounds complicated, but you’ve definitely encountered it before. Excel holds “rectangular arrays” of data.</p>
-<p>We are seeking some unknown function that <strong>maps</strong> <span class="math inline">\(X\)</span> to <span class="math inline">\(Y\)</span></p>
-<p>Put another way, we are seeking to explain <span class="math inline">\(Y\)</span> as follows:</p>
-<p><span class="math display">\[Y = f(X) + e\]</span></p>
-</div>
-<div id="the-target-function" class="section level3">
-<h3>The Target Function</h3>
-<p>We call the function <span class="math inline">\(f: \mathcal{X} \rightarrow \mathcal{Y}\)</span> the <strong>target function</strong></p>
-<p>How do we find the function? We don’t! We get as close as we can, though:</p>
-<ul>
-<li><p>Observe data <span class="math inline">\((\mathbf{x}_1, y_1), \cdots, (\mathbf{x}_N, y_N)\)</span></p></li>
-<li><p>Use some algorithm to approximate <span class="math inline">\(f\)</span></p></li>
-<li><p>Produce final hypothesis function <span class="math inline">\(g \approx f\)</span></p></li>
-<li><p>Evaluate how well <span class="math inline">\(g\)</span> approximates <span class="math inline">\(f\)</span> and iterate as needed.</p></li>
-</ul>
-</div>
-<div id="why-estimate-an-unknown-function" class="section level3">
-<h3>Why Estimate an Unknown Function?</h3>
-<p>With a good estimate of <span class="math inline">\(f\)</span> we can make predictions of <span class="math inline">\(Y\)</span> at <strong>new</strong> points <span class="math inline">\(X = x\)</span></p>
-<p>We can also understand which components of <span class="math inline">\(X = (X_1, X_2, \cdots, X_m)\)</span> are important in explaining <span class="math inline">\(Y\)</span>, and which are (potentially) irrelevant</p>
-<ul>
-<li>e.g. <code>GDP</code> and <code>yearsindustrialized</code> have a big impact on <code>emissions</code> but <code>hydroutilization</code> typically does not.</li>
-</ul>
-<p>Depending on the complexity of <span class="math inline">\(f\)</span>, we may be able to meaningfully understand how each component of <span class="math inline">\(X\)</span> affects <span class="math inline">\(Y\)</span>.</p>
-<p>(But we should be careful about assigning causal interpretations, more on this later)</p>
-</div>
-<div id="the-parable-of-the-marbles" class="section level3">
-<h3>The Parable of the Marbles</h3>
-<p>(Courtesy of Prof. Bushong)</p>
-<p>Imagine a bag of marbles with two types of marbles: ♣️ and ♦️.</p>
-<p>We are going to pick a <strong>sample</strong> of <span class="math inline">\(n\)</span> marbles (with replacement).</p>
-<p>We want to learn something about <span class="math inline">\(\mu\)</span>, the <strong>objective</strong> probability to pick a ♣️.</p>
-<p>In addition to defining the <strong>objective</strong> probability of picking a ♣️, we have an observed fraction <span class="math inline">\(\eta\)</span>, which will define as the fraction of ♣️ in the <em>sample</em>.</p>
-<p><strong>Question</strong>: Can we say anything exact and for-sure about <span class="math inline">\(\mu\)</span> (outside the data) after observing <span class="math inline">\(\eta\)</span> (the data)?</p>
-<ul>
-<li><p>No. It is possible for the sample to be all ♣️, ♣️, ♣️, ♣️, ♣️ even when the bag is is 50/50 ♦️</p>
-<ul>
-<li><p>No matter what we draw, we can’t (based on that draw alone) eliminate the possibility of drawing a ♦️.</p></li>
-<li><p>And unless we assume that the only two values in the world are ♦️ and ♣️, we can’t rule out 💩<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p></li>
-</ul></li>
-</ul>
-<p><strong>Question</strong>: If we really can’t say anything exact and for-sure, then why do we do things like polling (e.g. to predict the outcome of a presidential election)?</p>
-<ul>
-<li>The bad case, that we draw something that has is completely misleading, is <em>possible</em> but not <strong>probable</strong>.</li>
-</ul>
-</div>
-<div id="outside-the-data" class="section level3">
-<h3>Outside the Data</h3>
-<p>Put another way, since <span class="math inline">\(f\)</span> is unknown, it can take on any value outside the data we have, no matter how large the data.</p>
-<ul>
-<li>This is called <em>No Free Lunch</em></li>
-</ul>
-<p>You cannot know anything for sure about <span class="math inline">\(f\)</span> outside the data without making assumptions.</p>
-<p>Is there any hope to know anything about <span class="math inline">\(f\)</span> outside the data set without making assumptions about <span class="math inline">\(f\)</span>?</p>
-<p><strong>Yes</strong>, if we are willing to give up the “for sure”.</p>
-<p>Instead of</p>
-<p><span class="math display">\[
-Y = f(X)
-\]</span></p>
-<p>we can work with</p>
-<p><span class="math display">\[
-Y = f(X) + e
-\]</span></p>
-<p>and if we guess at an <span class="math inline">\(f\)</span> function that gets pretty close, <span class="math inline">\(e\)</span> will be pretty small. If <span class="math inline">\(e\)</span> is pretty small, then we’re in good shape for prediction!</p>
-</div>
-<div id="hoeffdings-inequality" class="section level3">
-<h3>Hoeffding’s Inequality</h3>
-<p><strong>Hoeffding’s Inequality</strong> states, loosely, that <span class="math inline">\(\eta\)</span> (the fraction of our sample that is ♣️) cannot be too far from <span class="math inline">\(\mu\)</span>.</p>
-<p><span class="math display">\[\mathbb{P}\left[|\eta - \mu| &gt; \epsilon \right] \leq 2e^{-2\epsilon^2n}\]</span>
-<span class="math inline">\(\eta \approx \mu\)</span> is called <strong>probably approximately correct</strong> (PAC) learning.</p>
-</div>
-<div id="an-example-of-hoeffdings-inequality" class="section level3">
-<h3>An example of Hoeffding’s Inequality</h3>
-<p><strong>Example</strong>: n = 1,000. Draw a sample and observe <span class="math inline">\(\eta\)</span></p>
-<ul>
-<li><p><span class="math inline">\(\sim\)</span> 99% of the time, <span class="math inline">\(\mu - .05 \leq \eta \leq \mu+.05\)</span></p>
-<ul>
-<li>This is implied by setting <span class="math inline">\(\epsilon = 0.05\)</span> and using <span class="math inline">\(n=1,000\)</span></li>
-</ul></li>
-<li><p>99.9999996% of the time <span class="math inline">\(\mu - .10 \leq \eta \leq \mu + .10\)</span></p></li>
-</ul>
-<p><strong>What does this mean?</strong></p>
-<p>If I repeatedly pick a sample of size 1,000, observe <span class="math inline">\(\eta\)</span> and claim that <span class="math inline">\(\mu \in \left[\eta - .05, \eta + .05\right]\)</span> (or that the error bar is <span class="math inline">\(\pm 0.05\)</span>), I will be right 99% of the time.</p>
-<p>On any particular sample you may be wrong, but not often.</p>
-<div class="fyi">
-<p><strong>NOTE</strong></p>
-<p>This week’s content is split into two “halves”: the critical data manipulation information contained below and a more-entertaining discussion of visualization included in the Exercises. That’s a pretty jarring change, so here’s a picture of my dog.</p>
-<p><img src="/content/01-content_files/Thibodaux2.jpg" /></p>
-</div>
-</div>
-</div>
 <div id="tidyverse" class="section level1">
 <h1>The tidyverse</h1>
 <p>In last week’s content and lab, we demonstrated how to manipulate vectors by reordering and subsetting them through indexing. However, once we start more advanced analyses, the preferred unit for data storage is not the vector but the data frame. In this lecture, we learn to work directly with data frames, which greatly facilitate the organization of information. We will be using data frames for the majority of this class and you will use them for the majority of your data science life (however long that might be). We will focus on a specific data format referred to as <em>tidy</em> and on specific collection of packages that are particularly helpful for working with <em>tidy</em> data referred to as the <em>tidyverse</em>.</p>
-<p>We can load all the tidyverse packages at once by installing and loading the <strong>tidyverse</strong> package:<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
+<p>We can load all the tidyverse packages at once by installing and loading the <strong>tidyverse</strong> package:<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
 <pre class="r"><code>library(tidyverse)</code></pre>
 <p>We will learn how to implement the tidyverse approach throughout the book, but before delving into the details, in this chapter we introduce some of the most widely used tidyverse functionality, starting with the <strong>dplyr</strong> package for manipulating data frames and the <strong>purrr</strong> package for working with functions. Note that the tidyverse also includes a graphing package, <strong>ggplot2</strong>, the <strong>readr</strong> package, and many others. In this lesson, we first introduce the concept of <em>tidy data</em> and then demonstrate how we use the tidyverse to work with data frames in this format.</p>
 <div id="tidy-data" class="section level2">
@@ -1303,9 +1181,8 @@ Note that if the third argument is left blank, <code>top_n</code> filters by the
 <div class="fyi">
 <p><strong>TRY IT</strong></p>
 <p>For these exercises, we will be using the data from the survey collected by the United States National Center for Health Statistics (NCHS). This center has conducted a series of health and nutrition surveys since the 1960’s. Starting in 1999, about 5,000 individuals of all ages have been interviewed every year and they complete the health examination component of the survey. Part of the data is made available via the <strong>NHANES</strong> package. Once you install the <strong>NHANES</strong> package, you can load the data like this:</p>
-<pre class="r"><code>library(NHANES)</code></pre>
-<pre><code>## Warning: package &#39;NHANES&#39; was built under R version 4.2.3</code></pre>
-<pre class="r"><code>data(NHANES)</code></pre>
+<pre class="r"><code>library(NHANES)
+data(NHANES)</code></pre>
 <p>The <strong>NHANES</strong> data has many missing values. The <code>mean</code> and <code>sd</code> functions in R will return <code>NA</code> if any of the entries of the input vector is an <code>NA</code>. Here is an example:</p>
 <pre class="r"><code>library(dslabs)
 data(na_example)
@@ -1621,8 +1498,7 @@ case_when(x &lt; 0 ~ &quot;Negative&quot;,
 <div class="footnotes footnotes-end-of-document">
 <hr />
 <ol>
-<li id="fn1"><p>I discovered the <code>emo::ji()</code> function at 8:55am. My wife joked that I would find a way to use the poop emoji by 9:00am. It is now 8:59am. She was right.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p>If you have not installed this package already, you must use <code>install.packages("tidyverse")</code> prior to the <code>library()</code> call you see below.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn1"><p>If you have not installed this package already, you must use <code>install.packages("tidyverse")</code> prior to the <code>library()</code> call you see below.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
 

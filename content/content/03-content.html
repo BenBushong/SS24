@@ -1,7 +1,7 @@
 ---
 title: "Visualizations in Practice"
-linktitle: "3: Visualization II"
-read_date: "2023-09-19"
+linktitle: "4: Visualization II"
+read_date: "2024-01-30"
 menu:
   content:
     parent: Course content
@@ -771,8 +771,8 @@ grid.arrange(viridis_a, viridis_b, viridis_c, viridis_d)</code></pre>
 filter(year == 1990 | year == 1995 | year==2000 |  year == 2005 | year==2010 ) %&gt;%
 ggplot(aes(x = continent, y = gdp/population, fill = as.factor(year)))  + coord_flip() + labs(fill = &#39;Year&#39;) 
 
-custom_a = gp + geom_boxplot()  + labs(title = &#39;Viridis A&#39;) + scale_fill_discrete(type = color_blind_friendly_cols)
-custom_b = gp + geom_boxplot()  + labs(title = &#39;Viridis A&#39;) + scale_fill_discrete(type = color_blind_friendly_cols[1:3])
+custom_a = gp + geom_boxplot()  + labs(title = &#39;Custom palette&#39;) + scale_fill_discrete(type = color_blind_friendly_cols)
+custom_b = gp + geom_boxplot()  + labs(title = &#39;Custom palette 1-3&#39;) + scale_fill_discrete(type = color_blind_friendly_cols[1:3])
 
 grid.arrange(custom_a, custom_b)</code></pre>
 <p><img src="/content/03-content_files/figure-html/unnamed-chunk-17-1.png" width="672" style="display: block; margin: auto;" /></p>

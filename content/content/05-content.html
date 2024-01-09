@@ -1,7 +1,7 @@
 ---
 title: "Introduction to Regression"
-linktitle: "5: Linear Regression I"
-read_date: "2023-10-03"
+linktitle: "6: Linear Regression I"
+read_date: "2024-02-13"
 menu:
   content:
     parent: Course content
@@ -19,7 +19,6 @@ output:
 <ul>
 <li><a href="#guiding-questions" id="toc-guiding-questions">Guiding Questions</a></li>
 </ul></li>
-<li><a href="#getting-started" id="toc-getting-started">Getting Started</a></li>
 <li><a href="#regression" id="toc-regression">Introduction to Linear Regression</a>
 <ul>
 <li><a href="#case-study-is-height-hereditary" id="toc-case-study-is-height-hereditary">Case study: is height hereditary?</a></li>
@@ -50,8 +49,10 @@ output:
 <div id="guiding-questions" class="section level3">
 <h3>Guiding Questions</h3>
 <ul>
-<li><p>The correlation between two variables tells us how they move together</p></li>
-<li><p>Sample correlation is a random variable</p></li>
+<li>The correlation between two variables tells us how they move together. How is this helpful?</li>
+<li>Sample correlation is a random variable. What does this mean?</li>
+<li>What is the main intution for why we might want to run a linear model?</li>
+<li>How do we justify linear models?</li>
 </ul>
 <!-- ### Slides -->
 <!-- ```{r show-slide-tabs, echo=FALSE, results="asis"} -->
@@ -63,14 +64,6 @@ output:
 <!-- slide_tabs(sections, "/slides/05-slides.html") -->
 <!-- ``` -->
 </div>
-</div>
-<div id="getting-started" class="section level2">
-<h2>Getting Started</h2>
-<p>Later in today’s lecture will ask you to touch real data during the lecture. Please download the following dataset and load it into <code>R</code> (or right-click the address and use that to load into <code>R</code>).</p>
-<ul>
-<li><a href="/projects/data/ames.csv"><i class="fas fa-file-csv"></i> <code>Ames.csv</code></a></li>
-</ul>
-<p>This dataset is from houses in Ames, Iowa. (Thrilling!) We will use this dataset during the lecture to illustrate some of the points discussed below.</p>
 </div>
 <div id="regression" class="section level1">
 <h1>Introduction to Linear Regression</h1>
