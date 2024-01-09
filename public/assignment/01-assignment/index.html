@@ -31,7 +31,7 @@
     
   
   <meta name="description" content="Using ggplot2  How to use ggplot2 – the too-fast and wholly unclear recipe  Mappings Link Data to Things You See The Recipe  Mapping Aesthetics vs Setting them    NOTE
-You must turn in a PDF document of your R markdown output. Submit this to D2L by 11:59 PM on September 11th.
+You must turn in a PDF document of your R markdown output. Submit this to D2L by 11:59 PM on January 22nd.
 Note: This lab has a few “try its” along the way. They are for your own practice and are not required.">
 
   
@@ -241,7 +241,7 @@ Note: This lab has a few “try its” along the way. They are for your own prac
   <meta property="og:url" content="https://ssc442.netlify.app/assignment/01-assignment/">
   <meta property="og:title" content="Basics of ggplot | Data Analytics">
   <meta property="og:description" content="Using ggplot2  How to use ggplot2 – the too-fast and wholly unclear recipe  Mappings Link Data to Things You See The Recipe  Mapping Aesthetics vs Setting them    NOTE
-You must turn in a PDF document of your R markdown output. Submit this to D2L by 11:59 PM on September 11th.
+You must turn in a PDF document of your R markdown output. Submit this to D2L by 11:59 PM on January 22nd.
 Note: This lab has a few “try its” along the way. They are for your own practice and are not required."><meta property="og:image" content="https://ssc442.netlify.app/img/social-image.png">
   <meta property="twitter:image" content="https://ssc442.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
   
@@ -565,51 +565,47 @@ Note: This lab has a few “try its” along the way. They are for your own prac
   </div>
   
   <div class="docs-toc-item">
-    <a class="docs-toc-link" href="/assignment/00-assignment/">Labs</a>
+    <a class="docs-toc-link" href="/assignment/09-assignment/">Labs</a>
     <ul class="nav docs-sidenav">
       
       <li >
-        <a href="/assignment/00-assignment/">0: Introduction to R</a>
+        <a href="/assignment/09-assignment/">10: Nonlinear Regression</a>
+      </li>
+      
+      <li >
+        <a href="/assignment/00-assignment/">1: Introduction to R</a>
       </li>
       
       <li class="active">
-        <a href="/assignment/01-assignment/">1: Visualization I</a>
+        <a href="/assignment/01-assignment/">2: Visualization I</a>
       </li>
       
       <li >
-        <a href="/assignment/02-assignment/">2: Visualization II</a>
+        <a href="/assignment/02-assignment/">3: Visualization II</a>
       </li>
       
       <li >
-        <a href="/assignment/03-assignment/">3: Visualization III</a>
+        <a href="/assignment/03-assignment/">4: Visualization III</a>
       </li>
       
       <li >
-        <a href="/assignment/04-assignment/">4: Statistical Models and Uncertainty</a>
+        <a href="/assignment/04-assignment/">5: Uncertainty</a>
       </li>
       
       <li >
-        <a href="/assignment/05-assignment/">5: Linear Regression I</a>
+        <a href="/assignment/05-assignment/">6: Linear Regression I</a>
       </li>
       
       <li >
-        <a href="/assignment/06-assignment/">6: Linear Regression II</a>
+        <a href="/assignment/06-assignment/">7: Linear Regression II</a>
       </li>
       
       <li >
-        <a href="/assignment/07-assignment/">7: Linear Regression III</a>
+        <a href="/assignment/07-assignment/">8: Linear Regression III</a>
       </li>
       
       <li >
-        <a href="/assignment/08-assignment/">8: None</a>
-      </li>
-      
-      <li >
-        <a href="/assignment/09-assignment/">9: Nonlinear Regression Model Evaluation</a>
-      </li>
-      
-      <li >
-        <a href="/assignment/10-assignment/">10: None</a>
+        <a href="/assignment/08-assignment/">9: Training and Testing</a>
       </li>
       
       <li >
@@ -626,6 +622,10 @@ Note: This lab has a few “try its” along the way. They are for your own prac
       
       <li >
         <a href="/assignment/14-assignment/">14: Geospatial in R</a>
+      </li>
+      
+      <li >
+        <a href="/assignment/10-assignment/">14: Secrets</a>
       </li>
       
     </ul>
@@ -693,7 +693,7 @@ Note: This lab has a few “try its” along the way. They are for your own prac
 
 <div class="fyi">
 <p><strong>NOTE</strong></p>
-<p>You must turn in a PDF document of your <code>R markdown</code> output. Submit this to D2L by 11:59 PM on September 11th.</p>
+<p>You must turn in a PDF document of your <code>R markdown</code> output. Submit this to D2L by 11:59 PM on January 22nd.</p>
 <p>Note: This lab has a few “try its” along the way. They are for your own practice and are not required. The lab consists of the three “exercises.”</p>
 </div>
 <p>Our primary tool for data visualization in the course will be <code>ggplot</code>. Technically, we’re using <code>ggplot2</code>; the o.g. version lacked some of the modern features of its big brother. <code>ggplot2</code> implements the grammar of graphics, a coherent and relatively straightforward system for describing and building graphs. With <code>ggplot2</code>, you can do more faster by learning one system and applying it in many places. Other languages provide more specific tools, but require you to learn a different tool for each application. In this class, we’ll dig into a single package for our visuals.</p>
@@ -730,11 +730,9 @@ library(tidyverse)</code></pre>
 </div>
 <div id="mappings-link-data-to-things-you-see" class="section level2">
 <h2>Mappings Link Data to Things You See</h2>
-<pre class="r"><code>library(gapminder)</code></pre>
-<pre><code>## Warning: package &#39;gapminder&#39; was built under R version 4.2.3</code></pre>
-<pre class="r"><code>library(ggplot2)</code></pre>
-<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 4.2.3</code></pre>
-<pre class="r"><code>gapminder::gapminder</code></pre>
+<pre class="r"><code>library(gapminder)
+library(ggplot2)
+gapminder::gapminder</code></pre>
 <pre><code>## # A tibble: 1,704 × 6
 ##    country     continent  year lifeExp      pop gdpPercap
 ##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;

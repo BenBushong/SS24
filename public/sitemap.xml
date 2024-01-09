@@ -3,31 +3,28 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://ssc442.netlify.app/example/00-example/</loc>
-    <lastmod>2024-01-08T11:54:36-05:00</lastmod>
+    <lastmod>2024-01-09T11:10:06-05:00</lastmod>
   </url><url>
     <loc>https://ssc442.netlify.app/example/01-example/</loc>
-    <lastmod>2024-01-08T11:54:36-05:00</lastmod>
+    <lastmod>2024-01-09T11:10:06-05:00</lastmod>
   </url><url>
     <loc>https://ssc442.netlify.app/example/02-example/</loc>
-    <lastmod>2024-01-08T11:54:36-05:00</lastmod>
+    <lastmod>2024-01-09T11:10:06-05:00</lastmod>
   </url><url>
     <loc>https://ssc442.netlify.app/example/03-example/</loc>
-    <lastmod>2023-09-25T13:29:40-04:00</lastmod>
+    <lastmod>2024-01-09T11:10:06-05:00</lastmod>
   </url><url>
     <loc>https://ssc442.netlify.app/example/04-example/</loc>
-    <lastmod>2023-09-28T11:44:16-04:00</lastmod>
+    <lastmod>2024-01-09T11:10:06-05:00</lastmod>
   </url><url>
     <loc>https://ssc442.netlify.app/resource/install/</loc>
     <lastmod>2024-01-07T13:20:17-05:00</lastmod>
   </url><url>
-    <loc>https://ssc442.netlify.app/assignment/00-assignment/</loc>
-    <lastmod>2023-09-08T09:24:36-04:00</lastmod>
-  </url><url>
     <loc>https://ssc442.netlify.app/example/10-example/</loc>
     <lastmod>2023-10-17T12:58:29-04:00</lastmod>
   </url><url>
-    <loc>https://ssc442.netlify.app/assignment/10-assignment/</loc>
-    <lastmod>2024-01-09T09:47:23-05:00</lastmod>
+    <loc>https://ssc442.netlify.app/assignment/09-assignment/</loc>
+    <lastmod>2023-10-17T12:58:29-04:00</lastmod>
   </url><url>
     <loc>https://ssc442.netlify.app/assignment/11-assignment/</loc>
     <lastmod>2023-10-17T12:58:29-04:00</lastmod>
@@ -53,6 +50,12 @@
     <loc>https://ssc442.netlify.app/example/14-example/</loc>
     <lastmod>2023-12-11T10:24:05-05:00</lastmod>
   </url><url>
+    <loc>https://ssc442.netlify.app/assignment/10-assignment/</loc>
+    <lastmod>2024-01-09T09:47:23-05:00</lastmod>
+  </url><url>
+    <loc>https://ssc442.netlify.app/assignment/00-assignment/</loc>
+    <lastmod>2023-09-08T09:24:36-04:00</lastmod>
+  </url><url>
     <loc>https://ssc442.netlify.app/assignment/01-assignment/</loc>
     <lastmod>2023-09-08T09:24:36-04:00</lastmod>
   </url><url>
@@ -69,31 +72,28 @@
     <lastmod>2023-09-25T13:29:40-04:00</lastmod>
   </url><url>
     <loc>https://ssc442.netlify.app/example/05-example/</loc>
-    <lastmod>2023-10-05T10:42:52-04:00</lastmod>
+    <lastmod>2024-01-09T11:10:06-05:00</lastmod>
   </url><url>
     <loc>https://ssc442.netlify.app/assignment/06-assignment/</loc>
     <lastmod>2023-10-03T11:42:54-04:00</lastmod>
   </url><url>
     <loc>https://ssc442.netlify.app/example/06-example/</loc>
-    <lastmod>2023-10-03T11:42:54-04:00</lastmod>
+    <lastmod>2024-01-09T11:10:06-05:00</lastmod>
   </url><url>
     <loc>https://ssc442.netlify.app/assignment/07-assignment/</loc>
     <lastmod>2023-10-03T11:42:54-04:00</lastmod>
   </url><url>
     <loc>https://ssc442.netlify.app/example/07-example/</loc>
-    <lastmod>2023-11-02T10:19:03-04:00</lastmod>
-  </url><url>
-    <loc>https://ssc442.netlify.app/assignment/08-assignment/</loc>
-    <lastmod>2023-10-03T11:42:54-04:00</lastmod>
+    <lastmod>2024-01-09T11:10:06-05:00</lastmod>
   </url><url>
     <loc>https://ssc442.netlify.app/example/08-example-notusedfallbreak/</loc>
     <lastmod>2024-01-03T17:52:29-05:00</lastmod>
   </url><url>
-    <loc>https://ssc442.netlify.app/assignment/09-assignment/</loc>
-    <lastmod>2023-10-17T12:58:29-04:00</lastmod>
-  </url><url>
     <loc>https://ssc442.netlify.app/example/09-example/</loc>
     <lastmod>2023-11-02T10:19:03-04:00</lastmod>
+  </url><url>
+    <loc>https://ssc442.netlify.app/assignment/08-assignment/</loc>
+    <lastmod>2023-10-03T11:42:54-04:00</lastmod>
   </url><url>
     <loc>https://ssc442.netlify.app/assignment/</loc>
     <lastmod>2023-09-08T09:24:36-04:00</lastmod>

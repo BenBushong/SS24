@@ -1,6 +1,6 @@
 ---
 title: "Visualizing Large(ish) Data"
-linktitle: "3: Visualization III"
+linktitle: "4: Visualization III"
 output:
   blogdown::html_page:
     toc: true
@@ -14,13 +14,12 @@ editor_options:
   chunk_output_type: console
 ---
 
-<!-- Updated 8.30.22 -->
 
 :::fyi
 
 **NOTE**
 
-You must turn in a PDF document of your `R Markdown` code. Submit this to D2L by 11:59 PM Eastern Time on Monday, September 25th
+You must turn in a PDF document of your `R Markdown` code. Submit this to D2L by 11:59 PM Eastern Time on Monday, February 5th.
 
 :::
 

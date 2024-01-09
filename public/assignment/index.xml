@@ -13,6 +13,247 @@
     </image>
     
     <item>
+      <title>Nonlinear Regression and Model Evaluation</title>
+      <link>https://ssc442.netlify.app/assignment/09-assignment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://ssc442.netlify.app/assignment/09-assignment/</guid>
+      <description>
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#backstory-and-set-up&#34; id=&#34;toc-backstory-and-set-up&#34;&gt;Backstory and Set Up&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;!-- Updated 11/7/23 fixed data/bank23.csv data no default y is still character, not yet knit --&gt;
+&lt;div class=&#34;fyi&#34;&gt;
+&lt;p&gt;You must turn in a PDF document of your &lt;code&gt;R Markdown&lt;/code&gt; knitted document. Submit this to D2L by 11:59 PM Eastern Time on [DATE].&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;backstory-and-set-up&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Backstory and Set Up&lt;/h2&gt;
+&lt;p&gt;You work for a bank. This bank is trying to predict defaults on loans. These are costly to the bank and, while rare, avoiding them is how banks make money. They’ve given you a dataset on defaults (encoded as the variable &lt;code&gt;default&lt;/code&gt;). You’re going to try to predict this (that is, &lt;code&gt;default&lt;/code&gt; is your &lt;em&gt;target&lt;/em&gt; variable).&lt;/p&gt;
+&lt;p&gt;This is some new data. The snippet below loads it.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;bank &amp;lt;- read.csv(&amp;quot;https://ssc442kirkpatrick.netlify.app/data/bank23.csv&amp;quot;,
+                 stringsAsFactors = FALSE)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;There’s not going to be a whole lot of wind-up here. You should be well-versed in doing these sorts of things by now (if not, look back at the previous lab for sample code).&lt;/p&gt;
+&lt;div class=&#34;fyi&#34;&gt;
+&lt;p&gt;&lt;strong&gt;EXERCISE 1&lt;/strong&gt;&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;Check the data using &lt;code&gt;skim&lt;/code&gt; and &lt;code&gt;str&lt;/code&gt; to see what sort of data you have. kNN, as we’ve covered it so far, takes an average of the target variable for the &lt;span class=&#34;math inline&#34;&gt;\(k\)&lt;/span&gt; nearest neighbors. Do any data processing necessary to use kNN to predict &lt;code&gt;default&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Split the data into an 80/20 train vs. test split. Make sure you explicitly set the seed for replicability, but do not share your seed with others in the class. (We may compare some results across people.)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Run a series of KNN models with &lt;span class=&#34;math inline&#34;&gt;\(k\)&lt;/span&gt; ranging from 2 to 200. Use whatever variables you think will help predict defaults. Remember, &lt;span class=&#34;math inline&#34;&gt;\(k\)&lt;/span&gt; is our complexity parameter – we do not add or subtract any of the explanatory variables, we vary only &lt;span class=&#34;math inline&#34;&gt;\(k\)&lt;/span&gt;. You must have at least 50 different values of &lt;span class=&#34;math inline&#34;&gt;\(k\)&lt;/span&gt;. You can easily write a short function to do this using this week’s lessons and should avoid hand-coding 50 different models.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Create a chart plotting the model complexity as the &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt;-axis variable and RMSE as the &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt;-axis variable for &lt;strong&gt;both&lt;/strong&gt; the training and test data. Pay attention to the values of &lt;span class=&#34;math inline&#34;&gt;\(k\)&lt;/span&gt; that are “higher” in complexity and “lower” in complexity, and make sure the &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt;-axis is increasing in complexity as you go to the right.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Answer the following questions:&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;&lt;p&gt;What do you think is the optimal &lt;span class=&#34;math inline&#34;&gt;\(k\)&lt;/span&gt;?&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;What are you using to decide the optimal &lt;span class=&#34;math inline&#34;&gt;\(k\)&lt;/span&gt;?&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;If we were to allow the model a little more complexity than the optimal, how will our training RMSE change? How will our test RMSE change?&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;p&gt;Below are some code nuggets that you might find helpful. Note that these are &lt;strong&gt;non-functioning&lt;/strong&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(caret); library(tidyverse)
+
+bank = bank %&amp;gt;%
+  dplyr::mutate(default = case_when(default==&amp;#39;yes&amp;#39; ~ 1,
+                                    default==&amp;#39;no&amp;#39; ~ 0))
+
+bX = bank[,c(&amp;#39;balance&amp;#39;, &amp;#39;education&amp;#39;,&amp;#39;job&amp;#39;,&amp;#39;duration&amp;#39;)]
+bY = bank[,&amp;#39;default&amp;#39;]
+
+k5 = knnreg(bX, bY, k=5)
+
+k100 = knnreg(default ~ balance + education + job + duration, bank, k=100)
+knnreg(default ~ age + education, bank, k=100)
+predict(k5, newdata = bank)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;bank = bank23 %&amp;gt;%
+  dplyr::mutate(default = case_when(default==&amp;#39;yes&amp;#39; ~ 1,
+                                    default==&amp;#39;no&amp;#39; ~ 0))
+
+idx = sample(NROW(bank), round(.8*NROW(bank)), replace=F)
+bank_train = bank[idx,]
+bank_test = bank[-idx,]
+
+ks &amp;lt;-seq(from=200, to=2, by=-4)
+
+mods&amp;lt;-lapply(ks, function(x){
+  knnreg(default ~ age + job + marital + education + balance + duration + campaign, bank_train, k = x)
+})
+
+
+train_rmses = lapply(mods, function(x){
+  sqrt(sum((bank_train$default - predict(x, newdata = bank_train))^2)/NROW(bank_train))
+})
+
+test_rmses = lapply(mods, function(x){
+  sqrt(sum((bank_test$default - predict(x, newdata = bank_test))^2)/NROW(bank_test))
+})&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Applied Logistic Regression - Classification</title>
+      <link>https://ssc442.netlify.app/assignment/11-assignment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://ssc442.netlify.app/assignment/11-assignment/</guid>
+      <description>
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#backstory-and-set-up&#34; id=&#34;toc-backstory-and-set-up&#34;&gt;Backstory and Set Up&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;!-- Updated 8.30.22 --&gt;
+&lt;div class=&#34;fyi&#34;&gt;
+&lt;p&gt;You must turn in a PDF document of your &lt;code&gt;R Markdown&lt;/code&gt; code. Submit this to D2L by 11:59 PM Eastern Time on the date listed on the syllabus calendar&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;backstory-and-set-up&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Backstory and Set Up&lt;/h2&gt;
+&lt;p&gt;You work for a bank. This bank is trying to predict defaults on loans (a relatively uncommon occurence, but one that costs the bank a great deal of money when it does happen.) They’ve given you a dataset on defaults (encoded as the variable &lt;code&gt;y&lt;/code&gt;). You’re going to try to predict this.&lt;/p&gt;
+&lt;p&gt;This is some new data. The snippet below loads it.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;bank &amp;lt;- read.table(&amp;quot;https://raw.githubusercontent.com/ajkirkpatrick/FS20/postS21_rev/classdata/bank.csv&amp;quot;,
+                 header = TRUE,
+                 sep = &amp;quot;,&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;There’s not going to be a whole lot of wind-up here. You should be well-versed in doing these sorts of things by now (if not, look back at the previous lab for sample code).&lt;/p&gt;
+&lt;div class=&#34;fyi&#34;&gt;
+&lt;p&gt;&lt;strong&gt;EXERCISE 1&lt;/strong&gt;&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;Split the data into an 80/20 train vs. test split. Make sure you explicitly set the seed for replicability, but do not share your seed with others in the class. (We may compare some results across people.)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Run a series of logistic regressions with between 1 and 4 predictors of your choice (you can use interactions).&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Create eight total confusion matrices: four by applying your models to the training data, and four by applying your models to the test data. &lt;strong&gt;Briefly discuss your findings.&lt;/strong&gt; How does the error rate, sensitivity, and specificity change as the number of predictors increases? If you are not getting a 2x2 confusion matrix, you might need to adjust your cutoff probability. It might be the case that your model perfectly predicts the outcome variable when the setup cutoff probability is too high.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Text as Data</title>
+      <link>https://ssc442.netlify.app/assignment/12-assignment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://ssc442.netlify.app/assignment/12-assignment/</guid>
+      <description>
+
+
+&lt;!-- Updated 8.30.22 --&gt;
+&lt;div id=&#34;using-str_-functions-and-regex&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Using &lt;code&gt;str_&lt;/code&gt; functions and RegEx&lt;/h1&gt;
+&lt;div class=&#34;fyi&#34;&gt;
+&lt;p&gt;You must turn in a PDF document of your &lt;code&gt;R Markdown&lt;/code&gt; code. Submit this to D2L by 11:59 PM Eastern Time on the date listed on the syllabus calendar&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;For this lab, you will need to make sure you set &lt;code&gt;echo = T&lt;/code&gt; in the knitr options that are set in your template’s first chunk. Before turning your assignment in, check to make sure your code is showing. Labs that do not show all code will earn a zero.&lt;/p&gt;
+&lt;p&gt;This lab is deceptively short. Regular expressions can take a while to learn, and can be very frustrating. Leave yourself ample time.&lt;/p&gt;
+&lt;div class=&#34;fyi&#34;&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Create the following &lt;code&gt;Sales2020&lt;/code&gt; object. We want to convert the sales into a numeric format, but have to wrestle with the extra characters. Using no more than two lines of code, convert these to numeric.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;Sales2020 = c(&amp;#39;$1,420,142&amp;#39;,
+              &amp;#39;$438,125.82&amp;#39;,
+              &amp;#39;120,223.50&amp;#39;,
+              &amp;#39;42,140&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;We have the following student names:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;Students = c(&amp;#39;Ali&amp;#39;,&amp;#39; Meza&amp;#39;,&amp;#39;McAvoy&amp;#39;, &amp;#39;Mc Evoy&amp;#39;, &amp;#39;.Donaldson&amp;#39;,&amp;#39;Kirkpatrick &amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We would like to clean these student names and place them in alphabetical order. However, we note that “Mc Evoy” is a different name from “McEvoy” (the Irish are particular about that), so we need no more than two lines of code that can print these names in order (use &lt;code&gt;order&lt;/code&gt; to place the cleaned names in order).&lt;/p&gt;
+&lt;ol start=&#34;3&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;We want to check if each of these are valid, complete (including two decimal places for cents) prices. Write a line of code that returns TRUE if the price is in US dollars and includes cents to two digits.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;Prices = c(&amp;#39;$12.95&amp;#39;,
+           &amp;#39;$\beta$&amp;#39;,
+           &amp;#39;$1944.55&amp;#39;,
+           &amp;#39;3.14&amp;#39;,
+           &amp;#39;$CAN&amp;#39;,
+           &amp;#39;$12.&amp;#39;,
+           &amp;#39;$109&amp;#39;,
+           &amp;#39;4,05&amp;#39;,
+           &amp;#39;$200.00&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;4&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;We will use groups to extract &lt;strong&gt;two&lt;/strong&gt; columns of information from the following text we scraped from a land sales website:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;landSales = c(&amp;#39;Sold 12 acres at $105 per acre&amp;#39;,
+              &amp;#39;200 ac. at $58.90 each&amp;#39;,
+              &amp;#39;.25 acre lot for $1,000.00 ea&amp;#39;,
+              &amp;#39;Offered 50 acres for $5,000 per&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We want to calculate the total amount spent on each of these transactions (which are all in “per acre” prices). In no more than 5 lines of code (each pipe is a separate line), extract the acres offered, the price per acre, and then calculate the total transaction (acres x price per acre). You can print the data.frame / tibble, or use &lt;code&gt;%&amp;gt;% knitr::kable()&lt;/code&gt; to output the table. Your final output should have four rows and three columns. Hint: use &lt;code&gt;str_match&lt;/code&gt; with groups.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Applied Data Wrangling</title>
+      <link>https://ssc442.netlify.app/assignment/13-assignment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://ssc442.netlify.app/assignment/13-assignment/</guid>
+      <description>
+
+
+&lt;div class=&#34;fyi&#34;&gt;
+&lt;p&gt;You must turn in a PDF document of your &lt;code&gt;R Markdown&lt;/code&gt; code. Submit this to D2L by 11:59 PM Eastern Time on &lt;strong&gt;DATE&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;data-wrangling-continued&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Data Wrangling Continued…&lt;/h2&gt;
+&lt;p&gt;You still work for a travel booking website as a data analyst. The hotel has once again asked your company for data on corporate bookings at the hotel via your site. Specifically, they have five corporations that are frequent customers of the hotel, and they want to know who spends the most with them. They’ve asked you to help out. Most of the corporate spending is in the form of room reservations, but there are also parking fees that the hotel wants included in the analysis. Your goal: total up spending by corporation and report the biggest and smallest spenders inclusive of rooms and parking.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;You did this already in class, but your boss now has some &lt;strong&gt;different&lt;/strong&gt; data. It’s similar, and your code from before will help, but it has some new wrinkles in it to tackle&lt;/strong&gt;. Do &lt;strong&gt;not&lt;/strong&gt; use the data from this week’s Example. Here’s your new data:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://ssc442.netlify.app/data/Lab11_booking.csv&#34;&gt;&lt;i class=&#34;fas fa-file-csv&#34;&gt;&lt;/i&gt; &lt;code&gt;booking.csv&lt;/code&gt;&lt;/a&gt; - Contains the corporation name, the room type, and the dates someone from the corporation stayed at the hotel. It was pulled by an intern who doesn’t understand date-time stamps.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://ssc442.netlify.app/data/Lab11_roomrates.csv&#34;&gt;&lt;i class=&#34;fas fa-file-csv&#34;&gt;&lt;/i&gt; &lt;code&gt;roomrates.csv&lt;/code&gt;&lt;/a&gt; - Contains the price of each room on each day. The Lab 11 version of this data is from our German affiliate, so pay attention to the date format, and be careful – it’s very wide, so using &lt;code&gt;head&lt;/code&gt; will throw a lot of data at you.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://ssc442.netlify.app/data/Lab11_parking.csv&#34;&gt;&lt;i class=&#34;fas fa-file-csv&#34;&gt;&lt;/i&gt; &lt;code&gt;parking.csv&lt;/code&gt;&lt;/a&gt; - Contains the corporations who negotiated free parking for employees. It has been updated.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Parking at the hotel is $60 per night if you don’t have free parking. This hotel is in California, so everyone drives and parks when they stay.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;fyi&#34;&gt;
+&lt;p&gt;&lt;strong&gt;EXERCISE 1&lt;/strong&gt;&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;As you did in class, but with your new set of data, total up spending by corporation and report the biggest and smallest spenders inclusive of rooms and parking&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Visualize (using &lt;code&gt;ggplot&lt;/code&gt;) each corporation’s spending at the hotel over time and by roomtype. Make one plot with &lt;code&gt;ggplot&lt;/code&gt; that shows this.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Visualize (using &lt;code&gt;ggplot&lt;/code&gt;) the room rates over time by room type. Can you pick out one factor that determines when room prices are higher than usual? Note that we know each corporation gets the same room rate as the others on the same day, so this is about room rates, not corporate spending. Make &lt;strong&gt;two&lt;/strong&gt; total plots, the first showing the room rates over time by room type, and the second explaining some feature of one of the room rates (e.g. when is the double room rate high? When is it low?). Using the &lt;code&gt;month(...)&lt;/code&gt;, &lt;code&gt;day(...)&lt;/code&gt; or &lt;code&gt;wday(..., label = TRUE)&lt;/code&gt; functions from &lt;code&gt;lubridate&lt;/code&gt; will help with figuring out the patterns. Try exploring just one of the room types to start. You don’t have to perfectly analyze the room rate, just find one facet of the rate that changes regularly over time.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Applied Data Wrangling</title>
+      <link>https://ssc442.netlify.app/assignment/14-assignment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://ssc442.netlify.app/assignment/14-assignment/</guid>
+      <description>
+
+
+&lt;div class=&#34;fyi&#34;&gt;
+&lt;p&gt;You must turn in a PDF document of your &lt;code&gt;R Markdown&lt;/code&gt; code. Submit this to D2L by 11:59 PM Eastern Time on *Monday December 11th.**&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;This assignment builds from the Example for this week. Your assignment is to make a map of some interesting census variable for your home county. If your home county is outside the US, you can use any county you like.&lt;/p&gt;
+&lt;div class=&#34;fyi&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Exercise 1 of 1&lt;/strong&gt;&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;Load up all the necessary packages&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Find the FIPS for your home county&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Choose a variable you’re interested in. Finding census variables can be tricky!&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Using &lt;code&gt;load_variables&lt;/code&gt;, find the best representation of that variable&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Make a map of that variable at the census tract level&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Secrets</title>
+      <link>https://ssc442.netlify.app/assignment/10-assignment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://ssc442.netlify.app/assignment/10-assignment/</guid>
+      <description>
+
+
+&lt;p&gt;This is a sad old relic. There’s no secret here. The page is a lie.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Programming Basics in R</title>
       <link>https://ssc442.netlify.app/assignment/00-assignment/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -33,7 +274,7 @@
 &lt;/ul&gt;
 &lt;/div&gt;
 
-&lt;p&gt;You must turn in a PDF document knitted from your R Markdown code. Submit this to “Lab 0” on D2L by 11:59 PM on Monday September 4th. You do not need to submit your .rmd file code - just the properly-knitted PDF.&lt;/p&gt;
+&lt;p&gt;You must turn in a PDF document knitted from your R Markdown code. Submit this to “Lab 1” on D2L by 11:59 PM on Monday January 15th. You do not need to submit your .rmd file code - just the properly-knitted PDF.&lt;/p&gt;
 &lt;div class=&#34;fyi&#34;&gt;
 &lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;As you read through this assignment, practice with each of the examples (copy-paste them into an empty R script and run them). At the bottom of this page you will find the questions that comprise the assignment. These questions apply and expand on the topics and R functions in the assignment.&lt;/p&gt;
@@ -57,9 +298,8 @@ if(a!=0){
 }&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] &amp;quot;No reciprocal for 0.&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Let’s look at one more example using the US murders data frame:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(dslabs)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning: package &amp;#39;dslabs&amp;#39; was built under R version 4.2.3&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data(murders)
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(dslabs)
+data(murders)
 murder_rate &amp;lt;- murders$total / murders$population*100000&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Here is a very simple example that tells us which states, if any, have a murder rate lower than 0.5 per 100,000. The &lt;code&gt;if&lt;/code&gt; statement protects us from the case in which no state satisfies the condition.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ind &amp;lt;- which.min(murder_rate)
@@ -356,12 +596,12 @@ s_n &amp;lt;- sapply(n, compute_s_n)&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;&lt;p&gt;Next will be the &lt;code&gt;```{r q1}&lt;/code&gt; text that will be in gray. &lt;strong&gt;R will recognize this as code and will treat it as such&lt;/strong&gt;. Anything run in that block will have an output.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;If you want to see what the code will do, copy the code and paste it into the gray area. Then, click the green right arrow in the top-right corner &lt;em&gt;of the gray code chunk&lt;/em&gt;. It should show you the results.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Use the results (plus your understanding of the code) to answer the question&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Use the results (plus your understanding of the code) to answer the questions below.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;With each completed question, clidk the “Knit” button up above the script window. Rmarkdown will create a .pdf for you of your work (as long as it doesn’t hit any R errors). Knit often to make sure you haven’t hit an error!&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;With each completed question, click the “Knit” button up above the script window. Rmarkdown will create a .pdf for you of your work (as long as it doesn’t hit any R errors). Knit often to make sure you haven’t hit an error!&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;The &lt;code&gt;\newpage&lt;/code&gt; line is a Latex command (the program that makes the typesetting look nice). It will start a new pdf page.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;On the next page, copy question #2 to a new header using &lt;code&gt;##&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Once done, render one last .pdf, proofread it, and turn it in on D2L!&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Keep going until done. Render one last .pdf, proofread it, and turn it in on D2L!&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;For more on using R Markdown, see the &lt;a href=&#34;https://ssc442.netlify.app/resource/rmarkdown/&#34;&gt;R Markdown page of our course resources&lt;/a&gt;. You can also learn about the general Markdown language &lt;a href=&#34;https://ssc442.netlify.app/resource/markdown/&#34;&gt;on our Markdown page of our course resources&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&#34;fyi&#34;&gt;
@@ -418,167 +658,6 @@ my_func &amp;lt;- function(y){
     </item>
     
     <item>
-      <title>Bias vs. Variance</title>
-      <link>https://ssc442.netlify.app/assignment/10-assignment/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ssc442.netlify.app/assignment/10-assignment/</guid>
-      <description>
-
-
-&lt;p&gt;There is no Lab 10.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Applied Logistic Regression - Classification</title>
-      <link>https://ssc442.netlify.app/assignment/11-assignment/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ssc442.netlify.app/assignment/11-assignment/</guid>
-      <description>
-
-&lt;div id=&#34;TOC&#34;&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#backstory-and-set-up&#34; id=&#34;toc-backstory-and-set-up&#34;&gt;Backstory and Set Up&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-
-&lt;!-- Updated 8.30.22 --&gt;
-&lt;div class=&#34;fyi&#34;&gt;
-&lt;p&gt;You must turn in a PDF document of your &lt;code&gt;R Markdown&lt;/code&gt; code. Submit this to D2L by 11:59 PM Eastern Time on the date listed on the syllabus calendar&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;backstory-and-set-up&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Backstory and Set Up&lt;/h2&gt;
-&lt;p&gt;You work for a bank. This bank is trying to predict defaults on loans (a relatively uncommon occurence, but one that costs the bank a great deal of money when it does happen.) They’ve given you a dataset on defaults (encoded as the variable &lt;code&gt;y&lt;/code&gt;). You’re going to try to predict this.&lt;/p&gt;
-&lt;p&gt;This is some new data. The snippet below loads it.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;bank &amp;lt;- read.table(&amp;quot;https://raw.githubusercontent.com/ajkirkpatrick/FS20/postS21_rev/classdata/bank.csv&amp;quot;,
-                 header = TRUE,
-                 sep = &amp;quot;,&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;There’s not going to be a whole lot of wind-up here. You should be well-versed in doing these sorts of things by now (if not, look back at the previous lab for sample code).&lt;/p&gt;
-&lt;div class=&#34;fyi&#34;&gt;
-&lt;p&gt;&lt;strong&gt;EXERCISE 1&lt;/strong&gt;&lt;/p&gt;
-&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;&lt;p&gt;Split the data into an 80/20 train vs. test split. Make sure you explicitly set the seed for replicability, but do not share your seed with others in the class. (We may compare some results across people.)&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Run a series of logistic regressions with between 1 and 4 predictors of your choice (you can use interactions).&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Create eight total confusion matrices: four by applying your models to the training data, and four by applying your models to the test data. &lt;strong&gt;Briefly discuss your findings.&lt;/strong&gt; How does the error rate, sensitivity, and specificity change as the number of predictors increases? If you are not getting a 2x2 confusion matrix, you might need to adjust your cutoff probability. It might be the case that your model perfectly predicts the outcome variable when the setup cutoff probability is too high.&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Text as Data</title>
-      <link>https://ssc442.netlify.app/assignment/12-assignment/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ssc442.netlify.app/assignment/12-assignment/</guid>
-      <description>
-
-
-&lt;!-- Updated 8.30.22 --&gt;
-&lt;div id=&#34;using-str_-functions-and-regex&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Using &lt;code&gt;str_&lt;/code&gt; functions and RegEx&lt;/h1&gt;
-&lt;div class=&#34;fyi&#34;&gt;
-&lt;p&gt;You must turn in a PDF document of your &lt;code&gt;R Markdown&lt;/code&gt; code. Submit this to D2L by 11:59 PM Eastern Time on the date listed on the syllabus calendar&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;For this lab, you will need to make sure you set &lt;code&gt;echo = T&lt;/code&gt; in the knitr options that are set in your template’s first chunk. Before turning your assignment in, check to make sure your code is showing. Labs that do not show all code will earn a zero.&lt;/p&gt;
-&lt;p&gt;This lab is deceptively short. Regular expressions can take a while to learn, and can be very frustrating. Leave yourself ample time.&lt;/p&gt;
-&lt;div class=&#34;fyi&#34;&gt;
-&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;Create the following &lt;code&gt;Sales2020&lt;/code&gt; object. We want to convert the sales into a numeric format, but have to wrestle with the extra characters. Using no more than two lines of code, convert these to numeric.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre&gt;&lt;code&gt;Sales2020 = c(&amp;#39;$1,420,142&amp;#39;,
-              &amp;#39;$438,125.82&amp;#39;,
-              &amp;#39;120,223.50&amp;#39;,
-              &amp;#39;42,140&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;We have the following student names:&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre&gt;&lt;code&gt;Students = c(&amp;#39;Ali&amp;#39;,&amp;#39; Meza&amp;#39;,&amp;#39;McAvoy&amp;#39;, &amp;#39;Mc Evoy&amp;#39;, &amp;#39;.Donaldson&amp;#39;,&amp;#39;Kirkpatrick &amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;We would like to clean these student names and place them in alphabetical order. However, we note that “Mc Evoy” is a different name from “McEvoy” (the Irish are particular about that), so we need no more than two lines of code that can print these names in order (use &lt;code&gt;order&lt;/code&gt; to place the cleaned names in order).&lt;/p&gt;
-&lt;ol start=&#34;3&#34; style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;We want to check if each of these are valid, complete (including two decimal places for cents) prices. Write a line of code that returns TRUE if the price is in US dollars and includes cents to two digits.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre&gt;&lt;code&gt;Prices = c(&amp;#39;$12.95&amp;#39;,
-           &amp;#39;$\beta$&amp;#39;,
-           &amp;#39;$1944.55&amp;#39;,
-           &amp;#39;3.14&amp;#39;,
-           &amp;#39;$CAN&amp;#39;,
-           &amp;#39;$12.&amp;#39;,
-           &amp;#39;$109&amp;#39;,
-           &amp;#39;4,05&amp;#39;,
-           &amp;#39;$200.00&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;ol start=&#34;4&#34; style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;We will use groups to extract &lt;strong&gt;two&lt;/strong&gt; columns of information from the following text we scraped from a land sales website:&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre&gt;&lt;code&gt;landSales = c(&amp;#39;Sold 12 acres at $105 per acre&amp;#39;,
-              &amp;#39;200 ac. at $58.90 each&amp;#39;,
-              &amp;#39;.25 acre lot for $1,000.00 ea&amp;#39;,
-              &amp;#39;Offered 50 acres for $5,000 per&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;We want to calculate the total amount spent on each of these transactions (which are all in “per acre” prices). In no more than 5 lines of code (each pipe is a separate line), extract the acres offered, the price per acre, and then calculate the total transaction (acres x price per acre). You can print the data.frame / tibble, or use &lt;code&gt;%&amp;gt;% knitr::kable()&lt;/code&gt; to output the table. Your final output should have four rows and three columns. Hint: use &lt;code&gt;str_match&lt;/code&gt; with groups.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Applied Data Wrangling</title>
-      <link>https://ssc442.netlify.app/assignment/13-assignment/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ssc442.netlify.app/assignment/13-assignment/</guid>
-      <description>
-
-
-&lt;div class=&#34;fyi&#34;&gt;
-&lt;p&gt;You must turn in a PDF document of your &lt;code&gt;R Markdown&lt;/code&gt; code. Submit this to D2L by 11:59 PM Eastern Time on &lt;strong&gt;DATE&lt;/strong&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;data-wrangling-continued&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Data Wrangling Continued…&lt;/h2&gt;
-&lt;p&gt;You still work for a travel booking website as a data analyst. The hotel has once again asked your company for data on corporate bookings at the hotel via your site. Specifically, they have five corporations that are frequent customers of the hotel, and they want to know who spends the most with them. They’ve asked you to help out. Most of the corporate spending is in the form of room reservations, but there are also parking fees that the hotel wants included in the analysis. Your goal: total up spending by corporation and report the biggest and smallest spenders inclusive of rooms and parking.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;You did this already in class, but your boss now has some &lt;strong&gt;different&lt;/strong&gt; data. It’s similar, and your code from before will help, but it has some new wrinkles in it to tackle&lt;/strong&gt;. Do &lt;strong&gt;not&lt;/strong&gt; use the data from this week’s Example. Here’s your new data:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://ssc442.netlify.app/data/Lab11_booking.csv&#34;&gt;&lt;i class=&#34;fas fa-file-csv&#34;&gt;&lt;/i&gt; &lt;code&gt;booking.csv&lt;/code&gt;&lt;/a&gt; - Contains the corporation name, the room type, and the dates someone from the corporation stayed at the hotel. It was pulled by an intern who doesn’t understand date-time stamps.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://ssc442.netlify.app/data/Lab11_roomrates.csv&#34;&gt;&lt;i class=&#34;fas fa-file-csv&#34;&gt;&lt;/i&gt; &lt;code&gt;roomrates.csv&lt;/code&gt;&lt;/a&gt; - Contains the price of each room on each day. The Lab 11 version of this data is from our German affiliate, so pay attention to the date format, and be careful – it’s very wide, so using &lt;code&gt;head&lt;/code&gt; will throw a lot of data at you.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://ssc442.netlify.app/data/Lab11_parking.csv&#34;&gt;&lt;i class=&#34;fas fa-file-csv&#34;&gt;&lt;/i&gt; &lt;code&gt;parking.csv&lt;/code&gt;&lt;/a&gt; - Contains the corporations who negotiated free parking for employees. It has been updated.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Parking at the hotel is $60 per night if you don’t have free parking. This hotel is in California, so everyone drives and parks when they stay.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;fyi&#34;&gt;
-&lt;p&gt;&lt;strong&gt;EXERCISE 1&lt;/strong&gt;&lt;/p&gt;
-&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;&lt;p&gt;As you did in class, but with your new set of data, total up spending by corporation and report the biggest and smallest spenders inclusive of rooms and parking&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Visualize (using &lt;code&gt;ggplot&lt;/code&gt;) each corporation’s spending at the hotel over time and by roomtype. Make one plot with &lt;code&gt;ggplot&lt;/code&gt; that shows this.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Visualize (using &lt;code&gt;ggplot&lt;/code&gt;) the room rates over time by room type. Can you pick out one factor that determines when room prices are higher than usual? Note that we know each corporation gets the same room rate as the others on the same day, so this is about room rates, not corporate spending. Make &lt;strong&gt;two&lt;/strong&gt; total plots, the first showing the room rates over time by room type, and the second explaining some feature of one of the room rates (e.g. when is the double room rate high? When is it low?). Using the &lt;code&gt;month(...)&lt;/code&gt;, &lt;code&gt;day(...)&lt;/code&gt; or &lt;code&gt;wday(..., label = TRUE)&lt;/code&gt; functions from &lt;code&gt;lubridate&lt;/code&gt; will help with figuring out the patterns. Try exploring just one of the room types to start. You don’t have to perfectly analyze the room rate, just find one facet of the rate that changes regularly over time.&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Applied Data Wrangling</title>
-      <link>https://ssc442.netlify.app/assignment/14-assignment/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ssc442.netlify.app/assignment/14-assignment/</guid>
-      <description>
-
-
-&lt;div class=&#34;fyi&#34;&gt;
-&lt;p&gt;You must turn in a PDF document of your &lt;code&gt;R Markdown&lt;/code&gt; code. Submit this to D2L by 11:59 PM Eastern Time on *Monday December 11th.**&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;This assignment builds from the Example for this week. Your assignment is to make a map of some interesting census variable for your home county. If your home county is outside the US, you can use any county you like.&lt;/p&gt;
-&lt;div class=&#34;fyi&#34;&gt;
-&lt;p&gt;&lt;strong&gt;Exercise 1 of 1&lt;/strong&gt;&lt;/p&gt;
-&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;&lt;p&gt;Load up all the necessary packages&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Find the FIPS for your home county&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Choose a variable you’re interested in. Finding census variables can be tricky!&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Using &lt;code&gt;load_variables&lt;/code&gt;, find the best representation of that variable&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Make a map of that variable at the census tract level&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Basics of ggplot</title>
       <link>https://ssc442.netlify.app/assignment/01-assignment/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -601,7 +680,7 @@ my_func &amp;lt;- function(y){
 
 &lt;div class=&#34;fyi&#34;&gt;
 &lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;You must turn in a PDF document of your &lt;code&gt;R markdown&lt;/code&gt; output. Submit this to D2L by 11:59 PM on September 11th.&lt;/p&gt;
+&lt;p&gt;You must turn in a PDF document of your &lt;code&gt;R markdown&lt;/code&gt; output. Submit this to D2L by 11:59 PM on January 22nd.&lt;/p&gt;
 &lt;p&gt;Note: This lab has a few “try its” along the way. They are for your own practice and are not required. The lab consists of the three “exercises.”&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Our primary tool for data visualization in the course will be &lt;code&gt;ggplot&lt;/code&gt;. Technically, we’re using &lt;code&gt;ggplot2&lt;/code&gt;; the o.g. version lacked some of the modern features of its big brother. &lt;code&gt;ggplot2&lt;/code&gt; implements the grammar of graphics, a coherent and relatively straightforward system for describing and building graphs. With &lt;code&gt;ggplot2&lt;/code&gt;, you can do more faster by learning one system and applying it in many places. Other languages provide more specific tools, but require you to learn a different tool for each application. In this class, we’ll dig into a single package for our visuals.&lt;/p&gt;
@@ -638,11 +717,9 @@ library(tidyverse)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;mappings-link-data-to-things-you-see&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Mappings Link Data to Things You See&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(gapminder)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning: package &amp;#39;gapminder&amp;#39; was built under R version 4.2.3&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggplot2)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning: package &amp;#39;ggplot2&amp;#39; was built under R version 4.2.3&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;gapminder::gapminder&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(gapminder)
+library(ggplot2)
+gapminder::gapminder&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 1,704 × 6
 ##    country     continent  year lifeExp      pop gdpPercap
 ##    &amp;lt;fct&amp;gt;       &amp;lt;fct&amp;gt;     &amp;lt;int&amp;gt;   &amp;lt;dbl&amp;gt;    &amp;lt;int&amp;gt;     &amp;lt;dbl&amp;gt;
@@ -805,9 +882,10 @@ p + geom_point(mapping = aes(color = continent)) +
 &lt;/ul&gt;
 &lt;/div&gt;
 
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# NOTE: the assignment doesn&amp;#39;t match the template tha tis used (lab-02.rmd). Remove the template part!&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;fyi&#34;&gt;
 &lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;You must turn in a PDF document of your &lt;code&gt;R Markdown&lt;/code&gt; code. Submit this to D2L by 11:59 PM Eastern Time on Monday, September 18th.&lt;/p&gt;
+&lt;p&gt;You must turn in a PDF document of your &lt;code&gt;R Markdown&lt;/code&gt; code. Submit this to D2L by 11:59 PM Eastern Time on Monday, January 29th.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;preliminaries&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Preliminaries&lt;/h2&gt;
@@ -827,7 +905,7 @@ p + geom_point(mapping = aes(color = continent)) +
 &lt;h3&gt;R Markdown&lt;/h3&gt;
 &lt;p&gt;Writing regular text with &lt;code&gt;R Markdown&lt;/code&gt; follows the rules of Markdown. You can make lists; different-size headers, etc. This should be relatively straightfoward. We talked about a few Markdown features like &lt;strong&gt;bold&lt;/strong&gt; and &lt;em&gt;italics&lt;/em&gt; in class. See &lt;a href=&#34;https://ssc442.netlify.app/resource/markdown/&#34;&gt;this resource for more formatting&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;You’ll also need to insert your own code chunks where needed. Rather than typing them by hand (that’s tedious and you might miscount the number of backticks!), use the “Insert” button at the top of the editing window, or type &lt;kbd&gt;ctrl&lt;/kbd&gt; + &lt;kbd&gt;alt&lt;/kbd&gt; + &lt;kbd&gt;i&lt;/kbd&gt; on Windows, or &lt;kbd&gt;⌘&lt;/kbd&gt; + &lt;kbd&gt;⌥&lt;/kbd&gt; + &lt;kbd&gt;i&lt;/kbd&gt; on macOS.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;../../../../../../../img/assignments/insert-chunk-button.png&#34; width=&#34;19%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../../../../../../../../../img/assignments/insert-chunk-button.png&#34; width=&#34;19%&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;data-prep&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Data Prep&lt;/h3&gt;
@@ -875,10 +953,9 @@ p + geom_point(mapping = aes(color = continent)) +
 &lt;/ul&gt;
 &lt;/div&gt;
 
-&lt;!-- Updated 8.30.22 --&gt;
 &lt;div class=&#34;fyi&#34;&gt;
 &lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;You must turn in a PDF document of your &lt;code&gt;R Markdown&lt;/code&gt; code. Submit this to D2L by 11:59 PM Eastern Time on Monday, September 25th&lt;/p&gt;
+&lt;p&gt;You must turn in a PDF document of your &lt;code&gt;R Markdown&lt;/code&gt; code. Submit this to D2L by 11:59 PM Eastern Time on Monday, February 5th.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;getting-started&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Getting started&lt;/h1&gt;
@@ -964,10 +1041,9 @@ p + geom_point(mapping = aes(color = continent)) +
 &lt;/ul&gt;
 &lt;/div&gt;
 
-&lt;!-- Updated 8.30.22 --&gt;
 &lt;div class=&#34;fyi&#34;&gt;
 &lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;You must turn in a PDF document of your &lt;code&gt;R Markdown&lt;/code&gt; code. Submit this to D2L by 11:59 PM Eastern Time on Monday, October 2rd.&lt;/p&gt;
+&lt;p&gt;You must turn in a PDF document of your &lt;code&gt;R Markdown&lt;/code&gt; code. Submit this to D2L by 11:59 PM Eastern Time on Monday, February 12th.&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;For this exercise you will need to ensure that you’ve carefully read this week’s content and example. We will build on both. The exercises (which you will turn in as this week’s lab) are at the bottom. Note that this week’s lab is much more theoretical than any other week in this class. This is to ensure that you have the foundations necessary to build rich statistical models and apply them to real-world data.&lt;/p&gt;
 &lt;div id=&#34;models&#34; class=&#34;section level1&#34;&gt;
@@ -1280,10 +1356,9 @@ Y_{i,j} = d + b_i + \varepsilon_{i,j}
 &lt;/ul&gt;
 &lt;/div&gt;
 
-&lt;!-- Updated 8.30.22 --&gt;
 &lt;div class=&#34;fyi&#34;&gt;
 &lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;You must turn in a PDF document of your &lt;code&gt;R Markdown&lt;/code&gt; code. Submit this to D2L by 11:59 PM Eastern Time on Monday, October 9th.&lt;/p&gt;
+&lt;p&gt;You must turn in a PDF document of your &lt;code&gt;R Markdown&lt;/code&gt; code. Submit this to D2L by 11:59 PM Eastern Time on Monday, February 19th.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;backstory-and-set-up&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Backstory and Set Up&lt;/h2&gt;
@@ -1421,12 +1496,11 @@ unique(ameslist$GarageOutside)
 &lt;/ul&gt;
 &lt;/div&gt;
 
-&lt;!-- Updated 8.30.22 --&gt;
 &lt;div class=&#34;fyi&#34;&gt;
 &lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;You must turn in a PDF document of your &lt;code&gt;R Markdown&lt;/code&gt; code. Submit this to D2L by 11:59 PM Eastern Time on Monday, October 16th. Remember, your Project 1 is due on Saturday the 14th.&lt;/p&gt;
+&lt;p&gt;You must turn in a PDF document of your &lt;code&gt;R Markdown&lt;/code&gt; code. Submit this to D2L by 11:59 PM Eastern Time on Monday, February 26th. &lt;strong&gt;YES I KNOW THIS IS DURING SPRING BREAK SO DO IT BEFORE THE BREAK&lt;/strong&gt;.&lt;/p&gt;
 &lt;/div&gt;
-&lt;p&gt;This week’s lab will extend last week’s lab. The introduction is a direct repeat.&lt;/p&gt;
+&lt;p&gt;This week’s lab will extend last week’s lab. The introduction is the same. The exercises are different.&lt;/p&gt;
 &lt;div id=&#34;backstory-and-set-up&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Backstory and Set Up&lt;/h2&gt;
 &lt;p&gt;You have been recently hired to Zillow’s Zestimate product team as a junior analyst. As a part of their regular hazing, they have given you access to a small subset of their historic sales data. Your job is to present some basic predictions for housing values in a small geographic area (Ames, IA) using this historical pricing.&lt;/p&gt;
@@ -1493,16 +1567,12 @@ model, with &lt;code&gt;SalePrice&lt;/code&gt; as the response and &lt;code&gt;G
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#assesing-model-accuracy&#34; id=&#34;toc-assesing-model-accuracy&#34;&gt;Assesing Model Accuracy&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#model-complexity&#34; id=&#34;toc-model-complexity&#34;&gt;Model Complexity&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#test-train-split&#34; id=&#34;toc-test-train-split&#34;&gt;Test-Train Split&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#adding-flexibility-to-linear-models&#34; id=&#34;toc-adding-flexibility-to-linear-models&#34;&gt;Adding Flexibility to Linear Models&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 
-&lt;!-- Updated after Sp2022 --&gt;
-&lt;p&gt;This is a pretty long lab. Leave plenty of time to complete it.&lt;/p&gt;
 &lt;div class=&#34;fyi&#34;&gt;
-&lt;p&gt;You must turn in a PDF document of your &lt;code&gt;R Markdown&lt;/code&gt; code. Submit this to D2L by 11:59 PM Eastern Time on &lt;del&gt;Monday, October 24th&lt;/del&gt; Monday, October 30th (there is no Lab 8).&lt;/p&gt;
+&lt;p&gt;You must turn in a PDF document of your &lt;code&gt;R Markdown&lt;/code&gt; code. Submit this to D2L by 11:59 PM Eastern Time on [DATE.]&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;backstory-and-set-up&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Backstory and Set Up&lt;/h2&gt;
@@ -1556,7 +1626,7 @@ model, with &lt;code&gt;SalePrice&lt;/code&gt; as the response and &lt;code&gt;G
 }&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;When deciding how complex of a model to use, we can utilize two techniques: &lt;em&gt;forward selection&lt;/em&gt; or &lt;em&gt;backward selection&lt;/em&gt;. Forward selection means that we start with the simplest model (with a single predictor) and then add one at a time until we decide to stop. Backward selection means that we start with the most complex model (with every available predictor) and then remove one at a time until we decide to stop. There are many criteria for “when to stop”. Below, we’ll try to give you some intuition on the model-building process.&lt;/p&gt;
 &lt;div class=&#34;fyi&#34;&gt;
-&lt;p&gt;&lt;strong&gt;EXERCISE 1 of 2&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;EXERCISES&lt;/strong&gt;&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;&lt;p&gt;Using &lt;code&gt;skimr::skim&lt;/code&gt;, find the variables that have a low complete rate (below 60%) and drop them. 60% isn’t a magic number by any means, the “right” number is entirely dependent on your data. It is always standard practice to document the fields you have dropped from the data, so make sure you state which variables have been dropped. Also using &lt;code&gt;skim&lt;/code&gt;, note the variables with values for “n_unique” equal to 1 and drop them. See &lt;em&gt;Data Cleaning&lt;/em&gt; (above) for details&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Then, choose one numeric variable (not SalePrice) to be your target variable (the variable you want to explain or predict), and the 15 variables you want to use to predict it - they can be numeric or categorical, both will work. Then, as described in &lt;em&gt;Data Cleaning&lt;/em&gt; above, use &lt;code&gt;na.omit&lt;/code&gt; to make a clean version of &lt;code&gt;Ames&lt;/code&gt; where every variable is 100% complete. Include &lt;code&gt;SalePrice&lt;/code&gt; in your cleaning, but don’t use it yet – it will be the target variable for Exercise 2.&lt;/p&gt;&lt;/li&gt;
@@ -1564,10 +1634,39 @@ model, with &lt;code&gt;SalePrice&lt;/code&gt; as the response and &lt;code&gt;G
 &lt;li&gt;&lt;p&gt;Make a &lt;code&gt;data.frame&lt;/code&gt; or &lt;code&gt;tibble&lt;/code&gt; of the RMSE results and the model complexity (the function &lt;code&gt;unlist&lt;/code&gt; is helpful when you have a list of identical types, as should be the case with your measures of model complexity and RMSE). Create a chart plotting the model complexity as the &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt;-axis variable and RMSE as the &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt;-axis variable. Describe any patterns you see. Do you think you should use the full-size model? Why or why not? What criterion are you using to make this statement?&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
-&lt;hr /&gt;
 &lt;/div&gt;
-&lt;div id=&#34;test-train-split&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Test-Train Split&lt;/h3&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Training, Testing, and Advanced Model Selection</title>
+      <link>https://ssc442.netlify.app/assignment/08-assignment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://ssc442.netlify.app/assignment/08-assignment/</guid>
+      <description>
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#backstory-and-set-up&#34; id=&#34;toc-backstory-and-set-up&#34;&gt;Backstory and Set Up&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#test-train-split&#34; id=&#34;toc-test-train-split&#34;&gt;Test-Train Split&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#adding-flexibility-to-linear-models&#34; id=&#34;toc-adding-flexibility-to-linear-models&#34;&gt;Adding Flexibility to Linear Models&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;backstory-and-set-up&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Backstory and Set Up&lt;/h2&gt;
+&lt;p&gt;You &lt;strong&gt;still&lt;/strong&gt; work for Zillow. Your job is to present some super-duper advanced predictions for housing values in a small geographic area (Ames, IA) using this historical pricing.&lt;/p&gt;
+&lt;p&gt;As always, we load the data.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;Ames &amp;lt;- read.table(&amp;#39;https://raw.githubusercontent.com/ajkirkpatrick/FS20/postS21_rev/classdata/ames.csv&amp;#39;, 
+                   header = TRUE,
+                   sep = &amp;#39;,&amp;#39;) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The steps from the last lab should be considered prerequisites in order to get this lab to function properly.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;test-train-split&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Test-Train Split&lt;/h2&gt;
 &lt;p&gt;Here, we will use &lt;code&gt;SalePrice&lt;/code&gt; as our target variable. You can re-use your code for cleaning from above (you included &lt;code&gt;SalePrice&lt;/code&gt; there, right?), and if you want to choose different predictors, feel free to do so.&lt;/p&gt;
 &lt;p&gt;There is an issue with fitting a model to all available data then using RMSE to determine how well the model predicts: it is essentially cheating. As a linear model becomes more complex, the RSS, thus RMSE, can never go up. It will only go down—or, in very specific cases where a new predictor is completely uncorrelated with the target, stay the same. This might seem to suggest that in order to predict well, we should use the largest possible model. However, in reality we have fit to a specific dataset, but as soon as we see new data, a large model may (in fact) predict poorly. This is called &lt;strong&gt;overfitting&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;The most common approach to overfitting is to take a dataset of interest and split it in two. One part of the datasets will be used to fit (train) a model, which we will call the &lt;strong&gt;training&lt;/strong&gt; data. The remainder of the original data will be used to assess how well the model is predicting, which we will call the &lt;strong&gt;test&lt;/strong&gt; data. Test data should &lt;em&gt;never&lt;/em&gt; be used to train a model—its pupose is to evaluate the fitted model once you’ve settled on something.&lt;a href=&#34;#fn1&#34; class=&#34;footnote-ref&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
@@ -1615,7 +1714,6 @@ rmse(actual = test_data$SalePrice, predicted = predict(fit_0, test_data))&lt;/co
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;get_rmse(model = fit_0, data = test_data, response = &amp;quot;SalePrice&amp;quot;) # test RMSE&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 77928.62&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;strong&gt;Try it:&lt;/strong&gt; Apply this basic function with different arguments. Do you understand how we’ve nested functions within functions?&lt;/p&gt;
-&lt;/div&gt;
 &lt;div id=&#34;adding-flexibility-to-linear-models&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Adding Flexibility to Linear Models&lt;/h3&gt;
 &lt;p&gt;We started with the simpliest model including only a constant (which gives us only the &lt;code&gt;(Intercept)&lt;/code&gt; as a coefficient). This is identical to estimating &lt;span class=&#34;math inline&#34;&gt;\(\widehat{\bar{y}}\)&lt;/span&gt;. But we want to let our model be more complex – we want to add variables, polynomial terms, and interactions. Let’s do this.&lt;/p&gt;
@@ -1688,12 +1786,13 @@ lines(model_complexity, test_rmse, type = &amp;quot;b&amp;quot;, col = &amp;quot
 &lt;/ul&gt;
 &lt;p&gt;Specifically, we say that a model is overfitting if there exists a less complex model with lower &lt;strong&gt;Test&lt;/strong&gt; RMSE.&lt;a href=&#34;#fn3&#34; class=&#34;footnote-ref&#34; id=&#34;fnref3&#34;&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt; Then a model is underfitting if there exists a more complex model with lower Test RMSE.&lt;/p&gt;
 &lt;div class=&#34;fyi&#34;&gt;
-&lt;p&gt;&lt;strong&gt;EXERCISE 2 of 2&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;EXERCISES&lt;/strong&gt;&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;&lt;p&gt;Using &lt;code&gt;lm()&lt;/code&gt; and any number of regressors, predict &lt;code&gt;SalePrice&lt;/code&gt; with no fewer than five models of increasing complexity (as in the try-it above). Complexity can be increased by adding variables &lt;em&gt;or&lt;/em&gt; by adding interactions or polynomials of existing variables. Put the five models into a list.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Calculate the Train and Test RMSE. Your goal is to have a lower &lt;em&gt;Test&lt;/em&gt; RMSE than others in the class.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Make a table exactly like the table above for the 5 models you just fit. The first column should have the name of the model (e.g. &lt;code&gt;fit_1&lt;/code&gt;). Hint: you can get the names of the entries in a list using &lt;code&gt;names(model_list)&lt;/code&gt; provided you named the list items when you added them.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;In a short paragraph, describe the resulting model. Discuss how you arrived at this model, what interactions you’re using (if any) and how confident you are that your prediction will perform well, relative to other people in the class.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Use a shrinkage method applied to the approach above to try to find a restricted model that does almost as well as your model.&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
 &lt;p&gt;A final note on the analysis performed here; we paid no attention whatsoever to the “assumptions” of a linear model. We only sought a model that &lt;strong&gt;predicted&lt;/strong&gt; well, and paid no attention to a model for &lt;strong&gt;explaination&lt;/strong&gt;. This is especially true if we interacted variables without any theory as to why they might need to be interacted – “exterior type interacted with number of half-baths” may help with RMSE, but it certainly isn’t grounded in a story that a real estate agent might tell. Hypothesis testing did not play a role in deciding the model, only prediction accuracy. Collinearity? We don’t care. Assumptions? Still don’t care. Diagnostics? Never heard of them. (These statements are a little over the top, and not completely true, but just to drive home the point that we only care about prediction. Often we latch onto methods that we have seen before, even when they are not needed.)&lt;/p&gt;
@@ -1706,55 +1805,6 @@ lines(model_complexity, test_rmse, type = &amp;quot;b&amp;quot;, col = &amp;quot
 &lt;li id=&#34;fn2&#34;&gt;&lt;p&gt;The train RMSE is guaranteed to follow this non-increasing pattern as long as no data is being dropped when new variables are added (see &lt;a href=&#34;#Data%20Cleaning&#34;&gt;Data Cleaning&lt;/a&gt; above). The same is not true of test RMSE. We often see a nice U-shaped curve. There are theoretical reasons why we should expect this, but that is on average. Because of the randomness of one test-train split, we may not always see this result. Re-perform this analysis with a different seed value and the pattern may not hold. We will discuss why we expect this next week. We will discuss how we can help create this U-shape much later. Also, we might intuitively expect train RMSE to be lower than test RMSE. Again, due to the randomness of the split, you may get (un)lucky and this will not be true.&lt;a href=&#34;#fnref2&#34; class=&#34;footnote-back&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li id=&#34;fn3&#34;&gt;&lt;p&gt;The labels of under and overfitting are &lt;em&gt;relative&lt;/em&gt; to the best model we see. Any model more complex with higher Test RMSE is overfitting. Any model less complex with higher Test RMSE is underfitting.&lt;a href=&#34;#fnref3&#34; class=&#34;footnote-back&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Least Absolute Shrinkage and Selection Operator</title>
-      <link>https://ssc442.netlify.app/assignment/08-assignment/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ssc442.netlify.app/assignment/08-assignment/</guid>
-      <description>
-
-
-&lt;p&gt;There is no Lab 08. Lab 07 is due on October 30th due to Fall Break, which would have been the due date for Lab 08. We pick up again at Lab 09 due the first week in November.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Nonlinear Regression Model Evaluation</title>
-      <link>https://ssc442.netlify.app/assignment/09-assignment/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ssc442.netlify.app/assignment/09-assignment/</guid>
-      <description>
-
-&lt;div id=&#34;TOC&#34;&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#backstory-and-set-up&#34; id=&#34;toc-backstory-and-set-up&#34;&gt;Backstory and Set Up&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-
-&lt;!-- Updated 8.30.22 --&gt;
-&lt;div class=&#34;fyi&#34;&gt;
-&lt;p&gt;You must turn in a PDF document of your &lt;code&gt;R Markdown&lt;/code&gt; knitted document. Submit this to D2L by 11:59 PM Eastern Time on the date listed on the Syllabus calendar&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;backstory-and-set-up&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Backstory and Set Up&lt;/h2&gt;
-&lt;p&gt;You work for a bank. This bank is trying to predict defaults on loans (a relatively uncommon occurence, but one that costs the bank a great deal of money when it does happen.) They’ve given you a dataset on defaults (encoded as the variable &lt;code&gt;y&lt;/code&gt;). You’re going to try to predict this.&lt;/p&gt;
-&lt;p&gt;This is some new data. The snippet below loads it.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;bank &amp;lt;- read.table(&amp;quot;https://raw.githubusercontent.com/ajkirkpatrick/FS20/Spring2021/classdata/bank.csv&amp;quot;,
-                 header = TRUE,
-                 sep = &amp;quot;,&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;There’s not going to be a whole lot of wind-up here. You should be well-versed in doing these sorts of things by now (if not, look back at the previous lab for sample code).&lt;/p&gt;
-&lt;div class=&#34;fyi&#34;&gt;
-&lt;p&gt;&lt;strong&gt;EXERCISE 1&lt;/strong&gt;&lt;/p&gt;
-&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;&lt;p&gt;Split the data into an 80/20 train vs. test split. Make sure you explicitly set the seed for replicability, but do not share your seed with others in the class. (We may compare some results across people.)&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Run a series of KNN models with &lt;span class=&#34;math inline&#34;&gt;\(k\)&lt;/span&gt; ranging from 2 to 100. (You need not do every &lt;span class=&#34;math inline&#34;&gt;\(k\)&lt;/span&gt; between 2 and 100, but you can easily write a short function to do this; see the Content tab).&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Create a chart plotting the model complexity as the &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt;-axis variable and RMSE as the &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt;-axis variable for &lt;strong&gt;both&lt;/strong&gt; the training and test data. What do you think is the optimal &lt;span class=&#34;math inline&#34;&gt;\(k\)&lt;/span&gt;?&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
 &lt;/div&gt;
 </description>
     </item>

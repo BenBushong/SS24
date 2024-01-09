@@ -1,6 +1,6 @@
 ---
 title: "Model Building"
-linktitle: "6: Linear Regression II"
+linktitle: "7: Linear Regression II"
 output:
   blogdown::html_page:
     toc: true
@@ -14,17 +14,16 @@ editor_options:
   chunk_output_type: console
 ---
 
-<!-- Updated 8.30.22 -->
 
 :::fyi
 
 **NOTE**
 
-You must turn in a PDF document of your `R Markdown` code. Submit this to D2L by 11:59 PM Eastern Time on Monday, October 16th. Remember, your Project 1 is due on Saturday the 14th.
+You must turn in a PDF document of your `R Markdown` code. Submit this to D2L by 11:59 PM Eastern Time on Monday, February 26th. **YES I KNOW THIS IS DURING SPRING BREAK SO DO IT BEFORE THE BREAK**.
 
 :::
 
-This week's lab will extend last week's lab. The introduction is a direct repeat.
+This week's lab will extend last week's lab. The introduction is the same. The exercises are different.
 
 ## Backstory and Set Up
 You have been recently hired to Zillow’s Zestimate product team as a junior analyst. As a part of their regular hazing, they have given you access to a small subset of their historic sales data. Your job is to present some basic predictions for housing values in a small geographic area (Ames, IA) using this historical pricing.

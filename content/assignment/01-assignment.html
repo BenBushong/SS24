@@ -1,6 +1,6 @@
 ---
 title: "Basics of ggplot"
-linktitle: "1: Visualization I"
+linktitle: "2: Visualization I"
 output:
   blogdown::html_page:
     toc: true
@@ -31,7 +31,7 @@ editor_options:
 
 <div class="fyi">
 <p><strong>NOTE</strong></p>
-<p>You must turn in a PDF document of your <code>R markdown</code> output. Submit this to D2L by 11:59 PM on September 11th.</p>
+<p>You must turn in a PDF document of your <code>R markdown</code> output. Submit this to D2L by 11:59 PM on January 22nd.</p>
 <p>Note: This lab has a few “try its” along the way. They are for your own practice and are not required. The lab consists of the three “exercises.”</p>
 </div>
 <p>Our primary tool for data visualization in the course will be <code>ggplot</code>. Technically, we’re using <code>ggplot2</code>; the o.g. version lacked some of the modern features of its big brother. <code>ggplot2</code> implements the grammar of graphics, a coherent and relatively straightforward system for describing and building graphs. With <code>ggplot2</code>, you can do more faster by learning one system and applying it in many places. Other languages provide more specific tools, but require you to learn a different tool for each application. In this class, we’ll dig into a single package for our visuals.</p>
@@ -68,11 +68,9 @@ library(tidyverse)</code></pre>
 </div>
 <div id="mappings-link-data-to-things-you-see" class="section level2">
 <h2>Mappings Link Data to Things You See</h2>
-<pre class="r"><code>library(gapminder)</code></pre>
-<pre><code>## Warning: package &#39;gapminder&#39; was built under R version 4.2.3</code></pre>
-<pre class="r"><code>library(ggplot2)</code></pre>
-<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 4.2.3</code></pre>
-<pre class="r"><code>gapminder::gapminder</code></pre>
+<pre class="r"><code>library(gapminder)
+library(ggplot2)
+gapminder::gapminder</code></pre>
 <pre><code>## # A tibble: 1,704 × 6
 ##    country     continent  year lifeExp      pop gdpPercap
 ##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;

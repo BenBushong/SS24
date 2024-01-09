@@ -1,6 +1,6 @@
 ---
-title: "Nonlinear Regression Model Evaluation"
-linktitle: "9: Nonlinear Regression Model Evaluation"
+title: "Nonlinear Regression and Model Evaluation"
+linktitle: "10: Nonlinear Regression"
 output:
   blogdown::html_page:
     toc: true
@@ -18,7 +18,7 @@ editor_options:
 
 :::fyi
 
-You must turn in a PDF document of your `R Markdown` knitted document. Submit this to D2L by 11:59 PM Eastern Time on the date listed on the Syllabus calendar
+You must turn in a PDF document of your `R Markdown` knitted document. Submit this to D2L by 11:59 PM Eastern Time on [DATE].
 
 :::
 
@@ -57,10 +57,9 @@ __EXERCISE 1__
 
 :::
 
+Below are some code nuggets that you might find helpful. Note that these are **non-functioning**.
 
-
-```{r, include=F}
-
+```{r, include=T, eval=F}
 
 library(caret); library(tidyverse)
 
@@ -74,14 +73,14 @@ bY = bank[,'default']
 k5 = knnreg(bX, bY, k=5)
 
 k100 = knnreg(default ~ balance + education + job + duration, bank, k=100)
-knnreg(default ~ age + gender + student, bank, k=100)
+knnreg(default ~ age + education, bank, k=100)
 predict(k5, newdata = bank)
 
 ```
 
 
 
-```{r, include=F}
+```{r, include=T, eval=F}
 
 
 bank = bank23 %>%

@@ -1,6 +1,6 @@
 ---
 title: "Programming Basics in R"
-linktitle: "0: Introduction to R"
+linktitle: "1: Introduction to R"
 output:
   blogdown::html_page:
     toc: true
@@ -14,7 +14,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-You must turn in a PDF document knitted from your R Markdown code. Submit this to "Lab 0" on D2L by 11:59 PM on Monday September 4th. You do not need to submit your .rmd file code - just the properly-knitted PDF.
+You must turn in a PDF document knitted from your R Markdown code. Submit this to "Lab 1" on D2L by 11:59 PM on Monday January 15th. You do not need to submit your .rmd file code - just the properly-knitted PDF.
 
  
 :::fyi
@@ -330,15 +330,15 @@ Once you've saved the file, open it up in Rstudio.
 
   - If you want to see what the code will do, copy the code and paste it into the gray area. Then, click the green right arrow in the top-right corner *of the gray code chunk*. It should show you the results.
   
-  - Use the results (plus your understanding of the code) to answer the question
+  - Use the results (plus your understanding of the code) to answer the questions below.
   
-- With each completed question, clidk the "Knit" button up above the script window. Rmarkdown will create a .pdf for you of your work (as long as it doesn't hit any R errors). Knit often to make sure you haven't hit an error!
+- With each completed question, click the "Knit" button up above the script window. Rmarkdown will create a .pdf for you of your work (as long as it doesn't hit any R errors). Knit often to make sure you haven't hit an error!
 
 - The ``\newpage`` line is a Latex command (the program that makes the typesetting look nice). It will start a new pdf page. 
 
 - On the next page, copy question #2 to a new header using `##`.
 
-- Once done, render one last .pdf, proofread it, and turn it in on D2L!
+- Keep going until done. Render one last .pdf, proofread it, and turn it in on D2L!
 
 For more on using R Markdown, see the [R Markdown page of our course resources](/resource/rmarkdown/). You can also learn about the general Markdown language [on our Markdown page of our course resources](/resource/markdown/)
 

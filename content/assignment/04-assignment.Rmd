@@ -1,6 +1,6 @@
 ---
 title: "Statistical Models and Uncertainty"
-linktitle: "4: Statistical Models and Uncertainty"
+linktitle: "5: Uncertainty"
 output:
   blogdown::html_page:
     toc: true
@@ -14,13 +14,11 @@ editor_options:
   chunk_output_type: console
 ---
 
-<!-- Updated 8.30.22 -->
-
 :::fyi
 
 **NOTE**
 
-You must turn in a PDF document of your `R Markdown` code. Submit this to D2L by 11:59 PM Eastern Time on Monday, October 2rd.
+You must turn in a PDF document of your `R Markdown` code. Submit this to D2L by 11:59 PM Eastern Time on Monday, February 12th.
 
 :::
 
