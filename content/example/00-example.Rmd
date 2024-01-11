@@ -30,7 +30,7 @@ I like to use this spot to publish course announcements. Not so much for y'all, 
 A careful read of our syllabus under "class participation" will show that I do give extra credit for answering questions and (mainly) sharing completed R coding tasks. That is, we'll walk through some examples, and when we hit a "try it", I'll ask you to give it a go. Then, after a few minutes, I'll ask if anyone wants to share their answer. You get one point of participation extra credit. Five points is worth 1% of a grade boost, so these aren't negligible points.
 
 ### Assignment / Exercises
-The Assignments page has all of our weekly lab assignments (including Week 0's, due on Monday at 11:59pm). The assignments often have a preamble and some code that has to be used to set you up for the questions. **The questions to be completed and turned in are under "Exercises" at the very end**.
+The Assignments page has all of our weekly lab assignments (including Week 1, due on Monday at 11:59pm). The assignments often have a preamble and some code that has to be used to set you up for the questions. **The questions to be completed and turned in are under "Exercises" at the very end**.
 
 ### Don't Slide into My DMs
 I don't like to use the DM feature of Slack. Not because I don't like getting DMs, but because the point of Slack is so we can all learn together. If you have a question, even if you're worried it's a silly question, then *others* will, I promise, have the same question. Asking in the public channel will answer everyone's question at once. Related to this: you should check the Slack to see if your question has already been asked.
