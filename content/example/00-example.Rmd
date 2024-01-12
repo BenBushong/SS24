@@ -69,8 +69,7 @@ RStudio, the separate _integrated development environment_ (IDE) commonly used t
 Both `R` and ~~RStudio~~ Posit are free and available online. If you have not yet done so, you'll need to install both R and ~~RStudio~~ Posit. See the [Installing page of our course resources](/resource/install/) for instructions. This will be part of your assignment for this week. 
 
 
-I have created a video walkthrough for the basics of using R for another course, but it is useful here. You can [see part A here (labeled "Part 2a") here <i class="fas fa-film"></i>](https://mediaspace.msu.edu/media/R+Part+2a/1_kmszjw36)] and [part B here (labeled "Part 2b")  <i class="fas fa-film"></i>](https://mediaspace.msu.edu/media/R+Part+2b/1_c0vf0i63). You should already be at this level of familiarity with R, but if you need a review, this is a good place to start.
-
+Professor Kirkpatrick (the other instructor for this course) has created a video walkthrough for the basics of using `R` for another course, but it is useful here. You can [see part A here (labeled "Part 2a") here <i class="fas fa-film"></i>](https://mediaspace.msu.edu/media/R+Part+2a/1_kmszjw36)] and [part B here (labeled "Part 2b")  <i class="fas fa-film"></i>](https://mediaspace.msu.edu/media/R+Part+2b/1_c0vf0i63). You should already be at this level of familiarity with R, but if you need a review, this is a good place to start.
 
 
 ## The (very) basics of `R`
