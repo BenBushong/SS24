@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://ssc442.netlify.app/example/00-example/</loc>
-    <lastmod>2024-01-11T12:12:33-05:00</lastmod>
+    <lastmod>2024-01-12T14:08:29-05:00</lastmod>
   </url><url>
     <loc>https://ssc442.netlify.app/example/01-example/</loc>
     <lastmod>2024-01-09T11:10:06-05:00</lastmod>
@@ -131,13 +131,13 @@
     <loc>https://ssc442.netlify.app/resource/unzipping/</loc>
     <lastmod>2024-01-03T17:52:29-05:00</lastmod>
   </url><url>
+    <loc>https://ssc442.netlify.app/content/01-content/</loc>
+    <lastmod>2024-01-09T09:47:23-05:00</lastmod>
+  </url><url>
     <loc>https://ssc442.netlify.app/content/99-content/</loc>
     <lastmod>2024-01-09T09:47:23-05:00</lastmod>
   </url><url>
     <loc>https://ssc442.netlify.app/content/00-content/</loc>
-    <lastmod>2024-01-09T09:47:23-05:00</lastmod>
-  </url><url>
-    <loc>https://ssc442.netlify.app/content/01-content/</loc>
     <lastmod>2024-01-09T09:47:23-05:00</lastmod>
   </url><url>
     <loc>https://ssc442.netlify.app/assignment/final-project/</loc>

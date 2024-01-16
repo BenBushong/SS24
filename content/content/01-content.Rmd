@@ -39,15 +39,13 @@ output:
 
 
 ### Group Projects
-Your final is a group project. You will also have two "mini" projects. They comprise a large part of your grade.
-
-You need to start planning soon.
+Your final is a group project. You will also have two "mini" projects. They comprise a large part of your grade. As mentioned last week, this mean that you need to start planning soon.
 
 To aid in your planning, here are the required elements of your final project.
 
 1. You must find existing data to analyze. Aggregating and merging data from multiple sources is encouraged.
 
-2. You must visualize 3 intersting features of that data.
+2. You must visualize 3 interesting features of that data.
 
 3. You must come up with some analysis---using tools from this course---which relates your data to either a prediction or a policy conclusion.
 
@@ -58,13 +56,12 @@ To aid in your planning, here are the required elements of your final project.
 Your mini-projects along the way will be more structured, but will serve to guide you towards the final project.
 
 ### Teams
-Please form teams of 3 people. Once all agree to be on a team, have one person email our TA Allen scovelpa\@msu.edu **and cc all of the members of the team** so that nobody is surprised to be included on a team. Title the email *[SSC442] - Group Formation*. Tell us your team name (be creative), and list in the email the names of all of the team members and their email address (in addition to cc-ing those team members on the email).
+Please form teams of 3 people. Once all agree to be on a team, have ONE PERSON email our TA Allen scovelpa\@msu.edu **and cc all of the members of the team** so that nobody is surprised to be included on a team. Title the email *[SSC442] - Group Formation*. Tell us your team name (be creative), and list in the email the names of all of the team members and their email address (in addition to cc-ing those team members on the email).
 
 If you opt to not form a team, you will be automatically added to the "willing to be randomly assigned" pool and will be paired with two others from the "willing to be randomly assigned" pool.
 
 Send this email by **January 20th** and we will assign un-teamed folks at the beginning of the following week. Project 1 is due in no time. See [schedule](/schedule/) for all the important project dates.
 
-  
 
 ### Guiding Question
 
