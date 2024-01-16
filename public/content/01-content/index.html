@@ -244,7 +244,7 @@
     
       <meta property="article:published_time" content="2024-01-16T00:00:00&#43;00:00">
     
-    <meta property="article:modified_time" content="2024-01-09T09:47:23-05:00">
+    <meta property="article:modified_time" content="2024-01-16T10:34:26-05:00">
   
 
   
@@ -1212,7 +1212,7 @@ mean(na_example)</code></pre>
 </div>
 <div id="tibbles" class="section level2">
 <h2>Tibbles</h2>
-<p>Tidy data must be stored in data frames. We introduced the data frame in our section on data.frames and have been using the <code>murders</code> data frame throughout the unit. In an earlier section we introduced the <code>group_by</code> function, which permits stratifying data before computing summary statistics. But where is the group information stored in the data frame?</p>
+<p>Tidy data must be stored in data frames. We have been using the <code>murders</code> data frame throughout the unit. In an earlier section we introduced the <code>group_by</code> function, which permits stratifying data before computing summary statistics. But where is the group information stored in the data frame?</p>
 <pre class="r"><code>murders %&gt;% group_by(region)</code></pre>
 <pre><code>## # A tibble: 51 × 6
 ## # Groups:   region [4]
@@ -1236,7 +1236,7 @@ mean(na_example)</code></pre>
 <p>Tibbles are very similar to data frames. In fact, you can think of them as a modern version of data frames. Nonetheless there are three important differences which we describe next.</p>
 <div id="tibbles-display-better" class="section level3">
 <h3>Tibbles display better</h3>
-<p>The print method for tibbles is more readable than that of a data frame. To see this, compare the outputs of typing <code>murders</code> and the output of murders if we convert it to a tibble. We can do this using <code>as_tibble(murders)</code>. If using RStudio, output for a tibble adjusts to your window size. To see this, change the width of your R console and notice how more/less columns are shown.</p>
+<p>The print method for tibbles is more readable than that of a data frame. To see this, compare the outputs of typing <code>murders</code> and the output of murders if we convert it to a tibble. We can do this using <code>as_tibble(murders)</code>. If using <code>RStudio</code>, output for a tibble adjusts to your window size. To see this, change the width of your R console and notice how more/less columns are shown.</p>
 </div>
 <div id="subsets-of-tibbles-are-tibbles" class="section level3">
 <h3>Subsets of tibbles are tibbles</h3>
@@ -1511,7 +1511,7 @@ case_when(x &lt; 0 ~ &quot;Negative&quot;,
                 </div>
 
                 <div class="body-footer">
-                    <p>Last updated on January 9, 2024</p>
+                    <p>Last updated on January 16, 2024</p>
 
                     
 

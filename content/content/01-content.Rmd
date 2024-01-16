@@ -603,7 +603,7 @@ Hint: Use `filter` and `summarize` and use the `na.rm = TRUE` argument when comp
 
 ## Tibbles
 
-Tidy data must be stored in data frames. We introduced the data frame in our section on data.frames and have been using the `murders` data frame throughout the unit. In an earlier section we introduced the `group_by` function, which permits stratifying data before computing summary statistics. But where is the group information stored in the data frame?
+Tidy data must be stored in data frames. We have been using the `murders` data frame throughout the unit. In an earlier section we introduced the `group_by` function, which permits stratifying data before computing summary statistics. But where is the group information stored in the data frame?
 
 ```{r}
 murders %>% group_by(region)
@@ -619,10 +619,9 @@ The `tbl`, pronounced tibble, is a special kind of data frame. The functions `gr
 
 Tibbles are very similar to data frames. In fact, you can think of them as a modern version of data frames. Nonetheless there are three important differences which we describe next.
 
-
 ### Tibbles display better
 
-The print method for tibbles is more readable than that of a data frame. To see this, compare the outputs of typing `murders` and the output of murders if we convert it to a tibble. We can do this using `as_tibble(murders)`. If using RStudio, output for a tibble adjusts to your window size. To see this, change the width of your R console and notice how more/less columns are shown.
+The print method for tibbles is more readable than that of a data frame. To see this, compare the outputs of typing `murders` and the output of murders if we convert it to a tibble. We can do this using `as_tibble(murders)`. If using `RStudio`, output for a tibble adjusts to your window size. To see this, change the width of your R console and notice how more/less columns are shown.
 
 ### Subsets of tibbles are tibbles
 

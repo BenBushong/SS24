@@ -569,7 +569,7 @@ mean(na_example)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;tibbles&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Tibbles&lt;/h2&gt;
-&lt;p&gt;Tidy data must be stored in data frames. We introduced the data frame in our section on data.frames and have been using the &lt;code&gt;murders&lt;/code&gt; data frame throughout the unit. In an earlier section we introduced the &lt;code&gt;group_by&lt;/code&gt; function, which permits stratifying data before computing summary statistics. But where is the group information stored in the data frame?&lt;/p&gt;
+&lt;p&gt;Tidy data must be stored in data frames. We have been using the &lt;code&gt;murders&lt;/code&gt; data frame throughout the unit. In an earlier section we introduced the &lt;code&gt;group_by&lt;/code&gt; function, which permits stratifying data before computing summary statistics. But where is the group information stored in the data frame?&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;murders %&amp;gt;% group_by(region)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 51 × 6
 ## # Groups:   region [4]
@@ -593,7 +593,7 @@ mean(na_example)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Tibbles are very similar to data frames. In fact, you can think of them as a modern version of data frames. Nonetheless there are three important differences which we describe next.&lt;/p&gt;
 &lt;div id=&#34;tibbles-display-better&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Tibbles display better&lt;/h3&gt;
-&lt;p&gt;The print method for tibbles is more readable than that of a data frame. To see this, compare the outputs of typing &lt;code&gt;murders&lt;/code&gt; and the output of murders if we convert it to a tibble. We can do this using &lt;code&gt;as_tibble(murders)&lt;/code&gt;. If using RStudio, output for a tibble adjusts to your window size. To see this, change the width of your R console and notice how more/less columns are shown.&lt;/p&gt;
+&lt;p&gt;The print method for tibbles is more readable than that of a data frame. To see this, compare the outputs of typing &lt;code&gt;murders&lt;/code&gt; and the output of murders if we convert it to a tibble. We can do this using &lt;code&gt;as_tibble(murders)&lt;/code&gt;. If using &lt;code&gt;RStudio&lt;/code&gt;, output for a tibble adjusts to your window size. To see this, change the width of your R console and notice how more/less columns are shown.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;subsets-of-tibbles-are-tibbles&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Subsets of tibbles are tibbles&lt;/h3&gt;
