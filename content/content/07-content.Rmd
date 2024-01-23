@@ -1,6 +1,6 @@
 ---
 title: "Linear Regression III"
-linktitle: "7: Linear Regression III"
+linktitle: "8: Linear Regression III"
 read_date: "2023-10-17"
 menu:
   content:
