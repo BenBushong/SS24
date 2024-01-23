@@ -49,6 +49,20 @@ We have already provided some rules to follow as we created plots for our exampl
 
 The principles are mostly based on research related to how humans detect patterns and make visual comparisons. The preferred approaches are those that best fit the way our brains process visual information. When deciding on a visualization approach, it is also important to keep our goal in mind. We may be comparing a viewable number of quantities, describing distributions for categories or numeric values, comparing the data from two groups, or describing the relationship between two variables. As a final note, we want to emphasize that for a data scientist it is important to adapt and optimize graphs to the audience. For example, an exploratory plot made for ourselves will be different than a chart intended to communicate a finding to a general audience.
 
+## A Starting List (from Tufte)
+
+1. The representation of numbers, as physically measured on the surface of the graph itself, should be directly proportional to the numerical quantities represented. 
+
+2. Clear, detailed and thorough labeling should be used to defeat graphical distortion and ambiguity. Write out explanations of the data on the graph itself.  Label important events in the data.
+
+3. Show data variation, not design variation.
+
+4. In time-series displays of money, deflated and standardized units of monetary measurement are nearly always better than nominal units.
+
+5. The number of information carrying (variable) dimensions depicted should not exceed the number of dimensions in the data. Graphics must not quote data out of context.
+
+### Examples (Dos and Don'ts)
+
 As with the discussion above, we will be using these libraries---note the addition of __gridExtra__:
 
 

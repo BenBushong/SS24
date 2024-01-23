@@ -21,6 +21,9 @@ output:
 <li><a href="#guiding-questions" id="toc-guiding-questions">Guiding Questions</a></li>
 <li><a href="#data-visualization-principles" id="toc-data-visualization-principles">Data visualization principles</a>
 <ul>
+<li><a href="#a-starting-list-from-tufte" id="toc-a-starting-list-from-tufte">A Starting List (from Tufte)</a>
+<ul>
+<li><a href="#examples-dos-and-donts" id="toc-examples-dos-and-donts">Examples (Dos and Don’ts)</a></li>
 <li><a href="#encoding-data-using-visual-cues" id="toc-encoding-data-using-visual-cues">Encoding data using visual cues</a></li>
 <li><a href="#avoid-pseudo-three-dimensional-plots" id="toc-avoid-pseudo-three-dimensional-plots">Avoid pseudo-three-dimensional plots</a></li>
 <li><a href="#avoid-too-many-significant-digits" id="toc-avoid-too-many-significant-digits">Avoid too many significant digits</a></li>
@@ -28,6 +31,7 @@ output:
 <li><a href="#know-when-to-include-0" id="toc-know-when-to-include-0">Know when to include 0</a></li>
 <li><a href="#do-not-distort-quantities" id="toc-do-not-distort-quantities">Do not distort quantities</a></li>
 <li><a href="#order-categories-by-a-meaningful-value" id="toc-order-categories-by-a-meaningful-value">Order categories by a meaningful value</a></li>
+</ul></li>
 <li><a href="#show-the-data" id="toc-show-the-data">Show the data</a></li>
 <li><a href="#faceting" id="toc-faceting">Faceting</a>
 <ul>
@@ -71,10 +75,22 @@ output:
 <h1>Data visualization principles</h1>
 <p>We have already provided some rules to follow as we created plots for our examples. Here, we aim to provide some general principles we can use as a guide for effective data visualization. Much of this section is based on a talk by Karl Broman<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> titled “Creating Effective Figures and Tables”<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> and includes some of the figures which were made with code that Karl makes available on his GitHub repository<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>, as well as class notes from Peter Aldhous’ Introduction to Data Visualization course<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>. Following Karl’s approach, we show some examples of plot styles we should avoid, explain how to improve them, and use these as motivation for a list of principles. We compare and contrast plots that follow these principles to those that don’t.</p>
 <p>The principles are mostly based on research related to how humans detect patterns and make visual comparisons. The preferred approaches are those that best fit the way our brains process visual information. When deciding on a visualization approach, it is also important to keep our goal in mind. We may be comparing a viewable number of quantities, describing distributions for categories or numeric values, comparing the data from two groups, or describing the relationship between two variables. As a final note, we want to emphasize that for a data scientist it is important to adapt and optimize graphs to the audience. For example, an exploratory plot made for ourselves will be different than a chart intended to communicate a finding to a general audience.</p>
+<div id="a-starting-list-from-tufte" class="section level2">
+<h2>A Starting List (from Tufte)</h2>
+<ol style="list-style-type: decimal">
+<li><p>The representation of numbers, as physically measured on the surface of the graph itself, should be directly proportional to the numerical quantities represented.</p></li>
+<li><p>Clear, detailed and thorough labeling should be used to defeat graphical distortion and ambiguity. Write out explanations of the data on the graph itself. Label important events in the data.</p></li>
+<li><p>Show data variation, not design variation.</p></li>
+<li><p>In time-series displays of money, deflated and standardized units of monetary measurement are nearly always better than nominal units.</p></li>
+<li><p>The number of information carrying (variable) dimensions depicted should not exceed the number of dimensions in the data. Graphics must not quote data out of context.</p></li>
+</ol>
+<div id="examples-dos-and-donts" class="section level3">
+<h3>Examples (Dos and Don’ts)</h3>
 <p>As with the discussion above, we will be using these libraries—note the addition of <strong>gridExtra</strong>:</p>
 <pre class="r"><code>library(tidyverse)
 library(dslabs)
 library(gridExtra)</code></pre>
+</div>
 <div id="encoding-data-using-visual-cues" class="section level3">
 <h3>Encoding data using visual cues</h3>
 <p><strong>Visual cues</strong> are any element of design that gives the viewer clues as to how to use the object. For instance, we can look at door handles like these</p>
@@ -594,6 +610,7 @@ grid.arrange(p1, p2, ncol = 2) # we&#39;ll cover this later</code></pre>
 <p>The <code>reorder</code> function lets us reorder groups as well. Earlier we saw an example related to income distributions across regions. Here are the two versions plotted against each other:</p>
 <p><img src="/content/02-content_files/figure-html/reorder-boxplot-example-1.png" width="100%" style="display: block; margin: auto;" /></p>
 <p>The first orders the regions alphabetically, while the second orders them by the group’s median.</p>
+</div>
 </div>
 <div id="show-the-data" class="section level2">
 <h2>Show the data</h2>

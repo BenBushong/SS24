@@ -5539,6 +5539,9 @@ MIx = st_difference(MI, GreatLakes)  # spatial version of the difference functio
 &lt;li&gt;&lt;a href=&#34;#guiding-questions&#34; id=&#34;toc-guiding-questions&#34;&gt;Guiding Questions&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#data-visualization-principles&#34; id=&#34;toc-data-visualization-principles&#34;&gt;Data visualization principles&lt;/a&gt;
 &lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#a-starting-list-from-tufte&#34; id=&#34;toc-a-starting-list-from-tufte&#34;&gt;A Starting List (from Tufte)&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#examples-dos-and-donts&#34; id=&#34;toc-examples-dos-and-donts&#34;&gt;Examples (Dos and Don’ts)&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#encoding-data-using-visual-cues&#34; id=&#34;toc-encoding-data-using-visual-cues&#34;&gt;Encoding data using visual cues&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#avoid-pseudo-three-dimensional-plots&#34; id=&#34;toc-avoid-pseudo-three-dimensional-plots&#34;&gt;Avoid pseudo-three-dimensional plots&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#avoid-too-many-significant-digits&#34; id=&#34;toc-avoid-too-many-significant-digits&#34;&gt;Avoid too many significant digits&lt;/a&gt;&lt;/li&gt;
@@ -5546,6 +5549,7 @@ MIx = st_difference(MI, GreatLakes)  # spatial version of the difference functio
 &lt;li&gt;&lt;a href=&#34;#know-when-to-include-0&#34; id=&#34;toc-know-when-to-include-0&#34;&gt;Know when to include 0&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#do-not-distort-quantities&#34; id=&#34;toc-do-not-distort-quantities&#34;&gt;Do not distort quantities&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#order-categories-by-a-meaningful-value&#34; id=&#34;toc-order-categories-by-a-meaningful-value&#34;&gt;Order categories by a meaningful value&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#show-the-data&#34; id=&#34;toc-show-the-data&#34;&gt;Show the data&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#faceting&#34; id=&#34;toc-faceting&#34;&gt;Faceting&lt;/a&gt;
 &lt;ul&gt;
@@ -5589,10 +5593,22 @@ MIx = st_difference(MI, GreatLakes)  # spatial version of the difference functio
 &lt;h1&gt;Data visualization principles&lt;/h1&gt;
 &lt;p&gt;We have already provided some rules to follow as we created plots for our examples. Here, we aim to provide some general principles we can use as a guide for effective data visualization. Much of this section is based on a talk by Karl Broman&lt;a href=&#34;#fn1&#34; class=&#34;footnote-ref&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; titled “Creating Effective Figures and Tables”&lt;a href=&#34;#fn2&#34; class=&#34;footnote-ref&#34; id=&#34;fnref2&#34;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt; and includes some of the figures which were made with code that Karl makes available on his GitHub repository&lt;a href=&#34;#fn3&#34; class=&#34;footnote-ref&#34; id=&#34;fnref3&#34;&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;, as well as class notes from Peter Aldhous’ Introduction to Data Visualization course&lt;a href=&#34;#fn4&#34; class=&#34;footnote-ref&#34; id=&#34;fnref4&#34;&gt;&lt;sup&gt;4&lt;/sup&gt;&lt;/a&gt;. Following Karl’s approach, we show some examples of plot styles we should avoid, explain how to improve them, and use these as motivation for a list of principles. We compare and contrast plots that follow these principles to those that don’t.&lt;/p&gt;
 &lt;p&gt;The principles are mostly based on research related to how humans detect patterns and make visual comparisons. The preferred approaches are those that best fit the way our brains process visual information. When deciding on a visualization approach, it is also important to keep our goal in mind. We may be comparing a viewable number of quantities, describing distributions for categories or numeric values, comparing the data from two groups, or describing the relationship between two variables. As a final note, we want to emphasize that for a data scientist it is important to adapt and optimize graphs to the audience. For example, an exploratory plot made for ourselves will be different than a chart intended to communicate a finding to a general audience.&lt;/p&gt;
+&lt;div id=&#34;a-starting-list-from-tufte&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;A Starting List (from Tufte)&lt;/h2&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;The representation of numbers, as physically measured on the surface of the graph itself, should be directly proportional to the numerical quantities represented.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Clear, detailed and thorough labeling should be used to defeat graphical distortion and ambiguity. Write out explanations of the data on the graph itself. Label important events in the data.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Show data variation, not design variation.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;In time-series displays of money, deflated and standardized units of monetary measurement are nearly always better than nominal units.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The number of information carrying (variable) dimensions depicted should not exceed the number of dimensions in the data. Graphics must not quote data out of context.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div id=&#34;examples-dos-and-donts&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Examples (Dos and Don’ts)&lt;/h3&gt;
 &lt;p&gt;As with the discussion above, we will be using these libraries—note the addition of &lt;strong&gt;gridExtra&lt;/strong&gt;:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
 library(dslabs)
 library(gridExtra)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 &lt;div id=&#34;encoding-data-using-visual-cues&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Encoding data using visual cues&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;Visual cues&lt;/strong&gt; are any element of design that gives the viewer clues as to how to use the object. For instance, we can look at door handles like these&lt;/p&gt;
@@ -6112,6 +6128,7 @@ grid.arrange(p1, p2, ncol = 2) # we&amp;#39;ll cover this later&lt;/code&gt;&lt;
 &lt;p&gt;The &lt;code&gt;reorder&lt;/code&gt; function lets us reorder groups as well. Earlier we saw an example related to income distributions across regions. Here are the two versions plotted against each other:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://ssc442.netlify.app/content/02-content_files/figure-html/reorder-boxplot-example-1.png&#34; width=&#34;100%&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;The first orders the regions alphabetically, while the second orders them by the group’s median.&lt;/p&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;show-the-data&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Show the data&lt;/h2&gt;
