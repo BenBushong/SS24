@@ -14,9 +14,6 @@ editor_options:
   chunk_output_type: console
 ---
 
-```{r}
-# NOTE: the assignment doesn't match the template tha tis used (lab-02.rmd). Remove the template part!
-```
 :::fyi
 
 **NOTE**
@@ -45,8 +42,6 @@ You'll need to download one CSV file and put it somewhere on your computer (or u
 - [<i class="fas fa-file-csv"></i> `EssentialConstruction.csv`](/data/EssentialConstruction.csv)
 
 
-
-
 ### R Markdown
 
 Writing regular text with `R Markdown` follows the rules of Markdown. You can make lists; different-size headers, etc. This should be relatively straightfoward. We talked about a few Markdown features like **bold** and *italics* in class. See [this resource for more formatting](/resource/markdown/).
@@ -57,27 +52,23 @@ You'll also need to insert your own code chunks where needed. Rather than typing
 knitr::include_graphics("/img/assignments/insert-chunk-button.png", error = FALSE)
 ```
 
+### Data Prep
+Once you download the `EssentialConstruction.csv` file and save it in your project folder, you can open it and start cleaning.Loading in the basic data is straightforward:
 
-```{r eval=T, include=F, echo=F}
+```{r eval=T, include=T, message=FALSE, echo=T}
 library(tidyverse)
 essential = read_csv('./data/EssentialConstruction.csv')
 ```
 
-### Data Prep
-Once you download the `EssentialConstruction.csv` file and save it in your project folder, you can open it and start cleaning. I'll help with that. I'll give you a .Rmd that will get you started on the Exercises below. Download this and use it in place of your lab assignment template.
 
-- [<i class="fab fa-r-project"></i> `02-lab.Rmd`](/projects/02-lab/02-lab.Rmd)
 
 
 :::fyi
-__Exercise 1 of 1: Essential pandemic construction__
-
-Using the Lab 02 template above, do the following:
+__Exercise 1: Essential pandemic construction__
 
 A. Show the count or proportion of approved projects by borough using a bar chart. Make sure all the elements of your plot (axes, legend, etc.) are labeled.
 
 B. Show the count or proportion of approved projects by *category* using a lollipop chart. Not sure of what a lollipop chart is? Google `R ggplot lollipop`. A huge portion of knowing how to code is knowing how to google, find examples, and figure out where to put your variables from your data! Make sure all the elements of your plot (axes, legend, etc.) are labeled.
-
 
 You don't need to make these super fancy, but if you're feeling brave, experiment with adding a `labs()` layer or changing fill colors with `scale_fill_manual()` or with palettes.
 

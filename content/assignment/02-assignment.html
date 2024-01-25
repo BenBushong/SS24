@@ -28,7 +28,6 @@ editor_options:
 </ul>
 </div>
 
-<pre class="r"><code># NOTE: the assignment doesn&#39;t match the template tha tis used (lab-02.rmd). Remove the template part!</code></pre>
 <div class="fyi">
 <p><strong>NOTE</strong></p>
 <p>You must turn in a PDF document of your <code>R Markdown</code> code. Submit this to D2L by 11:59 PM Eastern Time on Monday, January 29th.</p>
@@ -55,13 +54,11 @@ editor_options:
 </div>
 <div id="data-prep" class="section level3">
 <h3>Data Prep</h3>
-<p>Once you download the <code>EssentialConstruction.csv</code> file and save it in your project folder, you can open it and start cleaning. I’ll help with that. I’ll give you a .Rmd that will get you started on the Exercises below. Download this and use it in place of your lab assignment template.</p>
-<ul>
-<li><a href="/projects/02-lab/02-lab.Rmd"><i class="fab fa-r-project"></i> <code>02-lab.Rmd</code></a></li>
-</ul>
+<p>Once you download the <code>EssentialConstruction.csv</code> file and save it in your project folder, you can open it and start cleaning.Loading in the basic data is straightforward:</p>
+<pre class="r"><code>library(tidyverse)
+essential = read_csv(&#39;./data/EssentialConstruction.csv&#39;)</code></pre>
 <div class="fyi">
-<p><strong>Exercise 1 of 1: Essential pandemic construction</strong></p>
-<p>Using the Lab 02 template above, do the following:</p>
+<p><strong>Exercise 1: Essential pandemic construction</strong></p>
 <p>A. Show the count or proportion of approved projects by borough using a bar chart. Make sure all the elements of your plot (axes, legend, etc.) are labeled.</p>
 <p>B. Show the count or proportion of approved projects by <em>category</em> using a lollipop chart. Not sure of what a lollipop chart is? Google <code>R ggplot lollipop</code>. A huge portion of knowing how to code is knowing how to google, find examples, and figure out where to put your variables from your data! Make sure all the elements of your plot (axes, legend, etc.) are labeled.</p>
 <p>You don’t need to make these super fancy, but if you’re feeling brave, experiment with adding a <code>labs()</code> layer or changing fill colors with <code>scale_fill_manual()</code> or with palettes.</p>
