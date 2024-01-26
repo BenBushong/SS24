@@ -232,6 +232,11 @@
 
 &lt;div id=&#34;TOC&#34;&gt;
 &lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#supplemental-visualization&#34; id=&#34;toc-supplemental-visualization&#34;&gt;Supplemental Visualization&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#combining-plots-using-patchwork&#34; id=&#34;toc-combining-plots-using-patchwork&#34;&gt;Combining plots using Patchwork&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#legal-dual-y-axes&#34; id=&#34;toc-legal-dual-y-axes&#34;&gt;Legal dual y-axes&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#interesting-and-excellent-real-world-examples&#34; id=&#34;toc-interesting-and-excellent-real-world-examples&#34;&gt;Interesting and excellent real world examples&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#how-to-select-the-appropriate-chart-type&#34; id=&#34;toc-how-to-select-the-appropriate-chart-type&#34;&gt;How to select the appropriate chart type&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#general-resources&#34; id=&#34;toc-general-resources&#34;&gt;General resources&lt;/a&gt;&lt;/li&gt;
@@ -240,6 +245,88 @@
 &lt;/ul&gt;
 &lt;/div&gt;
 
+&lt;div id=&#34;supplemental-visualization&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Supplemental Visualization&lt;/h2&gt;
+&lt;div id=&#34;combining-plots-using-patchwork&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;&lt;a href=&#34;#patchwork&#34;&gt;Combining plots using Patchwork&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;A good alternative to using two y-axes is to use two plots instead. The &lt;a href=&#34;https://github.com/thomasp85/patchwork&#34;&gt;&lt;strong&gt;patchwork&lt;/strong&gt; package&lt;/a&gt; makes this &lt;em&gt;really&lt;/em&gt; easy to do with R. There are other similar packages that do this, like &lt;strong&gt;cowplot&lt;/strong&gt; and &lt;strong&gt;gridExtra&lt;/strong&gt;, but I’ve found that &lt;strong&gt;patchwork&lt;/strong&gt; is the easiest to use &lt;em&gt;and&lt;/em&gt; it actually aligns the different plot elements like axis lines and legends. The &lt;a href=&#34;https://patchwork.data-imaginist.com/articles/guides/assembly.html&#34;&gt;documentation for &lt;strong&gt;patchwork&lt;/strong&gt;&lt;/a&gt; is really great and full of examples—you should check it out to see all the things you can do with it!&lt;/p&gt;
+&lt;p&gt;First, we load the libraries and data we’ll be using. We loaded the Atlanta weather data in Example 05:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)  # For ggplot, dplyr, and friends
+library(patchwork)  # For combining ggplot plots
+weather_atl &amp;lt;- read_csv(&amp;quot;data/atl-weather-2019.csv&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;
+To use **patchwork**, we need to (1) save our plots as objects and (2) add them together with `+`.
+
+For instance, is there a relationship between temperature and humidity in Atlanta? We can plot both:
+
+
+```r
+# Temperature in Atlanta
+temp_plot &amp;lt;- ggplot(weather_atl, aes(x = time, y = temperatureHigh)) +
+  geom_line() +
+  geom_smooth() +
+  scale_y_continuous(sec.axis = sec_axis(trans = ~ (32 - .) * -5/9,
+                                         name = &amp;quot;Celsius&amp;quot;)) +
+  labs(x = NULL, y = &amp;quot;Fahrenheit&amp;quot;) +
+  theme_minimal()
+temp_plot&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/resource/visualization_files/figure-html/create-temp-humid-plots-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Humidity in Atlanta
+humidity_plot &amp;lt;- ggplot(weather_atl, aes(x = time, y = humidity)) +
+  geom_line() +
+  geom_smooth() +
+  labs(x = NULL, y = &amp;quot;Humidity&amp;quot;) +
+  theme_minimal()
+humidity_plot&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/resource/visualization_files/figure-html/create-temp-humid-plots-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Right now, these are two separate plots, but we can combine them with &lt;code&gt;+&lt;/code&gt; if we load &lt;strong&gt;patchwork&lt;/strong&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(patchwork)
+
+temp_plot + humidity_plot&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/resource/visualization_files/figure-html/patchwork-first-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;By default, &lt;strong&gt;patchwork&lt;/strong&gt; will put these side-by-side. We can specify that we want the plots to be oriented over/under:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;temp_plot / humidity_plot&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/resource/visualization_files/figure-html/patchwork-vertical-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Or we can change the orientation with the &lt;code&gt;plot_layout()&lt;/code&gt; function:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;temp_plot + humidity_plot +
+  plot_layout(ncol = 1)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/resource/visualization_files/figure-html/patchwork-vertical-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;We can also play with other arguments in &lt;code&gt;plot_layout()&lt;/code&gt;. If we want to make the temperature plot taller and shrink the humidity section, we can specify the proportions for the plot heights. Here, the temperature plot is 70% of the height and the humidity plot is 30%:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;temp_plot + humidity_plot +
+  plot_layout(ncol = 1, heights = c(0.7, 0.3))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/resource/visualization_files/figure-html/patchwork-vertical-resized-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;legal-dual-y-axes&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Legal dual y-axes&lt;/h3&gt;
+&lt;p&gt;It is fine (and often helpful) to use two y-axes if the two different scales measure the same thing, like counts and percentages, Fahrenheit and Celsius, pounds and kilograms, inches and centimeters, etc.&lt;/p&gt;
+&lt;p&gt;To do this, you need to add an argument (&lt;code&gt;sec.axis&lt;/code&gt;) to &lt;code&gt;scale_y_continuous()&lt;/code&gt; to tell it to use a second axis. This &lt;code&gt;sec.axis&lt;/code&gt; argument takes a &lt;code&gt;sec_axis()&lt;/code&gt; function that tells ggplot how to transform the scale. You need to specify a formula or function that defines how the original axis gets transformed. This formula uses a special syntax. It needs to start with a &lt;code&gt;~&lt;/code&gt;, which indicates that it’s a function, and it needs to use &lt;code&gt;.&lt;/code&gt; to stand in for the original value in the original axis.&lt;/p&gt;
+&lt;p&gt;Since the equation for converting Fahrenheit to Celsius is this…&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\text{C} = (32 - \text{F}) \times -\frac{5}{9}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;…we can specify this with code like so (where &lt;code&gt;.&lt;/code&gt; stands for the Fahrenheit value):&lt;/p&gt;
+&lt;pre class=&#34;text&#34;&gt;&lt;code&gt;~ (32 - .) * -5 / 9&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here’s a plot of daily high temperatures in Atlanta throughout 2019, with a second axis:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(weather_atl, aes(x = time, y = temperatureHigh)) +
+  geom_line() +
+  scale_y_continuous(sec.axis = sec_axis(trans = ~ (32 - .) * -5/9,
+                                         name = &amp;quot;Celsius&amp;quot;)) +
+  labs(x = NULL, y = &amp;quot;Fahrenheit&amp;quot;) +
+  theme_minimal()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/resource/visualization_files/figure-html/atl-weather-dual-axes-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;For fun, we could also convert it to Kelvin, which uses this formula:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\text{K} = (\text{F} - 32) \times \frac{5}{9} + 273.15
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(weather_atl, aes(x = time, y = temperatureHigh)) +
+  geom_line() +
+  scale_y_continuous(sec.axis = sec_axis(trans = ~ (. - 32) * 5/9 + 273.15,
+                                         name = &amp;quot;Kelvin&amp;quot;)) +
+  labs(x = NULL, y = &amp;quot;Fahrenheit&amp;quot;) +
+  theme_minimal()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://ssc442kirkpatrick.netlify.app/resource/visualization_files/figure-html/atl-weather-dual-axes-kelvin-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 &lt;div id=&#34;interesting-and-excellent-real-world-examples&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Interesting and excellent real world examples&lt;/h2&gt;
 &lt;ul&gt;

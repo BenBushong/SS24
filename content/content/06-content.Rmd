@@ -1,7 +1,7 @@
 ---
 title: "Linear Regression II"
-linktitle: "7: Linear Regression II"
-read_date: "2024-02-20"
+linktitle: "6: Linear Regression II"
+read_date: "2023-10-10"
 menu:
   content:
     parent: Course content
@@ -22,10 +22,12 @@ output:
 
 ### Guiding Questions
 
+- How do we use R's `lm` for regression?
 - How do we interpret linear regression outputs?
 - How are the standard errors derived?
 - When should we turn to linear regression versus alternative approaches?
 - Why do we use linear regression so often in data analytics?
+
 
 
 # Linear Models II
@@ -219,17 +221,6 @@ For plotting, we can also use the argument `method = "lm"` which stands for _lin
 p + geom_smooth(method = "lm")
 ```
 
-And, for complete review, we can also use `lm` to run the regression, and then extract the coefficients to use in `geom_abline()`. Results are the same.
-
-```{r complete, echo = TRUE}
-reg_data = Teams %>% filter(yearID %in% 1961:2001 ) %>%
-  mutate(HR_per_game = HR/G, R_per_game = R/G)
-
-reg_lm <- lm(R_per_game ~ HR_per_game, reg_data)
-
-p + geom_abline(intercept = coefficients(reg_lm)['(Intercept)'],
-                slope = coefficients(reg_lm)['HR_per_game'])
-```
 
 In the example above, the slope is `r reg_line$slope`. So this tells us that teams that hit 1 more HR per game than the average team, score `r reg_line$slope` more runs per game than the average team. Given that the most common final score is a difference of a run, this can certainly lead to a large increase in wins. Not surprisingly, HR hitters are very expensive. Because we are working on a budget, we will need to find some other way to increase wins. So in the next section we move our attention to BB.
 
@@ -453,26 +444,28 @@ Trial and error is not going to work in this case. We could search for a minimum
 
 ### The `lm` function
 
-We previously used the `lm` function to fit a regression. This is the workhorse for linear models in R. Let's review for a second. To fit the model:
+The `lm` function is the workhorse for linear models in R. We want to fit the model:
 
 $$
 Y_i = \beta_0 + \beta_1 x_i + \varepsilon_i
 $$
 
-with $Y_i$ the son's height and $x_i$ the father's height, we can use this code to obtain the least squares estimates.
+with $Y_i$ the son's height and $x_i$ the father's height as in our Galton Heights dataset. We can use `lm()` to obtain the least squares estimates.
 
 ```{r}
 fit <- lm(son ~ father, data = galton_heights)
 fit$coef
 ```
 
-The most common way we use `lm` is by using the character `~` to let `lm` know which is the variable we are predicting (left of `~`) and which we are using to predict (right of `~`). The intercept is added *automatically* to the model that will be fit.
+There are two arguments here. The first is specifying the regression formula. We use the character `~` to let `lm` know which is the variable we are predicting (left of `~`) and which we are using to predict (right of `~`). The intercept is added *automatically* to the model that will be fit. Note that we just use the column names here -- `son` not `galton_heights$son`. And note that we aren't putting quotes around the names, even though R doesn't have an object called `son` or `father` in its memory (it does have `galton_heights$son` and `galton_heights$father` of course).
+
+The second argument is the key here. It is the `data=` argoument. Here, you're telling R where to find the variables `son` and `father`. 
 
 Note that while `lm(galton_heights$son ~ galton_heights$father)` will work, it will cause problems later when we try to predict using our model. Do not write your regressions like this. Use the formula and `data = ` notation. 
 
-The object `fit` includes more information about the fit. We can use the function `summary` to extract more of this information (not shown):
+The object we named `fit` here is a "lm" object. Not a data frame or a tibble. It includes more information about the fit and lots of other stuff. We can use the function `summary` to extract more of this information. `summary` is usually how we'll look at regression results:
 
-```{r}
+```{r, include = T, echo = T}
 summary(fit)
 ```
 
@@ -553,110 +546,10 @@ names(y_hat)
 ```
 
 
-## Linear regression in the tidyverse
-
-To see how we use the `lm` function in a more complex analysis, let's go back to the baseball example. In a previous example, we estimated regression lines to predict runs for BB in different HR strata. We first constructed a data frame similar to this:
-
-```{r}
-dat <- Teams %>% filter(yearID %in% 1961:2001) %>%
-  mutate(HR = round(HR/G, 1),
-         BB = BB/G,
-         R = R/G) %>%
-  select(HR, BB, R) %>%
-  filter(HR >= 0.4 & HR<=1.2)
-```
-
-Since we didn't know the `lm` function, to compute the regression line in each strata, we used the formula directly like this:
-
-```{r, eval=FALSE}
-get_slope <- function(x, y) cor(x, y) * sd(y) / sd(x)
-dat %>%
-  group_by(HR) %>%
-  summarize(slope = get_slope(BB, R))
-```
-
-We argued that the slopes are similar and that the differences were perhaps due to random variation. To provide a more rigorous defense of the slopes being the same, which led to our multivariate model, we could compute confidence intervals for each slope. We have not learned the formula for this, but the `lm` function provides enough information to construct them.
-
-First, note that if we try to use the `lm` function to get the estimated slope like this:
-
-```{r}
-dat %>%
-  group_by(HR) %>%
-  lm(R ~ BB, data = .) %>% .$coef
-```
-
-we don't get the result we want. The `lm` function ignores the `group_by`. This is expected because `lm` is not part of the __tidyverse__ and does not know how to handle the outcome of a grouped tibble.
-
-The __tidyverse__ functions know how to interpret grouped tibbles. Furthermore, to facilitate stringing commands through the pipe `%>%`, __tidyverse__ functions consistently return data frames, since this assures that the output of a function is accepted as the input of another.
-But most R functions do not recognize grouped tibbles nor do they return data frames. The `lm` function is an example. The `do` functions serves as a bridge between R functions, such as `lm`, and the __tidyverse__. The `do` function understands grouped tibbles and always returns a data frame.
-
-So, let's try to use the `do` function to fit a regression line to each HR strata:
-
-```{r}
-dat %>%
-  group_by(HR) %>%
-  do(fit = lm(R ~ BB, data = .))
-```
-
-Notice that we did in fact fit a regression line to each strata. The `do` function will create a data frame with the first column being the strata value and a column named `fit` (we chose the name, but it can be anything). The column will contain the result of the `lm` call. Therefore, the returned tibble has a column with `lm` objects, which is not very useful.
-
-Also, if we do not name a column (note above we named it `fit`), then `do` will return the actual output of `lm`, not a data frame, and this will result in an error since `do` is expecting a data frame as output.
-
-```{r, eval=FALSE}
-dat %>%
-  group_by(HR) %>%
-  do(lm(R ~ BB, data = .))
-```
-
-`Error: Results 1, 2, 3, 4, 5, ... must be data frames, not lm`
-
-
-For a useful data frame to be constructed, the output of the function must be a data frame too. We could build a function that returns only what we want in the form of a data frame:
-
-```{r}
-get_slope <- function(data){
-  fit <- lm(R ~ BB, data = data)
-  data.frame(slope = fit$coefficients[2],
-             se = summary(fit)$coefficient[2,2])
-}
-```
-
-And then use `do` **without** naming the output, since we are already getting a data frame:
-
-```{r}
-dat %>%
-  group_by(HR) %>%
-  do(get_slope(.))
-```
-
-If we name the output, then we get something we do not want, a column containing  data frames:
-
-```{r}
-dat %>%
-  group_by(HR) %>%
-  do(slope = get_slope(.))
-```
-
-This is not very useful, so let's cover one last feature of `do`. If the data frame being returned has more than one row, these will be concatenated appropriately. Here is an example in which we return both estimated parameters:
-
-```{r}
-get_lse <- function(data){
-  fit <- lm(R ~ BB, data = data)
-  data.frame(term = names(fit$coefficients),
-    slope = fit$coefficients,
-    se = summary(fit)$coefficient[,2])
-}
-
-dat %>%
-  group_by(HR) %>%
-  do(get_lse(.))
-```
-
-If you think this is all a bit too complicated, you are not alone. To simplify things, we introduce the __broom__ package which was designed to facilitate the use of model fitting functions, such as `lm`, with the __tidyverse__.
 
 ### The broom package
 
-Our original task was to provide an estimate and confidence interval for the slope estimates of each strata. The __broom__ package will make this quite easy.
+Our original task was to provide an estimate and confidence interval for the slope estimates of each strata. The __broom__ package will make this quite easy. While the most useful way of looking at results from a regression with `lm` is to use `summary` on the `lm` object, __broom__ provides tools to extract info from the regression.
 
 The __broom__ package has three main functions, all of which extract information from the object returned by `lm` and return it in a __tidyverse__ friendly data frame. These functions are `tidy`, `glance`, and `augment`. The `tidy` function returns estimates and related information as a data frame:
 
@@ -827,6 +720,41 @@ The player-specific predicted runs computed here can be interpreted as the numbe
 ```{r r-hat-hist}
 qplot(R_hat, data = players, binwidth = 0.5, color = I("black"))
 ```
+
+
+
+:::fyi
+
+__TRY IT__
+
+Since the 1980s, sabermetricians have used a summary statistic different from batting average to evaluate players. They realized walks were important and that doubles, triples, and HRs, should be weighed more than singles. As a result, they proposed the following metric:
+
+$$
+\frac{\mbox{BB}}{\mbox{PA}} + \frac{\mbox{Singles} + 2 \mbox{Doubles} + 3 \mbox{Triples} + 4\mbox{HR}}{\mbox{AB}}
+$$
+
+They called this on-base-percentage plus slugging percentage (OPS). Although the sabermetricians probably did not use regression, here we show how this metric is close to what one gets with regression.
+
+1. Compute the OPS for each team in the 2001 season. Then plot Runs per game versus OPS.
+
+
+2. For every year since 1961, compute the correlation between runs per game and OPS; then plot these correlations as a function of year.
+
+3. Note that we can rewrite OPS as a weighted average of BBs, singles, doubles, triples, and HRs. We know that the weights for doubles, triples, and HRs are 2, 3, and 4 times that of singles. But what about BB? What is the weight for BB relative to singles? Hint: the weight for BB relative to singles will be a function of AB and PA.
+
+4. Note that the weight for BB, $\frac{\mbox{AB}}{\mbox{PA}}$, will change from team to team. To see how variable it is, compute and plot this quantity for each team for each year since 1961. Then plot it again, but instead of computing it for every team, compute and plot the ratio for the entire year. Then, once you are convinced that there is not much of a time or team trend, report the overall average.
+
+5. So now we know that the formula for OPS is proportional to $0.91 \times \mbox{BB} + \mbox{singles} + 2 \times \mbox{doubles} + 3 \times \mbox{triples} + 4 \times \mbox{HR}$. Let's see how these coefficients compare to those obtained with regression. Fit a regression model to the data after 1961, as done earlier: using per game statistics for each year for each team. After fitting this model, report the coefficients as weights relative to the coefficient for singles.
+
+6. We see that our linear regression model coefficients follow the same general trend as those used by OPS, but with slightly less weight for metrics other than singles. For each team in years after 1961, compute the OPS, the predicted runs with the regression model and compute the correlation between the two as well as the correlation with runs per game.
+
+:::
+
+
+
+
+## BONUS: But I'm really into moneyball!
+If you're interested in how we might build the best team for the dollar, keep reading. 
 
 ### Adding salary and position information
 
@@ -1087,99 +1015,3 @@ $$ \frac{Y - .255}{.032} = 0.46 \left( \frac{X - .261}{.023}\right) $$
 Because the correlation is not perfect, regression tells us that, on average, expect high performers from 2013 to do a bit worse in 2014. It's not a jinx; it's just due to chance. The ROY are selected from the top values of $X$ so it is expected that $Y$ will regress to the mean.
 
 
-## Measurement error models
-
-Up to now, all our linear regression examples have been applied to two or more random variables. We assume the pairs are bivariate normal and use this to motivate a linear model. This approach covers most real-life examples of linear regression. The other major application comes from measurement errors models. In these applications, it is common to have a non-random covariate, such as time, and randomness is introduced from measurement error rather than sampling or natural variability.
-
-To understand these models, imagine you are Galileo in the 16th century trying to describe the velocity of a falling object. An assistant climbs the Tower of Pisa and drops a ball, while several other assistants record the position at different times. Let's simulate some data using the equations we know today and adding some measurement error. The __dslabs__ function `rfalling_object` generates these simulations:
-
-```{r}
-library(dslabs)
-falling_object <- rfalling_object()
-```
-
-The assistants hand the data to Galileo and this is what he sees:
-
-```{r gravity}
-falling_object %>%
-  ggplot(aes(time, observed_distance)) +
-  geom_point() +
-  ylab("Distance in meters") +
-  xlab("Time in seconds")
-```
-
-Galileo does not know the exact equation, but by looking at the plot above, he deduces that the position should follow a parabola, which we can write like this:
-
-$$ f(x) = \beta_0 + \beta_1 x + \beta_2 x^2$$
-
-The data does not fall exactly on a parabola. Galileo knows this is due to measurement error. His helpers make mistakes when measuring the distance. To account for this, he models the data with:
-
-$$ Y_i = \beta_0 + \beta_1 x_i + \beta_2 x_i^2 + \varepsilon_i, i=1,\dots,n $$
-
-with $Y_i$ representing distance in meters, $x_i$ representing time in seconds, and $\varepsilon$ accounting for measurement error. The measurement error is assumed to be random, independent from each other, and having the same distribution for each $i$. We also assume that there is no bias, which means the expected value $\mbox{E}[\varepsilon] = 0$.
-
-Note that this is a linear model because it is a linear combination of known quantities ($x$ and $x^2$ are known) and unknown parameters (the $\beta$s are unknown parameters to Galileo). Unlike our previous examples, here $x$ is a fixed quantity; we are not conditioning.
-
-To pose a new physical theory and start making predictions about other falling objects, Galileo needs actual numbers, rather than unknown parameters. Using LSE seems like a reasonable approach. How do we find the LSE?
-
-LSE calculations do not require the errors to be approximately normal. The `lm` function will find the $\beta$ s that will minimize the residual sum of squares:
-
-```{r}
-fit <- falling_object %>%
-  mutate(time_sq = time^2) %>%
-  lm(observed_distance~time+time_sq, data=.)
-tidy(fit)
-```
-
-Let's check if the estimated parabola fits the data. The __broom__ function `augment` lets us do this easily:
-
-```{r falling-object-fit}
-augment(fit) %>%
-  ggplot() +
-  geom_point(aes(time, observed_distance)) +
-  geom_line(aes(time, .fitted), col = "blue")
-```
-
-
-Thanks to my high school physics teacher, I know that the equation for the trajectory of a falling object is:
-
-$$d = h_0 + v_0 t -  0.5 \times 9.8 t^2$$
-
-with $h_0$ and $v_0$ the starting height and velocity, respectively. The data we simulated above followed this equation and added measurement error to simulate `n` observations for dropping the ball $(v_0=0)$ from the tower of Pisa $(h_0=55.86)$.
-
-These are consistent with the parameter estimates:
-
-```{r}
-tidy(fit, conf.int = TRUE)
-```
-
-The Tower of Pisa height is within the confidence interval for $\beta_0$, the initial velocity 0 is in the confidence interval for $\beta_1$ (note the p-value is larger than 0.05), and the acceleration constant is in a confidence interval for $-2 \times \beta_2$.
-
-
-
-:::fyi
-
-__TRY IT__
-
-Since the 1980s, sabermetricians have used a summary statistic different from batting average to evaluate players. They realized walks were important and that doubles, triples, and HRs, should be weighed more than singles. As a result, they proposed the following metric:
-
-$$
-\frac{\mbox{BB}}{\mbox{PA}} + \frac{\mbox{Singles} + 2 \mbox{Doubles} + 3 \mbox{Triples} + 4\mbox{HR}}{\mbox{AB}}
-$$
-
-They called this on-base-percentage plus slugging percentage (OPS). Although the sabermetricians probably did not use regression, here we show how this metric is close to what one gets with regression.
-
-1. Compute the OPS for each team in the 2001 season. Then plot Runs per game versus OPS.
-
-
-2. For every year since 1961, compute the correlation between runs per game and OPS; then plot these correlations as a function of year.
-
-3. Note that we can rewrite OPS as a weighted average of BBs, singles, doubles, triples, and HRs. We know that the weights for doubles, triples, and HRs are 2, 3, and 4 times that of singles. But what about BB? What is the weight for BB relative to singles? Hint: the weight for BB relative to singles will be a function of AB and PA.
-
-4. Note that the weight for BB, $\frac{\mbox{AB}}{\mbox{PA}}$, will change from team to team. To see how variable it is, compute and plot this quantity for each team for each year since 1961. Then plot it again, but instead of computing it for every team, compute and plot the ratio for the entire year. Then, once you are convinced that there is not much of a time or team trend, report the overall average.
-
-5. So now we know that the formula for OPS is proportional to $0.91 \times \mbox{BB} + \mbox{singles} + 2 \times \mbox{doubles} + 3 \times \mbox{triples} + 4 \times \mbox{HR}$. Let's see how these coefficients compare to those obtained with regression. Fit a regression model to the data after 1961, as done earlier: using per game statistics for each year for each team. After fitting this model, report the coefficients as weights relative to the coefficient for singles.
-
-6. We see that our linear regression model coefficients follow the same general trend as those used by OPS, but with slightly less weight for metrics other than singles. For each team in years after 1961, compute the OPS, the predicted runs with the regression model and compute the correlation between the two as well as the correlation with runs per game.
-
-:::

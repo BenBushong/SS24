@@ -180,6 +180,9 @@ You might have been working with some data (in a `data.frame` called `myDataFram
 Find the line in your code (not in the text, but in the code) and remove it.
 
 
+
+
+
 #### Mac permissions
 
 This error looks *something* like this:
@@ -191,17 +194,17 @@ knitr::include_graphics("/img/install/MacPermissions.png", error=FALSE)
 
 **Why did it happen?**
 
-The key here is that it says something about not having permission to write in `usr/bin`. This means your mac somehow thinks it can't write to the hard drive, or at least the folder that contains your R. It usually occurs when you're trying to update packages, or install `tinyTex`.
+The key here is that it says something about not having permission to write in `usr/local/bin`. This means your mac somehow thinks it can't write to the hard drive, or at least the folder that contains your R. It usually occurs when you're trying to update packages, or install `tinyTex`.
 
 **How do I fix it**?
 
-The error gives a link that tells you how to do it. It requires using `terminal` on your mac (hit command+space and type "terminal" to open the terminal). Then, follow the instructions at [the given link](https://github.com/rstudio/tinytex/issues/24). Type these two lines in verbatim into the terminal (don't copy-paste):
+The error gives a link that tells you how to do it. It requires using `terminal` on your mac (hit command+space and type "terminal" to open the terminal). Then, follow the instructions at [the given link](https://github.com/rstudio/tinytex/issues/24). I have included screenshots of the information at the link below. Type these two lines in verbatim into the terminal (don't copy-paste):
 
 ```{r, echo=F}
 knitr::include_graphics("/img/install/FixMacPermissions1.png", error=FALSE)
 ```
 
-If the error happened when you were trying to install `tinyTex`, then also do this step afterwards (also from the link):
+Also, if the error happened when you were trying to install `tinyTex`, then also do this step afterwards (also from the link):
 
 ```{r, echo=F}
 knitr::include_graphics("/img/install/FixMacPermissions2.png", error=FALSE)
