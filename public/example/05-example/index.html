@@ -30,11 +30,11 @@
   
     
   
-  <meta name="description" content="PreliminariesCodeLoad the dataScatterplot matricesCorrelogramsSimple regressionPreliminariesFor this example, we’re going to use historical weather data from Dark Sky about wind speed and temperature trends for downtown Atlanta (specifically 33.754557, -84.390009) in 2019. We downloaded this data using Dark Sky’s (about-to-be-retired-because-they-were-bought-by-Apple) API using the darksky package.
+  <meta name="description" content="Preliminaries Code  Load the data Scatterplot matrices Correlograms  Simple regression   Preliminaries For this example, we’re going to use historical weather data from Dark Sky about wind speed and temperature trends for downtown Atlanta (specifically 33.754557, -84.390009) in 2019. We downloaded this data using Dark Sky’s (about-to-be-retired-because-they-were-bought-by-Apple) API using the darksky package.
 If you want to follow along with this example, you can download the data below (you’ll likely need to right click and choose “Save Link As…” and place it in a data folder next to your working R script):">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://ssc442kirkpatrick.netlify.app/example/05-example/">
+  <link rel="alternate" hreflang="en-us" href="https://ssc442.netlify.app/example/05-example/">
 
   
 
@@ -219,10 +219,10 @@ If you want to follow along with this example, you can download the data below (
   
 
   <link rel="manifest" href="/index.webmanifest">
-  <link rel="icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_2.png">
-  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png">
+  <link rel="icon" type="image/png" href="/images/icon_hu5cb5fae69b6b75ece00896ca20e5499a_29457_32x32_fill_lanczos_center_2.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu5cb5fae69b6b75ece00896ca20e5499a_29457_192x192_fill_lanczos_center_2.png">
 
-  <link rel="canonical" href="https://ssc442kirkpatrick.netlify.app/example/05-example/">
+  <link rel="canonical" href="https://ssc442.netlify.app/example/05-example/">
 
   
   
@@ -237,14 +237,14 @@ If you want to follow along with this example, you can download the data below (
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="Data Analytics">
-  <meta property="og:url" content="https://ssc442kirkpatrick.netlify.app/example/05-example/">
+  <meta property="og:url" content="https://ssc442.netlify.app/example/05-example/">
   <meta property="og:title" content="Introduction to Regression | Data Analytics">
-  <meta property="og:description" content="PreliminariesCodeLoad the dataScatterplot matricesCorrelogramsSimple regressionPreliminariesFor this example, we’re going to use historical weather data from Dark Sky about wind speed and temperature trends for downtown Atlanta (specifically 33.754557, -84.390009) in 2019. We downloaded this data using Dark Sky’s (about-to-be-retired-because-they-were-bought-by-Apple) API using the darksky package.
-If you want to follow along with this example, you can download the data below (you’ll likely need to right click and choose “Save Link As…” and place it in a data folder next to your working R script):"><meta property="og:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png">
-  <meta property="twitter:image" content="https://ssc442kirkpatrick.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
+  <meta property="og:description" content="Preliminaries Code  Load the data Scatterplot matrices Correlograms  Simple regression   Preliminaries For this example, we’re going to use historical weather data from Dark Sky about wind speed and temperature trends for downtown Atlanta (specifically 33.754557, -84.390009) in 2019. We downloaded this data using Dark Sky’s (about-to-be-retired-because-they-were-bought-by-Apple) API using the darksky package.
+If you want to follow along with this example, you can download the data below (you’ll likely need to right click and choose “Save Link As…” and place it in a data folder next to your working R script):"><meta property="og:image" content="https://ssc442.netlify.app/img/social-image.png">
+  <meta property="twitter:image" content="https://ssc442.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
   
     
-    <meta property="article:modified_time" content="2023-10-05T10:42:52-04:00">
+    <meta property="article:modified_time" content="2024-01-26T09:22:14-05:00">
   
 
   
@@ -257,18 +257,18 @@ If you want to follow along with this example, you can download the data below (
   
 
 
-  <link rel="shortcut icon" href="https://ssc442kirkpatrick.netlify.app/favicon.ico" />
-  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://ssc442kirkpatrick.netlify.app/img/apple-touch-icon-57x57.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://ssc442kirkpatrick.netlify.app/img/apple-touch-icon-114x114.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://ssc442kirkpatrick.netlify.app/img/apple-touch-icon-72x72.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://ssc442kirkpatrick.netlify.app/img/apple-touch-icon-144x144.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://ssc442kirkpatrick.netlify.app/img/apple-touch-icon-120x120.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://ssc442kirkpatrick.netlify.app/img/apple-touch-icon-152x152.png" />
-  <link rel="icon" type="image/png" href="https://ssc442kirkpatrick.netlify.app/img/favicon-32x32.png" sizes="32x32" />
-  <link rel="icon" type="image/png" href="https://ssc442kirkpatrick.netlify.app/img/favicon-16x16.png" sizes="16x16" />
+  <link rel="shortcut icon" href="https://ssc442.netlify.app/favicon.ico" />
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://ssc442.netlify.app/img/apple-touch-icon-57x57.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://ssc442.netlify.app/img/apple-touch-icon-114x114.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://ssc442.netlify.app/img/apple-touch-icon-72x72.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://ssc442.netlify.app/img/apple-touch-icon-144x144.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://ssc442.netlify.app/img/apple-touch-icon-120x120.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://ssc442.netlify.app/img/apple-touch-icon-152x152.png" />
+  <link rel="icon" type="image/png" href="https://ssc442.netlify.app/img/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="https://ssc442.netlify.app/img/favicon-16x16.png" sizes="16x16" />
   <meta name="application-name" content="SSC 442: Data Analytics" />
   <meta name="msapplication-TileColor" content="#FFFFFF" />
-  <meta name="msapplication-TileImage" content="https://ssc442kirkpatrick.netlify.app/img/mstile-144x144.png" />
+  <meta name="msapplication-TileImage" content="https://ssc442.netlify.app/img/mstile-144x144.png" />
 
 
   <title>Introduction to Regression | Data Analytics</title>
@@ -562,23 +562,19 @@ If you want to follow along with this example, you can download the data below (
     <ul class="nav docs-sidenav">
       
       <li >
-        <a href="/example/00-example/">0: Introduction to R</a>
+        <a href="/example/00-example/">1: Introduction to R</a>
       </li>
       
       <li >
-        <a href="/example/01-example/">1: Visualization I</a>
+        <a href="/example/01-example/">2: Visualization I</a>
       </li>
       
       <li >
-        <a href="/example/02-example/">2: Visualization II</a>
+        <a href="/example/02-example/">3: Visualization II</a>
       </li>
       
       <li >
-        <a href="/example/03-example/">3: Visualization III</a>
-      </li>
-      
-      <li >
-        <a href="/example/04-example/">4: Uncertainty</a>
+        <a href="/example/03-example/">4: Visualization III</a>
       </li>
       
       <li class="active">
@@ -586,11 +582,19 @@ If you want to follow along with this example, you can download the data below (
       </li>
       
       <li >
-        <a href="/example/06-example/">6: Linear Regression II</a>
+        <a href="/example/04-example/">5: Uncertainty</a>
       </li>
       
       <li >
-        <a href="/example/07-example/">7: Linear Regression III</a>
+        <a href="/example/06-example/">7: Linear Regression II</a>
+      </li>
+      
+      <li >
+        <a href="/example/07-example/">8: Linear Regression III</a>
+      </li>
+      
+      <li >
+        <a href="/example/08-example-notusedfallbreak-2/">8: Shrinkage with LASSO and Ridge</a>
       </li>
       
       <li >
@@ -874,7 +878,7 @@ print(weather_atl_results)</code></pre>
                 </div>
 
                 <div class="body-footer">
-                    <p>Last updated on October 5, 2023</p>
+                    <p>Last updated on January 26, 2024</p>
 
                     
 
@@ -891,30 +895,30 @@ print(weather_atl_results)</code></pre>
     <div class="row course-info">
         <div class="col-md-7">
             <p>
-                <strong>SSC 442: Data Analytics (Fall Semester 2023)</strong><br>
+                <strong>SSC 442: Data Analytics (Spring Semester 2024)</strong><br>
 
                 <a href="https://www.msu.edu" target="_blank" rel="noopener">Michigan State University</a> &emsp;&emsp;
                 <a href="https://socialscience.msu.edu/" target="_blank" rel="noopener">College of Social Science</a>
             </p>
 
             <p>
-                <a href="https://www.justinkirkpatrick.com" target="_blank" rel="noopener"><i class="fas fa-user"></i>
-                    Prof. Justin Kirkpatrick</a> &emsp;&emsp;
-                <a href="mailto:jkirk@msu.edu"><i class="fas fa-envelope"></i>
-                    jkirk@msu.edu</a>
+                <a href="https://www.benbushong.com" target="_blank" rel="noopener"><i class="fas fa-user"></i>
+                    Prof. Ben Bushong</a> &emsp;&emsp;
+                <a href="mailto:bbushong@msu.edu"><i class="fas fa-envelope"></i>
+                    bbushong@msu.edu</a>
             </p>
 
             <p>
                 <i class="far fa-calendar-alt"></i> Tuesday and Thursday &emsp;&emsp;
-                <i class="far fa-clock"></i> 1:30pm - 2:50pm 
-                <br><i class="fas fa-university"></i> 116 Natural Sciences
+                <i class="far fa-clock"></i> 12:40pm - 2:00pm 
+                <br><i class="fas fa-university"></i> 204 Natural Sciences
             </p>
         </div>
 
         <div class="col-md-5 credits">
             <p>All content licensed under a <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</p>
             
-            <p>Content <i class="fab fa-creative-commons"></i> 2020-23 <a href="https://www.justinkirkpatrick.com" target="_blank" rel="noopener">Ben Bushong; Justin Kirkpatrick; based on work by Andrew Heiss</a></p>
+            <p>Content <i class="fab fa-creative-commons"></i> 2020-24 <a href="https://www.benbushong.com" target="_blank" rel="noopener">Ben Bushong; Justin Kirkpatrick; based on work by Andrew Heiss</a></p>
         
             <p>This site created with the <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> in <a href="https://bookdown.org/yihui/blogdown/" target="_blank" rel="noopener">blogdown</a> and <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>. </p>
             
@@ -999,7 +1003,7 @@ print(weather_atl_results)</code></pre>
     
     
     
-    <script src="/js/academic.min.6f7ce8be710290b8c431bbc97f405d15.js"></script>
+    <script src="/js/academic.min.a21fcc4a4cdf5eeefae0603e61b3030c.js"></script>
 
     
 

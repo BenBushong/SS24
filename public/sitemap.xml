@@ -60,19 +60,19 @@
     <lastmod>2024-01-09T11:40:03-05:00</lastmod>
   </url><url>
     <loc>https://ssc442.netlify.app/assignment/02-assignment/</loc>
-    <lastmod>2024-01-09T11:40:03-05:00</lastmod>
+    <lastmod>2024-01-25T16:28:43-05:00</lastmod>
   </url><url>
     <loc>https://ssc442.netlify.app/assignment/03-assignment/</loc>
     <lastmod>2024-01-09T11:40:03-05:00</lastmod>
+  </url><url>
+    <loc>https://ssc442.netlify.app/example/05-example/</loc>
+    <lastmod>2024-01-26T09:22:14-05:00</lastmod>
   </url><url>
     <loc>https://ssc442.netlify.app/assignment/04-assignment/</loc>
     <lastmod>2024-01-09T11:40:03-05:00</lastmod>
   </url><url>
     <loc>https://ssc442.netlify.app/assignment/05-assignment/</loc>
     <lastmod>2024-01-09T11:40:03-05:00</lastmod>
-  </url><url>
-    <loc>https://ssc442.netlify.app/example/05-example/</loc>
-    <lastmod>2024-01-09T11:10:06-05:00</lastmod>
   </url><url>
     <loc>https://ssc442.netlify.app/assignment/06-assignment/</loc>
     <lastmod>2024-01-09T11:40:03-05:00</lastmod>
@@ -85,6 +85,8 @@
   </url><url>
     <loc>https://ssc442.netlify.app/example/07-example/</loc>
     <lastmod>2024-01-09T11:10:06-05:00</lastmod>
+  </url><url>
+    <loc>https://ssc442.netlify.app/example/08-example-notusedfallbreak-2/</loc>
   </url><url>
     <loc>https://ssc442.netlify.app/example/08-example-notusedfallbreak/</loc>
     <lastmod>2024-01-03T17:52:29-05:00</lastmod>
@@ -104,6 +106,8 @@
     <loc>https://ssc442.netlify.app/resource/</loc>
     <lastmod>2023-09-08T11:53:54-04:00</lastmod>
   </url><url>
+    <loc>https://ssc442.netlify.app/example/code_aggregated-2/</loc>
+  </url><url>
     <loc>https://ssc442.netlify.app/example/code_aggregated/</loc>
     <lastmod>2024-01-03T17:52:29-05:00</lastmod>
   </url><url>
@@ -114,7 +118,7 @@
     <lastmod>2024-01-07T13:36:11-05:00</lastmod>
   </url><url>
     <loc>https://ssc442.netlify.app/resource/visualization/</loc>
-    <lastmod>2023-09-11T10:53:44-04:00</lastmod>
+    <lastmod>2024-01-26T09:22:14-05:00</lastmod>
   </url><url>
     <loc>https://ssc442.netlify.app/resource/markdown/</loc>
     <lastmod>2023-09-11T10:53:44-04:00</lastmod>
@@ -125,14 +129,21 @@
     <loc>https://ssc442.netlify.app/resource/rmarkdown/</loc>
     <lastmod>2023-09-08T12:02:54-04:00</lastmod>
   </url><url>
+    <loc>https://ssc442.netlify.app/resource/data-2/</loc>
+  </url><url>
     <loc>https://ssc442.netlify.app/resource/data/</loc>
     <lastmod>2024-01-03T17:52:29-05:00</lastmod>
+  </url><url>
+    <loc>https://ssc442.netlify.app/resource/unzipping-2/</loc>
   </url><url>
     <loc>https://ssc442.netlify.app/resource/unzipping/</loc>
     <lastmod>2024-01-03T17:52:29-05:00</lastmod>
   </url><url>
     <loc>https://ssc442.netlify.app/content/01-content/</loc>
     <lastmod>2024-01-16T10:47:57-05:00</lastmod>
+  </url><url>
+    <loc>https://ssc442.netlify.app/content/99-content-2/</loc>
+    <lastmod>2024-01-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ssc442.netlify.app/content/99-content/</loc>
     <lastmod>2024-01-09T09:47:23-05:00</lastmod>
@@ -186,7 +197,7 @@
     <lastmod>2024-01-09T09:47:23-05:00</lastmod>
   </url><url>
     <loc>https://ssc442.netlify.app/content/06-content/</loc>
-    <lastmod>2024-01-09T09:47:23-05:00</lastmod>
+    <lastmod>2024-01-26T09:22:14-05:00</lastmod>
   </url><url>
     <loc>https://ssc442.netlify.app/content/07-content/</loc>
     <lastmod>2024-01-23T11:12:17-05:00</lastmod>

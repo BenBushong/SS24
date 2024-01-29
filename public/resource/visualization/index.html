@@ -30,7 +30,7 @@
   
     
   
-  <meta name="description" content="Interesting and excellent real world examples How to select the appropriate chart type General resources Visualization in Excel Visualization in Tableau   Interesting and excellent real world examples  The Stories Behind a Line Australia as 100 people: You can make something like this with d3 and the potato project. Marrying Later, Staying Single Longer   How to select the appropriate chart type Many people have created many useful tools for selecting the correct chart type for a given dataset or question.">
+  <meta name="description" content="Supplemental Visualization  Combining plots using Patchwork Legal dual y-axes  Interesting and excellent real world examples How to select the appropriate chart type General resources Visualization in Excel Visualization in Tableau   Supplemental Visualization Combining plots using Patchwork A good alternative to using two y-axes is to use two plots instead. The patchwork package makes this really easy to do with R. There are other similar packages that do this, like cowplot and gridExtra, but I’ve found that patchwork is the easiest to use and it actually aligns the different plot elements like axis lines and legends.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://ssc442.netlify.app/resource/visualization/">
@@ -238,11 +238,11 @@
   <meta property="og:site_name" content="Data Analytics">
   <meta property="og:url" content="https://ssc442.netlify.app/resource/visualization/">
   <meta property="og:title" content="Visualization | Data Analytics">
-  <meta property="og:description" content="Interesting and excellent real world examples How to select the appropriate chart type General resources Visualization in Excel Visualization in Tableau   Interesting and excellent real world examples  The Stories Behind a Line Australia as 100 people: You can make something like this with d3 and the potato project. Marrying Later, Staying Single Longer   How to select the appropriate chart type Many people have created many useful tools for selecting the correct chart type for a given dataset or question."><meta property="og:image" content="https://ssc442.netlify.app/img/social-image.png">
+  <meta property="og:description" content="Supplemental Visualization  Combining plots using Patchwork Legal dual y-axes  Interesting and excellent real world examples How to select the appropriate chart type General resources Visualization in Excel Visualization in Tableau   Supplemental Visualization Combining plots using Patchwork A good alternative to using two y-axes is to use two plots instead. The patchwork package makes this really easy to do with R. There are other similar packages that do this, like cowplot and gridExtra, but I’ve found that patchwork is the easiest to use and it actually aligns the different plot elements like axis lines and legends."><meta property="og:image" content="https://ssc442.netlify.app/img/social-image.png">
   <meta property="twitter:image" content="https://ssc442.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
   
     
-    <meta property="article:modified_time" content="2023-09-11T10:53:44-04:00">
+    <meta property="article:modified_time" content="2024-01-26T09:22:14-05:00">
   
 
   
@@ -567,6 +567,10 @@
         <a href="/resource/rstudiocloud/">Using Posit (Rstudio) Cloud</a>
       </li>
       
+      <li class="active">
+        <a href="/resource/visualization/">Visualization</a>
+      </li>
+      
       <li >
         <a href="/resource/style/">R style suggestions</a>
       </li>
@@ -580,7 +584,7 @@
       </li>
       
       <li >
-        <a href="/resource/unzipping/">Unzipping files</a>
+        <a href="/resource/unzipping-2/">Unzipping files</a>
       </li>
       
     </ul>
@@ -594,15 +598,11 @@
   </div>
   
   <div class="docs-toc-item">
-    <a class="docs-toc-link" href="/resource/visualization/">Resources</a>
+    <a class="docs-toc-link" href="/resource/data-2/">Resources</a>
     <ul class="nav docs-sidenav">
       
-      <li class="active">
-        <a href="/resource/visualization/">Visualization</a>
-      </li>
-      
       <li >
-        <a href="/resource/data/">Data</a>
+        <a href="/resource/data-2/">Data</a>
       </li>
       
     </ul>
@@ -635,6 +635,11 @@
 
 <div id="TOC">
 <ul>
+<li><a href="#supplemental-visualization" id="toc-supplemental-visualization">Supplemental Visualization</a>
+<ul>
+<li><a href="#combining-plots-using-patchwork" id="toc-combining-plots-using-patchwork">Combining plots using Patchwork</a></li>
+<li><a href="#legal-dual-y-axes" id="toc-legal-dual-y-axes">Legal dual y-axes</a></li>
+</ul></li>
 <li><a href="#interesting-and-excellent-real-world-examples" id="toc-interesting-and-excellent-real-world-examples">Interesting and excellent real world examples</a></li>
 <li><a href="#how-to-select-the-appropriate-chart-type" id="toc-how-to-select-the-appropriate-chart-type">How to select the appropriate chart type</a></li>
 <li><a href="#general-resources" id="toc-general-resources">General resources</a></li>
@@ -643,6 +648,88 @@
 </ul>
 </div>
 
+<div id="supplemental-visualization" class="section level2">
+<h2>Supplemental Visualization</h2>
+<div id="combining-plots-using-patchwork" class="section level3">
+<h3><a href="#patchwork">Combining plots using Patchwork</a></h3>
+<p>A good alternative to using two y-axes is to use two plots instead. The <a href="https://github.com/thomasp85/patchwork"><strong>patchwork</strong> package</a> makes this <em>really</em> easy to do with R. There are other similar packages that do this, like <strong>cowplot</strong> and <strong>gridExtra</strong>, but I’ve found that <strong>patchwork</strong> is the easiest to use <em>and</em> it actually aligns the different plot elements like axis lines and legends. The <a href="https://patchwork.data-imaginist.com/articles/guides/assembly.html">documentation for <strong>patchwork</strong></a> is really great and full of examples—you should check it out to see all the things you can do with it!</p>
+<p>First, we load the libraries and data we’ll be using. We loaded the Atlanta weather data in Example 05:</p>
+<pre class="r"><code>library(tidyverse)  # For ggplot, dplyr, and friends
+library(patchwork)  # For combining ggplot plots
+weather_atl &lt;- read_csv(&quot;data/atl-weather-2019.csv&quot;)</code></pre>
+<pre><code>
+To use **patchwork**, we need to (1) save our plots as objects and (2) add them together with `+`.
+
+For instance, is there a relationship between temperature and humidity in Atlanta? We can plot both:
+
+
+```r
+# Temperature in Atlanta
+temp_plot &lt;- ggplot(weather_atl, aes(x = time, y = temperatureHigh)) +
+  geom_line() +
+  geom_smooth() +
+  scale_y_continuous(sec.axis = sec_axis(trans = ~ (32 - .) * -5/9,
+                                         name = &quot;Celsius&quot;)) +
+  labs(x = NULL, y = &quot;Fahrenheit&quot;) +
+  theme_minimal()
+temp_plot</code></pre>
+<p><img src="/resource/visualization_files/figure-html/create-temp-humid-plots-1.png" width="672" /></p>
+<pre class="r"><code># Humidity in Atlanta
+humidity_plot &lt;- ggplot(weather_atl, aes(x = time, y = humidity)) +
+  geom_line() +
+  geom_smooth() +
+  labs(x = NULL, y = &quot;Humidity&quot;) +
+  theme_minimal()
+humidity_plot</code></pre>
+<p><img src="/resource/visualization_files/figure-html/create-temp-humid-plots-2.png" width="672" /></p>
+<p>Right now, these are two separate plots, but we can combine them with <code>+</code> if we load <strong>patchwork</strong>:</p>
+<pre class="r"><code>library(patchwork)
+
+temp_plot + humidity_plot</code></pre>
+<p><img src="/resource/visualization_files/figure-html/patchwork-first-1.png" width="672" /></p>
+<p>By default, <strong>patchwork</strong> will put these side-by-side. We can specify that we want the plots to be oriented over/under:</p>
+<pre class="r"><code>temp_plot / humidity_plot</code></pre>
+<p><img src="/resource/visualization_files/figure-html/patchwork-vertical-1-1.png" width="672" /></p>
+<p>Or we can change the orientation with the <code>plot_layout()</code> function:</p>
+<pre class="r"><code>temp_plot + humidity_plot +
+  plot_layout(ncol = 1)</code></pre>
+<p><img src="/resource/visualization_files/figure-html/patchwork-vertical-1.png" width="672" /></p>
+<p>We can also play with other arguments in <code>plot_layout()</code>. If we want to make the temperature plot taller and shrink the humidity section, we can specify the proportions for the plot heights. Here, the temperature plot is 70% of the height and the humidity plot is 30%:</p>
+<pre class="r"><code>temp_plot + humidity_plot +
+  plot_layout(ncol = 1, heights = c(0.7, 0.3))</code></pre>
+<p><img src="/resource/visualization_files/figure-html/patchwork-vertical-resized-1.png" width="672" /></p>
+</div>
+<div id="legal-dual-y-axes" class="section level3">
+<h3>Legal dual y-axes</h3>
+<p>It is fine (and often helpful) to use two y-axes if the two different scales measure the same thing, like counts and percentages, Fahrenheit and Celsius, pounds and kilograms, inches and centimeters, etc.</p>
+<p>To do this, you need to add an argument (<code>sec.axis</code>) to <code>scale_y_continuous()</code> to tell it to use a second axis. This <code>sec.axis</code> argument takes a <code>sec_axis()</code> function that tells ggplot how to transform the scale. You need to specify a formula or function that defines how the original axis gets transformed. This formula uses a special syntax. It needs to start with a <code>~</code>, which indicates that it’s a function, and it needs to use <code>.</code> to stand in for the original value in the original axis.</p>
+<p>Since the equation for converting Fahrenheit to Celsius is this…</p>
+<p><span class="math display">\[
+\text{C} = (32 - \text{F}) \times -\frac{5}{9}
+\]</span></p>
+<p>…we can specify this with code like so (where <code>.</code> stands for the Fahrenheit value):</p>
+<pre class="text"><code>~ (32 - .) * -5 / 9</code></pre>
+<p>Here’s a plot of daily high temperatures in Atlanta throughout 2019, with a second axis:</p>
+<pre class="r"><code>ggplot(weather_atl, aes(x = time, y = temperatureHigh)) +
+  geom_line() +
+  scale_y_continuous(sec.axis = sec_axis(trans = ~ (32 - .) * -5/9,
+                                         name = &quot;Celsius&quot;)) +
+  labs(x = NULL, y = &quot;Fahrenheit&quot;) +
+  theme_minimal()</code></pre>
+<p><img src="/resource/visualization_files/figure-html/atl-weather-dual-axes-1.png" width="672" /></p>
+<p>For fun, we could also convert it to Kelvin, which uses this formula:</p>
+<p><span class="math display">\[
+\text{K} = (\text{F} - 32) \times \frac{5}{9} + 273.15
+\]</span></p>
+<pre class="r"><code>ggplot(weather_atl, aes(x = time, y = temperatureHigh)) +
+  geom_line() +
+  scale_y_continuous(sec.axis = sec_axis(trans = ~ (. - 32) * 5/9 + 273.15,
+                                         name = &quot;Kelvin&quot;)) +
+  labs(x = NULL, y = &quot;Fahrenheit&quot;) +
+  theme_minimal()</code></pre>
+<p><img src="/resource/visualization_files/figure-html/atl-weather-dual-axes-kelvin-1.png" width="672" /></p>
+</div>
+</div>
 <div id="interesting-and-excellent-real-world-examples" class="section level2">
 <h2>Interesting and excellent real world examples</h2>
 <ul>
@@ -703,7 +790,7 @@
                 </div>
 
                 <div class="body-footer">
-                    <p>Last updated on September 11, 2023</p>
+                    <p>Last updated on January 26, 2024</p>
 
                     
 
