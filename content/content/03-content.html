@@ -18,7 +18,7 @@ output:
 <li><a href="#readings" id="toc-readings">Readings</a>
 <ul>
 <li><a href="#guiding-questions" id="toc-guiding-questions">Guiding Questions</a></li>
-<li><a href="#starting-up" id="toc-starting-up">Starting up</a></li>
+<li><a href="#regularly-scheduled-content" id="toc-regularly-scheduled-content">Regularly Scheduled Content</a></li>
 </ul></li>
 <li><a href="#scales-and-transformations" id="toc-scales-and-transformations">Scales and transformations</a>
 <ul>
@@ -52,9 +52,66 @@ output:
 <li>Today we’re mostly learning some technical aspects of <code>ggplot</code>.</li>
 <li>Why are we covering the material this way? (Good question. There’s an answer!)</li>
 </ul>
+<div id="in-class-activity-comparing-2008-electoral-votes-and-polling-data." class="section level4">
+<h4>In-Class Activity: Comparing 2008 Electoral Votes and Polling Data.</h4>
+<p>In this activity, we will use <code>R</code> to visualize and compare the actual electoral votes from the 2008 presidential election with the polling data prior to the election. Specifically, we will explore how accurately the polls predicted the election results. Yes, I know this is an older election… that’s kind of the point. This isn’t a politics class.</p>
+<p><strong>Setup:</strong></p>
+<p>You’ll need to download two CSV files and put them somewhere on your computer (or upload it to RStudio.cloud if you’ve gone that direction)—preferably in a folder named <code>data</code> in your project folder. You can download the data from the link below:</p>
+<ul>
+<li><a href="/data/pres08.csv"><i class="fas fa-file-csv"></i> <code>pres08.csv</code></a></li>
+<li><a href="/data/polls08.csv"><i class="fas fa-file-csv"></i> <code>polls08.csv</code></a></li>
+</ul>
+<p><strong>Steps Prior to Analysis:</strong></p>
+<ol style="list-style-type: decimal">
+<li>Load the Data</li>
+</ol>
+<pre class="r"><code># Load the necessary libraries
+library(tidyverse)
+electoral_votes &lt;- read.csv(&quot;path_to/pres08.csv&quot;)
+polling_data &lt;- read.csv(&quot;path_to/polls08.csv&quot;)</code></pre>
+<p>Note that you’ll have to replace <code>path_to</code> with the actual path to the files on your computer.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Data Preparation</li>
+</ol>
+<p>We need to aggregate the polling data to get an average poll result for each state. We will then merge this with the electoral votes data.</p>
+<pre class="r"><code># Aggregating polling data
+avg_polls &lt;- polling_data %&gt;%
+  group_by(state) %&gt;%
+  summarise(Obama_avg = mean(Obama), McCain_avg = mean(McCain))
+
+# Merging with electoral votes data
+combined_data &lt;- merge(electoral_votes, avg_polls, by = &quot;state&quot;)</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Complete Your Analysis</li>
+</ol>
+<p>You are tasked with three things:</p>
+<p>A: Explore the discrepancies between polls and actual results.</p>
+<p>B: Visualize the relationship between the actual results and the poll results. <em>Does this relationship change over time?</em> Or, put another way, <em>were early polls or later polls more accurate</em>?</p>
+<p>You might find this pseudo-code helpful:</p>
+<pre class="r"><code># Define the regions
+regions &lt;- tibble(
+  region = c(&#39;Northeast&#39;, &#39;Midwest&#39;, &#39;South&#39;, &#39;West&#39;),
+  states = list(
+    c(&#39;CT&#39;, &#39;ME&#39;, &#39;MA&#39;, &#39;NH&#39;, &#39;RI&#39;, &#39;VT&#39;, &#39;NJ&#39;, &#39;NY&#39;, &#39;PA&#39;),
+    c(&#39;IL&#39;, &#39;IN&#39;, &#39;MI&#39;, &#39;OH&#39;, &#39;WI&#39;, &#39;IA&#39;, &#39;KS&#39;, &#39;MN&#39;, &#39;MO&#39;, &#39;NE&#39;, &#39;ND&#39;, &#39;SD&#39;),
+    c(&#39;DE&#39;, &#39;FL&#39;, &#39;GA&#39;, &#39;MD&#39;, &#39;NC&#39;, &#39;SC&#39;, &#39;VA&#39;, &#39;DC&#39;, &#39;WV&#39;, &#39;AL&#39;, &#39;KY&#39;, &#39;MS&#39;, &#39;TN&#39;, &#39;AR&#39;, &#39;LA&#39;, &#39;OK&#39;, &#39;TX&#39;),
+    c(&#39;AZ&#39;, &#39;CO&#39;, &#39;ID&#39;, &#39;MT&#39;, &#39;NV&#39;, &#39;NM&#39;, &#39;UT&#39;, &#39;WY&#39;, &#39;AK&#39;, &#39;CA&#39;, &#39;HI&#39;, &#39;OR&#39;, &#39;WA&#39;)
+  )
+)
+
+# Unnest the states to create a mapping dataframe
+state_region_mapping &lt;- regions %&gt;%
+  unnest(states) %&gt;%
+  rename(state = states)
+
+# Assuming &#39;polling_data&#39; is your original dataframe
+polling_data_with_regions &lt;- left_join(polling_data, state_region_mapping, by = &quot;state&quot;)</code></pre>
+<p>C: Write up your conclusions.</p>
+<p>Happy visualizing!</p>
 </div>
-<div id="starting-up" class="section level3">
-<h3>Starting up</h3>
+</div>
+<div id="regularly-scheduled-content" class="section level3">
+<h3>Regularly Scheduled Content</h3>
 <p>Load up our <code>murders</code> data</p>
 <pre class="r"><code>library(dslabs)
 library(ggplot2)
@@ -80,7 +137,7 @@ p &lt;- ggplot(data = murders, aes(x = population, y = total, label = abb))</cod
   geom_text(nudge_x = 0.05) +
   scale_x_log10() +
   scale_y_log10()</code></pre>
-<p><img src="/content/03-content_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><img src="/content/03-content_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>This can make a plot much easier to read, though one has to be sure to pay attention to the values on the axes. Plotting anything with very large outliers will almost always be better if done in log-scale. Adding the scale layer is an easy way to fix this.</p>
 <p>We can also use one of many built-in transformations. Of note: <strong>reverse</strong> just inverts the scale, which can be helpful, <strong>log</strong> uses the natural log, <strong>sqrt</strong> takes the square root (dropping anything with a negative value), <strong>reciprocal</strong> takes 1/x. If your x-axis is in a date format, you can also scale to <strong>hms</strong> (hour-minute-second) or <strong>date</strong>.</p>
 </div>
@@ -89,7 +146,7 @@ p &lt;- ggplot(data = murders, aes(x = population, y = total, label = abb))</cod
 <p>We could simply take the log of population and log of total in the call and we’d get something very similar. Note that we had to override the aesthetic mapping set in <code>p</code> in each of the geometries:</p>
 <pre class="r"><code>p + geom_point(aes(x = log(population, base=10), y = log(total, base=10)), size = 3) +
   geom_text(aes(x = log(population, base=10), y = log(total, base=10)), nudge_x = 0.05) </code></pre>
-<p><img src="/content/03-content_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="/content/03-content_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <p>This avoids using <code>scale_x_continuous</code> or it’s child function <code>scale_x_log10</code>. One advantage to using <code>scale_x...</code> is that the axes are correctly labeled. When we transform the data directly, the axis labels only show the transformed values, so 7,000,000 becomes 7.0. This could be confusing! We could update the axis labels to say “total murders (log base 10)” and “total population (log base 10)”, but that’s cumbersome. Using <code>scale_x...</code> is a lot more refined and easy.</p>
 </div>
 </div>
@@ -105,21 +162,21 @@ p &lt;- ggplot(data = murders, aes(x = population, y = total, label = abb))</cod
   scale_x_log10() +
   scale_y_log10() + 
   labs(x = &#39;Population&#39;, y = &#39;Total murders&#39;)</code></pre>
-<p><img src="/content/03-content_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="/content/03-content_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <p>Now, let’s use an aesthetic mapping that generates a legend, like <code>color</code>, and see what <code>labs</code> renames:</p>
 <pre class="r"><code>p + geom_point(aes(color = region), size = 3) +
   geom_text(nudge_x = 0.05) +
   scale_x_log10() +
   scale_y_log10() + 
   labs(x = &#39;Population&#39;, y = &#39;Total murders&#39;, color = &#39;US Region&#39;)</code></pre>
-<p><img src="/content/03-content_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+<p><img src="/content/03-content_files/figure-html/unnamed-chunk-8-1.png" width="672" />
 We can rename the aesthetic mapping-relevant label using <code>labs</code>. Even if there are multiple mapped aesthetics:</p>
 <pre class="r"><code>p + geom_point(aes(color = region, size = total/population)) +
   geom_text(nudge_x = 0.05) +
   scale_x_log10() +
   scale_y_log10() + 
   labs(x = &#39;Population&#39;, y = &#39;Total murders&#39;, color = &#39;US Region&#39;, size = &#39;Murder rate&#39;)</code></pre>
-<p><img src="/content/03-content_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="/content/03-content_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 </div>
 <div id="titles" class="section level3">
 <h3>Titles</h3>
@@ -130,7 +187,7 @@ We can rename the aesthetic mapping-relevant label using <code>labs</code>. Even
   scale_y_log10() + 
   labs(x = &#39;Population&#39;, y = &#39;Total murders&#39;, color = &#39;US Region&#39;, size = &#39;Murder rate&#39;,
        title = &#39;This is a title&#39;, subtitle = &#39;This is a subtitle&#39;, caption = &#39;This is a caption&#39;, tag = &#39;This is a tag&#39;)</code></pre>
-<p><img src="/content/03-content_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="/content/03-content_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <p>Now that you know how, <strong>always label your plots with at least a title and have meaningful axis and legend labels</strong>.</p>
 </div>
 </div>
@@ -144,7 +201,7 @@ We can rename the aesthetic mapping-relevant label using <code>labs</code>. Even
   scale_y_log10(breaks = c(0,50, 100, 500,1000,1500), 
                      labels = c(&#39;Zero&#39;,&#39;Fifty&#39;,&#39;One hundred&#39;,&#39;Five hundred&#39;,&#39;One thousand&#39;,&#39;Fifteen hundred&#39;)) +
   labs(x = &#39;Population&#39;, y = &#39;Total murders&#39;, color = &#39;US Region&#39;)</code></pre>
-<p><img src="/content/03-content_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+<p><img src="/content/03-content_files/figure-html/unnamed-chunk-11-1.png" width="672" />
 We have manually set both the location and the label for the y-axis. Note that R filled in the in-between “minor” tick lines, but we can take those out. Since we are setting the location of the lines, we can do anything we want:</p>
 <pre class="r"><code>p + geom_point(aes(color = region), size = 3) +
   geom_text(nudge_x = .05) +
@@ -153,7 +210,7 @@ We have manually set both the location and the label for the y-axis. Note that R
                      labels = c(&#39;Zero&#39;,&#39;Fifty&#39;,&#39;One hundred&#39;,&#39;Seven hundred twenty one&#39;,&#39;One thousand&#39;,&#39;Fifteen hundred&#39;),
                      minor_breaks = NULL) +
   labs(x = &#39;Population&#39;, y = &#39;Total murders&#39;, color = &#39;US Region&#39;)</code></pre>
-<p><img src="/content/03-content_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p><img src="/content/03-content_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 <p>So we can now define where axis tick lines should lie and how they should be labeled.</p>
 </div>
 <div id="additional-geometries" class="section level2">
@@ -173,7 +230,7 @@ We have manually set both the location and the label for the y-axis. Note that R
 ## This warning is displayed once every 8 hours.
 ## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
 ## generated.</code></pre>
-<p><img src="/content/03-content_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p><img src="/content/03-content_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 <p>Combining geometries is as easy as adding the layers with <code>+</code>.</p>
 <div id="geom_line" class="section level3">
 <h3><code>geom_line</code></h3>
@@ -200,20 +257,20 @@ head(AAPL)</code></pre>
 ggplot(AAPLNFLX, aes(x = date, y = close)) +
   geom_line() +
   labs(x = &#39;Date&#39;, y = &#39;Closing price&#39;, title = &#39;Apple and Netflix stock price&#39;)</code></pre>
-<p><img src="/content/03-content_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p><img src="/content/03-content_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 <p>That looks kinda strange. That’s because, for every date, we have two values - the NFLX and the AAPL value, so each day has a vertical line drawn between the two prices. This is nonsense, especially since what we want to see is the history of NFLX and AAPL over time.</p>
 <p>Aesthetics to the rescue! Remember, when we use an aesthetic mapping, we are able to separate out data by things like color or linetype. Let’s use color as the aesthetic here, and map it to the stock ticker:</p>
 <pre class="r"><code>AAPLNFLX = tq_get(c(&quot;AAPL&quot;,&quot;NFLX&quot;), from = &#39;2021-01-01&#39;, to = &#39;2021-08-01&#39;, get = &#39;stock.prices&#39;)
 ggplot(AAPLNFLX, aes(x = date, y = close, color = symbol)) +
   geom_line() +
   labs(x = &#39;Date&#39;, y = &#39;Closing price&#39;, title = &#39;Apple and Netflix stock price&#39;)</code></pre>
-<p><img src="/content/03-content_files/figure-html/unnamed-chunk-12-1.png" width="672" />
+<p><img src="/content/03-content_files/figure-html/unnamed-chunk-15-1.png" width="672" />
 Well there we go! We can now see each stock price over time, with a convenient legend. Later on, we’ll learn how to change the color palatte. If we don’t necessarily want a different color but we do want to separate the lines, we can use the <code>group</code> aesthetic.</p>
 <pre class="r"><code>AAPLNFLX = tq_get(c(&quot;AAPL&quot;,&quot;NFLX&quot;), from = &#39;2021-01-01&#39;, to = &#39;2021-08-01&#39;, get = &#39;stock.prices&#39;)
 ggplot(AAPLNFLX, aes(x = date, y = close, group = symbol)) +
   geom_line() + 
   labs(x = &#39;Date&#39;, y = &#39;Closing price&#39;, title = &#39;Apple and Netflix stock price&#39;)</code></pre>
-<p><img src="/content/03-content_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><img src="/content/03-content_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 <p>Similar result as <code>geom_line</code>, but without the color difference (which makes it rather hard to tell what you’re looking at). But if we add labels using <code>geom_label</code>, we’ll get one label for every point, which will be overwhelming. The solution? Use some filtered data so that there is only one point for each label. But that means replacing the <code>data</code> in <code>ggplot</code>. Here’s how.</p>
 </div>
 <div id="using-different-data-with-different-geometries" class="section level3">
@@ -226,7 +283,7 @@ ggplot(AAPLNFLX, aes(x = date, y = close, group = symbol)) +
              aes(label = symbol),
              nudge_y = 20) + 
   labs(x = &#39;Date&#39;, y = &#39;Closing price&#39;, title = &#39;Apple and Netflix stock price&#39;)</code></pre>
-<p><img src="/content/03-content_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p><img src="/content/03-content_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 <p>In <code>geom_label</code>, we specified we wanted the 100th observation from each symbol to be the label location. Then, we nudged it up along y by 20 so that it’s clear of the line.</p>
 <p>R also has a very useful <code>ggrepel</code> package that gives us <code>geom_label_repel</code> which takes care of the nudging for us, even in complicated situations (lots of points, lines, etc.). It does a decent job here of moving the label to a point where it doesn’t cover a lot of data.</p>
 <pre class="r"><code>library(ggrepel)
@@ -235,7 +292,7 @@ ggplot(AAPLNFLX, aes(x = date, y = close, group = symbol)) +
   geom_label_repel(data = AAPLNFLX %&gt;% group_by(symbol) %&gt;% slice(100),
              aes(label = symbol)) + 
   labs(x = &#39;Date&#39;, y = &#39;Closing price&#39;, title = &#39;Apple and Netflix stock price&#39;)</code></pre>
-<p><img src="/content/03-content_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p><img src="/content/03-content_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
 <p>Now, we don’t lose a lot of space to a legend, and we haven’t had to use color to separate the stock symbols.</p>
 </div>
 <div id="multiple-geometries" class="section level3">
@@ -248,7 +305,7 @@ ggplot(AAPLNFLX, aes(x = date, y = close, group = symbol)) +
   geom_label_repel(data = AAPLNFLX %&gt;% group_by(symbol) %&gt;% slice(100),
              aes(label = symbol)) + 
   labs(x = &#39;Date&#39;, y = &#39;Closing price&#39;, title = &#39;Apple and Netflix stock price&#39;)</code></pre>
-<p><img src="/content/03-content_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p><img src="/content/03-content_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 </div>
 </div>
 <div id="try-it" class="section level2">

@@ -30,11 +30,10 @@
   
     
   
-  <meta name="description" content="Because RStudio projects typically consist of multiple files (R scripts, datasets, graphical output, etc.) the easiest way to distribute them to you for examples, assignments, and projects is to combine all the different files in to a single compressed collection called a zip file. When you unzip a zipped file, your operating system extracts all the files that are contained inside into a new folder on your computer.
-Unzipping files on macOS is trivial, but unzipping files on Windows can mess you up if you don’t pay careful attention.">
+  <meta name="description" content="  Things moved   Things moved  ">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://ssc442.netlify.app/resource/unzipping/">
+  <link rel="alternate" hreflang="en-us" href="https://ssc442.netlify.app/resource/supplemental/">
 
   
 
@@ -222,7 +221,7 @@ Unzipping files on macOS is trivial, but unzipping files on Windows can mess you
   <link rel="icon" type="image/png" href="/images/icon_hu5cb5fae69b6b75ece00896ca20e5499a_29457_32x32_fill_lanczos_center_2.png">
   <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu5cb5fae69b6b75ece00896ca20e5499a_29457_192x192_fill_lanczos_center_2.png">
 
-  <link rel="canonical" href="https://ssc442.netlify.app/resource/unzipping/">
+  <link rel="canonical" href="https://ssc442.netlify.app/resource/supplemental/">
 
   
   
@@ -237,14 +236,13 @@ Unzipping files on macOS is trivial, but unzipping files on Windows can mess you
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="Data Analytics">
-  <meta property="og:url" content="https://ssc442.netlify.app/resource/unzipping/">
-  <meta property="og:title" content="Unzipping files | Data Analytics">
-  <meta property="og:description" content="Because RStudio projects typically consist of multiple files (R scripts, datasets, graphical output, etc.) the easiest way to distribute them to you for examples, assignments, and projects is to combine all the different files in to a single compressed collection called a zip file. When you unzip a zipped file, your operating system extracts all the files that are contained inside into a new folder on your computer.
-Unzipping files on macOS is trivial, but unzipping files on Windows can mess you up if you don’t pay careful attention."><meta property="og:image" content="https://ssc442.netlify.app/img/social-image.png">
+  <meta property="og:url" content="https://ssc442.netlify.app/resource/supplemental/">
+  <meta property="og:title" content="Supplemental | Data Analytics">
+  <meta property="og:description" content="  Things moved   Things moved  "><meta property="og:image" content="https://ssc442.netlify.app/img/social-image.png">
   <meta property="twitter:image" content="https://ssc442.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
   
     
-    <meta property="article:modified_time" content="2024-01-03T17:52:29-05:00">
+    
   
 
   
@@ -271,7 +269,7 @@ Unzipping files on macOS is trivial, but unzipping files on Windows can mess you
   <meta name="msapplication-TileImage" content="https://ssc442.netlify.app/img/mstile-144x144.png" />
 
 
-  <title>Unzipping files | Data Analytics</title>
+  <title>Supplemental | Data Analytics</title>
 
 </head>
 
@@ -569,7 +567,7 @@ Unzipping files on macOS is trivial, but unzipping files on Windows can mess you
         <a href="/resource/rstudiocloud/">Using Posit (Rstudio) Cloud</a>
       </li>
       
-      <li >
+      <li class="active">
         <a href="/resource/supplemental/">Supplemental</a>
       </li>
       
@@ -628,7 +626,7 @@ Unzipping files on macOS is trivial, but unzipping files on Windows can mess you
             <article class="article">
 
                 <div class="docs-article-container">
-                    <h1>Unzipping files</h1>
+                    <h1>Supplemental</h1>
 
                     
 
@@ -639,28 +637,14 @@ Unzipping files on macOS is trivial, but unzipping files on Windows can mess you
                     <div class="article-style">
                         
 
-
-<p>Because RStudio projects typically consist of multiple files (R scripts, datasets, graphical output, etc.) the easiest way to distribute them to you for examples, assignments, and projects is to combine all the different files in to a single compressed collection called a <strong>zip file</strong>. When you unzip a zipped file, your operating system extracts all the files that are contained inside into a new folder on your computer.</p>
-<p>Unzipping files on macOS is trivial, but unzipping files on Windows can mess you up if you don’t pay careful attention. Here’s a helpful guide to unzipping files on both macOS and Windows.</p>
-<div id="unzipping-files-on-macos" class="section level2">
-<h2>Unzipping files on macOS</h2>
-<p>Double click on the downloaded <code>.zip</code> file. macOS will automatically create a new folder with the same name as the <code>.zip</code> file, and all the file’s contents will be inside. Double click on the RStudio Project file (<code>.Rproj</code>) to get started.</p>
-<p><img src="../../../../../../../../../../img/unzipping/unzip-mac.png" width="60%" /></p>
+<div id="TOC">
+<ul>
+<li><a href="#things-moved" id="toc-things-moved">Things moved</a></li>
+</ul>
 </div>
-<div id="unzipping-files-on-windows" class="section level2">
-<h2>Unzipping files on Windows</h2>
-<p><em><strong>tl;dr</strong>: Right click on the <code>.zip</code> file, select “Extract All…”, and work with the resulting unzipped folder.</em></p>
-<p>Unlike macOS, Windows does <em>not</em> automatically unzip things for you. If you double click on the <code>.zip</code> file, Windows will show you what’s inside, but it will do so without actually extracting anything. This <del>can be</del> is incredibly confusing! Here’s what it looks like—the only clues that this folder is really a <code>.zip</code> file are that there’s a “Compressed Folder Tools” tab at the top, and there’s a “Ratio” column that shows how much each file is compressed.</p>
-<p><img src="../../../../../../../../../../img/unzipping/inside-zip-windows.png" width="80%" /></p>
-<p>It is very tempting to try to open files from this view. However, if you do, things will break and you won’t be able to correctly work with any of the files in the zipped folder. If you open the R Project file, for instance, RStudio will point to a bizarre working directory buried deep in some temporary folder:</p>
-<p><img src="../../../../../../../../../../img/unzipping/temp-wd-windows.png" width="60%" /></p>
-<p>You most likely won’t be able to open any data files or save anything, which will be frustrating.</p>
-<p>Instead, you need to right click on the <code>.zip</code> file and select “Extract All…”:</p>
-<p><img src="../../../../../../../../../../img/unzipping/extract-windows-1.png" width="60%" /></p>
-<p>Then choose where you want to unzip all the files and click on “Extract”</p>
-<p><img src="../../../../../../../../../../img/unzipping/extract-windows-2.png" width="60%" /></p>
-<p>You should then finally have a real folder with all the contents of the zipped file. Open the R Project file and RStudio will point to the correct working directory and everything will work.</p>
-<p><img src="../../../../../../../../../../img/unzipping/extract-windows-3.png" width="60%" /></p>
+
+<div id="things-moved" class="section level2">
+<h2>Things moved</h2>
 </div>
 
                     </div>
@@ -673,7 +657,7 @@ Unzipping files on macOS is trivial, but unzipping files on Windows can mess you
                 </div>
 
                 <div class="body-footer">
-                    <p>Last updated on January 3, 2024</p>
+                    <p>Last updated on January 1, 0001</p>
 
                     
 

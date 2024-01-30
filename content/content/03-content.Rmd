@@ -25,7 +25,81 @@ output:
 - Why are we covering the material this way? (Good question. There's an answer!)
 
 
-### Starting up
+#### In-Class Activity: Comparing 2008 Electoral Votes and Polling Data. 
+
+In this activity, we will use `R` to visualize and compare the actual electoral votes from the 2008 presidential election with the polling data prior to the election. Specifically, we will explore how accurately the polls predicted the election results. Yes, I know this is an older election... that's kind of the point. This isn't a politics class. 
+
+**Setup:**
+
+You'll need to download two CSV files and put them somewhere on your computer (or upload it to RStudio.cloud if you've gone that direction)---preferably in a folder named `data` in your project folder. You can download the data from the link below:
+
+- [<i class="fas fa-file-csv"></i> `pres08.csv`](/data/pres08.csv)
+- [<i class="fas fa-file-csv"></i> `polls08.csv`](/data/polls08.csv)
+
+**Steps Prior to Analysis:** 
+
+1. Load the Data
+
+```{r, echo=TRUE, message=FALSE, eval=FALSE}
+# Load the necessary libraries
+library(tidyverse)
+electoral_votes <- read.csv("path_to/pres08.csv")
+polling_data <- read.csv("path_to/polls08.csv")
+```
+
+Note that you'll have to replace `path_to` with the actual path to the files on your computer.
+
+2. Data Preparation
+
+We need to aggregate the polling data to get an average poll result for each state. We will then merge this with the electoral votes data.
+
+```{r, echo=TRUE, message=FALSE, eval=FALSE}
+# Aggregating polling data
+avg_polls <- polling_data %>%
+  group_by(state) %>%
+  summarise(Obama_avg = mean(Obama), McCain_avg = mean(McCain))
+
+# Merging with electoral votes data
+combined_data <- merge(electoral_votes, avg_polls, by = "state")
+```
+
+3. Complete Your Analysis 
+
+You are tasked with three things:
+
+A: Explore the discrepancies between polls and actual results.
+
+B: Visualize the relationship between the actual results and the poll results. *Does this relationship change over time?* Or, put another way, *were early polls or later polls more accurate*?
+
+You might find this pseudo-code helpful: 
+
+```{r, eval=FALSE}
+# Define the regions
+regions <- tibble(
+  region = c('Northeast', 'Midwest', 'South', 'West'),
+  states = list(
+    c('CT', 'ME', 'MA', 'NH', 'RI', 'VT', 'NJ', 'NY', 'PA'),
+    c('IL', 'IN', 'MI', 'OH', 'WI', 'IA', 'KS', 'MN', 'MO', 'NE', 'ND', 'SD'),
+    c('DE', 'FL', 'GA', 'MD', 'NC', 'SC', 'VA', 'DC', 'WV', 'AL', 'KY', 'MS', 'TN', 'AR', 'LA', 'OK', 'TX'),
+    c('AZ', 'CO', 'ID', 'MT', 'NV', 'NM', 'UT', 'WY', 'AK', 'CA', 'HI', 'OR', 'WA')
+  )
+)
+
+# Unnest the states to create a mapping dataframe
+state_region_mapping <- regions %>%
+  unnest(states) %>%
+  rename(state = states)
+
+# Assuming 'polling_data' is your original dataframe
+polling_data_with_regions <- left_join(polling_data, state_region_mapping, by = "state")
+```
+
+C: Write up your conclusions. 
+
+Happy visualizing!
+
+
+### Regularly Scheduled Content
 Load up our `murders` data
 
 ```{r, warning = FALSE, error = FALSE, message = FALSE}
