@@ -16407,7 +16407,7 @@ Print the object &lt;code&gt;p&lt;/code&gt; defined in exercise one and describe
 &lt;li&gt;&lt;a href=&#34;#guiding-questions&#34; id=&#34;toc-guiding-questions&#34;&gt;Guiding Questions&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#groups&#34; id=&#34;toc-groups&#34;&gt;Groups&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#yesterdays-lab-lab-03&#34; id=&#34;toc-yesterdays-lab-lab-03&#34;&gt;Yesterday’s Lab (Lab 03)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#yesterdays-lab&#34; id=&#34;toc-yesterdays-lab&#34;&gt;Yesterday’s Lab&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#discrete-probability&#34; id=&#34;toc-discrete-probability&#34;&gt;Discrete probability&lt;/a&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#relative-frequency&#34; id=&#34;toc-relative-frequency&#34;&gt;Relative frequency&lt;/a&gt;&lt;/li&gt;
@@ -16495,10 +16495,10 @@ Print the object &lt;code&gt;p&lt;/code&gt; defined in exercise one and describe
 &lt;h1&gt;Groups&lt;/h1&gt;
 &lt;p&gt;Everyone should long since be assigned to a group. If you did not get a group assignment let me know &lt;strong&gt;right now&lt;/strong&gt;.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div id=&#34;yesterdays-lab-lab-03&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Yesterday’s Lab (Lab 03)&lt;/h1&gt;
-&lt;p&gt;Let’s go over a few helpful things for future labs. First off, we can load a .csv straight from the web (though it is very good practice to download the file and use it locally if you’re not sure if the file will exist in the future. Reproducibility of research is a big deal!&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;unemployment = read.csv(&amp;#39;https://ssc442kirkpatrick.netlify.app/projects/03-lab/data/unemployment.csv&amp;#39;)
+&lt;div id=&#34;yesterdays-lab&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Yesterday’s Lab&lt;/h1&gt;
+&lt;p&gt;Let’s go over a few helpful things for future labs. First off, we can load a &lt;code&gt;.csv&lt;/code&gt; file straight from the web. While it is good practice to download the file and use it locally if you’re not sure if the file will exist in the future, you can directly point to files that are static. Reproducibility of research is a big deal and pointing directly to files is one way to ensure that you’re using the same data as everyone else.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;unemployment = read.csv(&amp;#39;https://ssc442.netlify.app/projects/03-lab/data/unemployment.csv&amp;#39;)
 str(unemployment)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## &amp;#39;data.frame&amp;#39;:	6732 obs. of  8 variables:
 ##  $ year        : int  2016 2016 2016 2016 2016 2016 2016 2016 2016 2016 ...
@@ -16509,9 +16509,9 @@ str(unemployment)&lt;/code&gt;&lt;/pre&gt;
 ##  $ date        : chr  &amp;quot;2016-12-01&amp;quot; &amp;quot;2016-11-01&amp;quot; &amp;quot;2016-10-01&amp;quot; &amp;quot;2016-09-01&amp;quot; ...
 ##  $ region      : chr  &amp;quot;South&amp;quot; &amp;quot;South&amp;quot; &amp;quot;South&amp;quot; &amp;quot;South&amp;quot; ...
 ##  $ division    : chr  &amp;quot;East South Central&amp;quot; &amp;quot;East South Central&amp;quot; &amp;quot;East South Central&amp;quot; &amp;quot;East South Central&amp;quot; ...&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Note that I used &lt;code&gt;read.csv&lt;/code&gt; and not &lt;code&gt;read_csv&lt;/code&gt; which is part of the tidyverse/dplyr ecosystem. &lt;code&gt;read_csv&lt;/code&gt; tries to be helpful and will parse your data for conversions – it will find your date column and will turn it into a Date format, which we aren’t working with yet.&lt;/p&gt;
+&lt;p&gt;Note that I used &lt;code&gt;read.csv&lt;/code&gt; and not &lt;code&gt;read_csv&lt;/code&gt;. Note that one is part of the tidyverse/dplyr ecosystem. &lt;code&gt;read_csv&lt;/code&gt; tries to be helpful and will parse your data for conversions – it will find your date column and will turn it into a Date format, which we aren’t working with yet.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
-str(read_csv(&amp;#39;https://ssc442kirkpatrick.netlify.app/projects/03-lab/data/unemployment.csv&amp;#39;))&lt;/code&gt;&lt;/pre&gt;
+str(read_csv(&amp;#39;https://ssc442.netlify.app/projects/03-lab/data/unemployment.csv&amp;#39;))&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## spc_tbl_ [6,732 × 8] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
 ##  $ year        : num [1:6732] 2016 2016 2016 2016 2016 ...
 ##  $ state       : chr [1:6732] &amp;quot;Alabama&amp;quot; &amp;quot;Alabama&amp;quot; &amp;quot;Alabama&amp;quot; &amp;quot;Alabama&amp;quot; ...
@@ -16550,7 +16550,7 @@ str(read_csv(&amp;#39;https://ssc442kirkpatrick.netlify.app/projects/03-lab/data
 
 p&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://ssc442.netlify.app/content/04-content_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;For Exercise 2, many of you ran into an issue where the x-axis limits went far beyond the two years we wanted to use (2006, 2009). I’m still not certain exactly where this issue came from, but we can always set the “window” for the plot using &lt;code&gt;coord_cartesian(xlim = c(2006, 2009))&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;For Exercise 2, many of you ran into an issue where the x-axis limits went far beyond the two years we wanted to use (2006, 2009). I’m still not certain exactly where this issue came from, but we can always set the “window” for the plot using &lt;code&gt;coord_cartesian(xlim = c(2006, 2009))&lt;/code&gt;. This is a good way to “zoom in” on a specific part of the data.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;unemployment %&amp;gt;%
   dplyr::filter(year %in% c(2006, 2009) &amp;amp; division %in% c(&amp;#39;East North Central&amp;#39;)) %&amp;gt;%
   dplyr::filter(month==1) %&amp;gt;%
@@ -16575,7 +16575,7 @@ p&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;discrete-probability&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Discrete probability&lt;/h1&gt;
-&lt;p&gt;We start by covering some basic principles related to categorical data. The subset of probability is referred to as &lt;em&gt;discrete probability&lt;/em&gt;. It will help us understand the probability theory we will later introduce for numeric and continuous data, which is much more common in data science applications. Discrete probability is more useful in card games and therefore we use these as examples.&lt;/p&gt;
+&lt;p&gt;We’ll start today’s topic by covering some basic principles related to categorical data. The subset of probability is referred to as &lt;em&gt;discrete probability&lt;/em&gt;. It will help us understand the probability theory we will later introduce for numeric and continuous data, which is much more common in data science applications. Discrete probability is more useful in card games and therefore we use these as examples.&lt;/p&gt;
 &lt;div id=&#34;relative-frequency&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Relative frequency&lt;/h3&gt;
 &lt;p&gt;The word probability is used in everyday language. Answering questions about probability is often hard, if not impossible. Here we discuss a mathematical definition of &lt;em&gt;probability&lt;/em&gt; that does permit us to give precise answers to certain questions.&lt;/p&gt;
@@ -16636,12 +16636,12 @@ events &amp;lt;- replicate(B, sample(beads, 1))&lt;/code&gt;&lt;/pre&gt;
 tab&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## events
 ## blue  red 
-## 6006 3994&lt;/code&gt;&lt;/pre&gt;
+## 5997 4003&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;and &lt;code&gt;prop.table&lt;/code&gt; gives us the proportions:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;prop.table(tab)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## events
 ##   blue    red 
-## 0.6006 0.3994&lt;/code&gt;&lt;/pre&gt;
+## 0.5997 0.4003&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The numbers above are the estimated probabilities provided by this Monte Carlo simulation. Statistical theory, not covered here, tells us that as &lt;span class=&#34;math inline&#34;&gt;\(B\)&lt;/span&gt; gets larger, the estimates get closer to 3/5=.6 and 2/5=.4.&lt;/p&gt;
 &lt;p&gt;Although this is a simple and not very useful example, we will use Monte Carlo simulations to estimate probabilities in cases in which it is harder to compute the exact ones. Before delving into more complex examples, we use simple ones to demonstrate the computing tools available in R.&lt;/p&gt;
 &lt;div id=&#34;setting-the-random-seed&#34; class=&#34;section level3&#34;&gt;
@@ -16872,7 +16872,7 @@ mean(results)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;examples&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Examples&lt;/h2&gt;
-&lt;p&gt;In this section, we describe two discrete probability popular examples: the Monty Hall problem and the birthday problem. We use R to help illustrate the mathematical concepts.&lt;/p&gt;
+&lt;p&gt;In this section, we describe two discrete probability popular examples: the Monty Hall problem and the birthday problem. We’ll use &lt;code&gt;R&lt;/code&gt; to help illustrate the mathematical concepts and to demostrate an idea that we’ll return to: simulation.&lt;/p&gt;
 &lt;div id=&#34;monty-hall-problem&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Monty Hall problem&lt;/h3&gt;
 &lt;p&gt;In the 1970s, there was a game show called “Let’s Make a Deal” and Monty Hall was the host. At some point in the game, contestants were asked to pick one of three doors. Behind one door there was a prize. The other doors had a goat behind them to show the contestant they had lost. After the contestant picked a door, before revealing whether the chosen door contained a prize, Monty Hall would open one of the two remaining doors and show the contestant there was no prize behind that door. Then he would ask “Do you want to switch doors?” What would you do?&lt;/p&gt;
