@@ -17,6 +17,21 @@ editor_options:
   chunk_output_type: console
 ---
 
+### In-Class Exercise
+
+**Setup:**
+
+You'll need to download one CSV files and put them somewhere on your computer (or upload it to RStudio.cloud if you've gone that direction)---preferably in a folder named `data` in your project folder. You can download the data from the link below:
+
+- [<i class="fas fa-file-csv"></i> `Dataset`](/data/biden_score_2023.xlsx)
+- [<i class="fas fa-external-link-square-alt"></i> `About this Dataset`](https://github.com/fivethirtyeight/data/tree/master/congress-biden-score)
+
+**Task:**
+
+Explore the relationship between the vote margin in a given district and whether the congressperson voted with or against President Biden's position.
+
+
+# Regularly Scheduled Content
 
 Probabilistic thinking is central in the human experience. How we describe that thinking is mixed, but most of the time we use (rather imprecise) language. With only a few moments of searching, one can find thousands of articles that use probabilistic words to describe events. Here are some examples:
 
@@ -26,7 +41,7 @@ Probabilistic thinking is central in the human experience. How we describe that 
 
 > "Trump predicts 'very good chance' of China trade deal" – CNN
 
-Yet people don't have a good sense of what these things mean. Uncertainty is key to data analytics: if we were certain of things, A study in the 1960s explored the perception of probabilistic words like these among NATO officers. A more modern replication of this found the following basic pattern:
+Yet people don't have a good sense of what these things mean. Uncertainty is key to data analytics: if we were certain of things, A study in the 1960s explored the perception of probabilistic words like these among NATO officers. A more modern replication of this found the following basic pattern: 
 
 ```{r echo=FALSE, out.width="80%"}
 knitr::include_graphics("/img/words.png", error = FALSE)
