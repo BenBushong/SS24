@@ -55,11 +55,6 @@ weather_atl <- read_csv(here::here("static", "data", "atl-weather-2019.csv"))
 ```
 
 
-```{r load-data-real-Ames, include=FALSE, message = FALSE}
-ames <- read_csv('https://ssc442kirkpatrick.netlify.app/projects/data/ames.csv')
-```
-
-
 
 ### Scatterplot matrices
 
@@ -107,7 +102,7 @@ Your task is to make a ggpairs plot for `EnergyUsed` and five of the variables i
 RECS = read.csv('https://www.eia.gov/consumption/residential/data/2009/csv/recs2009_public.csv', stringsAsFactors = F) %>%
   as_tibble() %>%  
   dplyr::select(EnergyUsed = TOTALBTU,
-                ColdDays = HDD65, HotDayss = CDD65, SquareFeet = TOTHSQFT, CarsGarage = SIZEOFGARAGE, 
+                ColdDays = HDD65, HotDays = CDD65, SquareFeet = TOTHSQFT, CarsGarage = SIZEOFGARAGE, 
                 AgeOfHome = YEARMADERANGE, TreeShade = TREESHAD, TVSize = TVSIZE1, HeaterAge = EQUIPAGE, HasAC = AIRCOND,
                 TempHome = TEMPHOME) %>%
   dplyr::filter(HeaterAge != -2 & TempHome !=-2)  # these are NAs
@@ -204,10 +199,6 @@ ggplot(things_to_correlate_long,
 
 
 
-
-
-
-
 ## Simple regression
 We finally get to this week's material. Although correlation is nice, we eventually may want to visualize regression. The lecture has shown us some very intuitive, straightforward ways to think about regression (aka, a line). Simple regression is easy to visualize, since you're only working with an $X$ and a $Y$. For instance, what's the relationship between humidity and high temperatures during the summer?
 
@@ -240,7 +231,7 @@ print(weather_atl_results)
 
 ```
 
-Note that the formulas from [Content 05](content/05-content/#the-regression-line-1) have a direct translation into the code. Also note that we used `summarize` on the data so that we get only **one** row of data (no more 1,000+ rows, we've summarized them using `mean` and `sd`).
+Note that the formulas from [Content 06](content/05-content/#the-regression-line-1) have a direct translation into the code. Also note that we used `summarize` on the data so that we get only **one** row of data (no more 1,000+ rows, we've summarized them using `mean` and `sd`).
 
 
 We can interpret these coefficients like so:

@@ -5197,7 +5197,7 @@ ggpairs(weather_correlations)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;RECS = read.csv(&amp;#39;https://www.eia.gov/consumption/residential/data/2009/csv/recs2009_public.csv&amp;#39;, stringsAsFactors = F) %&amp;gt;%
   as_tibble() %&amp;gt;%  
   dplyr::select(EnergyUsed = TOTALBTU,
-                ColdDays = HDD65, HotDayss = CDD65, SquareFeet = TOTHSQFT, CarsGarage = SIZEOFGARAGE, 
+                ColdDays = HDD65, HotDays = CDD65, SquareFeet = TOTHSQFT, CarsGarage = SIZEOFGARAGE, 
                 AgeOfHome = YEARMADERANGE, TreeShade = TREESHAD, TVSize = TVSIZE1, HeaterAge = EQUIPAGE, HasAC = AIRCOND,
                 TempHome = TEMPHOME) %&amp;gt;%
   dplyr::filter(HeaterAge != -2 &amp;amp; TempHome !=-2)  # these are NAs&lt;/code&gt;&lt;/pre&gt;
@@ -5320,7 +5320,7 @@ print(weather_atl_results)&lt;/code&gt;&lt;/pre&gt;
 ##    mu_x  mu_y  sd_x  sd_y    rho beta_1 beta_0
 ##   &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;
 ## 1  64.8  88.5  10.6  5.33 -0.481 -0.241   104.&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Note that the formulas from &lt;a href=&#34;content/05-content/#the-regression-line-1&#34;&gt;Content 05&lt;/a&gt; have a direct translation into the code. Also note that we used &lt;code&gt;summarize&lt;/code&gt; on the data so that we get only &lt;strong&gt;one&lt;/strong&gt; row of data (no more 1,000+ rows, we’ve summarized them using &lt;code&gt;mean&lt;/code&gt; and &lt;code&gt;sd&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;Note that the formulas from &lt;a href=&#34;content/05-content/#the-regression-line-1&#34;&gt;Content 06&lt;/a&gt; have a direct translation into the code. Also note that we used &lt;code&gt;summarize&lt;/code&gt; on the data so that we get only &lt;strong&gt;one&lt;/strong&gt; row of data (no more 1,000+ rows, we’ve summarized them using &lt;code&gt;mean&lt;/code&gt; and &lt;code&gt;sd&lt;/code&gt;).&lt;/p&gt;
 &lt;p&gt;We can interpret these coefficients like so:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;&lt;code&gt;beta_0&lt;/code&gt; (or &lt;span class=&#34;math inline&#34;&gt;\(\beta_0\)&lt;/span&gt;) is the intercept. By definition of an intercept, it shows that the average temperature when there’s &lt;strong&gt;0% humidity&lt;/strong&gt; is 104°. There are no days with 0% humidity though, so we can ignore the intercept—it’s really just here so that we can draw the line.&lt;/p&gt;&lt;/li&gt;

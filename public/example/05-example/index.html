@@ -244,7 +244,7 @@ If you want to follow along with this example, you can download the data below (
   <meta property="twitter:image" content="https://ssc442.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
   
     
-    <meta property="article:modified_time" content="2024-01-26T09:22:14-05:00">
+    <meta property="article:modified_time" content="2024-02-08T11:58:37-05:00">
   
 
   
@@ -716,7 +716,7 @@ ggpairs(weather_correlations)</code></pre>
 <pre class="r"><code>RECS = read.csv(&#39;https://www.eia.gov/consumption/residential/data/2009/csv/recs2009_public.csv&#39;, stringsAsFactors = F) %&gt;%
   as_tibble() %&gt;%  
   dplyr::select(EnergyUsed = TOTALBTU,
-                ColdDays = HDD65, HotDayss = CDD65, SquareFeet = TOTHSQFT, CarsGarage = SIZEOFGARAGE, 
+                ColdDays = HDD65, HotDays = CDD65, SquareFeet = TOTHSQFT, CarsGarage = SIZEOFGARAGE, 
                 AgeOfHome = YEARMADERANGE, TreeShade = TREESHAD, TVSize = TVSIZE1, HeaterAge = EQUIPAGE, HasAC = AIRCOND,
                 TempHome = TEMPHOME) %&gt;%
   dplyr::filter(HeaterAge != -2 &amp; TempHome !=-2)  # these are NAs</code></pre>
@@ -839,7 +839,7 @@ print(weather_atl_results)</code></pre>
 ##    mu_x  mu_y  sd_x  sd_y    rho beta_1 beta_0
 ##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
 ## 1  64.8  88.5  10.6  5.33 -0.481 -0.241   104.</code></pre>
-<p>Note that the formulas from <a href="content/05-content/#the-regression-line-1">Content 05</a> have a direct translation into the code. Also note that we used <code>summarize</code> on the data so that we get only <strong>one</strong> row of data (no more 1,000+ rows, we’ve summarized them using <code>mean</code> and <code>sd</code>).</p>
+<p>Note that the formulas from <a href="content/05-content/#the-regression-line-1">Content 06</a> have a direct translation into the code. Also note that we used <code>summarize</code> on the data so that we get only <strong>one</strong> row of data (no more 1,000+ rows, we’ve summarized them using <code>mean</code> and <code>sd</code>).</p>
 <p>We can interpret these coefficients like so:</p>
 <ul>
 <li><p><code>beta_0</code> (or <span class="math inline">\(\beta_0\)</span>) is the intercept. By definition of an intercept, it shows that the average temperature when there’s <strong>0% humidity</strong> is 104°. There are no days with 0% humidity though, so we can ignore the intercept—it’s really just here so that we can draw the line.</p></li>
@@ -878,7 +878,7 @@ print(weather_atl_results)</code></pre>
                 </div>
 
                 <div class="body-footer">
-                    <p>Last updated on January 26, 2024</p>
+                    <p>Last updated on February 8, 2024</p>
 
                     
 
