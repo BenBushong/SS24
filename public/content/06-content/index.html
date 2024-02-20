@@ -661,8 +661,6 @@
                         
 <script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
 <link href="/rmarkdown-libs/lightable/lightable.css" rel="stylesheet" />
-<link href="/rmarkdown-libs/bsTable/bootstrapTable.min.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/bsTable/bootstrapTable.js"></script>
 
 <div id="TOC">
 <ul>
@@ -1136,114 +1134,6 @@ tidy(fit)</code></pre>
   ggplot(aes(HR, y = estimate, ymin = conf.low, ymax = conf.high)) +
   geom_errorbar() +
   geom_point()</code></pre>
-<pre><code>## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced</code></pre>
-<pre><code>## Warning: Removed 32 rows containing missing values (`geom_point()`).</code></pre>
 <p><img src="/content/06-content_files/figure-html/do-tidy-example-1.png" width="672" /></p>
 <p>Now we return to discussing our original task of determining if slopes changed. The plot we just made, using <code>do</code> and <code>tidy</code>, shows that the confidence intervals overlap, which provides a nice visual confirmation that our assumption that the slope does not change is safe.</p>
 <p>The other functions provided by <strong>broom</strong>, <code>glance</code>, and <code>augment</code>, relate to model-specific and observation-specific outcomes, respectively. Here, we can see the model fit summaries <code>glance</code> returns:</p>
@@ -1357,10 +1247,6 @@ coefs</code></pre>
   mutate(R_hat = predict(fit, newdata = .))</code></pre>
 <p>The player-specific predicted runs computed here can be interpreted as the number of runs we predict a team will score if all batters are exactly like that player. The distribution shows that there is wide variability across players:</p>
 <pre class="r"><code>qplot(R_hat, data = players, binwidth = 0.5, color = I(&quot;black&quot;))</code></pre>
-<pre><code>## Warning: `qplot()` was deprecated in ggplot2 3.4.0.
-## This warning is displayed once every 8 hours.
-## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
-## generated.</code></pre>
 <p><img src="/content/06-content_files/figure-html/r-hat-hist-1.png" width="672" /></p>
 <div class="fyi">
 <p><strong>TRY IT</strong></p>

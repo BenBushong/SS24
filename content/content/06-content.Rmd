@@ -1,7 +1,7 @@
 ---
 title: "Linear Regression II"
-linktitle: "6: Linear Regression II"
-read_date: "2023-10-10"
+linktitle: "7: Linear Regression II"
+read_date: "2024-02-20"
 menu:
   content:
     parent: Course content
@@ -567,7 +567,7 @@ tidy(fit, conf.int = TRUE)
 
 Because the outcome is a data frame, we can immediately use it with `do` to string together the commands that produce the table we are after. Because a data frame is returned, we can filter and select the rows and columns we want, which facilitates working with __ggplot2__:
 
-```{r do-tidy-example}
+```{r do-tidy-example, warning=FALSE, message=FALSE}
 dat %>%
   group_by(HR) %>%
   do(tidy(lm(R ~ BB, data = .), conf.int = TRUE)) %>%
@@ -717,7 +717,7 @@ players <- Batting %>% filter(yearID %in% 1997:2001) %>%
 
 The player-specific predicted runs computed here can be interpreted as the number of runs we predict a team will score if all batters are exactly like that player. The distribution shows that there is wide variability across players:
 
-```{r r-hat-hist}
+```{r r-hat-hist, warning=FALSE, message=FALSE}
 qplot(R_hat, data = players, binwidth = 0.5, color = I("black"))
 ```
 

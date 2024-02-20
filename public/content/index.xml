@@ -8313,8 +8313,6 @@ b_2 &amp;lt;- mu_x - m_2 * mu_y&lt;/code&gt;&lt;/pre&gt;
       <description>
 &lt;script src=&#34;https://ssc442.netlify.app/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
 &lt;link href=&#34;https://ssc442.netlify.app/rmarkdown-libs/lightable/lightable.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;link href=&#34;https://ssc442.netlify.app/rmarkdown-libs/bsTable/bootstrapTable.min.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;https://ssc442.netlify.app/rmarkdown-libs/bsTable/bootstrapTable.js&#34;&gt;&lt;/script&gt;
 
 &lt;div id=&#34;TOC&#34;&gt;
 &lt;ul&gt;
@@ -8788,114 +8786,6 @@ tidy(fit)&lt;/code&gt;&lt;/pre&gt;
   ggplot(aes(HR, y = estimate, ymin = conf.low, ymax = conf.high)) +
   geom_errorbar() +
   geom_point()&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced
-
-## Warning in qt(a, object$df.residual): NaNs produced&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning: Removed 32 rows containing missing values (`geom_point()`).&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://ssc442.netlify.app/content/06-content_files/figure-html/do-tidy-example-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Now we return to discussing our original task of determining if slopes changed. The plot we just made, using &lt;code&gt;do&lt;/code&gt; and &lt;code&gt;tidy&lt;/code&gt;, shows that the confidence intervals overlap, which provides a nice visual confirmation that our assumption that the slope does not change is safe.&lt;/p&gt;
 &lt;p&gt;The other functions provided by &lt;strong&gt;broom&lt;/strong&gt;, &lt;code&gt;glance&lt;/code&gt;, and &lt;code&gt;augment&lt;/code&gt;, relate to model-specific and observation-specific outcomes, respectively. Here, we can see the model fit summaries &lt;code&gt;glance&lt;/code&gt; returns:&lt;/p&gt;
@@ -9009,10 +8899,6 @@ coefs&lt;/code&gt;&lt;/pre&gt;
   mutate(R_hat = predict(fit, newdata = .))&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The player-specific predicted runs computed here can be interpreted as the number of runs we predict a team will score if all batters are exactly like that player. The distribution shows that there is wide variability across players:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;qplot(R_hat, data = players, binwidth = 0.5, color = I(&amp;quot;black&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Warning: `qplot()` was deprecated in ggplot2 3.4.0.
-## This warning is displayed once every 8 hours.
-## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
-## generated.&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://ssc442.netlify.app/content/06-content_files/figure-html/r-hat-hist-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;div class=&#34;fyi&#34;&gt;
 &lt;p&gt;&lt;strong&gt;TRY IT&lt;/strong&gt;&lt;/p&gt;
