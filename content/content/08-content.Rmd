@@ -1,7 +1,7 @@
 ---
 title: "Shrinkage with LASSO and Ridge"
 linktitle: "9b: LASSO and Ridge"
-read_date: "2024-03-07"
+read_date: "2024-03-14"
 menu:
   content:
     parent: Course content
@@ -23,7 +23,19 @@ output:
 - What is LASSO?
 
 # This week is a little different
-We will use the lecture slides from my friend and ace economist, Ed Rubin (U of Oregon). They are available [**right here**](https://raw.githack.com/edrubin/EC524W20/master/lecture/005/005-slides.html#1). A couple things first, though:
+We will use the lecture slides! They are available below.
+
+```{r show-slide-tabs, echo=FALSE, results="asis"}
+source(here::here("R/slide_tabs.R"))
+sections <- tibble::tribble(
+  ~name, ~slide, ~active,
+  "Top", "Cover", TRUE,
+ )
+slide_tabs(sections, "/slides/00-Lasso.html")
+```
+
+A couple things first, though:
+
 
 ## The data and packages
 
@@ -45,11 +57,9 @@ I used to have this lecture at the end of our semester, but I think the intuitio
 
 2. **Cross validation**: This is the term for using two (or more) different subsets of sample data (e.g. test and train) to fit a model. 
 
-Now, back to the [**lecture notes for today**](https://raw.githack.com/edrubin/EC524W20/master/lecture/005/005-slides.html#5)
 
 
-
-# Try it!
+### Try it!
 
 :::fyi
 Try it! Use the `wooldridge::wage2` dataset and LASSO to predict `wage`. Since these shrinkage methods (LASSO, ridge) work well with many right-hand-side variables, we can create some additional variables. A good candidate would be squared versions of all of the numeric variables. To do this, we'll use `mutate_if` along with `is.numeric`. The function `mutate_if`, when used in a pipe `%>%`, will check each column to see if the given function is true, then will add a new mutation of that column when true. We need this because we don't want to try to add a squared term for things like factor variables. It will look something like this:

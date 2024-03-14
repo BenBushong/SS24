@@ -30,7 +30,7 @@
   
     
   
-  <meta name="description" content="Required Reading  Guiding Questions  This week is a little different  The data and packages Terminology  Try it!   Required Reading  This page.  Guiding Questions  What is shrinkage? What do we do with too may right-hand-side variables? What is LASSO?    This week is a little different We will use the lecture slides from my friend and ace economist, Ed Rubin (U of Oregon).">
+  <meta name="description" content="Required Reading  Guiding Questions  This week is a little different  The data and packages Terminology  Try it!     Required Reading  This page.  Guiding Questions  What is shrinkage? What do we do with too may right-hand-side variables? What is LASSO?    This week is a little different We will use the lecture slides! They are available below.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://ssc442.netlify.app/content/08-content/">
@@ -238,7 +238,7 @@
   <meta property="og:site_name" content="Data Analytics">
   <meta property="og:url" content="https://ssc442.netlify.app/content/08-content/">
   <meta property="og:title" content="Shrinkage with LASSO and Ridge | Data Analytics">
-  <meta property="og:description" content="Required Reading  Guiding Questions  This week is a little different  The data and packages Terminology  Try it!   Required Reading  This page.  Guiding Questions  What is shrinkage? What do we do with too may right-hand-side variables? What is LASSO?    This week is a little different We will use the lecture slides from my friend and ace economist, Ed Rubin (U of Oregon)."><meta property="og:image" content="https://ssc442.netlify.app/img/social-image.png">
+  <meta property="og:description" content="Required Reading  Guiding Questions  This week is a little different  The data and packages Terminology  Try it!     Required Reading  This page.  Guiding Questions  What is shrinkage? What do we do with too may right-hand-side variables? What is LASSO?    This week is a little different We will use the lecture slides! They are available below."><meta property="og:image" content="https://ssc442.netlify.app/img/social-image.png">
   <meta property="twitter:image" content="https://ssc442.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
   
     
@@ -651,7 +651,7 @@
 
                     
                     <div class="due-date p-2 mb-3 bg-content text-white">
-                        Content for Thursday, March 7, 2024
+                        Content for Thursday, March 14, 2024
                     </div>
                     
 
@@ -669,9 +669,11 @@
 <li><a href="#this-week-is-a-little-different" id="toc-this-week-is-a-little-different">This week is a little different</a>
 <ul>
 <li><a href="#the-data-and-packages" id="toc-the-data-and-packages">The data and packages</a></li>
-<li><a href="#terminology" id="toc-terminology">Terminology</a></li>
-</ul></li>
+<li><a href="#terminology" id="toc-terminology">Terminology</a>
+<ul>
 <li><a href="#try-it" id="toc-try-it">Try it!</a></li>
+</ul></li>
+</ul></li>
 </ul>
 </div>
 
@@ -691,7 +693,21 @@
 </div>
 <div id="this-week-is-a-little-different" class="section level1">
 <h1>This week is a little different</h1>
-<p>We will use the lecture slides from my friend and ace economist, Ed Rubin (U of Oregon). They are available <a href="https://raw.githack.com/edrubin/EC524W20/master/lecture/005/005-slides.html#1"><strong>right here</strong></a>. A couple things first, though:</p>
+<p>We will use the lecture slides! They are available below.</p>
+<ul class="nav nav-tabs" id="slide-tabs" role="tablist">
+<li class="nav-item">
+<a class="nav-link active" id="top-tab" data-toggle="tab" href="#top" role="tab" aria-controls="top" aria-selected="true">Top</a>
+</li>
+</ul>
+<div id="slide-tabs" class="tab-content">
+<div id="top" class="tab-pane fade show active" role="tabpanel" aria-labelledby="top-tab">
+<div class="embed-responsive embed-responsive-16by9">
+<iframe class="embed-responsive-item" src="/slides/00-Lasso.html#Cover">
+</iframe>
+</div>
+</div>
+</div>
+<p>A couple things first, though:</p>
 <div id="the-data-and-packages" class="section level2">
 <h2>The data and packages</h2>
 <p>Dr. Rubin uses the <code>ISLR</code> package’s <code>credit</code> dataset, which we can get from the <code>ISLR</code> package (which you may need to install). You’ll also want to install the <code>wooldridge</code> package for our later work:</p>
@@ -721,11 +737,8 @@ head(credit)</code></pre>
 <li><p><strong>Bias vs. Variance</strong>: We saw that super-overfit polynomial last week (where we took 20 observations and fit a 16th-degree polynomial). The model we fit was very flexible and bendy, but it did get most of the data points right. It had low <em>bias</em> as it was generally right, but had huge <em>variance</em> – it was all over the place, even within a small range of advertising mode spending. <strong>Bias vs. variance</strong> refers to the innate tradeoff between these two things. When we used the train and test samples to get the best <em>out</em> of sample fit, we were balancing bias and variance</p></li>
 <li><p><strong>Cross validation</strong>: This is the term for using two (or more) different subsets of sample data (e.g. test and train) to fit a model.</p></li>
 </ol>
-<p>Now, back to the <a href="https://raw.githack.com/edrubin/EC524W20/master/lecture/005/005-slides.html#5"><strong>lecture notes for today</strong></a></p>
-</div>
-</div>
-<div id="try-it" class="section level1">
-<h1>Try it!</h1>
+<div id="try-it" class="section level3">
+<h3>Try it!</h3>
 <div class="fyi">
 <p>Try it! Use the <code>wooldridge::wage2</code> dataset and LASSO to predict <code>wage</code>. Since these shrinkage methods (LASSO, ridge) work well with many right-hand-side variables, we can create some additional variables. A good candidate would be squared versions of all of the numeric variables. To do this, we’ll use <code>mutate_if</code> along with <code>is.numeric</code>. The function <code>mutate_if</code>, when used in a pipe <code>%&gt;%</code>, will check each column to see if the given function is true, then will add a new mutation of that column when true. We need this because we don’t want to try to add a squared term for things like factor variables. It will look something like this:</p>
 <pre><code>data %&gt;%
@@ -745,6 +758,8 @@ head(credit)</code></pre>
 <li>Which variables were eliminated from the model at the optimal <code>lambda</code>?</li>
 <li>Is the train RMSE lower than it would be if we just ran OLS with all of the variables?</li>
 </ul>
+</div>
+</div>
 </div>
 </div>
 

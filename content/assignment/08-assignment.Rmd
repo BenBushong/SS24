@@ -44,10 +44,9 @@ The steps from the last lab should be considered prerequisites in order to get t
 
 ## Test-Train Split
 
-Here, we will use `SalePrice` as our target variable. You can re-use your code for cleaning from above (you included `SalePrice` there, right?), and if you want to choose different predictors, feel free to do so.
+Finally, we will use `SalePrice` as our target variable. You can re-use your code for cleaning from previously (you kept `SalePrice` there, right?), and if you want to choose different predictors, feel free to do so.
 
-
-There is an issue with fitting a model to all available data then using RMSE to determine how well the model predicts: it is essentially cheating. As a linear model becomes more complex, the RSS, thus RMSE, can never go up. It will only go down---or, in very specific cases where a new predictor is completely uncorrelated with the target, stay the same. This might seem to suggest that in order to predict well, we should use the largest possible model. However, in reality we have fit to a specific dataset, but as soon as we see new data, a large model may (in fact) predict poorly. This is called **overfitting**.
+As repeated numerous times: there is an issue with fitting a model to all available data then using RMSE to determine how well the model predicts: it is essentially cheating. As a linear model becomes more complex, the RSS, thus RMSE, can never go up. It will only go down---or, in very specific cases where a new predictor is completely uncorrelated with the target, stay the same. This might seem to suggest that in order to predict well, we should use the largest possible model. However, in reality we have fit to a specific dataset, but as soon as we see new data, a large model may (in fact) predict poorly. This is called **overfitting**.
 
 The most common approach to overfitting is to take a dataset of interest and split it in two. One part of the datasets will be used to fit (train) a model, which we will call the **training** data. The remainder of the original data will be used to assess how well the model is predicting, which we will call the **test** data. Test data should *never* be used to train a model---its pupose is to evaluate the fitted model once you've settled on something.[^1]
 
@@ -203,4 +202,4 @@ __EXERCISES__
 
 :::
 
-A final note on the analysis performed here; we paid no attention whatsoever to the "assumptions" of a linear model. We only sought a model that **predicted** well, and paid no attention to a model for **explaination**. This is especially true if we interacted variables without any theory as to why they might need to be interacted -- "exterior type interacted with number of half-baths" may help with RMSE, but it certainly isn't grounded in a story that a real estate agent might tell. Hypothesis testing did not play a role in deciding the model, only prediction accuracy. Collinearity? We don't care. Assumptions? Still don't care. Diagnostics? Never heard of them. (These statements are a little over the top, and not completely true, but just to drive home the point that we only care about prediction. Often we latch onto methods that we have seen before, even when they are not needed.)
+
