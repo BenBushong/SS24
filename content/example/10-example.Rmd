@@ -1,7 +1,7 @@
 ---
 title: "Illustrating Bias vs. Variance"
-linktitle: "10: Bias vs. Variance"
-read_date: "2023-11-09"
+linktitle: "11: Bias vs. Variance"
+read_date: "2024-03-28"
 output:
   blogdown::html_page:
     toc: true
@@ -14,6 +14,8 @@ weight: 1
 editor_options:
   chunk_output_type: console
 ---
+
+# UNDER REVISION
 
 ## Review and Clarify
 

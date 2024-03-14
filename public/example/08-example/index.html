@@ -30,10 +30,12 @@
   
     
   
-  <meta name="description" content="NN = 100 #----&gt; In class, we will change this to # see how our results change in response SD.of.Bayes.Error = 0.75 #-----&gt; This, too, will change. # Note that both of these are used in the next chunk(s) to generate data. library(ggplot2) library(patchwork) f = function(x) { x ^ 2 } get_sim_data = function(f, sample_size = NN) { x = runif(n = sample_size, min = 0, max = 1) eps = rnorm(n = sample_size, mean = 0, sd = SD.">
+  <meta name="description" content="Not used  Weekly Writing    Not used We used the “content” tab for this; see Topic 9b.
+…but look, I’ve hidden some tasty little treats in here.
+Weekly Writing This week, your task is to write a short description (approximately one paragraph) that describes the workflow of building training data, building a simple model, then refining that model using either forward selection or a shrinkage method.">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://ssc442.netlify.app/example/code_aggregated/">
+  <link rel="alternate" hreflang="en-us" href="https://ssc442.netlify.app/example/08-example/">
 
   
 
@@ -221,7 +223,7 @@
   <link rel="icon" type="image/png" href="/images/icon_hu5cb5fae69b6b75ece00896ca20e5499a_29457_32x32_fill_lanczos_center_2.png">
   <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu5cb5fae69b6b75ece00896ca20e5499a_29457_192x192_fill_lanczos_center_2.png">
 
-  <link rel="canonical" href="https://ssc442.netlify.app/example/code_aggregated/">
+  <link rel="canonical" href="https://ssc442.netlify.app/example/08-example/">
 
   
   
@@ -236,13 +238,15 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="Data Analytics">
-  <meta property="og:url" content="https://ssc442.netlify.app/example/code_aggregated/">
-  <meta property="og:title" content="Illustrating Bias vs. Variance | Data Analytics">
-  <meta property="og:description" content="NN = 100 #----&gt; In class, we will change this to # see how our results change in response SD.of.Bayes.Error = 0.75 #-----&gt; This, too, will change. # Note that both of these are used in the next chunk(s) to generate data. library(ggplot2) library(patchwork) f = function(x) { x ^ 2 } get_sim_data = function(f, sample_size = NN) { x = runif(n = sample_size, min = 0, max = 1) eps = rnorm(n = sample_size, mean = 0, sd = SD."><meta property="og:image" content="https://ssc442.netlify.app/img/social-image.png">
+  <meta property="og:url" content="https://ssc442.netlify.app/example/08-example/">
+  <meta property="og:title" content="Nonparametric Regression | Data Analytics">
+  <meta property="og:description" content="Not used  Weekly Writing    Not used We used the “content” tab for this; see Topic 9b.
+…but look, I’ve hidden some tasty little treats in here.
+Weekly Writing This week, your task is to write a short description (approximately one paragraph) that describes the workflow of building training data, building a simple model, then refining that model using either forward selection or a shrinkage method."><meta property="og:image" content="https://ssc442.netlify.app/img/social-image.png">
   <meta property="twitter:image" content="https://ssc442.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
   
     
-    <meta property="article:modified_time" content="2024-01-03T17:52:29-05:00">
+    <meta property="article:modified_time" content="2022-08-31T11:08:53-04:00">
   
 
   
@@ -269,7 +273,7 @@
   <meta name="msapplication-TileImage" content="https://ssc442.netlify.app/img/mstile-144x144.png" />
 
 
-  <title>Illustrating Bias vs. Variance | Data Analytics</title>
+  <title>Nonparametric Regression | Data Analytics</title>
 
 </head>
 
@@ -533,6 +537,10 @@
 
 
 
+  
+    
+  
+
 
 
 
@@ -591,7 +599,7 @@
         <a href="/example/07-example/">8: Linear Regression III</a>
       </li>
       
-      <li >
+      <li class="active">
         <a href="/example/08-example/">9: Shrinkage with LASSO and Ridge</a>
       </li>
       
@@ -632,10 +640,14 @@
             <article class="article">
 
                 <div class="docs-article-container">
-                    <h1>Illustrating Bias vs. Variance</h1>
+                    <h1>Nonparametric Regression</h1>
 
                     
 
+                    
+                    <div class="due-date p-2 mb-3 bg-content text-white">
+                        Content for Thursday, March 14, 2024
+                    </div>
                     
 
                     
@@ -643,126 +655,24 @@
                     <div class="article-style">
                         
 
+<div id="TOC">
+<ul>
+<li><a href="#not-used" id="toc-not-used">Not used</a>
+<ul>
+<li><a href="#weekly-writing" id="toc-weekly-writing">Weekly Writing</a></li>
+</ul></li>
+</ul>
+</div>
 
-<pre class="r"><code>NN = 100   #----&gt; In class, we will change this to 
-#                 see how our results change in response
-SD.of.Bayes.Error = 0.75   #-----&gt; This, too, will change. 
-
-# Note that both of these are used in the next chunk(s) to generate data.
-
-
-
-library(ggplot2)
-library(patchwork)
-
-
-
-f = function(x) {
-  x ^ 2
-}
-
-
-
-get_sim_data = function(f, sample_size = NN) {
-  x = runif(n = sample_size, min = 0, max = 1)
-  eps = rnorm(n = sample_size, mean = 0, sd = SD.of.Bayes.Error)
-  y = f(x) + eps
-  data.frame(x, y)
-}
-
-
-
-set.seed(1)
-sim_data = get_sim_data(f)
-
-
-
-fit_0 = lm(y ~ 1,                   data = sim_data)
-fit_1 = lm(y ~ poly(x, degree = 1), data = sim_data)
-fit_2 = lm(y ~ poly(x, degree = 2), data = sim_data)
-fit_9 = lm(y ~ poly(x, degree = 9), data = sim_data)
-
-
-
-
-
-set.seed(42)
-plot(y ~ x, data = sim_data, col = &quot;grey&quot;, pch = 20,
-     main = &quot;Four Polynomial Models fit to a Simulated Dataset&quot;)
-
-grid = seq(from = 0, to = 2, by = 0.01)
-lines(grid, f(grid), col = &quot;black&quot;, lwd = 3)
-lines(grid, predict(fit_0, newdata = data.frame(x = grid)), col = &quot;dodgerblue&quot;,  lwd = 2, lty = 2)
-lines(grid, predict(fit_1, newdata = data.frame(x = grid)), col = &quot;firebrick&quot;,   lwd = 2, lty = 3)
-lines(grid, predict(fit_2, newdata = data.frame(x = grid)), col = &quot;springgreen&quot;, lwd = 2, lty = 4)
-lines(grid, predict(fit_9, newdata = data.frame(x = grid)), col = &quot;darkorange&quot;,  lwd = 2, lty = 5)
-
-legend(&quot;topleft&quot;, 
-       c(&quot;y ~ 1&quot;, &quot;y ~ poly(x, 1)&quot;, &quot;y ~ poly(x, 2)&quot;,  &quot;y ~ poly(x, 9)&quot;, &quot;truth&quot;), 
-       col = c(&quot;dodgerblue&quot;, &quot;firebrick&quot;, &quot;springgreen&quot;, &quot;darkorange&quot;, &quot;black&quot;), lty = c(2, 3, 4, 5, 1), lwd = 2)</code></pre>
-<p><img src="/example/Code_Aggregated_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
-<pre class="r"><code>set.seed(1)
-n_sims = 250
-n_models = 4
-x = data.frame(x = 0.90) # fixed point at which we make predictions
-predictions = matrix(0, nrow = n_sims, ncol = n_models)
-
-
-
-for (sim in 1:n_sims) {
-
-  # simulate new, random, training data
-  # this is the only random portion of the bias, var, and mse calculations
-  # this allows us to calculate the expectation over D
-  sim_data = get_sim_data(f, sample_size = NN)
-
-  # fit models
-  fit_0 = lm(y ~ 1,                   data = sim_data)
-  fit_1 = lm(y ~ poly(x, degree = 1), data = sim_data)
-  fit_2 = lm(y ~ poly(x, degree = 2), data = sim_data)
-  fit_9 = lm(y ~ poly(x, degree = 9), data = sim_data)
-
-  # get predictions
-  predictions[sim, 1] = predict(fit_0, x)
-  predictions[sim, 2] = predict(fit_1, x)
-  predictions[sim, 3] = predict(fit_2, x)
-  predictions[sim, 4] = predict(fit_9, x)
-}
-
-
-
-predictions.proc = (predictions)
-colnames(predictions.proc) = c(&quot;0&quot;, &quot;1&quot;, &quot;2&quot;, &quot;9&quot;)
-predictions.proc = as.data.frame(predictions.proc)
-
-tall_predictions = tidyr::gather(predictions.proc, factor_key = TRUE)
-
-## Here, you can save your ggplot output 
-FinalPlot &lt;- ggplot(tall_predictions, aes(x = key, y = value, col = as.factor(key))) + 
-                      geom_boxplot() +
-                      geom_jitter(alpha = .5) +
-                      geom_hline(yintercept = f(x = .90)) +
-                      labs(col = &#39;Model&#39;, x = &#39;Model&#39;, y = &#39;Prediction&#39;, title = paste0(&#39;Bias v Var - Sample Size: &#39;,NN), subtitle = paste0(&#39;SD of Bayes Err: &#39;,SD.of.Bayes.Error)) +
-                      theme_bw()
-
-
-
-FinalPlot</code></pre>
-<p><img src="/example/Code_Aggregated_files/figure-html/unnamed-chunk-1-2.png" width="672" /></p>
-<pre class="r"><code>## This is going to aggregate your results for you:
-if(!exists(&#39;FinalResults&#39;)) FinalResults = list()
-
-FinalResults[[paste0(&#39;finalPlot.NN.&#39;,NN,&#39;.SDBayes.&#39;,SD.of.Bayes.Error)]] = FinalPlot
-
-# 
-# boxplot(value ~ key, data = tall_predictions, border = &quot;darkgrey&quot;, xlab = &quot;Polynomial Degree&quot;, ylab = &quot;Predictions&quot;,
-#         main = &quot;Simulated Predictions for Polynomial Models&quot;)
-# grid()
-# stripchart(value ~ key, data = tall_predictions, add = TRUE, vertical = TRUE, method = &quot;jitter&quot;, jitter = 0.15, pch = 1, col = c(&quot;dodgerblue&quot;, &quot;firebrick&quot;, &quot;springgreen&quot;, &quot;darkorange&quot;))
-# abline(h = f(x = 0.90), lwd = 2)</code></pre>
-<pre class="r"><code>## This not run automatically.
-## To plot the whole list of ggplot objects in FinalResults:
-wrap_plots(FinalResults, nrow = 2, guides = &#39;collect&#39;)</code></pre>
+<div id="not-used" class="section level1">
+<h1>Not used</h1>
+<p>We used the “content” tab for this; see Topic 9b.</p>
+<p>…but look, I’ve hidden some tasty little treats in here.</p>
+<div id="weekly-writing" class="section level3">
+<h3>Weekly Writing</h3>
+<p>This week, your task is to write a short description (approximately one paragraph) that <strong>describes the workflow</strong> of building training data, building a simple model, then refining that model using either forward selection or a shrinkage method. In short: imagine you were explaining this to your cousin who is a freshman at MSU. Give a basic primer.</p>
+</div>
+</div>
 
                     </div>
 
@@ -774,7 +684,7 @@ wrap_plots(FinalResults, nrow = 2, guides = &#39;collect&#39;)</code></pre>
                 </div>
 
                 <div class="body-footer">
-                    <p>Last updated on January 3, 2024</p>
+                    <p>Last updated on August 31, 2022</p>
 
                     
 

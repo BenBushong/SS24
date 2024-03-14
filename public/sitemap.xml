@@ -20,11 +20,14 @@
     <loc>https://ssc442.netlify.app/resource/install/</loc>
     <lastmod>2024-01-07T13:20:17-05:00</lastmod>
   </url><url>
-    <loc>https://ssc442.netlify.app/example/10-example/</loc>
-    <lastmod>2023-10-17T12:58:29-04:00</lastmod>
-  </url><url>
     <loc>https://ssc442.netlify.app/assignment/09-assignment/</loc>
     <lastmod>2024-01-09T11:40:03-05:00</lastmod>
+  </url><url>
+    <loc>https://ssc442.netlify.app/example/09-example/</loc>
+    <lastmod>2023-11-02T10:19:03-04:00</lastmod>
+  </url><url>
+    <loc>https://ssc442.netlify.app/example/10-example/</loc>
+    <lastmod>2023-10-17T12:58:29-04:00</lastmod>
   </url><url>
     <loc>https://ssc442.netlify.app/assignment/11-assignment/</loc>
     <lastmod>2023-10-17T12:58:29-04:00</lastmod>
@@ -86,23 +89,11 @@
     <loc>https://ssc442.netlify.app/example/07-example/</loc>
     <lastmod>2024-03-07T11:38:54-05:00</lastmod>
   </url><url>
-    <loc>https://ssc442.netlify.app/example/08-example-notusedfallbreak-2/</loc>
-    <lastmod>2024-01-29T14:53:46-05:00</lastmod>
-  </url><url>
-    <loc>https://ssc442.netlify.app/example/08-example-notusedfallbreak-3/</loc>
-    <lastmod>2024-03-07T11:38:54-05:00</lastmod>
-  </url><url>
-    <loc>https://ssc442.netlify.app/example/08-example-notusedfallbreak-4/</loc>
-    <lastmod>2024-03-07T11:38:54-05:00</lastmod>
-  </url><url>
-    <loc>https://ssc442.netlify.app/example/08-example-notusedfallbreak/</loc>
-    <lastmod>2024-01-03T17:52:29-05:00</lastmod>
-  </url><url>
-    <loc>https://ssc442.netlify.app/example/09-example/</loc>
-    <lastmod>2023-11-02T10:19:03-04:00</lastmod>
+    <loc>https://ssc442.netlify.app/example/08-example/</loc>
+    <lastmod>2022-08-31T11:08:53-04:00</lastmod>
   </url><url>
     <loc>https://ssc442.netlify.app/assignment/08-assignment/</loc>
-    <lastmod>2024-01-09T11:40:03-05:00</lastmod>
+    <lastmod>2024-03-14T11:50:44-04:00</lastmod>
   </url><url>
     <loc>https://ssc442.netlify.app/assignment/</loc>
     <lastmod>2023-09-08T09:24:36-04:00</lastmod>
@@ -237,7 +228,7 @@
     <lastmod>2024-01-09T09:47:23-05:00</lastmod>
   </url><url>
     <loc>https://ssc442.netlify.app/content/08-content/</loc>
-    <lastmod>2024-01-09T09:47:23-05:00</lastmod>
+    <lastmod>2024-03-14T11:50:44-04:00</lastmod>
   </url><url>
     <loc>https://ssc442.netlify.app/authors/</loc>
     <lastmod>2020-12-08T16:40:58-05:00</lastmod>
