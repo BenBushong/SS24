@@ -2886,7 +2886,7 @@ dat &amp;lt;- us_contagious_diseases %&amp;gt;%
 
 &lt;!-- Updated 11/7/23 fixed data/bank23.csv data no default y is still character, not yet knit --&gt;
 &lt;div class=&#34;fyi&#34;&gt;
-&lt;p&gt;You must turn in a PDF document of your &lt;code&gt;R Markdown&lt;/code&gt; knitted document. Submit this to D2L by 11:59 PM Eastern Time on [DATE].&lt;/p&gt;
+&lt;p&gt;You must turn in a PDF document of your &lt;code&gt;R Markdown&lt;/code&gt; knitted document. Submit this to D2L by 11:59 PM Eastern Time on March 25th.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;backstory-and-set-up&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Backstory and Set Up&lt;/h2&gt;
@@ -10892,13 +10892,13 @@ rats_clean &amp;lt;- rats_raw %&amp;gt;%
 &lt;/tr&gt;
 &lt;tr class=&#34;even&#34;&gt;
 &lt;td align=&#34;left&#34;&gt;Weekly Writings (14-2 x 8 ea),
-drop two lowest&lt;/td&gt;
+drop two lowest + 1 freebie&lt;/td&gt;
 &lt;td align=&#34;center&#34;&gt;96&lt;/td&gt;
 &lt;td align=&#34;center&#34;&gt;18%&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;odd&#34;&gt;
 &lt;td align=&#34;left&#34;&gt;Labs (13-1 x 15 ea), drop one
-lowest&lt;/td&gt;
+lowest + 1 freebie&lt;/td&gt;
 &lt;td align=&#34;center&#34;&gt;180&lt;/td&gt;
 &lt;td align=&#34;center&#34;&gt;34%&lt;/td&gt;
 &lt;/tr&gt;
