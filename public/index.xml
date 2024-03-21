@@ -2960,28 +2960,22 @@ test_rmses = lapply(mods, function(x){
 
 &lt;div id=&#34;TOC&#34;&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#our-data-and-goal&#34; id=&#34;toc-our-data-and-goal&#34;&gt;Our data and goal&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#breakout-1---predicting-wage&#34; id=&#34;toc-breakout-1---predicting-wage&#34;&gt;Breakout #1 - Predicting Wage&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#breakout-1-discussion&#34; id=&#34;toc-breakout-1-discussion&#34;&gt;Breakout #1 discussion&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#setup&#34; id=&#34;toc-setup&#34;&gt;Setup&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#breakout-1---predicting-wage&#34; id=&#34;toc-breakout-1---predicting-wage&#34;&gt;Breakout #1 - Predicting Wage&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#automating-models&#34; id=&#34;toc-automating-models&#34;&gt;Automating models&lt;/a&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#loops&#34; id=&#34;toc-loops&#34;&gt;Loops&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#using-lapply-to-repeat-something&#34; id=&#34;toc-using-lapply-to-repeat-something&#34;&gt;Using &lt;code&gt;lapply&lt;/code&gt; to repeat something&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#lab-7&#34; id=&#34;toc-lab-7&#34;&gt;Lab 7&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#connection-to-previous-labs&#34; id=&#34;toc-connection-to-previous-labs&#34;&gt;Connection to Previous Lab(s)&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#breakout-2&#34; id=&#34;toc-breakout-2&#34;&gt;Breakout #2&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#breakout-2-discussion&#34; id=&#34;toc-breakout-2-discussion&#34;&gt;Breakout #2 discussion&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#breakout-3-if-time&#34; id=&#34;toc-breakout-3-if-time&#34;&gt;Breakout #3 (if time)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#part-2-looping-through-the-trees&#34; id=&#34;toc-part-2-looping-through-the-trees&#34;&gt;Part 2: Looping through the Trees&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#part-3-if-time-evaluating-your-trees&#34; id=&#34;toc-part-3-if-time-evaluating-your-trees&#34;&gt;Part 3 (if time): Evaluating your Trees&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 
-&lt;div id=&#34;our-data-and-goal&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Our data and goal&lt;/h2&gt;
-&lt;p&gt;We want to use the &lt;code&gt;wooldridge::wage2&lt;/code&gt; data on wages to generate and tune a non-parametric model of wages using a regression tree (or decision tree, same thing). Use &lt;code&gt;?wage2&lt;/code&gt; (after you’ve loaded the &lt;code&gt;wooldridge&lt;/code&gt; package) to see the data dictionary.&lt;/p&gt;
+&lt;div id=&#34;setup&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Setup&lt;/h2&gt;
+&lt;p&gt;We are going to use the &lt;code&gt;wooldridge::wage2&lt;/code&gt; data on wages to generate and tune a non-parametric model of wages using a regression tree (or decision tree, same thing). Use &lt;code&gt;?wage2&lt;/code&gt; (after you’ve loaded the &lt;code&gt;wooldridge&lt;/code&gt; package) to see the data dictionary.&lt;/p&gt;
 &lt;p&gt;We’ve learned that our RMSE calculations have a hard time with &lt;code&gt;NA&lt;/code&gt;s in the data. So let’s use the &lt;code&gt;skim&lt;/code&gt; output to tell us which variables have too many &lt;code&gt;NA&lt;/code&gt; (see &lt;code&gt;n_missing&lt;/code&gt;) values and should be dropped. Let’s set a high bar here, and drop anything that isn’t 100% complete. Of course, there are other things we can do (impute the &lt;code&gt;NA&lt;/code&gt;s, or make dummies for them), but for now, it’s easiest to drop them.&lt;/p&gt;
 &lt;p&gt;Remember, &lt;code&gt;skim()&lt;/code&gt; is for your own exploration, it’s not something that you should include in your output.&lt;/p&gt;
 &lt;p&gt;Once cleaned, we should be able to use &lt;code&gt;rpart(wage ~ ., data = wage_clean)&lt;/code&gt; and not have any &lt;code&gt;NA&lt;/code&gt;s in our prediction. That’s what we’ll do in our first Breakout.&lt;/p&gt;
@@ -2996,18 +2990,13 @@ test_rmses = lapply(mods, function(x){
   rmse(actual = subset(data, select = response, drop = TRUE),
        predicted = predict(model, data))
 }&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;For the first breakout, all I want you to do is the following. We are trying to predict &lt;code&gt;wage&lt;/code&gt; for this exercise:&lt;/p&gt;
+&lt;p&gt;For the first fifteen minutes, all I want you to do is the following. We are trying to predict &lt;code&gt;wage&lt;/code&gt; for this exercise:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Estimate a default regression tree on &lt;code&gt;wage_clean&lt;/code&gt; using the default parameters (use the whole dataset for now, we’ll train-test on the problem set).&lt;/li&gt;
+&lt;li&gt;Estimate a decision tree on &lt;code&gt;wage_clean&lt;/code&gt; using the default parameters (use the whole dataset for now, we’ll train-test on the problem set).&lt;/li&gt;
 &lt;li&gt;Use &lt;code&gt;rpart.plot&lt;/code&gt; to vizualize your regression tree, and &lt;em&gt;talk through the interpretation&lt;/em&gt; with each other.&lt;/li&gt;
 &lt;li&gt;Calculate the RMSE for your regression tree.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;We’ll spend about 5 minutes on this. Remember, you can use &lt;code&gt;?wage2&lt;/code&gt; to see the variable names. Make sure you know what variables are showing up in the plot and explaining &lt;code&gt;wage&lt;/code&gt; in your model. You may find something odd at first and may need to drop more variables…&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;5 minutes&lt;/strong&gt;&lt;/p&gt;
-&lt;div id=&#34;breakout-1-discussion&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Breakout #1 discussion&lt;/h3&gt;
-&lt;p&gt;Let’s choose a group to share their plot and discuss the results. Use our sharing zoom link: &lt;a href=&#34;bit.ly/KIRKPATRICK&#34;&gt;bit.ly/KIRKPATRICK&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
+&lt;p&gt;Again, we’ll spend about 15 minutes on this. Remember, you can use &lt;code&gt;?wage2&lt;/code&gt; to see the variable names. Make sure you know what variables are showing up in the plot and explaining &lt;code&gt;wage&lt;/code&gt; in your model. You may find something odd at first and may need to drop more variables…&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;automating-models&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Automating models&lt;/h2&gt;
@@ -3061,7 +3050,7 @@ print(i)
 &lt;pre&gt;&lt;code&gt;## [1] &amp;quot;first&amp;quot;
 ## [1] &amp;quot;second&amp;quot;
 ## [1] &amp;quot;third&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Here, R is repeating the thing in the loop (&lt;code&gt;print(i)&lt;/code&gt;) with a different value for &lt;code&gt;i&lt;/code&gt; each time. R repeats only what is &lt;em&gt;inside the curly-brackets&lt;/em&gt;, then when it reaches the close-curly-bracket, it goes back to the top, changes &lt;code&gt;i&lt;/code&gt; to the next element, and repeats.&lt;/p&gt;
+&lt;p&gt;Here, &lt;code&gt;R&lt;/code&gt; is repeating the thing in the loop (&lt;code&gt;print(i)&lt;/code&gt;) with a different value for &lt;code&gt;i&lt;/code&gt; each time. &lt;code&gt;R&lt;/code&gt; repeats only what is &lt;em&gt;inside the curly-brackets&lt;/em&gt;, then when it reaches the close-curly-bracket, it goes back to the top, changes &lt;code&gt;i&lt;/code&gt; to the next element, and repeats.&lt;/p&gt;
 &lt;p&gt;We can use this to train our models. First, we clear our list object &lt;code&gt;myList&lt;/code&gt; by setting it equal to an empty list. Then, we loop over some regression tree tuning parameters. First, we have to figure out how to use the loop to set a &lt;em&gt;unique&lt;/em&gt; name for each list container. To do this, we’ll use &lt;code&gt;paste0(&#39;Tuning&#39;,i)&lt;/code&gt; which will result in a character string of &lt;code&gt;Tuning0&lt;/code&gt; when &lt;code&gt;i=0&lt;/code&gt;, &lt;code&gt;Tuning0.01&lt;/code&gt; when &lt;code&gt;i=0.01&lt;/code&gt;, etc.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;myList &amp;lt;- list()   # resets the list. Otherwise, you&amp;#39;ll just be adding to your old list!
 
@@ -3115,9 +3104,9 @@ x = myList[[3]]
 myList[[3]] = x$control$cp&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;As long as every entry in &lt;code&gt;myList&lt;/code&gt; is an rpart object with &lt;code&gt;control$cp&lt;/code&gt;, then you’ll get those values in a list. &lt;code&gt;unlist&lt;/code&gt; just coerces the list to a vector. This is also the same way we get the RMSE, but instead of the anonymous function, we write one out and use that.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div id=&#34;lab-7&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Lab 7&lt;/h3&gt;
-&lt;p&gt;In Lab 7, linear models, you were asked to make increasingly complex models by adding variables. In regression trees and kNN, complexity comes from a tuning parameter. But many people have asked about ways of doing Lab 7, so here are two possible solutions.&lt;/p&gt;
+&lt;div id=&#34;connection-to-previous-labs&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Connection to Previous Lab(s)&lt;/h3&gt;
+&lt;p&gt;In a previous lab (on linear models) you were asked to make increasingly complex models by adding variables. In regression trees and kNN, complexity comes from a tuning parameter. But many people have asked about ways of doing Lab 7, so here are two possible solutions.&lt;/p&gt;
 &lt;div id=&#34;solution-1-make-a-list-of-models&#34; class=&#34;section level4&#34;&gt;
 &lt;h4&gt;Solution 1: Make a list of models&lt;/h4&gt;
 &lt;p&gt;First, we make a vector of all of our possible explanatory variables:&lt;/p&gt;
@@ -3277,17 +3266,12 @@ lapply(myOLS[1:3], summary)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id=&#34;breakout-2&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Breakout #2&lt;/h2&gt;
+&lt;div id=&#34;part-2-looping-through-the-trees&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Part 2: Looping through the Trees&lt;/h2&gt;
 &lt;p&gt;Using the loop method or the &lt;code&gt;lapply&lt;/code&gt; method, generate 10 regression trees to explain &lt;code&gt;wage&lt;/code&gt; in &lt;code&gt;wage_clean&lt;/code&gt;. You can iterate through values of &lt;code&gt;cp&lt;/code&gt;, the complexity parameter, &lt;strong&gt;or&lt;/strong&gt; &lt;code&gt;minsplit&lt;/code&gt;, the minimum # of points that have to be in each split.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;10 minutes&lt;/strong&gt;&lt;/p&gt;
-&lt;div id=&#34;breakout-2-discussion&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Breakout #2 discussion&lt;/h3&gt;
-&lt;p&gt;We’ll ask someone to share (a few of) their group’s 10 regression trees using &lt;code&gt;rpart.plot&lt;/code&gt;. Use &lt;a href=&#34;bit.ly/KIRKPATRICK&#34;&gt;bit.ly/KIRKPATRICK&lt;/a&gt; to volunteer to share.&lt;/p&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;breakout-3-if-time&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Breakout #3 (if time)&lt;/h2&gt;
+&lt;div id=&#34;part-3-if-time-evaluating-your-trees&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Part 3 (if time): Evaluating your Trees&lt;/h2&gt;
 &lt;p&gt;Use &lt;code&gt;lapply&lt;/code&gt; to get a list of your RMSE’s (one for each of your models). The anonymous function may come in handy here (though it’s not necessary). Note that we are not yet splitting into &lt;code&gt;test&lt;/code&gt; and &lt;code&gt;train&lt;/code&gt; (which you &lt;strong&gt;will&lt;/strong&gt; need to do on your lab assignment).&lt;/p&gt;
 &lt;p&gt;Once you have your list, &lt;strong&gt;create the plot of RMSEs&lt;/strong&gt; similar to the one we looked at in Content this week. Note: you can use &lt;code&gt;unlist(myRMSE)&lt;/code&gt; to get a numeric vector of the RMSE’s (as long as all of the elements in &lt;code&gt;myRMSE&lt;/code&gt; are numeric). Then, it’s a matter of plotting either with base &lt;code&gt;plot&lt;/code&gt; or with &lt;code&gt;ggplot&lt;/code&gt; (if you use &lt;code&gt;ggplot&lt;/code&gt; you’ll have to &lt;code&gt;tidy&lt;/code&gt; the RMSE by adding the index column or naming the x-axis).&lt;/p&gt;
 &lt;/div&gt;

@@ -30,7 +30,7 @@
   
     
   
-  <meta name="description" content="Our data and goal Breakout #1 - Predicting Wage  Breakout #1 discussion  Automating models  Loops Using lapply to repeat something Lab 7  Breakout #2  Breakout #2 discussion  Breakout #3 (if time)   Our data and goal We want to use the wooldridge::wage2 data on wages to generate and tune a non-parametric model of wages using a regression tree (or decision tree, same thing).">
+  <meta name="description" content="Setup Breakout #1 - Predicting Wage Automating models  Loops Using lapply to repeat something Connection to Previous Lab(s)  Part 2: Looping through the Trees Part 3 (if time): Evaluating your Trees   Setup We are going to use the wooldridge::wage2 data on wages to generate and tune a non-parametric model of wages using a regression tree (or decision tree, same thing). Use ?wage2 (after you’ve loaded the wooldridge package) to see the data dictionary.">
 
   
   <link rel="alternate" hreflang="en-us" href="https://ssc442.netlify.app/example/09-example/">
@@ -238,7 +238,7 @@
   <meta property="og:site_name" content="Data Analytics">
   <meta property="og:url" content="https://ssc442.netlify.app/example/09-example/">
   <meta property="og:title" content="Nonparametric Regression | Data Analytics">
-  <meta property="og:description" content="Our data and goal Breakout #1 - Predicting Wage  Breakout #1 discussion  Automating models  Loops Using lapply to repeat something Lab 7  Breakout #2  Breakout #2 discussion  Breakout #3 (if time)   Our data and goal We want to use the wooldridge::wage2 data on wages to generate and tune a non-parametric model of wages using a regression tree (or decision tree, same thing)."><meta property="og:image" content="https://ssc442.netlify.app/img/social-image.png">
+  <meta property="og:description" content="Setup Breakout #1 - Predicting Wage Automating models  Loops Using lapply to repeat something Connection to Previous Lab(s)  Part 2: Looping through the Trees Part 3 (if time): Evaluating your Trees   Setup We are going to use the wooldridge::wage2 data on wages to generate and tune a non-parametric model of wages using a regression tree (or decision tree, same thing). Use ?wage2 (after you’ve loaded the wooldridge package) to see the data dictionary."><meta property="og:image" content="https://ssc442.netlify.app/img/social-image.png">
   <meta property="twitter:image" content="https://ssc442.netlify.app/img/social-image.png"><meta property="og:locale" content="en-us">
   
     
@@ -653,28 +653,22 @@
 
 <div id="TOC">
 <ul>
-<li><a href="#our-data-and-goal" id="toc-our-data-and-goal">Our data and goal</a></li>
-<li><a href="#breakout-1---predicting-wage" id="toc-breakout-1---predicting-wage">Breakout #1 - Predicting Wage</a>
-<ul>
-<li><a href="#breakout-1-discussion" id="toc-breakout-1-discussion">Breakout #1 discussion</a></li>
-</ul></li>
+<li><a href="#setup" id="toc-setup">Setup</a></li>
+<li><a href="#breakout-1---predicting-wage" id="toc-breakout-1---predicting-wage">Breakout #1 - Predicting Wage</a></li>
 <li><a href="#automating-models" id="toc-automating-models">Automating models</a>
 <ul>
 <li><a href="#loops" id="toc-loops">Loops</a></li>
 <li><a href="#using-lapply-to-repeat-something" id="toc-using-lapply-to-repeat-something">Using <code>lapply</code> to repeat something</a></li>
-<li><a href="#lab-7" id="toc-lab-7">Lab 7</a></li>
+<li><a href="#connection-to-previous-labs" id="toc-connection-to-previous-labs">Connection to Previous Lab(s)</a></li>
 </ul></li>
-<li><a href="#breakout-2" id="toc-breakout-2">Breakout #2</a>
-<ul>
-<li><a href="#breakout-2-discussion" id="toc-breakout-2-discussion">Breakout #2 discussion</a></li>
-</ul></li>
-<li><a href="#breakout-3-if-time" id="toc-breakout-3-if-time">Breakout #3 (if time)</a></li>
+<li><a href="#part-2-looping-through-the-trees" id="toc-part-2-looping-through-the-trees">Part 2: Looping through the Trees</a></li>
+<li><a href="#part-3-if-time-evaluating-your-trees" id="toc-part-3-if-time-evaluating-your-trees">Part 3 (if time): Evaluating your Trees</a></li>
 </ul>
 </div>
 
-<div id="our-data-and-goal" class="section level2">
-<h2>Our data and goal</h2>
-<p>We want to use the <code>wooldridge::wage2</code> data on wages to generate and tune a non-parametric model of wages using a regression tree (or decision tree, same thing). Use <code>?wage2</code> (after you’ve loaded the <code>wooldridge</code> package) to see the data dictionary.</p>
+<div id="setup" class="section level2">
+<h2>Setup</h2>
+<p>We are going to use the <code>wooldridge::wage2</code> data on wages to generate and tune a non-parametric model of wages using a regression tree (or decision tree, same thing). Use <code>?wage2</code> (after you’ve loaded the <code>wooldridge</code> package) to see the data dictionary.</p>
 <p>We’ve learned that our RMSE calculations have a hard time with <code>NA</code>s in the data. So let’s use the <code>skim</code> output to tell us which variables have too many <code>NA</code> (see <code>n_missing</code>) values and should be dropped. Let’s set a high bar here, and drop anything that isn’t 100% complete. Of course, there are other things we can do (impute the <code>NA</code>s, or make dummies for them), but for now, it’s easiest to drop them.</p>
 <p>Remember, <code>skim()</code> is for your own exploration, it’s not something that you should include in your output.</p>
 <p>Once cleaned, we should be able to use <code>rpart(wage ~ ., data = wage_clean)</code> and not have any <code>NA</code>s in our prediction. That’s what we’ll do in our first Breakout.</p>
@@ -689,18 +683,13 @@
   rmse(actual = subset(data, select = response, drop = TRUE),
        predicted = predict(model, data))
 }</code></pre>
-<p>For the first breakout, all I want you to do is the following. We are trying to predict <code>wage</code> for this exercise:</p>
+<p>For the first fifteen minutes, all I want you to do is the following. We are trying to predict <code>wage</code> for this exercise:</p>
 <ul>
-<li>Estimate a default regression tree on <code>wage_clean</code> using the default parameters (use the whole dataset for now, we’ll train-test on the problem set).</li>
+<li>Estimate a decision tree on <code>wage_clean</code> using the default parameters (use the whole dataset for now, we’ll train-test on the problem set).</li>
 <li>Use <code>rpart.plot</code> to vizualize your regression tree, and <em>talk through the interpretation</em> with each other.</li>
 <li>Calculate the RMSE for your regression tree.</li>
 </ul>
-<p>We’ll spend about 5 minutes on this. Remember, you can use <code>?wage2</code> to see the variable names. Make sure you know what variables are showing up in the plot and explaining <code>wage</code> in your model. You may find something odd at first and may need to drop more variables…</p>
-<p><strong>5 minutes</strong></p>
-<div id="breakout-1-discussion" class="section level3">
-<h3>Breakout #1 discussion</h3>
-<p>Let’s choose a group to share their plot and discuss the results. Use our sharing zoom link: <a href="bit.ly/KIRKPATRICK">bit.ly/KIRKPATRICK</a></p>
-</div>
+<p>Again, we’ll spend about 15 minutes on this. Remember, you can use <code>?wage2</code> to see the variable names. Make sure you know what variables are showing up in the plot and explaining <code>wage</code> in your model. You may find something odd at first and may need to drop more variables…</p>
 </div>
 <div id="automating-models" class="section level2">
 <h2>Automating models</h2>
@@ -754,7 +743,7 @@ print(i)
 <pre><code>## [1] &quot;first&quot;
 ## [1] &quot;second&quot;
 ## [1] &quot;third&quot;</code></pre>
-<p>Here, R is repeating the thing in the loop (<code>print(i)</code>) with a different value for <code>i</code> each time. R repeats only what is <em>inside the curly-brackets</em>, then when it reaches the close-curly-bracket, it goes back to the top, changes <code>i</code> to the next element, and repeats.</p>
+<p>Here, <code>R</code> is repeating the thing in the loop (<code>print(i)</code>) with a different value for <code>i</code> each time. <code>R</code> repeats only what is <em>inside the curly-brackets</em>, then when it reaches the close-curly-bracket, it goes back to the top, changes <code>i</code> to the next element, and repeats.</p>
 <p>We can use this to train our models. First, we clear our list object <code>myList</code> by setting it equal to an empty list. Then, we loop over some regression tree tuning parameters. First, we have to figure out how to use the loop to set a <em>unique</em> name for each list container. To do this, we’ll use <code>paste0('Tuning',i)</code> which will result in a character string of <code>Tuning0</code> when <code>i=0</code>, <code>Tuning0.01</code> when <code>i=0.01</code>, etc.</p>
 <pre class="r"><code>myList &lt;- list()   # resets the list. Otherwise, you&#39;ll just be adding to your old list!
 
@@ -808,9 +797,9 @@ x = myList[[3]]
 myList[[3]] = x$control$cp</code></pre>
 <p>As long as every entry in <code>myList</code> is an rpart object with <code>control$cp</code>, then you’ll get those values in a list. <code>unlist</code> just coerces the list to a vector. This is also the same way we get the RMSE, but instead of the anonymous function, we write one out and use that.</p>
 </div>
-<div id="lab-7" class="section level3">
-<h3>Lab 7</h3>
-<p>In Lab 7, linear models, you were asked to make increasingly complex models by adding variables. In regression trees and kNN, complexity comes from a tuning parameter. But many people have asked about ways of doing Lab 7, so here are two possible solutions.</p>
+<div id="connection-to-previous-labs" class="section level3">
+<h3>Connection to Previous Lab(s)</h3>
+<p>In a previous lab (on linear models) you were asked to make increasingly complex models by adding variables. In regression trees and kNN, complexity comes from a tuning parameter. But many people have asked about ways of doing Lab 7, so here are two possible solutions.</p>
 <div id="solution-1-make-a-list-of-models" class="section level4">
 <h4>Solution 1: Make a list of models</h4>
 <p>First, we make a vector of all of our possible explanatory variables:</p>
@@ -970,17 +959,12 @@ lapply(myOLS[1:3], summary)</code></pre>
 </div>
 </div>
 </div>
-<div id="breakout-2" class="section level2">
-<h2>Breakout #2</h2>
+<div id="part-2-looping-through-the-trees" class="section level2">
+<h2>Part 2: Looping through the Trees</h2>
 <p>Using the loop method or the <code>lapply</code> method, generate 10 regression trees to explain <code>wage</code> in <code>wage_clean</code>. You can iterate through values of <code>cp</code>, the complexity parameter, <strong>or</strong> <code>minsplit</code>, the minimum # of points that have to be in each split.</p>
-<p><strong>10 minutes</strong></p>
-<div id="breakout-2-discussion" class="section level3">
-<h3>Breakout #2 discussion</h3>
-<p>We’ll ask someone to share (a few of) their group’s 10 regression trees using <code>rpart.plot</code>. Use <a href="bit.ly/KIRKPATRICK">bit.ly/KIRKPATRICK</a> to volunteer to share.</p>
 </div>
-</div>
-<div id="breakout-3-if-time" class="section level2">
-<h2>Breakout #3 (if time)</h2>
+<div id="part-3-if-time-evaluating-your-trees" class="section level2">
+<h2>Part 3 (if time): Evaluating your Trees</h2>
 <p>Use <code>lapply</code> to get a list of your RMSE’s (one for each of your models). The anonymous function may come in handy here (though it’s not necessary). Note that we are not yet splitting into <code>test</code> and <code>train</code> (which you <strong>will</strong> need to do on your lab assignment).</p>
 <p>Once you have your list, <strong>create the plot of RMSEs</strong> similar to the one we looked at in Content this week. Note: you can use <code>unlist(myRMSE)</code> to get a numeric vector of the RMSE’s (as long as all of the elements in <code>myRMSE</code> are numeric). Then, it’s a matter of plotting either with base <code>plot</code> or with <code>ggplot</code> (if you use <code>ggplot</code> you’ll have to <code>tidy</code> the RMSE by adding the index column or naming the x-axis).</p>
 </div>
