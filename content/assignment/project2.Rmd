@@ -18,7 +18,7 @@ editor_options:
 
 :::fyi
 
-**Note the changed due date**. As with Project 1, only one group member needs to upload the project to D2L. It **must** contain the names of all group members somewhere near the top.
+**Note the changed due date**.
 
 :::
 
@@ -46,9 +46,9 @@ Here's what you need to do:
 
 #. **Clean** and merge the data. You will need to merge some nasty data. You will need to clean it up. You will need to reshape it. 
 
-#. **Summarize** the data in a series of clear and simple tables.
+#. **Summarize** the data in a series of clear and simple tables. (These need not be included in your final poster but should inform its design.)
 
-#. **Create** two appropriate time-based visualizations based on the data.
+#. **Create** two appropriate visualizations based on the data.
 
 #. **Refine and polish** the saved image, adding annotations, changing colors, and otherwise enhancing it.
 
@@ -58,6 +58,7 @@ Here's what you need to do:
 
     - Your code (.Rmd) that generates the graphic.
     - Your final poster, saved as a PDF.
+    - Your hypotheses as a separate PDF. 
 
 For this assignment, we are less concerned with the code and more concerned with the *design*. Choose good colors based on palettes. Choose good, clean fonts. Use the heck out of `theme()`. Add informative design elements. Make it look beautiful. Refer to [the design resources here](/resource/design/).
 
@@ -66,7 +67,7 @@ For this assignment, we are less concerned with the code and more concerned with
 
 ## Part 2: Hypotheses
 
-For this part of the assignment, you need to provide five hypotheses about the relationship between variables in one of the datasets from your Project 1. You can (and should) consider making hypotheses about the dataset that you plan to use for your final project. However, this is not a requirement. All that is required is that you provide five hypotheses about some data. Your write-up should have an enumerated list of questions (e.g., "1. Are there more murders in states that have high unemployment.") along with a 1-2 sentence statement detailing why this hypothesis is interesting and should be studied. You will receive 2 points for each hypothesis. 
+For this part of the assignment, you need to provide five hypotheses about the relationship between variables in one of the datasets. Ideally, this should be done on one of the datasets from your Project 1 (as a lead-in to the final project). You can (and should) consider making hypotheses about the dataset that you plan to use for your final project. However, this is not a requirement. All that is required is that you provide five hypotheses about some data. Your write-up should have an enumerated list of questions (e.g., "1. Are there more murders in states that have high unemployment.") along with a 1-2 sentence statement detailing why this hypothesis is interesting and should be studied. You will receive 2 points for each hypothesis. 
 
 ### Evaluation
 

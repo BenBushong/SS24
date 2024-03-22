@@ -9113,10 +9113,10 @@ output:
 &lt;/div&gt;
 
 &lt;div class=&#34;fyi&#34;&gt;
-&lt;p&gt;&lt;strong&gt;Note the changed due date&lt;/strong&gt;. As with Project 1, only one group member needs to upload the project to D2L. It &lt;strong&gt;must&lt;/strong&gt; contain the names of all group members somewhere near the top.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note the changed due date&lt;/strong&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;The United States has resettled many immigrants across the years.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;../../../../../../../img/assignments/refugees_welcome.jpg&#34; width=&#34;70%&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../../../../../../../../../img/assignments/refugees_welcome.jpg&#34; width=&#34;70%&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;In this project, you will use &lt;strong&gt;R, ggplot&lt;/strong&gt; and some form of graphics editor to explore where these folks have come from.&lt;/p&gt;
 &lt;div id=&#34;part-1-instructions&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Part 1: Instructions&lt;/h2&gt;
@@ -9126,14 +9126,15 @@ output:
 &lt;p&gt;&lt;a href=&#34;https://www.dhs.gov/ohss/topics/immigration/yearbook&#34;&gt;&lt;i class=&#34;fas fa-file-csv&#34;&gt;&lt;/i&gt; Yearbook Link&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;Choose&lt;/strong&gt; some subset of years and a variety of datasets to explore.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;Clean&lt;/strong&gt; and merge the data. You will need to merge some nasty data. You will need to clean it up. You will need to reshape it.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Summarize&lt;/strong&gt; the data in a series of clear and simple tables.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Create&lt;/strong&gt; two appropriate time-based visualizations based on the data.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Summarize&lt;/strong&gt; the data in a series of clear and simple tables. (These need not be included in your final poster but should inform its design.)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Create&lt;/strong&gt; two appropriate visualizations based on the data.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;Refine and polish&lt;/strong&gt; the saved image, adding annotations, changing colors, and otherwise enhancing it.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;Design and create&lt;/strong&gt; an infographic “poster”. Your poster should look like a polished image that you might see on a newspaper website like &lt;a href=&#34;https://www.nytimes.com/interactive/2020/04/11/business/economy/coronavirus-us-economy-spending.html&#34;&gt;the NYT&lt;/a&gt;. Your infographic “poster” should include an eye-catching title, your plots, any caption(s) describing the plot, and 2-4 short paragraphs succinctly describing the insights you are sharing about the data. You can (and should consider) integrating other images like national flags or arrows to convey some semantic meaning. You may do the layout of the infographic “poster” in any software you choose - Publisher (do people still use that?), Adobe Illustrator, etc. Again, the idea is to have a polished plot with an interesting insight from the data, a &lt;strong&gt;polished&lt;/strong&gt; layout to make it attractive, and a polished 2-4 paragraphs that sets up the plot and elaborates on your insight.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;Upload&lt;/strong&gt; the following outputs to D2L:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Your code (.Rmd) that generates the graphic.&lt;/li&gt;
 &lt;li&gt;Your final poster, saved as a PDF.&lt;/li&gt;
+&lt;li&gt;Your hypotheses as a separate PDF.&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;For this assignment, we are less concerned with the code and more concerned with the &lt;em&gt;design&lt;/em&gt;. Choose good colors based on palettes. Choose good, clean fonts. Use the heck out of &lt;code&gt;theme()&lt;/code&gt;. Add informative design elements. Make it look beautiful. Refer to &lt;a href=&#34;https://ssc442.netlify.app/resource/design/&#34;&gt;the design resources here&lt;/a&gt;.&lt;/p&gt;
@@ -9141,7 +9142,7 @@ output:
 &lt;/div&gt;
 &lt;div id=&#34;part-2-hypotheses&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Part 2: Hypotheses&lt;/h2&gt;
-&lt;p&gt;For this part of the assignment, you need to provide five hypotheses about the relationship between variables in one of the datasets from your Project 1. You can (and should) consider making hypotheses about the dataset that you plan to use for your final project. However, this is not a requirement. All that is required is that you provide five hypotheses about some data. Your write-up should have an enumerated list of questions (e.g., “1. Are there more murders in states that have high unemployment.”) along with a 1-2 sentence statement detailing why this hypothesis is interesting and should be studied. You will receive 2 points for each hypothesis.&lt;/p&gt;
+&lt;p&gt;For this part of the assignment, you need to provide five hypotheses about the relationship between variables in one of the datasets. Ideally, this should be done on one of the datasets from your Project 1 (as a lead-in to the final project). You can (and should) consider making hypotheses about the dataset that you plan to use for your final project. However, this is not a requirement. All that is required is that you provide five hypotheses about some data. Your write-up should have an enumerated list of questions (e.g., “1. Are there more murders in states that have high unemployment.”) along with a 1-2 sentence statement detailing why this hypothesis is interesting and should be studied. You will receive 2 points for each hypothesis.&lt;/p&gt;
 &lt;div id=&#34;evaluation&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Evaluation&lt;/h3&gt;
 &lt;p&gt;I will evaluate these projects (not the TA). I will only give top marks to those groups showing initiative and cleverness. I will use the following weights for final scores:&lt;/p&gt;
