@@ -1,8 +1,8 @@
 ---
 title: "Classification"
 linktitle: "11: Classification"
-read_date: "2023-11-14"
-lastmod: "2023-10-17"
+read_date: "2024-03-26"
+lastmod: "2024-03-26"
 menu:
   content:
     parent: Course content
@@ -54,8 +54,8 @@ output:
 </div>
 <div id="classification-overview" class="section level1">
 <h1>Overview</h1>
-<p><strong>Classification</strong> is a form of <strong>supervised learning</strong> where the response variable is categorical, as opposed to numeric for regression. <em>Our goal is to find a rule, algorithm, or function which takes as input a feature vector, and outputs a category which is the true category as often as possible.</em></p>
-<p><img src="img/classification.png" /></p>
+<p><strong>Classification</strong> is a form of <strong>supervised learning</strong> where the response variable is categorical, as opposed to numeric for regression. <em>Our goal is to find a rule, algorithm, or function which takes as input a feature vector, and outputs a category which is the true category as often as possible.</em> This is a very different problem than regression, and requires different tools and techniques.</p>
+<p><img src="/img/classification.png" /></p>
 <p>That is, the classifier <span class="math inline">\(\hat{C}(x)\)</span> returns the predicted category <span class="math inline">\(\hat{y}(X)\)</span>.</p>
 <p><span class="math display">\[
 \hat{y}(x) = \hat{C}(x)
@@ -689,7 +689,7 @@ summary(model_multi)$coefficients</code></pre>
 ## 1   1.000000e+00 1.910554e-16 6.118616e-176
 ## 92  8.542846e-22 1.000000e+00  1.372168e-18
 ## 77  8.343856e-23 1.000000e+00  2.527471e-14
-## 38  1.000000e+00 1.481126e-16 5.777917e-180
+## 38  1.000000e+00 1.481127e-16 5.777917e-180
 ## 108 1.835279e-73 1.403654e-36  1.000000e+00
 ## 83  1.256090e-16 1.000000e+00  2.223689e-32</code></pre>
 <p>Notice that by default, classifications are returned. When obtaining probabilities, we are given the predicted probability for <strong>each</strong> class.</p>
