@@ -3729,44 +3729,90 @@ patchwork::wrap_plots(FinalResults, nrow = 2, guides = &amp;#39;collect&amp;#39;
 
 &lt;div id=&#34;TOC&#34;&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#some-f23-business&#34; id=&#34;toc-some-f23-business&#34;&gt;Some (F23) Business&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#predicting-defaults&#34; id=&#34;toc-predicting-defaults&#34;&gt;Predicting Defaults&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#this-piece-of-wood-aint-big-enough-for-the-two-of-us&#34; id=&#34;toc-this-piece-of-wood-aint-big-enough-for-the-two-of-us&#34;&gt;This Piece of Wood Ain’t Big Enough for the Two of Us&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 
 &lt;div class=&#34;fyi&#34;&gt;
 &lt;p&gt;Today’s example will build on material in the “Content” tab.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div id=&#34;some-f23-business&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Some (F23) Business&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;I won’t be here the Thursday &lt;em&gt;after&lt;/em&gt; Thanksgiving&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;We will meet the Tuesday &lt;em&gt;before&lt;/em&gt; Thanksgiving&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;div id=&#34;this-piece-of-wood-aint-big-enough-for-the-two-of-us&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;This Piece of Wood Ain’t Big Enough for the Two of Us&lt;/h3&gt;
+&lt;p&gt;In this exercise, you will perform binary classification to predict the survival of passengers on the Titanic. You will use logistic regression, a fundamental technique in data analytics for binary prediction. The goal is to understand how to prepare data for modeling, implement logistic regression in R, and evaluate the model’s performance.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://queensransom.files.wordpress.com/2013/03/ill-never-let-go.gif&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;div id=&#34;dataset&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Dataset&lt;/h4&gt;
+&lt;p&gt;The Titanic dataset contains information about the passengers, including their age, sex, class of travel, and whether they survived the sinking of the Titanic. The ‘Survived’ column is the target variable, where 1 means the passenger survived and 0 means they did not. Of course, you’ll need the ‘tidyverse’ and ‘caret’ packages installed in R.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div id=&#34;predicting-defaults&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Predicting Defaults&lt;/h2&gt;
-&lt;p&gt;Today, we will continue to use the &lt;code&gt;ISLR&lt;/code&gt; data on defaults:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ISLR)
-library(tibble)
-Default = ISLR::Default&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&#34;fyi&#34;&gt;
-&lt;p&gt;In our first breakout:&lt;/p&gt;
+&lt;div id=&#34;part-1-data-preparation&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Part 1: Data Preparation&lt;/h4&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;&lt;p&gt;Clean the data so that the &lt;code&gt;default&lt;/code&gt; column is a binary indicator for default&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Build a logistic model to predict &lt;code&gt;default&lt;/code&gt; using any combination of variables and interactions in the data. For now, just use your best judgement for choosing the variables and interactions – your lab for this week will have you formally tune a logistic model to optimize results.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Use a Bayes Classifier cutoff of .50 to generate your classifier output. Do you need to alter the cutoff?&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Load the Dataset&lt;/strong&gt;: The Titanic dataset can be loaded from the ‘titanic’ package. If you haven’t already, install the package and load the data.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;install.packages(&amp;quot;titanic&amp;quot;)
+library(titanic)
+data &amp;lt;- titanic::titanic_train&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Data Inspection&lt;/strong&gt;: Inspect the dataset to understand its structure, missing values, and the types of variables it contains.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str(data)
+summary(data)&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;3&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Data Cleaning&lt;/strong&gt;: Handle missing values in the dataset. For simplicity, you can remove rows with missing values or impute them.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data &amp;lt;- na.omit(data)
+# Or use imputation methods&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;4&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Feature Engineering&lt;/strong&gt;: Convert categorical variables into dummy variables as necessary. Focus on the ‘Sex’ and ‘Pclass’ variables.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data$Pclass &amp;lt;- as.factor(data$Pclass)
+data &amp;lt;- tidyr::pivot_wider(data, names_from = Pclass, values_from = Pclass, values_fill = list(Pclass = 0), names_prefix = &amp;quot;Class_&amp;quot;)
+data$Sex &amp;lt;- ifelse(data$Sex == &amp;#39;male&amp;#39;, 1, 0) # Convert Sex to binary (male: 1, female: 0)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;part-2-logistic-regression-model&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Part 2: Logistic Regression Model&lt;/h4&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Fit the Logistic Regression Model&lt;/strong&gt;: Use the ‘glm’ function to fit a logistic regression model using the training set.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;model &amp;lt;- glm(Survived ~ WHATEVER STUFF YOU WANT, family = binomial(link = &amp;quot;logit&amp;quot;), data = data)&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Model Summary&lt;/strong&gt;: Describe your model output. What do you get and does it make any sense?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(model)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;part-3-model-evaluation&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Part 3: Model Evaluation&lt;/h4&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Predictions&lt;/strong&gt;: Make predictions on the test set and convert probabilities to binary outcomes (0 or 1). Try using a Bayes Classifier cutoff of .50 to generate your classifier output. Do you need to alter the cutoff?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;testData &amp;lt;- titanic::titanic_test
+probabilities &amp;lt;- predict(model, testData, type = &amp;quot;response&amp;quot;)
+predictions &amp;lt;- ifelse(probabilities &amp;gt; 0.5, 1, 0)&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Evaluate Performance&lt;/strong&gt;: Use confusion matrix to evaluate the model’s performance.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;confusionMatrix &amp;lt;- table(testData$Survived, predictions)
+print(confusionMatrix)&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;3&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Discuss Results&lt;/strong&gt;: Analyze the confusion matrix to calculate accuracy, precision, recall, and F1 score. Discuss the implications of these metrics in the context of the problem.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
-&lt;p&gt;Back in class, let’s look at how we did. What variables were most useful in explaining &lt;code&gt;default&lt;/code&gt;?&lt;/p&gt;
+&lt;div id=&#34;guidance&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Guidance:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Ensure you understand each step of the process, especially how the logistic regression model is applied and interpreted.&lt;/li&gt;
+&lt;li&gt;Pay attention to the model’s assumptions and how the choice of features may influence its performance.&lt;/li&gt;
+&lt;li&gt;Reflect on the ethical implications of predictive modeling, especially in historical contexts like the Titanic dataset.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;div class=&#34;fyi&#34;&gt;
-&lt;p&gt;In our second breakout, we will create a ROC curve manually. To do this&lt;/p&gt;
+&lt;p&gt;In our culminating exercise, we will create a ROC curve from our final output. To do this:&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;&lt;p&gt;Take your model from the first breakout, and using a loop (or &lt;code&gt;sapply&lt;/code&gt;), step through a large number of possible cutoffs for classification ranging from 0 to 1.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Take your best model from above and, using a loop (or &lt;code&gt;sapply&lt;/code&gt;), step through a large number of possible cutoffs for classification ranging from 0 to 1.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;For each cutoff, generate a confusion matrix with &lt;em&gt;accuracy&lt;/em&gt;, &lt;em&gt;sensitivity&lt;/em&gt; and &lt;em&gt;specificity&lt;/em&gt;.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Combine the cutoff with the &lt;em&gt;sensitivity&lt;/em&gt; and &lt;em&gt;specificity&lt;/em&gt; results and make a ROC plot. Use &lt;code&gt;ggplot&lt;/code&gt; for your plot and map the color aesthetic to the cutoff value.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Calculate the AUC (the &lt;em&gt;area under the curve&lt;/em&gt;). This is a little tricky but can be done with your data.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Calculate the AUC (the &lt;em&gt;area under the curve&lt;/em&gt;). This is a little tricky! But it &lt;em&gt;can&lt;/em&gt; be done with your data.&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
@@ -11546,6 +11592,7 @@ rats_clean &amp;lt;- rats_raw %&amp;gt;%
 &lt;p&gt;The general breakdown will be approximately 55% for labs, participation, and weekly writings, and 45% for projects (see below for specific details). The primary focus of the course is a final project; this requires two “mini-projects” to ensure you’re making satisfactory progress. Assignment of numeric grades will follow the standard, where ties (e.g., 91.5%) are rounded to favor the student. Evaluations (read: grades) are designed not to deter anyone from taking this course who might otherwise be interested, but will be taken seriously.&lt;/p&gt;
 &lt;p&gt;Weekly writings are intended to be an easy way to get some points. Labs will be short homework assignments that require you to do something practical using a basic statistical language. Support will be provided for the &lt;code&gt;R&lt;/code&gt; language only. You must have access to computing resources and the ability to program basic statistical analyses. As mentioned above, this course will not teach you how to program or how to write code in a specific language. If you are unprepared to do implement basic statistical coding, please take (or retake) PLS202. I highly encourage seeking coding advice from those who instruct computer science courses – it’s their job and they are better at it than I am. I’ll try to provide a good service, but I’m really not an expert in computer science.&lt;/p&gt;
 &lt;p&gt;More in-depth descriptions for all the assignments are on the &lt;a href=&#34;https://ssc442.netlify.app/assignment/&#34;&gt;assignments page&lt;/a&gt;. As the course progresses, the assignments themselves will be posted within that page.&lt;/p&gt;
+&lt;p&gt;You’ll notice that one weekly writing and one lab are given for free (and labeled on D2L as “Free Points - Weekly Writing” and “Free Points - Lab” respectively.) You’re welcome. This means in total you must complete only 11 numbered weekly writings and 11 labs. Plan accordingly.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;To Recap:&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;centered-table&#34;&gt;
 &lt;table style=&#34;width:72%;&#34;&gt;
@@ -11569,13 +11616,13 @@ rats_clean &amp;lt;- rats_raw %&amp;gt;%
 &lt;/tr&gt;
 &lt;tr class=&#34;even&#34;&gt;
 &lt;td align=&#34;left&#34;&gt;Weekly Writings (14-2 x 8 ea),
-drop two lowest + 1 freebie&lt;/td&gt;
+drop two lowest&lt;/td&gt;
 &lt;td align=&#34;center&#34;&gt;96&lt;/td&gt;
 &lt;td align=&#34;center&#34;&gt;18%&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;odd&#34;&gt;
 &lt;td align=&#34;left&#34;&gt;Labs (13-1 x 15 ea), drop one
-lowest + 1 freebie&lt;/td&gt;
+lowest&lt;/td&gt;
 &lt;td align=&#34;center&#34;&gt;180&lt;/td&gt;
 &lt;td align=&#34;center&#34;&gt;34%&lt;/td&gt;
 &lt;/tr&gt;

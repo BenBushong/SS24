@@ -129,14 +129,16 @@ Weekly writings are intended to be an easy way to get some points. Labs will be 
 
 More in-depth descriptions for all the assignments are on the [assignments page](/assignment/). As the course progresses, the assignments themselves will be posted within that page.
 
+You'll notice that one weekly writing and one lab are given for free (and labeled on D2L as "Free Points - Weekly Writing" and "Free Points - Lab" respectively.) You're welcome. This means in total you must complete only 11 numbered weekly writings and 11 labs. Plan accordingly. 
+
 **To Recap:**
 
 ```{r assignments-grades, include=FALSE}
 assignments <- tribble(
   ~Points,  ~Assignment,
   25      , "Class Participation",
-  12 * 8 , "Weekly Writings (14-2 x 8 ea), drop two lowest + 1 freebie",
-  12 * 15 , "Labs (13-1 x 15 ea), drop one lowest + 1 freebie",
+  12 * 8 , "Weekly Writings (14-2 x 8 ea), drop two lowest",
+  12 * 15 , "Labs (13-1 x 15 ea), drop one lowest",
   50      , "Mini project 1",
   50      , "Mini project 2",
   135     , "Final project"

@@ -1,7 +1,7 @@
 ---
 title: "Illustrating Classification"
 linktitle: "11: Classification"
-read_date: "2023-11-16"
+read_date: "2024-03-28"
 output:
   blogdown::html_page:
     toc: true
@@ -18,43 +18,89 @@ editor_options:
 
 <div id="TOC">
 <ul>
-<li><a href="#some-f23-business" id="toc-some-f23-business">Some (F23) Business</a></li>
-<li><a href="#predicting-defaults" id="toc-predicting-defaults">Predicting Defaults</a></li>
+<li><a href="#this-piece-of-wood-aint-big-enough-for-the-two-of-us" id="toc-this-piece-of-wood-aint-big-enough-for-the-two-of-us">This Piece of Wood Ain’t Big Enough for the Two of Us</a></li>
 </ul>
 </div>
 
 <div class="fyi">
 <p>Today’s example will build on material in the “Content” tab.</p>
 </div>
-<div id="some-f23-business" class="section level2">
-<h2>Some (F23) Business</h2>
-<ul>
-<li><p>I won’t be here the Thursday <em>after</em> Thanksgiving</p></li>
-<li><p>We will meet the Tuesday <em>before</em> Thanksgiving</p></li>
-</ul>
+<div id="this-piece-of-wood-aint-big-enough-for-the-two-of-us" class="section level3">
+<h3>This Piece of Wood Ain’t Big Enough for the Two of Us</h3>
+<p>In this exercise, you will perform binary classification to predict the survival of passengers on the Titanic. You will use logistic regression, a fundamental technique in data analytics for binary prediction. The goal is to understand how to prepare data for modeling, implement logistic regression in R, and evaluate the model’s performance.</p>
+<p><img src="https://queensransom.files.wordpress.com/2013/03/ill-never-let-go.gif" style="display: block; margin: auto;" /></p>
+<div id="dataset" class="section level4">
+<h4>Dataset</h4>
+<p>The Titanic dataset contains information about the passengers, including their age, sex, class of travel, and whether they survived the sinking of the Titanic. The ‘Survived’ column is the target variable, where 1 means the passenger survived and 0 means they did not. Of course, you’ll need the ‘tidyverse’ and ‘caret’ packages installed in R.</p>
 </div>
-<div id="predicting-defaults" class="section level2">
-<h2>Predicting Defaults</h2>
-<p>Today, we will continue to use the <code>ISLR</code> data on defaults:</p>
-<pre class="r"><code>library(ISLR)
-library(tibble)
-Default = ISLR::Default</code></pre>
-<div class="fyi">
-<p>In our first breakout:</p>
+<div id="part-1-data-preparation" class="section level4">
+<h4>Part 1: Data Preparation</h4>
 <ol style="list-style-type: decimal">
-<li><p>Clean the data so that the <code>default</code> column is a binary indicator for default</p></li>
-<li><p>Build a logistic model to predict <code>default</code> using any combination of variables and interactions in the data. For now, just use your best judgement for choosing the variables and interactions – your lab for this week will have you formally tune a logistic model to optimize results.</p></li>
-<li><p>Use a Bayes Classifier cutoff of .50 to generate your classifier output. Do you need to alter the cutoff?</p></li>
+<li><strong>Load the Dataset</strong>: The Titanic dataset can be loaded from the ‘titanic’ package. If you haven’t already, install the package and load the data.</li>
+</ol>
+<pre class="r"><code>install.packages(&quot;titanic&quot;)
+library(titanic)
+data &lt;- titanic::titanic_train</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>Data Inspection</strong>: Inspect the dataset to understand its structure, missing values, and the types of variables it contains.</li>
+</ol>
+<pre class="r"><code>str(data)
+summary(data)</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li><strong>Data Cleaning</strong>: Handle missing values in the dataset. For simplicity, you can remove rows with missing values or impute them.</li>
+</ol>
+<pre class="r"><code>data &lt;- na.omit(data)
+# Or use imputation methods</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li><strong>Feature Engineering</strong>: Convert categorical variables into dummy variables as necessary. Focus on the ‘Sex’ and ‘Pclass’ variables.</li>
+</ol>
+<pre class="r"><code>data$Pclass &lt;- as.factor(data$Pclass)
+data &lt;- tidyr::pivot_wider(data, names_from = Pclass, values_from = Pclass, values_fill = list(Pclass = 0), names_prefix = &quot;Class_&quot;)
+data$Sex &lt;- ifelse(data$Sex == &#39;male&#39;, 1, 0) # Convert Sex to binary (male: 1, female: 0)</code></pre>
+</div>
+<div id="part-2-logistic-regression-model" class="section level4">
+<h4>Part 2: Logistic Regression Model</h4>
+<ol style="list-style-type: decimal">
+<li><strong>Fit the Logistic Regression Model</strong>: Use the ‘glm’ function to fit a logistic regression model using the training set.</li>
+</ol>
+<pre class="r"><code>model &lt;- glm(Survived ~ WHATEVER STUFF YOU WANT, family = binomial(link = &quot;logit&quot;), data = data)</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>Model Summary</strong>: Describe your model output. What do you get and does it make any sense?</li>
+</ol>
+<pre class="r"><code>summary(model)</code></pre>
+</div>
+<div id="part-3-model-evaluation" class="section level4">
+<h4>Part 3: Model Evaluation</h4>
+<ol style="list-style-type: decimal">
+<li><strong>Predictions</strong>: Make predictions on the test set and convert probabilities to binary outcomes (0 or 1). Try using a Bayes Classifier cutoff of .50 to generate your classifier output. Do you need to alter the cutoff?</li>
+</ol>
+<pre class="r"><code>testData &lt;- titanic::titanic_test
+probabilities &lt;- predict(model, testData, type = &quot;response&quot;)
+predictions &lt;- ifelse(probabilities &gt; 0.5, 1, 0)</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>Evaluate Performance</strong>: Use confusion matrix to evaluate the model’s performance.</li>
+</ol>
+<pre class="r"><code>confusionMatrix &lt;- table(testData$Survived, predictions)
+print(confusionMatrix)</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li><strong>Discuss Results</strong>: Analyze the confusion matrix to calculate accuracy, precision, recall, and F1 score. Discuss the implications of these metrics in the context of the problem.</li>
 </ol>
 </div>
-<p>Back in class, let’s look at how we did. What variables were most useful in explaining <code>default</code>?</p>
+<div id="guidance" class="section level4">
+<h4>Guidance:</h4>
+<ul>
+<li>Ensure you understand each step of the process, especially how the logistic regression model is applied and interpreted.</li>
+<li>Pay attention to the model’s assumptions and how the choice of features may influence its performance.</li>
+<li>Reflect on the ethical implications of predictive modeling, especially in historical contexts like the Titanic dataset.</li>
+</ul>
 <div class="fyi">
-<p>In our second breakout, we will create a ROC curve manually. To do this</p>
+<p>In our culminating exercise, we will create a ROC curve from our final output. To do this:</p>
 <ol style="list-style-type: decimal">
-<li><p>Take your model from the first breakout, and using a loop (or <code>sapply</code>), step through a large number of possible cutoffs for classification ranging from 0 to 1.</p></li>
+<li><p>Take your best model from above and, using a loop (or <code>sapply</code>), step through a large number of possible cutoffs for classification ranging from 0 to 1.</p></li>
 <li><p>For each cutoff, generate a confusion matrix with <em>accuracy</em>, <em>sensitivity</em> and <em>specificity</em>.</p></li>
 <li><p>Combine the cutoff with the <em>sensitivity</em> and <em>specificity</em> results and make a ROC plot. Use <code>ggplot</code> for your plot and map the color aesthetic to the cutoff value.</p></li>
-<li><p>Calculate the AUC (the <em>area under the curve</em>). This is a little tricky but can be done with your data.</p></li>
+<li><p>Calculate the AUC (the <em>area under the curve</em>). This is a little tricky! But it <em>can</em> be done with your data.</p></li>
 </ol>
+</div>
 </div>
 </div>

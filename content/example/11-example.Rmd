@@ -1,7 +1,7 @@
 ---
 title: "Illustrating Classification"
 linktitle: "11: Classification"
-read_date: "2023-11-16"
+read_date: "2024-03-28"
 output:
   blogdown::html_page:
     toc: true
@@ -22,50 +22,100 @@ Today's example will build on material in the "Content" tab.
 
 :::
 
-## Some (F23) Business
 
-- I won't be here the Thursday *after* Thanksgiving
+### This Piece of Wood Ain't Big Enough for the Two of Us
 
-- We will meet the Tuesday *before* Thanksgiving
+In this exercise, you will perform binary classification to predict the survival of passengers on the Titanic. You will use logistic regression, a fundamental technique in data analytics for binary prediction. The goal is to understand how to prepare data for modeling, implement logistic regression in R, and evaluate the model's performance.
 
-- Let's look at the ROC curve one more time.
-
-
-
-## Predicting Defaults
-
-Today, we will continue to use the `ISLR` data on defaults:
-
-```{r}
-library(ISLR)
-library(tibble)
-Default = ISLR::Default
+```{r insert-image, echo=FALSE, fig.align='center'}
+knitr::include_graphics(path = "https://queensransom.files.wordpress.com/2013/03/ill-never-let-go.gif")
 ```
 
+
+#### Dataset
+
+The Titanic dataset contains information about the passengers, including their age, sex, class of travel, and whether they survived the sinking of the Titanic. The 'Survived' column is the target variable, where 1 means the passenger survived and 0 means they did not. Of course, you'll need the 'tidyverse' and 'caret' packages installed in R.
+
+#### Part 1: Data Preparation
+
+1. **Load the Dataset**: The Titanic dataset can be loaded from the 'titanic' package. If you haven't already, install the package and load the data.
+
+```{r, eval=FALSE}
+install.packages("titanic")
+library(titanic)
+data <- titanic::titanic_train
+```
+
+2. **Data Inspection**: Inspect the dataset to understand its structure, missing values, and the types of variables it contains.
+
+```{r, eval=FALSE}
+str(data)
+summary(data)
+```
+
+3. **Data Cleaning**: Handle missing values in the dataset. For simplicity, you can remove rows with missing values or impute them.
+
+```{r, eval=FALSE}
+data <- na.omit(data)
+# Or use imputation methods
+```
+
+4. **Feature Engineering**: Convert categorical variables into dummy variables as necessary. Focus on the 'Sex' and 'Pclass' variables.
+
+```{r, eval=FALSE}
+data$Pclass <- as.factor(data$Pclass)
+data <- tidyr::pivot_wider(data, names_from = Pclass, values_from = Pclass, values_fill = list(Pclass = 0), names_prefix = "Class_")
+data$Sex <- ifelse(data$Sex == 'male', 1, 0) # Convert Sex to binary (male: 1, female: 0)
+```
+
+#### Part 2: Logistic Regression Model
+
+1. **Fit the Logistic Regression Model**: Use the 'glm' function to fit a logistic regression model using the training set.
+
+```{r, eval=FALSE}
+model <- glm(Survived ~ WHATEVER STUFF YOU WANT, family = binomial(link = "logit"), data = data)
+```
+
+2. **Model Summary**: Describe your model output. What do you get and does it make any sense? 
+
+```{r, eval=FALSE}
+summary(model)
+```
+
+#### Part 3: Model Evaluation
+
+1. **Predictions**: Make predictions on the test set and convert probabilities to binary outcomes (0 or 1). Try using a Bayes Classifier cutoff of .50 to generate your classifier output. Do you need to alter the cutoff?
+
+```{r, eval=FALSE}
+testData <- titanic::titanic_test
+probabilities <- predict(model, testData, type = "response")
+predictions <- ifelse(probabilities > 0.5, 1, 0)
+```
+
+2. **Evaluate Performance**: Use confusion matrix to evaluate the model's performance.
+
+```{r, eval=FALSE}
+confusionMatrix <- table(testData$Survived, predictions)
+print(confusionMatrix)
+```
+
+3. **Discuss Results**: Analyze the confusion matrix to calculate accuracy, precision, recall, and F1 score. Discuss the implications of these metrics in the context of the problem.
+
+#### Guidance:
+- Ensure you understand each step of the process, especially how the logistic regression model is applied and interpreted.
+- Pay attention to the model's assumptions and how the choice of features may influence its performance.
+- Reflect on the ethical implications of predictive modeling, especially in historical contexts like the Titanic dataset.
+
+
 :::fyi
-In our first breakout:
+In our culminating exercise, we will create a ROC curve from our final output. To do this:
 
-1. Clean the data so that the `default` column is a binary indicator for default
-
-2. Build a logistic model to predict `default` using any combination of variables and interactions in the data. For now, just use your best judgement for choosing the variables and interactions -- your lab for this week will have you formally tune a logistic model to optimize results.
-
-3. Use a Bayes Classifier cutoff of .50 to generate your classifier output. Do you need to alter the cutoff?
-
-:::
-
-
-Back in class, let's look at how we did. What variables were most useful in explaining `default`? 
-
-
-:::fyi
-In our second breakout, we will create a ROC curve manually. To do this
-
-1. Take your model from the first breakout, and using a loop (or `sapply`), step through a large number of possible cutoffs for classification ranging from 0 to 1.
+1. Take your best model from above and, using a loop (or `sapply`), step through a large number of possible cutoffs for classification ranging from 0 to 1.
 
 2. For each cutoff, generate a confusion matrix with *accuracy*, *sensitivity* and *specificity*.
 
 3. Combine the cutoff with the *sensitivity* and *specificity* results and make a ROC plot. Use `ggplot` for your plot and map the color aesthetic to the cutoff value.
 
-4. Calculate the AUC (the *area under the curve*). This is a little tricky but can be done with your data.
+4. Calculate the AUC (the *area under the curve*). This is a little tricky! But it *can* be done with your data.
 :::
 
