@@ -1,7 +1,7 @@
 ---
 title: "Text as Data"
 linktitle: "12: Text as Data"
-read_date: "2023-11-21"
+read_date: "2024-04-02"
 menu:
   content:
     parent: Course content
@@ -13,7 +13,7 @@ output:
 ---
 
 ## Required Reading
-
+ 
 - This page.
 
 ### Guiding Questions
