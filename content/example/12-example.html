@@ -1,7 +1,7 @@
 ---
-title: "Text as Data"
+title: "Applications of Text as Data"
 linktitle: "12: Text As Data"
-read_date: "2023-11-23"
+read_date: "2024-04-04"
 output:
   blogdown::html_page:
     toc: true
@@ -18,10 +18,114 @@ editor_options:
 
 <div id="TOC">
 <ul>
-<li><a href="#this-class-falls-on-thanksgiving-so-we-will-not-use-it" id="toc-this-class-falls-on-thanksgiving-so-we-will-not-use-it">This class falls on Thanksgiving, so we will not use it</a></li>
+<li><a href="#reintroduction-to-text-as-data" id="toc-reintroduction-to-text-as-data">(Re)Introduction to Text as Data</a></li>
+<li><a href="#text-preprocessing" id="toc-text-preprocessing">Text Preprocessing</a></li>
+<li><a href="#basic-text-analysis" id="toc-basic-text-analysis">Basic Text Analysis</a>
+<ul>
+<li><a href="#data-preparation" id="toc-data-preparation">Data Preparation</a></li>
+<li><a href="#text-preprocessing-1" id="toc-text-preprocessing-1">Text Preprocessing</a>
+<ul>
+<li><a href="#tokenization" id="toc-tokenization">Tokenization</a></li>
+<li><a href="#word-frequency-analysis" id="toc-word-frequency-analysis">Word Frequency Analysis</a></li>
+<li><a href="#sentiment-analysis" id="toc-sentiment-analysis">Sentiment Analysis</a></li>
+</ul></li>
+<li><a href="#introduction-to-generative-ai" id="toc-introduction-to-generative-ai">Introduction to Generative AI</a></li>
+<li><a href="#some-reading-and-resources" id="toc-some-reading-and-resources">Some Reading and Resources</a></li>
+</ul></li>
 </ul>
 </div>
 
-<div id="this-class-falls-on-thanksgiving-so-we-will-not-use-it" class="section level1">
-<h1>This class falls on Thanksgiving, so we will not use it</h1>
+<div id="reintroduction-to-text-as-data" class="section level1">
+<h1>(Re)Introduction to Text as Data</h1>
+<p>Text data is ubiquitous and offers rich insights in various domains, from social media analytics to literature and beyond. Analyzing text data helps uncover patterns, sentiments, and trends. Moreover, the advent of generative AI has opened new frontiers in how we generate and interpret text data.</p>
+</div>
+<div id="text-preprocessing" class="section level1">
+<h1>Text Preprocessing</h1>
+<p>Text data often requires preprocessing to convert raw text into a structured form that can be analyzed. Common preprocessing steps include:</p>
+<ul>
+<li>Tokenization: Splitting text into words or tokens.</li>
+<li>Stop words removal: Eliminating common words that do not contribute to the meaning of the text.</li>
+<li>Stemming and Lemmatization: Reducing words to their base or root form.</li>
+</ul>
+<pre class="r"><code>library(tidytext)
+library(janeaustenr)
+library(tidyverse)</code></pre>
+<pre><code>## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+## ✔ dplyr     1.1.4     ✔ readr     2.1.5
+## ✔ forcats   1.0.0     ✔ stringr   1.5.1
+## ✔ ggplot2   3.5.0     ✔ tibble    3.2.1
+## ✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+## ✔ purrr     1.0.2     
+## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()
+## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+<pre class="r"><code>text &lt;- c(&quot;Text data preprocessing is crucial for any text analysis task.&quot;)
+text_data &lt;- tibble(line = 1, text = text)</code></pre>
+</div>
+<div id="basic-text-analysis" class="section level1">
+<h1>Basic Text Analysis</h1>
+<p>In this example, we will explore text data using the novels of Jane Austen. We’ll perform text preprocessing, explore the most common words, and conduct a simple sentiment analysis. These steps are fundamental in understanding the data preprocessing phase for text in data analytics and the basics of sentiment analysis, laying the groundwork for more advanced topics like generative AI.</p>
+<div id="data-preparation" class="section level2">
+<h2>Data Preparation</h2>
+<p>We will use the <code>janeaustenr</code> package to access the text data. This package contains the full texts of Jane Austen’s 6 completed, published novels.</p>
+<pre class="r"><code>data(&quot;austen_books&quot;)</code></pre>
+<pre><code>## Warning in data(&quot;austen_books&quot;): data set &#39;austen_books&#39; not found</code></pre>
+</div>
+<div id="text-preprocessing-1" class="section level2">
+<h2>Text Preprocessing</h2>
+<p>Text preprocessing involves cleaning and preparing text data for analysis. We’ll tokenize the text, remove stop words, and then stem the remaining words. Note that code provided below WILL NOT WORK.</p>
+<div id="tokenization" class="section level3">
+<h3>Tokenization</h3>
+<p>Tokenization is the process of breaking text down into individual terms or tokens.</p>
+<pre class="r"><code>austen_tokens &lt;- austen_books %&gt;%
+  unnest_tokens(word, text) %&gt;%
+  anti_join(stop_words)</code></pre>
+</div>
+<div id="word-frequency-analysis" class="section level3">
+<h3>Word Frequency Analysis</h3>
+<p>Let’s analyze the most common words found across Jane Austen’s novels after removing stop words.</p>
+<pre class="r"><code>word_freq &lt;- austen_tokens %&gt;%
+  count(word, sort = TRUE) %&gt;%
+  top_n(20, n)
+
+ggplot(word_freq, aes(x = reorder(word, n), y = n)) +
+  geom_col() +
+  xlab(NULL) +
+  ylab(&quot;Frequency&quot;) +
+  coord_flip() +
+  labs(title = &quot;Top 20 Words in Jane Austen&#39;s Novels&quot;)</code></pre>
+</div>
+<div id="sentiment-analysis" class="section level3">
+<h3>Sentiment Analysis</h3>
+<p>Sentiment analysis helps in determining the attitude or emotion of the text. We will use the <code>bing</code> sentiment lexicon available in the <code>tidytext</code> package.</p>
+<pre class="r"><code>austen_sentiment &lt;- austen_tokens %&gt;%
+  inner_join(get_sentiments(&quot;bing&quot;)) %&gt;%
+  count(index = linenumber %/% 80, sentiment, sort = TRUE) %&gt;%
+  spread(key = sentiment, value = n, fill = 0) %&gt;%
+  mutate(sentiment = positive - negative)
+
+ggplot(austen_sentiment, aes(x = index, y = sentiment, fill = sentiment &gt; 0)) +
+  geom_col(show.legend = FALSE) +
+  labs(title = &quot;Sentiment Analysis Over the Course of Austen&#39;s Novels&quot;, y = &quot;Sentiment&quot;, x = &quot;Section of Text&quot;)</code></pre>
+<p>These techniques are essential for understanding text data, which is a critical component in the field of data analytics. Understanding these foundational concepts is crucial for moving towards more advanced topics such as machine learning and generative AI in text analysis.</p>
+</div>
+</div>
+<div id="introduction-to-generative-ai" class="section level2">
+<h2>Introduction to Generative AI</h2>
+<p>Generative AI refers to algorithms and models that can generate new content. In the context of text, generative models like GPT (Generative Pre-trained Transformer) learn from vast amounts of text data to generate coherent and contextually relevant text based on input prompts. Below are some slides I produced last year on the topic.</p>
+<p><a href="/slides/NN.pdf"><i class="fas fa-external-link-square-alt"></i> <code>Slides</code></a></p>
+</div>
+<div id="some-reading-and-resources" class="section level2">
+<h2>Some Reading and Resources</h2>
+<ul>
+<li>Tidy Text Mining with R: <a href="https://www.tidytextmining.com/" class="uri">https://www.tidytextmining.com/</a></li>
+<li>Introduction to Deep Learning for Natural Language Processing: <a href="https://www.deeplearningbook.org/contents/nlp.html" class="uri">https://www.deeplearningbook.org/contents/nlp.html</a></li>
+<li>OpenAI API documentation for practical examples of generative AI in action: <a href="https://beta.openai.com/docs/" class="uri">https://beta.openai.com/docs/</a></li>
+</ul>
+<div class="embed-responsive embed-responsive-16by9">
+<iframe class="embed-responsive-item" src="https://www.youtube.com/watch?v=wjZofJX0v4M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</div>
+</div>
 </div>

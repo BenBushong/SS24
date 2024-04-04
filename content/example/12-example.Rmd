@@ -1,7 +1,7 @@
 ---
-title: "Text as Data"
+title: "Applications of Text as Data"
 linktitle: "12: Text As Data"
-read_date: "2023-11-23"
+read_date: "2024-04-04"
 output:
   blogdown::html_page:
     toc: true
@@ -16,5 +16,103 @@ editor_options:
 ---
 
 
-# This class falls on Thanksgiving, so we will not use it
+# (Re)Introduction to Text as Data
 
+Text data is ubiquitous and offers rich insights in various domains, from social media analytics to literature and beyond. Analyzing text data helps uncover patterns, sentiments, and trends. Moreover, the advent of generative AI has opened new frontiers in how we generate and interpret text data.
+
+# Text Preprocessing
+
+Text data often requires preprocessing to convert raw text into a structured form that can be analyzed. Common preprocessing steps include:
+
+- Tokenization: Splitting text into words or tokens.
+- Stop words removal: Eliminating common words that do not contribute to the meaning of the text.
+- Stemming and Lemmatization: Reducing words to their base or root form.
+
+```{r preprocessing}
+library(tidytext)
+library(janeaustenr)
+library(tidyverse)
+
+text <- c("Text data preprocessing is crucial for any text analysis task.")
+text_data <- tibble(line = 1, text = text)
+
+```
+
+# Basic Text Analysis
+
+In this example, we will explore text data using the novels of Jane Austen. We'll perform text preprocessing, explore the most common words, and conduct a simple sentiment analysis. These steps are fundamental in understanding the data preprocessing phase for text in data analytics and the basics of sentiment analysis, laying the groundwork for more advanced topics like generative AI.
+
+## Data Preparation
+
+We will use the `janeaustenr` package to access the text data. This package contains the full texts of Jane Austen's 6 completed, published novels.
+
+```{r data-preparation}
+data("austen_books")
+```
+
+## Text Preprocessing
+
+Text preprocessing involves cleaning and preparing text data for analysis. We'll tokenize the text, remove stop words, and then stem the remaining words. Note that code provided below WILL NOT WORK. 
+
+### Tokenization
+
+Tokenization is the process of breaking text down into individual terms or tokens.
+
+```{r tokenization, eval=FALSE}
+austen_tokens <- austen_books %>%
+  unnest_tokens(word, text) %>%
+  anti_join(stop_words)
+```
+
+### Word Frequency Analysis
+
+Let's analyze the most common words found across Jane Austen's novels after removing stop words.
+
+```{r word-frequency, eval=FALSE}
+word_freq <- austen_tokens %>%
+  count(word, sort = TRUE) %>%
+  top_n(20, n)
+
+ggplot(word_freq, aes(x = reorder(word, n), y = n)) +
+  geom_col() +
+  xlab(NULL) +
+  ylab("Frequency") +
+  coord_flip() +
+  labs(title = "Top 20 Words in Jane Austen's Novels")
+```
+
+### Sentiment Analysis
+
+Sentiment analysis helps in determining the attitude or emotion of the text. We will use the `bing` sentiment lexicon available in the `tidytext` package.
+
+```{r sentiment-analysis, eval=FALSE}
+austen_sentiment <- austen_tokens %>%
+  inner_join(get_sentiments("bing")) %>%
+  count(index = linenumber %/% 80, sentiment, sort = TRUE) %>%
+  spread(key = sentiment, value = n, fill = 0) %>%
+  mutate(sentiment = positive - negative)
+
+ggplot(austen_sentiment, aes(x = index, y = sentiment, fill = sentiment > 0)) +
+  geom_col(show.legend = FALSE) +
+  labs(title = "Sentiment Analysis Over the Course of Austen's Novels", y = "Sentiment", x = "Section of Text")
+```
+
+ These techniques are essential for understanding text data, which is a critical component in the field of data analytics. Understanding these foundational concepts is crucial for moving towards more advanced topics such as machine learning and generative AI in text analysis.
+
+## Introduction to Generative AI
+
+Generative AI refers to algorithms and models that can generate new content. In the context of text, generative models like GPT (Generative Pre-trained Transformer) learn from vast amounts of text data to generate coherent and contextually relevant text based on input prompts. Below are some slides I produced last year on the topic. 
+
+[<i class="fas fa-external-link-square-alt"></i> `Slides`](/slides/NN.pdf)
+
+
+## Some Reading and Resources
+
+- Tidy Text Mining with R: <https://www.tidytextmining.com/>
+- Introduction to Deep Learning for Natural Language Processing: <https://www.deeplearningbook.org/contents/nlp.html>
+- OpenAI API documentation for practical examples of generative AI in action: <https://beta.openai.com/docs/>
+
+
+<div class="embed-responsive embed-responsive-16by9">
+<iframe class="embed-responsive-item" src="https://www.youtube.com/watch?v=wjZofJX0v4M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
