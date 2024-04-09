@@ -1,7 +1,7 @@
 ---
 title: "Geospatial with R"
 linktitle: "14: Geospatial with R"
-read_date: "2023-12-05"
+read_date: "2024-04-16"
 menu:
   content:
     parent: Course content
@@ -38,107 +38,16 @@ library(tidyverse)
 library(tmaptools)
 ```
 
+## What is spatial data?
+Spatial data is any data that contains a reference to a defined area, usually a physical area with a geographic definition The linkages between some data (e.g. "population in 1,000's") and a defined geographic area (e.g. "state") go beyond simply including a column that contains the name of the defined area. The physical properties of that area are included. For instance, if we have the *physical* area corresponding to a state, then we can also find neighboring states. Simply looking at a state name does not tell us which states share boundaries -- this is a spatial property. Of course, we can look up a state's neighbors easily because maps are commonplace, but more obscure geographies (think "small rivers" or areas with common soil types) won't be as easy. Thus, we might want to be able to link different variables via their spatial data.
 
-## Vector vs. Raster
-There are two ways of storing 2-D mapped spatial data, *raster* and *vector*. A *vector* representation of a 2-D shape is best described as an irregular polygon with points defining vertices. A square plotted in cartesian coordinates is a vector representation. Conversely, a *raster* image is a grid of cells where each cell is defined as "in" or "out" of the square. Most computer graphics like JPEG and TIFF are raster graphics and each pixel has an assigned color. To make a raster image of a blue square, we'd make a big grid of pixels, and then color some blue based on their location. To make a blue square in vector form, we'd record *just the location of the corners* and add instructions to color inside the polygon formed by those corners blue.
+Spatial data can be stored in three ways: point, line, or polygon. Point data is usually stored as a latitude + longitude pair, usually in decimal degrees (though sometimes in other formats, like meters from a common centerpoint). Line data (think of things like highways or railroad tracks) is stored as a vector of lat+lon pairs, where each point defines a portion of a line segment. Polygons are used to store areas -- e.g. a city boundary, a residential housing lot, or a geographic region (where a rough "region" is represented as a well-defined area).
 
-```{r, out.width = '50%', echo = F}
-knitr::include_graphics('https://vector-conversions.com/images/vector_vs_raster.jpg')
-```
+**R** and `sf` store spatial data in a "tidy" way: each point, line, or polygon is an observation. We may have multiple variables for each observation, each contained in a separate column and each of the referring to the same spatial point, line, or polygon. Finally, for the spatial data, a special additional columnn titled `geometry` will be present, and each row of the `geometry` column will contain the data necessary to identify the point, line, or polygon.
 
-### Vectors are scalable. Rasters are not
-Rasters are great for detail, like pixels in a picture, but they do not scale up very well. Vectors are great for things that do need to scale up. They are also smaller and easier to work with when they aren't trying to replicate photo-realistic images.  Vectors can handle curves by recording the properties of the curve (e.g. bezier curves), while rasters have to approximate curves along the grid of cells, so if you want a smooth curve, you need lots of cells.
+For points, the `geometry` column will simply hold two numbers in each row corresponding to the latitude and longitude. The data itself will contain information about how to interpret those numbers, and where they fall on a map. The definition can be abstract -- it can refer to any "cartesian coordinates" (X and Y coordinates), but usually it'll refer to coordinates that are located somewhere on earth. For lines, the row of the `geometry` column will hold multiple lat+lon points, *all in the same row* and saved in a list. For polygons that refer to an area, each row of `geometry` will contain all the points that define the polygon, and some information on how to draw the polygon (and how to make any "holes" in it, when needed). *All of this happens behind the scenes* and you don't need to know how it works. If you're interested, our course site's Resources page has a short primer titled "Spatial Basics".
 
-Geospatial work is almost always done in vectors because (1) it is easier to store data as vectors, and (2) it is easier to manipulate, project, intersect, or connect vector points, lines, and polygons.
-
-We are going to work entirely with vectors today.
-
-
-# Vectors: points, lines, and polygons
-Most everything we would want to map can be represented as a point, a line, or a polygon. Points could be the location of power plants in the US, or the location of COVID cases, or the location of major intersections. Lines could be the location of train tracks, the shortest distance between someone's house and the nearest restaurants, or a major road. Polygons could be county boundaries, landowner's lot lines, or bodies of water.
-
-We can start by making some points, then turning them into a polygon. We'll just use arbitrary coordinates for now, but will move into GPS latitude-longitude coordinates shortly. We'll use `st_multipoint` to create our points object. It takes a numeric matrix only.
-
-```{r, echo = TRUE}
-myPoints = tribble(~X, ~Y,
-                   0, 0,
-                   0, 4,
-                   1, 4,
-                   1, 1,
-                   .5, 0,
-                   0, 0)
-
-myPoints = st_multipoint(as.matrix(myPoints))
-plot(myPoints)
-
-```
-
-### Making polygons
-We've begun making our first spatial object! Now, we can turn it into a polygon under one condition: the polygon has to "close" in order for R to know which side is the inside. In `myPoints`, the *last* point is identical to the *first* point, so R will "close" it:
-
-```{r, echo = TRUE}
-plot(st_polygon(list(myPoints)), col = 'darkgreen')
-```
-
-
-That's just one polylgon. Let's add another one. When we created the polygon, we put the points object, `myPoints`, into a list. If we have a list of, say, two points objects, then we'll get two polygons:
-
-```{r}
-myPoints2 = tribble(~X, ~Y,
-                    1,1,
-                    2,1,
-                    2,2,
-                    1,2,
-                    1,1)
-                    
-myPoints2 = st_multipoint(as.matrix(myPoints2))
-
-myPolygons = st_polygon(list(myPoints, myPoints2))
-plot(myPolygons, col = 'lightblue')
-```
-
-
-Now we can see two polygons. Looking at the `str`ucture of the polygons:
-
-```{r}
-str(myPolygons)
-```
-
-Notice that one of the classes is `sfg`. This is a `sf` package-defined spatial object. 
-
-### Getting points on a plot
-One little-known trick in R is super helpful in spatial work. If you `plot(myPolygons)` in your own R-studio console (so it appears in your "Plots" pane, not knit into your document), you can use `click(n)` to interactively get $n$ spatial points in the coordinate system of your plot. 
-
-```{r, echo = T, eval = F}
-myClicks = click(n = 3)
-myClicks = rbind(myClicks, myClicks[1,])  # copy the first point to the last point to "close"
-myNewPolygon = st_polygon(list(st_multipoint(myClicks)))
-plot(myPolygons, col = 'lightblue')
-plot(myNewPolygon, col = 'green', add=T)
-
-```
-
-
-```{r, echo = F, eval = T}
-myClicks = as.matrix(data.frame(x = c(.37, 1.06, 1.31),
-                                y = c(2.71, .47, 2.66)))
-                     
-myClicks = rbind(myClicks, myClicks[1,])  # copy the first point to the last point to "close"
-myNewPolygon = st_polygon(list(st_multipoint(myClicks)))
-plot(myPolygons, col = 'lightblue')
-plot(myNewPolygon, col = 'green', add=T)
-
-```
-
-### Making lines
-
-We could also create a line with our points. I'll leave off the one point we added to "close" the polygon. Note that the line is colored blue, not the (uncompleted) polygon.
-
-```{r}
-myLine = st_linestring(myPoints[1:4,])
-plot(myLine, col = 'blue')
-
-```
+As we'll see, holding the "geometry" (points, lines, or polygons) in each row lets us to spatial operations, like summarizing (which, in spatial terms, combines areas or points) and joining (which, in spatial terms, lets us relate points/lines/polygons to other points/lines/polygons). That's what we'll do today.
 
 # Reading spatial data
 While it's fun to draw our own shapes (caution: my definition of fun $\neq$ your definition of fun), we're probably most interested in finding and using existing spatial data. Let's talk briefly about the types of spatial data out there:
@@ -163,6 +72,8 @@ We can open and use any one of these filetypes. I will cover Shapefiles and GEOJ
 ### Where to find spatial data
 Spatial data is all around us! Try searching google for a topic + "spatial shapefile". One of my favorite sources for spatial data is the DHS [HIFLD Open database](https://hifld-geoplatform.opendata.arcgis.com/), which has lots of government datasets that are well-organized by category. Click through, and when you find something you like, click the "Download" button. If there is a GEOJSON or KML file available, **right-click** and copy the link address, or click on **full details** and scroll down to *I want to...View API Resources* and copy the GEOJSON link. Then, use that with `st_read()`. On many maps (including this one), the GeoJSON link is shown under the API drop-down. Use GeoJSON over KML as some systems have issues importing the data fields in KML. 
 
+Increasingly, it's getting harder and harder to find direct links. You may have to download data, then load it in from your local drive.
+
 ### Loading the data
 We'll use the `sf` package's `st_read` to open spatial data. Here, I'm loading the Natural Gas Processing Plants data from the Energy section of HIFLD. I'm using the **GeoJSON** option, which `st_read()` knows how to handle:
 
@@ -173,16 +84,17 @@ gasplants = st_read('https://opendata.arcgis.com/datasets/ca984888f8154c63bf3a02
 head(gasplants)
 ```
 
-The `sf` data type holds both the data (which here is just the name of the plant) *and* the "geometry", which are the points. It's tidy data - one row is one observation of one plant, and each row has a set of coordinates telling us where to find the plant.
+The `sf` data type holds both the data (which here is just the name of the plant) *and* the "geometry", which are the points. It's tidy data - one row is one observation of one plant, and each row has a set of coordinates telling us where to find the plant. The `geometry` column contains **points** as this is point data. While these gas plants do likely have some area, we are not really interested in the parcel of land they occupy, we think of them (and hold them in data) as points.
 
-We can use ggplot with `geom_sf()` to plot these points. They're just scattered across the country and we don't automatically get a background map, but here are the points 
-```{r}
+We can use ggplot with `geom_sf()` to plot these points. They're just scattered across the country and we don't automatically get a background map, but here are the points
+
+```{r plotgas1}
 ggplot(gasplants) + geom_sf() + theme_minimal()
 ```
 
 Well, we're missing some context here -- we can kind of make out the point of Texas down there, but it's hard to tell anything about where these plants are located. Let's use `tigris` to get a map of the US, then plot it plus the points. Note we use different `data = ` in each of the `geom_sf()` calls:
 
-```{r, message = F, warning = F, results = 'hide'}
+```{r plotgas2, message = F, warning = F, results = 'hide'}
 
 US <- tigris::states(cb = TRUE, progress_bar = FALSE)  # tigris maps
 
@@ -192,9 +104,9 @@ ggplot() + geom_sf(data = US, col = 'gray50') +
 ```
 
 
-Getting there. The problem now is that the `tigris` data covers all US territories, which are really spread out! Let's drop down to just Michigan. We can use good old `filter` just like with regular data:
+Getting there. The problem now is that the `tigris` data covers all US territories (and that data covers Canada), which are really spread out! Let's drop down to just Michigan. We can use good old `filter` just like with regular data:
 
-```{r}
+```{r plotgas3}
 MI = states(cb = TRUE) %>% dplyr::filter(STUSPS=='MI')
 
 ggplot() + geom_sf(data = MI, col = 'gray50') +
@@ -219,9 +131,6 @@ GEOJSON, shapefiles, and KML files usually come with embedded projections stored
 
 For mapping, you might need to *transform* your data between projections (or "reproject" it, same thing). We use `st_transform` for this. We only need to give `R` the EPSG (Geodetic Parameter Dataset) of the projection you want to end up in. As long as it's already in a known projection, `R` can re-project it. The projection is refered to by the Coordinate Reference System (CRS). `st_crs` will tell us the projection (EPSG number and a lot more) of any spatial object. If they do not match, then `R` will give an error or, worse, plot them on totally different scales - sometimes you end up with points from the US landing in the middle of the Indian Ocean! In fact, look back at our map of gas plants and the US. 
 
-::: Notice
-Did you notice that a lot of the US gas plants mapped to...Canada? Those might be Alaskan plants, but the *projections* were not identical, so the definition of coordinates were different between our US map and our gas plants maps. Neither is "right" or "wrong" - they just have to be the same. Differences in projections tend to be worse at the extreme latitudes.
-:::
 
 ```{r}
 st_crs(gasplants)
@@ -229,7 +138,7 @@ st_crs(MI)
 ```
 One is in 4326, the other in 4269. We can use `st_transform` on the `gasplants` data, which will reproject the points (and won't change the data at all). The data won't be any different, and the points won't look too much different
 
-```{r}
+```{r plotgas4}
 gasplants = gasplants %>%
   st_transform(st_crs(MI))
 
@@ -246,7 +155,7 @@ Sometimes, we have data only in .csv format, but with X and Y coordinates (e.g. 
 
 We know how to do the first, and the 2nd and 3rd are done in one step. We'll make a data.frame of city names and use the `tmaptools` package's `geocode_OSM` to get the latitudes and longitudes of the city centers. This function uses open-source Open Street Maps instead of the google API (which is used by `ggmap`). This way, we don't need an API key.
 
-```{r}
+```{r plotcity1}
 
 ourCities = geocode_OSM(c('Detroit','Lansing','Grand Rapids','Kalamazoo','Traverse City','Marquette')) %>%
   select(City = query, lat = lat, lon = lon)
@@ -263,7 +172,7 @@ head(ourCities.spatial)
 
 Now we have the point geometries! We can map this:
 
-```{r}
+```{r plotcity2}
 ggplot() +
   geom_sf(data = MI, fill = 'gray90') +
   geom_sf(data = ourCities.spatial, col = 'blue') +
@@ -276,7 +185,7 @@ Combining spatial data is the strength of geospatial analysis. We have our map o
 ### Point-to-polygon merges
 We'll use `st_join` to produce an inner join, so we keep only those points that are "in" (spatially) the state of Michigan. I'm specifying `join = st_intersects` though this is the default. Note that all the points that remain in the merged `MI.gasplants` are in Michigan, and note that all the data columns from `MI` are now in `gasplants`. We'll use a county map of MI here so we will have the *county* data for each county containing a gas plant.
 
-```{r, warning = F, message = F, result = 'hide'}
+```{r plotgas10, warning = F, message = F, result = 'hide'}
 
 MI.counties = counties(state = 'MI', cb = TRUE, progress_bar = FALSE)
 
@@ -291,7 +200,7 @@ head(MI.gasplants)
 
 Now, we can plot the counties map with the gasplants over it. We can even use `aes(...)` to `fill` the counties:
 
-```{r}
+```{r plotgas11}
 ggplot() + 
   geom_sf(data = MI.counties, aes(fill = NAME), show.legend = F) +  
   geom_sf(data = MI.gasplants) + 
@@ -352,7 +261,7 @@ ggplot() +
 
 These watersheds clearly overlap state boundaries. So what happens if we merge them? `sf` will create a new obsveration (row) for every HUC-4 / State combination
 
-```{r, message = F, warning = F}
+```{r HUC1, message = F, warning = F}
 poly.merge = HUC4 %>%
   st_join(US, left = TRUE)
 
@@ -361,14 +270,14 @@ head(poly.merge)
 
 Now, every HUC-4 like "Lower Colorado" has multiple observations, one for each STUSPS that it touches. When we plot it, though, each of those observations are still attached to the same HUC-4 polygon. Technically, R is plotting the same HUC multiple times (once for each state) on top of each other, so we don't see them. This is the equivalent of merging your data in a way that duplicates observations.
 
-```{r, message = F, warning=F}
+```{r HUC2, message = F, warning=F}
 ggplot(poly.merge) + geom_sf() + 
   theme_minimal()
 ```
 
 We have another option in our join - we can ask `st_join` to keep just the `largest`:
 
-```{r, message = F, warning = F}
+```{r HUC3, message = F, warning = F}
 poly.merge.largest = HUC4 %>%
   st_join(US, left = TRUE, largest = TRUE)
 
@@ -376,7 +285,7 @@ head(poly.merge.largest)
 ```
 Now, there is only *one* observation per HUC-4, and it corresponds to the state that has the most overlap area-wise. For Lower Colorado, Arizona has the most overlap. There are lots of things besides `st_intersect` we can use to call two things "joined". `?st_join` tells you about them. For instance, we can use `join = st_covers` and we will only get a merge when HUC-4 completely covers the state.
 
-```{r, message = F, warning = F}
+```{r HUC4, message = F, warning = F}
 HUC4 %>%
   st_join(US, left = TRUE, join = st_covers) %>%
   head()
@@ -386,7 +295,7 @@ None of the HUC-4's completely cover a state, so we get `NA` for all the state d
 
 The other thing we can do is ask `R` to create separate polygons - one for every HUC-4 / state combination. That isn't a merge, but it plays a similar role. Note this uses `st_intersection`:
 
-```{r, message = F, warning = F}
+```{r HUC5, message = F, warning = F}
 poly.int = HUC4 %>%
   st_intersection(US) %>%
   arrange(Name)
@@ -396,7 +305,7 @@ head(poly.int)
 
 Now, we have a unique polygon for every combination of HUC-4 and State (with the US):
 
-```{r}
+```{r HUC6}
 ggplot() + 
   geom_sf(data = US, fill = 'gray50') +
   geom_sf(data = poly.int, aes(fill = STUSPS), show.legend = FALSE) +
@@ -426,7 +335,7 @@ But how do we combine data specific to each HUC-4 in AZ? We could:
 
 We can implement any of these using `sf`. Let's do the second since it nests the first. First, we'll add the area of the State x HUC-4 using `st_area`, which gives a `units` object. We can turn that into a numeric:
 
-```{r, message = F, warning = F}
+```{r HUC7, message = F, warning = F}
 poly.int.summary = poly.int %>%
   dplyr::mutate(State.HUC.area = as.numeric(st_area(.))) %>%
   group_by(STUSPS) %>%
@@ -444,7 +353,7 @@ If we had wanted to just take the average (ignoring area), we'd just leave out t
 ## Cropping vs. merging
 Sometimes, we wish to only crop to a region rather than merging. `sf` has the `st_crop` function to do this. Let's crop our `HUC-4` data to just the **bounding box** of the state of Nevada
 
-```{r, echo=T, warning = F, message = F}
+```{r HUC8, echo=T, warning = F, message = F}
 
 HUC4.nv = HUC4 %>%
   st_crop(US %>% dplyr::filter(STUSPS=='NV'))
@@ -458,7 +367,7 @@ ggplot(HUC4.nv) + geom_sf(aes(fill = Name), show.legend = F) +
 
 If we wanted to actually crop to the state of Nevada (`st_crop` only uses the bounding box of Nevada), we'd use `st_intersection` but do the intersection with just the state of Nevada:
 
-```{r, echo=T, warning = F, message = F}
+```{r HUC9, echo=T, warning = F, message = F}
 HUC4.nv = HUC4 %>%
   st_intersection(US %>% dplyr::filter(STUSPS=='NV'))
 
@@ -473,13 +382,13 @@ Note that the data for each HUC-4 remains unchanged. If there were something in 
 
 This introduces a useful concept: the *bounding box*. The bounding box is defined by the closest 4 points that form a box that perfectly encloses the object (even when the object is not a rectangle). The extent of the above plot is the bounding box for Nevada.
 
-```{r, echo=T}
+```{r NEV1, echo=T}
 Nevada.bbox = st_bbox(US %>% dplyr::filter(STUSPS=='NV'))
 Nevada.bbox
 ```
 The bounding box can be used to frame a "window" in a `ggplot` using `geom_sf()`. That is, sometimes, we want to *plot* just a subsection of a map, but we still want the data to be the whole map. Here's an example using the HOLC Redlining Maps, which were created in the 1930's and were used to segregate US housing up until the 1970's. They are available at the [University of Richmond's *Mapping Inequality* site](https://dsl.richmond.edu/panorama/redlining). We can load Lansing and Detroit using the code below:
 
-```{r}
+```{r MI1}
 lansing = st_read('https://dsl.richmond.edu/panorama/redlining/static/citiesData/MILansing19XX/geojson.json')
 
 detroit = st_read('https://dsl.richmond.edu/panorama/redlining/static/citiesData/MIDetroit1939/geojson.json')
@@ -498,7 +407,7 @@ ggplot(mi.redlining) +
 
 We can tell that our polygons have plotted, but since we have the whole state of Michigan, they're almost unreadable. We need to set our window over the lower part of the lower peninsula. We'll use `coord_sf` to do this, but first we need to define a window. Since windows are almost always rectangular, we can use the `st_bbox(mi.redlining)`, but we have to pull out the xlim (xmin, xmax) and ylim (ymin, ymax):
 
-```{r}
+```{r MI2}
 ggplot(mi.redlining) +
   geom_sf(aes(fill = grade, col = grade)) + 
   geom_sf(data = MI, fill = NA, col = 'gray50') +
@@ -517,7 +426,7 @@ Let's combine our `gasplants` and our `ourCities` to get the distance from each 
 
 We will use `st_distance`, which will generate a special type of object that contains the distance information. `MI.gasplants` has `r NROW(MI.gasplants)` observations, and ourCities has `r NROW(ourCities)`, so for each row in `ourCities` we will get `r NROW(MI.gasplants)` distances, one to each gasplant. This forms a *distance matrix* where each row is an object in `ourCities` and each column is an object in `MI.gasplants`. We are going to take only a few `MI.gasplants` so we can easily view the results:
 
-```{r}
+```{r MI3}
 ourCities.spatial = ourCities.spatial %>% 
   st_transform(st_crs(MI.gasplants))
 
@@ -556,14 +465,14 @@ we want to select from our distance matrix the 1st row, 3rd column; the 2nd row,
 ### st_nearest_feature
 As is common in R, there is a function that will get the closest points between to spatial objects. `st_nearest_points` takes two geometries, and returns  the neaarest point in `y` for every point in `x`, which is what we did with the MI gas plants.
 
-```{r}
+```{r MI5}
 st_nearest_feature(x = ourCities.spatial, y = MI.gasplants.small)
 ```
 This is exactly our `max.index` and can be used on the `y` object, `MI.gasplants.small`, to pull the names, subset, get distances etc.
 
 `st_nearest_feature` also works for points and polygons, or polygons and polygons, where it returns the index of the polygon that contains the nearest point to the features in `x`. Let's find the nearest Great Lake for each of our cities using a [KML shapefile of the Great Lakes from WI DNR](https://hub.arcgis.com/datasets/wi-dnr::great-lakes?geometry=-127.301%2C37.038%2C-43.585%2C48.298) Note that the GeoJSON link is under "API" on this site. We run into a complex geometry problem, and add `st_make_valid()` to fix it: 
 
-```{r}
+```{r MI6}
 GL = st_read('https://opendata.arcgis.com/datasets/a8bb79fc10e64eee8c3a9db97cc5dc80_4.geojson') %>%
   st_transform(st_crs(ourCities.spatial)) %>% st_make_valid()
 

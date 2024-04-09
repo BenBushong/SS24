@@ -4765,16 +4765,7 @@ endDate - startDate&lt;/code&gt;&lt;/pre&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#geospatial-in-r&#34; id=&#34;toc-geospatial-in-r&#34;&gt;Geospatial in R&lt;/a&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#vector-vs.-raster&#34; id=&#34;toc-vector-vs.-raster&#34;&gt;Vector vs. Raster&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#vectors-are-scalable.-rasters-are-not&#34; id=&#34;toc-vectors-are-scalable.-rasters-are-not&#34;&gt;Vectors are scalable. Rasters are not&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#vectors-points-lines-and-polygons&#34; id=&#34;toc-vectors-points-lines-and-polygons&#34;&gt;Vectors: points, lines, and polygons&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#making-polygons&#34; id=&#34;toc-making-polygons&#34;&gt;Making polygons&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#getting-points-on-a-plot&#34; id=&#34;toc-getting-points-on-a-plot&#34;&gt;Getting points on a plot&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#making-lines&#34; id=&#34;toc-making-lines&#34;&gt;Making lines&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#what-is-spatial-data&#34; id=&#34;toc-what-is-spatial-data&#34;&gt;What is spatial data?&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#reading-spatial-data&#34; id=&#34;toc-reading-spatial-data&#34;&gt;Reading spatial data&lt;/a&gt;
 &lt;ul&gt;
@@ -4824,81 +4815,13 @@ library(tigris)
 library(tidycensus)
 library(tidyverse)
 library(tmaptools)&lt;/code&gt;&lt;/pre&gt;
-&lt;div id=&#34;vector-vs.-raster&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Vector vs. Raster&lt;/h2&gt;
-&lt;p&gt;There are two ways of storing 2-D mapped spatial data, &lt;em&gt;raster&lt;/em&gt; and &lt;em&gt;vector&lt;/em&gt;. A &lt;em&gt;vector&lt;/em&gt; representation of a 2-D shape is best described as an irregular polygon with points defining vertices. A square plotted in cartesian coordinates is a vector representation. Conversely, a &lt;em&gt;raster&lt;/em&gt; image is a grid of cells where each cell is defined as “in” or “out” of the square. Most computer graphics like JPEG and TIFF are raster graphics and each pixel has an assigned color. To make a raster image of a blue square, we’d make a big grid of pixels, and then color some blue based on their location. To make a blue square in vector form, we’d record &lt;em&gt;just the location of the corners&lt;/em&gt; and add instructions to color inside the polygon formed by those corners blue.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vector-conversions.com/images/vector_vs_raster.jpg&#34; width=&#34;50%&#34; /&gt;&lt;/p&gt;
-&lt;div id=&#34;vectors-are-scalable.-rasters-are-not&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Vectors are scalable. Rasters are not&lt;/h3&gt;
-&lt;p&gt;Rasters are great for detail, like pixels in a picture, but they do not scale up very well. Vectors are great for things that do need to scale up. They are also smaller and easier to work with when they aren’t trying to replicate photo-realistic images. Vectors can handle curves by recording the properties of the curve (e.g. bezier curves), while rasters have to approximate curves along the grid of cells, so if you want a smooth curve, you need lots of cells.&lt;/p&gt;
-&lt;p&gt;Geospatial work is almost always done in vectors because (1) it is easier to store data as vectors, and (2) it is easier to manipulate, project, intersect, or connect vector points, lines, and polygons.&lt;/p&gt;
-&lt;p&gt;We are going to work entirely with vectors today.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;vectors-points-lines-and-polygons&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Vectors: points, lines, and polygons&lt;/h1&gt;
-&lt;p&gt;Most everything we would want to map can be represented as a point, a line, or a polygon. Points could be the location of power plants in the US, or the location of COVID cases, or the location of major intersections. Lines could be the location of train tracks, the shortest distance between someone’s house and the nearest restaurants, or a major road. Polygons could be county boundaries, landowner’s lot lines, or bodies of water.&lt;/p&gt;
-&lt;p&gt;We can start by making some points, then turning them into a polygon. We’ll just use arbitrary coordinates for now, but will move into GPS latitude-longitude coordinates shortly. We’ll use &lt;code&gt;st_multipoint&lt;/code&gt; to create our points object. It takes a numeric matrix only.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;myPoints = tribble(~X, ~Y,
-                   0, 0,
-                   0, 4,
-                   1, 4,
-                   1, 1,
-                   .5, 0,
-                   0, 0)
-
-myPoints = st_multipoint(as.matrix(myPoints))
-plot(myPoints)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442.netlify.app/content/14-content_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;div id=&#34;making-polygons&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Making polygons&lt;/h3&gt;
-&lt;p&gt;We’ve begun making our first spatial object! Now, we can turn it into a polygon under one condition: the polygon has to “close” in order for R to know which side is the inside. In &lt;code&gt;myPoints&lt;/code&gt;, the &lt;em&gt;last&lt;/em&gt; point is identical to the &lt;em&gt;first&lt;/em&gt; point, so R will “close” it:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(st_polygon(list(myPoints)), col = &amp;#39;darkgreen&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442.netlify.app/content/14-content_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;That’s just one polylgon. Let’s add another one. When we created the polygon, we put the points object, &lt;code&gt;myPoints&lt;/code&gt;, into a list. If we have a list of, say, two points objects, then we’ll get two polygons:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;myPoints2 = tribble(~X, ~Y,
-                    1,1,
-                    2,1,
-                    2,2,
-                    1,2,
-                    1,1)
-                    
-myPoints2 = st_multipoint(as.matrix(myPoints2))
-
-myPolygons = st_polygon(list(myPoints, myPoints2))
-plot(myPolygons, col = &amp;#39;lightblue&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442.netlify.app/content/14-content_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Now we can see two polygons. Looking at the &lt;code&gt;str&lt;/code&gt;ucture of the polygons:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str(myPolygons)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## List of 2
-##  $ : &amp;#39;XY&amp;#39; num [1:6, 1:2] 0 0 1 1 0.5 0 0 4 4 1 ...
-##   ..- attr(*, &amp;quot;dimnames&amp;quot;)=List of 2
-##   .. ..$ : NULL
-##   .. ..$ : chr [1:2] &amp;quot;X&amp;quot; &amp;quot;Y&amp;quot;
-##  $ : &amp;#39;XY&amp;#39; num [1:5, 1:2] 1 2 2 1 1 1 1 2 2 1
-##   ..- attr(*, &amp;quot;dimnames&amp;quot;)=List of 2
-##   .. ..$ : NULL
-##   .. ..$ : chr [1:2] &amp;quot;X&amp;quot; &amp;quot;Y&amp;quot;
-##  - attr(*, &amp;quot;class&amp;quot;)= chr [1:3] &amp;quot;XY&amp;quot; &amp;quot;POLYGON&amp;quot; &amp;quot;sfg&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Notice that one of the classes is &lt;code&gt;sfg&lt;/code&gt;. This is a &lt;code&gt;sf&lt;/code&gt; package-defined spatial object.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;getting-points-on-a-plot&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Getting points on a plot&lt;/h3&gt;
-&lt;p&gt;One little-known trick in R is super helpful in spatial work. If you &lt;code&gt;plot(myPolygons)&lt;/code&gt; in your own R-studio console (so it appears in your “Plots” pane, not knit into your document), you can use &lt;code&gt;click(n)&lt;/code&gt; to interactively get &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; spatial points in the coordinate system of your plot.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;myClicks = click(n = 3)
-myClicks = rbind(myClicks, myClicks[1,])  # copy the first point to the last point to &amp;quot;close&amp;quot;
-myNewPolygon = st_polygon(list(st_multipoint(myClicks)))
-plot(myPolygons, col = &amp;#39;lightblue&amp;#39;)
-plot(myNewPolygon, col = &amp;#39;green&amp;#39;, add=T)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442.netlify.app/content/14-content_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;making-lines&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Making lines&lt;/h3&gt;
-&lt;p&gt;We could also create a line with our points. I’ll leave off the one point we added to “close” the polygon. Note that the line is colored blue, not the (uncompleted) polygon.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;myLine = st_linestring(myPoints[1:4,])
-plot(myLine, col = &amp;#39;blue&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442.netlify.app/content/14-content_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;div id=&#34;what-is-spatial-data&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;What is spatial data?&lt;/h2&gt;
+&lt;p&gt;Spatial data is any data that contains a reference to a defined area, usually a physical area with a geographic definition The linkages between some data (e.g. “population in 1,000’s”) and a defined geographic area (e.g. “state”) go beyond simply including a column that contains the name of the defined area. The physical properties of that area are included. For instance, if we have the &lt;em&gt;physical&lt;/em&gt; area corresponding to a state, then we can also find neighboring states. Simply looking at a state name does not tell us which states share boundaries – this is a spatial property. Of course, we can look up a state’s neighbors easily because maps are commonplace, but more obscure geographies (think “small rivers” or areas with common soil types) won’t be as easy. Thus, we might want to be able to link different variables via their spatial data.&lt;/p&gt;
+&lt;p&gt;Spatial data can be stored in three ways: point, line, or polygon. Point data is usually stored as a latitude + longitude pair, usually in decimal degrees (though sometimes in other formats, like meters from a common centerpoint). Line data (think of things like highways or railroad tracks) is stored as a vector of lat+lon pairs, where each point defines a portion of a line segment. Polygons are used to store areas – e.g. a city boundary, a residential housing lot, or a geographic region (where a rough “region” is represented as a well-defined area).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;R&lt;/strong&gt; and &lt;code&gt;sf&lt;/code&gt; store spatial data in a “tidy” way: each point, line, or polygon is an observation. We may have multiple variables for each observation, each contained in a separate column and each of the referring to the same spatial point, line, or polygon. Finally, for the spatial data, a special additional columnn titled &lt;code&gt;geometry&lt;/code&gt; will be present, and each row of the &lt;code&gt;geometry&lt;/code&gt; column will contain the data necessary to identify the point, line, or polygon.&lt;/p&gt;
+&lt;p&gt;For points, the &lt;code&gt;geometry&lt;/code&gt; column will simply hold two numbers in each row corresponding to the latitude and longitude. The data itself will contain information about how to interpret those numbers, and where they fall on a map. The definition can be abstract – it can refer to any “cartesian coordinates” (X and Y coordinates), but usually it’ll refer to coordinates that are located somewhere on earth. For lines, the row of the &lt;code&gt;geometry&lt;/code&gt; column will hold multiple lat+lon points, &lt;em&gt;all in the same row&lt;/em&gt; and saved in a list. For polygons that refer to an area, each row of &lt;code&gt;geometry&lt;/code&gt; will contain all the points that define the polygon, and some information on how to draw the polygon (and how to make any “holes” in it, when needed). &lt;em&gt;All of this happens behind the scenes&lt;/em&gt; and you don’t need to know how it works. If you’re interested, our course site’s Resources page has a short primer titled “Spatial Basics”.&lt;/p&gt;
+&lt;p&gt;As we’ll see, holding the “geometry” (points, lines, or polygons) in each row lets us to spatial operations, like summarizing (which, in spatial terms, combines areas or points) and joining (which, in spatial terms, lets us relate points/lines/polygons to other points/lines/polygons). That’s what we’ll do today.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;reading-spatial-data&#34; class=&#34;section level1&#34;&gt;
@@ -4930,6 +4853,7 @@ plot(myLine, col = &amp;#39;blue&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;where-to-find-spatial-data&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Where to find spatial data&lt;/h3&gt;
 &lt;p&gt;Spatial data is all around us! Try searching google for a topic + “spatial shapefile”. One of my favorite sources for spatial data is the DHS &lt;a href=&#34;https://hifld-geoplatform.opendata.arcgis.com/&#34;&gt;HIFLD Open database&lt;/a&gt;, which has lots of government datasets that are well-organized by category. Click through, and when you find something you like, click the “Download” button. If there is a GEOJSON or KML file available, &lt;strong&gt;right-click&lt;/strong&gt; and copy the link address, or click on &lt;strong&gt;full details&lt;/strong&gt; and scroll down to &lt;em&gt;I want to…View API Resources&lt;/em&gt; and copy the GEOJSON link. Then, use that with &lt;code&gt;st_read()&lt;/code&gt;. On many maps (including this one), the GeoJSON link is shown under the API drop-down. Use GeoJSON over KML as some systems have issues importing the data fields in KML.&lt;/p&gt;
+&lt;p&gt;Increasingly, it’s getting harder and harder to find direct links. You may have to download data, then load it in from your local drive.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;loading-the-data&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Loading the data&lt;/h3&gt;
@@ -4957,22 +4881,22 @@ plot(myLine, col = &amp;#39;blue&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
 ## 4     BIG ESCAMBIA CREEK GAS PLANT POINT (-87.36302 31.07158)
 ## 5               DOGWOOD OAKS PLANT POINT (-87.18784 31.24347)
 ## 6 CASTLEBERRY GAS PROCESSING PLANT POINT (-86.88647 31.29632)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The &lt;code&gt;sf&lt;/code&gt; data type holds both the data (which here is just the name of the plant) &lt;em&gt;and&lt;/em&gt; the “geometry”, which are the points. It’s tidy data - one row is one observation of one plant, and each row has a set of coordinates telling us where to find the plant.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;sf&lt;/code&gt; data type holds both the data (which here is just the name of the plant) &lt;em&gt;and&lt;/em&gt; the “geometry”, which are the points. It’s tidy data - one row is one observation of one plant, and each row has a set of coordinates telling us where to find the plant. The &lt;code&gt;geometry&lt;/code&gt; column contains &lt;strong&gt;points&lt;/strong&gt; as this is point data. While these gas plants do likely have some area, we are not really interested in the parcel of land they occupy, we think of them (and hold them in data) as points.&lt;/p&gt;
 &lt;p&gt;We can use ggplot with &lt;code&gt;geom_sf()&lt;/code&gt; to plot these points. They’re just scattered across the country and we don’t automatically get a background map, but here are the points&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(gasplants) + geom_sf() + theme_minimal()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442.netlify.app/content/14-content_files/figure-html/unnamed-chunk-11-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://ssc442.netlify.app/content/14-content_files/figure-html/plotgas1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Well, we’re missing some context here – we can kind of make out the point of Texas down there, but it’s hard to tell anything about where these plants are located. Let’s use &lt;code&gt;tigris&lt;/code&gt; to get a map of the US, then plot it plus the points. Note we use different &lt;code&gt;data =&lt;/code&gt; in each of the &lt;code&gt;geom_sf()&lt;/code&gt; calls:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;US &amp;lt;- tigris::states(cb = TRUE, progress_bar = FALSE)  # tigris maps
 
 ggplot() + geom_sf(data = US, col = &amp;#39;gray50&amp;#39;) +
   geom_sf(data = gasplants) + theme_minimal()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442.netlify.app/content/14-content_files/figure-html/unnamed-chunk-12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Getting there. The problem now is that the &lt;code&gt;tigris&lt;/code&gt; data covers all US territories, which are really spread out! Let’s drop down to just Michigan. We can use good old &lt;code&gt;filter&lt;/code&gt; just like with regular data:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://ssc442.netlify.app/content/14-content_files/figure-html/plotgas2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Getting there. The problem now is that the &lt;code&gt;tigris&lt;/code&gt; data covers all US territories (and that data covers Canada), which are really spread out! Let’s drop down to just Michigan. We can use good old &lt;code&gt;filter&lt;/code&gt; just like with regular data:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;MI = states(cb = TRUE) %&amp;gt;% dplyr::filter(STUSPS==&amp;#39;MI&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Retrieving data for the year 2021&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot() + geom_sf(data = MI, col = &amp;#39;gray50&amp;#39;) +
   geom_sf(data = gasplants) + theme_minimal()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442.netlify.app/content/14-content_files/figure-html/unnamed-chunk-13-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://ssc442.netlify.app/content/14-content_files/figure-html/plotgas3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Well, now we have a different problem. We want to have only the &lt;code&gt;gasplants&lt;/code&gt; that are &lt;code&gt;over&lt;/code&gt; the state of Michigan. That requires a &lt;strong&gt;spatial join&lt;/strong&gt;. Luckily, our &lt;code&gt;tidyverse&lt;/code&gt; syntax &lt;strong&gt;works pretty seamlessly on &lt;code&gt;sf&lt;/code&gt; objects&lt;/strong&gt;. First, we have to take care of a little issue with spatial data. The &lt;strong&gt;projection&lt;/strong&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;projections-briefly&#34; class=&#34;section level3&#34;&gt;
@@ -4988,9 +4912,6 @@ ggplot() + geom_sf(data = US, col = &amp;#39;gray50&amp;#39;) +
 &lt;h4&gt;Importing projected data&lt;/h4&gt;
 &lt;p&gt;GEOJSON, shapefiles, and KML files usually come with embedded projections stored as &lt;strong&gt;EPSG&lt;/strong&gt; numbers like ‘4326’ (incidentally, ‘4326’ is the usual projection for GPS coordinates). Thus, the first one is usually already taken care of. If your data doesnt have a PROJ4 or EPSG number but the coordinates are all between -180 and +180, it’s likely in EPSG=4326. If none of those, then the data creator should have &lt;em&gt;metadata&lt;/em&gt; stating the proejction. It might take some googling and some trial and error.&lt;/p&gt;
 &lt;p&gt;For mapping, you might need to &lt;em&gt;transform&lt;/em&gt; your data between projections (or “reproject” it, same thing). We use &lt;code&gt;st_transform&lt;/code&gt; for this. We only need to give &lt;code&gt;R&lt;/code&gt; the EPSG (Geodetic Parameter Dataset) of the projection you want to end up in. As long as it’s already in a known projection, &lt;code&gt;R&lt;/code&gt; can re-project it. The projection is refered to by the Coordinate Reference System (CRS). &lt;code&gt;st_crs&lt;/code&gt; will tell us the projection (EPSG number and a lot more) of any spatial object. If they do not match, then &lt;code&gt;R&lt;/code&gt; will give an error or, worse, plot them on totally different scales - sometimes you end up with points from the US landing in the middle of the Indian Ocean! In fact, look back at our map of gas plants and the US.&lt;/p&gt;
-&lt;div class=&#34;Notice&#34;&gt;
-&lt;p&gt;Did you notice that a lot of the US gas plants mapped to…Canada? Those might be Alaskan plants, but the &lt;em&gt;projections&lt;/em&gt; were not identical, so the definition of coordinates were different between our US map and our gas plants maps. Neither is “right” or “wrong” - they just have to be the same. Differences in projections tend to be worse at the extreme latitudes.&lt;/p&gt;
-&lt;/div&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;st_crs(gasplants)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Coordinate Reference System:
 ##   User input: WGS 84 
@@ -5032,7 +4953,7 @@ ggplot() + geom_sf(data = US, col = &amp;#39;gray50&amp;#39;) +
   st_transform(st_crs(MI))
 
 ggplot(gasplants) + geom_sf() + theme_minimal()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442.netlify.app/content/14-content_files/figure-html/unnamed-chunk-15-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://ssc442.netlify.app/content/14-content_files/figure-html/plotgas4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;importing-unprojected-data&#34; class=&#34;section level4&#34;&gt;
 &lt;h4&gt;Importing unprojected data&lt;/h4&gt;
@@ -5052,7 +4973,7 @@ head(ourCities)&lt;/code&gt;&lt;/pre&gt;
 ## 2       Lansing 42.73377 -84.55538
 ## 3  Grand Rapids 42.96324 -85.66786
 ## 4     Kalamazoo 42.29171 -85.58723
-## 5 Traverse City 44.76064 -85.61653
+## 5 Traverse City 44.76065 -85.61660
 ## 6     Marquette 46.44815 -87.63059&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Since these are GPS-type coordinates, we are going to assume the CRS is EPSG=4326. Longitude is the “x” axis, and latitude is the “y” axis.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ourCities.spatial = st_as_sf(ourCities, coords = c(&amp;#39;lon&amp;#39;,&amp;#39;lat&amp;#39;), crs = 4326)
@@ -5067,14 +4988,14 @@ head(ourCities.spatial)&lt;/code&gt;&lt;/pre&gt;
 ## 2       Lansing POINT (-84.55538 42.73377)
 ## 3  Grand Rapids POINT (-85.66786 42.96324)
 ## 4     Kalamazoo POINT (-85.58723 42.29171)
-## 5 Traverse City POINT (-85.61653 44.76064)
+## 5 Traverse City  POINT (-85.6166 44.76065)
 ## 6     Marquette POINT (-87.63059 46.44815)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Now we have the point geometries! We can map this:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot() +
   geom_sf(data = MI, fill = &amp;#39;gray90&amp;#39;) +
   geom_sf(data = ourCities.spatial, col = &amp;#39;blue&amp;#39;) +
   theme_minimal()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442.netlify.app/content/14-content_files/figure-html/unnamed-chunk-18-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://ssc442.netlify.app/content/14-content_files/figure-html/plotcity2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;spatial-merges&#34; class=&#34;section level2&#34;&gt;
@@ -5113,16 +5034,16 @@ head(MI.gasplants)&lt;/code&gt;&lt;/pre&gt;
 ##          ALAND    AWATER                   geometry
 ## 166 1145834939 487713370 POINT (-83.95389 43.62672)
 ## 167 1441108421  17887265 POINT (-84.81844 44.55881)
-## 168 2246276778 103456215 POINT (-83.57433 42.61859)
+## 168 2246569961 103163034 POINT (-83.57433 42.61859)
 ## 169 1449729130  28020186 POINT (-85.19667 44.69001)
-## 170 1241505071 237173296 POINT (-82.73532 42.73481)
+## 170 1241505063 237173297  POINT (-82.73532 42.7348)
 ## 171 1466674406  17425113 POINT (-85.36458 44.07761)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Now, we can plot the counties map with the gasplants over it. We can even use &lt;code&gt;aes(...)&lt;/code&gt; to &lt;code&gt;fill&lt;/code&gt; the counties:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot() + 
   geom_sf(data = MI.counties, aes(fill = NAME), show.legend = F) +  
   geom_sf(data = MI.gasplants) + 
   theme_minimal()  &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442.netlify.app/content/14-content_files/figure-html/unnamed-chunk-20-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://ssc442.netlify.app/content/14-content_files/figure-html/plotgas11-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Huh. Most gas plants in Michigan are to the north of here. Interesting.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;mapview&#34; class=&#34;section level3&#34;&gt;
@@ -5159,7 +5080,7 @@ HUC4 = st_read(&amp;#39;https://opendata.arcgis.com/datasets/7f8632f3e3114623b4f
   geom_sf(data = US, col = &amp;#39;gray50&amp;#39;) +
   geom_sf(data = HUC4, aes(fill = Name), show.legend = FALSE) + 
   theme_minimal()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442.netlify.app/content/14-content_files/figure-html/unnamed-chunk-23-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://ssc442.netlify.app/content/14-content_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;These watersheds clearly overlap state boundaries. So what happens if we merge them? &lt;code&gt;sf&lt;/code&gt; will create a new obsveration (row) for every HUC-4 / State combination&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;poly.merge = HUC4 %&amp;gt;%
   st_join(US, left = TRUE)
@@ -5171,12 +5092,12 @@ head(poly.merge)&lt;/code&gt;&lt;/pre&gt;
 ## Bounding box:  xmin: -115.7061 ymin: 31.5082 xmax: -111.5061 ymax: 39.30285
 ## Geodetic CRS:  NAD83
 ##                         Name Description randomData STATEFP  STATENS
-## 1             Lower Colorado                     20      32 01779793
-## 1.1           Lower Colorado                     20      06 01779778
-## 1.2           Lower Colorado                     20      04 01779777
-## 2   Lower Colorado-Lake Mead                     21      49 01455989
-## 2.1 Lower Colorado-Lake Mead                     21      32 01779793
-## 2.2 Lower Colorado-Lake Mead                     21      04 01779777
+## 1             Lower Colorado                     19      32 01779793
+## 1.1           Lower Colorado                     19      06 01779778
+## 1.2           Lower Colorado                     19      04 01779777
+## 2   Lower Colorado-Lake Mead                     18      49 01455989
+## 2.1 Lower Colorado-Lake Mead                     18      32 01779793
+## 2.2 Lower Colorado-Lake Mead                     18      04 01779777
 ##        AFFGEOID GEOID STUSPS       NAME LSAD        ALAND      AWATER
 ## 1   0400000US32    32     NV     Nevada   00 284537290201  1839636284
 ## 1.1 0400000US06    06     CA California   00 403671756816 20293573058
@@ -5194,7 +5115,7 @@ head(poly.merge)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Now, every HUC-4 like “Lower Colorado” has multiple observations, one for each STUSPS that it touches. When we plot it, though, each of those observations are still attached to the same HUC-4 polygon. Technically, R is plotting the same HUC multiple times (once for each state) on top of each other, so we don’t see them. This is the equivalent of merging your data in a way that duplicates observations.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(poly.merge) + geom_sf() + 
   theme_minimal()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442.netlify.app/content/14-content_files/figure-html/unnamed-chunk-25-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://ssc442.netlify.app/content/14-content_files/figure-html/HUC2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;We have another option in our join - we can ask &lt;code&gt;st_join&lt;/code&gt; to keep just the &lt;code&gt;largest&lt;/code&gt;:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;poly.merge.largest = HUC4 %&amp;gt;%
   st_join(US, left = TRUE, largest = TRUE)
@@ -5206,12 +5127,12 @@ head(poly.merge.largest)&lt;/code&gt;&lt;/pre&gt;
 ## Bounding box:  xmin: -121.255 ymin: 31.5082 xmax: -111.5061 ymax: 42.3448
 ## Geodetic CRS:  NAD83
 ##                           Name Description randomData STATEFP  STATENS
-## 1               Lower Colorado                     20      04 01779777
-## 2     Lower Colorado-Lake Mead                     21      04 01779777
-## 3    Northern Mojave-Mono Lake                     15      06 01779778
-## 4 Central Nevada Desert Basins                     19      32 01779793
-## 5               North Lahontan                     24      06 01779778
-## 6   Black Rock Desert-Humboldt                     23      32 01779793
+## 1               Lower Colorado                     19      04 01779777
+## 2     Lower Colorado-Lake Mead                     18      04 01779777
+## 3    Northern Mojave-Mono Lake                     19      06 01779778
+## 4 Central Nevada Desert Basins                     18      32 01779793
+## 5               North Lahontan                     32      06 01779778
+## 6   Black Rock Desert-Humboldt                     13      32 01779793
 ##      AFFGEOID GEOID STUSPS       NAME LSAD        ALAND      AWATER
 ## 1 0400000US04    04     AZ    Arizona   00 294363973043   855871553
 ## 2 0400000US04    04     AZ    Arizona   00 294363973043   855871553
@@ -5236,12 +5157,12 @@ head(poly.merge.largest)&lt;/code&gt;&lt;/pre&gt;
 ## Bounding box:  xmin: -121.255 ymin: 31.5082 xmax: -111.5061 ymax: 42.3448
 ## Geodetic CRS:  NAD83
 ##                           Name Description randomData STATEFP STATENS AFFGEOID
-## 1               Lower Colorado                     20    &amp;lt;NA&amp;gt;    &amp;lt;NA&amp;gt;     &amp;lt;NA&amp;gt;
-## 2     Lower Colorado-Lake Mead                     21    &amp;lt;NA&amp;gt;    &amp;lt;NA&amp;gt;     &amp;lt;NA&amp;gt;
-## 3    Northern Mojave-Mono Lake                     15    &amp;lt;NA&amp;gt;    &amp;lt;NA&amp;gt;     &amp;lt;NA&amp;gt;
-## 4 Central Nevada Desert Basins                     19    &amp;lt;NA&amp;gt;    &amp;lt;NA&amp;gt;     &amp;lt;NA&amp;gt;
-## 5               North Lahontan                     24    &amp;lt;NA&amp;gt;    &amp;lt;NA&amp;gt;     &amp;lt;NA&amp;gt;
-## 6   Black Rock Desert-Humboldt                     23    &amp;lt;NA&amp;gt;    &amp;lt;NA&amp;gt;     &amp;lt;NA&amp;gt;
+## 1               Lower Colorado                     19    &amp;lt;NA&amp;gt;    &amp;lt;NA&amp;gt;     &amp;lt;NA&amp;gt;
+## 2     Lower Colorado-Lake Mead                     18    &amp;lt;NA&amp;gt;    &amp;lt;NA&amp;gt;     &amp;lt;NA&amp;gt;
+## 3    Northern Mojave-Mono Lake                     19    &amp;lt;NA&amp;gt;    &amp;lt;NA&amp;gt;     &amp;lt;NA&amp;gt;
+## 4 Central Nevada Desert Basins                     18    &amp;lt;NA&amp;gt;    &amp;lt;NA&amp;gt;     &amp;lt;NA&amp;gt;
+## 5               North Lahontan                     32    &amp;lt;NA&amp;gt;    &amp;lt;NA&amp;gt;     &amp;lt;NA&amp;gt;
+## 6   Black Rock Desert-Humboldt                     13    &amp;lt;NA&amp;gt;    &amp;lt;NA&amp;gt;     &amp;lt;NA&amp;gt;
 ##   GEOID STUSPS NAME LSAD ALAND AWATER                       geometry
 ## 1  &amp;lt;NA&amp;gt;   &amp;lt;NA&amp;gt; &amp;lt;NA&amp;gt; &amp;lt;NA&amp;gt;    NA     NA POLYGON ((-114.6233 36.0304...
 ## 2  &amp;lt;NA&amp;gt;   &amp;lt;NA&amp;gt; &amp;lt;NA&amp;gt; &amp;lt;NA&amp;gt;    NA     NA POLYGON ((-115.0786 39.3005...
@@ -5262,12 +5183,12 @@ head(poly.int)&lt;/code&gt;&lt;/pre&gt;
 ## Bounding box:  xmin: -120.4649 ymin: 35.40541 xmax: -114.1471 ymax: 42.3448
 ## Geodetic CRS:  NAD83
 ##                             Name Description randomData STATEFP  STATENS
-## 6     Black Rock Desert-Humboldt                     23      32 01779793
-## 6.1   Black Rock Desert-Humboldt                     23      06 01779778
-## 6.2   Black Rock Desert-Humboldt                     23      41 01155107
+## 6     Black Rock Desert-Humboldt                     13      32 01779793
+## 6.1   Black Rock Desert-Humboldt                     13      06 01779778
+## 6.2   Black Rock Desert-Humboldt                     13      41 01155107
 ## 7               Central Lahontan                     20      32 01779793
 ## 7.1             Central Lahontan                     20      06 01779778
-## 4   Central Nevada Desert Basins                     19      32 01779793
+## 4   Central Nevada Desert Basins                     18      32 01779793
 ##        AFFGEOID GEOID STUSPS       NAME LSAD        ALAND      AWATER
 ## 6   0400000US32    32     NV     Nevada   00 284537290201  1839636284
 ## 6.1 0400000US06    06     CA California   00 403671756816 20293573058
@@ -5287,7 +5208,7 @@ head(poly.int)&lt;/code&gt;&lt;/pre&gt;
   geom_sf(data = US, fill = &amp;#39;gray50&amp;#39;) +
   geom_sf(data = poly.int, aes(fill = STUSPS), show.legend = FALSE) +
   theme_minimal()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442.netlify.app/content/14-content_files/figure-html/unnamed-chunk-29-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://ssc442.netlify.app/content/14-content_files/figure-html/HUC6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Here, I’ve set the fill to the state, but you can see that the HUC-4’s have boundaries at the state line.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;summarizing&#34; class=&#34;section level3&#34;&gt;
@@ -5302,12 +5223,12 @@ head(poly.int)&lt;/code&gt;&lt;/pre&gt;
 ## Bounding box:  xmin: -120.4649 ymin: 32.2603 xmax: -111.5061 ymax: 41.10578
 ## Geodetic CRS:  NAD83
 ##                             Name randomData STUSPS
-## 1.2               Lower Colorado         20     AZ
-## 2.2     Lower Colorado-Lake Mead         21     AZ
-## 6.1   Black Rock Desert-Humboldt         23     CA
+## 1.2               Lower Colorado         19     AZ
+## 2.2     Lower Colorado-Lake Mead         18     AZ
+## 6.1   Black Rock Desert-Humboldt         13     CA
 ## 7.1             Central Lahontan         20     CA
-## 4.1 Central Nevada Desert Basins         19     CA
-## 1.1               Lower Colorado         20     CA
+## 4.1 Central Nevada Desert Basins         18     CA
+## 1.1               Lower Colorado         19     CA
 ##                           geometry
 ## 1.2 POLYGON ((-114.8165 32.5069...
 ## 2.2 POLYGON ((-114.7368 36.0159...
@@ -5337,12 +5258,12 @@ head(poly.int.summary)&lt;/code&gt;&lt;/pre&gt;
 ## # A tibble: 6 × 3
 ##   STUSPS mean.randomData                                                geometry
 ##   &amp;lt;chr&amp;gt;            &amp;lt;dbl&amp;gt;                                          &amp;lt;GEOMETRY [°]&amp;gt;
-## 1 AZ                20.6 POLYGON ((-114.7368 36.01591, -114.737 36.01577, -114.…
-## 2 CA                16.9 POLYGON ((-118.9235 38.25064, -118.9497 38.26894, -118…
-## 3 ID                22.9 POLYGON ((-117.243 44.39097, -117.2351 44.37385, -117.…
-## 4 MT                23   MULTIPOLYGON (((-111.3842 44.75446, -111.3846 44.75484…
-## 5 NV                20.4 POLYGON ((-118.7021 38.09324, -118.6216 38.03439, -118…
-## 6 OR                21.4 POLYGON ((-116.7012 45.24284, -116.7016 45.24301, -116…&lt;/code&gt;&lt;/pre&gt;
+## 1 AZ                18.4 POLYGON ((-114.7368 36.01591, -114.737 36.01577, -114.…
+## 2 CA                20.3 POLYGON ((-118.9235 38.25064, -118.9497 38.26894, -118…
+## 3 ID                16.4 POLYGON ((-117.243 44.39097, -117.2351 44.37385, -117.…
+## 4 MT                14   MULTIPOLYGON (((-111.3842 44.75446, -111.3846 44.75484…
+## 5 NV                17.1 POLYGON ((-118.7021 38.09324, -118.6216 38.03439, -118…
+## 6 OR                19.3 POLYGON ((-116.7012 45.24284, -116.7016 45.24301, -116…&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;code&gt;sf&lt;/code&gt; with the &lt;code&gt;tidyverse&lt;/code&gt; makes it really easy to apply spatial versions of &lt;code&gt;summarize&lt;/code&gt; and &lt;code&gt;mutate&lt;/code&gt;. Very useful.&lt;/p&gt;
 &lt;p&gt;If we had wanted to just take the average (ignoring area), we’d just leave out the &lt;code&gt;w = State.HUC.area&lt;/code&gt; or just used &lt;code&gt;mean&lt;/code&gt;. If we had wanted to take, say, the minimum, we would use &lt;code&gt;min(randomData)&lt;/code&gt; instead of &lt;code&gt;weighted.mean&lt;/code&gt;. We can use whatever function we want in &lt;code&gt;summarize&lt;/code&gt;, just as we did with non-spatial data.&lt;/p&gt;
 &lt;/div&gt;
@@ -5356,7 +5277,7 @@ head(poly.int.summary)&lt;/code&gt;&lt;/pre&gt;
 ggplot(HUC4.nv) + geom_sf(aes(fill = Name), show.legend = F) +
   geom_sf(data = US %&amp;gt;% dplyr::filter(STUSPS==&amp;#39;NV&amp;#39;),  fill = NA, col = &amp;#39;gray20&amp;#39;, lwd = 3 ) +
   theme_minimal()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442.netlify.app/content/14-content_files/figure-html/unnamed-chunk-32-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://ssc442.netlify.app/content/14-content_files/figure-html/HUC8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;If we wanted to actually crop to the state of Nevada (&lt;code&gt;st_crop&lt;/code&gt; only uses the bounding box of Nevada), we’d use &lt;code&gt;st_intersection&lt;/code&gt; but do the intersection with just the state of Nevada:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;HUC4.nv = HUC4 %&amp;gt;%
   st_intersection(US %&amp;gt;% dplyr::filter(STUSPS==&amp;#39;NV&amp;#39;))
@@ -5364,7 +5285,7 @@ ggplot(HUC4.nv) + geom_sf(aes(fill = Name), show.legend = F) +
 ggplot(HUC4.nv) + geom_sf(aes(fill = Name), show.legend = F) +
   geom_sf(data = US %&amp;gt;% dplyr::filter(STUSPS==&amp;#39;NV&amp;#39;),  fill = NA, col = &amp;#39;gray20&amp;#39;, lwd = 3 ) +
   theme_minimal()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442.netlify.app/content/14-content_files/figure-html/unnamed-chunk-33-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://ssc442.netlify.app/content/14-content_files/figure-html/HUC9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Note that the data for each HUC-4 remains unchanged. If there were something in that data (like “population” or “area”) that is specific to the entire polygon representing the HUC, then cropping the HUC outside of Nevada may lead to misleading data. The moral of the story is: be careful and thoughtful!&lt;/p&gt;
 &lt;div id=&#34;bounding-boxes&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Bounding boxes&lt;/h3&gt;
@@ -5401,7 +5322,7 @@ ggplot(mi.redlining) +
   scale_fill_manual(values = c(&amp;#39;A&amp;#39; = &amp;#39;darkgreen&amp;#39;, &amp;#39;B&amp;#39; = &amp;#39;blue&amp;#39;, &amp;#39;C&amp;#39; = &amp;#39;yellow&amp;#39;, &amp;#39;D&amp;#39; = &amp;#39;red&amp;#39;),
                     aesthetics = c(&amp;#39;color&amp;#39;,&amp;#39;fill&amp;#39;)) +
   theme_minimal()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442.netlify.app/content/14-content_files/figure-html/unnamed-chunk-35-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://ssc442.netlify.app/content/14-content_files/figure-html/MI1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;We can tell that our polygons have plotted, but since we have the whole state of Michigan, they’re almost unreadable. We need to set our window over the lower part of the lower peninsula. We’ll use &lt;code&gt;coord_sf&lt;/code&gt; to do this, but first we need to define a window. Since windows are almost always rectangular, we can use the &lt;code&gt;st_bbox(mi.redlining)&lt;/code&gt;, but we have to pull out the xlim (xmin, xmax) and ylim (ymin, ymax):&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mi.redlining) +
   geom_sf(aes(fill = grade, col = grade)) + 
@@ -5411,7 +5332,7 @@ ggplot(mi.redlining) +
   theme_minimal() +
   coord_sf(xlim = st_bbox(mi.redlining)[c(1, 3)],
            ylim = st_bbox(mi.redlining)[c(2, 4)])&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://ssc442.netlify.app/content/14-content_files/figure-html/unnamed-chunk-36-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://ssc442.netlify.app/content/14-content_files/figure-html/MI2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;distance-matrices&#34; class=&#34;section level2&#34;&gt;
@@ -5432,7 +5353,7 @@ ourDistance&lt;/code&gt;&lt;/pre&gt;
 ## [2,] 110622.4 204035.47  81217.07 223545.24
 ## [3,] 157108.5 190078.02 175071.61 195692.37
 ## [4,] 199248.1 259619.40 169087.39 268533.27
-## [5,] 182936.7  66993.37 289278.25  34087.52
+## [5,] 182940.9  66998.55 289281.69  34092.81
 ## [6,] 426387.5 303552.04 533415.88 272213.63&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;We get a &lt;code&gt;units&lt;/code&gt; matrix, which has extra properties that allow us to convert the units. The units will be in whatever the CRS of the objects is in - &lt;code&gt;st_crs(ourCities.spatial)&lt;/code&gt; tells us the units are meters.&lt;/p&gt;
 &lt;p&gt;What if we wanted to find the closest gas plant to each city? That is akin to looking at each row, and finding the column that is the smallest, right? We will use &lt;code&gt;apply&lt;/code&gt;, and we will note that the order of the columns is the same as the order in &lt;code&gt;MI.gasplants.small&lt;/code&gt;, so we can use &lt;code&gt;MI.gasplants.small$name&lt;/code&gt; to tell us the name of the closest gas plant. We will &lt;code&gt;apply&lt;/code&gt; over each row (&lt;code&gt;MAR=1&lt;/code&gt;) and use the &lt;code&gt;which.min&lt;/code&gt; function, which returns the &lt;em&gt;index&lt;/em&gt; number of the maximum column.&lt;/p&gt;
@@ -5448,7 +5369,7 @@ ourDistance&lt;/code&gt;&lt;/pre&gt;
 ## 2 Lansing       HIGHLAND CENTRAL PROCESSING FACILITY              81217.
 ## 3 Grand Rapids  MONITOR 11                                       157109.
 ## 4 Kalamazoo     HIGHLAND CENTRAL PROCESSING FACILITY             169087.
-## 5 Traverse City KALKASKA GAS PLANT                                34088.
+## 5 Traverse City KALKASKA GAS PLANT                                34093.
 ## 6 Marquette     KALKASKA GAS PLANT                               272214.&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;But wait, what is going on in the last line of code there? Well, recall our distance matrix and &lt;code&gt;max.index&lt;/code&gt;:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ourDistance&lt;/code&gt;&lt;/pre&gt;
@@ -5458,7 +5379,7 @@ ourDistance&lt;/code&gt;&lt;/pre&gt;
 ## [2,] 110622.4 204035.47  81217.07 223545.24
 ## [3,] 157108.5 190078.02 175071.61 195692.37
 ## [4,] 199248.1 259619.40 169087.39 268533.27
-## [5,] 182936.7  66993.37 289278.25  34087.52
+## [5,] 182940.9  66998.55 289281.69  34092.81
 ## [6,] 426387.5 303552.04 533415.88 272213.63&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#
 max.index&lt;/code&gt;&lt;/pre&gt;
@@ -5488,7 +5409,7 @@ ourCities %&amp;gt;% dplyr::mutate(Closest.GreatLake = GL$FEAT_NAME[closest.GL.i
 ## 2       Lansing 42.73377 -84.55538        Lake Huron
 ## 3  Grand Rapids 42.96324 -85.66786     Lake Michigan
 ## 4     Kalamazoo 42.29171 -85.58723     Lake Michigan
-## 5 Traverse City 44.76064 -85.61653     Lake Michigan
+## 5 Traverse City 44.76065 -85.61660     Lake Michigan
 ## 6     Marquette 46.44815 -87.63059     Lake Superior&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
