@@ -18,7 +18,7 @@ output:
 
 <div id="TOC">
 <ul>
-<li><a href="#a-little-more-on-geospatial-in-r" id="toc-a-little-more-on-geospatial-in-r">A little more on Geospatial in R</a>
+<li><a href="#more-geospatial-in-r" id="toc-more-geospatial-in-r">More Geospatial in <code>R</code></a>
 <ul>
 <li><a href="#tigris-for-polygons" id="toc-tigris-for-polygons">Tigris for polygons</a></li>
 <li><a href="#tidycensus" id="toc-tidycensus">Tidycensus</a>
@@ -31,24 +31,25 @@ output:
 </ul>
 </div>
 
-<p>Our last class!</p>
-<div id="a-little-more-on-geospatial-in-r" class="section level1">
-<h1>A little more on Geospatial in R</h1>
-<p>We went over the basics and got some practice using geospatial data in R. Let’s look closely at the <code>tidycensus</code> packages. Thus far, we have used <code>tigris</code> to get TIGER/line census boundaries for things like counties. <code>tidycensus</code> does more than this – we can pull actual census data with its geospatial references (the polygons referring to the counties, tracts, block groups, and blocks) <em>along with</em> census data because <code>tidycensus</code> interfaces with <code>tigris</code> to combine the census data and the census geographies.</p>
+<p>Welcome to our last class. Please make sure you pay close attention to the requirements for the final project.</p>
+<div id="more-geospatial-in-r" class="section level1">
+<h1>More Geospatial in <code>R</code></h1>
+<p>We went over the basics and (hopefully) got some practice using geospatial data in R. Let’s now look closely at the <code>tidycensus</code> packages. These offer a way to get census data and attach it to geospatial data—a common practice in social science research.</p>
+<p>To help you understand the relationship between packages, let’s briefly zoom out. Thus far we have used <code>tigris</code> to get TIGER/line census boundaries for things like counties. Although this can be helpful, <code>tidycensus</code> does more than this – we can pull actual US Census Data with its geospatial references (the polygons referring to the counties, tracts, block groups, and blocks). It’s helpful to do this in one step and getting geospatial references <em>along with</em> census data is possible because <code>tidycensus</code> interfaces with <code>tigris</code> to combine the census data and the census geographies.</p>
 <div id="tigris-for-polygons" class="section level2">
 <h2>Tigris for polygons</h2>
 <p>Make sure you load <code>tigris</code> (for spatial data) and <code>tidycensus</code> for census data to attach to the spatial data:</p>
 <pre class="r"><code>library(tigris)
 library(tidycensus)
 library(tidyverse)</code></pre>
-<p>We already saw that we could extract counties using the <code>tigris::counties</code> function. Some “census geographies” change from year to year. Counties don’t (usually), but census tracts, block groups, and blocks do. These last three are all nested units of observation - tracts hold multiple block groups, each block group holds multiple blocks. Blocks are pretty small, and a lot of census data isn’t reported at that level for confidentiality. Block groups don’t report all data, either. Tracts are usually the most reliable balance between “census data availability” and “small geographic area”. We’ll use the 2010 census boundaries by specifying <code>year = 2010</code>.</p>
+<p>We already saw that we could extract counties using the <code>tigris::counties</code> function. Some “census geographies” change from year to year. Counties don’t (usually), but census tracts, block groups, and blocks do. These last three are all <strong>nested</strong> units of observation - tracts hold multiple block groups, each block group holds multiple blocks. Blocks are pretty small, and a lot of census data isn’t reported at that level for confidentiality. Block groups don’t report all data, either. Tracts are usually the most reliable balance between “census data availability” and “small geographic area”. We’ll use the 2010 census boundaries by specifying <code>year = 2010</code>.</p>
 <p>Let’s look at MI counties, then look at Ingham County census tracts:</p>
 <pre class="r"><code>MI.counties = tigris::counties(state=&#39;MI&#39;, year = 2010, progress_bar = FALSE)
 ggplot(MI.counties, aes(fill = NAME10) ) + 
   geom_sf() + 
   theme_minimal() + theme(legend.position = &#39;none&#39;)</code></pre>
 <p><img src="/example/14-example_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
-<p>As you can see, we get some counties that extend into the Great Lakes. That’s OK - we can use <code>st_intersect</code> with a map of the Great Lakes to clean that up, but I won’t do that here.</p>
+<p>As you can see, we get some counties that extend into the Great Lakes. That’s okay. We could use <code>st_intersect</code> with a map of the Great Lakes to clean that up as illustrated last class, but I’ll leave that as an exercise for you.</p>
 <p>Now, the census tracts for Ingham County. We can use <code>str_detect</code> to find the County FIPS for Ingham:</p>
 <pre class="r"><code>Ingham_FIPS = MI.counties %&gt;%
   dplyr::filter(str_detect(NAME10, &#39;Ingham&#39;)) %&gt;%
@@ -76,10 +77,13 @@ print(Ingham.tracts %&gt;% dplyr::select(TRACTCE10, NAME10, GEOID10))</code></pr
 ## 2023    001703  17.03 26065001703 MULTIPOLYGON (((-84.58662 4...
 ## 2024    004494  44.94 26065004494 MULTIPOLYGON (((-84.46658 4...</code></pre>
 <p>Notice the <code>GEOID10</code> starts with the MI FIPS (26), the Ingham FIPS (065), then the 6 digits that make up the <code>TRACTCE10</code> value. This is because tracts are nested in states and counties.</p>
-<p>Finally, let’s show all the Ingham County tracts. I’ve changed the color mapping for the <code>col</code> aesthetic so that the tract that holds MSU will be outlined in green:</p>
-<pre class="r"><code>ggplot(Ingham.tracts, aes(fill = TRACTCE10, col = (NAME10==&#39;9800&#39;))) + 
-  geom_sf() + theme_minimal() + theme(legend.position = &#39;none&#39;) + scale_fill_viridis_d() +
-  scale_color_manual(values = c(&#39;TRUE&#39; = &#39;green&#39;,&#39;FALSE&#39; = &#39;gray50&#39;))</code></pre>
+<p>Finally, let’s show all the Ingham County tracts. I’ve changed the color mapping for the <code>col</code> aesthetic so that the tract that holds MSU will be colored in the appropriate green:</p>
+<pre class="r"><code>ggplot(Ingham.tracts) +
+  geom_sf(aes(fill = TRACTCE10), color = &#39;gray20&#39;) +  # Apply grey scale based on TRACTCE10
+  scale_fill_grey(start = 0.8, end = 0.5) +           # Grey scale fill for all tracts
+  geom_sf(data = Ingham.tracts[Ingham.tracts$NAME10 == &#39;9800&#39;, ], fill = &#39;#18453b&#39;, color = &#39;#18453b&#39;) +
+  theme_minimal() +
+  theme(legend.position = &#39;none&#39;)</code></pre>
 <p><img src="/example/14-example_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 </div>
 <div id="tidycensus" class="section level2">
@@ -277,7 +281,7 @@ ing.tenure</code></pre>
 <h3>Wrapping up</h3>
 <p>Finding census variables via <code>tidycensus</code> can be frustrating, and other sources exist to help lookup census tables. One useful tip is that you can use the “filter” button in your Rstudio <code>View()</code> window to interactively filter the <code>concept</code> column from <code>load_variables</code>. Once you find what you want there, then use the <code>get_acs</code> function in your code. Fundamentally, it’s a lot of information with the ability to subset in many way, which makes it hard to wade through and find what you’re looking for.</p>
 <div class="fyi">
-<p>Try it! (This will be your Lab 14, due on Monday)</p>
+<p>Try it! This is your 14th and final Weekly Writing <em>or</em> Lab, due on <strong>MONDAY</strong> If you need an additional Weekly Writing, you must do this. If you need an additional lab, you must do this.</p>
 <ol style="list-style-type: decimal">
 <li><p>Load up all the necessary packages</p></li>
 <li><p>Find the FIPS for your home county (or a county you’re interested in)</p></li>

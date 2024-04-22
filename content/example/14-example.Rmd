@@ -15,10 +15,12 @@ output:
     toc: true
 ---
 
-Our last class!
+Welcome to our last class. Please make sure you pay close attention to the requirements for the final project. 
 
-# A little more on Geospatial in R
-We went over the basics and got some practice using geospatial data in R. Let's look closely at the `tidycensus` packages. Thus far, we have used `tigris` to get TIGER/line census boundaries for things like counties. `tidycensus` does more than this -- we can pull actual census data with its geospatial references (the polygons referring to the counties, tracts, block groups, and blocks) *along with* census data because `tidycensus` interfaces with `tigris` to combine the census data and the census geographies.
+# More Geospatial in `R`
+We went over the basics and (hopefully) got some practice using geospatial data in R. Let's now look closely at the `tidycensus` packages. These offer a way to get census data and attach it to geospatial data---a common practice in social science research.
+
+To help you understand the relationship between packages, let's briefly zoom out. Thus far we have used `tigris` to get TIGER/line census boundaries for things like counties. Although this can be helpful, `tidycensus` does more than this -- we can pull actual US Census Data with its geospatial references (the polygons referring to the counties, tracts, block groups, and blocks). It's helpful to do this in one step and getting geospatial references *along with* census data is possible because `tidycensus` interfaces with `tigris` to combine the census data and the census geographies.
 
 ## Tigris for polygons
 Make sure you load `tigris` (for spatial data) and `tidycensus` for census data to attach to the spatial data:
@@ -34,7 +36,7 @@ library(tidycensus)
 library(tidyverse)
 ```
 
-We already saw that we could extract counties using the `tigris::counties` function. Some "census geographies" change from year to year. Counties don't (usually), but census tracts, block groups, and blocks do. These last three are all nested units of observation - tracts hold multiple block groups, each block group holds multiple blocks. Blocks are pretty small, and a lot of census data isn't reported at that level for confidentiality. Block groups don't report all data, either. Tracts are usually the most reliable balance between "census data availability" and "small geographic area". We'll use the 2010 census boundaries by specifying `year = 2010`. 
+We already saw that we could extract counties using the `tigris::counties` function. Some "census geographies" change from year to year. Counties don't (usually), but census tracts, block groups, and blocks do. These last three are all **nested** units of observation - tracts hold multiple block groups, each block group holds multiple blocks. Blocks are pretty small, and a lot of census data isn't reported at that level for confidentiality. Block groups don't report all data, either. Tracts are usually the most reliable balance between "census data availability" and "small geographic area". We'll use the 2010 census boundaries by specifying `year = 2010`. 
 
 Let's look at MI counties, then look at Ingham County census tracts:
 
@@ -45,7 +47,7 @@ ggplot(MI.counties, aes(fill = NAME10) ) +
   theme_minimal() + theme(legend.position = 'none')
 ```
 
-As you can see, we get some counties that extend into the Great Lakes. That's OK - we can use `st_intersect` with a map of the Great Lakes to clean that up, but I won't do that here.
+As you can see, we get some counties that extend into the Great Lakes. That's okay. We could use `st_intersect` with a map of the Great Lakes to clean that up as illustrated last class, but I'll leave that as an exercise for you. 
 
 Now, the census tracts for Ingham County. We can use `str_detect` to find the County FIPS for Ingham:
 
@@ -62,13 +64,19 @@ print(Ingham.tracts %>% dplyr::select(TRACTCE10, NAME10, GEOID10))
 
 Notice the `GEOID10` starts with the MI FIPS (26), the Ingham FIPS (065), then the 6 digits that make up the `TRACTCE10` value. This is because tracts are nested in states and counties.
 
-Finally, let's show all the Ingham County tracts. I've changed the color mapping for the `col` aesthetic so that the tract that holds MSU will be outlined in green:
+Finally, let's show all the Ingham County tracts. I've changed the color mapping for the `col` aesthetic so that the tract that holds MSU will be colored in the appropriate green:
+
 
 ```{r, echo = TRUE}
-ggplot(Ingham.tracts, aes(fill = TRACTCE10, col = (NAME10=='9800'))) + 
-  geom_sf() + theme_minimal() + theme(legend.position = 'none') + scale_fill_viridis_d() +
-  scale_color_manual(values = c('TRUE' = 'green','FALSE' = 'gray50'))
+ggplot(Ingham.tracts) +
+  geom_sf(aes(fill = TRACTCE10), color = 'gray20') +  # Apply grey scale based on TRACTCE10
+  scale_fill_grey(start = 0.8, end = 0.5) +           # Grey scale fill for all tracts
+  geom_sf(data = Ingham.tracts[Ingham.tracts$NAME10 == '9800', ], fill = '#18453b', color = '#18453b') +
+  theme_minimal() +
+  theme(legend.position = 'none')
+
 ```
+
 
 ## Tidycensus
 Tidycensus takes some getting used to because census data is very complicated, has many geographies, and many subsets (e.g. you could be asking about the age of a specific combination of race and income). Here, we're going to learn two things: how to find some basic census data by tract, and how to extract it with `tidycensus`.
@@ -99,8 +107,6 @@ Lots and lots of variables will have the same total - the next variable `B07011_
 ```{r, echo = TRUE}
 incvars[6:15,]
 ```
-
-
 
 
 While the values of the subsets will be different, the `!!Total:` variable will be the same. So, we can really choose any `!!Total:` variable for any set of variables in a `concept` that fits our search.
@@ -202,7 +208,7 @@ Finding census variables via `tidycensus` can be frustrating, and other sources 
 
 :::fyi
 
-Try it! (This will be your Lab 14, due on Monday)
+Try it! This is your 14th and final Weekly Writing *or* Lab, due on **MONDAY** If you need an additional Weekly Writing, you must do this. If you need an additional lab, you must do this.
 
 1. Load up all the necessary packages
 
